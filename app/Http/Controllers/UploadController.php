@@ -214,7 +214,7 @@ class UploadController extends Controller
             // AT5
             Excel::import(new ImportAt5s, $request->file('file')->store('temp'));
         }
-        dd('here');
+       
         
         return back();
 
