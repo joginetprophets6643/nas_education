@@ -231,9 +231,6 @@ class UploadController extends Controller
             Excel::import(new ImportAt10s, $request->file('file')->store('temp'));
         }
 
-
-        dd('here');
-        
         return back();
 
     }

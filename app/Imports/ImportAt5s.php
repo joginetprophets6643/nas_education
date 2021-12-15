@@ -32,7 +32,7 @@ class ImportAt5s implements ToModel,WithStartRow
            {
           
             $total_number_question = $total_number_question + 1;
-            if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10) && in_array($row[3] ,[51,52,53,54]) && in_array($row[$key],[1,2,3,4,'X','Z']) && in_array($row[7],[1,2,3,4]))
+            if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10) && in_array($row[3] ,[51,52,53,54]) && in_array($row[$key],[1,2,3,4,'X','Z']) && in_array($row[7],[1,2,3,4]) && in_array($row[8],[1,2,3,4,5,6]))
             {
               $check_result = $this->get_attemp_question_count($row[1],$row[3],$key,$row[$key]);
                if($check_result==true)
