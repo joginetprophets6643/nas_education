@@ -4,18 +4,71 @@ namespace App\Imports;
 
 use App\Models\At8s;
 use App\Models\DummyAt8s;
+use App\Models\At8s_key;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class ImportAt8s implements ToModel
+class ImportAt8s implements ToModel,WithStartRow
 {
     /**
     * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+    public function startRow(): int
+    {
+        return 2;
+    }
+
     public function model(array $row)
     {
-        return new At8s([
+        ini_set('max_execution_time', '500');
+        $data =  $this->excelrowData($row);
+
+        $right_counter = 0;
+        $total_number_question = 0;
+        $i=0;
+        $check = 1; 
+        foreach ($data as $key => $value) {
+            $keyDetails = array("sq_scan", "at8_bar", "at8_udise", "at8_set","at8_grade","at8_sect","at8_nasid","at8_socgrp","at8_cwd");
+           if(!in_array($key, $keyDetails))
+           {
+                $total_number_question = $total_number_question + 1;
+                if((strlen((integer)$data['at8_bar'])==9) && (strlen((integer)$data['at8_udise'])==10) && in_array($data['at8_set'] ,[81,82,83,84]) && in_array($data[$key],[1,2,3,4,'X','Z']) && in_array($data['at8_socgrp'],[1,2,3,4]) && in_array($data['at8_cwd'],[1,2,3,4,5,6]) && in_array($data['at8_nasid'],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]))
+                {
+                    $check_result = $this->get_attemp_question_count($data['at8_bar'],$data['at8_set'],$key,$data[$key]);
+                    if($check_result==true)
+                    {
+                        $right_counter = $right_counter+1;
+                    }
+                    $check = 1; 
+                }
+                else
+                {
+                    $check_result = $this->get_attemp_question_count($data['at8_bar'],$data['at8_set'],$key,$data[$key]);
+                    if($check_result==true)
+                    {
+                        $right_counter = $right_counter+1;
+                    }
+                    $check = 2; 
+                }
+           }
+        $i++;
+        }
+        if($check==1)
+        {
+            $data['right_count'] = $right_counter;
+            $data['percentage'] =  ($right_counter/$total_number_question)*100;
+            return new At8s($data);
+        }
+        else
+        {
+            return new DummyAt8s($data);
+        }
+    }
+    function excelrowData($row)
+    {
+        return [
             'sq_scan'   => $row[0],
             'at8_bar'   => $row[1], 
             'at8_udise' => $row[2],
@@ -85,6 +138,17 @@ class ImportAt8s implements ToModel
             'at8_q58'   => $row[66],
             'at8_q59'   => $row[67],
             'at8_q60'   => $row[68]
-        ]);
+        ];
     }
+    public function get_attemp_question_count($pq_bar,$set_number,$quest_number,$user_attemp_question)
+    {     
+        $result = At8s_key::where('at8_bar',(int)$pq_bar)->where('at8_set',(int)$set_number)
+                ->where($quest_number,$user_attemp_question)->first();
+        // echo (($result));
+        if($result)
+        {
+            return true;
+        }
+    }
+
 }

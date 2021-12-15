@@ -35,7 +35,8 @@
                      <option value="3">PQ</option>
                      <option value="4">AT3</option>
                      <option value="5">AT5</option>
-                    
+                     <option value="8">AT8</option>
+                     <option value="10">AT10</option>
                   
                    
                 </select>
