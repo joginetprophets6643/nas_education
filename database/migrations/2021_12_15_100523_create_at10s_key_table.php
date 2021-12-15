@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAt10sTable extends Migration
+class CreateAt10sKeyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAt10sTable extends Migration
      */
     public function up()
     {
-        Schema::create('at10s', function (Blueprint $table) {
+        Schema::create('at10s_key', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('sq_scan');
             $table->bigInteger('at1_bar');
@@ -107,6 +107,6 @@ class CreateAt10sTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('at10s');
+        Schema::dropIfExists('at10s_key');
     }
 }

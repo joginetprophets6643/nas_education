@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Models\At10s;
 use App\Models\DummyAt10s;
+use App\Models\At10s_key;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 class ImportAt10s implements ToModel,WithStartRow
@@ -21,14 +22,57 @@ class ImportAt10s implements ToModel,WithStartRow
     */
     public function model(array $row)
     {
+        ini_set('max_execution_time', '500');
+        // $data =  $this->excelrowData($row);
+        // // $row[1] ...Bar Code Validation  
+        // // $row[2] ...UDISE School code Validation  
+        // if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10))
+        // {
+
+        //     return new At10s($data);
+
+        // }
+        // else
+        // {
+        //     return new DummyAt10s($data);
+        // }
+
         $data =  $this->excelrowData($row);
-        // $row[1] ...Bar Code Validation  
-        // $row[2] ...UDISE School code Validation  
-        if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10))
+        
+        $right_counter = 0;
+        $total_number_question = 0;
+        $i=0;
+        foreach ($data as $key => $value) {
+            $keyDetails = array("sq_scan", "at1_bar", "at1_udise", "at1_set","at1_grade","at1_sect","at1_nasid","at1_socgrp","at1_cwd");
+           if(!in_array($key, $keyDetails))
+           {
+                $total_number_question = $total_number_question + 1;
+                if((strlen((integer)$data['at1_bar'])==9) && (strlen((integer)$data['at1_udise'])==10) && in_array($data['at1_set'] ,[101,102,103]) && in_array($data[$key],[1,2,3,4,'X','Z']) && in_array($data['at1_socgrp'],[1,2,3,4]) && in_array($data['at8_cwd'],[1,2,3,4,5,6]) && in_array($data['at8_nasid'],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]))
+                {
+                    $check_result = $this->get_attemp_question_count($data['at1_bar'],$data['at1_set'],$key,$data[$key]);
+                    if($check_result==true)
+                    {
+                        $right_counter = $right_counter+1;
+                    }
+                    $check = 1; 
+                }
+                else
+                {
+                    $check_result = $this->get_attemp_question_count($data['at1_bar'],$data['at1_set'],$key,$data[$key]);
+                    if($check_result==true)
+                    {
+                        $right_counter = $right_counter+1;
+                    }
+                    $check = 2; 
+                }
+           }
+        $i++;
+        }
+        if($check==1)
         {
-
+            $data['right_count'] = $right_counter;
+            $data['percentage'] =  ($right_counter/$total_number_question)*100;
             return new At10s($data);
-
         }
         else
         {
@@ -119,4 +163,15 @@ class ImportAt10s implements ToModel,WithStartRow
             'at1_q70'   => $row[77]??''
         ];
     }
+    public function get_attemp_question_count($pq_bar,$set_number,$quest_number,$user_attemp_question)
+    {     
+        $result = At10s_key::where('at1_bar',(int)$pq_bar)->where('at1_set',(int)$set_number)
+                ->where($quest_number,$user_attemp_question)->first();
+        // echo (($result));
+        if($result)
+        {
+            return true;
+        }
+    }
+
 }

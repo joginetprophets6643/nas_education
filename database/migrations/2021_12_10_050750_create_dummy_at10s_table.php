@@ -94,8 +94,8 @@ class CreateDummyAt10sTable extends Migration
             $table->string('at1_q68')->nullable();
             $table->string('at1_q69')->nullable();
             $table->string('at1_q70')->nullable();
-            $table->string('marks')->nullable();
-            $table->string('percentage')->nullable();
+            $table->integer('right_count')->nullable();
+            $table->float('percentage', 2, 2)->nullable();
             $table->timestamps();
         });
     }

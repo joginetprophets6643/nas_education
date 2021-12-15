@@ -12,10 +12,15 @@ use App\Imports\ImportPQs;
 use App\Imports\ImportAt10s;
 use App\Imports\ImportAt5s;
 use App\Imports\ImportAt3s;
+use App\Imports\ImportAt8s;
 use Validator;
 use App\Models\PQs;
 use App\Models\At3s;
 use App\Models\At3_key;
+use App\Models\At10s;
+use App\Models\At10s_key;
+use App\Models\At8s;
+use App\Models\At8s_key;
 use App\Models\At5s;
 use App\Models\At5_key;
 use App\Models\DummyPQs;
@@ -214,6 +219,19 @@ class UploadController extends Controller
             // AT5
             Excel::import(new ImportAt5s, $request->file('file')->store('temp'));
         }
+        if($request->selected==8)
+        {
+            // AT5
+            Excel::import(new ImportAt8s, $request->file('file')->store('temp'));
+        }
+
+        if($request->selected==10)
+        {
+            // AT10
+            Excel::import(new ImportAt10s, $request->file('file')->store('temp'));
+        }
+
+
         dd('here');
         
         return back();
