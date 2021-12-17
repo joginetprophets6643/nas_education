@@ -34,116 +34,123 @@ class ImportPQs implements ToModel,WithStartRow
   
      
       if(
-          (strlen((integer)$row[1])==9)
+          (strlen((integer)$data['pq_bar'])==9)
            && 
-           (strlen((integer)$row[2])==13) 
-        //    &&
-        //    ($row[6]>=4 && $row[6]<=20)
-        //    &&
-        //    ($row[7]==1 || $row[7]==2)
-        //    &&
-        //    ($row[8]>=1 && $row[8]<=6)
-        //    &&
-        //    ($row[9]>=1 || $row[9]<=3)
-        //    &&
-        //    ($row[10]==1 || $row[10]==2)
-        //    &&
-        //    ($row[11]==1 || $row[11]==2)
-        //    &&
-        //    ($row[12]>=1 && $row[12]<=10)
-        //    &&
-        //    ($row[13]>=1 && $row[13]<=10)
-        //    &&
-        //    ($row[14]>=1 && $row[14]<=9)
-        //    &&
-        //    ($row[15]>=1 && $row[15]<=9)
-        //    &&
-        //    ($row[16]>=1 && $row[16]<=5)
-        //    &&
-        //    ($row[17]>=1 && $row[17]<=6)
-        //    &&
-        //    ($row[18]>=1 && $row[18]<=4)
-        //    &&
-        //    ($row[19]>=1 && $row[19]<=4)
-        //    &&
-        //    ($row[20]>=1 && $row[19]<=6)
-        //    &&
-        //    ($row[21]>=1 && $row[21]<=3)
-        //    &&
-        //    ($row[22]>=1 && $row[22]<=4)
-        //    &&
-        //    ($row[23]>=1 && $row[23]<=4)
-        //    &&
-        //    ($row[24]>=1 && $row[24]<=4)
-        //    &&
-        //    ($row[25]>=1 || $row[25]<=3)
-        //    &&
-        //    ($row[26]>=1 || $row[26]<=3)
-        //    &&
-        //    ($row[27]>=1 || $row[27]<=3)
-        //    &&
-        //    ($row[28]>=1 || $row[28]<=3)
-        //    &&
-        //    ($row[29]>=1 || $row[29]<=3)
-        //    &&
-        //    ($row[30]>=1 || $row[30]<=3)
-        //    &&
-        //    ($row[31]>=1 || $row[31]<=3)
-        //    &&
-        //    ($row[32]>=1 || $row[32]<=3)
-        //    &&
-        //    ($row[33]>=1 || $row[33]<=3)
-        //    &&
-        //    ($row[34]>=1 || $row[34]<=3)
-        //    &&
-        //    ($row[35]>=1 || $row[35]<=2) && ($row[36]>=1 || $row[36]<=2) && ($row[37]>=1 || $row[37]<=2)
-        //    &&
-        //    ($row[38]>=1 || $row[38]<=2) && ($row[39]>=1 || $row[39]<=2) && ($row[40]>=1 || $row[40]<=2)
-        //    &&
-        //    ($row[41]>=1 || $row[41]<=2) && ($row[42]>=1 || $row[42]<=2) && ($row[43]>=1 || $row[43]<=2)
-        //    &&
-        //    ($row[44]>=1 || $row[44]<=2) && ($row[45]>=1 || $row[45]<=2) && ($row[46]>=1 || $row[46]<=2)
-        //    &&
-        //    ($row[47]>=1 || $row[47]<=2) && ($row[48]>=1 || $row[48]<=2) && ($row[49]>=1 || $row[49]<=2)
-        //    &&
-        //    ($row[50]>=1 || $row[50]<=2) && ($row[51]>=1 || $row[51]<=2) && ($row[52]>=1 || $row[52]<=2)
-        //    &&
-        //    ($row[53]>=1 || $row[53]<=2) && ($row[54]>=1 || $row[54]<=2) && ($row[55]>=1 || $row[55]<=2)
-        //    &&
-        //    ($row[56]>=1 || $row[56]<=2) && ($row[57]>=1 || $row[57]<=2) && ($row[58]>=1 || $row[58]<=2)
-        //    &&
-        //    ($row[59]>=1 || $row[59]<=2) && ($row[60]>=1 || $row[60]<=2) && ($row[61]>=1 || $row[61]<=2)
-        //    &&
-        //    ($row[62]>=1 || $row[62]<=2) && ($row[63]>=1 || $row[63]<=2) && ($row[64]>=1 || $row[64]<=2)
-        //    &&
-        //    ($row[65]>=1 || $row[65]<=2) && ($row[66]>=1 || $row[66]<=2) && ($row[67]>=1 || $row[67]<=2)
-        //    &&
-        //    ($row[68]>=1 || $row[68]<=2) && ($row[69]>=1 || $row[69]<=2) && ($row[70]>=1 || $row[70]<=2)
-        //    &&
-        //    ($row[71]>=1 || $row[71]<=2) && ($row[72]>=1 || $row[72]<=2) && ($row[73]>=1 || $row[73]<=2)
-        //    &&
-        //    ($row[74]>=1 || $row[74]<=2) && ($row[75]>=1 || $row[75]<=2) && ($row[76]>=1 || $row[76]<=2)
-        //    &&
-        //    ($row[77]>=1 || $row[77]<=2) && ($row[78]>=1 || $row[78]<=2) && ($row[79]>=1 || $row[79]<=2)
-        //    &&
-        //    ($row[80]>=1 || $row[80]<=2) && ($row[81]>=1 || $row[81]<=2) && ($row[82]>=1 || $row[82]<=2)
-        //    &&
-        //    ($row[83]>=1 || $row[83]<=3) && ($row[84]>=1 || $row[84]<=3) && ($row[85]>=1 || $row[85]<=3) 
-        //    && 
-        //    ($row[86]>=1 || $row[86]<=4) && ($row[87]>=1 || $row[87]<=4) && ($row[88]>=1 || $row[88]<=2)
-        //    && 
-        //    ($row[89]>=1 || $row[89]<=2) && ($row[90]>=1 || $row[90]<=2) &&  ($row[91]>=1 || $row[91]<=2)
-        //    && 
-        //    ($row[92]>=1 || $row[92]<=4)
+           (strlen((integer)$data['pq_udise'])==10) 
+           &&
+           in_array($data['pq_grade'] ,[3,5,8,10])
+           &&
+           ($data['pq_nasid']>=1 && $data['pq_nasid']<=30)
+           &&
+           ($data['pq_age']>=4 && $data['pq_age']<=20)
+           &&
+           ($data['pq_min']==1 || $data['pq_min']==2)
+           &&
+           ($data['pq_miny']>=1 && $data['pq_miny']<=6)
+           &&
+           ($data['pq_gender']>=1 && $data['pq_gender']<=3)
+           &&
+           ($data['pq_bpl']==1 || $data['pq_bpl']==2)
+           &&
+           ($data['pq_cwsn']==1 || $data['pq_cwsn']==2)
+           &&
+           ($data['pq_q01']>=1 && $data['pq_q01']<=10)
+           &&
+           ($data['pq_q02']>=1 && $data['pq_q02']<=10)
+           &&
+           ($data['pq_q03']>=1 && $data['pq_q03']<=9)
+           &&
+           ($data['pq_q04']>=1 && $data['pq_q04']<=9)
+           &&
+           ($data['pq_q05']>=1 && $data['pq_q05']<=5)
+           &&
+           ($data['pq_q06']>=1 && $data['pq_q06']<=6)
+           &&
+           ($data['pq_q07']>=1 && $data['pq_q07']<=4)
+           &&
+           ($data['pq_q08']>=1 && $data['pq_q08']<=4)
+           &&
+           ($data['pq_q09']>=1 && $data['pq_q09']<=6)
+           &&
+           ($data['pq_q10']>=1 && $data['pq_q10']<=3)
+           &&
+           ($data['pq_q11']>=1 && $data['pq_q11']<=4)
+           &&
+           ($data['pq_q12']>=1 && $data['pq_q12']<=4)
+           &&
+           ($data['pq_q13']>=1 && $data['pq_q13']<=4)
+           &&
+           ($data['pq_q14']>=1 && $data['pq_q14']<=3)
+           &&
+           ($data['pq_q15']>=1 && $data['pq_q15']<=3)
+           &&
+           ($data['pq_q16']>=1 && $data['pq_q16']<=3)
+           &&
+           ($data['pq_q17']>=1 && $data['pq_q17']<=3)
+           &&
+           ($data['pq_q18']>=1 && $data['pq_q18']<=3)
+           &&
+           ($data['pq_q19']>=1 && $data['pq_q19']<=3)
+           &&
+           ($data['pq_q20']>=1 && $data['pq_q20']<=3)
+           &&
+           ($data['pq_q21']>=1 && $data['pq_q21']<=3)
+           &&
+           ($data['pq_q22']>=1 && $data['pq_q22']<=3)
+           &&
+           ($data['pq_q23']>=1 && $data['pq_q23']<=3)
+           &&
+           ($data['pq_q24a']>=1 && $data['pq_q24a']<=2) && ($data['pq_q24b']>=1 && $data['pq_q24b']<=2) && ($data['pq_q24c']>=1 && $data['pq_q24c']<=2)
+           &&
+           ($data['pq_q24d']>=1 && $data['pq_q24d']<=2) && ($data['pq_q24e']>=1 && $data['pq_q24e']<=2) && ($data['pq_q24f']>=1 && $data['pq_q24f']<=2)
+           &&
+           ($data['pq_q24g']>=1 && $data['pq_q24g']<=2) && ($data['pq_q24h']>=1 && $data['pq_q24h']<=2) && ($data['pq_q24i']>=1 && $data['pq_q24i']<=2)
+           &&
+           ($data['pq_q25a']>=1 && $data['pq_q25a']<=2) && ($data['pq_q25b']>=1 && $data['pq_q25b']<=2) && ($data['pq_q25c']>=1 && $data['pq_q25c']<=2)
+           &&
+           ($data['pq_q25d']>=1 && $data['pq_q25d']<=2) && ($data['pq_q25e']>=1 && $data['pq_q25e']<=2) && ($data['pq_q25f']>=1 && $data['pq_q25f']<=2)
+           &&
+           ($data['pq_q25g']>=1 && $data['pq_q25g']<=2) && ($data['pq_q25h']>=1 && $data['pq_q25h']<=2) && ($data['pq_q25i']>=1 && $data['pq_q25i']<=2)
+           &&
+           ($data['pq_q25j']>=1 && $data['pq_q25j']<=2) && ($data['pq_q26a']>=1 && $data['pq_q26a']<=2) && ($data['pq_q26b']>=1 && $data['pq_q26b']<=2)
+           &&
+           ($data['pq_q26c']>=1 && $data['pq_q26c']<=2) && ($data['pq_q26d']>=1 && $data['pq_q26d']<=2) && ($data['pq_q26e']>=1 && $data['pq_q26e']<=2)
+           &&
+           ($data['pq_q26f']>=1 && $data['pq_q26f']<=2) && ($data['pq_q26g']>=1 && $data['pq_q26g']<=2) && ($data['pq_q27a']>=1 && $data['pq_q27a']<=2)
+           &&
+           ($data['pq_q27b']>=1 && $data['pq_q27b']<=2) && ($data['pq_q27c']>=1 && $data['pq_q27c']<=2) && ($data['pq_q27d']>=1 && $data['pq_q27d']<=2)
+           &&
+           ($data['pq_q27e']>=1 && $data['pq_q27e']<=2) && ($data['pq_q27f']>=1 && $data['pq_q27f']<=2) && ($data['pq_q27g']>=1 && $data['pq_q27g']<=2)
+           &&
+           ($data['pq_q28a']>=1 && $data['pq_q28a']<=2) && ($data['pq_q28b']>=1 && $data['pq_q28b']<=2) && ($data['pq_q28c']>=1 && $data['pq_q28c']<=2)
+           &&
+           ($data['pq_q28d']>=1 && $data['pq_q28d']<=2) && ($data['pq_q28e']>=1 && $data['pq_q28e']<=2) && ($data['pq_q28f']>=1 && $data['pq_q28f']<=2)
+           &&
+           ($data['pq_q28g']>=1 && $data['pq_q28g']<=2) && ($data['pq_q28h']>=1 && $data['pq_q28h']<=2) && ($data['pq_q29a']>=1 && $data['pq_q29a']<=2)
+           &&
+           ($data['pq_q29b']>=1 && $data['pq_q29b']<=2) && ($data['pq_q29c']>=1 && $data['pq_q29c']<=2) && ($data['pq_q29d']>=1 && $data['pq_q29d']<=2)
+           &&
+           ($data['pq_q29e']>=1 && $data['pq_q29e']<=2) && ($data['pq_q29f']>=1 && $data['pq_q29f']<=2) && ($data['pq_q29g']>=1 && $data['pq_q29g']<=2)
+           &&
+           ($data['pq_q30']>=1 && $data['pq_q30']<=2) && ($data['pq_q31']>=1 && $data['pq_q31']<=3) && ($data['pq_q32']>=1 && $data['pq_q32']<=3) 
+           && 
+           ($data['pq_q33']>=1 && $data['pq_q33']<=3) && ($data['pq_q34']>=1 && $data['pq_q34']<=4) && ($data['pq_q35']>=1 && $data['pq_q35']<=4)
+           && 
+           ($data['pq_q36']>=1 && $data['pq_q36']<=4) && ($data['pq_q37']>=1 && $data['pq_q37']<=2) &&  ($data['pq_q38']>=1 && $data['pq_q38']<=2)
+           && 
+           ($data['pq_q39']>=1 && $data['pq_q39']<=2)
+           && 
+           ($data['pq_q40']>=1 && $data['pq_q40']<=4)
            )
       {
              $right_counter = 0;
              $total_number_question = 0;
-             foreach ($row as $key => $value) {
-                if($key>11)
+             foreach ($data as $key => $value) {
+                $keyDetails = array('pq_scan','pq_bar','pq_udise','pq_grade','pq_nasid','pq_section','pq_age','pq_min','pq_miny','pq_gender','pq_bpl','pq_cwsn');
+                if(!in_array($key, $keyDetails))
                 {
                  $total_number_question = $total_number_question + 1;
-                   $check_result = $this->get_attemp_question_count($row[1],$row[$key]);
+                   $check_result = $this->get_attemp_question_count($data['pq_bar'],$data[$key]);
                     if($check_result==true)
                     {
                         $right_counter = $right_counter+1;
@@ -152,9 +159,11 @@ class ImportPQs implements ToModel,WithStartRow
              }
                $right_counter;
         
-             $data['right_count'] = $right_counter;
-             $data['percentage'] =  ($right_counter/$total_number_question)*100;
-             return new PQs($data);
+            //  $data['right_count'] = $right_counter;
+            //  $data['percentage'] =  ($right_counter/$total_number_question)*100;
+            $data['right_count'] = 0;
+            $data['percentage'] =  0;
+            return new PQs($data);
 
       }
       else
@@ -162,22 +171,24 @@ class ImportPQs implements ToModel,WithStartRow
     
         $right_counter = 0;
         $total_number_question = 0;
-        foreach ($row as $key => $value) {
-           if($key>11)
-           {
+        foreach ($data as $key => $value) {
+          $keyDetails = array('pq_scan','pq_bar','pq_udise','pq_grade','pq_nasid','pq_section','pq_age','pq_min','pq_miny','pq_gender','pq_bpl','pq_cwsn');
+          if(!in_array($key, $keyDetails))
+          {
             $total_number_question = $total_number_question + 1;
-              $check_result = $this->get_attemp_question_count($row[1],$row[$key]);
-               if($check_result==true)
-               {
-                   $right_counter = $right_counter+1;
-               }
-           }
+            $check_result = $this->get_attemp_question_count($data['pq_bar'],$data[$key]);
+              if($check_result==true)
+              {
+                $right_counter = $right_counter+1;
+              }
+          }
         }
-          $right_counter;
-   
-            $data['right_count'] = $right_counter;
-            $data['percentage'] =  ($right_counter/$total_number_question)*100;
-            return new DummyPQs($data);
+        $right_counter;   
+        // $data['right_count'] = $right_counter;
+        // $data['percentage'] =  ($right_counter/$total_number_question)*100;
+        $data['right_count'] = 0;
+        $data['percentage'] =  0;
+        return new DummyPQs($data);
       }
 
   
