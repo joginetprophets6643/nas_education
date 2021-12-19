@@ -18,6 +18,8 @@ class CreateDummySQsTable extends Migration
             $table->bigInteger('sq_scan');
             $table->bigInteger('sq_bar');
             $table->string('sq_udise')->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('district_id')->nullable();
             $table->string('sq_q01')->nullable();
             $table->string('sq_q02')->nullable();
             $table->string('sq_q03')->nullable();
