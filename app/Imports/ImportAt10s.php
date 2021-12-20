@@ -43,11 +43,24 @@ class ImportAt10s implements ToModel,WithStartRow
         $total_number_question = 0;
         $i=0;
         foreach ($data as $key => $value) {
+            // Get State Code and District Code
+            if(strlen((integer)$data['at1_udise'])==11)
+            {
+                $data['state_id']=substr((integer)$data['at1_udise'], 0, 2);
+                $data['district_id']=substr((integer)$data['at1_udise'], 2, 2);
+            }
+            elseif(strlen((integer)$data['at1_udise'])==10)
+            {
+                $at1_udise_val = str_pad((integer)$data['at1_udise'], 11, '0', STR_PAD_LEFT);
+                $data['state_id']=substr($at1_udise_val, 0, 2);
+                $data['district_id']=substr($at1_udise_val, 2, 2);
+            }
+
             $keyDetails = array("sq_scan", "at1_bar", "at1_udise", "at1_set","at1_grade","at1_sect","at1_nasid","at1_socgrp","at1_cwd");
            if(!in_array($key, $keyDetails))
            {
                 $total_number_question = $total_number_question + 1;
-                if((strlen((integer)$data['at1_bar'])==9) && (strlen((integer)$data['at1_udise'])==10) && in_array($data['at1_set'] ,[101,102,103]) && in_array($data[$key],[1,2,3,4,'X','Z']) && in_array($data['at1_socgrp'],[1,2,3,4]) && in_array($data['at8_cwd'],[1,2,3,4,5,6]) && in_array($data['at8_nasid'],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]))
+                if((strlen((integer)$data['at1_bar'])==9) && (strlen((integer)$data['at1_udise'])==10) && in_array($data['at1_set'] ,[101,102,103]) && in_array($data[$key],[1,2,3,4,'X','Z']) && in_array($data['at1_socgrp'],[1,2,3,4]) && in_array($data['at1_cwd'],[1,2,3,4,5,6]) && in_array($data['at1_nasid'],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]))
                 {
                     $check_result = $this->get_attemp_question_count($data['at1_bar'],$data['at1_set'],$key,$data[$key]);
                     if($check_result==true)
@@ -68,6 +81,7 @@ class ImportAt10s implements ToModel,WithStartRow
            }
         $i++;
         }
+        $check = 1;
         if($check==1)
         {
             $data['right_count'] = $right_counter;
@@ -157,10 +171,11 @@ class ImportAt10s implements ToModel,WithStartRow
             'at1_q63'   => $row[71]??'',
             'at1_q64'   => $row[72]??'',
             'at1_q65'   => $row[73]??'',
-            'at1_q67'   => $row[74]??'',
-            'at1_q68'   => $row[75]??'',
-            'at1_q69'   => $row[76]??'',
-            'at1_q70'   => $row[77]??''
+            'at1_q66'   => $row[74]??'',
+            'at1_q67'   => $row[75]??'',
+            'at1_q68'   => $row[76]??'',
+            'at1_q69'   => $row[77]??'',
+            'at1_q70'   => $row[78]??''
         ];
     }
     public function get_attemp_question_count($pq_bar,$set_number,$quest_number,$user_attemp_question)

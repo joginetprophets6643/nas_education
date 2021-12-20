@@ -18,6 +18,8 @@ class CreateDummyAt8Table extends Migration
             $table->bigInteger('sq_scan');
             $table->bigInteger('at8_bar');
             $table->string('at8_udise')->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('district_id')->nullable();            
             $table->string('at8_set')->nullable();
             $table->string('at8_grade')->nullable();
             $table->string('at8_sect')->nullable();

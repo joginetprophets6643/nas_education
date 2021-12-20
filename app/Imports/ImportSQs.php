@@ -22,6 +22,20 @@ class ImportSQs implements ToModel,WithStartRow
         $data =  $this->excelrowData($row);
           // $row[1] ...Bar Code Validation ==9
         // $row[2] ...UDISE School code Validation as per prabhat == 11
+
+        // Get State Code and District Code
+        if(strlen((integer)$data['sq_udise'])==11)
+        {
+            $data['state_id']=substr((integer)$data['sq_udise'], 0, 2);
+            $data['district_id']=substr((integer)$data['sq_udise'], 2, 2);
+        }
+        elseif(strlen((integer)$data['sq_udise'])==10)
+        {
+            $sq_udise = str_pad((integer)$data['sq_udise'], 11, '0', STR_PAD_LEFT);
+            $data['state_id']=substr($sq_udise, 0, 2);
+            $data['district_id']=substr($sq_udise, 2, 2);
+        }
+
         if(
             (strlen((integer)$data['sq_bar'])==9) 
             && 
@@ -188,35 +202,15 @@ class ImportSQs implements ToModel,WithStartRow
             in_array($data['sq_q73'],[1,2,3,4,'X','Z'])
             )
         {
-            if(strlen((integer)$data['sq_udise'])==11)
-            {
-                $data['state_id']=substr((integer)$data['sq_udise'], 0, 2);
-                $data['district_id']=substr((integer)$data['sq_udise'], 2, 2);
-            }
-            elseif(strlen((integer)$data['sq_udise'])==10)
-            {
-                $sq_udise = str_pad((integer)$data['sq_udise'], 11, '0', STR_PAD_LEFT);
-                $data['state_id']=substr($sq_udise, 0, 2);
-                $data['district_id']=substr($sq_udise, 2, 2);
-            }
-            // dd($data);
+
             return new SQs($data);
+
         }
         else
         {
-            if(strlen((integer)$data['sq_udise'])==11)
-            {
-                $data['state_id']=substr((integer)$data['sq_udise'], 0, 2);
-                $data['district_id']=substr((integer)$data['sq_udise'], 2, 2);
-            }
-            elseif(strlen((integer)$data['sq_udise'])==10)
-            {
-                $sq_udise = str_pad((integer)$data['sq_udise'], 11, '0', STR_PAD_LEFT);
-                $data['state_id']=substr($sq_udise, 0, 2);
-                $data['district_id']=substr($sq_udise, 2, 2);
-            }
-
+            
             return new DummySQs($data);
+
         }
     }
 

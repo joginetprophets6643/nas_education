@@ -18,6 +18,8 @@ class CreateDummyPQsTable extends Migration
             $table->bigInteger('pq_scan');
             $table->bigInteger('pq_bar');
             $table->string('pq_udise')->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('district_id')->nullable();            
             $table->string('pq_grade')->nullable();
             $table->string('pq_nasid')->nullable();
             $table->string('pq_section')->nullable();
