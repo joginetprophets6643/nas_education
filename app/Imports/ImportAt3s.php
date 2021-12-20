@@ -78,6 +78,58 @@ class ImportAt3s implements ToModel ,WithStartRow
         }
         else
         {
+                        
+            $data['at3_bar_error_desc']     =        "at3 Bar code should be 9 digits";
+            $data['at3_udise_error_desc']   =        "at3 Udise code should be 11 digits";
+            $data['at3_set_error_desc']     =        "at3_set code should be 31,32,33,34";
+            $data['at3_grade_error_desc']   =        "at3_grade code should be one digit";
+            $data['at3_socgrp_error_desc']  =        "at3_cwd code should be 1,2,3,4";
+            $data['at3_cwd_error_desc']     =        "at3_cwd should be 1,2,3,4,5,6";
+            $data['at3_q01_error_desc']     =        "at3_q01 should be 1,2,3,4,X,Z";
+            $data['at3_q02_error_desc']     =        "at3_q02 should be 1,2,3,4,X,Z";
+            $data['at3_q03_error_desc']     =        "at3_q03 should be 1,2,3,4,X,Z";
+            $data['at3_q04_error_desc']     =        "at3_q04 should be 1,2,3,4,X,Z";
+            $data['at3_q05_error_desc']     =        "at3_q05 should be 1,2,3,4,X,Z";
+            $data['at3_q06_error_desc']     =        "at3_q06 should be 1,2,3,4,X,Z";
+            $data['at3_q07_error_desc']     =        "at3_q07 should be 1,2,3,4,X,Z";
+            $data['at3_q08_error_desc']     =        "at3_q08 should be 1,2,3,4,X,Z";
+            $data['at3_q09_error_desc']     =        "at3_q09 should be 1,2,3,4,X,Z";
+            $data['at3_q10_error_desc']     =        "at3_q10 should be 1,2,3,4,X,Z";
+            $data['at3_q11_error_desc']     =        "at3_q11 should be 1,2,3,4,X,Z";
+            $data['at3_q12_error_desc']     =        "at3_q12 should be 1,2,3,4,X,Z";
+            $data['at3_q13_error_desc']     =        "at3_q13 should be 1,2,3,4,X,Z";
+            $data['at3_q14_error_desc']     =        "at3_q14 should be 1,2,3,4,X,Z";
+            $data['at3_q15_error_desc']     =        "at3_q15 should be 1,2,3,4,X,Z";
+            $data['at3_q16_error_desc']     =        "at3_q16 should be 1,2,3,4,X,Z";
+            $data['at3_q17_error_desc']     =        "at3_q17 should be 1,2,3,4,X,Z";
+            $data['at3_q18_error_desc']     =        "at3_q18 should be 1,2,3,4,X,Z";
+            $data['at3_q19_error_desc']     =        "at3_q19 should be 1,2,3,4,X,Z";
+            $data['at3_q20_error_desc']     =        "at3_q20 should be 1,2,3,4,X,Z";
+            $data['at3_q21_error_desc']     =        "at3_q21 should be 1,2,3,4,X,Z";
+            $data['at3_q22_error_desc']     =        "at3_q22 should be 1,2,3,4,X,Z";
+            $data['at3_q23_error_desc']     =        "at3_q23 should be 1,2,3,4,X,Z";
+            $data['at3_q24_error_desc']     =        "at3_q24 should be 1,2,3,4,X,Z";
+            $data['at3_q25_error_desc']     =        "at3_q25 should be 1,2,3,4,X,Z";
+            $data['at3_q26_error_desc']     =        "at3_q26 should be 1,2,3,4,X,Z";
+            $data['at3_q27_error_desc']     =        "at3_q27 should be 1,2,3,4,X,Z";
+            $data['at3_q28_error_desc']     =        "at3_q28 should be 1,2,3,4,X,Z";
+            $data['at3_q29_error_desc']     =        "at3_q29 should be 1,2,3,4,X,Z";
+            $data['at3_q30_error_desc']     =        "at3_q30 should be 1,2,3,4,X,Z";
+            $data['at3_q31_error_desc']     =        "at3_q31 should be 1,2,3,4,X,Z";
+            $data['at3_q32_error_desc']     =        "at3_q32 should be 1,2,3,4,X,Z";
+            $data['at3_q33_error_desc']     =        "at3_q33 should be 1,2,3,4,X,Z";
+            $data['at3_q34_error_desc']     =        "at3_q34 should be 1,2,3,4,X,Z";
+            $data['at3_q35_error_desc']     =        "at3_q35 should be 1,2,3,4,X,Z";
+            $data['at3_q36_error_desc']     =        "at3_q36 should be 1,2,3,4,X,Z";
+            $data['at3_q37_error_desc']     =        "at3_q37 should be 1,2,3,4,X,Z";
+            $data['at3_q38_error_desc']     =        "at3_q38 should be 1,2,3,4,X,Z";
+            $data['at3_q39_error_desc']     =        "at3_q39 should be 1,2,3,4,X,Z";
+            $data['at3_q40_error_desc']     =        "at3_q40 should be 1,2,3,4,X,Z";
+            $data['at3_q41_error_desc']     =        "at3_q41 should be 1,2,3,4,X,Z";
+            $data['at3_q42_error_desc']     =        "at3_q42 should be 1,2,3,4,X,Z";
+            $data['at3_q43_error_desc']     =        "at3_q43 should be 1,2,3,4,X,Z";
+            $data['at3_q44_error_desc']     =        "at3_q44 should be 1,2,3,4,X,Z";
+            $data['at3_q45_error_desc']     =        "at3_q45 should be 1,2,3,4,X,Z";
             return new DummyAt3s($data);
         }
     }
