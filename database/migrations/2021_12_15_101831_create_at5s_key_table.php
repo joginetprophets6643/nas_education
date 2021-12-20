@@ -18,6 +18,8 @@ class CreateAt5sKeyTable extends Migration
             $table->bigInteger('sq_scan');
             $table->bigInteger('at5_bar');
             $table->string('at5_udise')->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('district_id')->nullable();            
             $table->string('at5_set')->nullable();
             $table->string('at5_grade')->nullable();
             $table->string('at5_sect')->nullable();

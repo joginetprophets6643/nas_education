@@ -18,6 +18,8 @@ class CreateAt10sTable extends Migration
             $table->bigInteger('sq_scan');
             $table->bigInteger('at1_bar');
             $table->string('at1_udise')->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('district_id')->nullable();            
             $table->string('at1_set')->nullable();
             $table->string('at1_grade')->nullable();
             $table->string('at1_sect')->nullable();
