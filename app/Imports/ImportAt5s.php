@@ -35,9 +35,9 @@ class ImportAt5s implements ToModel,WithStartRow
             }
             elseif(strlen((integer)$row[2])==10)
             {
-                $at3_udise_val = str_pad((integer)$row[2], 11, '0', STR_PAD_LEFT);
-                $data['state_id']=substr($at3_udise_val, 0, 2);
-                $data['district_id']=substr($at3_udise_val, 2, 2);
+                $at5_udise_val = str_pad((integer)$row[2], 11, '0', STR_PAD_LEFT);
+                $data['state_id']=substr($at5_udise_val, 0, 2);
+                $data['district_id']=substr($at5_udise_val, 2, 2);
             }
            if($key>8 && $key<54)
            {
@@ -74,6 +74,67 @@ class ImportAt5s implements ToModel,WithStartRow
         }
         else
         {
+            
+                           
+            $data['at5_bar_error_desc']     =        "at5 Bar code should be 9 digits";
+            $data['at5_udise_error_desc']   =        "at5 Udise code should be 11 digits";
+            $data['at5_set_error_desc']     =        "at5_set code should be 51,52,53,54";
+            $data['at5_grade_error_desc']   =        "at5_grade code should be one digit";
+            $data['at5_socgrp_error_desc']  =        "at5_socgrp code should be 1,2,3,4";
+            $data['at5_cwd_error_desc']     =        "at5_cwd should be 1,2,3,4,5,6";
+            $data['at5_q01_error_desc']     =        "at5_q01 should be 1,2,3,4,X,Z";
+            $data['at5_q02_error_desc']     =        "at5_q02 should be 1,2,3,4,X,Z";
+            $data['at5_q03_error_desc']     =        "at5_q03 should be 1,2,3,4,X,Z";
+            $data['at5_q04_error_desc']     =        "at5_q04 should be 1,2,3,4,X,Z";
+            $data['at5_q05_error_desc']     =        "at5_q05 should be 1,2,3,4,X,Z";
+            $data['at5_q06_error_desc']     =        "at5_q06 should be 1,2,3,4,X,Z";
+            $data['at5_q07_error_desc']     =        "at5_q07 should be 1,2,3,4,X,Z";
+            $data['at5_q08_error_desc']     =        "at5_q08 should be 1,2,3,4,X,Z";
+            $data['at5_q09_error_desc']     =        "at5_q09 should be 1,2,3,4,X,Z";
+            $data['at5_q10_error_desc']     =        "at5_q10 should be 1,2,3,4,X,Z";
+            $data['at5_q11_error_desc']     =        "at5_q11 should be 1,2,3,4,X,Z";
+            $data['at5_q12_error_desc']     =        "at5_q12 should be 1,2,3,4,X,Z";
+            $data['at5_q13_error_desc']     =        "at5_q13 should be 1,2,3,4,X,Z";
+            $data['at5_q14_error_desc']     =        "at5_q14 should be 1,2,3,4,X,Z";
+            $data['at5_q15_error_desc']     =        "at5_q15 should be 1,2,3,4,X,Z";
+            $data['at5_q16_error_desc']     =        "at5_q16 should be 1,2,3,4,X,Z";
+            $data['at5_q17_error_desc']     =        "at5_q17 should be 1,2,3,4,X,Z";
+            $data['at5_q18_error_desc']     =        "at5_q18 should be 1,2,3,4,X,Z";
+            $data['at5_q19_error_desc']     =        "at5_q19 should be 1,2,3,4,X,Z";
+            $data['at5_q20_error_desc']     =        "at5_q20 should be 1,2,3,4,X,Z";
+            $data['at5_q21_error_desc']     =        "at5_q21 should be 1,2,3,4,X,Z";
+            $data['at5_q22_error_desc']     =        "at5_q22 should be 1,2,3,4,X,Z";
+            $data['at5_q23_error_desc']     =        "at5_q23 should be 1,2,3,4,X,Z";
+            $data['at5_q24_error_desc']     =        "at5_q24 should be 1,2,3,4,X,Z";
+            $data['at5_q25_error_desc']     =        "at5_q25 should be 1,2,3,4,X,Z";
+            $data['at5_q26_error_desc']     =        "at5_q26 should be 1,2,3,4,X,Z";
+            $data['at5_q27_error_desc']     =        "at5_q27 should be 1,2,3,4,X,Z";
+            $data['at5_q28_error_desc']     =        "at5_q28 should be 1,2,3,4,X,Z";
+            $data['at5_q29_error_desc']     =        "at5_q29 should be 1,2,3,4,X,Z";
+            $data['at5_q30_error_desc']     =        "at5_q30 should be 1,2,3,4,X,Z";
+            $data['at5_q31_error_desc']     =        "at5_q31 should be 1,2,3,4,X,Z";
+            $data['at5_q32_error_desc']     =        "at5_q32 should be 1,2,3,4,X,Z";
+            $data['at5_q33_error_desc']     =        "at5_q33 should be 1,2,3,4,X,Z";
+            $data['at5_q34_error_desc']     =        "at5_q34 should be 1,2,3,4,X,Z";
+            $data['at5_q35_error_desc']     =        "at5_q35 should be 1,2,3,4,X,Z";
+            $data['at5_q36_error_desc']     =        "at5_q36 should be 1,2,3,4,X,Z";
+            $data['at5_q37_error_desc']     =        "at5_q37 should be 1,2,3,4,X,Z";
+            $data['at5_q38_error_desc']     =        "at5_q38 should be 1,2,3,4,X,Z";
+            $data['at5_q39_error_desc']     =        "at5_q39 should be 1,2,3,4,X,Z";
+            $data['at5_q40_error_desc']     =        "at5_q40 should be 1,2,3,4,X,Z";
+            $data['at5_q41_error_desc']     =        "at5_q41 should be 1,2,3,4,X,Z";
+            $data['at5_q42_error_desc']     =        "at5_q42 should be 1,2,3,4,X,Z";
+            $data['at5_q43_error_desc']     =        "at5_q43 should be 1,2,3,4,X,Z";
+            $data['at5_q44_error_desc']     =        "at5_q44 should be 1,2,3,4,X,Z";
+            $data['at5_q45_error_desc']     =        "at5_q45 should be 1,2,3,4,X,Z";
+            $data['at5_q46_error_desc']     =        "at5_q46 should be 1,2,3,4,X,Z";
+            $data['at5_q47_error_desc']     =        "at5_q47 should be 1,2,3,4,X,Z";
+            $data['at5_q48_error_desc']     =        "at5_q48 should be 1,2,3,4,X,Z";
+            $data['at5_q49_error_desc']     =        "at5_q49 should be 1,2,3,4,X,Z";
+            $data['at5_q50_error_desc']     =        "at5_q50 should be 1,2,3,4,X,Z";
+            $data['at5_q51_error_desc']     =        "at5_q51 should be 1,2,3,4,X,Z";
+            $data['at5_q52_error_desc']     =        "at5_q52 should be 1,2,3,4,X,Z";
+            $data['at5_q53_error_desc']     =        "at5_q53 should be 1,2,3,4,X,Z";
             return new DummyAt5s($data);
         }
 

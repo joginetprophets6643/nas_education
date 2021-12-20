@@ -83,7 +83,7 @@ class ImportAt3s implements ToModel ,WithStartRow
             $data['at3_udise_error_desc']   =        "at3 Udise code should be 11 digits";
             $data['at3_set_error_desc']     =        "at3_set code should be 31,32,33,34";
             $data['at3_grade_error_desc']   =        "at3_grade code should be one digit";
-            $data['at3_socgrp_error_desc']  =        "at3_cwd code should be 1,2,3,4";
+            $data['at3_socgrp_error_desc']  =        "at3_socgrp code should be 1,2,3,4";
             $data['at3_cwd_error_desc']     =        "at3_cwd should be 1,2,3,4,5,6";
             $data['at3_q01_error_desc']     =        "at3_q01 should be 1,2,3,4,X,Z";
             $data['at3_q02_error_desc']     =        "at3_q02 should be 1,2,3,4,X,Z";
