@@ -30,9 +30,22 @@ class ImportAt8s implements ToModel,WithStartRow
         $i=0;
         $check = 1; 
         foreach ($data as $key => $value) {
+            // Get State Code and District Code
+            if(strlen((integer)$data['at8_udise'])==11)
+            {
+                $data['state_id']=substr((integer)$data['at8_udise'], 0, 2);
+                $data['district_id']=substr((integer)$data['at8_udise'], 2, 2);
+            }
+            elseif(strlen((integer)$data['at8_udise'])==10)
+            {
+                $at8_udise_val = str_pad((integer)$data['at8_udise'], 11, '0', STR_PAD_LEFT);
+                $data['state_id']=substr($at8_udise_val, 0, 2);
+                $data['district_id']=substr($at8_udise_val, 2, 2);
+            }
+
             $keyDetails = array("sq_scan", "at8_bar", "at8_udise", "at8_set","at8_grade","at8_sect","at8_nasid","at8_socgrp","at8_cwd");
-           if(!in_array($key, $keyDetails))
-           {
+            if(!in_array($key, $keyDetails))
+            {
                 $total_number_question = $total_number_question + 1;
                 if((strlen((integer)$data['at8_bar'])==9) && (strlen((integer)$data['at8_udise'])==10) && in_array($data['at8_set'] ,[81,82,83,84]) && in_array($data[$key],[1,2,3,4,'X','Z']) && in_array($data['at8_socgrp'],[1,2,3,4]) && in_array($data['at8_cwd'],[1,2,3,4,5,6]) && in_array($data['at8_nasid'],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]))
                 {
@@ -52,7 +65,7 @@ class ImportAt8s implements ToModel,WithStartRow
                     }
                     $check = 2; 
                 }
-           }
+            }
         $i++;
         }
         if($check==1)

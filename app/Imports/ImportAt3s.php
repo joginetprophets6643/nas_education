@@ -30,11 +30,24 @@ class ImportAt3s implements ToModel ,WithStartRow
         $right_counter = 0;
         $total_number_question = 0;
         foreach ($row as $key => $value) {
+
+            if(strlen((integer)$row[2])==11)
+            {
+                $data['state_id']=substr((integer)$row[2], 0, 2);
+                $data['district_id']=substr((integer)$row[2], 2, 2);
+            }
+            elseif(strlen((integer)$row[2])==10)
+            {
+                $at3_udise_val = str_pad((integer)$row[2], 11, '0', STR_PAD_LEFT);
+                $data['state_id']=substr($at3_udise_val, 0, 2);
+                $data['district_id']=substr($at3_udise_val, 2, 2);
+            }
+
            if($key>8 && $key<48)
            {
           
             $total_number_question = $total_number_question + 1;
-            if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10) && in_array($row[3] ,[31,32,33,34]) && in_array($row[$key],[1,2,3,4,'X','Z']) && in_array($row[7],[1,2,3,4]) && in_array($row[8],[1,2,3,4,5,6]))
+            if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10 || strlen((integer)$row[2])==11) && in_array($row[3] ,[31,32,33,34]) && in_array($row[$key],[1,2,3,4,'X','Z']) && in_array($row[7],[1,2,3,4]) && in_array($row[8],[1,2,3,4,5,6]))
             {
               $check_result = $this->get_attemp_question_count($row[1],$row[3],$key,$row[$key]);
                if($check_result==true)

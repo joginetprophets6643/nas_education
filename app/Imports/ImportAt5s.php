@@ -28,6 +28,17 @@ class ImportAt5s implements ToModel,WithStartRow
         $right_counter = 0;
         $total_number_question = 0;
         foreach ($row as $key => $value) {
+            if(strlen((integer)$row[2])==11)
+            {
+                $data['state_id']=substr((integer)$row[2], 0, 2);
+                $data['district_id']=substr((integer)$row[2], 2, 2);
+            }
+            elseif(strlen((integer)$row[2])==10)
+            {
+                $at3_udise_val = str_pad((integer)$row[2], 11, '0', STR_PAD_LEFT);
+                $data['state_id']=substr($at3_udise_val, 0, 2);
+                $data['district_id']=substr($at3_udise_val, 2, 2);
+            }
            if($key>8 && $key<54)
            {
           

@@ -18,6 +18,8 @@ class CreateDummyTQsTable extends Migration
             $table->bigInteger('sq_scan');
             $table->bigInteger('tq_bar');
             $table->string('tq_udise')->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('district_id')->nullable();            
             $table->string('tq_grade')->nullable();
             $table->string('tq_section')->nullable();
             $table->string('tq_gender')->nullable();
