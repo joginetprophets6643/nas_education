@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\CommonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('upload',UploadController::class);
+Route::get('view_parti_g3_school',[CommonController::class,'view_parti_g3_school']);
