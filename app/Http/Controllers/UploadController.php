@@ -40,6 +40,7 @@ class UploadController extends Controller
           $at3_key = new At3_key;
            $at3_key->sq_scan    = $value->sq_scan;
            $at3_key->at3_bar    = $value->at3_bar;
+           $at3_key->at3_parent_bar    = $value->at3_parent_bar;
            $at3_key->at3_udise  = $value->at3_udise;
            $at3_key->state_id  = $value->state_id;
            $at3_key->district_id  = $value->district_id;
@@ -111,6 +112,7 @@ class UploadController extends Controller
            $at5_key->sq_scan    = $value->sq_scan;
            $at5_key->at5_bar    = $value->at5_bar;
            $at5_key->at5_udise  = $value->at5_udise;
+           $at5_key->at5_parent_bar    = $value->at5_parent_bar;
            $at5_key->state_id  = $value->state_id;
            $at5_key->district_id  = $value->district_id;
            $at5_key->at5_set    = $value->at5_set;
@@ -183,6 +185,7 @@ class UploadController extends Controller
           $at8_key = new At8s_key;
            $at8_key->sq_scan    = $value->sq_scan;
            $at8_key->at8_bar    = $value->at8_bar;
+           $at8_key->at8_parent_bar    = $value->at8_parent_bar;
            $at8_key->at8_udise  = $value->at8_udise;
            $at8_key->state_id  = $value->state_id;
            $at8_key->district_id  = $value->district_id;
@@ -264,6 +267,7 @@ class UploadController extends Controller
           $at10s_key = new At10s_key;
            $at10s_key->sq_scan    = $value->sq_scan;
            $at10s_key->at1_bar    = $value->at1_bar;
+           $at10s_key->at1_parent_bar    = $value->at1_parent_bar;
            $at10s_key->at1_udise  = $value->at1_udise;
            $at10s_key->state_id  = $value->state_id;
            $at10s_key->district_id  = $value->district_id;

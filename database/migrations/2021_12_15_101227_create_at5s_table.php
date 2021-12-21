@@ -17,6 +17,7 @@ class CreateAt5sTable extends Migration
             $table->id();
             $table->bigInteger('sq_scan');
             $table->bigInteger('at5_bar');
+            $table->bigInteger('at5_parent_bar');            
             $table->string('at5_udise')->nullable();
             $table->string('state_id')->nullable();
             $table->string('district_id')->nullable();

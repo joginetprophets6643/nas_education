@@ -25,7 +25,6 @@ class ImportAt3s implements ToModel ,WithStartRow
         $at3_set = env('at3_set');
         $quest_numbers = env('quest_numbers');
         $data =  $this->excelrowData($row);
-        
 
         $right_counter = 0;
         $total_number_question = 0;
@@ -42,6 +41,8 @@ class ImportAt3s implements ToModel ,WithStartRow
                 $data['state_id']=substr($at3_udise_val, 0, 2);
                 $data['district_id']=substr($at3_udise_val, 2, 2);
             }
+
+            $data['at3_parent_bar']=substr_replace((string)$row[1],'1',1,1);
 
            if($key>8 && $key<48)
            {

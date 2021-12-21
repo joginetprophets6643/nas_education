@@ -56,6 +56,8 @@ class ImportAt10s implements ToModel,WithStartRow
                 $data['district_id']=substr($at1_udise_val, 2, 2);
             }
 
+            $data['at1_parent_bar']=substr_replace((string)$data['at1_bar'],'1',1,1);
+
             $keyDetails = array("sq_scan", "at1_bar", "at1_udise", "at1_set","at1_grade","at1_sect","at1_nasid","at1_socgrp","at1_cwd");
            if(!in_array($key, $keyDetails))
            {

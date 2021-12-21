@@ -18,7 +18,7 @@ class CreateDummyAt5sTable extends Migration
             $table->bigInteger('sq_scan');
             $table->bigInteger('at5_bar');
             $table->string('at5_bar_error_desc')->nullable();
-
+            $table->bigInteger('at5_parent_bar');            
             $table->string('at5_udise')->nullable();
             $table->string('at5_udise_error_desc')->nullable();
 

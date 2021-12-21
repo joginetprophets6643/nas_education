@@ -18,6 +18,7 @@ class CreateDummyAt8Table extends Migration
             $table->bigInteger('sq_scan');
             $table->bigInteger('at8_bar');
             $table->string('at8_bar_error_desc')->nullable();
+            $table->bigInteger('at8_parent_bar');            
 
             $table->string('at8_udise')->nullable();
             $table->string('at8_udise_error_desc')->nullable();

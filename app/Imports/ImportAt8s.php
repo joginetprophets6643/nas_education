@@ -43,6 +43,8 @@ class ImportAt8s implements ToModel,WithStartRow
                 $data['district_id']=substr($at8_udise_val, 2, 2);
             }
 
+            $data['at8_parent_bar']=substr_replace((string)$data['at8_bar'],'1',1,1);
+
             $keyDetails = array("sq_scan", "at8_bar", "at8_udise", "at8_set","at8_grade","at8_sect","at8_nasid","at8_socgrp","at8_cwd");
             if(!in_array($key, $keyDetails))
             {

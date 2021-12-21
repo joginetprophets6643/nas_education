@@ -19,7 +19,7 @@ class CreateDummyAt3sTable extends Migration
 
             $table->bigInteger('at3_bar');
             $table->string('at3_bar_error_desc')->nullable();
-
+            $table->bigInteger('at3_parent_bar');
             $table->string('at3_udise')->nullable();
             $table->string('at3_udise_error_desc')->nullable();
 

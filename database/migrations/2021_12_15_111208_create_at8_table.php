@@ -17,6 +17,7 @@ class CreateAt8Table extends Migration
             $table->id();
             $table->bigInteger('sq_scan');
             $table->bigInteger('at8_bar');
+            $table->bigInteger('at8_parent_bar');            
             $table->string('at8_udise')->nullable();
             $table->string('state_id')->nullable();
             $table->string('district_id')->nullable();            

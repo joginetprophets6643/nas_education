@@ -39,6 +39,9 @@ class ImportAt5s implements ToModel,WithStartRow
                 $data['state_id']=substr($at5_udise_val, 0, 2);
                 $data['district_id']=substr($at5_udise_val, 2, 2);
             }
+
+            $data['at5_parent_bar']=substr_replace((string)$row[1],'1',1,1);
+
            if($key>8 && $key<54)
            {
           
