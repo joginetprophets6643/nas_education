@@ -39,30 +39,21 @@ class CommonController extends Controller
                 $newData['state_id'] = (int)$nasDetailsCounts->state_cd;
                 $newData['district_id'] = (int)$nasDetailsCounts->district_cd;
                 $newData['grade'] = 03;
+                $newData['rural_location'] = $nasDetailsCounts->rural_location;
+                $newData['urban_location'] = $nasDetailsCounts->urban_location;
+                $newData['govt_school'] = $nasDetailsCounts->govt_school;
+                $newData['govt_aided_school'] = $nasDetailsCounts->govt_aided_school;
+                $newData['private_school'] = $nasDetailsCounts->private_school;
+                $newData['central_govt_school'] = $nasDetailsCounts->central_govt_school;
+                $newData['total_school'] = $nasDetailsCounts->total_school;
 
                 // Get Social Group Count
-                // $at3sData = DummyAt3s::select('state_id','district_id',DB::raw("count(CASE WHEN at3_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN at3_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN at3_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN at3_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(district_id) AS total_student"))
-                //     ->where('state_id',$nasDetailsCounts->state_cd)
-                //     ->where('district_id',$nasDetailsCounts->district_cd)
-                //     ->groupBy('district_id')
-                //     ->groupBy('state_id')
-                //     ->first();
-                $at3sData = DB::table('dummy_at3s')
-                    ->select('dummy_at3s.state_id','dummy_at3s.district_id',DB::raw("count(CASE WHEN nas_exam_details.sch_loc_r_u= '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE WHEN nas_exam_details.sch_loc_r_u= '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F3' THEN 'Private' END) AS private_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw("count(DISTINCT nas_exam_details.udise_sch_code ) AS total_school"),DB::raw("count(CASE WHEN dummy_at3s.at3_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN dummy_at3s.at3_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN dummy_at3s.at3_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN dummy_at3s.at3_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(dummy_at3s.district_id) AS total_student"))
-                    ->leftJoin('nas_exam_details','nas_exam_details.udise_sch_code','=','dummy_at3s.at3_udise')
-                    ->where('dummy_at3s.state_id',$nasDetailsCounts->state_cd)
-                    ->where('dummy_at3s.district_id',$nasDetailsCounts->district_cd)
-                    ->groupBy('dummy_at3s.district_id')
-                    ->groupBy('dummy_at3s.state_id')
+                $at3sData = DummyAt3s::select('state_id','district_id',DB::raw("count(CASE WHEN at3_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN at3_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN at3_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN at3_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(district_id) AS total_student"))
+                    ->where('state_id',$nasDetailsCounts->state_cd)
+                    ->where('district_id',$nasDetailsCounts->district_cd)
+                    ->groupBy('district_id')
+                    ->groupBy('state_id')
                     ->first();
-
-                $newData['rural_location'] = isset($at3sData->rural_location)?$at3sData->rural_location:0;
-                $newData['urban_location'] = isset($at3sData->urban_location)?$at3sData->urban_location:0;
-                $newData['govt_school'] = isset($at3sData->govt_school)?$at3sData->govt_school:0;
-                $newData['govt_aided_school'] = isset($at3sData->govt_aided_school)?$at3sData->govt_aided_school:0;
-                $newData['private_school'] = isset($at3sData->private_school)?$at3sData->private_school:0;
-                $newData['central_govt_school'] = isset($at3sData->central_govt_school)?$at3sData->central_govt_school:0;
-                $newData['total_school'] = isset($at3sData->total_school)?$at3sData->total_school:0;
 
                 $newData['total_student'] = isset($at3sData->total_student)?$at3sData->total_student:0;
                 $newData['sc_social_group'] = isset($at3sData->sc_social_group)?$at3sData->sc_social_group:0;
@@ -116,30 +107,21 @@ class CommonController extends Controller
                 $newData5Grade['state_id'] = (int)$nasDetails5thCounts->state_cd;
                 $newData5Grade['district_id'] = (int)$nasDetails5thCounts->district_cd;
                 $newData5Grade['grade'] = 05;
-                // Get Social Group Count
-                // $at5sData = DummyAt5s::select('state_id','district_id',DB::raw("count(CASE WHEN at5_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN at5_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN at5_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN at5_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(district_id) AS total_student"))
-                //     ->where('state_id',$nasDetails5thCounts->state_cd)
-                //     ->where('district_id',$nasDetails5thCounts->district_cd)
-                //     ->groupBy('district_id')
-                //     ->groupBy('state_id')
-                //     ->first();
+                $newData5Grade['rural_location'] = $nasDetails5thCounts->rural_location;
+                $newData5Grade['urban_location'] = $nasDetails5thCounts->urban_location;
+                $newData5Grade['govt_school'] = $nasDetails5thCounts->govt_school;
+                $newData5Grade['govt_aided_school'] = $nasDetails5thCounts->govt_aided_school;
+                $newData5Grade['private_school'] = $nasDetails5thCounts->private_school;
+                $newData5Grade['central_govt_school'] = $nasDetails5thCounts->central_govt_school;
+                $newData5Grade['total_school'] = $nasDetails5thCounts->total_school;
 
-                $at5sData = DB::table('dummy_at5s')
-                    ->select('dummy_at5s.state_id','dummy_at5s.district_id',DB::raw("count(CASE WHEN nas_exam_details.sch_loc_r_u= '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE WHEN nas_exam_details.sch_loc_r_u= '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F3' THEN 'Private' END) AS private_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw("count(DISTINCT nas_exam_details.udise_sch_code ) AS total_school"),DB::raw("count(CASE WHEN dummy_at5s.at5_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN dummy_at5s.at5_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN dummy_at5s.at5_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN dummy_at5s.at5_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(dummy_at5s.district_id) AS total_student"))
-                    ->leftJoin('nas_exam_details','nas_exam_details.udise_sch_code','=','dummy_at5s.at5_udise')
-                    ->where('dummy_at5s.state_id',$nasDetails5thCounts->state_cd)
-                    ->where('dummy_at5s.district_id',$nasDetails5thCounts->district_cd)
-                    ->groupBy('dummy_at5s.district_id')
-                    ->groupBy('dummy_at5s.state_id')
+                // Get Social Group Count
+                $at5sData = DummyAt5s::select('state_id','district_id',DB::raw("count(CASE WHEN at5_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN at5_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN at5_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN at5_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(district_id) AS total_student"))
+                    ->where('state_id',$nasDetails5thCounts->state_cd)
+                    ->where('district_id',$nasDetails5thCounts->district_cd)
+                    ->groupBy('district_id')
+                    ->groupBy('state_id')
                     ->first();
-                    
-                $newData5Grade['rural_location'] = isset($at5sData->rural_location)?$at5sData->rural_location:0;
-                $newData5Grade['urban_location'] = isset($at5sData->urban_location)?$at5sData->urban_location:0;
-                $newData5Grade['govt_school'] = isset($at5sData->govt_school)?$at5sData->govt_school:0;
-                $newData5Grade['govt_aided_school'] = isset($at5sData->govt_aided_school)?$at5sData->govt_aided_school:0;
-                $newData5Grade['private_school'] = isset($at5sData->private_school)?$at5sData->private_school:0;
-                $newData5Grade['central_govt_school'] = isset($at5sData->central_govt_school)?$at5sData->central_govt_school:0;
-                $newData5Grade['total_school'] = isset($at5sData->total_school)?$at5sData->total_school:0;
 
                 $newData5Grade['total_student'] = isset($at5sData->total_student)?$at5sData->total_student:0;
                 $newData5Grade['sc_social_group'] = isset($at5sData->sc_social_group)?$at5sData->sc_social_group:0;
@@ -193,30 +175,21 @@ class CommonController extends Controller
                 $newData8Grade['state_id'] = (int)$nasDetails8thCounts->state_cd;
                 $newData8Grade['district_id'] = (int)$nasDetails8thCounts->district_cd;
                 $newData8Grade['grade'] = (int)'08';
+                $newData8Grade['rural_location'] = $nasDetails8thCounts->rural_location;
+                $newData8Grade['urban_location'] = $nasDetails8thCounts->urban_location;
+                $newData8Grade['govt_school'] = $nasDetails8thCounts->govt_school;
+                $newData8Grade['govt_aided_school'] = $nasDetails8thCounts->govt_aided_school;
+                $newData8Grade['private_school'] = $nasDetails8thCounts->private_school;
+                $newData8Grade['central_govt_school'] = $nasDetails8thCounts->central_govt_school;
+                $newData8Grade['total_school'] = $nasDetails8thCounts->total_school;
 
                 // Get Social Group Count
-                // $at8sData = DummyAt8s::select('state_id','district_id',DB::raw("count(CASE WHEN at8_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN at8_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN at8_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN at8_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(district_id) AS total_student"))
-                //     ->where('state_id',$nasDetails8thCounts->state_cd)
-                //     ->where('district_id',$nasDetails8thCounts->district_cd)
-                //     ->groupBy('district_id')
-                //     ->groupBy('state_id')
-                //     ->first();
-                $at8sData = DB::table('dummy_at8')
-                    ->select('dummy_at8.state_id','dummy_at8.district_id',DB::raw("count(CASE WHEN nas_exam_details.sch_loc_r_u= '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE WHEN nas_exam_details.sch_loc_r_u= '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F3' THEN 'Private' END) AS private_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw("count(DISTINCT nas_exam_details.udise_sch_code ) AS total_school"),DB::raw("count(CASE WHEN dummy_at8.at8_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN dummy_at8.at8_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN dummy_at8.at8_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN dummy_at8.at8_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(dummy_at8.district_id) AS total_student"))
-                    ->leftJoin('nas_exam_details','nas_exam_details.udise_sch_code','=','dummy_at8.at8_udise')
-                    ->where('dummy_at8.state_id',$nasDetails8thCounts->state_cd)
-                    ->where('dummy_at8.district_id',$nasDetails8thCounts->district_cd)
-                    ->groupBy('dummy_at8.district_id')
-                    ->groupBy('dummy_at8.state_id')
+                $at8sData = DummyAt8s::select('state_id','district_id',DB::raw("count(CASE WHEN at8_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN at8_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN at8_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN at8_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(district_id) AS total_student"))
+                    ->where('state_id',$nasDetails8thCounts->state_cd)
+                    ->where('district_id',$nasDetails8thCounts->district_cd)
+                    ->groupBy('district_id')
+                    ->groupBy('state_id')
                     ->first();
-                    
-                $newData8Grade['rural_location'] = isset($at8sData->rural_location)?$at8sData->rural_location:0;
-                $newData8Grade['urban_location'] = isset($at8sData->urban_location)?$at8sData->urban_location:0;
-                $newData8Grade['govt_school'] = isset($at8sData->govt_school)?$at8sData->govt_school:0;
-                $newData8Grade['govt_aided_school'] = isset($at8sData->govt_aided_school)?$at8sData->govt_aided_school:0;
-                $newData8Grade['private_school'] = isset($at8sData->private_school)?$at8sData->private_school:0;
-                $newData8Grade['central_govt_school'] = isset($at8sData->central_govt_school)?$at8sData->central_govt_school:0;
-                $newData8Grade['total_school'] = isset($at8sData->total_school)?$at8sData->total_school:0;
 
                 $newData8Grade['total_student'] = isset($at8sData->total_student)?$at8sData->total_student:0;
                 $newData8Grade['sc_social_group'] = isset($at8sData->sc_social_group)?$at8sData->sc_social_group:0;
@@ -272,31 +245,21 @@ class CommonController extends Controller
                 $newData10Grade['state_id'] = (int)$nasDetails10thCounts->state_cd;
                 $newData10Grade['district_id'] = (int)$nasDetails10thCounts->district_cd;
                 $newData10Grade['grade'] = (int)'10';
+                $newData10Grade['rural_location'] = $nasDetails10thCounts->rural_location;
+                $newData10Grade['urban_location'] = $nasDetails10thCounts->urban_location;
+                $newData10Grade['govt_school'] = $nasDetails10thCounts->govt_school;
+                $newData10Grade['govt_aided_school'] = $nasDetails10thCounts->govt_aided_school;
+                $newData10Grade['private_school'] = $nasDetails10thCounts->private_school;
+                $newData10Grade['central_govt_school'] = $nasDetails10thCounts->central_govt_school;
+                $newData10Grade['total_school'] = $nasDetails10thCounts->total_school;
 
                 // Get Social Group Count
-                // $at10sData = DummyAt10s::select('state_id','district_id',DB::raw("count(CASE WHEN at1_socgrp = '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN at1_socgrp = '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN at1_socgrp = '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN at1_socgrp = '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(district_id) AS total_student"))
-                //     ->where('state_id',$nasDetails10thCounts->state_cd)
-                //     ->where('district_id',$nasDetails10thCounts->district_cd)
-                //     ->groupBy('district_id')
-                //     ->groupBy('state_id')
-                //     ->first();
-
-                $at10sData = DB::table('dummy_at10s')
-                    ->select('dummy_at10s.state_id','dummy_at10s.district_id',DB::raw("count(CASE WHEN nas_exam_details.sch_loc_r_u= '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE WHEN nas_exam_details.sch_loc_r_u= '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F3' THEN 'Private' END) AS private_school"),DB::raw("count(CASE WHEN nas_exam_details.frame= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw("count(DISTINCT nas_exam_details.udise_sch_code ) AS total_school"),DB::raw("count(CASE WHEN dummy_at10s.at1_socgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN dummy_at10s.at1_socgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN dummy_at10s.at1_socgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN dummy_at10s.at1_socgrp= '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(dummy_at10s.district_id) AS total_student"))
-                    ->leftJoin('nas_exam_details','nas_exam_details.udise_sch_code','=','dummy_at10s.at1_udise')
-                    ->where('dummy_at10s.state_id',$nasDetails10thCounts->state_cd)
-                    ->where('dummy_at10s.district_id',$nasDetails10thCounts->district_cd)
-                    ->groupBy('dummy_at10s.district_id')
-                    ->groupBy('dummy_at10s.state_id')
+                $at10sData = DummyAt10s::select('state_id','district_id',DB::raw("count(CASE WHEN at1_socgrp = '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN at1_socgrp = '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN at1_socgrp = '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN at1_socgrp = '4' THEN 'GENERAL' END) AS general_social_group"),DB::raw("count(district_id) AS total_student"))
+                    ->where('state_id',$nasDetails10thCounts->state_cd)
+                    ->where('district_id',$nasDetails10thCounts->district_cd)
+                    ->groupBy('district_id')
+                    ->groupBy('state_id')
                     ->first();
-                    
-                $newData10Grade['rural_location'] = isset($at10sData->rural_location)?$at10sData->rural_location:0;
-                $newData10Grade['urban_location'] = isset($at10sData->urban_location)?$at10sData->urban_location:0;
-                $newData10Grade['govt_school'] = isset($at10sData->govt_school)?$at10sData->govt_school:0;
-                $newData10Grade['govt_aided_school'] = isset($at10sData->govt_aided_school)?$at10sData->govt_aided_school:0;
-                $newData10Grade['private_school'] = isset($at10sData->private_school)?$at10sData->private_school:0;
-                $newData10Grade['central_govt_school'] = isset($at10sData->central_govt_school)?$at10sData->central_govt_school:0;
-                $newData10Grade['total_school'] = isset($at10sData->total_school)?$at10sData->total_school:0;                
 
                 $newData10Grade['total_student'] = isset($at10sData->total_student)?$at10sData->total_student:0;
                 $newData10Grade['sc_social_group'] = isset($at10sData->sc_social_group)?$at10sData->sc_social_group:0;
