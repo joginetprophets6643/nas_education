@@ -37,8 +37,10 @@
                       {{ __('lang.about nas') }}
                     </h2>
                     <div class="desc-white">
+                      @if(!empty($content->page_meta_title))
                       {!!$content->home_page_content!!}
-</div>
+                      @endif
+                  </div>
                   </div>
                   <div class="btn-wrap">
                     <a href="{{url('/about')}}" class="btn btn_lg btn-white">{{ __('lang.Read More') }}</a>
@@ -486,6 +488,13 @@ function generateNationalMap(data){
                 series: {
                     events: {
                         click: function (e) {
+                          if(e.point.name === "NCT of Delhi")
+                          {
+                            $('#name').html('DELHI');
+                          }
+                          else{
+                            $('#name').html(e.point.name.toUpperCase());
+                          }
                             $('#states').val(e.point.value);
                             const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
                               triggerDistrictChart(selectedMapData)                 
@@ -602,18 +611,27 @@ function generateNationalMap(data){
 
   $('#states').change((e)=> { 
     const val = e.target.value
+    
     const index = fetchedStateData.map(state => {
       return state.value
     }).indexOf(parserInt(val))
 
     if(val === ''){
       populateDemographicInfo('','')
+      $('#name').html('All India');
       document.getElementById("map-container").style.display = "";
       document.getElementById("district-map-container").style.display = "none";
 
     }else{
       if(index > -1){
         const selected_state =  fetchedStateData[index]
+        if(selected_state['hc-key']==="nct of delhi")
+        {
+          $('#name').html('DELHI');
+        }
+        else{
+        $('#name').html(selected_state['hc-key'].toUpperCase());
+        }
         console.log(selected_state['hc-key'])
         const state_name = selected_state['hc-key'] 
         const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
