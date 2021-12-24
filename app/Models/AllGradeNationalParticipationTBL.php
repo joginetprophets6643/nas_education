@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AllGradeParticipationTBL extends Model
+class AllGradeNationalParticipationTBL extends Model
 {
     use HasFactory;
-    protected $table = 'all_grade_participation_tbl';
+    protected $table = 'all_grade_national_participation_tbl';
     protected $fillable = ['*'];
     public $timestamps = true;
 
