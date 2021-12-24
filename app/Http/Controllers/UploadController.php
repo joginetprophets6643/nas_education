@@ -37,13 +37,14 @@ class UploadController extends Controller
        
        $data = At3s::get();
        foreach ($data as $key => $value) {
+           
           $at3_key = new At3_key;
            $at3_key->sq_scan    = $value->sq_scan;
            $at3_key->at3_bar    = $value->at3_bar;
-           $at3_key->at3_parent_bar    = $value->at3_parent_bar;
+        //    $at3_key->at3_parent_bar    = $value->at3_parent_bar;
            $at3_key->at3_udise  = $value->at3_udise;
-           $at3_key->state_id  = $value->state_id;
-           $at3_key->district_id  = $value->district_id;
+        //    $at3_key->state_id  = $value->state_id;
+        //    $at3_key->district_id  = $value->district_id;
            $at3_key->at3_set    = $value->at3_set;
            $at3_key->at3_grade  = $value->at3_grade;
            $at3_key->at3_sect   = $value->at3_sect;
@@ -98,8 +99,11 @@ class UploadController extends Controller
            $at3_key->at3_q46   = rand(1,4);
            $at3_key->at3_q47   = rand(1,4);
            $at3_key->save();
+           if($key==3){
+               exit;
+           }
        }
-       
+        
 
 
     }
