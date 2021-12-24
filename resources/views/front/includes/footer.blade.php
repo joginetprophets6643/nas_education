@@ -227,6 +227,7 @@
     <script src="{{asset('assets/front/js/aos.js')}}"></script>
     <script src="{{asset('assets/front/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('assets/front/js/custom.js')}}"></script>
+    <script src="{{asset('assets/front/js/custom (2).js')}}"></script>
 
     <script src="{{asset('assets/front/js//highmaps.js')}}"></script>
     <script src="{{asset('assets/front/js//exporting.js')}}"></script>

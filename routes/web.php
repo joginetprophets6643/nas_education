@@ -138,5 +138,8 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
     Route::get('/rti','App\Http\Controllers\ContentPagesController@index')->name('rti');
     Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
+    Route::get('/registration','App\Http\Controllers\UserController@register')->name('registration');
+    Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
+    Route::get('/login','App\Http\Controllers\UserController@viewLogin')->name('login');
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
