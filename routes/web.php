@@ -5,6 +5,7 @@ use App\Models\Static_Content;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CommonController;
+use App\Http\Controllers\QuestionnaireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,10 @@ Route::get('/upload-csv-files', function () {
     return view('welcome');
 });
 Route::resource('upload',UploadController::class);
+Route::get('index_At3',[UploadController::class,'index_At3']);
 Route::get('view_parti_g3_school',[CommonController::class,'view_parti_g3_school']);
+Route::get('questionnaire_calculation',[QuestionnaireController::class,'questionnaireCalculation']);
+Route::get('generateAt3SetForLanguage',[QuestionnaireController::class,'generateAt3SetForLanguage']);
 
 Route::get('home', 'App\Http\Controllers\MainController@landing');
 Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');

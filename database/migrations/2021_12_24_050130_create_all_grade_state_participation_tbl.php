@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAllGradeParticipationTbl extends Migration
+class CreateAllGradeStateParticipationTbl extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateAllGradeParticipationTbl extends Migration
      */
     public function up()
     {
-        Schema::create('all_grade_participation_tbl', function (Blueprint $table) {
+        Schema::create('all_grade_state_participation_tbl', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('state_id');
-            $table->bigInteger('district_id');
             $table->bigInteger('grade');
             $table->string('total_school')->nullable();
             $table->string('total_student')->nullable();
@@ -56,6 +55,6 @@ class CreateAllGradeParticipationTbl extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('all_grade_participation_tbl');
+        Schema::dropIfExists('all_grade_state_participation_tbl');
     }
 }

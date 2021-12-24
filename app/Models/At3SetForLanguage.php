@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AllGradeParticipationTBL extends Model
+class At3SetForLanguage extends Model
 {
     use HasFactory;
-    protected $table = 'all_grade_participation_tbl';
+    protected $table = 'at3setfor_language';
     protected $fillable = ['*'];
-    public $timestamps = true;
-
 }
