@@ -39,10 +39,10 @@ class AdminController extends BaseController
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')->withSuccess('Signed in');
+            return redirect()->intended('dashboard')->with('success','Signed in');
         }
 
-        return redirect("secure-admin")->withSuccess('Login details are not valid');
+        return redirect("secure-admin")->with('success','Login details are not valid');
     }
 
     public function dashboard()

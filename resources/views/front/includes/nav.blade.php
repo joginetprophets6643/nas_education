@@ -89,7 +89,7 @@
                 </ul>
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="#">{{__('lang.DATA SHARE')}}</a>
+                <a class="nav-link" href="{{url('/registration')}}">{{__('lang.DATA SHARE')}}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">{{__('lang.VISUALIZATION')}}</a>
