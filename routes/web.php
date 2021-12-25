@@ -130,7 +130,7 @@ Route::post('/update/client-logo/{id}','App\Http\Controllers\ClientLogoControlle
 //Front Routes
 
 Route::group(["middleware" => ["language"]], function(){
-    Route::get('/','App\Http\Controllers\FrontController@index');
+    Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
     Route::get('/image-gallery','App\Http\Controllers\GalleryController@index');
     Route::get('/vedio-gallery','App\Http\Controllers\GalleryController@vedio');
     Route::get('/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
@@ -145,5 +145,6 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/registration','App\Http\Controllers\UserController@register')->name('registration');
     Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
     Route::get('/login','App\Http\Controllers\UserController@viewLogin')->name('login');
+    Route::post('/check','App\Http\Controllers\UserController@login')->name('check');
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');

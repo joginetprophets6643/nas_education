@@ -150,6 +150,9 @@
                                     @error('email')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
+                                    @if(session('error'))
+                                    <span class="text-danger">{{session('error')}}</span>
+                                    @endif
                                     <input type="hidden" name="email_otp" id="email_otp">
                                     <div class="otp-wrap">
                                         <div class="otp-input-wrap">
@@ -197,14 +200,14 @@
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="password" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
                                     <label class="form-input-label">Password</label>
                                     @error('password')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="password_confirmation" placeholder="Confirm Password">
+                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
                                     <label class="form-input-label">Confirm Password</label>
                                     @error('password_confirmation')
                                     <span class="text-danger">{{$message}}</span>
@@ -237,6 +240,13 @@
         var valid = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(email.toLowerCase().match(valid)){
             OTP=otpCreation();
+            $.ajax({
+            type: "GET",
+            headers:{
+                'Access-Control-Allow-Origin':'http://localhost:8000/'
+            },
+            url: 'http://localhost:8000/api/send-email'+'/'+email+'/'+OTP,
+            })
             setTimeout(otpReset, 600000,'email');
             countdown( "ten-countdown_email", 10, 0 );
         }
@@ -259,6 +269,7 @@
         var valid = /^\d{10}$/;
         if(mobile.match(valid)){
             OTP=otpCreation();
+            
             setTimeout(otpReset, 600000,'mobile');
             countdown( "ten-countdown_mobile", 10, 0 );
         }
