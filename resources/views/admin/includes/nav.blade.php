@@ -96,7 +96,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/dashboard')}}">
+            <a class="nav-link" href="{{url('/upload-csv-files')}}">
               <span class="menu-title">Manage Data</span>
               <i class="icon-user menu-icon"></i>
             </a>
