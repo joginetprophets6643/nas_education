@@ -17,7 +17,7 @@
         <div class="dashboard-wrapper">
             <div class="sidebar-wrap d-md-block collapse" id="sideBar"> 
                 <div class="ranking-wrap">
-                    <ul id="indicated_geography" style="display:none;">
+                    <ul id="district_geography" style="display:none;">
                         <li>
                             <a href="javascript:void(0);" id="active_state">Andhra Pradesh</a>
                         </li>
@@ -27,6 +27,9 @@
                     </ul>
                     <ul id="national_geography" style="display:none;">
                       <li><a href="javascript:void(0);"> National</a> </li>
+                    </ul>
+                    <ul id="state_geography" style="display:none;">
+                      <li><a href="javascript:void(0);" id="sidebar_active_state"> State</a> </li>
                     </ul>
                     <div class="counter">
                         <span>22</span>

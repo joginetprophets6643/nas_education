@@ -11,13 +11,10 @@ $(document).ready(()=>{
        createSidebarStates(response.data)
        sessionStorage.setItem('states',JSON.stringify(response.data))
     });
-    // createManagementPieChart()
-    // createSocialBarGraph()
     setScreen(screenType)
     getParicipationData()
     setClass(classType)
-    $('#indicated_geography').attr('style','display:none;')
-    $('#national_geography').removeAttr('style')
+    setBreadCrumb('national')
 
   });
 
@@ -228,6 +225,9 @@ $(document).ready(()=>{
   }
 
   function chageDataWithFilter(filter_type, value){
+    const lastActiveState =JSON.parse(sessionStorage.getItem('activeState'))
+    const lastActiveDistrict =JSON.parse(sessionStorage.getItem('activeDistrict'))
+
     if(filter_type === 'sidebar_filter'){
       manipulateView(value)
     }
@@ -235,6 +235,39 @@ $(document).ready(()=>{
       classType = value
       setClass()
       setInformation()
+    }
+    if(filter_type === 'global_filter'){
+      if(value === 'state'){
+        activeDistrict = ''
+        if(typeof lastActiveState === 'undefined' || lastActiveState === null ){
+          alert('you do not have any active state')
+          return
+        }
+        else{
+          activeState = lastActiveState
+          activeDistrict = ''
+          console.log(activeState)
+          $('#sidebar_active_state').html(activeState.state_name)
+        }
+      }
+      if(value === 'national'){
+        activeState = ''
+        activeDistrict = ''
+      }
+      if(value === 'district'){
+        if(lastActiveDistrict === null || lastActiveState === null ){
+          alert('you do not have any active state')
+          return
+        }
+        else{
+          activeState = lastActiveState
+          activeDistrict = lastActiveDistrict
+          $('#active_state').html(activeState.state_name)
+          $('#active_district').html(activeDistrict.district_name)
+        }
+      }
+      setInformation()
+      setBreadCrumb(value)
     }
   }
 
@@ -279,12 +312,6 @@ $(document).ready(()=>{
           return sec
         }
       })
-
-      // setTimeout(()=>{
-      //   $('#section_loader').removeAttr('style')
-      // },4000)
-
-      // $('#section_loader').attr('style','display:none;')
 
       $('#'+section+'').removeAttr('style')
       $('#'+section +'').removeClass('col-md-6')
@@ -347,15 +374,14 @@ $(document).ready(()=>{
       type: "GET",
       url: api_url + 'all_grade_participation_tbl?limit=-1',
     }).done(res=>{
-      console.log(res.data)
+      // console.log(res.data)
       sessionStorage.setItem('participation_data',JSON.stringify(res.data))
     });
     setInformation()
   }
 
   function setActiveStateDistrict(state_id,district_id){
-    $('#national_geography').attr('style','display:none;')
-    $('#indicated_geography').removeAttr('style')
+    setBreadCrumb('district')
     const all_states = JSON.parse(sessionStorage.getItem('states'))
     const all_districts = JSON.parse(sessionStorage.getItem('districts'))
     activeState =all_states.filter(state=>{
@@ -368,6 +394,8 @@ $(document).ready(()=>{
       return district
     }).pop()
 
+    sessionStorage.setItem('activeState',JSON.stringify(activeState)) 
+    sessionStorage.setItem('activeDistrict',JSON.stringify(activeDistrict)) 
     $('#active_state').html(activeState.state_name)
     $('#active_district').html(activeDistrict.district_name)
 
@@ -375,7 +403,7 @@ $(document).ready(()=>{
   }
 
   function updateData(data){
-    console.log(data)
+    // console.log(data)
     if(typeof data !== 'undefined'){
       if(screenType === 'participation'){
         let total_school = 0
@@ -452,5 +480,20 @@ $(document).ready(()=>{
     }else{
       console.log('no data ')
     }
+  }
+
+
+  function setBreadCrumb(active){
+    let items = ['state','national','district']
+    items.map(item=>{
+      if(item === active){
+        $('#'+item+'-tab').addClass('active')
+        $('#'+item+'_geography').removeAttr('style')
+      }else{
+        $('#'+item+'-tab').removeClass('active')
+        $('#'+item+'_geography').attr('style','display:none')
+
+      }
+    })
   }
   

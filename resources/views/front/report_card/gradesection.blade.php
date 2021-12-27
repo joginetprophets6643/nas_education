@@ -7,13 +7,13 @@
                      <div class="d-flex align-items-center justify-content-between">
                         <ul class="nav nav-tabs tablayerone" role="tablist">
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="national-tab" data-bs-toggle="tab" data-bs-target="#national" type="button" role="tab" aria-controls="national" aria-selected="true">National</button>
+                              <button class="nav-link" id="national-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="national" aria-selected="true" onClick="chageDataWithFilter('global_filter','national')">National</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="state-tab" data-bs-toggle="tab" data-bs-target="#state" type="button" role="tab" aria-controls="state" aria-selected="false">State</button>
+                              <button class="nav-link" id="state-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="state" aria-selected="false" onClick="chageDataWithFilter('global_filter','state')">State</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link active" id="district-tab" data-bs-toggle="tab" data-bs-target="#district" type="button" role="tab" aria-controls="district" aria-selected="false">District</button>
+                              <button class="nav-link" id="district-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="district" aria-selected="false" onClick="chageDataWithFilter('global_filter','district')">District</button>
                             </li>
                         </ul>
                         <div class="view-wrap">
