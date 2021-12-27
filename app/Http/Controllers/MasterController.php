@@ -54,6 +54,9 @@ class MasterController extends Controller
         $district->lgd_district_id=$request->lgd_district_id;
         $district->lgd_state_id=$request->lgd_state_id;
         $district->is_active=$request->status;
+        $district->rank=$request->rank;
+
+
         $district->year_id=$request->year_id;
         $district->total_district_area=$request->total_district_area;
         $district->total_population=$request->total_population;
@@ -123,6 +126,7 @@ class MasterController extends Controller
             'is_active'=>$request->status,
             'year_id'=>$request->year_id,
             
+            
             'total_district_area'=>$request->total_district_area,
             'total_population'=>$request->total_population,
             'rural_population'=>$request->rural_population,
@@ -190,6 +194,8 @@ class MasterController extends Controller
         $state->udise_state_code=$request->state_code;
         $state->is_ut=$request->ut;
         $state->status=$request->status;
+        $state->rank=$request->rank;
+
         $state->lgd_state_id=$request->lgd_state_id;
         $state->is_active=$request->status;
         $state->view_order=$request->view_order;
@@ -253,6 +259,7 @@ class MasterController extends Controller
             'is_active'=>$request->status,
             'view_order'=>$request->view_order,
             'status'=>$request->status,
+            'rank'=>$request->rank,
 
             'total_district_area'=>$request->total_district_area,
             'total_population'=>$request->total_population,
