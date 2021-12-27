@@ -48,6 +48,10 @@ class ContentPagesController extends Controller
                 $contents->where('page_title','RTI');
             }
 
+            if ($currentroute == "screen_reader_access") {
+                $contents->where('page_title','Screen Reader Access');
+            }
+
         $content = $contents->first();
         
 

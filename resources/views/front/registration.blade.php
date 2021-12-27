@@ -41,13 +41,13 @@
                                         <h2>User Type</h2>
                                         <div class="radio-wrap">
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="user_type" id="flexRadioDefault11" value="Individual">
+                                            <input class="form-check-input" type="radio" name="user_type" id="flexRadioDefault11" value="Individual"  {{(old('user_type') == 'Individual') ? 'checked' : ''}}>
                                             <label class="form-check-label" for="flexRadioDefault11">
                                                 Individual
                                             </label>
                                             </div>
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="user_type" id="flexRadioDefault12" value="Organization">
+                                            <input class="form-check-input" type="radio" name="user_type" id="flexRadioDefault12" value="Organization" {{(old('user_type') == 'Organization') ? 'checked' : ''}}>
                                             <label class="form-check-label" for="flexRadioDefault12">
                                                 Organization
                                             </label>
@@ -63,13 +63,13 @@
                                         <h2>Gender</h2>
                                         <div class="radio-wrap">
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault23" value="M">
+                                            <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault23" value="M" {{(old('gender') == 'M') ? 'checked' : ''}}>
                                             <label class="form-check-label" for="flexRadioDefault23">
                                                 Male
                                             </label>
                                             </div>
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault24" value="F">
+                                            <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault24" value="F" {{(old('gender') == 'F') ? 'checked' : ''}}>
                                             <label class="form-check-label" for="flexRadioDefault24">
                                                 Female
                                             </label>
@@ -85,8 +85,8 @@
                                 <div class="form-group col-md-6">
                                     <select class="form-select form-control" name="identify_yourself">
                                         <option value="">Select</option>
-                                        <option value="Govt. Organization">Govt. Organization</option>
-                                        <option value="Individual">Individual</option>
+                                        <option value="Govt_Organization" {{ old('identify_yourself') == "Govt_Organization" ? 'selected' : '' }}>Govt. Organization</option>
+                                        <option value="Individual" {{ old('identify_yourself') == "Individual" ? 'selected' : '' }}>Individual</option>
                                     </select>
                                     <label class="form-input-label">Identify Yourself</label>
                                     @error('identify_yourself')
@@ -94,7 +94,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="name" placeholder="Full Name">
+                                    <input type="text" class="form-control" name="name" placeholder="Full Name" value="{{old('name')}}">
                                     <label class="form-input-label">Full Name</label>
                                     @error('name')
                                     <span class="text-danger">{{$message}}</span>
@@ -103,7 +103,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" name="address" placeholder="Address">
+                                    <input type="text" class="form-control" name="address" placeholder="Address" value="{{old('address')}}">
                                     <label class="form-input-label">Address</label>
                                     @error('address')
                                     <span class="text-danger">{{$message}}</span>
@@ -114,7 +114,7 @@
                                 <div class="form-group col-md-4">
                                     <select class="form-select form-control" name="country">
                                         <option value="">Country</option>
-                                        <option value="India">India</option>
+                                        <option value="India" {{ old('country') == "India" ? 'selected' : '' }}>India</option>
                                     </select>
                                     <label class="form-input-label">Country</label>
                                     @error('country')
@@ -143,9 +143,27 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="email" placeholder="Email ID" id="email">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                                    <label class="form-input-label">Password</label>
+                                    @error('password')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
+                                    <label class="form-input-label">Confirm Password</label>
+                                    @error('password_confirmation')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name="email" placeholder="Email ID" id="email" value="{{old('email')}}">
                                     <label class="form-input-label">Email ID</label>
                                     @error('email')
                                     <span class="text-danger">{{$message}}</span>
@@ -162,17 +180,17 @@
                                             <input class="otp-input" maxlength="1" name="email_otp4" type="text">
                                         </div>
                                         <div class="otp-btn">
-                                            <a class="btn grey-btn" onclick="emailValidation()">SEND OTP</a>
-                                            <div id="ten-countdown_email"></div>
-                                            <div class="resend-wrap">
+                                            <a class="btn grey-btn" onclick="emailValidation()" id="email-btn">SEND OTP</a>
+                                            <div id="ten-countdown_email" class="text-danger"></div>
+                                            <div class="resend-wrap" id="email-resend">
                                                 <p>Didn't receive a code?</p>
-                                                <a href="#">Resend again</a>
+                                                <a onclick="emailValidation()">Resend again</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" placeholder="Mobile No" name="mobile_no" id="mobile">
+                                    <input type="text" class="form-control" placeholder="Mobile No" name="mobile_no" id="mobile" value="{{old('mobile_no')}}">
                                     <label class="form-input-label">Mobile No</label>
                                     @error('mobile_no')
                                     <span class="text-danger">{{$message}}</span>
@@ -191,29 +209,14 @@
                                             <div id="ten-countdown_mobile"></div>
                                             <div class="resend-wrap">
                                                 <p>Didn't receive a code?</p>
-                                                <a href="#">Resend again</a>
+                                                <a onclick="mobileValidation()">Resend again</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" name="password" placeholder="Password">
-                                    <label class="form-input-label">Password</label>
-                                    @error('password')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
-                                    <label class="form-input-label">Confirm Password</label>
-                                    @error('password_confirmation')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <div class="form-group col-md-12 mb-0">
                                     <button type="submit" class="btn org-btn">REGISTER</button>
@@ -247,6 +250,8 @@
             },
             url: 'http://localhost:8000/api/send-email'+'/'+email+'/'+OTP,
             })
+            document.getElementById("email-btn").style.display = "none";
+            document.getElementById("email-resend").style.display = "none";
             setTimeout(otpReset, 600000,'email');
             countdown( "ten-countdown_email", 10, 0 );
         }
@@ -257,6 +262,7 @@
     function otpReset(name){
         if(name=== 'email'){
             $('#email_otp').val('');
+            console.log(document.getElementById("email_otp").value)
         }
         if(name==='mobile'){
             $('#mobile_otp').val('');
@@ -278,7 +284,7 @@
     }
 
     function otpCreation(){
-        var string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var string = '0123456789';
         var len = string.length;
         let OTP=""
         for (let i = 0; i < 4; i++ ) {
@@ -301,7 +307,8 @@
         {
             msLeft = endTime - (+new Date);
             if ( msLeft < 1000 ) {
-                element.innerHTML = "Time is up!";
+                element.innerHTML="";
+                document.getElementById("email-resend").style.display = "block";
             } else {
                 time = new Date( msLeft );
                 hours = time.getUTCHours();
