@@ -233,14 +233,20 @@
     <script src="{{asset('assets/front/js//in-all-disputed.js')}}"></script>
 
     <script>
+      let api_url ='http://localhost:8055/items/'
       AOS.init({
           duration: 1500,
           disable: 'tablet',
           disable: 'mobile'
       });
-      let api_url ='http://localhost:8055/items/'
     </script>
     <script src="{{asset('assets/front/js/district_maps.js')}}"></script>
     <script src="{{asset('assets/front/js/states_static.js')}}"></script>
+    <!-- High Charts -->
+    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+
   </body>
 </html>

@@ -138,3 +138,14 @@ var fontSize = parseInt($('body').css("font-size"));
 		$('body').css({'font-size':fontSize});
 	});
 	
+  function parserInt(value){
+    if(typeof value === 'undefined'){
+      return 0
+    }else{
+      if(value === ''){
+        return 0
+      }else{
+        return parseInt(value)
+      }
+    }
+  }
