@@ -83,4 +83,9 @@ class AdminController extends BaseController
         return Redirect()->route('dashboard');
    }
 
+
+   public function list(){
+       $users=User::whereNotNull('address')->get();
+       return view('admin.user_list.index',compact('users'));
+   }
 }

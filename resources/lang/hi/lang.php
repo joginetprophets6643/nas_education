@@ -26,5 +26,6 @@ return[
     'RTI'=>'आर टी आई',
     'Home'=>'घर',
     'Skip to Main Content'=>'मुख्य विषय में जाएं',
+    'Screen Reader Access'=>'स्क्रीन रीडर एक्सेस',
 
 ];

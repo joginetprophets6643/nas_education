@@ -9,7 +9,7 @@
             <a href="#About">{{ __('lang.Skip to Main Content') }}</a>
           </li>
           <li>
-            <a href="#">Screen Reader Access</a>
+            <a href="{{route('screen_reader_access')}}">{{ __('lang.Screen Reader Access') }}</a>
           </li>
           <li>
             <div class="d-flex">

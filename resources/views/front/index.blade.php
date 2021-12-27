@@ -436,7 +436,7 @@
   $(document).ready(function() {
     $.ajax({
       type: "GET",
-      url: api_url + 'state_masters',
+      url: api_url + 'state_masters?limit=-1',
     }).done(response=>{
         state_all_info = response.data
         const state_data = response.data.map((state,index) =>{
@@ -657,7 +657,7 @@ function generateNationalMap(data){
     console.log('api hit ----')
     $.ajax({
       type: "GET",
-      url: api_url + "national_statistic",
+      url: api_url + "national_statistic?limit=-1",
     }).done(response=>{
       const info = response.data
       setNationalDemographic(info)

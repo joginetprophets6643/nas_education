@@ -126,6 +126,17 @@ Route::get('/edit/client-logo/{id}','App\Http\Controllers\ClientLogoController@e
 Route::get('/delete/client-logo/{id}','App\Http\Controllers\ClientLogoController@destroy');
 Route::post('/update/client-logo/{id}','App\Http\Controllers\ClientLogoController@update')->name('update-logo');
 
+//Regristration List Routes
+Route::get('/user-list','App\Http\Controllers\AdminController@list')->name('user-list');
+
+//Setting Routes
+Route::get('/manage-setting','App\Http\Controllers\SettingController@index')->name('setting');
+Route::get('/add/setting','App\Http\Controllers\SettingController@add')->name('add-setting');
+Route::post('/store/setting','App\Http\Controllers\SettingController@store')->name('store-setting');
+Route::get('/edit/setting/{id}','App\Http\Controllers\SettingController@edit')->name('edit-setting');
+Route::get('/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
+Route::post('/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
+
 
 //Front Routes
 
@@ -141,9 +152,11 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/hyper-linking-policy','App\Http\Controllers\ContentPagesController@index')->name('hyperlink');
     Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
     Route::get('/rti','App\Http\Controllers\ContentPagesController@index')->name('rti');
+    Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
     Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
     Route::get('/registration','App\Http\Controllers\UserController@register')->name('registration');
     Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
+    Route::get('/success','App\Http\Controllers\UserController@success')->name('success');
     Route::get('/login','App\Http\Controllers\UserController@viewLogin')->name('login');
     Route::post('/check','App\Http\Controllers\UserController@login')->name('check');
 });
