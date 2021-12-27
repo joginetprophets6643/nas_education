@@ -116,6 +116,20 @@
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('/user-list')}}">
+              <span class="menu-title">User Registration</span>
+              <i class="icon-user menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('/manage-setting')}}">
+              <span class="menu-title">Manage Setting</span>
+              <i class="icon-user menu-icon"></i>
+            </a>
+          </li>
           
         </ul>
       </nav>
