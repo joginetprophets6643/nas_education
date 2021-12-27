@@ -17,13 +17,15 @@ use App\Models\DummyTQs;
 use App\Models\AllGradeParticipationTBL;
 use App\Models\NasExamDetails; 
 use App\Models\At3SetForLanguage; 
+use App\Models\AT3PerformanceData;
+use DB;
 class QuestionnaireController extends Controller
 {
     public function questionnaireCalculation()
     {
        /* ....Calculation Count for Language , Mathmatics and EVS.... */
        $atteptQuestioninAt3s =  At3s::with(['NasExamDetails'=>function($q){
-           $q->select('state_cd','district_cd','udise_sch_code');
+           $q->select('state_cd','district_cd','udise_sch_code','sch_loc_r_u','frame');
        },'PQDetails'=>function($pq){
         $pq->select('pq_bar','pq_gender');
     }])
@@ -33,24 +35,33 @@ class QuestionnaireController extends Controller
        $at3sCalculateData = array();
        if(count($atteptQuestioninAt3s)>0)
        {
+
+        $blog = DB::table('at3_performance_data')->truncate();
         foreach ($atteptQuestioninAt3s as $key => $at3) {
             $questionPassArray = array($at3->at3_q01,$at3->at3_q02,$at3->at3_q03,$at3->at3_q04,$at3->at3_q05,$at3->at3_q06,$at3->at3_q07,$at3->at3_q08,$at3->at3_q09,$at3->at3_q10,$at3->at3_q11,$at3->at3_q12,$at3->at3_q13,$at3->at3_q14,$at3->at3_q15,$at3->at3_q16,$at3->at3_q17,$at3->at3_q18,$at3->at3_q19,$at3->at3_q20,$at3->at3_q21,$at3->at3_q22,$at3->at3_q23,$at3->at3_q24,$at3->at3_q25,$at3->at3_q26,$at3->at3_q27,$at3->at3_q28,$at3->at3_q29,$at3->at3_q30,$at3->at3_q31,$at3->at3_q32,$at3->at3_q33,$at3->at3_q34,$at3->at3_q35,$at3->at3_q36,$at3->at3_q37,$at3->at3_q38,$at3->at3_q39,$at3->at3_q40,$at3->at3_q41,$at3->at3_q42,$at3->at3_q43,$at3->at3_q44,$at3->at3_q45,$at3->at3_q46,$at3->at3_q47);
-            $at3sCalculateData['sq_scan']       =  $at3->sq_scan;
-            $at3sCalculateData['at3_udise']     =  $at3->at3_udise;
-            $at3sCalculateData['at3_udise']     =  $at3->at3_udise;
+            // $at3sCalculateData['sq_scan']       =  $at3->sq_scan;
+            // $at3sCalculateData['at3_udise']     =  $at3->at3_udise;
+            // $at3sCalculateData['at3_udise']     =  $at3->at3_udise;
             $at3sCalculateData['state_id']     =  $at3['NasExamDetails']->state_cd;
             $at3sCalculateData['district_id']       =  $at3['NasExamDetails']->district_cd;
+            $at3sCalculateData['location']       =  $at3['NasExamDetails']->sch_loc_r_u;
+            $at3sCalculateData['management']       =  $at3['NasExamDetails']->frame;
             $at3sCalculateData['gender']       =  isset($at3['PQDetails'])?$at3['PQDetails']->pq_gender:'';
-            $at3sCalculateData['at3_grade']     =  $at3->at3_grade;
+            $at3sCalculateData['socialgrp']     =  $at3->at3_socgrp;
+            $at3sCalculateData['grade']     =  $at3->at3_grade;
             $checkLaguage                       = $this->checkLaguagefunction($at3->at3_set,$questionPassArray);
-            $at3sCalculateData['L_avg']         =  $checkLaguage[0];
-            $at3sCalculateData['M_avg']         =  $checkLaguage[1];
-            $at3sCalculateData['E_avg']         =  $checkLaguage[2];
+            $at3sCalculateData['l_avg']         =  $checkLaguage[0];
+            $at3sCalculateData['m_avg']         =  $checkLaguage[1];
+            $at3sCalculateData['e_avg']         =  $checkLaguage[2];
+            $at3sCalculateData['created_at'] = now();
+            $at3sCalculateData['updated_at'] = now();
+
             $at3FinalCalculateData[]            =  $at3sCalculateData;
  
         }
        }
     //  $at3FinalCalculateData[]['cal'] = array_sum(array_column($at3FinalCalculateData, 'L_avg'))/count($at3FinalCalculateData);
+    return AT3PerformanceData::insert($at3FinalCalculateData);
      dd($at3FinalCalculateData);
 
       
@@ -61,17 +72,22 @@ class QuestionnaireController extends Controller
          $lagCount = 0 ;
          $mathCount = 0 ;
          $evsCount = 0 ;
+         
          foreach ($questionNumbers as $key => $value) {
           
+         
             if($key>=0 && $key<9)
             {
-                $var =  'at3_q0'.$key+1;
+                
+                $var =  'at3_q0'.++$key;
             }
             else
             {
-                $var =  'at3_q'.$key+1;
+                $var =  'at3_q'.++$key;
+               
             }
             
+           
             $checklang = At3SetForLanguage::where('at3_set',$at3set)->first();
               // Check Question for Language
               if($checklang->$var=='L')
