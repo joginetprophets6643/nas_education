@@ -15,18 +15,13 @@ class CreateAt8sKeyTable extends Migration
     {
         Schema::create('at8s_key', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sq_scan');
-            $table->bigInteger('at8_bar');
-            $table->bigInteger('at8_parent_bar');            
-            $table->string('at8_udise')->nullable();
-            $table->string('state_id')->nullable();
-            $table->string('district_id')->nullable();            
+               
             $table->string('at8_set')->nullable();
             $table->string('at8_grade')->nullable();
-            $table->string('at8_sect')->nullable();
-            $table->string('at8_nasid')->nullable();
-            $table->string('at8_socgrp')->nullable();
-            $table->string('at8_cwd')->nullable();
+            // $table->string('at8_sect')->nullable();
+            // $table->string('at8_nasid')->nullable();
+            // $table->string('at8_socgrp')->nullable();
+            // $table->string('at8_cwd')->nullable();
             $table->string('at8_q01')->nullable();
             $table->string('at8_q02')->nullable();
             $table->string('at8_q03')->nullable();
