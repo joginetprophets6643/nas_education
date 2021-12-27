@@ -52,6 +52,7 @@ class QuestionnaireController extends Controller
        }
     //  $at3FinalCalculateData[]['cal'] = array_sum(array_column($at3FinalCalculateData, 'L_avg'))/count($at3FinalCalculateData);
      dd($at3FinalCalculateData);
+     
 
       
     }
