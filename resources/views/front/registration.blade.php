@@ -184,7 +184,7 @@
                                             <div id="ten-countdown_email" class="text-danger"></div>
                                             <div class="resend-wrap" id="email-resend">
                                                 <p>Didn't receive a code?</p>
-                                                <a onclick="emailValidation()">Resend again</a>
+                                                <a onclick="emailValidation()" id="resend_link">Resend again</a>
                                             </div>
                                         </div>
                                     </div>
@@ -309,6 +309,8 @@
             if ( msLeft < 1000 ) {
                 element.innerHTML="";
                 document.getElementById("email-resend").style.display = "block";
+                document.getElementById("resend_link").style.color = "blue";
+                document.getElementById("resend_link").style.cursor = "pointer";
             } else {
                 time = new Date( msLeft );
                 hours = time.getUTCHours();

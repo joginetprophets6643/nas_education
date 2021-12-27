@@ -3092,25 +3092,6 @@ ul {
     font-size: 13px;
     text-decoration: underline;
 }
-
-.email-resend {
-    display: none;
-}
-
-.email-resend p {
-    letter-spacing: 0.06px;
-    color: #5e5e5e;
-    margin: 0;
-    font-size: 13px;
-}
-
-.email-resend a {
-    letter-spacing: 0.06px;
-    color: #006bb6;
-    font-size: 13px;
-    text-decoration: underline;
-}
-
 @media (min-width: 992px) {
     #bannerSlider .owl-dots {
         max-width: 960px;
