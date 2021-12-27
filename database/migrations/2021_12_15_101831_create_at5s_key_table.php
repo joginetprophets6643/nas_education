@@ -15,18 +15,18 @@ class CreateAt5sKeyTable extends Migration
     {
         Schema::create('at5s_key', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sq_scan');
-            $table->bigInteger('at5_bar');
-            $table->bigInteger('at5_parent_bar');            
-            $table->string('at5_udise')->nullable();
-            $table->string('state_id')->nullable();
-            $table->string('district_id')->nullable();            
+            // $table->bigInteger('sq_scan');
+            // $table->bigInteger('at5_bar');
+            // $table->bigInteger('at5_parent_bar');            
+            // $table->string('at5_udise')->nullable();
+            // $table->string('state_id')->nullable();
+            // $table->string('district_id')->nullable();            
             $table->string('at5_set')->nullable();
             $table->string('at5_grade')->nullable();
-            $table->string('at5_sect')->nullable();
-            $table->string('at5_nasid')->nullable();
-            $table->string('at5_socgrp')->nullable();
-            $table->string('at5_cwd')->nullable();
+            // $table->string('at5_sect')->nullable();
+            // $table->string('at5_nasid')->nullable();
+            // $table->string('at5_socgrp')->nullable();
+            // $table->string('at5_cwd')->nullable();
             $table->string('at5_q01')->nullable();
             $table->string('at5_q02')->nullable();
             $table->string('at5_q03')->nullable();

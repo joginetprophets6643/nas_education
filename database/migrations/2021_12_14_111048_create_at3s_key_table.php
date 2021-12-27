@@ -15,18 +15,18 @@ class CreateAt3sKeyTable extends Migration
     {
         Schema::create('at3s_key', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sq_scan');
-            $table->bigInteger('at3_bar');
-            $table->bigInteger('at3_parent_bar');
-            $table->string('at3_udise')->nullable();
-            $table->string('state_id')->nullable();
-            $table->string('district_id')->nullable();
+            // $table->bigInteger('sq_scan');
+            // $table->bigInteger('at3_bar');
+            // $table->bigInteger('at3_parent_bar');
+            // $table->string('at3_udise')->nullable();
+            // $table->string('state_id')->nullable();
+            // $table->string('district_id')->nullable();
             $table->string('at3_set')->nullable();
             $table->string('at3_grade')->nullable();
-            $table->string('at3_sect')->nullable();
-            $table->string('at3_nasid')->nullable();
-            $table->string('at3_socgrp')->nullable();
-            $table->string('at3_cwd')->nullable();
+            // $table->string('at3_sect')->nullable();
+            // $table->string('at3_nasid')->nullable();
+            // $table->string('at3_socgrp')->nullable();
+            // $table->string('at3_cwd')->nullable();
             $table->string('at3_q01')->nullable();
             $table->string('at3_q02')->nullable();
             $table->string('at3_q03')->nullable();
