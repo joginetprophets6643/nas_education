@@ -18,7 +18,11 @@ use App\Models\AllGradeParticipationTBL;
 use App\Models\NasExamDetails; 
 use App\Models\At3SetForLanguage; 
 use App\Models\AT3PerformanceData;
+use App\Models\DistrictGradeLevelPerformance;
+use App\Models\NationalGradeLevelPerformance;
+use App\Models\StateGradeLevelPerformance;
 use DB;
+
 class QuestionnaireController extends Controller
 {
     public function questionnaireCalculation()
@@ -61,8 +65,160 @@ class QuestionnaireController extends Controller
         }
        }
     //  $at3FinalCalculateData[]['cal'] = array_sum(array_column($at3FinalCalculateData, 'L_avg'))/count($at3FinalCalculateData);
-    return AT3PerformanceData::insert($at3FinalCalculateData);
-     dd($at3FinalCalculateData);
+
+    
+    $msg = AT3PerformanceData::insert($at3FinalCalculateData);
+
+    $at3Data = DB::table('at3_performance_data')->select('state_id','district_id',DB::raw("count(id)  AS total_student"), DB::raw("count(CASE WHEN location = '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE  WHEN location = '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE  WHEN management= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN management= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw(" count(CASE WHEN management= 'F3' THEN 'Private' END) AS private_school"),DB::raw(" count(CASE WHEN management= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw(" count(CASE WHEN socialgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN socialgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN socialgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN socialgrp= '4' THEN 'General' END) AS general_social_group"),DB::raw("count(CASE WHEN gender= '1' THEN 'Boys' END) AS male_gender"),DB::raw("count(CASE 
+    WHEN gender= '2' THEN 'Girls' END) AS female_gender"),DB::raw("count(l_avg) AS total_l_student"),DB::raw("SUM(L_avg::int)/count(L_avg) AS avg_l_marks"),DB::raw("SUM(l_avg::int) AS sum_l_marks"),DB::raw("count(m_avg) AS total_m_student"),DB::raw("SUM(m_avg::int)/count(l_avg) AS avg_m_marks"),DB::raw("SUM(m_avg::int) AS sum_m_marks"),DB::raw("count(e_avg) AS total_e_student"),DB::raw("SUM(e_avg::int)/count(e_avg) AS avg_e_marks"),DB::raw("SUM(e_avg::int) AS sum_e_marks"))
+    ->groupBy('at3_performance_data.state_id')
+    ->groupBy('at3_performance_data.district_id')
+    ->get();
+// dd($at3Data);
+$newData3Grade = array();
+if(count($at3Data)>0)
+{
+    $blog = DB::table('district_grade_level_performance')->where('grade',3)->truncate();
+    foreach($at3Data as $nasDetails3)
+    {
+        $newData3Grade['state_id'] = (int)$nasDetails3->state_id;
+        $newData3Grade['district_id'] = (int)$nasDetails3->district_id;
+        $newData3Grade['grade'] = (int)'3';
+        $newData3Grade['rural_location'] = isset($nasDetails3->rural_location)?$nasDetails3->rural_location:0;
+        $newData3Grade['urban_location'] = isset($nasDetails3->urban_location)?$nasDetails3->urban_location:0;
+        $newData3Grade['govt_school'] = isset($nasDetails3->govt_school)?$nasDetails3->govt_school:0;
+        $newData3Grade['govt_aided_school'] = isset($nasDetails3->govt_aided_school)?$nasDetails3->govt_aided_school:0;
+        $newData3Grade['private_school'] = isset($nasDetails3->private_school)?$nasDetails3->private_school:0;
+        $newData3Grade['central_govt_school'] = isset($nasDetails3->central_govt_school)?$nasDetails3->central_govt_school:0;
+        $newData3Grade['total_student'] = isset($nasDetails3->total_student)?$nasDetails3->total_student:0;
+        $newData3Grade['sc_social_group'] = isset($nasDetails3->sc_social_group)?$nasDetails3->sc_social_group:0;
+        $newData3Grade['obc_social_group'] = isset($nasDetails3->obc_social_group)?$nasDetails3->obc_social_group:0;
+        $newData3Grade['st_social_group'] = isset($nasDetails3->st_social_group)?$nasDetails3->st_social_group:0;
+        $newData3Grade['general_social_group'] = isset($nasDetails3->general_social_group)?$nasDetails3->general_social_group:0;
+        $newData3Grade['male_gender'] = isset($nasDetails3->male_gender)?$nasDetails3->male_gender:0;
+        $newData3Grade['female_gender'] = isset($nasDetails3->female_gender)?$nasDetails3->female_gender:0;
+        $newData3Grade['total_l_student'] = isset($nasDetails3->total_l_student)?$nasDetails3->total_l_student:0;
+        $newData3Grade['avg_l_marks'] = isset($nasDetails3->avg_l_marks)?$nasDetails3->avg_l_marks:0;
+        $newData3Grade['sum_l_marks'] = isset($nasDetails3->sum_l_marks)?$nasDetails3->sum_l_marks:0;        $newData3Grade['total_m_student'] = isset($nasDetails3->total_m_student)?$nasDetails3->total_m_student:0;
+        $newData3Grade['avg_m_marks'] = isset($nasDetails3->avg_m_marks)?$nasDetails3->avg_m_marks:0;
+        $newData3Grade['sum_m_marks'] = isset($nasDetails3->sum_m_marks)?$nasDetails3->sum_m_marks:0;        $newData3Grade['total_e_student'] = isset($nasDetails3->total_e_student)?$nasDetails3->total_e_student:0;
+        $newData3Grade['avg_e_marks'] = isset($nasDetails3->avg_e_marks)?$nasDetails3->avg_e_marks:0;
+        $newData3Grade['sum_e_marks'] = isset($nasDetails3->sum_e_marks)?$nasDetails3->sum_e_marks:0;
+        $newData3Grade['created_at'] = now();
+        $newData3Grade['updated_at'] = now();
+
+        $getAll3GradeData[]=$newData3Grade;
+    }
+//    dd($getAll3GradeData);
+
+    $districtMsg = DistrictGradeLevelPerformance::insert($getAll3GradeData);
+
+    /*************************************************************
+     * Name: Jogi
+     * Desc: State Process data in all grade
+     * Date: 27/12/2021
+     * Start Here
+     *************************************************************/
+
+    $allGradeStateData = DB::table('district_grade_level_performance')
+    ->select('state_id','grade',DB::raw("SUM(total_student::int) AS total_student"),DB::raw("round(SUM(rural_location::int)) AS rural_location"),DB::raw("round(SUM(urban_location::int)) AS urban_location"),DB::raw("round(SUM(govt_school::int)) AS govt_school"),DB::raw("round(SUM(govt_aided_school::int)) AS govt_aided_school"),DB::raw("round(SUM(private_school::int)) AS private_school"),DB::raw("round(SUM(central_govt_school::int)) AS central_govt_school"),DB::raw("round(SUM(sc_social_group::int)) AS sc_social_group"),DB::raw("round(SUM(obc_social_group::int)) AS obc_social_group"),DB::raw("round(SUM(st_social_group::int)) AS st_social_group"),DB::raw("round(SUM(general_social_group::int)) AS general_social_group"),DB::raw("round(SUM(male_gender::int)) AS male_gender"),DB::raw("round(SUM(female_gender::int)) AS female_gender"),DB::raw("round(SUM(total_l_student::int)) AS total_l_student"),DB::raw("round(SUM(sum_l_marks::int)) AS sum_l_marks"),DB::raw("SUM(sum_l_marks::int)/count(sum_l_marks) AS avg_l_marks"),DB::raw("round(SUM(total_m_student::int)) AS total_m_student"),DB::raw("round(SUM(sum_m_marks::int)) AS sum_m_marks"),DB::raw("SUM(sum_m_marks::int)/count(sum_m_marks) AS avg_m_marks"),DB::raw("round(SUM(total_e_student::int)) AS total_e_student"),DB::raw("round(SUM(sum_e_marks::int)) AS sum_e_marks"),DB::raw("SUM(sum_e_marks::int)/count(sum_e_marks) AS avg_e_marks"))
+    ->groupBy('state_id')
+    ->groupBy('grade')
+    ->get();
+
+    $newStateData = array();
+    if(count($allGradeStateData)>0)
+    {
+        $blogState = DB::table('state_grade_level_performance')->truncate();
+        foreach($allGradeStateData as $nasDetailsStateCounts)
+        {
+            $newStateData['state_id'] = (int)$nasDetailsStateCounts->state_id;
+            $newStateData['grade'] = isset($nasDetailsStateCounts->grade)?$nasDetailsStateCounts->grade:0;
+            $newStateData['rural_location'] = isset($nasDetailsStateCounts->rural_location)?$nasDetailsStateCounts->rural_location:0;
+            $newStateData['urban_location'] = isset($nasDetailsStateCounts->urban_location)?$nasDetailsStateCounts->urban_location:0;
+            $newStateData['govt_school'] = isset($nasDetailsStateCounts->govt_school)?$nasDetailsStateCounts->govt_school:0;
+            $newStateData['govt_aided_school'] = isset($nasDetailsStateCounts->govt_aided_school)?$nasDetailsStateCounts->govt_aided_school:0;
+            $newStateData['private_school'] = isset($nasDetailsStateCounts->private_school)?$nasDetailsStateCounts->private_school:0;
+            $newStateData['central_govt_school'] = isset($nasDetailsStateCounts->central_govt_school)?$nasDetailsStateCounts->central_govt_school:0;
+            $newStateData['total_student'] = isset($nasDetailsStateCounts->total_student)?$nasDetailsStateCounts->total_student:0;
+            $newStateData['sc_social_group'] = isset($nasDetailsStateCounts->sc_social_group)?$nasDetailsStateCounts->sc_social_group:0;
+            $newStateData['obc_social_group'] = isset($nasDetailsStateCounts->obc_social_group)?$nasDetailsStateCounts->obc_social_group:0;
+            $newStateData['st_social_group'] = isset($nasDetailsStateCounts->st_social_group)?$nasDetailsStateCounts->st_social_group:0;
+            $newStateData['general_social_group'] = isset($nasDetailsStateCounts->general_social_group)?$nasDetailsStateCounts->general_social_group:0;
+            $newStateData['male_gender'] = isset($nasDetailsStateCounts->male_gender)?$nasDetailsStateCounts->male_gender:0;
+            $newStateData['female_gender'] = isset($nasDetailsStateCounts->female_gender)?$nasDetailsStateCounts->female_gender:0;
+            $newStateData['total_l_student'] = isset($nasDetailsStateCounts->total_l_student)?$nasDetailsStateCounts->total_l_student:0;
+            $newStateData['avg_l_marks'] = isset($nasDetailsStateCounts->avg_l_marks)?$nasDetailsStateCounts->avg_l_marks:0;
+            $newStateData['sum_l_marks'] = isset($nasDetailsStateCounts->sum_l_marks)?$nasDetailsStateCounts->sum_l_marks:0;        
+            $newStateData['total_m_student'] = isset($nasDetailsStateCounts->total_m_student)?$nasDetailsStateCounts->total_m_student:0;
+            $newStateData['avg_m_marks'] = isset($nasDetailsStateCounts->avg_m_marks)?$nasDetailsStateCounts->avg_m_marks:0;
+            $newStateData['sum_m_marks'] = isset($nasDetailsStateCounts->sum_m_marks)?$nasDetailsStateCounts->sum_m_marks:0;        
+            $newStateData['total_e_student'] = isset($nasDetailsStateCounts->total_e_student)?$nasDetailsStateCounts->total_e_student:0;
+            $newStateData['avg_e_marks'] = isset($nasDetailsStateCounts->avg_e_marks)?$nasDetailsStateCounts->avg_e_marks:0;
+            $newStateData['sum_e_marks'] = isset($nasDetailsStateCounts->sum_e_marks)?$nasDetailsStateCounts->sum_e_marks:0;
+            $newStateData['created_at'] = now();
+            $newStateData['updated_at'] = now();
+
+            $dataStateAllGrade[]=$newStateData;
+        } 
+    }  
+    $statemsg = StateGradeLevelPerformance::insert($dataStateAllGrade);
+
+    /*************************************************************
+     * Name: Jogi
+     * Desc: National Process data in all grade
+     * Date: 27/12/2021
+     * Start Here
+     *************************************************************/
+
+    $allGradeNationalData = DB::table('district_grade_level_performance')
+    ->select('grade',DB::raw("SUM(total_student::int) AS total_student"),DB::raw("round(SUM(rural_location::int)) AS rural_location"),DB::raw("round(SUM(urban_location::int)) AS urban_location"),DB::raw("round(SUM(govt_school::int)) AS govt_school"),DB::raw("round(SUM(govt_aided_school::int)) AS govt_aided_school"),DB::raw("round(SUM(private_school::int)) AS private_school"),DB::raw("round(SUM(central_govt_school::int)) AS central_govt_school"),DB::raw("round(SUM(sc_social_group::int)) AS sc_social_group"),DB::raw("round(SUM(obc_social_group::int)) AS obc_social_group"),DB::raw("round(SUM(st_social_group::int)) AS st_social_group"),DB::raw("round(SUM(general_social_group::int)) AS general_social_group"),DB::raw("round(SUM(male_gender::int)) AS male_gender"),DB::raw("round(SUM(female_gender::int)) AS female_gender"),DB::raw("round(SUM(total_l_student::int)) AS total_l_student"),DB::raw("round(SUM(sum_l_marks::int)) AS sum_l_marks"),DB::raw("SUM(sum_l_marks::int)/count(sum_l_marks) AS avg_l_marks"),DB::raw("round(SUM(total_m_student::int)) AS total_m_student"),DB::raw("round(SUM(sum_m_marks::int)) AS sum_m_marks"),DB::raw("SUM(sum_m_marks::int)/count(sum_m_marks) AS avg_m_marks"),DB::raw("round(SUM(total_e_student::int)) AS total_e_student"),DB::raw("round(SUM(sum_e_marks::int)) AS sum_e_marks"),DB::raw("SUM(sum_e_marks::int)/count(sum_e_marks) AS avg_e_marks"))
+    ->groupBy('grade')
+    ->get();
+
+    $newNationalData = array();
+    if(count($allGradeNationalData)>0)
+    {
+        $blogState = DB::table('national_grade_level_performance')->truncate();
+        foreach($allGradeNationalData as $nasDetailsNationalCounts)
+        {
+            $newNationalData['grade'] = isset($nasDetailsNationalCounts->grade)?$nasDetailsNationalCounts->grade:0;
+            $newNationalData['rural_location'] = isset($nasDetailsNationalCounts->rural_location)?$nasDetailsNationalCounts->rural_location:0;
+            $newNationalData['urban_location'] = isset($nasDetailsNationalCounts->urban_location)?$nasDetailsNationalCounts->urban_location:0;
+            $newNationalData['govt_school'] = isset($nasDetailsNationalCounts->govt_school)?$nasDetailsNationalCounts->govt_school:0;
+            $newNationalData['govt_aided_school'] = isset($nasDetailsNationalCounts->govt_aided_school)?$nasDetailsNationalCounts->govt_aided_school:0;
+            $newNationalData['private_school'] = isset($nasDetailsNationalCounts->private_school)?$nasDetailsNationalCounts->private_school:0;
+            $newNationalData['central_govt_school'] = isset($nasDetailsNationalCounts->central_govt_school)?$nasDetailsNationalCounts->central_govt_school:0;
+            $newNationalData['total_student'] = isset($nasDetailsNationalCounts->total_student)?$nasDetailsNationalCounts->total_student:0;
+            $newNationalData['sc_social_group'] = isset($nasDetailsNationalCounts->sc_social_group)?$nasDetailsNationalCounts->sc_social_group:0;
+            $newNationalData['obc_social_group'] = isset($nasDetailsNationalCounts->obc_social_group)?$nasDetailsNationalCounts->obc_social_group:0;
+            $newNationalData['st_social_group'] = isset($nasDetailsNationalCounts->st_social_group)?$nasDetailsNationalCounts->st_social_group:0;
+            $newNationalData['general_social_group'] = isset($nasDetailsNationalCounts->general_social_group)?$nasDetailsNationalCounts->general_social_group:0;
+            $newNationalData['male_gender'] = isset($nasDetailsNationalCounts->male_gender)?$nasDetailsNationalCounts->male_gender:0;
+            $newNationalData['female_gender'] = isset($nasDetailsNationalCounts->female_gender)?$nasDetailsNationalCounts->female_gender:0;
+            $newNationalData['total_l_student'] = isset($nasDetailsNationalCounts->total_l_student)?$nasDetailsNationalCounts->total_l_student:0;
+            $newNationalData['avg_l_marks'] = isset($nasDetailsNationalCounts->avg_l_marks)?$nasDetailsNationalCounts->avg_l_marks:0;
+            $newNationalData['sum_l_marks'] = isset($nasDetailsNationalCounts->sum_l_marks)?$nasDetailsNationalCounts->sum_l_marks:0;        
+            $newNationalData['total_m_student'] = isset($nasDetailsNationalCounts->total_m_student)?$nasDetailsNationalCounts->total_m_student:0;
+            $newNationalData['avg_m_marks'] = isset($nasDetailsNationalCounts->avg_m_marks)?$nasDetailsNationalCounts->avg_m_marks:0;
+            $newNationalData['sum_m_marks'] = isset($nasDetailsNationalCounts->sum_m_marks)?$nasDetailsNationalCounts->sum_m_marks:0;        
+            $newNationalData['total_e_student'] = isset($nasDetailsNationalCounts->total_e_student)?$nasDetailsNationalCounts->total_e_student:0;
+            $newNationalData['avg_e_marks'] = isset($nasDetailsNationalCounts->avg_e_marks)?$nasDetailsNationalCounts->avg_e_marks:0;
+            $newNationalData['sum_e_marks'] = isset($nasDetailsNationalCounts->sum_e_marks)?$nasDetailsNationalCounts->sum_e_marks:0;
+            $newNationalData['created_at'] = now();
+            $newNationalData['updated_at'] = now();
+
+            $dataNationalAllGrade[]=$newNationalData;
+        } 
+    }  
+    $nationalmsg = NationalGradeLevelPerformance::insert($dataNationalAllGrade);
+
+    dd($nationalmsg);
+    
+}  
+     
+    
+
 
       
     }
