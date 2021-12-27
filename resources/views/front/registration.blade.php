@@ -237,21 +237,29 @@
 
 <script>
     function emailValidation(){
-        let email=document.getElementById('email').value;
+        // let email=document.getElementById('email').value;
+        let email = $('#email').val()
         $('#email_otp').val('');
         let OTP = '';
-        var valid = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        let valid = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
         if(email.toLowerCase().match(valid)){
-            OTP=otpCreation();
+            OTP = otpCreation();
             $.ajax({
             type: "GET",
             headers:{
-                'Access-Control-Allow-Origin':'http://localhost:8000/'
+                'Access-Control-Allow-Origin':'*'
             },
-            url: 'http://localhost:8000/api/send-email'+'/'+email+'/'+OTP,
+            url: backend_api_url + 'send-email/' + email+ '/' + OTP,
             })
-            document.getElementById("email-btn").style.display = "none";
-            document.getElementById("email-resend").style.display = "none";
+
+            $('#email-btn').attr('style','display:none');
+            $('#email-resend').attr('style','display:none');
+
+            // document.getElementById("email-btn").style.display = "none";
+            // document.getElementById("email-resend").style.display = "none";
+
             setTimeout(otpReset, 600000,'email');
             countdown( "ten-countdown_email", 10, 0 );
         }
@@ -260,33 +268,38 @@
     }
 
     function otpReset(name){
-        if(name=== 'email'){
+        if(name === 'email'){
             $('#email_otp').val('');
-            console.log(document.getElementById("email_otp").value)
         }
-        if(name==='mobile'){
+        if(name === 'mobile'){
             $('#mobile_otp').val('');
         }
     }
-    function mobileValidation(){
+    function mobileValidation() {
+
         $('#mobile_otp').val('');
-        let mobile=document.getElementById('mobile').value;
+        // let mobile=document.getElementById('mobile').value;
+        let mobile = $('#mobile').val()
         let OTP = '';
-        var valid = /^\d{10}$/;
-        if(mobile.match(valid)){
-            OTP=otpCreation();
-            
+        let valid = /^\d{10}$/;
+
+        if(mobile.match(valid)) {
+
+            OTP = otpCreation();
             setTimeout(otpReset, 600000,'mobile');
             countdown( "ten-countdown_mobile", 10, 0 );
+
         }
+
         $('#mobile_otp').val(OTP);
-        console.log(OTP)
+        // console.log(OTP)
     }
 
     function otpCreation(){
-        var string = '0123456789';
-        var len = string.length;
-        let OTP=""
+        let string = '0123456789';
+        let len = string.length;
+        let OTP = ""
+
         for (let i = 0; i < 4; i++ ) {
             OTP += string[Math.floor(Math.random() * len)];
         }
@@ -296,7 +309,7 @@
 
     function countdown( elementName, minutes, seconds )
     {
-        var element, endTime, hours, mins, msLeft, time;
+        let element, endTime, hours, mins, msLeft, time;
 
         function twoDigits( n )
         {
@@ -324,16 +337,19 @@
         endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
         updateTimer();
     }
-    let districts=''
+    
+    let districts = ''
+
     $('#state').change((e)=>{
+
         $('#ajax_districts').empty();
         $('#ajax_districts').append('<option value="">District</option>')
-        var id=e.target.value;
+        let id = e.target.value;
     
-        var dis=districts.filter(function(districts){
+        let dis = districts.filter(function(districts){
             return districts.state_id==id;
         })
-        dis.forEach(function(item){
+        dis.forEach((item)=>{
              $('#ajax_districts').append(`<option value="${item.district_id}">
                 ${item.district_name}
             </option>`);
@@ -344,11 +360,11 @@
 
 
 
-    $(document).ready(function() {
+    $(document).ready(()=> {
         $.ajax({
         type: "GET",
         url: api_url + 'district_masters?limit=-1',
-        }).done(response=>{
+        }).done(response => {
             districts=response.data;
         })
     })
