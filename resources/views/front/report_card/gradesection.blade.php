@@ -7,13 +7,13 @@
                      <div class="d-flex align-items-center justify-content-between">
                         <ul class="nav nav-tabs tablayerone" role="tablist">
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="national-tab" data-bs-toggle="tab" data-bs-target="#national" type="button" role="tab" aria-controls="national" aria-selected="true">National</button>
+                              <button class="nav-link" id="national-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="national" aria-selected="true" onClick="chageDataWithFilter('global_filter','national')">National</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="state-tab" data-bs-toggle="tab" data-bs-target="#state" type="button" role="tab" aria-controls="state" aria-selected="false">State</button>
+                              <button class="nav-link" id="state-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="state" aria-selected="false" onClick="chageDataWithFilter('global_filter','state')">State</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link active" id="district-tab" data-bs-toggle="tab" data-bs-target="#district" type="button" role="tab" aria-controls="district" aria-selected="false">District</button>
+                              <button class="nav-link" id="district-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="district" aria-selected="false" onClick="chageDataWithFilter('global_filter','district')">District</button>
                             </li>
                         </ul>
                         <div class="view-wrap">
@@ -36,19 +36,19 @@
                         <div class="tab-pane fade" id="state" role="tabpanel" aria-labelledby="state-tab">...</div>
                         <div class="tab-pane fade show active" id="district" role="tabpanel" aria-labelledby="district-tab">
                           <ul class="nav nav-tabs tablayertwo mtb-20" role="tablist">
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','3')">
                               <button class="nav-link active" id="class3-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class3" aria-selected="true">class 3</button>
                             </li>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','5')">
                               <button class="nav-link" id="class5-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class5" aria-selected="false">class 5</button>
                             </li>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','8')">
                               <button class="nav-link" id="class8-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class8" aria-selected="false">class 8</button>
                             </li>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','10')">
                               <button class="nav-link" id="class10-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class10" aria-selected="false">class 10</button>
                             </li>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','')">
                               <button class="nav-link" id="allclasses-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="allclasses" aria-selected="false">all classes</button>
                             </li>
                           </ul>
