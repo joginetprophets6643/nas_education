@@ -29,6 +29,7 @@ class UserController extends BaseController
 
     public function registered(Request $request)
     {
+        $ip=$request->ip();
         $request->validate([
             'email' => 'required|unique:users',
             'address' => 'required',
@@ -65,8 +66,9 @@ class UserController extends BaseController
             $user->country=$request->country;
             $user->district_id=$request->district;
             $user->password=Hash::make($request->password);
+            $user->ip_address=$ip;
             $user->save();
-            return Redirect()->route('login');
+            return Redirect()->route('success');
         }
         else{
             return Redirect()->back()->with('error','OTP is not valid');
@@ -88,5 +90,9 @@ class UserController extends BaseController
         }
 
         return redirect()->back()->with('success','Login details are not valid');
+    }
+
+    public function success(){
+        return view('front.successful');
     }
 }

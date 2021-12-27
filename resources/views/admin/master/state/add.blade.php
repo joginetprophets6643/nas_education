@@ -28,14 +28,26 @@
         </div>
         </div>
         <br>
-
-        <div class="mb-3">
+        
+        <div class="row">
+        <div class="col-6">
             <label class="form-label">State Name</label>
             <input type="text" name="state_name" class="form-control" placeholder="State Name">
             @error('state_name')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
+        
+        <div class="col-6">
+            <label class="form-label">Rank</label>
+            <input type="text" name="rank" class="form-control" placeholder="State Rank">
+            @error('rank')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+
+        </div>
+        <br>
         
 
         <div class="mb-3" >

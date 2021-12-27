@@ -71,9 +71,9 @@
                                     @enderror
                                     </div>
                                     <div class="form-group">
-                                      <input type="password" class="form-control" name="password" placeholder="Password">
+                                      <input type="password" class="form-control" name="password" placeholder="Password" id="pass_log_id">
                                       <label class="form-input-label">Password</label>
-                                      <sapn class="input-icon">
+                                      <sapn class="input-icon toggle-password">
                                         <img src="{{asset('assets/front/images/eye-icon.svg')}}" alt="icon" />
                                       </sapn>
                                       @error('password')
@@ -138,6 +138,17 @@ function captchaGenerate(){
         $('#html_captcha_code').html(captcha);
         $('#captcha').val(captcha);
 }
+
+$("body").on('click', '.toggle-password', function() {
+  $(this).toggleClass("input-icon");
+  var input = $("#pass_log_id");
+  if (input.attr("type") === "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+
+});
 
 
 </script>
