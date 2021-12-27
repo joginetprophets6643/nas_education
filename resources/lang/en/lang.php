@@ -26,6 +26,6 @@ return[
     'RTI'=>'RTI',
     'Home'=>'Home',
     'Skip to Main Content'=>'Skip to Main Content',
-    
+    'Screen Reader Access'=>'Screen Reader Access',
     
 ];

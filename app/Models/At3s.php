@@ -13,7 +13,10 @@ class At3s extends Model
 
     public function NasExamDetails()
     {
-        return $this->hasMany(NasExamDetails::class,'state_cd','state_id');
+        return $this->belongsTo(NasExamDetails::class,'at3_udise','udise_sch_code');
     }    
-
+    public function PQDetails()
+    {
+        return $this->belongsTo(PQs::class,'at3_parent_bar','pq_bar');
+    }    
 }

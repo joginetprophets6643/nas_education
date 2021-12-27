@@ -9,7 +9,7 @@
             <a href="#About">{{ __('lang.Skip to Main Content') }}</a>
           </li>
           <li>
-            <a href="#">Screen Reader Access</a>
+            <a href="{{route('screen_reader_access')}}">{{ __('lang.Screen Reader Access') }}</a>
           </li>
           <li>
             <div class="d-flex">
@@ -89,7 +89,7 @@
                 </ul>
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="#">{{__('lang.DATA SHARE')}}</a>
+                <a class="nav-link" href="{{url('/registration')}}">{{__('lang.DATA SHARE')}}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">{{__('lang.VISUALIZATION')}}</a>
