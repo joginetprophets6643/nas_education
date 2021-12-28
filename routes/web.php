@@ -133,7 +133,7 @@ Route::get('/user-list','App\Http\Controllers\AdminController@list')->name('user
 Route::get('/manage-setting','App\Http\Controllers\SettingController@index')->name('setting');
 Route::get('/add/setting','App\Http\Controllers\SettingController@add')->name('add-setting');
 Route::post('/store/setting','App\Http\Controllers\SettingController@store')->name('store-setting');
-Route::get('/edit/setting/{id}','App\Http\Controllers\SettingController@edit')->name('edit-setting');
+Route::get('/edit/setting','App\Http\Controllers\SettingController@edit')->name('edit-setting');
 Route::get('/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
 Route::post('/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
 
