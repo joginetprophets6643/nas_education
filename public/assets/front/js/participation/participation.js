@@ -196,7 +196,7 @@ $(document).ready(()=>{
   function createDistrictForStates(data){
     let district_list = ''
     data.map(district=>{
-      district_list +='<li><a href="javascript:void(0)" onClick="setActiveStateDistrict('+ district.state_id+','+district.district_id+')">' + district.district_name +'</a></li>'
+      district_list +='<li><a href="javascript:void(0)" onClick="setActiveStateDistrict('+ district.state_id+','+district.district_id+')">' +format_string(district.district_name) +'</a></li>'
     })
     return district_list
   }
@@ -302,8 +302,8 @@ $(document).ready(()=>{
     if(section === ''){
       availableSections.forEach(sec=>{
         $('#'+sec+'_section_'+screenType).removeAttr('style')
-        $('#'+sec+'_section_'+screenType).removeClass('col-md-12 text-center')
-        $('#'+sec+'_section_'+screenType).addClass('col-md-6')
+        $('#'+sec+'_section_'+screenType).removeClass('no-border')
+        // $('#'+sec+'_section_'+screenType).addClass('col-md-6')
       })
     }else{
       const filteredSections = availableSections.filter(sec=>{
@@ -314,8 +314,8 @@ $(document).ready(()=>{
       })
 
       $('#'+section+'').removeAttr('style')
-      $('#'+section +'').removeClass('col-md-6')
-      $('#'+section +'').addClass('col-md-12 text-center')
+      // $('#'+section +'').removeClass('col-md-6')
+      $('#'+section +'').addClass('no-border')
       filteredSections.forEach(sec =>{
         $('#'+sec+'_section_'+screenType).attr('style','display:none;')
       })
@@ -497,3 +497,9 @@ $(document).ready(()=>{
     })
   }
   
+  function format_string(str){
+    const formatted_string = str.split(' ').map((word,index) =>{
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    }).join(' ')
+    return formatted_string
+  }
