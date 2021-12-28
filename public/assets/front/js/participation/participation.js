@@ -441,26 +441,26 @@ $(document).ready(()=>{
 
         })
 
-        total_female = total_female/Object.keys(data).length
-        total_male = total_male/Object.keys(data).length
-        total_urban = total_urban/Object.keys(data).length
-        total_rural = total_rural/Object.keys(data).length
-        gen_group = gen_group/Object.keys(data).length
-        sc_group = sc_group/Object.keys(data).length
-        st_group = st_group/Object.keys(data).length
-        obc_group = obc_group/Object.keys(data).length
-        cent_gov = cent_gov/Object.keys(data).length
-        gov_aided = gov_aided/Object.keys(data).length
-        priv = priv/Object.keys(data).length
-        gov = gov/Object.keys(data).length
+        total_female = total_female > 0 ? total_female/Object.keys(data).length : 0
+        total_male = total_male > 0 ? total_male/Object.keys(data).length  : 0
+        total_urban = total_urban > 0 ? total_urban/Object.keys(data).length : 0
+        total_rural = total_rural > 0 ? total_rural/Object.keys(data).length : 0
+        gen_group = gen_group > 0 ? gen_group/Object.keys(data).length : 0
+        sc_group = sc_group > 0 ? sc_group/Object.keys(data).length : 0
+        st_group = st_group > 0 ? st_group/Object.keys(data).length : 0
+        obc_group = obc_group > 0 ? obc_group/Object.keys(data).length : 0
+        cent_gov = cent_gov > 0 ? cent_gov/Object.keys(data).length : 0
+        gov_aided = gov_aided > 0 ? gov_aided/Object.keys(data).length : 0
+        priv = priv > 0 ? priv/Object.keys(data).length : 0
+        gov = gov > 0 ? gov/Object.keys(data).length : 0
         
         $('#participation_school').html(total_school)
         $('#participation_teachers').html(total_teacher)
         $('#participation_students').html(total_student)
-        $('#paricipation_gender_male').html(total_male)
-        $('#paricipation_gender_female').html(total_female)
-        $('#participation_rural').html(total_urban)
-        $('#participation_urban').html(total_rural)
+        $('#paricipation_gender_male').html(total_male + '%')
+        $('#paricipation_gender_female').html(total_female + '%')
+        $('#participation_rural').html(total_urban + '%')
+        $('#participation_urban').html(total_rural + '%')
 
         const doughnutChart = {
           gov: gov,
