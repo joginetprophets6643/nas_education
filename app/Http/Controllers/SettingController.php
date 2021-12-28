@@ -55,9 +55,9 @@ class SettingController extends Controller
         return Redirect()->route('setting')->with('success','Setting Added Successfully');
     }
 
-    public function edit($id)
+    public function edit()
     {
-        $content=Setting::where('id',$id)->first();
+        $content=Setting::first();
         return view('admin.setting.edit',compact('content'));
     }
 

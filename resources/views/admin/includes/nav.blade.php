@@ -49,7 +49,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#media" aria-expanded="false" aria-controls="auth">
-              <span class="menu-title">Media Manage</span>
+              <span class="menu-title">Manage Media</span>
               <i class="icon-doc menu-icon"></i>
             </a>
             <div class="collapse" id="media">
@@ -62,14 +62,14 @@
 
           <li class="nav-item">
             <a class="nav-link" href="{{url('/team-manager')}}">
-              <span class="menu-title">Team Manage</span>
+              <span class="menu-title">Manage Team</span>
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{url('/static-content')}}">
-              <span class="menu-title">Content Manage</span>
+              <span class="menu-title">Manage Content</span>
               <i class="icon-doc menu-icon"></i>
             </a>
           </li>
@@ -119,13 +119,13 @@
 
           <li class="nav-item">
             <a class="nav-link" href="{{url('/user-list')}}">
-              <span class="menu-title">User Registration</span>
+              <span class="menu-title">Total Registration</span>
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/manage-setting')}}">
+            <a class="nav-link" href="{{route('edit-setting')}}">
               <span class="menu-title">Manage Setting</span>
               <i class="icon-user menu-icon"></i>
             </a>
