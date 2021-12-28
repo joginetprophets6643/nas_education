@@ -20,4 +20,5 @@ class At10s extends Model
     {
         return $this->belongsTo(PQs::class,'at1_parent_bar','pq_bar');
     } 
+
 }
