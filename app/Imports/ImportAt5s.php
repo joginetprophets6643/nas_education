@@ -21,7 +21,7 @@ class ImportAt5s implements ToModel,WithStartRow
     public function model(array $row)
     {
        
-
+      
         $data =  $this->excelrowData($row);
         
 
@@ -147,6 +147,7 @@ class ImportAt5s implements ToModel,WithStartRow
 
     function excelrowData($row)
     {
+        // dd($row);
         return [
             'sq_scan'   => $row[0],
             'at5_bar'   => $row[1], 
@@ -226,8 +227,8 @@ class ImportAt5s implements ToModel,WithStartRow
         {
             $var = 'at5_q0'.$quest_number;
         }
-           
-            $result = At5_key::where('at5_bar',(int)$pq_bar)->where('at5_set',(int)$set_number)
+        // where('at5_bar',(int)$pq_bar)->
+            $result = At5_key::where('at5_set',(int)$set_number)
                     ->where($var,$user_attemp_question)->count();
             if($result==1)
             {

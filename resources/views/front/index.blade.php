@@ -488,13 +488,7 @@ function generateNationalMap(data){
                 series: {
                     events: {
                         click: function (e) {
-                          if(e.point.name === "NCT of Delhi")
-                          {
-                            $('#name').html('DELHI');
-                          }
-                          else{
                             $('#name').html(e.point.name.toUpperCase());
-                          }
                             $('#states').val(e.point.value);
                             const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
                               triggerDistrictChart(selectedMapData)                 

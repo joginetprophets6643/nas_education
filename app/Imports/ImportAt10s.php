@@ -26,17 +26,6 @@ class ImportAt10s implements ToModel,WithStartRow
         // $data =  $this->excelrowData($row);
         // // $row[1] ...Bar Code Validation  
         // // $row[2] ...UDISE School code Validation  
-        // if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10))
-        // {
-
-        //     return new At10s($data);
-
-        // }
-        // else
-        // {
-        //     return new DummyAt10s($data);
-        // }
-
         $data =  $this->excelrowData($row);
         
         $right_counter = 0;
@@ -258,10 +247,10 @@ class ImportAt10s implements ToModel,WithStartRow
         ];
     }
     public function get_attemp_question_count($pq_bar,$set_number,$quest_number,$user_attemp_question)
-    {     
-        $result = At10s_key::where('at1_bar',(int)$pq_bar)->where('at1_set',(int)$set_number)
+    {   
+        // where('at1_bar',(int)$pq_bar)->
+        $result = At10s_key::where('at1_set',(int)$set_number)
                 ->where($quest_number,$user_attemp_question)->first();
-        // echo (($result));
         if($result)
         {
             return true;
