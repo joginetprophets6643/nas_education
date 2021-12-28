@@ -38,7 +38,19 @@ class CreateStateGradeLevelPerformance extends Migration
             $table->string('avg_m_marks')->nullable();
             $table->string('total_e_student')->nullable();
             $table->string('sum_e_marks')->nullable();
-            $table->string('avg_e_marks')->nullable();            
+            $table->string('avg_e_marks')->nullable();
+            $table->string('total_mil_student')->nullable();
+            $table->string('sum_mil_marks')->nullable();
+            $table->string('avg_mil_marks')->nullable();
+            $table->string('total_eng_student')->nullable();
+            $table->string('sum_eng_marks')->nullable();
+            $table->string('avg_eng_marks')->nullable();
+            $table->string('total_sci_student')->nullable();
+            $table->string('sum_sci_marks')->nullable();
+            $table->string('avg_sci_marks')->nullable();
+            $table->string('total_sst_student')->nullable();
+            $table->string('sum_sst_marks')->nullable();
+            $table->string('avg_sst_marks')->nullable();            
             $table->timestamps();
         });
     }
