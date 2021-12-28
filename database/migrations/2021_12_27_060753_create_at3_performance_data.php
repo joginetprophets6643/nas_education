@@ -25,6 +25,10 @@ class CreateAt3PerformanceData extends Migration
             $table->string('l_avg')->nullable();
             $table->string('m_avg')->nullable();
             $table->string('e_avg')->nullable();
+            $table->string('mil_avg')->nullable();
+            $table->string('eng_avg')->nullable();
+            $table->string('sci_avg')->nullable();
+            $table->string('sst_avg')->nullable();
             $table->timestamps();
         });
     }
