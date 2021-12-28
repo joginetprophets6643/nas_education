@@ -223,10 +223,10 @@ class ImportAt8s implements ToModel,WithStartRow
         ];
     }
     public function get_attemp_question_count($pq_bar,$set_number,$quest_number,$user_attemp_question)
-    {     
-        $result = At8s_key::where('at8_bar',(int)$pq_bar)->where('at8_set',(int)$set_number)
+    {   
+        // where('at8_bar',(int)$pq_bar)->
+        $result = At8s_key::where('at8_set',(int)$set_number)
                 ->where($quest_number,$user_attemp_question)->first();
-        // echo (($result));
         if($result)
         {
             return true;
