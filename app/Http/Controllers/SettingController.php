@@ -9,14 +9,17 @@ class SettingController extends Controller
 {
     public function index()
     {
-        $contents=Setting::latest()->get();
-        return view('admin.setting.index',compact('contents'));
-    }
-
-    public function add()
-    {
+        $content=Setting::first();
+        if($content){
+        return view('admin.setting.edit',compact('content'));
+        }
         return view('admin.setting.add');
     }
+
+    // public function add()
+    // {
+    //     return view('admin.setting.add');
+    // }
 
     public function store(Request $request)
     {
@@ -55,11 +58,11 @@ class SettingController extends Controller
         return Redirect()->route('setting')->with('success','Setting Added Successfully');
     }
 
-    public function edit()
-    {
-        $content=Setting::first();
-        return view('admin.setting.edit',compact('content'));
-    }
+    // public function edit()
+    // {
+    //     $content=Setting::first();
+    //     return view('admin.setting.edit',compact('content'));
+    // }
 
 
 
@@ -113,14 +116,14 @@ class SettingController extends Controller
         
     }
 
-    public function destroy($id)
-    {   
+    // public function destroy($id)
+    // {   
         
-        $content=Setting::where('id',$id)->first();
+    //     $content=Setting::where('id',$id)->first();
         
-        unlink(public_path("assets/uploads/logo/".$content->logo_1));
-        unlink(public_path("assets/uploads/logo/".$content->logo_2));
-        Setting::where('id',$id)->delete();
-        return Redirect()->route('setting')->with('success','Setting Deleted Successfully');
-    }
+    //     unlink(public_path("assets/uploads/logo/".$content->logo_1));
+    //     unlink(public_path("assets/uploads/logo/".$content->logo_2));
+    //     Setting::where('id',$id)->delete();
+    //     return Redirect()->route('setting')->with('success','Setting Deleted Successfully');
+    // }
 }
