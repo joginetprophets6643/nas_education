@@ -19,12 +19,19 @@
                 @if($content->language=="1")
                 <option value="1" selected>Hindi</option>               
                 <option value="2">English</option>
-                @else
+                @elseif($content->language=="2")
                 <option value="1">Hindi</option>               
                 <option value="2" selected>English</option>
+                @else
+                <option value="1">Hindi</option>               
+                <option value="2">English</option>
                 @endif
             </select>
+            @error('language')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
+        
         <div class="col-6">
             <label class="form-label">Page Title</label>
             <input type="text" name="title" class="form-control" placeholder="Page Title" value="{{$content->page_title}}">
