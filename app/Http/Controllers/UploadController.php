@@ -382,7 +382,7 @@ class UploadController extends Controller
             // AT10
             Excel::import(new ImportAt10s, $request->file('file')->store('temp'));
         }
-        return back();
+        return back()->with('success','Excel File Import Successfully');
 
     }
 

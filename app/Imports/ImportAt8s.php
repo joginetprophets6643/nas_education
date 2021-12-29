@@ -49,7 +49,7 @@ class ImportAt8s implements ToModel,WithStartRow
             if(!in_array($key, $keyDetails))
             {
                 $total_number_question = $total_number_question + 1;
-                if((strlen((integer)$data['at8_bar'])==9) && (strlen((integer)$data['at8_udise'])==10) && in_array($data['at8_set'] ,[81,82,83,84]) && in_array($data[$key],[1,2,3,4,'X','Z']) && in_array($data['at8_socgrp'],[1,2,3,4]) && in_array($data['at8_cwd'],[1,2,3,4,5,6]) && in_array($data['at8_nasid'],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]))
+                if((strlen((integer)$data['at8_bar'])==9) && (strlen((integer)$data['at8_udise'])==10) && in_array($data['at8_set'] ,[81,82,83,84]) && in_array($data[$key],[1,2,3,4,'X','Z']) && in_array($data['at8_socgrp'],[1,2,3,4]) && in_array($data['at8_cwd'],[1,2,3,4,5,6,'X']) && in_array($data['at8_nasid'],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]))
                 {
                     $check_result = $this->get_attemp_question_count($data['at8_bar'],$data['at8_set'],$key,$data[$key]);
                     if($check_result==true)
@@ -84,7 +84,7 @@ class ImportAt8s implements ToModel,WithStartRow
             $data['at8_grade_error_desc']   =        "at8_grade code should be one digit";
             $data['at8_socgrp_error_desc']  =        "at8_socgrp code should be 1,2,3,4";
             $data['at8_nasid_error_desc']  =         "at8_nasid between  1 to 30";
-            $data['at8_cwd_error_desc']     =        "at8_cwd should be 1,2,3,4,5,6";
+            $data['at8_cwd_error_desc']     =        "at8_cwd should be 1,2,3,4,5,6,X";
             $data['at8_q01_error_desc']     =        "at8_q01 should be 1,2,3,4,X,Z";
             $data['at8_q02_error_desc']     =        "at8_q02 should be 1,2,3,4,X,Z";
             $data['at8_q03_error_desc']     =        "at8_q03 should be 1,2,3,4,X,Z";

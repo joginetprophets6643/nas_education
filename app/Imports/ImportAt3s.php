@@ -48,7 +48,7 @@ class ImportAt3s implements ToModel ,WithStartRow
            {
           
             $total_number_question = $total_number_question + 1;
-            if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10 || strlen((integer)$row[2])==11) && in_array($row[3] ,[31,32,33,34]) && in_array($row[$key],[1,2,3,4,'X','Z']) && in_array($row[7],[1,2,3,4]) && in_array($row[8],[1,2,3,4,5,6]))
+            if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10 || strlen((integer)$row[2])==11) && in_array($row[3] ,[31,32,33,34]) && in_array($row[$key],[1,2,3,4,'X','Z']) && in_array($row[7],[1,2,3,4]) && in_array($row[8],[1,2,3,4,5,6,'X']))
             {
               $check_result = $this->get_attemp_question_count($row[1],$row[3],$key,$row[$key]);
                if($check_result==true)
@@ -85,7 +85,7 @@ class ImportAt3s implements ToModel ,WithStartRow
             $data['at3_set_error_desc']     =        "at3_set code should be 31,32,33,34";
             $data['at3_grade_error_desc']   =        "at3_grade code should be one digit";
             $data['at3_socgrp_error_desc']  =        "at3_socgrp code should be 1,2,3,4";
-            $data['at3_cwd_error_desc']     =        "at3_cwd should be 1,2,3,4,5,6";
+            $data['at3_cwd_error_desc']     =        "at3_cwd should be 1,2,3,4,5,6,X";
             $data['at3_q01_error_desc']     =        "at3_q01 should be 1,2,3,4,X,Z";
             $data['at3_q02_error_desc']     =        "at3_q02 should be 1,2,3,4,X,Z";
             $data['at3_q03_error_desc']     =        "at3_q03 should be 1,2,3,4,X,Z";
