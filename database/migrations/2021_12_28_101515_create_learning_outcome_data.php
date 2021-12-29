@@ -22,7 +22,8 @@ class CreateLearningOutcomeData extends Migration
             $table->string('subject_code')->nullable();
             $table->string('language')->nullable();
             $table->string('total_no_question')->nullable();
-            $table->string('correct_ans')->nullable();  
+            $table->string('correct_ans')->nullable(); 
+            $table->string('average_performance_in_percentage')->nullable();  
             $table->timestamps();
         });
     }
