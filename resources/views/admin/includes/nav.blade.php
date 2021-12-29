@@ -125,7 +125,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{route('edit-setting')}}">
+            <a class="nav-link" href="{{route('setting')}}">
               <span class="menu-title">Manage Setting</span>
               <i class="icon-user menu-icon"></i>
             </a>

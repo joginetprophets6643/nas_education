@@ -6,6 +6,12 @@
      <form action="{{route('update-setting',$content->id)}}" method="POST" enctype="multipart/form-data">
             @csrf 
     <div class="card">
+         @if(session('success'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>{{session('success')}}</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
         <div class="card-header">Setting Details</div>
         <div class="card-body">
         
