@@ -213,8 +213,8 @@ class ImportAt3s implements ToModel ,WithStartRow
         {
             $var = 'at3_q0'.$quest_number;
         }
-           
-            $result = At3_key::where('at3_bar',(int)$pq_bar)->where('at3_set',(int)$set_number)
+        // where('at3_bar',(int)$pq_bar)->
+            $result = At3_key::where('at3_set',(int)$set_number)
                     ->where($var,$user_attemp_question)->count();
             if($result==1)
             {

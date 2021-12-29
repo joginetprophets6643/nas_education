@@ -2,6 +2,13 @@
 @include('front.includes.nav')
 @include('front.report_card.sidebar')
 @include('front.report_card.gradesection')
+@include('front.report_card.performance')
+@include('front.report_card.feedback')
+@include('front.report_card.learning')
+@include('front.report_card.performance')
+@include('front.report_card.participation')
+@include('front.report_card.information')
+
 
 <div class="tab-content tablayertwo-content">
                             <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
@@ -24,8 +31,7 @@
                               </ul>
 
 <div class="tab-content tablayerthree-content">
-                                <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">...</div>
-                                <div class="tab-pane fade" id="participation" role="tabpanel" aria-labelledby="participation-tab">
+                                <!-- <div class="tab-pane fade" id="participation" role="tabpanel" aria-labelledby="participation-tab">
                                     <div class="card-wrap">
                                       <div class="row">
                                         <div class="col-md-12">
@@ -66,101 +72,109 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <hr>
-                                        <!-- <div class="lds-roller" style="display:none" id="section_loader"></div> -->
-                                        <div class="col-md-6 border-ryt" id="gender_section_participation" style="display:none;">
-                                          <div class="participation-wrap ptb-30" id="gender_participation">
-                                            <h2 class="heading-grey text-center">
-                                              PARTICIPATION BY GENDER
-                                            </h2>
-                                            <div class="d-flex justify-content-evenly align-items-end">
+                                      </div>
+                                    </div>
+                                    <div class="categorypart-card-wrap">
+                                      <hr>
+                                      <div class="row justify-content-center">
+                                          <div class="col-md-6" id="gender_section_participation" style="display:none;">
+                                            <div class="part-wrap ptb-30" id="gender_participation">
+                                              <h2 class="heading-grey text-center">
+                                                PARTICIPATION BY GENDER
+                                              </h2>
+                                              <div class="d-flex justify-content-evenly align-items-end">
+                                                  <div class="category-wrap">
+                                                    <div class="card-blue">
+                                                      <span class="percentage" id="paricipation_gender_male">30%</span>
+                                                      <small class="title">Boys</small>
+                                                    </div>
+                                                    <div class="img-wrap">
+                                                      <img src="{{asset('assets/front/images/boy-icon.svg')}}" alt="img" class="img-fluid" />
+                                                    </div>
+                                                    
+                                                  </div>
+                                                  <div class="category-wrap">
+                                                    <div class="card-pink">
+                                                      <span class="percentage" id="paricipation_gender_female">70%</span>
+                                                      <small class="title">Girls</small>
+                                                    </div>
+                                                    <div class="img-wrap">
+                                                      <img src="{{asset('assets/front/images/girl-icon.svg')}}" alt="img" class="img-fluid" />
+                                                    </div>
+                                                    
+                                                  </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          
+                                          <div class="col-md-6" id="location_section_participation" style="display:none;">
+                                            <div class="part-wrap ptb-30" id="location_participation">
+                                              <h2 class="heading-grey text-center">
+                                                PARTICIPATION BY LOCATION
+                                              </h2>
+                                              <div class="d-flex justify-content-evenly align-items-end">
                                                 <div class="category-wrap">
                                                   <div class="card-blue">
-                                                    <span class="percentage" id="paricipation_gender_male">30%</span>
-                                                    <small class="title">Boys</small>
+                                                    <span class="percentage" id="participation_rural">30%</span>
+                                                    <small class="title">Rural</small>
                                                   </div>
                                                   <div class="img-wrap">
-                                                    <img src="{{asset('assets/front/images/boy-icon.svg')}}" alt="img" class="img-fluid" />
+                                                    <img src="{{asset('assets/front/images/rural-icon.svg')}}" alt="img" class="img-fluid" />
                                                   </div>
                                                   
                                                 </div>
                                                 <div class="category-wrap">
                                                   <div class="card-pink">
-                                                    <span class="percentage" id="paricipation_gender_female">70%</span>
-                                                    <small class="title">Girls</small>
+                                                    <span class="percentage" id="participation_urban">70%</span>
+                                                    <small class="title">Urban</small>
                                                   </div>
                                                   <div class="img-wrap">
-                                                    <img src="{{asset('assets/front/images/girl-icon.svg')}}" alt="img" class="img-fluid" />
+                                                    <img src="{{asset('assets/front/images/urban-icon.svg')}}" alt="img" class="img-fluid" />
                                                   </div>
                                                   
                                                 </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        
-                                        <div class="col-md-6" id="location_section_participation" style="display:none;">
-                                          <div class="part-wrap ptb-30" id="location_participation">
-                                            <h2 class="heading-grey text-center">
-                                              PARTICIPATION BY LOCATION
-                                            </h2>
-                                            <div class="d-flex justify-content-evenly align-items-end">
-                                              <div class="category-wrap">
-                                                <div class="card-blue">
-                                                  <span class="percentage" id="participation_rural">30%</span>
-                                                  <small class="title">Rural</small>
-                                                </div>
-                                                <div class="img-wrap">
-                                                  <img src="{{asset('assets/front/images/rural-icon.svg')}}" alt="img" class="img-fluid" />
-                                                </div>
-                                                
-                                              </div>
-                                              <div class="category-wrap">
-                                                <div class="card-pink">
-                                                  <span class="percentage" id="participation_urban">70%</span>
-                                                  <small class="title">Urban</small>
-                                                </div>
-                                                <div class="img-wrap">
-                                                  <img src="{{asset('assets/front/images/urban-icon.svg')}}" alt="img" class="img-fluid" />
-                                                </div>
-                                                
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                                        <hr>
-                                        <div class="col-md-6 border-ryt" id="management_section_participation" style="display:none;">
-                                          <div class="participation-wrap ptb-30" id="management_participation">
-                                            <h2 class="heading-grey text-center">
-                                              PARTICIPATION BY MANAGEMENT
-                                            </h2>
-                                            <div class="graph-wrap">
-                                              <figure class="highcharts-figure">
-                                                <div id="managementPieGraph"></div>
-                                              </figure>
-                                            </div>
-                                          </div>
-                                        </div>
                                         
-                                        <div class="col-md-6" id="social_section_participation" style="display:none;">
-                                          <div class="part-wrap ptb-30" id="social_participation">
-                                            <h2 class="heading-grey text-center">
-                                              PARTICIPATION BY SOCIAL GROUP
-                                            </h2>
-                                            <div class="graph-wrap">
-                                              <figure class="highcharts-figure">
-                                                <div id="socialBarGraph"></div>
-                                              </figure>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <hr>
                                       </div>
+                                      <hr>
+                                      <div class="row justify-content-center">
+                                          <div class="col-md-6" id="management_section_participation" style="display:none;">
+                                            <div class="part-wrap ptb-30" id="management_participation">
+                                              <h2 class="heading-grey text-center">
+                                                PARTICIPATION BY MANAGEMENT
+                                              </h2>
+                                              <div class="graph-wrap">
+                                                <figure class="highcharts-figure">
+                                                  <div id="managementPieGraph"></div>
+                                                </figure>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          
+                                          <div class="col-md-6" id="social_section_participation" style="display:none;">
+                                            <div class="part-wrap ptb-30" id="social_participation">
+                                              <h2 class="heading-grey text-center">
+                                                PARTICIPATION BY SOCIAL GROUP
+                                              </h2>
+                                              <div class="graph-wrap">
+                                                <figure class="highcharts-figure">
+                                                  <div id="socialBarGraph"></div>
+                                                </figure>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <hr>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="performance" role="tabpanel" aria-labelledby="performance-tab">...</div>
-                                <div class="tab-pane fade" id="learning" role="tabpanel" aria-labelledby="learning-tab">...</div>
-                                <div class="tab-pane fade" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">...</div>
-                              </div>
+                                </div> -->
+                                @yield('information')
+                                @yield('participation')
+                                @yield('performance')
+                                @yield('learning')
+                                @yield('feedback')
+                            </div>
                             </div>
                             <div class="tab-pane fade" id="class5" role="tabpanel" aria-labelledby="class5-tab">...</div>
                             <div class="tab-pane fade" id="class8" role="tabpanel" aria-labelledby="class8-tab">...</div>

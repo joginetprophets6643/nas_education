@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\QuestionnaireController;
-
+use App\Http\Controllers\LearningOutcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,8 @@ use App\Http\Controllers\QuestionnaireController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);
 
 
 Route::get('/upload-csv-files', function () {
