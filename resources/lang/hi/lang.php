@@ -27,5 +27,6 @@ return[
     'Home'=>'घर',
     'Skip to Main Content'=>'मुख्य विषय में जाएं',
     'Screen Reader Access'=>'स्क्रीन रीडर एक्सेस',
-
+    'NAS Program'=>'एनएएस कार्यक्रम',
+    'NAS Team'=>'एनएएस टीम'
 ];

@@ -76,7 +76,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">{{__('lang.NAS PROGRAM')}}</a>
+                <a class="nav-link" href="{{url('/program')}}">{{__('lang.NAS PROGRAM')}}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url('/report-card')}}">{{__('lang.REPORT CARD')}}</a>
@@ -89,7 +89,7 @@
                 </ul>
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="{{url('/registration')}}">{{__('lang.DATA SHARE')}}</a>
+                <a class="nav-link" href="{{url('/data-share')}}">{{__('lang.DATA SHARE')}}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">{{__('lang.VISUALIZATION')}}</a>
@@ -106,7 +106,7 @@
                 </ul>  
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="#">{{__('lang.NAS TEAM')}}</a>
+                <a class="nav-link" href="{{url('nas-team')}}">{{__('lang.NAS TEAM')}}</a>
               </li>
             </ul>
             <!-- <div class="btn-wrap">

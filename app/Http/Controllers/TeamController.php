@@ -23,9 +23,9 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add()
     {
-        //
+        return view('admin.team.add');
     }
 
     /**
@@ -38,101 +38,76 @@ class TeamController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'image'=>'required|mimes:jpeg,jpg,png',
-            'description'=>'required',
+            'image'=>'mimes:jpeg,jpg,png,PNG,JPEG,JPG',
             'designation'=>'required',
         ]);
-
-        $member=new Team;
-        $member->name=$request->name;
-
+        $name='';
+        if($request->image)
+        {
         $image=$request->file('image');
-
         $name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         $image->move(public_path('assets/uploads/team'),$name);
+        }
 
+        $member=new Team;
+        $member->name=$request->name;        
+        $member->mobile=$request->mobile;        
+        $member->address=$request->address;        
+        $member->date=$request->date;        
         $member->image=$name;
         $member->designation=$request->designation;
         $member->description=$request->description;
         $member->save();
-        return Redirect()->back()->with('success','Member Added Successfully');
+        return Redirect()->route('team')->with('success','Member Added Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Team $team)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         $member=Team::where('id',$id)->first();
         return view('admin.team.edit',compact('member'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateTeamRequest  $request
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request,$id)
     {
         $request->validate([
             'name'=>'required',
-            'image'=>'mimes:jpeg,jpg,png',
-            'description'=>'required',
+            'image'=>'mimes:jpeg,jpg,png,PNG,JPEG,JPG',
             'designation'=>'required',
         ]);
 
-        if($request->image){
+        $name="";
+
+        if($request->image)
+        {
         $image=$request->file('image');
-        
         $member=Team::where('id',$id)->first();
         unlink(public_path("assets/uploads/team/".$member->image));
         $name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('assets/uploads/team'),$name);
+        }
+
         Team::where('id',$id)->update([
-            'name'=>$request->name,
-            'image'=>$name,
-            'description'=>$request->description,
-            'designation'=>$request->designation         
+        'name'=>$request->name,
+        'description'=>$request->description,
+        'designation'=>$request->designation,
+        'mobile'=>$request->mobile,
+        'date'=>$request->date,
+        'image'=>$name,
+        'address'=>$request->address         
         ]);
         return Redirect()->route('team')->with('success','Member Updated Successfully');
-        }
-        else{
-            Team::where('id',$id)->update([
-            'name'=>$request->name,
-            'description'=>$request->description,
-            'designation'=>$request->designation         
-        ]);
-        return Redirect()->route('team')->with('success','Member Updated Successfully');
-        }
         
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($image,$id)
+    
+    public function destroy($id)
     {
-        Team::where('id',$id)->delete();
+        $team=Team::where('id',$id)->first();
+        if($team->image){
         unlink(public_path("assets/uploads/team/".$image));
+        }
+        Team::where('id',$id)->delete();
         return Redirect()->route('team')->with('success','Member Deleted Successfully');
     }
 }
