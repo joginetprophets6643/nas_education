@@ -222,6 +222,7 @@
     <script>
       let api_url ='http://localhost:8055/items/'
       let backend_api_url = 'http://localhost:8000/api/'
+      let base_url = 'http://localhost:8000/'
       AOS.init({
           duration: 1500,
           disable: 'tablet',

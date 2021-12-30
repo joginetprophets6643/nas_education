@@ -179,7 +179,7 @@
                   </ul>
                 </div>
                 <div class="btn-wrap">
-                    <a href="#" class="btn btn_md org-btn">{{ __('lang.Read More') }}</a>
+                    <a href="javascript:void(0);" onClick="goToReportCard()" class="btn btn_md org-btn">{{ __('lang.Read More') }}</a>
                 </div>
               </div>
           </div>
@@ -457,73 +457,74 @@
         }
     });
     getNationalDemographics()
+    removePreviousData()
   });
 
-function generateNationalMap(data){
-  Highcharts.mapChart('map-container', {
-      chart: {
-          map: 'countries/in/custom/in-all-disputed'
-      },
+  function generateNationalMap(data){
+    Highcharts.mapChart('map-container', {
+        chart: {
+            map: 'countries/in/custom/in-all-disputed'
+        },
 
-      title: {
-          text: ''
-      },
+        title: {
+            text: ''
+        },
 
-      subtitle: {
-          text: ''
-      },
-      legend: {
-        enabled: false
-      },
-    tooltip: { enabled: false },
-      navigation: {
-          buttonOptions: {
-              enabled: false
-          }
-      },
-      credits: {
-        enabled: false
-      },
-    plotOptions: {
-                series: {
-                    events: {
-                        click: function (e) {
-                            $('#name').html(e.point.name.toUpperCase());
-                            $('#states').val(e.point.value);
-                            const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
-                              triggerDistrictChart(selectedMapData)                 
-                              populateDemographicInfo(e.point.value)
-                          }
+        subtitle: {
+            text: ''
+        },
+        legend: {
+          enabled: false
+        },
+      tooltip: { enabled: false },
+        navigation: {
+            buttonOptions: {
+                enabled: false
+            }
+        },
+        credits: {
+          enabled: false
+        },
+      plotOptions: {
+                  series: {
+                      events: {
+                          click: function (e) {
+                              $('#name').html(e.point.name.toUpperCase());
+                              $('#states').val(e.point.value);
+                              const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
+                                triggerDistrictChart(selectedMapData)                 
+                                populateDemographicInfo(e.point.value)
+                            }
 
-                    }
+                      }
+                  }
+              },
+      
+      /*  mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        }, */
+
+        series: [{
+            data: data,
+            name: 'Random data',
+            allowPointSelect: true,
+            cursor: 'pointer',
+            color: "#fff",
+            states: {
+                hover: {
+                    color: '#006BB6'
                 }
             },
-    
-    /*  mapNavigation: {
-          enabled: true,
-          buttonOptions: {
-              verticalAlign: 'bottom'
-          }
-      }, */
-
-      series: [{
-          data: data,
-          name: 'Random data',
-          allowPointSelect: true,
-          cursor: 'pointer',
-          color: "#fff",
-          states: {
-              hover: {
-                  color: '#006BB6'
-              }
-          },
-          dataLabels: {
-              enabled: false,
-              format: '{point.name}'
-          }
-      }]
-  });
-}
+            dataLabels: {
+                enabled: false,
+                format: '{point.name}'
+            }
+        }]
+    });
+  }
 
   AOS.init({
       duration: 1500,
@@ -572,10 +573,12 @@ function generateNationalMap(data){
     if(type === 'state'){
        demographic_info = state_all_info.filter(states_demographic=>{
         if(states_demographic.state_id === state_id){
+          sessionStorage.setItem('activeState',JSON.stringify(states_demographic))
           return states_demographic
         }
       })
     }else{
+     removePreviousData()
      const national_demographic_info = sessionStorage.getItem("national_demographic_data");
      demographic_info= JSON.parse(national_demographic_info)
     }
@@ -663,4 +666,18 @@ function generateNationalMap(data){
     sessionStorage.setItem("national_demographic_data", JSON.stringify(data));
     populateDemographicInfo('','')
   }
+  
+  function goToReportCard(){
+    const activeState = JSON.parse(sessionStorage.getItem('activeState'))
+    console.log(activeState)
+    if(activeState !== null){
+      location.href = base_url + 'report-card'
+    }
+  }
+
+  function removePreviousData(){
+    sessionStorage.removeItem('activeState')
+    sessionStorage.removeItem('activeDistrict')
+  }
+
 </script>
