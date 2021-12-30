@@ -12,13 +12,73 @@ $(document).ready(()=>{
        sessionStorage.setItem('states',JSON.stringify(response.data))
     });
     setScreen(screenType)
-    getParicipationData()
     setClass(classType)
-    setBreadCrumb('national')
+
+    const already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
+    const already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
+    console.log(already_active_district)
+    if(already_active_district !== null) {
+      chageDataWithFilter('global_filter','district')
+      setBreadCrumb('district')
+    }
+    else if(already_active_state !== null) {
+      chageDataWithFilter('global_filter','state')
+      setBreadCrumb('state')
+    }
+    else{
+      setBreadCrumb('national')
+    }
 
   });
 
+  function createColumnChart(where,data){
+    Highcharts.chart(where, {
+      chart: {
+        backgroundColor: 'transparent',
+        height: 300,
+        type: 'column',
+      },
+      title: {
+        text: ''
+      },
+      
+      xAxis: {
+        categories: [
+          'District',
+          'State',
+          'National'
+        ],
+        crosshair: true
+      },
+      yAxis: {
+        min: 0,
+        title: false
+      },
+      tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+          '<td style="padding:0"><b>{point.y}%</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+      },
+      plotOptions: {
+        column: {
+          pointPadding: 0.1,
+          borderWidth: 0
+        },
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y}'
+            }
+        }
+      },
+      series: data
+    });
 
+  }
 
   function setClass(value){
     if(classType === ''){
@@ -218,10 +278,13 @@ $(document).ready(()=>{
   }
 
   function setScreen(screen_type = 'participation'){
-    screenType = screen_type
-    $('#'+screen_type+'-tab').addClass('active')
-    $('#'+screen_type+'').addClass('show active')
-    chageDataWithFilter('sidebar_filter','all')
+    if(screenType !== screen_type){
+      screenType = screen_type
+      $('#'+screen_type+'-tab').addClass('active')
+      $('#'+screen_type+'').addClass('show active')
+      chageDataWithFilter('sidebar_filter','all')
+      getData()
+    }
   }
 
   function chageDataWithFilter(filter_type, value){
@@ -324,6 +387,7 @@ $(document).ready(()=>{
 
   function setInformation(){
     let filters = {};
+    let data = []
     if(activeState !== ''){
       filters = {...filters , state: activeState.state_id}
     }
@@ -336,46 +400,60 @@ $(document).ready(()=>{
 
     console.log(filters)
     if(screenType === 'participation'){
-      const data = JSON.parse(sessionStorage.getItem('participation_data'))
-      const filteredData = data.filter(par =>{
-        let count = 0
-        if (Object.keys(filters).length === 0) {
-          return true
-        }else{
-          for (const [key, val] of Object.entries(filters)) {
-            if(key === 'class'){
-              if(par.grade === val){
-                count +=1
-              }
+      data = JSON.parse(sessionStorage.getItem('participation_data'))
+    }
+    if(screenType === 'performance'){
+      data = JSON.parse(sessionStorage.getItem('performance_data'))
+    }
+    const filteredData = data.filter(par =>{
+      let count = 0
+      if (Object.keys(filters).length === 0) {
+        return true
+      }else{
+        for (const [key, val] of Object.entries(filters)) {
+          if(key === 'class'){
+            if(par.grade === val){
+              count +=1
             }
-            if(key === 'state'){
-              if(parseInt(par.state_id) === val){
-                count +=1
-              }
+          }
+          if(key === 'state'){
+            if(parseInt(par.state_id) === val){
+              count +=1
             }
-            if(key === 'district'){
-              if(parseInt(par.district_id) === val){
-                count +=1
-              }
+          }
+          if(key === 'district'){
+            if(parseInt(par.district_id) === val){
+              count +=1
             }
           }
         }
-        if (count === Object.keys(filters).length) {
-          return true
-        }
-      })
-      // console.log(filteredData)
-      updateData(filteredData)
-    }
+      }
+      if (count === Object.keys(filters).length) {
+        return true
+      }
+    })
+    updateData(filteredData)
   }
 
-  async function getParicipationData(){
+  async function getData(){
+    let table = ''
+    if(screenType === 'participation'){
+      table = 'all_grade_participation_tbl'
+    }
+    if(screenType === 'performance'){
+      table = 'district_grade_level_performance'
+      createCharts()
+    }
+
     await $.ajax({
       type: "GET",
-      url: api_url + 'all_grade_participation_tbl?limit=-1',
+      url: api_url + table + '?limit=-1',
     }).done(res=>{
-      // console.log(res.data)
-      sessionStorage.setItem('participation_data',JSON.stringify(res.data))
+      if(screenType === 'participation'){
+        sessionStorage.setItem('participation_data',JSON.stringify(res.data))
+      }else{
+        sessionStorage.setItem('performance_data',JSON.stringify(res.data))
+      }
     });
     setInformation()
   }
@@ -477,6 +555,10 @@ $(document).ready(()=>{
         createManagementPieChart(doughnutChart)
         createSocialBarGraph(barChart)
       }
+      if(screenType === 'performance'){
+        console.log(data)
+        createCharts()
+      }
     }else{
       console.log('no data ')
     }
@@ -502,4 +584,55 @@ $(document).ready(()=>{
       return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
     }).join(' ')
     return formatted_string
+  }
+
+  function createCharts(){
+    let data = JSON.parse(sessionStorage.getItem('performance_data'))
+
+    const sections = ['Location','Gender','Social','Management']
+    const graphs = ['Language','Math','Evs']
+    const entities = {
+      gender: ['Boys','Girls'],
+      management:['Govt.','Govt. Aided','Private','Central Govt.'],
+      social:['SC','OBC','ST','General'],
+      location:['Rural','Urban']
+    }
+
+    let dataList = {}
+    sections.forEach(section =>{
+      let temp_data = {}
+      graphs.map(sub => {
+        temp_data = {... temp_data ,[sub.toLowerCase()]:[10,10,10]}
+      })
+      dataList[section.toLowerCase()] = temp_data
+
+    })
+    console.log(dataList)
+    // return
+    
+    const colorCode = {
+      language: ['#BAD4EC','#9EC2E4','#83B1DD','#6997C3'],
+      evs: ['#E5E2AF','#DAD68F','#CFCB6F','#B6B156'],
+      math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E']
+    }  
+
+    sections.forEach(section => {
+      graphs.forEach(sub=>{
+        const where = section + sub +'BarGraph'
+        let data = []
+        const items = entities[section.toLowerCase()]
+        items.forEach((element,index) => {
+          const color =  colorCode[sub.toLowerCase()]
+          const dataToShow = dataList[section.toLowerCase()]
+          const item = {
+            color: color[index],
+            data:dataToShow[sub.toLowerCase()],
+            name: element 
+          }
+          data.push(item)
+        });
+        createColumnChart(where,data)
+      })
+      
+    });
   }
