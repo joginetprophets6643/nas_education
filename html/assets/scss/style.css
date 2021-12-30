@@ -18,6 +18,14 @@
   background: #3CACAE;
 }
 
+.card-red {
+  background: #EB6C69;
+}
+
+.card-purple {
+  background: #C574BF;
+}
+
 .card-blue .card-desc:before {
   background: #4F83B2;
 }
@@ -36,6 +44,14 @@
 
 .card-sagegreen .card-desc:before {
   background: #2A787A;
+}
+
+.card-red .card-desc:before {
+  background: #BC5654;
+}
+
+.card-purple .card-desc:before {
+  background: #9E5D9A;
 }
 
 .light-blue {
@@ -58,6 +74,14 @@
   background-color: #D8EEEF;
 }
 
+.light-red {
+  background-color: #FBE1E1;
+}
+
+.light-purple {
+  background-color: #F3E3F2;
+}
+
 .dark-blue {
   background: #4F83B2;
 }
@@ -78,6 +102,14 @@
   background: #2A787A;
 }
 
+.dark-red {
+  background: #BC5654;
+}
+
+.dark-purple {
+  background: #9E5D9A;
+}
+
 .light-blue-bg {
   background: #D6E5F4;
 }
@@ -87,11 +119,15 @@
 }
 
 .light-yellow-bg {
-  background: #D8E8C6;
+  background: #EFEECF;
 }
 
 .light-green-bg {
   background: #D8E8C6;
+}
+
+.light-sagegreen-bg {
+  background: #D8EEEF;
 }
 
 html {
@@ -2226,6 +2262,18 @@ ul {
   border-bottom: 0;
 }
 
+.per-card .per-card-content.dark-red .per-card-desc:nth-child(2) {
+  border: 1px dashed #EB6C69;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.per-card .per-card-content.dark-purple .per-card-desc:nth-child(2) {
+  border: 1px dashed #C574BF;
+  border-top: 0;
+  border-bottom: 0;
+}
+
 .per-card .per-card-content .per-card-desc {
   text-align: center;
   min-width: 100px;
@@ -2311,12 +2359,20 @@ ul {
   border-left: 15px solid #75a9d9;
 }
 
-.percategory-wrap.card-yellow:before {
-  border-right: 15px solid #cac55f;
-}
-
 .percategory-wrap.card-pink:before {
   border-left: 15px solid #E9769F;
+}
+
+.percategory-wrap.card-red:before {
+  border-left: 15px solid #EB6C69;
+}
+
+.percategory-wrap.card-purple:before {
+  border-left: 15px solid #C574BF;
+}
+
+.percategory-wrap.card-yellow:before {
+  border-right: 15px solid #cac55f;
 }
 
 .percategory-wrap.card-green:before {
@@ -6387,10 +6443,19 @@ ul {
   border: 1px solid #D6D6D6;
   border-radius: 6px;
   margin-top: 30px;
+  overflow-x: auto;
 }
 
 .per-table .table {
   margin: 0;
+}
+
+.per-table .table thead tr th:last-child {
+  border-top-right-radius: 6px;
+}
+
+.per-table .table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
 }
 
 .per-table .table th {
@@ -6468,7 +6533,6 @@ ul {
 
 .per-table .table .yellow-level-1 {
   background: #656330;
-  border-top-right-radius: 6px;
 }
 
 .per-table .table .yellow-level-2 {
@@ -6485,7 +6549,6 @@ ul {
 
 .per-table .table .yellow-level-5 {
   background: #B6B156;
-  border-bottom-right-radius: 6px;
 }
 
 .per-table .table .sagegreen-level-1 {
@@ -6510,7 +6573,6 @@ ul {
 
 .per-table .table .green-level-1 {
   background: #3A5B31;
-  border-top-right-radius: 6px;
 }
 
 .per-table .table .green-level-2 {
@@ -6527,7 +6589,46 @@ ul {
 
 .per-table .table .green-level-5 {
   background: #68A358;
-  border-bottom-right-radius: 6px;
+}
+
+.per-table .table .red-level-1 {
+  background: #763635;
+}
+
+.per-table .table .red-level-2 {
+  background: #8D403F;
+}
+
+.per-table .table .red-level-3 {
+  background: #A54B4A;
+}
+
+.per-table .table .red-level-4 {
+  background: #BC5654;
+}
+
+.per-table .table .red-level-5 {
+  background: #D4605F;
+}
+
+.per-table .table .purple-level-1 {
+  background: #633A60;
+}
+
+.per-table .table .purple-level-2 {
+  background: #764673;
+}
+
+.per-table .table .purple-level-3 {
+  background: #8A5186;
+}
+
+.per-table .table .purple-level-4 {
+  background: #9E5D9A;
+}
+
+.per-table .table .purple-level-5 {
+  background: #B168AD;
 }
 
 .learning-tabs {
@@ -6580,6 +6681,15 @@ ul {
   font-size: 20px;
   font-weight: 500;
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .learning-table-wrap .table-title img {
@@ -6602,6 +6712,22 @@ ul {
 
 .learning-table-wrap .learning-table .table .thead-yellow tr th {
   color: #CAC55F;
+}
+
+.learning-table-wrap .learning-table .table .thead-sagegreen tr th {
+  color: #3CACAE;
+}
+
+.learning-table-wrap .learning-table .table .thead-green tr th {
+  color: #72B562;
+}
+
+.learning-table-wrap .learning-table .table .thead-red tr th {
+  color: #EB6C69;
+}
+
+.learning-table-wrap .learning-table .table .thead-purple tr th {
+  color: #C574BF;
 }
 
 .learning-table-wrap .learning-table .table tbody tr {
