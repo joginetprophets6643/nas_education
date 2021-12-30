@@ -33,26 +33,20 @@
               <h2 class="heading-white-xs">
                 {{__('lang.DATA SHARE')}}
               </h2>
-              <!-- <ul>
+              <ul>
                 <li>
-                  <a href="#">
+                  <a href="{{url('/login')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
-                    Lorum Ipsum
+                    Login
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="{{url('/registration')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
-                    Lorum Ipsum
+                    Registration
                   </a>
                 </li>
-                <li>
-                  <a href="#">
-                    <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
-                    Lorum Ipsum
-                  </a>
-                </li>
-              </ul> -->
+              </ul>
             </div>
           </div>
           <div class="col-6 col-md-2">
@@ -107,23 +101,15 @@
           <div class="col-md-4">
               <div class="footer-links contact-info">
                 <h2 class="heading-white-xs">
+                  <?php $setting=get_setting()?>
+                  
                   {{__('lang.CONTACT US')}}
                 </h2>
                 <ul>
                   <li>
-                    <p class="text-white-sm">
-                      {{__('lang.Department Of School Education & Literacy')}}<br />
-                      217-C, Shastri Bhawan<br />
-                      New Delhi - 110001
-                    </p>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Tel : +86-10-8531 2500
-                    </a>
-                    <a href="#">
-                      Email : maneesh.garg@nic.in
-                    </a>
+                    <div class="text-white-sm">
+                      {!!$setting->contact_us!!}
+                    </div>
                   </li>
                 </ul>
               </div>

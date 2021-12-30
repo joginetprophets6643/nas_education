@@ -42,8 +42,9 @@
               <td >{{$content->page_meta_title}}</td>
               <td style="max-width:290px; overflow:hidden;" id="content">{!!$content->home_page_content!!}</td>
               <td>
-                <a href="{{url('edit/content/'.$content->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/content/'.$content->id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
+                <?php $id=encode5t($content->id)?>
+                <a href="{{url('edit/content/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/content/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
               </td>
             </tr>
             @endforeach

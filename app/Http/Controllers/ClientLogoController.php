@@ -36,6 +36,7 @@ class ClientLogoController extends Controller
 
     public function edit($id)
     {
+        $id=decode5t($id);
         $client_logo = ClientLogo::where('id',$id)->first();
         return view('admin.client_logo.edit',compact('client_logo'));
     }
@@ -43,6 +44,7 @@ class ClientLogoController extends Controller
 
     public function update(Request $request,$id)
     {
+        $id=decode5t($id);
         $request->validate([
             'title'=>'required',
             'url'=>'required',
@@ -72,6 +74,7 @@ class ClientLogoController extends Controller
     }
 
     public function destroy($id){
+        $id=decode5t($id);
         $client_logo = ClientLogo::where('id',$id)->first();
         unlink("assets/uploads/client_logo/".$client_logo->logo);
         ClientLogo::where('id',$id)->delete();

@@ -44,7 +44,8 @@
                                 <span class="total-img">
                                     <img src="{{asset('assets/front/images/gallery.svg')}}" alt="img" class="img-fluid" />  {{$count[$event->id]}}
                                 </span>
-                                <a href="{{url('image-gallery/'.$event->event_id)}}" class="org-link">View All</a>
+                                <?php $id=encode5t($event->event_id)?>
+                                <a href="{{url('image-gallery/'.$id)}}" class="org-link">View All</a>
                             </div>
                             
                             <p class="gallery-title">

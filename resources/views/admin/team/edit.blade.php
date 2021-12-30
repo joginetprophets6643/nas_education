@@ -11,7 +11,8 @@
                 <div class="card-header">Update Member
                 </div>
                 <div class="card-body">
-                <form action="{{route('update-member',$member->id)}}" method="POST" enctype="multipart/form-data">
+                  <?php $id=encode5t($member->id)?>
+                <form action="{{route('update-member',$id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                 <div class="row">

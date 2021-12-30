@@ -42,7 +42,7 @@
         
         <div class="mb-3" >
             <label class="form-label">Content</label>
-            <textarea class="form-control" name="content" cols="30" rows="10" >{!!old('content')!!}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="content" cols="30" rows="10" >{!!old('content')!!}</textarea>
             @error('content')
             <span class="text-danger">{{$message}}</span>
             @enderror

@@ -6,7 +6,8 @@
     <div class="card">
         <div class="card-header">Edit District</div>
         <div class="card-body">
-        <form action="{{route('update-district',$district->id)}}" method="POST">
+            <?php $id=encode5t($district->id)?>
+        <form action="{{route('update-district',$id)}}" method="POST">
             @csrf
 
         <div class="row">
@@ -43,7 +44,7 @@
 
         <div class="mb-3" >
             <label class="form-label">District Description</label>
-            <textarea class="form-control" name="description" cols="30" rows="10" >{{$district->description}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="description" cols="30" rows="10" >{{$district->description}}</textarea>
             @error('description')
             <span class="text-danger">{{$message}}</span>
             @enderror

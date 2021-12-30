@@ -165,6 +165,7 @@
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" name="email" placeholder="Email ID" id="email" value="{{old('email')}}">
                                     <label class="form-input-label">Email ID</label>
+                                    <span class="text-danger" id="valid-email"></span>
                                     @error('email')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
@@ -262,6 +263,9 @@
 
             setTimeout(otpReset, 600000,'email');
             countdown( "ten-countdown_email", 10, 0 );
+        }
+        else{
+            $('#valid-email').html("Please enter valid email");
         }
         console.log(OTP)
         $('#email_otp').val(OTP);

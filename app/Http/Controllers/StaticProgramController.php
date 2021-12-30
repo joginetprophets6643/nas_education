@@ -43,12 +43,14 @@ class StaticProgramController extends Controller
 
     public function edit($id)
     {
+        $id=decode5t($id);
         $program=Program::where('id',$id)->first();
         return view('admin.program.edit',compact('program'));
     }
 
     public function update(Request $request,$id)
     {
+        $id=decode5t($id);
         $request->validate([
             'language'=>'required|not_in:0',
             'title'=>'required',
@@ -81,5 +83,11 @@ class StaticProgramController extends Controller
         
 
         return Redirect()->route('program')->with('success','Program Updated Successfully');
+    }
+    public function destroy($id)
+    {
+        $id=decode5t($id);
+        Program::find($id)->delete();
+        return Redirect()->route('program')->with('success','Program Deleted Successfully');
     }
 }
