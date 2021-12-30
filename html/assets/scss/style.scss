@@ -85,7 +85,12 @@ $color_pink: #E9769F;
 .light-yellow{
     background-color: #F4F3DF;
 }
-
+.light-green{
+    background-color: #E3F0E0;
+}
+.light-sagegreen{
+    background-color: #D8EEEF;
+}
 
 .dark-blue{
     background: #4F83B2;
@@ -1836,12 +1841,13 @@ ul{
         letter-spacing: 0px;
         color: #FFFFFF;
         font-size: 20px;
-        font-weight: 500;
+        font-weight: 400;
         margin: 0;
         padding: 15px;
+        display: flex;
+        align-items: center;
         img{
             margin-right: 10px;
-            height: 25px;
         }
     }
     .per-card-content {
@@ -1874,6 +1880,26 @@ ul{
             .per-card-desc{
                 &:nth-child(2) {
                     border: 1px dashed #CAC55F;
+                    border-top: 0;
+                    border-bottom: 0;
+                }
+            }
+            
+        }
+        &.dark-green{
+            .per-card-desc{
+                &:nth-child(2) {
+                    border: 1px dashed #72B562;
+                    border-top: 0;
+                    border-bottom: 0;
+                }
+            }
+            
+        }
+        &.dark-sagegreen{
+            .per-card-desc{
+                &:nth-child(2) {
+                    border: 1px dashed #3CACAE;
                     border-top: 0;
                     border-bottom: 0;
                 }
@@ -1969,6 +1995,16 @@ ul{
     &.card-pink{
         &:before {
             border-left: 15px solid #E9769F;
+        }
+    }
+    &.card-green{
+        &:before {
+            border-right: 15px solid #72B562;
+        }
+    }
+    &.card-sagegreen{
+        &:before {
+            border-right: 15px solid #3CACAE;
         }
     }
     .percategory-content{
@@ -2459,6 +2495,38 @@ ul{
         }
         .yellow-level-5{
             background: #B6B156;
+            border-bottom-right-radius: 6px;
+        }
+        .sagegreen-level-1{
+            background: #026565;
+        }
+        .sagegreen-level-2{
+            background: #027979;
+        }
+        .sagegreen-level-3{
+            background: #028D8D;
+        }
+        .sagegreen-level-4{
+            background: #02A2A2;
+        }
+        .sagegreen-level-5{
+            background: #03B6B6;
+        }
+        .green-level-1{
+            background: #3A5B31;
+            border-top-right-radius: 6px;
+        }
+        .green-level-2{
+            background: #456D3B;
+        }
+        .green-level-3{
+            background: #517F45;
+        }
+        .green-level-4{
+            background: #5C914E;
+        }
+        .green-level-5{
+            background: #68A358;
             border-bottom-right-radius: 6px;
         }
     }
