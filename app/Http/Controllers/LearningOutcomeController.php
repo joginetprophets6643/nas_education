@@ -32,7 +32,7 @@ class LearningOutcomeController extends Controller
         $newlearningOutComeData = array();
         if(count($learningOutComeData)>0)
         {
-            DB::table('district_grade_level_performance')->truncate();
+            DB::table('district_grade_level_learningoutcome')->truncate();
             foreach($learningOutComeData as $newLOData)
             {
                 $newlearningOutComeData['state_id'] = (int)$newLOData->state_id;
@@ -70,7 +70,7 @@ class LearningOutcomeController extends Controller
         $newlearningOutComeDataS = array();
         if(count($learningOutComeDataForState)>0)
         {
-            DB::table('district_grade_level_performance')->truncate();
+            DB::table('state_grade_level_learningoutcome')->truncate();
             foreach($learningOutComeDataForState as $newLODataState)
             {
                 $newlearningOutComeDataS['state_id'] = (int)$newLODataState->state_id;
@@ -106,7 +106,7 @@ class LearningOutcomeController extends Controller
         $newlearningOutComeDataNational = array();
         if(count($learningOutComeDataNational)>0)
         {
-            DB::table('district_grade_level_performance')->truncate();
+            DB::table('national_grade_level_learningoutcome')->truncate();
             foreach($learningOutComeDataNational as $newLODataNational)
             {
                 $newlearningOutComeDataNational['grade'] = (int)$newLODataNational->grade;

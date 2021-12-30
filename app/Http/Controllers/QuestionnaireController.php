@@ -35,6 +35,7 @@ class QuestionnaireController extends Controller
 {
     public function questionnaireCalculation()
     {
+        ini_set('max_execution_time', '500');
         /*************************************************************
          * Name: Sanjay,Jogi,Chanky
          * Desc: District wise learning outcome and Performance Process data in 3rd grade
@@ -307,8 +308,22 @@ class QuestionnaireController extends Controller
          * Start Here
          *************************************************************/
 
-        $at3Data = DB::table('at3_performance_data')->select('state_id','district_id','grade',DB::raw("count(id)  AS total_student"), DB::raw("count(CASE WHEN location = '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE  WHEN location = '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE  WHEN management= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN management= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw(" count(CASE WHEN management= 'F3' THEN 'Private' END) AS private_school"),DB::raw(" count(CASE WHEN management= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw(" count(CASE WHEN socialgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN socialgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN socialgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN socialgrp= '4' THEN 'General' END) AS general_social_group"),DB::raw("count(CASE WHEN gender= '1' THEN 'Boys' END) AS male_gender"),DB::raw("count(CASE 
+        $at3Data = $at3Data = DB::table('at3_performance_data')->select('state_id','district_id','grade',DB::raw("count(id)  AS total_student"), DB::raw("count(CASE WHEN location = '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE  WHEN location = '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE  WHEN management= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN management= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw(" count(CASE WHEN management= 'F3' THEN 'Private' END) AS private_school"),DB::raw(" count(CASE WHEN management= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw(" count(CASE WHEN socialgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN socialgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN socialgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN socialgrp= '4' THEN 'General' END) AS general_social_group"),DB::raw("count(CASE WHEN gender= '1' THEN 'Boys' END) AS male_gender"),DB::raw("count(CASE 
         WHEN gender= '2' THEN 'Girls' END) AS female_gender"),
+        DB::raw("count(CASE WHEN gender= '1' THEN l_avg END) AS total_l_boys"),
+        DB::raw("count(CASE WHEN gender= '2' THEN l_avg END) AS total_l_girls"),
+        DB::raw("count(CASE WHEN gender= '1' THEN m_avg END) AS total_m_boys"),
+        DB::raw("count(CASE WHEN gender= '2' THEN m_avg END) AS total_m_girls"),
+        DB::raw("count(CASE WHEN gender= '1' THEN e_avg END) AS total_e_boys"),
+        DB::raw("count(CASE WHEN gender= '2' THEN e_avg END) AS total_e_girls"),
+        DB::raw("count(CASE WHEN gender= '1' THEN mil_avg END) AS total_mil_boys"),
+        DB::raw("count(CASE WHEN gender= '2' THEN mil_avg END) AS total_mil_girls"),
+        DB::raw("count(CASE WHEN gender= '1' THEN eng_avg END) AS total_eng_boys"),
+        DB::raw("count(CASE WHEN gender= '2' THEN eng_avg END) AS total_eng_girls"),
+        DB::raw("count(CASE WHEN gender= '1' THEN sci_avg END) AS total_sci_boys"),
+        DB::raw("count(CASE WHEN gender= '2' THEN sci_avg END) AS total_sci_girls"),
+        DB::raw("count(CASE WHEN gender= '1' THEN sst_avg END) AS total_sst_boys"),
+        DB::raw("count(CASE WHEN gender= '2' THEN sst_avg END) AS total_sst_girls"),
         DB::raw("count(l_avg) AS total_l_student"),DB::raw("SUM(L_avg::int)/count(L_avg) AS avg_l_marks"),DB::raw("SUM(l_avg::int) AS sum_l_marks"),
         DB::raw("count(m_avg) AS total_m_student"),DB::raw("SUM(m_avg::int)/count(l_avg) AS avg_m_marks"),DB::raw("SUM(m_avg::int) AS sum_m_marks"),
         DB::raw("count(e_avg) AS total_e_student"),DB::raw("SUM(e_avg::int)/count(e_avg) AS avg_e_marks"),DB::raw("SUM(e_avg::int) AS sum_e_marks"),
@@ -344,24 +359,38 @@ class QuestionnaireController extends Controller
                 $newData3Grade['male_gender'] = isset($nasDetails3->male_gender)?$nasDetails3->male_gender:0;
                 $newData3Grade['female_gender'] = isset($nasDetails3->female_gender)?$nasDetails3->female_gender:0;
                 $newData3Grade['total_l_student'] = isset($nasDetails3->total_l_student)?$nasDetails3->total_l_student:0;
+                $newData3Grade['total_l_boys'] = isset($nasDetails3->total_l_boys)?$nasDetails3->total_l_boys:0;
+                $newData3Grade['total_l_girls'] = isset($nasDetails3->total_l_girls)?$nasDetails3->total_l_girls:0;
                 $newData3Grade['avg_l_marks'] = isset($nasDetails3->avg_l_marks)?$nasDetails3->avg_l_marks:0;
                 $newData3Grade['sum_l_marks'] = isset($nasDetails3->sum_l_marks)?$nasDetails3->sum_l_marks:0;        
                 $newData3Grade['total_m_student'] = isset($nasDetails3->total_m_student)?$nasDetails3->total_m_student:0;
+                $newData3Grade['total_m_boys'] = isset($nasDetails3->total_m_boys)?$nasDetails3->total_m_boys:0;
+                $newData3Grade['total_m_girls'] = isset($nasDetails3->total_m_girls)?$nasDetails3->total_m_girls:0;
                 $newData3Grade['avg_m_marks'] = isset($nasDetails3->avg_m_marks)?$nasDetails3->avg_m_marks:0;
                 $newData3Grade['sum_m_marks'] = isset($nasDetails3->sum_m_marks)?$nasDetails3->sum_m_marks:0;        
                 $newData3Grade['total_e_student'] = isset($nasDetails3->total_e_student)?$nasDetails3->total_e_student:0;
+                $newData3Grade['total_e_boys'] = isset($nasDetails3->total_e_boys)?$nasDetails3->total_e_boys:0;
+                $newData3Grade['total_e_girls'] = isset($nasDetails3->total_e_girls)?$nasDetails3->total_e_girls:0;
                 $newData3Grade['avg_e_marks'] = isset($nasDetails3->avg_e_marks)?$nasDetails3->avg_e_marks:0;
                 $newData3Grade['sum_e_marks'] = isset($nasDetails3->sum_e_marks)?$nasDetails3->sum_e_marks:0;
                 $newData3Grade['total_mil_student'] = isset($nasDetails3->total_mil_student)?$nasDetails3->total_mil_student:0;
+                $newData3Grade['total_mil_boys'] = isset($nasDetails3->total_mil_boys)?$nasDetails3->total_mil_boys:0;
+                $newData3Grade['total_mil_girls'] = isset($nasDetails3->total_mil_girls)?$nasDetails3->total_mil_girls:0;
                 $newData3Grade['avg_mil_marks'] = isset($nasDetails3->avg_mil_marks)?$nasDetails3->avg_mil_marks:0;
                 $newData3Grade['sum_mil_marks'] = isset($nasDetails3->sum_mil_marks)?$nasDetails3->sum_mil_marks:0;        
                 $newData3Grade['total_eng_student'] = isset($nasDetails3->total_eng_student)?$nasDetails3->total_eng_student:0;
+                $newData3Grade['total_eng_boys'] = isset($nasDetails3->total_eng_boys)?$nasDetails3->total_eng_boys:0;
+                $newData3Grade['total_eng_girls'] = isset($nasDetails3->total_eng_girls)?$nasDetails3->total_eng_girls:0;
                 $newData3Grade['avg_eng_marks'] = isset($nasDetails3->avg_eng_marks)?$nasDetails3->avg_eng_marks:0;
                 $newData3Grade['sum_eng_marks'] = isset($nasDetails3->sum_eng_marks)?$nasDetails3->sum_eng_marks:0;        
                 $newData3Grade['total_sci_student'] = isset($nasDetails3->total_sci_student)?$nasDetails3->total_sci_student:0;
+                $newData3Grade['total_sci_boys'] = isset($nasDetails3->total_sci_boys)?$nasDetails3->total_sci_boys:0;
+                $newData3Grade['total_sci_girls'] = isset($nasDetails3->total_sci_girls)?$nasDetails3->total_sci_girls:0;
                 $newData3Grade['avg_sci_marks'] = isset($nasDetails3->avg_sci_marks)?$nasDetails3->avg_sci_marks:0;
                 $newData3Grade['sum_sci_marks'] = isset($nasDetails3->sum_sci_marks)?$nasDetails3->sum_sci_marks:0;
                 $newData3Grade['total_sst_student'] = isset($nasDetails3->total_sst_student)?$nasDetails3->total_sst_student:0;
+                $newData3Grade['total_sst_boys'] = isset($nasDetails3->total_sst_boys)?$nasDetails3->total_sst_boys:0;
+                $newData3Grade['total_sst_girls'] = isset($nasDetails3->total_sst_girls)?$nasDetails3->total_sst_girls:0;
                 $newData3Grade['avg_sst_marks'] = isset($nasDetails3->avg_sst_marks)?$nasDetails3->avg_sst_marks:0;
                 $newData3Grade['sum_sst_marks'] = isset($nasDetails3->sum_sst_marks)?$nasDetails3->sum_sst_marks:0;
                 $newData3Grade['created_at'] = now();
@@ -381,13 +410,13 @@ class QuestionnaireController extends Controller
 
         $allGradeStateData = DB::table('district_grade_level_performance')
         ->select('state_id','grade',DB::raw("SUM(total_student::int) AS total_student"),DB::raw("round(SUM(rural_location::int)) AS rural_location"),DB::raw("round(SUM(urban_location::int)) AS urban_location"),DB::raw("round(SUM(govt_school::int)) AS govt_school"),DB::raw("round(SUM(govt_aided_school::int)) AS govt_aided_school"),DB::raw("round(SUM(private_school::int)) AS private_school"),DB::raw("round(SUM(central_govt_school::int)) AS central_govt_school"),DB::raw("round(SUM(sc_social_group::int)) AS sc_social_group"),DB::raw("round(SUM(obc_social_group::int)) AS obc_social_group"),DB::raw("round(SUM(st_social_group::int)) AS st_social_group"),DB::raw("round(SUM(general_social_group::int)) AS general_social_group"),DB::raw("round(SUM(male_gender::int)) AS male_gender"),DB::raw("round(SUM(female_gender::int)) AS female_gender"),
-        DB::raw("round(SUM(total_l_student::int)) AS total_l_student"),DB::raw("round(SUM(sum_l_marks::int)) AS sum_l_marks"),DB::raw("SUM(sum_l_marks::int)/count(sum_l_marks) AS avg_l_marks"),
-        DB::raw("round(SUM(total_m_student::int)) AS total_m_student"),DB::raw("round(SUM(sum_m_marks::int)) AS sum_m_marks"),DB::raw("SUM(sum_m_marks::int)/count(sum_m_marks) AS avg_m_marks"),
-        DB::raw("round(SUM(total_e_student::int)) AS total_e_student"),DB::raw("round(SUM(sum_e_marks::int)) AS sum_e_marks"),DB::raw("SUM(sum_e_marks::int)/count(sum_e_marks) AS avg_e_marks"),
-        DB::raw("round(SUM(total_mil_student::int)) AS total_mil_student"),DB::raw("round(SUM(sum_mil_marks::int)) AS sum_mil_marks"),DB::raw("SUM(sum_mil_marks::int)/count(sum_mil_marks) AS avg_mil_marks"),
-        DB::raw("round(SUM(total_eng_student::int)) AS total_eng_student"),DB::raw("round(SUM(sum_eng_marks::int)) AS sum_eng_marks"),DB::raw("SUM(sum_eng_marks::int)/count(sum_eng_marks) AS avg_eng_marks"),
-        DB::raw("round(SUM(total_sci_student::int)) AS total_sci_student"),DB::raw("round(SUM(sum_sci_marks::int)) AS sum_sci_marks"),DB::raw("SUM(sum_sci_marks::int)/count(sum_sci_marks) AS avg_sci_marks"),
-        DB::raw("round(SUM(total_sst_student::int)) AS total_sst_student"),DB::raw("round(SUM(sum_sst_marks::int)) AS sum_sst_marks"),DB::raw("SUM(sum_sst_marks::int)/count(sum_sst_marks) AS avg_sst_marks"))
+        DB::raw("round(SUM(total_l_student::int)) AS total_l_student"),DB::raw("round(SUM(sum_l_marks::int)) AS sum_l_marks"),DB::raw("SUM(sum_l_marks::int)/count(sum_l_marks) AS avg_l_marks"),DB::raw("round(SUM(total_l_boys::int)) AS total_l_boys"),DB::raw("round(SUM(total_l_girls::int)) AS total_l_girls"),
+        DB::raw("round(SUM(total_m_student::int)) AS total_m_student"),DB::raw("round(SUM(sum_m_marks::int)) AS sum_m_marks"),DB::raw("SUM(sum_m_marks::int)/count(sum_m_marks) AS avg_m_marks"),DB::raw("round(SUM(total_m_boys::int)) AS total_m_boys"),DB::raw("round(SUM(total_m_girls::int)) AS total_m_girls"),
+        DB::raw("round(SUM(total_e_student::int)) AS total_e_student"),DB::raw("round(SUM(sum_e_marks::int)) AS sum_e_marks"),DB::raw("SUM(sum_e_marks::int)/count(sum_e_marks) AS avg_e_marks"),DB::raw("round(SUM(total_e_boys::int)) AS total_e_boys"),DB::raw("round(SUM(total_e_girls::int)) AS total_e_girls"),
+        DB::raw("round(SUM(total_mil_student::int)) AS total_mil_student"),DB::raw("round(SUM(sum_mil_marks::int)) AS sum_mil_marks"),DB::raw("SUM(sum_mil_marks::int)/count(sum_mil_marks) AS avg_mil_marks"),DB::raw("round(SUM(total_mil_boys::int)) AS total_mil_boys"),DB::raw("round(SUM(total_mil_girls::int)) AS total_mil_girls"),
+        DB::raw("round(SUM(total_eng_student::int)) AS total_eng_student"),DB::raw("round(SUM(sum_eng_marks::int)) AS sum_eng_marks"),DB::raw("SUM(sum_eng_marks::int)/count(sum_eng_marks) AS avg_eng_marks"),DB::raw("round(SUM(total_eng_boys::int)) AS total_eng_boys"),DB::raw("round(SUM(total_eng_girls::int)) AS total_eng_girls"),
+        DB::raw("round(SUM(total_sci_student::int)) AS total_sci_student"),DB::raw("round(SUM(sum_sci_marks::int)) AS sum_sci_marks"),DB::raw("SUM(sum_sci_marks::int)/count(sum_sci_marks) AS avg_sci_marks"),DB::raw("round(SUM(total_sci_boys::int)) AS total_sci_boys"),DB::raw("round(SUM(total_sci_girls::int)) AS total_sci_girls"),
+        DB::raw("round(SUM(total_sst_student::int)) AS total_sst_student"),DB::raw("round(SUM(sum_sst_marks::int)) AS sum_sst_marks"),DB::raw("SUM(sum_sst_marks::int)/count(sum_sst_marks) AS avg_sst_marks"),DB::raw("round(SUM(total_sst_boys::int)) AS total_sst_boys"),DB::raw("round(SUM(total_sst_girls::int)) AS total_sst_girls"))
         ->groupBy('state_id')
         ->groupBy('grade')
         ->get();
@@ -414,24 +443,38 @@ class QuestionnaireController extends Controller
                 $newStateData['male_gender'] = isset($nasDetailsStateCounts->male_gender)?$nasDetailsStateCounts->male_gender:0;
                 $newStateData['female_gender'] = isset($nasDetailsStateCounts->female_gender)?$nasDetailsStateCounts->female_gender:0;
                 $newStateData['total_l_student'] = isset($nasDetailsStateCounts->total_l_student)?$nasDetailsStateCounts->total_l_student:0;
+                $newStateData['total_l_boys'] = isset($nasDetailsStateCounts->total_l_boys)?$nasDetailsStateCounts->total_l_boys:0;
+                $newStateData['total_l_girls'] = isset($nasDetailsStateCounts->total_l_girls)?$nasDetailsStateCounts->total_l_girls:0;
                 $newStateData['avg_l_marks'] = isset($nasDetailsStateCounts->avg_l_marks)?$nasDetailsStateCounts->avg_l_marks:0;
                 $newStateData['sum_l_marks'] = isset($nasDetailsStateCounts->sum_l_marks)?$nasDetailsStateCounts->sum_l_marks:0;        
                 $newStateData['total_m_student'] = isset($nasDetailsStateCounts->total_m_student)?$nasDetailsStateCounts->total_m_student:0;
+                $newStateData['total_m_boys'] = isset($nasDetailsStateCounts->total_m_boys)?$nasDetailsStateCounts->total_m_boys:0;
+                $newStateData['total_m_girls'] = isset($nasDetailsStateCounts->total_m_girls)?$nasDetailsStateCounts->total_m_girls:0;
                 $newStateData['avg_m_marks'] = isset($nasDetailsStateCounts->avg_m_marks)?$nasDetailsStateCounts->avg_m_marks:0;
                 $newStateData['sum_m_marks'] = isset($nasDetailsStateCounts->sum_m_marks)?$nasDetailsStateCounts->sum_m_marks:0;        
                 $newStateData['total_e_student'] = isset($nasDetailsStateCounts->total_e_student)?$nasDetailsStateCounts->total_e_student:0;
+                $newStateData['total_e_boys'] = isset($nasDetailsStateCounts->total_e_boys)?$nasDetailsStateCounts->total_e_boys:0;
+                $newStateData['total_e_girls'] = isset($nasDetailsStateCounts->total_e_girls)?$nasDetailsStateCounts->total_e_girls:0;
                 $newStateData['avg_e_marks'] = isset($nasDetailsStateCounts->avg_e_marks)?$nasDetailsStateCounts->avg_e_marks:0;
                 $newStateData['sum_e_marks'] = isset($nasDetailsStateCounts->sum_e_marks)?$nasDetailsStateCounts->sum_e_marks:0;
                 $newStateData['total_mil_student'] = isset($nasDetailsStateCounts->total_mil_student)?$nasDetailsStateCounts->total_mil_student:0;
+                $newStateData['total_mil_boys'] = isset($nasDetailsStateCounts->total_mil_boys)?$nasDetailsStateCounts->total_mil_boys:0;
+                $newStateData['total_mil_girls'] = isset($nasDetailsStateCounts->total_mil_girls)?$nasDetailsStateCounts->total_mil_girls:0;
                 $newStateData['avg_mil_marks'] = isset($nasDetailsStateCounts->avg_mil_marks)?$nasDetailsStateCounts->avg_mil_marks:0;
                 $newStateData['sum_mil_marks'] = isset($nasDetailsStateCounts->sum_mil_marks)?$nasDetailsStateCounts->sum_mil_marks:0;        
                 $newStateData['total_eng_student'] = isset($nasDetailsStateCounts->total_eng_student)?$nasDetailsStateCounts->total_eng_student:0;
+                $newStateData['total_eng_boys'] = isset($nasDetailsStateCounts->total_eng_boys)?$nasDetailsStateCounts->total_eng_boys:0;
+                $newStateData['total_eng_girls'] = isset($nasDetailsStateCounts->total_eng_girls)?$nasDetailsStateCounts->total_eng_girls:0;
                 $newStateData['avg_eng_marks'] = isset($nasDetailsStateCounts->avg_eng_marks)?$nasDetailsStateCounts->avg_eng_marks:0;
                 $newStateData['sum_eng_marks'] = isset($nasDetailsStateCounts->sum_eng_marks)?$nasDetailsStateCounts->sum_eng_marks:0;        
                 $newStateData['total_sci_student'] = isset($nasDetailsStateCounts->total_sci_student)?$nasDetailsStateCounts->total_sci_student:0;
+                $newStateData['total_sci_boys'] = isset($nasDetailsStateCounts->total_sci_boys)?$nasDetailsStateCounts->total_sci_boys:0;
+                $newStateData['total_sci_girls'] = isset($nasDetailsStateCounts->total_sci_girls)?$nasDetailsStateCounts->total_sci_girls:0;
                 $newStateData['avg_sci_marks'] = isset($nasDetailsStateCounts->avg_sci_marks)?$nasDetailsStateCounts->avg_sci_marks:0;
                 $newStateData['sum_sci_marks'] = isset($nasDetailsStateCounts->sum_sci_marks)?$nasDetailsStateCounts->sum_sci_marks:0;
                 $newStateData['total_sst_student'] = isset($nasDetailsStateCounts->total_sst_student)?$nasDetailsStateCounts->total_sst_student:0;
+                $newStateData['total_sst_boys'] = isset($nasDetailsStateCounts->total_sst_boys)?$nasDetailsStateCounts->total_sst_boys:0;
+                $newStateData['total_sst_girls'] = isset($nasDetailsStateCounts->total_sst_girls)?$nasDetailsStateCounts->total_sst_girls:0;
                 $newStateData['avg_sst_marks'] = isset($nasDetailsStateCounts->avg_sst_marks)?$nasDetailsStateCounts->avg_sst_marks:0;
                 $newStateData['sum_sst_marks'] = isset($nasDetailsStateCounts->sum_sst_marks)?$nasDetailsStateCounts->sum_sst_marks:0;
                 $newStateData['created_at'] = now();
@@ -452,13 +495,13 @@ class QuestionnaireController extends Controller
 
         $allGradeNationalData = DB::table('district_grade_level_performance')
         ->select('grade',DB::raw("SUM(total_student::int) AS total_student"),DB::raw("round(SUM(rural_location::int)) AS rural_location"),DB::raw("round(SUM(urban_location::int)) AS urban_location"),DB::raw("round(SUM(govt_school::int)) AS govt_school"),DB::raw("round(SUM(govt_aided_school::int)) AS govt_aided_school"),DB::raw("round(SUM(private_school::int)) AS private_school"),DB::raw("round(SUM(central_govt_school::int)) AS central_govt_school"),DB::raw("round(SUM(sc_social_group::int)) AS sc_social_group"),DB::raw("round(SUM(obc_social_group::int)) AS obc_social_group"),DB::raw("round(SUM(st_social_group::int)) AS st_social_group"),DB::raw("round(SUM(general_social_group::int)) AS general_social_group"),DB::raw("round(SUM(male_gender::int)) AS male_gender"),DB::raw("round(SUM(female_gender::int)) AS female_gender"),
-        DB::raw("round(SUM(total_l_student::int)) AS total_l_student"),DB::raw("round(SUM(sum_l_marks::int)) AS sum_l_marks"),DB::raw("SUM(sum_l_marks::int)/count(sum_l_marks) AS avg_l_marks"),
-        DB::raw("round(SUM(total_m_student::int)) AS total_m_student"),DB::raw("round(SUM(sum_m_marks::int)) AS sum_m_marks"),DB::raw("SUM(sum_m_marks::int)/count(sum_m_marks) AS avg_m_marks"),
-        DB::raw("round(SUM(total_e_student::int)) AS total_e_student"),DB::raw("round(SUM(sum_e_marks::int)) AS sum_e_marks"),DB::raw("SUM(sum_e_marks::int)/count(sum_e_marks) AS avg_e_marks"),
-        DB::raw("round(SUM(total_mil_student::int)) AS total_mil_student"),DB::raw("round(SUM(sum_mil_marks::int)) AS sum_mil_marks"),DB::raw("SUM(sum_mil_marks::int)/count(sum_mil_marks) AS avg_mil_marks"),
-        DB::raw("round(SUM(total_eng_student::int)) AS total_eng_student"),DB::raw("round(SUM(sum_eng_marks::int)) AS sum_eng_marks"),DB::raw("SUM(sum_eng_marks::int)/count(sum_eng_marks) AS avg_eng_marks"),
-        DB::raw("round(SUM(total_sci_student::int)) AS total_sci_student"),DB::raw("round(SUM(sum_sci_marks::int)) AS sum_sci_marks"),DB::raw("SUM(sum_sci_marks::int)/count(sum_sci_marks) AS avg_sci_marks"),
-        DB::raw("round(SUM(total_sst_student::int)) AS total_sst_student"),DB::raw("round(SUM(sum_sst_marks::int)) AS sum_sst_marks"),DB::raw("SUM(sum_sst_marks::int)/count(sum_sst_marks) AS avg_sst_marks"))
+        DB::raw("round(SUM(total_l_student::int)) AS total_l_student"),DB::raw("round(SUM(sum_l_marks::int)) AS sum_l_marks"),DB::raw("SUM(sum_l_marks::int)/count(sum_l_marks) AS avg_l_marks"),DB::raw("round(SUM(total_l_boys::int)) AS total_l_boys"),DB::raw("round(SUM(total_l_girls::int)) AS total_l_girls"),
+        DB::raw("round(SUM(total_m_student::int)) AS total_m_student"),DB::raw("round(SUM(sum_m_marks::int)) AS sum_m_marks"),DB::raw("SUM(sum_m_marks::int)/count(sum_m_marks) AS avg_m_marks"),DB::raw("round(SUM(total_m_boys::int)) AS total_m_boys"),DB::raw("round(SUM(total_m_girls::int)) AS total_m_girls"),
+        DB::raw("round(SUM(total_e_student::int)) AS total_e_student"),DB::raw("round(SUM(sum_e_marks::int)) AS sum_e_marks"),DB::raw("SUM(sum_e_marks::int)/count(sum_e_marks) AS avg_e_marks"),DB::raw("round(SUM(total_e_boys::int)) AS total_e_boys"),DB::raw("round(SUM(total_e_girls::int)) AS total_e_girls"),
+        DB::raw("round(SUM(total_mil_student::int)) AS total_mil_student"),DB::raw("round(SUM(sum_mil_marks::int)) AS sum_mil_marks"),DB::raw("SUM(sum_mil_marks::int)/count(sum_mil_marks) AS avg_mil_marks"),DB::raw("round(SUM(total_mil_boys::int)) AS total_mil_boys"),DB::raw("round(SUM(total_mil_girls::int)) AS total_mil_girls"),
+        DB::raw("round(SUM(total_eng_student::int)) AS total_eng_student"),DB::raw("round(SUM(sum_eng_marks::int)) AS sum_eng_marks"),DB::raw("SUM(sum_eng_marks::int)/count(sum_eng_marks) AS avg_eng_marks"),DB::raw("round(SUM(total_eng_boys::int)) AS total_eng_boys"),DB::raw("round(SUM(total_eng_girls::int)) AS total_eng_girls"),
+        DB::raw("round(SUM(total_sci_student::int)) AS total_sci_student"),DB::raw("round(SUM(sum_sci_marks::int)) AS sum_sci_marks"),DB::raw("SUM(sum_sci_marks::int)/count(sum_sci_marks) AS avg_sci_marks"),DB::raw("round(SUM(total_sci_boys::int)) AS total_sci_boys"),DB::raw("round(SUM(total_sci_girls::int)) AS total_sci_girls"),
+        DB::raw("round(SUM(total_sst_student::int)) AS total_sst_student"),DB::raw("round(SUM(sum_sst_marks::int)) AS sum_sst_marks"),DB::raw("SUM(sum_sst_marks::int)/count(sum_sst_marks) AS avg_sst_marks"),DB::raw("round(SUM(total_sst_boys::int)) AS total_sst_boys"),DB::raw("round(SUM(total_sst_girls::int)) AS total_sst_girls"))
         ->groupBy('grade')
         ->get();
 
@@ -483,24 +526,38 @@ class QuestionnaireController extends Controller
                 $newNationalData['male_gender'] = isset($nasDetailsNationalCounts->male_gender)?$nasDetailsNationalCounts->male_gender:0;
                 $newNationalData['female_gender'] = isset($nasDetailsNationalCounts->female_gender)?$nasDetailsNationalCounts->female_gender:0;
                 $newNationalData['total_l_student'] = isset($nasDetailsNationalCounts->total_l_student)?$nasDetailsNationalCounts->total_l_student:0;
+                $newNationalData['total_l_boys'] = isset($nasDetailsNationalCounts->total_l_boys)?$nasDetailsNationalCounts->total_l_boys:0;
+                $newNationalData['total_l_girls'] = isset($nasDetailsNationalCounts->total_l_girls)?$nasDetailsNationalCounts->total_l_girls:0;
                 $newNationalData['avg_l_marks'] = isset($nasDetailsNationalCounts->avg_l_marks)?$nasDetailsNationalCounts->avg_l_marks:0;
                 $newNationalData['sum_l_marks'] = isset($nasDetailsNationalCounts->sum_l_marks)?$nasDetailsNationalCounts->sum_l_marks:0;        
                 $newNationalData['total_m_student'] = isset($nasDetailsNationalCounts->total_m_student)?$nasDetailsNationalCounts->total_m_student:0;
+                $newNationalData['total_m_boys'] = isset($nasDetailsNationalCounts->total_m_boys)?$nasDetailsNationalCounts->total_m_boys:0;
+                $newNationalData['total_m_girls'] = isset($nasDetailsNationalCounts->total_m_girls)?$nasDetailsNationalCounts->total_m_girls:0;
                 $newNationalData['avg_m_marks'] = isset($nasDetailsNationalCounts->avg_m_marks)?$nasDetailsNationalCounts->avg_m_marks:0;
                 $newNationalData['sum_m_marks'] = isset($nasDetailsNationalCounts->sum_m_marks)?$nasDetailsNationalCounts->sum_m_marks:0;        
                 $newNationalData['total_e_student'] = isset($nasDetailsNationalCounts->total_e_student)?$nasDetailsNationalCounts->total_e_student:0;
+                $newNationalData['total_e_boys'] = isset($nasDetailsNationalCounts->total_e_boys)?$nasDetailsNationalCounts->total_e_boys:0;
+                $newNationalData['total_e_girls'] = isset($nasDetailsNationalCounts->total_e_girls)?$nasDetailsNationalCounts->total_e_girls:0;
                 $newNationalData['avg_e_marks'] = isset($nasDetailsNationalCounts->avg_e_marks)?$nasDetailsNationalCounts->avg_e_marks:0;
                 $newNationalData['sum_e_marks'] = isset($nasDetailsNationalCounts->sum_e_marks)?$nasDetailsNationalCounts->sum_e_marks:0;
                 $newNationalData['total_mil_student'] = isset($nasDetailsNationalCounts->total_mil_student)?$nasDetailsNationalCounts->total_mil_student:0;
+                $newNationalData['total_mil_boys'] = isset($nasDetailsNationalCounts->total_mil_boys)?$nasDetailsNationalCounts->total_mil_boys:0;
+                $newNationalData['total_mil_girls'] = isset($nasDetailsNationalCounts->total_mil_girls)?$nasDetailsNationalCounts->total_mil_girls:0;
                 $newNationalData['avg_mil_marks'] = isset($nasDetailsNationalCounts->avg_mil_marks)?$nasDetailsNationalCounts->avg_mil_marks:0;
                 $newNationalData['sum_mil_marks'] = isset($nasDetailsNationalCounts->sum_mil_marks)?$nasDetailsNationalCounts->sum_mil_marks:0;        
                 $newNationalData['total_eng_student'] = isset($nasDetailsNationalCounts->total_eng_student)?$nasDetailsNationalCounts->total_eng_student:0;
+                $newNationalData['total_eng_boys'] = isset($nasDetailsNationalCounts->total_eng_boys)?$nasDetailsNationalCounts->total_eng_boys:0;
+                $newNationalData['total_eng_girls'] = isset($nasDetailsNationalCounts->total_eng_girls)?$nasDetailsNationalCounts->total_eng_girls:0;
                 $newNationalData['avg_eng_marks'] = isset($nasDetailsNationalCounts->avg_eng_marks)?$nasDetailsNationalCounts->avg_eng_marks:0;
                 $newNationalData['sum_eng_marks'] = isset($nasDetailsNationalCounts->sum_eng_marks)?$nasDetailsNationalCounts->sum_eng_marks:0;        
                 $newNationalData['total_sci_student'] = isset($nasDetailsNationalCounts->total_sci_student)?$nasDetailsNationalCounts->total_sci_student:0;
+                $newNationalData['total_sci_boys'] = isset($nasDetailsNationalCounts->total_sci_boys)?$nasDetailsNationalCounts->total_sci_boys:0;
+                $newNationalData['total_sci_girls'] = isset($nasDetailsNationalCounts->total_sci_girls)?$nasDetailsNationalCounts->total_sci_girls:0;
                 $newNationalData['avg_sci_marks'] = isset($nasDetailsNationalCounts->avg_sci_marks)?$nasDetailsNationalCounts->avg_sci_marks:0;
                 $newNationalData['sum_sci_marks'] = isset($nasDetailsNationalCounts->sum_sci_marks)?$nasDetailsNationalCounts->sum_sci_marks:0;
                 $newNationalData['total_sst_student'] = isset($nasDetailsNationalCounts->total_sst_student)?$nasDetailsNationalCounts->total_sst_student:0;
+                $newNationalData['total_sst_boys'] = isset($nasDetailsNationalCounts->total_sst_boys)?$nasDetailsNationalCounts->total_sst_boys:0;
+                $newNationalData['total_sst_girls'] = isset($nasDetailsNationalCounts->total_sst_girls)?$nasDetailsNationalCounts->total_sst_girls:0;
                 $newNationalData['avg_sst_marks'] = isset($nasDetailsNationalCounts->avg_sst_marks)?$nasDetailsNationalCounts->avg_sst_marks:0;
                 $newNationalData['sum_sst_marks'] = isset($nasDetailsNationalCounts->sum_sst_marks)?$nasDetailsNationalCounts->sum_sst_marks:0;
                 $newNationalData['created_at'] = now();
