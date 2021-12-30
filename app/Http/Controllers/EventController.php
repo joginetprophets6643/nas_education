@@ -22,22 +22,7 @@ class EventController extends Controller
         return view('admin.events.index',compact('events'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         $validatedData=$request->validate([
@@ -56,12 +41,14 @@ class EventController extends Controller
 
     public function edit($id)
     {
+        $id=decode5t($id);
         $event=DB::table('events')->where('id',$id)->first();
         return view('admin.events.edit',compact('event'));
     }
 
     public function update(Request $request,$id)
     {
+        $id=decode5t($id);
         $event=Event::find($id)->update([
             'name'=>$request->name,
         ]);
@@ -74,6 +61,7 @@ class EventController extends Controller
     }
 
     public function getImages($id){
+        $id=decode5t($id);
         $data=DB::table('event_images')->where('event_id',$id)->first();
         if($data){
         $images=json_decode($data->images);
@@ -88,7 +76,7 @@ class EventController extends Controller
     // }
 
     public function addImages(Request $request,$id){
-
+        $id=decode5t($id);
         $request->validate([
             'images'=>'required',
         ]);
@@ -144,6 +132,8 @@ class EventController extends Controller
     }
 
     public function deleteImage($image,$id){
+        $id=decode5t($id);
+        $image=decode5t($image);
         $data=DB::table('event_images')->where('event_id',$id)->first();
         $images=json_decode($data->images);
         // dd($images);
@@ -202,7 +192,7 @@ class EventController extends Controller
 
 
     public function deleteVedio($id){
-       
+        $id=decode5t($id);      
         $vedio=Vedios::find($id)->first();
         Vedios::find($id)->delete();
         unlink(public_path("assets/uploads/vedios/".$vedio->vedio));

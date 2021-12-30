@@ -38,7 +38,7 @@
 
         <div class="mb-12" >
             <label class="form-label">Contact Us</label>
-            <textarea class="form-control" name="contact_us" cols="30" rows="10" >{{$content->contact_us}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="contact_us" cols="30" rows="10">{{$content->contact_us}}</textarea>
             @error('contact_us')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -48,7 +48,7 @@
 
         <div class="mb-12" >
             <label class="form-label">Meta Description</label>
-            <textarea class="form-control" name="meta_description" cols="30" rows="10" >{{$content->meta_description}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="meta_description" cols="30" rows="10" >{{$content->meta_description}}</textarea>
             @error('meta_description')
             <span class="text-danger">{{$message}}</span>
             @enderror

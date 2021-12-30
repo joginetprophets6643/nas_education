@@ -44,13 +44,14 @@ class NationalController extends Controller
 
     public function edit($id)
     {
+        $id=decode5t($id);
         $national=NationalStatistic::where('id',$id)->first();
         return view('admin.master.national.edit',compact('national'));
     }
 
     public function update(Request $request,$id)
     {
-        
+        $id=decode5t($id);
         $request->validate([
             'total_district_area'=>'required',
             'total_population'=>'required',
@@ -75,8 +76,9 @@ class NationalController extends Controller
     }
 
     public function destroy($id){
+        $id=decode5t($id);
         NationalStatistic::find($id)->delete();
-        return Redirect()->route('state')->with('success','National Deleted Successfully');
+        return Redirect()->route('national')->with('success','National Deleted Successfully');
     }
 
 }

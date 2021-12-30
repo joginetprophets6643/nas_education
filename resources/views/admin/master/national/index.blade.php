@@ -42,8 +42,9 @@
               <td>{{$national->urban_population}}</td>
               <td>{{$national->literacy_rate}}</td>
               <td>
-                <a href="{{url('edit/national/'.$national->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/national/'.$national->id)}}" data-bs-toggle="modal" data-bs-target="#Deletenational">Delete</button>
+                <?php $id=encode5t($national->id)?>
+                <a href="{{url('edit/national/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/national/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletenational">Delete</button>
               </td>
             </tr>
             @endforeach

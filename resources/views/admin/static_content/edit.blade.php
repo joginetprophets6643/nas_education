@@ -6,7 +6,8 @@
     <div class="card">
         <div class="card-header">Edit Content</div>
         <div class="card-body">
-        <form action="{{route('update-content',$content->id)}}" method="POST">
+            <?php $id=encode5t($content->id)?>
+        <form action="{{route('update-content',$id)}}" method="POST">
             @csrf
 
         <div class="row">
@@ -43,7 +44,7 @@
         <br>
         <div class="mb-3">
             <label class="form-label">Home Page Content</label>
-            <textarea class="form-control" name="home_content" cols="30" rows="10">{{$content->home_page_content}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="home_content" cols="30" rows="10">{{$content->home_page_content}}</textarea>
             @error('home_content')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -51,7 +52,7 @@
 
         <div class="mb-3">
             <label class="form-label">Inner Page Content</label>
-            <textarea class="form-control" name="inner_content" cols="30" rows="10">{{$content->inner_page_content}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="inner_content" cols="30" rows="10">{{$content->inner_page_content}}</textarea>
             @error('inner_content')
             <span class="text-danger">{{$message}}</span>
             @enderror

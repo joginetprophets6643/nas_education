@@ -6,13 +6,13 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="heading-yellow">
-                Data Share
+                {{__('lang.DATA SHARE')}}
                 </h2>
                 <div class="breadcrum-wrap">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data Share</li>
+                        <li class="breadcrumb-item"><a href="index.html">{{ __('lang.Home') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{__('lang.DATA SHARE')}}</li>
                         </ol>
                     </nav>
                 </div>

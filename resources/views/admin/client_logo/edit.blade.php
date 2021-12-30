@@ -11,9 +11,18 @@
                 <div class="card-header"> Update Client Logo
                 </div>
                 <div class="card-body">
-                <form action="{{route('update-logo',$client_logo->id)}}" method="POST" enctype="multipart/form-data">
+                   <?php $id=encode5t($client_logo->id)?>
+                <form action="{{route('update-logo',$id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    
+                
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" name="title" class="form-control" id="url" value="{{$client_logo->title}}" aria-describedby="titleHelp">
+                  @error('title')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+
                 <div class="mb-3">
                     <label for="url" class="form-label">URL</label>
                     <input type="text" name="url" class="form-control" value="{{$client_logo->url}}">

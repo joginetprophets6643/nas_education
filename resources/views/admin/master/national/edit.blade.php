@@ -6,7 +6,8 @@
     <div class="card">
         <div class="card-header">Edit National Statistic</div>
         <div class="card-body">
-        <form action="{{route('update-national',$national->id)}}" method="POST">
+            <?php $id=encode5t($national->id)?>
+        <form action="{{route('update-national',$id)}}" method="POST">
             @csrf
 
 
