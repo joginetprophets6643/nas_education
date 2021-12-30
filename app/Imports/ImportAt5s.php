@@ -46,7 +46,7 @@ class ImportAt5s implements ToModel,WithStartRow
            {
           
             $total_number_question = $total_number_question + 1;
-            if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10) && in_array($row[3] ,[51,52,53,54]) && in_array($row[$key],[1,2,3,4,'X','Z']) && in_array($row[7],[1,2,3,4]) && in_array($row[8],[1,2,3,4,5,6]))
+            if((strlen((integer)$row[1])==9) && (strlen((integer)$row[2])==10) && in_array($row[3] ,[51,52,53,54]) && in_array($row[$key],[1,2,3,4,'X','Z']) && in_array($row[7],[1,2,3,4]) && in_array($row[8],[1,2,3,4,5,6,'X']))
             {
               $check_result = $this->get_attemp_question_count($row[1],$row[3],$key,$row[$key]);
                if($check_result==true)
@@ -84,7 +84,7 @@ class ImportAt5s implements ToModel,WithStartRow
             $data['at5_set_error_desc']     =        "at5_set code should be 51,52,53,54";
             $data['at5_grade_error_desc']   =        "at5_grade code should be one digit";
             $data['at5_socgrp_error_desc']  =        "at5_socgrp code should be 1,2,3,4";
-            $data['at5_cwd_error_desc']     =        "at5_cwd should be 1,2,3,4,5,6";
+            $data['at5_cwd_error_desc']     =        "at5_cwd should be 1,2,3,4,5,6,X";
             $data['at5_q01_error_desc']     =        "at5_q01 should be 1,2,3,4,X,Z";
             $data['at5_q02_error_desc']     =        "at5_q02 should be 1,2,3,4,X,Z";
             $data['at5_q03_error_desc']     =        "at5_q03 should be 1,2,3,4,X,Z";

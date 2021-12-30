@@ -75,6 +75,13 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="{{url('/static-program')}}">
+              <span class="menu-title">Manage Program</span>
+              <i class="icon-doc menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Master</span>
               <i class="icon-doc menu-icon"></i>

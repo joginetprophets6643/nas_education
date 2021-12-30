@@ -87,6 +87,7 @@ class QuestionnaireController extends Controller
                             'language'=>substr($key,0,-3),
                             'total_no_question'=>$checkLaguage[3][$key],
                             'correct_ans'=>$value,
+                            'average_performance_in_percentage'=>($value*100)/$checkLaguage[3][$key],
                             'created_at' => now(),
                             'updated_at' => now()
                         ];
@@ -150,6 +151,7 @@ class QuestionnaireController extends Controller
                             'language'=>substr($key5,0,-3),
                             'total_no_question'=>$checkLaguage[3][$key5],
                             'correct_ans'=>$value5,
+                            'average_performance_in_percentage'=>($value5*100)/$checkLaguage[3][$key5],
                             'created_at' => now(),
                             'updated_at' => now()
                         ];
@@ -214,6 +216,7 @@ class QuestionnaireController extends Controller
                             'language'=>substr($key8,0,-3),
                             'total_no_question'=>$checkLaguage[4][$key8],
                             'correct_ans'=>$value8,
+                            'average_performance_in_percentage'=>($value8*100)/$checkLaguage[4][$key8],
                             'created_at' => now(),
                             'updated_at' => now()
                         ];
@@ -277,6 +280,7 @@ class QuestionnaireController extends Controller
                             'language'=>substr($key10,0,-3),
                             'total_no_question'=>$checkLaguage[5][$key10],
                             'correct_ans'=>$value10,
+                            'average_performance_in_percentage'=>($value10*100)/$checkLaguage[5][$key10],
                             'created_at' => now(),
                             'updated_at' => now()
                         ];

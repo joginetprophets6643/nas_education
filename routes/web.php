@@ -70,10 +70,11 @@ Route::post('/update/profile','App\Http\Controllers\AdminController@updateProfil
 
 //Team Routes
 Route::get('/team-manager','App\Http\Controllers\TeamController@index')->name('team');
-Route::post('/add/member','App\Http\Controllers\TeamController@store')->name('create-member');
+Route::get('/add/member','App\Http\Controllers\TeamController@add')->name('add-member');
+Route::post('/store/member','App\Http\Controllers\TeamController@store')->name('store-member');
 Route::get('/edit/member/{id}','App\Http\Controllers\TeamController@edit')->name('edit-member');
 Route::post('/update/member/{id}','App\Http\Controllers\TeamController@update')->name('update-member');
-Route::get('/delete/member/{image}/{id}','App\Http\Controllers\TeamController@destroy');
+Route::get('/delete/member/{id}','App\Http\Controllers\TeamController@destroy');
 
 //Static content Routes
 Route::get('/static-content','App\Http\Controllers\StaticContentController@index')->name('content');
@@ -139,6 +140,14 @@ Route::get('/edit/setting','App\Http\Controllers\SettingController@edit')->name(
 Route::get('/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
 Route::post('/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
 
+//Program Routes
+Route::get('/static-program','App\Http\Controllers\StaticProgramController@index')->name('program');
+Route::get('/add/program','App\Http\Controllers\StaticProgramController@add')->name('add-program');
+Route::post('/store/program','App\Http\Controllers\StaticProgramController@store')->name('store-program');
+Route::get('/edit/program/{id}','App\Http\Controllers\StaticProgramController@edit')->name('edit-program');
+Route::get('/delete/program/{id}','App\Http\Controllers\StaticProgramController@destroy');
+Route::post('/update/program/{id}','App\Http\Controllers\StaticProgramController@update')->name('update-program');
+
 
 //Front Routes
 
@@ -161,5 +170,8 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/success','App\Http\Controllers\UserController@success')->name('success');
     Route::get('/login','App\Http\Controllers\UserController@viewLogin')->name('login');
     Route::post('/check','App\Http\Controllers\UserController@login')->name('check');
+    Route::get('/program','App\Http\Controllers\FrontController@program');
+    Route::get('/nas-team','App\Http\Controllers\FrontController@team');
+    Route::get('/data-share','App\Http\Controllers\FrontController@data');
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
