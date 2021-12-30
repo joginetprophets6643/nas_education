@@ -6,7 +6,7 @@
 @include('front.report_card.feedback')
 @include('front.report_card.learning')
 @include('front.report_card.performance')
-@include('front.report_card.participation')
+@include('front.report_card.participation',['name'=>'pussy'])
 @include('front.report_card.information')
 
 

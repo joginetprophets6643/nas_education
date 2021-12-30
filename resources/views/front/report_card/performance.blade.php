@@ -72,7 +72,7 @@
                                       </div>
                                       <div class="col-md-12">
                                         <div class="accordion" id="perAccordion">
-                                          <div class="accordion-item mtb-30">
+                                          <div class="accordion-item mtb-30" id="gender_section_performance" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionOne">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                                                 Performance by Gender
@@ -87,13 +87,12 @@
                                                         <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-gluid" />
                                                         <p class="title">Language</p>
                                                       </div>
-                                                      
                                                     </div> 
                                                   </div>
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-blue">
                                                         <figure class="highcharts-figure">
-                                                          <div id="languageBarGraph"></div>
+                                                          <div id="GenderLanguageBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -102,7 +101,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
-                                                          <div id="evsBarGraph"></div>
+                                                          <div id="GenderEvsBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -128,7 +127,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-pink">
                                                         <figure class="highcharts-figure">
-                                                          <div id="mathBarGraph"></div>
+                                                          <div id="GenderMathBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -136,7 +135,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="accordion-item mtb-30">
+                                          <div class="accordion-item mtb-30" id="location_section_performance" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionTwo">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseTwo" aria-expanded="true" aria-controls="perAccordioncollapseTwo">
                                                 Performance by Location
@@ -157,7 +156,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-blue">
                                                         <figure class="highcharts-figure">
-                                                          <div id="languageBarGraph2"></div>
+                                                          <div id="LocationLanguageBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -166,7 +165,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
-                                                          <div id="evsBarGraph2"></div>
+                                                          <div id="LocationEvsBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -192,7 +191,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-pink">
                                                         <figure class="highcharts-figure">
-                                                          <div id="mathBarGraph2"></div>
+                                                          <div id="LocationMathBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -200,7 +199,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="accordion-item mtb-30">
+                                          <div class="accordion-item mtb-30" id="management_section_performance" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionThree">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseThree" aria-expanded="true" aria-controls="perAccordioncollapseThree">
                                                 Performance by Managment
@@ -221,7 +220,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-blue">
                                                         <figure class="highcharts-figure">
-                                                          <div id="languageBarGraph3"></div>
+                                                          <div id="ManagementLanguageBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -230,7 +229,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
-                                                          <div id="evsBarGraph3"></div>
+                                                          <div id="ManagementEvsBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -256,7 +255,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-pink">
                                                         <figure class="highcharts-figure">
-                                                          <div id="mathBarGraph3"></div>
+                                                          <div id="ManagementMathBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -264,7 +263,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="accordion-item mtb-30">
+                                          <div class="accordion-item mtb-30" id="social_section_performance" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionfour">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapsefour" aria-expanded="true" aria-controls="perAccordioncollapsefour">
                                                 Performance by Social Group
@@ -285,7 +284,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-blue">
                                                         <figure class="highcharts-figure">
-                                                          <div id="languageBarGraph4"></div>
+                                                          <div id="SocialLanguageBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -294,7 +293,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
-                                                          <div id="evsBarGraph4"></div>
+                                                          <div id="SocialEvsBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
@@ -320,7 +319,7 @@
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-pink">
                                                         <figure class="highcharts-figure">
-                                                          <div id="mathBarGraph4"></div>
+                                                          <div id="SocialMathBarGraph"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
