@@ -21,10 +21,10 @@ class FeedbackController extends Controller
          * Date: 30/12/2021
          * Start Here
          *************************************************************/
-
+        ini_set('max_execution_time', '500');
         $pqData =  PQs::with(['NasExamDetails'=>function($q){
             $q->select('state_cd','district_cd','udise_sch_code');
-        }])->take(5)->get();
+        }])->get();
 
         $allGradeCalculateData = array();
         if(count($pqData)>0)
