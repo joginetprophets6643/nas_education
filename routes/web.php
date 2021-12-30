@@ -173,5 +173,6 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/program','App\Http\Controllers\FrontController@program');
     Route::get('/nas-team','App\Http\Controllers\FrontController@team');
     Route::get('/data-share','App\Http\Controllers\FrontController@data');
+    Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');

@@ -35,6 +35,7 @@ class BannerController extends Controller
 
     public function edit($id)
     {
+        $id=decode5t($id);
         $banner=Banner::where('id',$id)->first();
         return view('admin.banner.edit',compact('banner'));
     }
@@ -42,6 +43,7 @@ class BannerController extends Controller
 
     public function update(Request $request,$id)
     {
+        $id=decode5t($id);
         $request->validate([
             'image'=>'mimes:jpeg,jpg,png',
             'description'=>'required',
@@ -71,6 +73,7 @@ class BannerController extends Controller
 
 
     public function destroy($image,$id){
+        $id=decode5t($id);
         Banner::where('id',$id)->delete();
         unlink(public_path("assets/uploads/banner/".$image));
         return Redirect()->route('manage-banner')->with('success','Banner Deleted Successfully');

@@ -36,6 +36,7 @@
                                     <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="card-body">
+                                        <?php $id=encode5t($id)?>
                                     <form action="{{url('add/images/'.$id)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
@@ -71,6 +72,8 @@
                         @foreach($images as $image)
                         <li>
                             <img src="{{asset('assets/uploads/'.$image)}}" class="w-100" alt="">
+                            <?php $id=encode5t($id);
+                            $image=encode5t($image)?>
                             <button class="btn btn-danger btn-sm delete-img-btn" data-delete-link="{{url('delete/image/'.$image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
                         </li>
                         @endforeach

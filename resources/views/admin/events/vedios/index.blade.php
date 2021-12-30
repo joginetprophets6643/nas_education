@@ -86,7 +86,8 @@
                             <source src="{{URL::asset('/assets/upload/vedios/'.$vedio->vedio)}}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <button class="btn btn-danger btn-sm delete-vedio-btn" data-delete-link="{{url('delete/vedio/'.$vedio->id)}}" data-bs-toggle="modal" data-bs-target="#DeleteVedio">Delete</button>
+                        <?php $id=encode5t($vedio->id)?>
+                        <button class="btn btn-danger btn-sm delete-vedio-btn" data-delete-link="{{url('delete/vedio/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteVedio">Delete</button>
                         </li>
                         @endforeach
                         </ul>

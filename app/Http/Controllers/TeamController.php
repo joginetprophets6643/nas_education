@@ -7,33 +7,20 @@ use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $members=Team::all();
         return view('admin.team.index',compact('members'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function add()
     {
         return view('admin.team.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreTeamRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -64,6 +51,7 @@ class TeamController extends Controller
     
     public function edit($id)
     {
+        $id=decode5t($id);
         $member=Team::where('id',$id)->first();
         return view('admin.team.edit',compact('member'));
     }
@@ -71,6 +59,7 @@ class TeamController extends Controller
     
     public function update(Request $request,$id)
     {
+        $id=decode5t($id);
         $request->validate([
             'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,PNG,JPEG,JPG',
@@ -103,6 +92,7 @@ class TeamController extends Controller
     
     public function destroy($id)
     {
+        $id=decode5t($id);
         $team=Team::where('id',$id)->first();
         if($team->image){
         unlink(public_path("assets/uploads/team/".$image));

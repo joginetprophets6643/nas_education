@@ -38,8 +38,9 @@
               <td>{{$member->designation}}</td>
               <!-- <td>{{$member->mobile}}</td> -->
               <td>
-                <a href="{{url('edit/member/'.$member->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/member/'.$member->id)}}" data-bs-toggle="modal" data-bs-target="#DeleteMember">Delete</button>
+                <?php $id=encode5t($member->id)?>
+                <a href="{{url('edit/member/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/member/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteMember">Delete</button>
               </td>
             </tr>
             @endforeach

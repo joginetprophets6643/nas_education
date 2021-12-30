@@ -24,6 +24,7 @@ class GalleryController extends Controller
         return view('front.gallery.vedios.index',compact('vedios'));
     }
     public function view($id){
+        $id=decode5t($id);
         $data=Event::join('event_images','events.id','=','event_images.event_id')->where('events.id',$id)->first();
         $images=json_decode($data->images);
         return view('front.gallery.images.view',compact('images','data'));

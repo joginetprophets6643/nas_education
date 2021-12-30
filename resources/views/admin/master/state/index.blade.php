@@ -38,8 +38,9 @@
               <td>{{$state->state_name}}</td>
               <td>{{$state->udise_state_code}}</td>
               <td>
-                <a href="{{url('edit/state/'.$state->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/state/'.$state->id)}}" data-bs-toggle="modal" data-bs-target="#Deletestate">Delete</button>
+                <?php $id=encode5t($state->id)?>
+                <a href="{{url('edit/state/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/state/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletestate">Delete</button>
               </td>
             </tr>
             @endforeach

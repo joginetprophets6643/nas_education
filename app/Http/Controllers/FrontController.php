@@ -41,6 +41,7 @@ class FrontController extends Controller
             $count[$event->id]=count(json_decode($event->images));
             $image[$event->id]=json_decode($event->images)[0];
         }
+        
         $vedios=Vedios::where('status','1')->get();
         $states=State_Master::all();
 
@@ -74,5 +75,18 @@ class FrontController extends Controller
         $programs=Program::where('language',$lang,)->orderBy('id')->get();
         $members=Team::whereIn('name',['Hrushikesh Senapaty','Euphrates Efosi Wose'])->get();
         return view('front.program.index',compact('programs','members'));
+    }
+
+    public function gallery(){
+        $events=Event::join('event_images','events.id','=','event_images.event_id')->take(4)->get();
+        
+        $count=[];
+        $image=[];
+        foreach($events as $event){
+            $count[$event->id]=count(json_decode($event->images));
+            $image[$event->id]=json_decode($event->images)[0];
+        }
+        $vedios=Vedios::where('status','1')->take(4)->get();
+        return view('front.gallery.index',compact('vedios','events','image'));
     }
 }

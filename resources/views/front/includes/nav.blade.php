@@ -44,10 +44,10 @@
     <header class="site-header fixed-top">
         <nav class="navbar navbar-expand-lg">
           <div class="logo-wrap">
-            
+            <?php $setting=get_setting()?>
             <div class="d-flex justify-content-between w-100">
               <a class="navbar-brand" href="/">
-                <img src="{{asset('assets/front/images/logo.png')}}" alt="logo" class="img-fluid" />
+                <img src="{{asset('assets/uploads/logo/'.$setting->logo_1)}}" alt="logo" class="img-fluid" />
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="toggler-icon"></span>
@@ -57,7 +57,7 @@
             </div>
             
             <a href="#">
-              <img src="{{asset('assets/front/images/emblem.png')}}" alt="img" class="img-fluid" />
+              <img src="{{asset('assets/uploads/logo/'.$setting->logo_2)}}" alt="img" class="img-fluid" />
             </a>
           </div>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -96,7 +96,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#">{{__('lang.GALLERY')}}</a>
+                <a class="nav-link" href="{{url('gallery')}}">{{__('lang.GALLERY')}}</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('lang.GALLERY')}}</a>
