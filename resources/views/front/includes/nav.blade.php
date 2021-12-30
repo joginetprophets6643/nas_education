@@ -18,12 +18,12 @@
               <a href="#" class="textplus">A++</a>
             </div>
           </li>
-          <li>
+          <!-- <li>
               <div class="d-flex">
                 <a href="#" class="whitebox">A</a>
                 <a href="#" class="blackbox">A</a>
               </div>
-          </li>
+          </li> -->
           <li>
             <a href="#">
               <div class="select-wrap">

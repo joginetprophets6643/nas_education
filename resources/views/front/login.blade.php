@@ -140,7 +140,6 @@ function captchaGenerate(){
 }
 
 $("body").on('click', '.toggle-password', function() {
-  $(this).toggleClass("input-icon");
   var input = $("#pass_log_id");
   if (input.attr("type") === "password") {
     input.attr("type", "text");
