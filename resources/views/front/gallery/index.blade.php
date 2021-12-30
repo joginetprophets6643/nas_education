@@ -6,13 +6,13 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="heading-yellow">
-                Gallery
+                {{ __('lang.Gallery') }}
                 </h2>
                 <div class="breadcrum-wrap">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                        <li class="breadcrumb-item"><a href="index.html">{{ __('lang.Home') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Gallery') }}</li>
                         </ol>
                     </nav>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="card-white">
                     <div class="photogallery-content">
                     <h2 class="heading-blue mb-4">
-                        PHOTO GALLERY
+                        {{ __('lang.Photo Gallery') }}
                     </h2>
                     <div class="row">
                         @foreach($events as $event)
@@ -51,7 +51,7 @@
                     </div>
                     <div class="videogallery-content">
                     <h2 class="heading-blue mb-4">
-                        VIDEO GALLERY
+                        {{__('lang.Video Gallery')}}
                     </h2>
                     <div class="row">
                         @foreach($vedios as $vedio)
