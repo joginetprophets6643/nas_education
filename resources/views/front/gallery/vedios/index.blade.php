@@ -11,8 +11,8 @@
                 <div class="breadcrum-wrap">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/">{{ __('lang.Home') }}</a></li>
-                            <li class="breadcrumb-item"><a href="/vedio-gallery">{{ __('lang.Gallery') }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/vedio-gallery')}}">{{ __('lang.Gallery') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{__('lang.Video Gallery')}}</li>
                         </ol>
                         </nav>
