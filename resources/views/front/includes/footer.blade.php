@@ -102,7 +102,7 @@
               <div class="footer-links contact-info">
                 <h2 class="heading-white-xs">
                   <?php $setting=get_setting()?>
-                  
+                  @if($setting)
                   {{__('lang.CONTACT US')}}
                 </h2>
                 <ul>
@@ -111,6 +111,7 @@
                       {!!$setting->contact_us!!}
                     </div>
                   </li>
+                  @endif
                 </ul>
               </div>
           </div>
@@ -161,6 +162,7 @@
           </div>
           <div class="col-md-6">
             <div class="social-links">
+            @if($setting)
                 <ul>
                   <li>
                     <a href="{{url($setting->fb)}}">
@@ -190,11 +192,13 @@
                     </a>
                   </li>
                 </ul>
+                @endif
             </div>
           </div>
         </div>
       </div>
     </footer>
+    
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
