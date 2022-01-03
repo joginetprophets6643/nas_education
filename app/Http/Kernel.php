@@ -46,6 +46,12 @@ class Kernel extends HttpKernel
         ],
         'language' => [
             \App\Http\Middleware\Localization::class,
+        ],
+        'islogin'=>[
+            \App\Http\Middleware\Authenticated::class,
+        ],
+        'secure'=>[
+            \App\Http\Middleware\Secure::class,
         ]        
     ];
 

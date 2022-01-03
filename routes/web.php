@@ -40,14 +40,15 @@ Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name(
 
 
 //Admin routes
+Route::group(["middleware" => ["secure"]], function(){
 Route::get('secure-admin', 'App\Http\Controllers\AdminController@index')->name('secure-admin');
+});
 Route::post('login-post', 'App\Http\Controllers\AdminController@login');
-Route::get('logout', 'App\Http\Controllers\AdminController@logout');
 Route::get('register', 'App\Http\Controllers\AdminController@register');
 
-
+Route::group(["middleware" => ["islogin"]], function(){
 Route::get('dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
-
+Route::get('logout', 'App\Http\Controllers\AdminController@logout');
 
 //Event Routes
 
@@ -152,15 +153,18 @@ Route::get('/edit/program/{id}','App\Http\Controllers\StaticProgramController@ed
 Route::get('/delete/program/{id}','App\Http\Controllers\StaticProgramController@destroy');
 Route::post('/update/program/{id}','App\Http\Controllers\StaticProgramController@update')->name('update-program');
 
+});
+
+
 
 //Front Routes
 
 Route::group(["middleware" => ["language"]], function(){
     Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
-    Route::get('/image-gallery','App\Http\Controllers\GalleryController@index');
-    Route::get('/vedio-gallery','App\Http\Controllers\GalleryController@vedio');
-    Route::get('/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
-    Route::get('/about','App\Http\Controllers\AboutController@index');
+    Route::get('/gallery/image-gallery','App\Http\Controllers\GalleryController@index');
+    Route::get('/gallery/vedio-gallery','App\Http\Controllers\GalleryController@vedio');
+    Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
+    Route::get('/about-nas','App\Http\Controllers\AboutController@index');
     Route::get('/terms-conditions','App\Http\Controllers\ContentPagesController@index')->name('terms');
     Route::get('/privacy-policy','App\Http\Controllers\ContentPagesController@index')->name('privacy');
     Route::get('/copyright-policy','App\Http\Controllers\ContentPagesController@index')->name('copyright');
@@ -169,12 +173,12 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/rti','App\Http\Controllers\ContentPagesController@index')->name('rti');
     Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
     Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
-    Route::get('/registration','App\Http\Controllers\UserController@register')->name('registration');
+    Route::get('/data-share/registration','App\Http\Controllers\UserController@register')->name('registration');
     Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
-    Route::get('/success','App\Http\Controllers\UserController@success')->name('success');
-    Route::get('/login','App\Http\Controllers\UserController@viewLogin')->name('login');
+    Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
+    Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
     Route::post('/check','App\Http\Controllers\UserController@login')->name('check');
-    Route::get('/program','App\Http\Controllers\FrontController@program');
+    Route::get('/nas-program','App\Http\Controllers\FrontController@program');
     Route::get('/nas-team','App\Http\Controllers\FrontController@team');
     Route::get('/data-share','App\Http\Controllers\FrontController@data');
     Route::get('/gallery','App\Http\Controllers\FrontController@gallery');

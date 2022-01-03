@@ -19,5 +19,9 @@ class Setting extends Model
         'fb',
         'twitter',
         'insta',
+        'website_title_hindi',
+        'contact_us_hindi',
+        'meta_title_hindi',
+        'meta_description_hindi',
     ];
 }

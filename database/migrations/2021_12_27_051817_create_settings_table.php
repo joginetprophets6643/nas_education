@@ -17,11 +17,19 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->string('website_title')->nullable();
             $table->text('contact_us')->nullable();
+
+            $table->string('website_title_hindi')->nullable();
+            $table->text('contact_us_hindi')->nullable();
+
             $table->string('logo_1')->nullable();
             $table->string('logo_2')->nullable();
             $table->string('email_to')->nullable();
             $table->string('meta_title')->nullable();
-            $table->string('meta_description')->nullable();
+            $table->text('meta_description')->nullable();
+
+            $table->string('meta_title_hindi')->nullable();
+            $table->text('meta_description_hindi')->nullable();
+
             $table->string('fb')->nullable();            
             $table->string('twitter')->nullable();            
             $table->string('insta')->nullable();            

@@ -34,4 +34,7 @@ return[
     'National'=>'राष्ट्रीय',
     'State'=>'राज्य',
     'District'=>'ज़िला',
+    'QUICK LINKS'=>'त्वरित सम्पक',
+    'Copyright'=>'कॉपीराइट',
+    'Website Visit Count'=>'वेबसाइट विज़िट गणना'
 ];

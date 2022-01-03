@@ -32,8 +32,8 @@
                         incididunt ut labore et dolore magna aliqua.
                     </p>
                     <div class="btn-wrap mtb-30">
-                        <a class="btn btn-pink" href="{{url('/login')}}"><span><img src="{{asset('assets/front/images/user-icon.svg')}}" alt="img" class="img-fluid" /></span> Login to Download Data</a>
-                        <a class="btn btn-green" href="{{url('/registration')}}"><span><img src="{{asset('assets/front/images/pencil-icon.svg')}}" alt="img" class="img-fluid" /></span> Register for Data Request</a>
+                        <a class="btn btn-pink" href="{{url('/data-share/login')}}"><span><img src="{{asset('assets/front/images/user-icon.svg')}}" alt="img" class="img-fluid" /></span> Login to Download Data</a>
+                        <a class="btn btn-green" href="{{url('/data-share/registration')}}"><span><img src="{{asset('assets/front/images/pencil-icon.svg')}}" alt="img" class="img-fluid" /></span> Register for Data Request</a>
                     </div>
                     </div>
                 </div>

@@ -35,13 +35,13 @@
               </h2>
               <ul>
                 <li>
-                  <a href="{{url('/login')}}">
+                  <a href="{{url('/data-share/login')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Login')}}
                   </a>
                 </li>
                 <li>
-                  <a href="{{url('/registration')}}">
+                  <a href="{{url('/data-share/registration')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Registration')}}
                   </a>
@@ -83,13 +83,13 @@
               </h2>
               <ul>
                 <li>
-                  <a href="/image-gallery">
+                  <a href="/gallery/image-gallery">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Photo Gallery')}}
                   </a>
                 </li>
                 <li>
-                  <a href="vedio-gallery">
+                  <a href="/gallery/vedio-gallery">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Video Gallery')}}
                   </a>
@@ -101,15 +101,32 @@
           <div class="col-md-4">
               <div class="footer-links contact-info">
                 <h2 class="heading-white-xs">
-                  <?php $setting=get_setting()?>
+                  <?php $setting=get_setting();
+                  $lang="2";
+                  if (Session::has('locale')) {
+                      $lang = Session::get('locale');
+                      if($lang=="hi")
+                      {
+                          $lang='1';
+                      }
+                      else{
+                          $lang='2';
+                      }
+                  }?>
                   @if($setting)
                   {{__('lang.CONTACT US')}}
                 </h2>
                 <ul>
                   <li>
+                    @if($lang==1)
+                    <div class="text-white-sm">
+                      {!!$setting->contact_us_hindi!!}
+                    </div>
+                    @else
                     <div class="text-white-sm">
                       {!!$setting->contact_us!!}
                     </div>
+                    @endif
                   </li>
                   @endif
                 </ul>
@@ -122,7 +139,7 @@
               <div class="row align-items-center">
                 <div class="col-md-12 col-lg-4">
                     <span class="counter">
-                      Visitor Counter : <?php echo visit_count() ?>
+                      {{__('lang.Website Visit Count')}} : <?php echo visit_count() ?>
                     </span>
                 </div>
                 <div class="col-md-12 col-lg-8">
@@ -157,7 +174,7 @@
           <div class="col-md-6">
               <p class="copyright-text">
               
-                © Copyright <?php echo date("Y"); ?> | {{ __('lang.National Achievement Survey') }} (NAS)
+                © {{__('lang.Copyright')}} <?php echo date("Y"); ?> | {{ __('lang.National Achievement Survey') }} (NAS)
               </p>
           </div>
           <div class="col-md-6">
@@ -240,6 +257,15 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+    <script>
+      let c_url=window.location.href;
+      let title=c_url.substr(c_url.indexOf('/'));
+      console.log(title)
+
+      function setFontSize(size) {
+          $('body').css('font-size', '' + size + 'px');
+      }
+    </script>
 
   </body>
 </html>
