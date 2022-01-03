@@ -82,6 +82,7 @@ class FeedbackController extends Controller
                 $newFeedbackData['state_id'] = (int)$newLOData->state_id;
                 $newFeedbackData['district_id'] = (int)$newLOData->district_id;
                 $newFeedbackData['grade'] = (int)$newLOData->grade;
+                $newFeedbackData['level']     =  'pq';
                 $newFeedbackData['question_code'] = isset($newLOData->question_code)?$newLOData->question_code:0;
                 $newFeedbackData['question_desc'] = isset($newLOData->question)?$newLOData->question:0;
                 $newFeedbackData['total_parent'] = isset($newLOData->total_parent)?$newLOData->total_parent:0;
@@ -116,6 +117,7 @@ class FeedbackController extends Controller
             {
                 $newFeedbackDataS['state_id'] = (int)$newLODataState->state_id;
                 $newFeedbackDataS['grade'] = (int)$newLODataState->grade;
+                $newFeedbackDataS['level']     =  'pq';
                 $newFeedbackDataS['question_code'] = isset($newLODataState->question_code)?$newLODataState->question_code:0;
                 $newFeedbackDataS['question_desc'] = isset($newLODataState->question)?$newLODataState->question:0;
                 $newFeedbackDataS['total_parent'] = isset($newLODataState->total_parent)?$newLODataState->total_parent:0;
@@ -148,6 +150,7 @@ class FeedbackController extends Controller
             foreach($FeedbackDataNational as $newLODataNational)
             {
                 $newFeedbackDataNational['grade'] = (int)$newLODataNational->grade;
+                $newFeedbackDataNational['level']     =  'pq';
                 $newFeedbackDataNational['question_code'] = isset($newLODataNational->question_code)?$newLODataNational->question_code:0;
                 $newFeedbackDataNational['question_desc'] = isset($newLODataNational->question)?$newLODataNational->question:0;
                 $newFeedbackDataNational['total_parent'] = isset($newLODataNational->total_parent)?$newLODataNational->total_parent:0;
