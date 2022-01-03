@@ -1,5 +1,5 @@
 @section('information')
-<div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
+<div class="tab-pane fade" id="information_class3" role="tabpanel" aria-labelledby="information-tab">
                                   <div class="infotab-wrap">
                                     <div class="row">
                                       <div class="col-md-5">
