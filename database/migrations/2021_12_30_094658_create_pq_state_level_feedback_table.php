@@ -18,6 +18,7 @@ class CreatePqStateLevelFeedbackTable extends Migration
             $table->bigInteger('state_id');
             $table->bigInteger('grade');
             $table->string('question_code')->nullable();
+            $table->string('level')->nullable();
             $table->string('question_desc')->nullable();
             $table->string('total_parent')->nullable();
             $table->string('avg')->nullable();  

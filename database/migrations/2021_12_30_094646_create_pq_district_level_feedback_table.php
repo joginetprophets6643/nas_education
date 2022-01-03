@@ -18,6 +18,7 @@ class CreatePqDistrictLevelFeedbackTable extends Migration
             $table->bigInteger('state_id');
             $table->bigInteger('district_id');
             $table->bigInteger('grade');
+            $table->string('level')->nullable();
             $table->string('question_code')->nullable();
             $table->string('question_desc')->nullable();
             $table->string('total_parent')->nullable();

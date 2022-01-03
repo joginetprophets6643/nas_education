@@ -16,6 +16,7 @@ class CreatePqNationalLevelFeedbackTable extends Migration
         Schema::create('pq_national_level_feedback', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('grade');
+            $table->string('level')->nullable();
             $table->string('question_code')->nullable();
             $table->string('question_desc')->nullable();
             $table->string('total_parent')->nullable();
