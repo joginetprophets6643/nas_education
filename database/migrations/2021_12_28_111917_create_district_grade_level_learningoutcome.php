@@ -23,6 +23,8 @@ class CreateDistrictGradeLevelLearningoutcome extends Migration
             $table->string('question')->nullable();
             $table->string('total_student')->nullable();
             $table->string('avg')->nullable();  
+            $table->string('state_avg')->nullable();  
+            $table->string('national_avg')->nullable();  
             $table->timestamps();
         });
     }
