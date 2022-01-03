@@ -1,5 +1,5 @@
 @section('feedback')
-<div class="tab-pane fade" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
+<div class="tab-pane fade" id="feedback_class3" role="tabpanel" aria-labelledby="feedback-tab">
                                     <div class="feedback-wrap">
                                       <div class="student-fb-wrap mb-30">
                                         <div class="row">
