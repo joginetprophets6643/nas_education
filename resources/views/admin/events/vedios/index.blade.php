@@ -46,6 +46,14 @@
                                         </div>
 
                                         <div class="form-group">
+                                        <label for="images" class="form-label">URL</label>
+                                        <input type="text" name="url" class="form-control" id="url">
+                                        @error('url')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group">
                                         <!-- <label for="images" class="form-label">Event Images</label> -->
                                         <input type="file" name="vedio" class="form-control" id="vedio">
                                         @error('vedio')
@@ -77,24 +85,36 @@
 
                     </div>
                     <div class="card-body">
-
                         @if($vedios)
-                        <ul class="imageslist">
+                        <div class="row">                       
                         @foreach($vedios as $vedio)
-                        <li>
-                        <video width="300" height="240" controls>
-                            <source src="{{URL::asset('/assets/upload/vedios/'.$vedio->vedio)}}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <?php $id=encode5t($vedio->id)?>
-                        <button class="btn btn-danger btn-sm delete-vedio-btn" data-delete-link="{{url('delete/vedio/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteVedio">Delete</button>
-                        </li>
+                        @if($vedio->url)
+                        <div class="col-md-4">
+                            <div class="video-wrap">
+                            <iframe width="300" height="240" src="https://www.youtube.com/embed/{{ $vedio->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <?php $id=encode5t($vedio->id)?>
+                            <button class="btn btn-danger btn-sm delete-vedio-btn" data-delete-link="{{url('delete/vedio/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteVedio">Delete</button>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vedio->vedio)
+                        <div class="col-md-4">
+                            <div class="video-wrap">
+                            <video width="300" height="240" controls>
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$vedio->vedio)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <?php $id=encode5t($vedio->id)?>
+                            <button class="btn btn-danger btn-sm delete-vedio-btn" data-delete-link="{{url('delete/vedio/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteVedio">Delete</button>
+                            </div>
+                        </div>
+                        @endif
                         @endforeach
-                        </ul>
+                        </div>
                         @else
                         <p class="text-center">No Video Uploaded Yet!<p>
                         @endif
-                        
+                        </div>
 
 
                         <div class="modal fade" id="DeleteVedio" >
@@ -131,7 +151,7 @@
         </div>
     </div>
 </div>
-</div>
+
 @include('admin.includes.footer')
 @if(count($errors)>0)
 <script>

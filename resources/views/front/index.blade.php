@@ -317,29 +317,41 @@
                     {{__('lang.Video Gallery')}}
                   </h2>
                   <div id="gallery-slider">
-                    <div class="owl-carousel owl-theme" id="videoSlider">
-                      @foreach($vedios as $vedio)
-                      <div class="item">
-                          <div class="gallery-img-wrap">
-                            <img src="{{asset('assets/front/images/video1.png')}}" alt="img" class="img-fluid" />
-                            <a href="#" class="gallery-play-icon">
-                                <span class="material-icons">
-                                  play_circle_filled
-                                </span>
-                            </a>
-                          </div>
-                      </div>
-                      @endforeach
+                    
+                      @if($vedios)
+                        <div class="row">                       
+                        @foreach($vedios as $vedio)
+                        @if($vedio->url)
+                        <div class="col-md-4">
+                            <div class="video-wrap">
+                            <iframe width="263" height="178" src="https://www.youtube.com/embed/{{ $vedio->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        @endif
+                        @if($vedio->vedio)
+                        <div class="col-md-4">
+                            <div class="video-wrap">
+                            <video width="263" height="178" controls>
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$vedio->vedio)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                        </div>
+                        @else
+                        <p class="text-center">No Video Uploaded Yet!<p>
+                        @endif
                     </div>
-                    <div class="btn-wrap">
+                    <div class="btn-wrap " style="margin-top:20px;">
                       <a href="{{url('/gallery/vedio-gallery')}}" class="org-link">
                         {{ __('lang.VIEW ALL') }} 
                         <span class="material-icons-round">
                           east
                         </span>
                       </a>
-                    </div>
-                  </div>
+                            </div>
                 </div>
             </div>
         </div>

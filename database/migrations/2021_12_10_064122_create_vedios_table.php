@@ -16,7 +16,8 @@ class CreateVediosTable extends Migration
         Schema::create('vedios', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('vedio');
+            $table->string('vedio')->nullable();
+            $table->string('url')->nullable();
             $table->integer('status');
             $table->timestamps();
         });
