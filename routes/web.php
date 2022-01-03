@@ -33,6 +33,8 @@ Route::get('generateAt3SetForLanguage',[QuestionnaireController::class,'generate
 Route::get('get_feedback',[FeedbackController::class,'get_feedback']);
 Route::get('generateFeedbackanswerkey',[FeedbackController::class,'generateFeedbackanswerkey']);
 Route::get('pqQuestionMaster',[FeedbackController::class,'pqQuestionMaster']);
+Route::get('get_feedback_tq',[FeedbackController::class,'get_feedback_tq']);
+Route::get('generateFeedbackanswerkeyTq',[FeedbackController::class,'generateFeedbackanswerkeyTq']);
 
 Route::get('home', 'App\Http\Controllers\MainController@landing');
 Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
