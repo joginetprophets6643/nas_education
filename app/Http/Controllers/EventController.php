@@ -167,8 +167,9 @@ class EventController extends Controller
 
     public function addVedio(Request $request){
         $request->validate([
-            'vedio'=>'required',
+            'vedio'=>'required_without_all:url',
             'title'=>'required',
+            'url'=>'required_without_all:vedio',
         ]);
         $vedio=$request->file('vedio');
         
@@ -178,12 +179,15 @@ class EventController extends Controller
         else{
             $request->status=0;
         }
-        
-
+        $name='';
+        if($request->vedio){
             $name=hexdec(uniqid()).'.'.$vedio->getClientOriginalExtension();
             $vedio->move(public_path('assets/uploads/vedios'),$name);
+        }
+            
             $res=new Vedios;
             $res->title=$request->title;
+            $res->url=$request->url;
             $res->vedio=$name;
             $res->status=$request->status;
             $res->save();
@@ -193,9 +197,11 @@ class EventController extends Controller
 
     public function deleteVedio($id){
         $id=decode5t($id);      
-        $vedio=Vedios::find($id)->first();
+        $vedio=Vedios::find($id)->first();       
         Vedios::find($id)->delete();
+        if($vedio->vedio){
         unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+        }
         return Redirect()->route('vedios')->with('success','Vedio Deleted Successfully');
     }
 

@@ -31,12 +31,16 @@
                 <div class="col-md-4">
                     <div class="gallery-card">
                         <div class="gallery-img-wrap">
-                            <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid" style="width:100%;height:200px">
-                            <button class="gallery-zoom-icon" data-image="{{asset('assets/uploads/'.$image)}}" data-bs-toggle="modal" data-bs-target="#ZoomIn" style="width:100%;">
+                            
+                            <a href="{{asset('assets/uploads/'.$image)}}" title="sweet nickyyy" class="icon-magnifying-glass lightbox" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{{asset('assets/uploads/'.$image)}}">
+                                <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid" style="width:100%;height:200px">
+                                <button class="gallery-zoom-icon" style="width:100%">
                                 <span class="material-icons-round">
                                 zoom_in
                                 </span>
                             </button>
+                            </a>
+                            
                         </div>
                     </div>
                 </div>
@@ -45,33 +49,7 @@
                 @endforeach
                 
 
-                <!-- Modal -->
-<div class="modal fade" id="ZoomIn" style="top:20px;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div> -->
-      <div class="modal-body p-0">
-        
-
-      <div class="">
-        <div class="card">
-          <img src="" alt="" id="modal_image">
-        </div>
-    </div>
-
-
-
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
+                
 
             </div>
         </div>

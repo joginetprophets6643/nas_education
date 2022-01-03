@@ -22,5 +22,8 @@
     <link rel="stylesheet" href="{{asset('assets/front/scss/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/style (2).css')}}">
-    <title id='title'>NAS</title>
+    <link rel="stylesheet" href="{{asset('assets/front/scss/nivo-lightbox.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/front/scss/lightbox-theme.css')}}">
+
+    <title id='title'></title>
   </head>

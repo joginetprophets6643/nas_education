@@ -25,35 +25,31 @@
 <section class="gallery-wrap bg-grey ptb-60">
     <div class="container">
         <div class="card-white">
-            <div class="row">
-                @foreach($vedios as $vedio)
-                <div class="col-md-4">
-                    <div class="gallery-card">
-                        <div class="gallery-img-wrap">
-                            <img src="{{asset('assets/front/images/video1.png')}}" alt="img" class="img-fluid">
-                            <a href="#" class="gallery-play-icon">
-                                <span class="material-icons">
-                                    play_circle_filled
-                                </span>
-                            </a>
+            @if($vedios)
+                        <div class="row">                       
+                        @foreach($vedios as $vedio)
+                        @if($vedio->url)
+                        <div class="col-md-4">
+                            <div class="video-wrap">
+                            <iframe width="280" height="240" src="https://www.youtube.com/embed/{{ $vedio->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </div>
-                        <div class="gallery-content">
-                            <p class="gallery-title pb-15">
-                                {{$vedio->title}}
-                            </p>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn org-btn">
-                                    Download
-                                    <span class="material-icons">
-                                    file_download
-                                    </span>
-                                </a>
-                            </div>  
+                        @endif
+                        @if($vedio->vedio)
+                        <div class="col-md-4">
+                            <div class="video-wrap">
+                            <video width="300" height="240" controls>
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$vedio->vedio)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
+                        @endif
+                        @endforeach
+                        </div>
+                        @else
+                        <p class="text-center">No Video Uploaded Yet!<p>
+                        @endif
         </div>
     </div>
 </section>

@@ -13,9 +13,9 @@
           </li>
           <li>
             <div class="d-flex">
-              <a href="javascript:void(0)" class="textplus" onclick="setFontSize(15)">A</a>
-              <a href="javascript:void(0)" class="textplus" onclick="setFontSize(25)">A+</a>
-              <a href="javascript:void(0)" class="textplus" onclick="setFontSize(35)">A++</a>
+              <a href="javascript:void(0)" class="textplus" id="btn-orig">A</a>
+              <a href="javascript:void(0)" class="textplus" id="btn-decrease">A+</a>
+              <a href="javascript:void(0)" class="textplus" id="btn-increase">A++</a>
             </div>
           </li>
           <!-- <li>

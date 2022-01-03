@@ -255,17 +255,58 @@
     <!-- High Charts -->
     <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{asset('assets/front/js/nivo-lightbox.min.js')}}"></script>
 
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
     <script>
       let c_url=window.location.href;
-      let title=c_url.substr(c_url.indexOf('/'));
-      console.log(title)
+      title=c_url.split("/");
+      if(title[3]==''){
+        $("#title").html('NAS');
+      }
+      else{
+      $("#title").html(title[3].toUpperCase());
+      }
 
+
+      var $affectedElements = $("p,span,h1,h2,h3,h4,h5,h6,a"); // Can be extended, ex. $("div, p, span.someClass")
+
+      // Storing the original size in a data attribute so size can be reset
+      $affectedElements.each( function(){
+        var $this = $(this);
+        $this.data("orig-size", $this.css("font-size") );
+      });
+
+      $("#btn-increase").click(function(){
+        changeFontSize(+2);
+      })
+
+      $("#btn-decrease").click(function(){
+        changeFontSize(+1);
+      })
+
+      $("#btn-orig").click(function(){
+        $affectedElements.each( function(){
+              var $this = $(this);
+              $this.css( "font-size" , $this.data("orig-size") );
+        });
+      })
+
+function changeFontSize(direction){
+    $affectedElements.each( function(){
+        var $this = $(this);
+        $this.css( "font-size" , parseInt($this.css("font-size"))+direction );
+    });
+}
       function setFontSize(size) {
-          $('body').css('font-size', '' + size + 'px');
+        const fontSize = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);
+        console.log(fontSize);
+          $('p').css('font-size', '' + size + 'px');
+          $('h2').css('font-size', '' + size + 'px');
+          $('h1').css('font-size', '' + size + 'px');
+          $('span').css('font-size', '' + size + 'px');
+          $('a').css('font-size', '' + size + 'px');
       }
     </script>
-
   </body>
 </html>
