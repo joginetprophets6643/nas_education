@@ -11,7 +11,7 @@
                   <div class="breadcrum-wrap">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">{{ __('lang.Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ __('lang.NAS Program') }}</li>
                         </ol>
                     </nav>
@@ -35,7 +35,7 @@
                     <li>
                         
                         <div class="row">
-                            @if(($i%2)==0)
+                            @if(($i%2)!=0)
                             <div class="col-md-4">
                                 <div class="nasprogram-img">
                                     <img src="{{asset('assets/uploads/program/'.$program->image)}}" alt="img" class="img-fluid">
@@ -50,7 +50,7 @@
                                     {!!$program->content!!}
                                 </div>
                             </div>
-                            @if(($i%2)!=0)
+                            @if(($i%2)==0)
                             <div class="col-md-4">
                                 <div class="nasprogram-img">
                                     <img src="{{asset('assets/uploads/program/'.$program->image)}}" alt="img" class="img-fluid">

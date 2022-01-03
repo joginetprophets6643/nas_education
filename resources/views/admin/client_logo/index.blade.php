@@ -39,8 +39,9 @@
               <td><img src="{{asset('assets/uploads/client_logo/'.$value->logo)}}" alt=""></td>
               
               <td>
-                <a href="{{url('edit/client-logo/'.$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/client-logo/'.$value->id)}}" data-bs-toggle="modal" data-bs-target="#DeleteClientLogo">Delete</button>
+                 <?php $id=encode5t($value->id)?>
+                <a href="{{url('edit/client-logo/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/client-logo/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteClientLogo">Delete</button>
               </td>
             </tr>
             @endforeach

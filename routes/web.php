@@ -7,6 +7,7 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\QuestionnaireController;
 use App\Http\Controllers\LearningOutcomeController;
+use App\Http\Controllers\FeedbackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,9 @@ Route::get('genrate_key',[UploadController::class,'genrate_key']);
 Route::get('view_parti_g3_school',[CommonController::class,'view_parti_g3_school']);
 Route::get('questionnaire_calculation',[QuestionnaireController::class,'questionnaireCalculation']);
 Route::get('generateAt3SetForLanguage',[QuestionnaireController::class,'generateAt3SetForLanguage']);
+Route::get('get_feedback',[FeedbackController::class,'get_feedback']);
+Route::get('generateFeedbackanswerkey',[FeedbackController::class,'generateFeedbackanswerkey']);
+Route::get('pqQuestionMaster',[FeedbackController::class,'pqQuestionMaster']);
 
 Route::get('home', 'App\Http\Controllers\MainController@landing');
 Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
@@ -173,5 +177,6 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/program','App\Http\Controllers\FrontController@program');
     Route::get('/nas-team','App\Http\Controllers\FrontController@team');
     Route::get('/data-share','App\Http\Controllers\FrontController@data');
+    Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');

@@ -11,8 +11,8 @@
                     <div class="breadcrum-wrap">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="/">{{ __('lang.Home') }}</a></li>
-                              <li class="breadcrumb-item"><a href="/about">{{ __('lang.about nas') }}</a></li>
+                              <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
+                              <li class="breadcrumb-item"><a href="{{url('/about')}}">{{ __('lang.about nas') }}</a></li>
                               @if(!empty($content->page_meta_title))
                               <li class="breadcrumb-item active" aria-current="page">{{$content->page_meta_title}}</li>
                               @endif

@@ -34,8 +34,9 @@
               <th scope="row">{{$i++}}</th>
               <td>{{$event->name}}</td>
               <td>
-                <a href="{{url('event/images/'.$event->id)}}" class="btn btn-primary btn-sm">Add Images</a>
-                <a href="{{url('edit/event/'.$event->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <?php $id=encode5t($event->id)?>
+                <a href="{{url('event/images/'.$id)}}" class="btn btn-primary btn-sm">Add Images</a>
+                <a href="{{url('edit/event/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
               </td>
             </tr>
             @endforeach

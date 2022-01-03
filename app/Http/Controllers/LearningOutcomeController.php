@@ -19,7 +19,11 @@ class LearningOutcomeController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $learningOutComeData = DB::table('learning_outcome_data')->select('learning_outcome_data.state_id','learning_outcome_data.district_id','learning_outcome_data.grade','learning_outcome_data.subject_code','learning_outcome_data.language','los_masters.lo_desc as question',DB::raw("count(learning_outcome_data.id)  AS total_student"),"total_no_question as total_no_question",DB::raw("SUM(correct_ans::int) as right_answer_sum"), DB::raw("(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as avg"))
+        $learningOutComeData = DB::table('learning_outcome_data')->select('learning_outcome_data.state_id','learning_outcome_data.district_id','learning_outcome_data.grade','learning_outcome_data.subject_code','learning_outcome_data.language','los_masters.lo_desc as question',DB::raw("count(learning_outcome_data.id)  AS total_student"),"total_no_question as total_no_question",DB::raw("SUM(correct_ans::int) as right_answer_sum"), DB::raw("(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as avg"), DB::raw("(select (SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as state_avg
+        from learning_outcome_data as l_state
+        where l_state.subject_code= learning_outcome_data.subject_code and l_state.state_id= learning_outcome_data.state_id)"), DB::raw("(select (SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as national_avg
+        from learning_outcome_data as l_national
+        where l_national.subject_code= learning_outcome_data.subject_code)"))
         ->leftJoin('los_masters','los_masters.lo_id','=','learning_outcome_data.subject_code')
         ->groupBy('learning_outcome_data.state_id')
         ->groupBy('learning_outcome_data.district_id')
@@ -32,7 +36,7 @@ class LearningOutcomeController extends Controller
         $newlearningOutComeData = array();
         if(count($learningOutComeData)>0)
         {
-            DB::table('district_grade_level_performance')->truncate();
+            DB::table('district_grade_level_learningoutcome')->truncate();
             foreach($learningOutComeData as $newLOData)
             {
                 $newlearningOutComeData['state_id'] = (int)$newLOData->state_id;
@@ -43,6 +47,8 @@ class LearningOutcomeController extends Controller
                 $newlearningOutComeData['question'] = isset($newLOData->question)?$newLOData->question:0;
                 $newlearningOutComeData['total_student'] = isset($newLOData->total_student)?$newLOData->total_student:0;
                 $newlearningOutComeData['avg'] = isset($newLOData->avg)?$newLOData->avg:0;
+                $newlearningOutComeData['state_avg'] = isset($newLOData->state_avg)?$newLOData->state_avg:0;
+                $newlearningOutComeData['national_avg'] = isset($newLOData->national_avg)?$newLOData->national_avg:0;
                 $newlearningOutComeData['created_at'] = now();
                 $newlearningOutComeData['updated_at'] = now();
 
@@ -70,7 +76,7 @@ class LearningOutcomeController extends Controller
         $newlearningOutComeDataS = array();
         if(count($learningOutComeDataForState)>0)
         {
-            DB::table('district_grade_level_performance')->truncate();
+            DB::table('state_grade_level_learningoutcome')->truncate();
             foreach($learningOutComeDataForState as $newLODataState)
             {
                 $newlearningOutComeDataS['state_id'] = (int)$newLODataState->state_id;
@@ -106,7 +112,7 @@ class LearningOutcomeController extends Controller
         $newlearningOutComeDataNational = array();
         if(count($learningOutComeDataNational)>0)
         {
-            DB::table('district_grade_level_performance')->truncate();
+            DB::table('national_grade_level_learningoutcome')->truncate();
             foreach($learningOutComeDataNational as $newLODataNational)
             {
                 $newlearningOutComeDataNational['grade'] = (int)$newLODataNational->grade;

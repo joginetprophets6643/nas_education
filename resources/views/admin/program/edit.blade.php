@@ -6,7 +6,8 @@
     <div class="card">
         <div class="card-header">Edit Program</div>
         <div class="card-body">
-        <form action="{{route('update-program',$program->id)}}" method="POST" enctype="multipart/form-data">
+            <?php $id=encode5t($program->id)?>
+        <form action="{{route('update-program',$id)}}" method="POST" enctype="multipart/form-data">
             @csrf
 
         <div class="row">
@@ -51,7 +52,7 @@
         
         <div class="mb-3" >
             <label class="form-label">Content</label>
-            <textarea class="form-control" name="content" cols="30" rows="10" >{{$program->content}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="content" cols="30" rows="10" >{{$program->content}}</textarea>
             @error('content')
             <span class="text-danger">{{$message}}</span>
             @enderror

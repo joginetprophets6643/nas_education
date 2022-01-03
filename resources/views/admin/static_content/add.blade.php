@@ -33,7 +33,7 @@
         <br>
         <div class="mb-3" >
             <label class="form-label">Home Page Content</label>
-            <textarea class="form-control" name="home_content" cols="30" rows="10" ></textarea>
+            <textarea class="form-control textarea-ckeditor" name="home_content" cols="30" rows="10"></textarea>
             @error('home_content')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -41,7 +41,7 @@
 
         <div class="mb-3">
             <label class="form-label">Inner Page Content</label>
-            <textarea class="form-control" name="inner_content" cols="30" rows="10" ></textarea>
+            <textarea class="form-control textarea-ckeditor" name="inner_content" cols="30" rows="10"></textarea>
             @error('inner_content')
             <span class="text-danger">{{$message}}</span>
             @enderror

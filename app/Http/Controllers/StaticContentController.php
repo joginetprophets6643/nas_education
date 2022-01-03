@@ -66,6 +66,7 @@ class StaticContentController extends Controller
      */
     public function edit($id)
     {
+        $id=decode5t($id);
         $content=Static_Content::where('id',$id)->first();
         return view('admin.static_content.edit',compact('content'));
     }
@@ -79,6 +80,7 @@ class StaticContentController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $id=decode5t($id);
         $request->validate([
             'language'=>'required|not_in:0',
             'title'=>'required',
@@ -108,6 +110,7 @@ class StaticContentController extends Controller
      */
     public function destroy($id)
     {
+        $id=decode5t($id);
         Static_Content::find($id)->delete();
         return Redirect()->route('content')->with('success','Content Deleted Successfully');
     }

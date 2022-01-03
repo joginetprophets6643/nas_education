@@ -36,8 +36,9 @@
               <td style="max-width:500px; overflow:hidden;">{{$banner->description}}</td>
               <td><img src="{{asset('assets/uploads/banner/'.$banner->image)}}" alt=""></td>
               <td>
-                <a href="{{url('edit/banner/'.$banner->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/banner/'.$banner->image.'/'.$banner->id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>
+                <?php $id=encode5t($banner->id)?>
+                <a href="{{url('edit/banner/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/banner/'.$banner->image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>
               </td>
             </tr>
             @endforeach
