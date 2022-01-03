@@ -2,6 +2,16 @@ let screenType;
 let classType = '3';
 let activeState = '';
 let activeDistrict ='';
+let grades = ['3','5','8','10','all']
+let already_active_state = null
+let already_active_district = null
+let class_subjects = {
+  class_3:['Language','Evs','Math'],
+  class_5:['Language','Evs','Math'],
+  class_8:['Language','Science','Math','Social'],
+  class_10:['Language','Evs','Math'],
+  class_all:['Language','Evs','Math']
+}
 
 $(document).ready(()=>{
     $.ajax({
@@ -14,24 +24,13 @@ $(document).ready(()=>{
     setScreen(screenType)
     setClass(classType)
 
-    const already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
-    const already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
-    console.log(already_active_district)
-    if(already_active_district !== null) {
-      chageDataWithFilter('global_filter','district')
-      setBreadCrumb('district')
-    }
-    else if(already_active_state !== null) {
-      chageDataWithFilter('global_filter','state')
-      setBreadCrumb('state')
-    }
-    else{
-      setBreadCrumb('national')
-    }
+    already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
+    already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
 
   });
 
   function createColumnChart(where,data){
+    console.log(data)
     Highcharts.chart(where, {
       chart: {
         backgroundColor: 'transparent',
@@ -89,7 +88,7 @@ $(document).ready(()=>{
   }
 // create bar graph with data
   function createSocialBarGraph(bar){
-    Highcharts.chart('socialBarGraph', {
+    Highcharts.chart('socialBarGraph_class'+classType, {
         chart: {
           type: 'column'
         },
@@ -161,7 +160,8 @@ $(document).ready(()=>{
 
 // create donought chart with data
   function createManagementPieChart(chart){
-    Highcharts.chart('managementPieGraph', {
+
+    Highcharts.chart('managementPieGraph_class'+classType, {
       chart: {
         type: 'variablepie'
       },
@@ -231,18 +231,16 @@ $(document).ready(()=>{
     }).done(response=>{
       district_data = response.data
       sessionStorage.setItem('districts',JSON.stringify(response.data))
-      // console.log(district_data)
     });
 
     await data.map(state=>{
-      // console.log(state.state_id)
+
       state_list += '<li><a href="javascript:void(0)" class="active" onClick ="toggleDistrictList('+state.state_id+',true)" id="showDistrict'+state.state_id +'" ><span class="material-icons-round radio_checked"> radio_button_checked </span><span class="material-icons-round radio_unchecked">radio_button_unchecked</span>'+ state.state_name +'</a>'
       const filteredDistrict = district_data.filter(district=>{
         if(district.state_id === state.state_id)
         return district
       })
-      // console.log(state.state_name)
-      // console.log(filteredDistrict)
+
       state_list += '<div class="district-list" id="state_'+ state.state_id +'"><div class="d-flex align-items-center justify-content-between pb-15"><h2>'+ state.state_name +'</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList('+state.state_id+',false)"><span class="material-icons-round">highlight_off</span></button></div><ul>'
       state_list +=  createDistrictForStates(filteredDistrict,state.state_name,state.state_id)
       state_list += '</ul></div>'
@@ -250,13 +248,28 @@ $(document).ready(()=>{
     })
     state_list +="</ul>"
     document.getElementById('all-state-list').innerHTML = state_list
+
+    if(already_active_district !== null) {
+      chageDataWithFilter('global_filter','district')
+      setBreadCrumb('district')
+      toggleDistrictList(already_active_state.state_id,true)
+      toggleActiveDistrict(already_active_district.district_id,true)
+    }
+    else if(already_active_state !== null) {
+      chageDataWithFilter('global_filter','state')
+      setBreadCrumb('state')
+      toggleDistrictList(already_active_state.state_id,true)
+    }
+    else{
+      setBreadCrumb('national')
+    }
   }
 
 
   function createDistrictForStates(data){
     let district_list = ''
     data.map(district=>{
-      district_list +='<li><a href="javascript:void(0)" onClick="setActiveStateDistrict('+ district.state_id+','+district.district_id+')">' +format_string(district.district_name) +'</a></li>'
+      district_list +='<li><a href="javascript:void(0)" class="districts" id="district_'+district.district_id+'" onClick="setActiveStateDistrict('+ district.state_id+','+district.district_id+')">' +format_string(district.district_name) +'</a></li>'
     })
     return district_list
   }
@@ -279,12 +292,24 @@ $(document).ready(()=>{
 
   function setScreen(screen_type = 'participation'){
     if(screenType !== screen_type){
+      grades.forEach(grade=>{
+          $('#'+screenType+'_class'+grade+'').removeClass('show active')
+      })
       screenType = screen_type
-      $('#'+screen_type+'-tab').addClass('active')
-      $('#'+screen_type+'').addClass('show active')
-      chageDataWithFilter('sidebar_filter','all')
       getData()
     }
+    grades.forEach(grade=>{
+      if(grade === classType){
+        $('#'+screen_type+'_class'+grade+'').addClass('show active')
+      }else{
+        $('#'+screen_type+'_class'+grade+'').removeClass('show active')
+      }
+    })
+
+    $('#'+screen_type+'-tab').addClass('active')
+    $('#'+screen_type+'_class'+classType+'').addClass('show active')
+
+    chageDataWithFilter('sidebar_filter','all')
   }
 
   function chageDataWithFilter(filter_type, value){
@@ -297,7 +322,9 @@ $(document).ready(()=>{
     if(filter_type === 'data_filter'){
       classType = value
       setClass()
+      setScreen(screenType)
       setInformation()
+      changePageDataViaSideFilter('all')
     }
     if(filter_type === 'global_filter'){
       if(value === 'state'){
@@ -309,11 +336,15 @@ $(document).ready(()=>{
         else{
           activeState = lastActiveState
           activeDistrict = ''
-          console.log(activeState)
           $('#sidebar_active_state').html(activeState.state_name)
+          toggleActiveDistrict(activeDistrict.district_id,false)
+
         }
       }
       if(value === 'national'){
+        toggleDistrictList(activeState.state_id,false)
+        sessionStorage.removeItem('activeState')
+        sessionStorage.removeItem('activeDistrict')
         activeState = ''
         activeDistrict = ''
       }
@@ -329,6 +360,7 @@ $(document).ready(()=>{
           $('#active_district').html(activeDistrict.district_name)
         }
       }
+      console.log('hoo')
       setInformation()
       setBreadCrumb(value)
     }
@@ -358,19 +390,18 @@ $(document).ready(()=>{
     let section = ''
     let availableSections = ['gender','location','management','social']
     if(value !== 'all'){
-      section += value+ '_section_'+ screenType
+      section += value+ '_section_'+ screenType +'_class' + classType
     }else{
       section = ''
     }
     if(section === ''){
       availableSections.forEach(sec=>{
-        $('#'+sec+'_section_'+screenType).removeAttr('style')
-        $('#'+sec+'_section_'+screenType).removeClass('no-border')
-        // $('#'+sec+'_section_'+screenType).addClass('col-md-6')
+        $('#'+sec+'_section_'+screenType+'_class'+classType).removeAttr('style')
+        $('#'+sec+'_section_'+screenType+'_class'+classType).removeClass('no-border')
       })
     }else{
       const filteredSections = availableSections.filter(sec=>{
-        const temp_name = sec + '_section_' + screenType
+        const temp_name = sec + '_section_' + screenType +'_class' + classType
         if(section !== temp_name){
           return sec
         }
@@ -380,7 +411,7 @@ $(document).ready(()=>{
       // $('#'+section +'').removeClass('col-md-6')
       $('#'+section +'').addClass('no-border')
       filteredSections.forEach(sec =>{
-        $('#'+sec+'_section_'+screenType).attr('style','display:none;')
+        $('#'+sec+'_section_'+screenType+'_class'+classType).attr('style','display:none;')
       })
     }
   }
@@ -395,7 +426,9 @@ $(document).ready(()=>{
       filters = {...filters ,district: activeDistrict.district_id}
     }
     if(classType !== ''){
-      filters = {... filters,class: classType}
+      if(classType !== 'all'){
+        filters = {... filters,class: classType}
+      }
     }
 
     console.log(filters)
@@ -404,6 +437,9 @@ $(document).ready(()=>{
     }
     if(screenType === 'performance'){
       data = JSON.parse(sessionStorage.getItem('performance_data'))
+    }
+    if(screenType === 'learning'){
+      data = JSON.parse(sessionStorage.getItem('learning_data'))
     }
     const filteredData = data.filter(par =>{
       let count = 0
@@ -436,13 +472,16 @@ $(document).ready(()=>{
   }
 
   async function getData(){
+    console.log(screenType)
     let table = ''
-    if(screenType === 'participation'){
+    if(screenType === 'participation' || typeof screenType === 'undefined'){
       table = 'all_grade_participation_tbl'
     }
     if(screenType === 'performance'){
       table = 'district_grade_level_performance'
-      createCharts()
+    }
+    if(screenType === 'learning'){
+      table ='district_grade_level_learningoutcome'
     }
 
     await $.ajax({
@@ -451,8 +490,12 @@ $(document).ready(()=>{
     }).done(res=>{
       if(screenType === 'participation'){
         sessionStorage.setItem('participation_data',JSON.stringify(res.data))
-      }else{
+      }
+      if(screenType === 'performance'){
         sessionStorage.setItem('performance_data',JSON.stringify(res.data))
+      }
+      if(screenType === 'learning'){
+        sessionStorage.setItem('learning_data',JSON.stringify(res.data))
       }
     });
     setInformation()
@@ -476,7 +519,7 @@ $(document).ready(()=>{
     sessionStorage.setItem('activeDistrict',JSON.stringify(activeDistrict)) 
     $('#active_state').html(activeState.state_name)
     $('#active_district').html(activeDistrict.district_name)
-
+    toggleActiveDistrict(activeDistrict.district_id,true)
     setInformation()
   }
 
@@ -532,13 +575,13 @@ $(document).ready(()=>{
         priv = priv > 0 ? priv/Object.keys(data).length : 0
         gov = gov > 0 ? gov/Object.keys(data).length : 0
         
-        $('#participation_school').html(total_school)
-        $('#participation_teachers').html(total_teacher)
-        $('#participation_students').html(total_student)
-        $('#paricipation_gender_male').html(total_male + '%')
-        $('#paricipation_gender_female').html(total_female + '%')
-        $('#participation_rural').html(total_urban + '%')
-        $('#participation_urban').html(total_rural + '%')
+        $('#participation_school_class'+classType).html(total_school)
+        $('#participation_teachers_class'+classType).html(total_teacher)
+        $('#participation_students_class'+classType).html(total_student)
+        $('#paricipation_gender_male_class'+classType).html(total_male + '%')
+        $('#paricipation_gender_female_class'+classType).html(total_female + '%')
+        $('#participation_rural_class'+classType).html(total_urban + '%')
+        $('#participation_urban_class'+classType).html(total_rural + '%')
 
         const doughnutChart = {
           gov: gov,
@@ -556,8 +599,102 @@ $(document).ready(()=>{
         createSocialBarGraph(barChart)
       }
       if(screenType === 'performance'){
-        console.log(data)
         createCharts()
+        console.log(data)
+      }
+      if(screenType === 'learning'){
+        // if(data.length === 0){
+          $('.language_lo_class'+classType).empty();
+          $('.math_lo_class'+classType).empty();
+          $('.evs_lo_class'+classType).empty();
+          $('.sci_lo_class'+classType).empty();
+          $('.sst_lo_class'+classType).empty();
+          $('.mil_lo_class'+classType).empty();
+
+        // }
+        console.log(data)
+
+        let count_object = {
+          language:0,
+          evs:0,
+          sst:0,
+          sci:0,
+          math:0,
+          mil:0,
+          eng:0, 
+        }
+        data.forEach(lo=>{
+          let classStyle = ''
+          if(lo.language === 'L'){
+            count_object.language +=1
+            if(count_object.language > 0 && count_object.language %2 === 0){
+              classStyle = 'light-blue'
+            }else{
+              classStyle = ''
+            }
+            $('.language_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
+          }
+          if(lo.language === 'M'){
+            count_object.math += 1
+            if(count_object.math > 0 && count_object.math % 2 === 0){
+              classStyle = 'light-pink'
+            }
+            else{
+              classStyle = ''
+            }
+            $('.math_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
+          }
+          if(lo.language === 'EVS'){
+            count_object.evs += 1
+            if(count_object.evs >0 && count_object.evs % 2 === 0){
+              classStyle = 'light-yellow'
+            }else{
+              classStyle = ''
+            }
+            $('.evs_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
+          }
+          if(lo.language === 'SCI'){
+            count_object.sci += 1
+
+            if(count_object.sci >0 && count_object.sci % 2 === 0){
+              classStyle = 'light-sagegreen'
+            }else{
+              classStyle = ''
+            }
+
+            $('.science_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
+          }
+          if(lo.language === 'SST'){
+            count_object.sst += 1
+            if(count_object.sst > 0 && count_object.sst %2 == 0){
+              classStyle='light-green'
+            }
+            else{
+              classStyle = ''
+            }
+            $('.social_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
+          }
+          if(lo.language === 'E'){
+            count_object.eng += 1
+            if(count_object.eng >0 && count_object.eng % 2 === 0){
+              classStyle = 'light-purple'
+            }else{
+              classStyle = ''
+            }
+            $('.eng_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
+          }
+
+          if(lo.language === 'MIL'){
+            count_object.mil += 1
+            if(count_object.mil >0 && count_object.mil % 2 === 0){
+              classStyle = 'light-red'
+            }else{
+              classStyle = ''
+            }
+            $('.mil_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
+          }
+
+        })
       }
     }else{
       console.log('no data ')
@@ -586,11 +723,11 @@ $(document).ready(()=>{
     return formatted_string
   }
 
-  function createCharts(){
-    let data = JSON.parse(sessionStorage.getItem('performance_data'))
-
+  function createCharts(data){
+    console.log(data)
     const sections = ['Location','Gender','Social','Management']
-    const graphs = ['Language','Math','Evs']
+    const graphs = class_subjects['class_'+classType]
+    console.log(graphs)
     const entities = {
       gender: ['Boys','Girls'],
       management:['Govt.','Govt. Aided','Private','Central Govt.'],
@@ -607,18 +744,20 @@ $(document).ready(()=>{
       dataList[section.toLowerCase()] = temp_data
 
     })
-    console.log(dataList)
+    // console.log(dataList)
     // return
     
     const colorCode = {
       language: ['#BAD4EC','#9EC2E4','#83B1DD','#6997C3'],
       evs: ['#E5E2AF','#DAD68F','#CFCB6F','#B6B156'],
-      math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E']
+      math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E'],
+      social:['#C7E1C0','#ABD3A1','#8FC481','#68A358'],
+      science:['#B1DEDF','#8ACDCE','#63BDBE','#369B9D']
     }  
 
     sections.forEach(section => {
       graphs.forEach(sub=>{
-        const where = section + sub +'BarGraph'
+        const where = section + sub +'BarGraph_class'+classType
         let data = []
         const items = entities[section.toLowerCase()]
         items.forEach((element,index) => {
@@ -631,8 +770,24 @@ $(document).ready(()=>{
           }
           data.push(item)
         });
+        console.log(where)
         createColumnChart(where,data)
       })
       
     });
+  }
+
+  function toggleActiveDistrict(district_id,value){
+    if(value){
+      $('.districts').removeClass('active')
+      $('#district_'+district_id).addClass('active')
+    }else{
+      $('.districts').removeClass('active')
+      $('#district_'+district_id).removeClass('active')
+    }
+  }
+
+  function getOutcomeRow(lo,classStyle){
+    let row = '<tr class="'+classStyle+'"><td>'+lo.subject_code+'</td><td>'+lo.question+'</td><td>'+Math.round(lo.avg)+'</td><td>'+Math.round(lo.state_avg)+'</td><td>'+Math.round(lo.national_avg)+'</td></tr>'
+    return row
   }
