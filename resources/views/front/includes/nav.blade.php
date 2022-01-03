@@ -13,9 +13,9 @@
           </li>
           <li>
             <div class="d-flex">
-              <a href="#" class="textplus">A</a>
-              <a href="#" class="textplus">A+</a>
-              <a href="#" class="textplus">A++</a>
+              <a href="javascript:void(0)" class="textplus" onclick="setFontSize(15)">A</a>
+              <a href="javascript:void(0)" class="textplus" onclick="setFontSize(25)">A+</a>
+              <a href="javascript:void(0)" class="textplus" onclick="setFontSize(35)">A++</a>
             </div>
           </li>
           <!-- <li>
@@ -67,23 +67,22 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link home-link active" href="index.html">
-                <a class="nav-link home-link active" href="{{url('/')}}">
+                <a class="nav-link home-link {{ Request::is('/') ? 'active' : '' }}" href="{{url('/')}}">
                   <span class="material-icons">
                     home
                   </span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url('/about')}}">
+                <a class="nav-link {{ Request::is('about-nas') ? 'active' : '' }}" href="{{url('/about-nas')}}">
                   {{ __('lang.about nas') }}
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url('/program')}}">{{__('lang.NAS PROGRAM')}}</a>
+                <a class="nav-link {{ Request::is('nas-program') ? 'active' : '' }}" href="{{url('/nas-program')}}">{{__('lang.NAS PROGRAM')}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url('/report-card')}}">{{__('lang.REPORT CARD')}}</a>
+                <a class="nav-link {{ Request::is('report-card') ? 'active' : '' }}" href="{{url('/report-card')}}">{{__('lang.REPORT CARD')}}</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('lang.REPORT CARD')}}</a>
@@ -93,14 +92,14 @@
                 </ul>
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="{{url('/data-share')}}">{{__('lang.DATA SHARE')}}</a>
+                <a class="nav-link {{ Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}">{{__('lang.DATA SHARE')}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">{{__('lang.VISUALIZATION')}}</a>
+                <a class="nav-link {{ Request::is('visualization') ? 'active' : '' }}" href="#">{{__('lang.VISUALIZATION')}}</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="{{url('gallery')}}">{{__('lang.GALLERY')}}</a>
+                <a class="nav-link {{ Request::is('gallery/*') ? 'active' : '' }}" href="{{url('gallery')}}">{{__('lang.GALLERY')}}</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('lang.GALLERY')}}</a>
@@ -110,7 +109,7 @@
                 </ul>  
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="{{url('nas-team')}}">{{__('lang.NAS TEAM')}}</a>
+                <a class="nav-link {{ Request::is('nas-team') ? 'active' : '' }}" href="{{url('nas-team')}}">{{__('lang.NAS TEAM')}}</a>
               </li>
             </ul>
             <!-- <div class="btn-wrap">

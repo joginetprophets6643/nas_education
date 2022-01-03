@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use DB;
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 use Hash;
 use App\Models\User;
 class AdminController extends BaseController

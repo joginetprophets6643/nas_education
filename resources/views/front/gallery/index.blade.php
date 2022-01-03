@@ -40,7 +40,7 @@
                         @endforeach
                         
                         <div class="col-md-12">
-                            <a href="{{url('/image-gallery')}}" class="org-link">
+                            <a href="{{url('/gallery/image-gallery')}}" class="org-link">
                                 VIEW ALL 
                                 <span class="material-icons-round">
                                     east
@@ -56,14 +56,21 @@
                     <div class="row">
                         @foreach($vedios as $vedio)
                       <div class="col-md-3">
+                          <div class="gallery-card">
                             <div class="gallery-img-wrap">
                             <img src="{{asset('assets/front/images/video1.png')}}" alt="img" class="img-fluid" />
+                            <a href="#" class="gallery-play-icon">
+                                <span class="material-icons">
+                                  play_circle_filled
+                                </span>
+                            </a>
+                          </div>
                           </div>
                       </div>
                       @endforeach
                         
                         <div class="col-md-12">
-                            <a href="{{url('/vedio-gallery')}}" class="org-link">
+                            <a href="{{url('/gallery/vedio-gallery')}}" class="org-link">
                                 VIEW ALL 
                                 <span class="material-icons-round">
                                     east

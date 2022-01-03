@@ -308,33 +308,452 @@ class QuestionnaireController extends Controller
          * Start Here
          *************************************************************/
 
-        $at3Data = $at3Data = DB::table('at3_performance_data')->select('state_id','district_id','grade',DB::raw("count(id)  AS total_student"), DB::raw("count(CASE WHEN location = '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE  WHEN location = '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE  WHEN management= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN management= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw(" count(CASE WHEN management= 'F3' THEN 'Private' END) AS private_school"),DB::raw(" count(CASE WHEN management= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw(" count(CASE WHEN socialgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN socialgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN socialgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN socialgrp= '4' THEN 'General' END) AS general_social_group"),DB::raw("count(CASE WHEN gender= '1' THEN 'Boys' END) AS male_gender"),DB::raw("count(CASE 
-        WHEN gender= '2' THEN 'Girls' END) AS female_gender"),
-        DB::raw("count(CASE WHEN gender= '1' THEN l_avg END) AS total_l_boys"),
-        DB::raw("count(CASE WHEN gender= '2' THEN l_avg END) AS total_l_girls"),
-        DB::raw("count(CASE WHEN gender= '1' THEN m_avg END) AS total_m_boys"),
-        DB::raw("count(CASE WHEN gender= '2' THEN m_avg END) AS total_m_girls"),
-        DB::raw("count(CASE WHEN gender= '1' THEN e_avg END) AS total_e_boys"),
-        DB::raw("count(CASE WHEN gender= '2' THEN e_avg END) AS total_e_girls"),
-        DB::raw("count(CASE WHEN gender= '1' THEN mil_avg END) AS total_mil_boys"),
-        DB::raw("count(CASE WHEN gender= '2' THEN mil_avg END) AS total_mil_girls"),
-        DB::raw("count(CASE WHEN gender= '1' THEN eng_avg END) AS total_eng_boys"),
-        DB::raw("count(CASE WHEN gender= '2' THEN eng_avg END) AS total_eng_girls"),
-        DB::raw("count(CASE WHEN gender= '1' THEN sci_avg END) AS total_sci_boys"),
-        DB::raw("count(CASE WHEN gender= '2' THEN sci_avg END) AS total_sci_girls"),
-        DB::raw("count(CASE WHEN gender= '1' THEN sst_avg END) AS total_sst_boys"),
-        DB::raw("count(CASE WHEN gender= '2' THEN sst_avg END) AS total_sst_girls"),
-        DB::raw("count(l_avg) AS total_l_student"),DB::raw("SUM(L_avg::int)/count(L_avg) AS avg_l_marks"),DB::raw("SUM(l_avg::int) AS sum_l_marks"),
-        DB::raw("count(m_avg) AS total_m_student"),DB::raw("SUM(m_avg::int)/count(l_avg) AS avg_m_marks"),DB::raw("SUM(m_avg::int) AS sum_m_marks"),
-        DB::raw("count(e_avg) AS total_e_student"),DB::raw("SUM(e_avg::int)/count(e_avg) AS avg_e_marks"),DB::raw("SUM(e_avg::int) AS sum_e_marks"),
-        DB::raw("count(mil_avg) AS total_mil_student"),DB::raw("SUM(mil_avg::int)/count(mil_avg) AS avg_mil_marks"),DB::raw("SUM(mil_avg::int) AS sum_mil_marks"),
-        DB::raw("count(eng_avg) AS total_eng_student"),DB::raw("SUM(eng_avg::int)/count(eng_avg) AS avg_eng_marks"),DB::raw("SUM(eng_avg::int) AS sum_eng_marks"),
-        DB::raw("count(sci_avg) AS total_sci_student"),DB::raw("SUM(sci_avg::int)/count(sci_avg) AS avg_sci_marks"),DB::raw("SUM(sci_avg::int) AS sum_sci_marks"),
-        DB::raw("count(sst_avg) AS total_sst_student"),DB::raw("SUM(sst_avg::int)/count(sst_avg) AS avg_sst_marks"),DB::raw("SUM(sst_avg::int) AS sum_sst_marks"))
-        ->groupBy('at3_performance_data.state_id')
-        ->groupBy('at3_performance_data.district_id')
-        ->groupBy('at3_performance_data.grade')
-        ->get();
+        $at3Data = DB::select("select state_id, district_id, grade, count(id) AS total_student, count(CASE WHEN location = '1' THEN 'Rural' END) AS rural_location, count(CASE WHEN location = '2' THEN 'Urban' END) AS urban_location, count(CASE WHEN management= 'F1' THEN 'Govt School' END) AS govt_school, count(CASE WHEN management= 'F2' THEN 'Govt Aided' END) AS govt_aided_school, count(CASE WHEN management= 'F3' THEN 'Private' END) AS private_school, count(CASE WHEN management= 'F4' THEN 'Central govt' END) AS central_govt_school, count(CASE WHEN socialgrp= '1' THEN 'SC' END) AS sc_social_group, count(CASE WHEN socialgrp= '2' THEN 'OBC' END) AS obc_social_group, count(CASE WHEN socialgrp= '3' THEN 'ST' END) AS st_social_group, count(CASE WHEN socialgrp= '4' THEN 'General' END) AS general_social_group, count(CASE WHEN gender= '1' THEN 'Boys' END) AS male_gender, count(CASE WHEN gender= '2' THEN 'Girls' END) AS female_gender,
+        SUM(L_avg::int)/count(L_avg) AS avg_l_marks, SUM(l_avg::int) AS sum_l_marks, count(m_avg) AS total_m_student, SUM(m_avg::int)/count(l_avg) AS avg_m_marks, SUM(m_avg::int) AS sum_m_marks, count(e_avg) AS total_e_student, SUM(e_avg::int)/count(e_avg) AS avg_e_marks, SUM(e_avg::int) AS sum_e_marks, count(mil_avg) AS total_mil_student, SUM(mil_avg::int)/count(mil_avg) AS avg_mil_marks, SUM(mil_avg::int) AS sum_mil_marks, count(eng_avg) AS total_eng_student, SUM(eng_avg::int)/count(eng_avg) AS avg_eng_marks, SUM(eng_avg::int) AS sum_eng_marks, count(sci_avg) AS total_sci_student, SUM(sci_avg::int)/count(sci_avg) AS avg_sci_marks, SUM(sci_avg::int) AS sum_sci_marks, count(sst_avg) AS total_sst_student, SUM(sst_avg::int)/count(sst_avg) AS avg_sst_marks, SUM(sst_avg::int) AS sum_sst_marks,
+        round(sum((CASE WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.l_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS l_sc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.l_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS l_obc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.l_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS l_st_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.l_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS l_general_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.m_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS m_sc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.m_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS m_obc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.m_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS m_st_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.m_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS m_general_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.e_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS evs_sc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.e_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS evs_obc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.e_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS evs_st_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.e_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS evs_general_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.mil_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS mil_sc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.mil_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS mil_obc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.mil_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS mil_st_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.mil_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS mil_general_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.eng_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS eng_sc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.eng_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS eng_obc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.eng_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS eng_st_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.eng_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS eng_general_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.sci_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS sci_sc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.sci_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS sci_obc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.sci_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS sci_st_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.sci_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS sci_general_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.sst_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS sst_sc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.sst_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '2' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS sst_obc_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.sst_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '3' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS sst_st_social_group,
+        round(sum((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.sst_avg
+                END)::decimal)/count((CASE 
+                WHEN at3_performance_data.socialgrp= '4' THEN at3_performance_data.socialgrp
+                END)::decimal)) AS sst_general_social_group,
+        round(sum(CASE WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.l_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.management
+                END)::decimal) AS l_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.l_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.management
+                END)::decimal) AS l_govt_aided_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.l_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.management
+                END)::decimal) AS l_private_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.l_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.management
+                END)::decimal) AS l_central_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.m_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.management
+                END)::decimal) AS m_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.m_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.management
+                END)::decimal) AS m_govt_aided_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.m_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.management
+                END)::decimal) AS m_private_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.m_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.management
+                END)::decimal) AS m_central_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.e_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.management
+                END)::decimal) AS evs_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.e_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.management
+                END)::decimal) AS evs_govt_aided_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.e_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.management
+                END)::decimal) AS evs_private_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.e_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.management
+                END)::decimal) AS evs_central_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.mil_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.management
+                END)::decimal) AS mil_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.mil_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.management
+                END)::decimal) AS mil_govt_aided_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.mil_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.management
+                END)::decimal) AS mil_private_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.mil_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.management
+                END)::decimal) AS mil_central_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.eng_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.management
+                END)::decimal) AS eng_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.eng_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.management
+                END)::decimal) AS eng_govt_aided_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.eng_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.management
+                END)::decimal) AS eng_private_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.eng_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.management
+                END)::decimal) AS eng_central_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.sci_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.management
+                END)::decimal) AS sci_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.sci_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.management
+                END)::decimal) AS sci_govt_aided_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.sci_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.management
+                END)::decimal) AS sci_private_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.sci_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.management
+                END)::decimal) AS sci_central_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.sst_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F1' THEN at3_performance_data.management
+                END)::decimal) AS sst_govt_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.sst_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F2' THEN at3_performance_data.management
+                END)::decimal) AS sst_govt_aided_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.sst_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F3' THEN at3_performance_data.management
+                END)::decimal) AS sst_private_management,
+        round(sum(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.sst_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.management= 'F4' THEN at3_performance_data.management
+                END)::decimal) AS sst_central_govt_management,
+        round(sum(CASE WHEN at3_performance_data.location= '1' THEN at3_performance_data.l_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.location
+                END)::decimal) AS l_rural_location,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.l_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.location
+                END)::decimal) AS l_urban_location,
+        round(sum(CASE WHEN at3_performance_data.location= '1' THEN at3_performance_data.m_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.location
+                END)::decimal) AS m_rural_location
+                ,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.m_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.location
+                END)::decimal) AS m_urban_location,
+        round(sum(CASE WHEN at3_performance_data.location= '1' THEN at3_performance_data.e_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.location
+                END)::decimal) AS e_rural_location,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.e_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.location
+                END)::decimal) AS e_urban_location,        
+        round(sum(CASE WHEN at3_performance_data.location= '1' THEN at3_performance_data.mil_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.location
+                END)::decimal) AS mil_rural_location,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.mil_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.location
+                END)::decimal) AS mil_urban_location,
+        round(sum(CASE WHEN at3_performance_data.location= '1' THEN at3_performance_data.eng_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.location
+                END)::decimal) AS eng_rural_location,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.eng_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.location
+                END)::decimal) AS eng_urban_location,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.sci_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.location
+                END)::decimal) AS sci_rural_location,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.sci_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.location
+                END)::decimal) AS sci_urban_location,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.sst_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '1' THEN at3_performance_data.location
+                END)::decimal) AS sst_rural_location,
+        round(sum(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.sst_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.location= '2' THEN at3_performance_data.location
+                END)::decimal) AS sst_urban_location,
+        round(sum(CASE WHEN at3_performance_data.gender= '1' THEN at3_performance_data.l_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.gender
+                END)::decimal) AS l_male_gender,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.l_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.gender
+                END)::decimal) AS l_female_gender,
+        round(sum(CASE WHEN at3_performance_data.gender= '1' THEN at3_performance_data.m_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.gender
+                END)::decimal) AS m_male_gender
+                ,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.m_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.gender
+                END)::decimal) AS m_female_gender,
+        round(sum(CASE WHEN at3_performance_data.gender= '1' THEN at3_performance_data.e_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.gender
+                END)::decimal) AS e_male_gender,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.e_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.gender
+                END)::decimal) AS e_female_gender,        
+        round(sum(CASE WHEN at3_performance_data.gender= '1' THEN at3_performance_data.mil_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.gender
+                END)::decimal) AS mil_male_gender,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.mil_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.gender
+                END)::decimal) AS mil_female_gender,
+        round(sum(CASE WHEN at3_performance_data.gender= '1' THEN at3_performance_data.eng_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.gender
+                END)::decimal) AS eng_male_gender,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.eng_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.gender
+                END)::decimal) AS eng_female_gender,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.sci_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.gender
+                END)::decimal) AS sci_male_gender,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.sci_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.gender
+                END)::decimal) AS sci_female_gender,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.sst_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '1' THEN at3_performance_data.gender
+                END)::decimal) AS sst_male_gender,
+        round(sum(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.sst_avg
+                END::int)::decimal/count(CASE 
+                WHEN at3_performance_data.gender= '2' THEN at3_performance_data.gender
+                END)::decimal) AS sst_female_gender
+        
+        
+        from at3_performance_data
+        
+        group by at3_performance_data.state_id, at3_performance_data.district_id, at3_performance_data.grade");
+
+       // dd($new);
+        // $at3Data = $at3Data = DB::table('at3_performance_data')->select('state_id','district_id','grade',DB::raw("count(id)  AS total_student"), DB::raw("count(CASE WHEN location = '1' THEN 'Rural' END) AS rural_location"),DB::raw("count(CASE  WHEN location = '2' THEN 'Urban' END) AS urban_location"),DB::raw("count(CASE  WHEN management= 'F1' THEN 'Govt School' END) AS govt_school"),DB::raw("count(CASE WHEN management= 'F2' THEN 'Govt Aided' END) AS govt_aided_school"),DB::raw(" count(CASE WHEN management= 'F3' THEN 'Private' END) AS private_school"),DB::raw(" count(CASE WHEN management= 'F4' THEN 'Central govt' END) AS central_govt_school"),DB::raw(" count(CASE WHEN socialgrp= '1' THEN 'SC' END) AS sc_social_group"),DB::raw("count(CASE WHEN socialgrp= '2' THEN 'OBC' END) AS obc_social_group"),DB::raw("count(CASE WHEN socialgrp= '3' THEN 'ST' END) AS st_social_group"),DB::raw("count(CASE WHEN socialgrp= '4' THEN 'General' END) AS general_social_group"),DB::raw("count(CASE WHEN gender= '1' THEN 'Boys' END) AS male_gender"),DB::raw("count(CASE 
+        // WHEN gender= '2' THEN 'Girls' END) AS female_gender"),
+        // DB::raw("count(CASE WHEN gender= '1' THEN l_avg END) AS total_l_boys"),
+        // DB::raw("count(CASE WHEN gender= '2' THEN l_avg END) AS total_l_girls"),
+        // DB::raw("count(CASE WHEN gender= '1' THEN m_avg END) AS total_m_boys"),
+        // DB::raw("count(CASE WHEN gender= '2' THEN m_avg END) AS total_m_girls"),
+        // DB::raw("count(CASE WHEN gender= '1' THEN e_avg END) AS total_e_boys"),
+        // DB::raw("count(CASE WHEN gender= '2' THEN e_avg END) AS total_e_girls"),
+        // DB::raw("count(CASE WHEN gender= '1' THEN mil_avg END) AS total_mil_boys"),
+        // DB::raw("count(CASE WHEN gender= '2' THEN mil_avg END) AS total_mil_girls"),
+        // DB::raw("count(CASE WHEN gender= '1' THEN eng_avg END) AS total_eng_boys"),
+        // DB::raw("count(CASE WHEN gender= '2' THEN eng_avg END) AS total_eng_girls"),
+        // DB::raw("count(CASE WHEN gender= '1' THEN sci_avg END) AS total_sci_boys"),
+        // DB::raw("count(CASE WHEN gender= '2' THEN sci_avg END) AS total_sci_girls"),
+        // DB::raw("count(CASE WHEN gender= '1' THEN sst_avg END) AS total_sst_boys"),
+        // DB::raw("count(CASE WHEN gender= '2' THEN sst_avg END) AS total_sst_girls"),
+        // DB::raw("count(l_avg) AS total_l_student"),DB::raw("SUM(L_avg::int)/count(L_avg) AS avg_l_marks"),DB::raw("SUM(l_avg::int) AS sum_l_marks"),
+        // DB::raw("count(m_avg) AS total_m_student"),DB::raw("SUM(m_avg::int)/count(l_avg) AS avg_m_marks"),DB::raw("SUM(m_avg::int) AS sum_m_marks"),
+        // DB::raw("count(e_avg) AS total_e_student"),DB::raw("SUM(e_avg::int)/count(e_avg) AS avg_e_marks"),DB::raw("SUM(e_avg::int) AS sum_e_marks"),
+        // DB::raw("count(mil_avg) AS total_mil_student"),DB::raw("SUM(mil_avg::int)/count(mil_avg) AS avg_mil_marks"),DB::raw("SUM(mil_avg::int) AS sum_mil_marks"),
+        // DB::raw("count(eng_avg) AS total_eng_student"),DB::raw("SUM(eng_avg::int)/count(eng_avg) AS avg_eng_marks"),DB::raw("SUM(eng_avg::int) AS sum_eng_marks"),
+        // DB::raw("count(sci_avg) AS total_sci_student"),DB::raw("SUM(sci_avg::int)/count(sci_avg) AS avg_sci_marks"),DB::raw("SUM(sci_avg::int) AS sum_sci_marks"),
+        // DB::raw("count(sst_avg) AS total_sst_student"),DB::raw("SUM(sst_avg::int)/count(sst_avg) AS avg_sst_marks"),DB::raw("SUM(sst_avg::int) AS sum_sst_marks"))
+        // ->groupBy('at3_performance_data.state_id')
+        // ->groupBy('at3_performance_data.district_id')
+        // ->groupBy('at3_performance_data.grade')
+        // ->get();
 
         $newData3Grade = array();
         if(count($at3Data)>0)
@@ -358,41 +777,105 @@ class QuestionnaireController extends Controller
                 $newData3Grade['general_social_group'] = isset($nasDetails3->general_social_group)?$nasDetails3->general_social_group:0;
                 $newData3Grade['male_gender'] = isset($nasDetails3->male_gender)?$nasDetails3->male_gender:0;
                 $newData3Grade['female_gender'] = isset($nasDetails3->female_gender)?$nasDetails3->female_gender:0;
-                $newData3Grade['total_l_student'] = isset($nasDetails3->total_l_student)?$nasDetails3->total_l_student:0;
-                $newData3Grade['total_l_boys'] = isset($nasDetails3->total_l_boys)?$nasDetails3->total_l_boys:0;
-                $newData3Grade['total_l_girls'] = isset($nasDetails3->total_l_girls)?$nasDetails3->total_l_girls:0;
                 $newData3Grade['avg_l_marks'] = isset($nasDetails3->avg_l_marks)?$nasDetails3->avg_l_marks:0;
                 $newData3Grade['sum_l_marks'] = isset($nasDetails3->sum_l_marks)?$nasDetails3->sum_l_marks:0;        
-                $newData3Grade['total_m_student'] = isset($nasDetails3->total_m_student)?$nasDetails3->total_m_student:0;
-                $newData3Grade['total_m_boys'] = isset($nasDetails3->total_m_boys)?$nasDetails3->total_m_boys:0;
-                $newData3Grade['total_m_girls'] = isset($nasDetails3->total_m_girls)?$nasDetails3->total_m_girls:0;
                 $newData3Grade['avg_m_marks'] = isset($nasDetails3->avg_m_marks)?$nasDetails3->avg_m_marks:0;
                 $newData3Grade['sum_m_marks'] = isset($nasDetails3->sum_m_marks)?$nasDetails3->sum_m_marks:0;        
-                $newData3Grade['total_e_student'] = isset($nasDetails3->total_e_student)?$nasDetails3->total_e_student:0;
-                $newData3Grade['total_e_boys'] = isset($nasDetails3->total_e_boys)?$nasDetails3->total_e_boys:0;
-                $newData3Grade['total_e_girls'] = isset($nasDetails3->total_e_girls)?$nasDetails3->total_e_girls:0;
                 $newData3Grade['avg_e_marks'] = isset($nasDetails3->avg_e_marks)?$nasDetails3->avg_e_marks:0;
                 $newData3Grade['sum_e_marks'] = isset($nasDetails3->sum_e_marks)?$nasDetails3->sum_e_marks:0;
-                $newData3Grade['total_mil_student'] = isset($nasDetails3->total_mil_student)?$nasDetails3->total_mil_student:0;
-                $newData3Grade['total_mil_boys'] = isset($nasDetails3->total_mil_boys)?$nasDetails3->total_mil_boys:0;
-                $newData3Grade['total_mil_girls'] = isset($nasDetails3->total_mil_girls)?$nasDetails3->total_mil_girls:0;
                 $newData3Grade['avg_mil_marks'] = isset($nasDetails3->avg_mil_marks)?$nasDetails3->avg_mil_marks:0;
                 $newData3Grade['sum_mil_marks'] = isset($nasDetails3->sum_mil_marks)?$nasDetails3->sum_mil_marks:0;        
-                $newData3Grade['total_eng_student'] = isset($nasDetails3->total_eng_student)?$nasDetails3->total_eng_student:0;
-                $newData3Grade['total_eng_boys'] = isset($nasDetails3->total_eng_boys)?$nasDetails3->total_eng_boys:0;
-                $newData3Grade['total_eng_girls'] = isset($nasDetails3->total_eng_girls)?$nasDetails3->total_eng_girls:0;
                 $newData3Grade['avg_eng_marks'] = isset($nasDetails3->avg_eng_marks)?$nasDetails3->avg_eng_marks:0;
                 $newData3Grade['sum_eng_marks'] = isset($nasDetails3->sum_eng_marks)?$nasDetails3->sum_eng_marks:0;        
-                $newData3Grade['total_sci_student'] = isset($nasDetails3->total_sci_student)?$nasDetails3->total_sci_student:0;
-                $newData3Grade['total_sci_boys'] = isset($nasDetails3->total_sci_boys)?$nasDetails3->total_sci_boys:0;
-                $newData3Grade['total_sci_girls'] = isset($nasDetails3->total_sci_girls)?$nasDetails3->total_sci_girls:0;
                 $newData3Grade['avg_sci_marks'] = isset($nasDetails3->avg_sci_marks)?$nasDetails3->avg_sci_marks:0;
                 $newData3Grade['sum_sci_marks'] = isset($nasDetails3->sum_sci_marks)?$nasDetails3->sum_sci_marks:0;
-                $newData3Grade['total_sst_student'] = isset($nasDetails3->total_sst_student)?$nasDetails3->total_sst_student:0;
-                $newData3Grade['total_sst_boys'] = isset($nasDetails3->total_sst_boys)?$nasDetails3->total_sst_boys:0;
-                $newData3Grade['total_sst_girls'] = isset($nasDetails3->total_sst_girls)?$nasDetails3->total_sst_girls:0;
                 $newData3Grade['avg_sst_marks'] = isset($nasDetails3->avg_sst_marks)?$nasDetails3->avg_sst_marks:0;
                 $newData3Grade['sum_sst_marks'] = isset($nasDetails3->sum_sst_marks)?$nasDetails3->sum_sst_marks:0;
+                $newData3Grade['l_sc_social_group'] = isset($nasDetails3->l_sc_social_group)?$nasDetails3->l_sc_social_group:0;
+                $newData3Grade['l_obc_social_group'] = isset($nasDetails3->l_obc_social_group)?$nasDetails3->l_obc_social_group:0;
+                $newData3Grade['l_st_social_group'] = isset($nasDetails3->l_st_social_group)?$nasDetails3->l_st_social_group:0;
+                $newData3Grade['l_general_social_group'] = isset($nasDetails3->l_general_social_group)?$nasDetails3->l_general_social_group:0;
+                $newData3Grade['m_sc_social_group'] = isset($nasDetails3->m_sc_social_group)?$nasDetails3->m_sc_social_group:0;
+                $newData3Grade['m_obc_social_group'] = isset($nasDetails3->m_obc_social_group)?$nasDetails3->m_obc_social_group:0;
+                $newData3Grade['m_st_social_group'] = isset($nasDetails3->m_st_social_group)?$nasDetails3->m_st_social_group:0;
+                $newData3Grade['m_general_social_group'] = isset($nasDetails3->m_general_social_group)?$nasDetails3->m_general_social_group:0;
+                $newData3Grade['evs_sc_social_group'] = isset($nasDetails3->evs_sc_social_group)?$nasDetails3->evs_sc_social_group:0;
+                $newData3Grade['evs_obc_social_group'] = isset($nasDetails3->evs_obc_social_group)?$nasDetails3->evs_obc_social_group:0;
+                $newData3Grade['evs_st_social_group'] = isset($nasDetails3->evs_st_social_group)?$nasDetails3->evs_st_social_group:0;
+                $newData3Grade['evs_general_social_group'] = isset($nasDetails3->evs_general_social_group)?$nasDetails3->evs_general_social_group:0;
+                $newData3Grade['mil_sc_social_group'] = isset($nasDetails3->mil_sc_social_group)?$nasDetails3->mil_sc_social_group:0;
+                $newData3Grade['mil_obc_social_group'] = isset($nasDetails3->mil_obc_social_group)?$nasDetails3->mil_obc_social_group:0;
+                $newData3Grade['mil_st_social_group'] = isset($nasDetails3->mil_st_social_group)?$nasDetails3->mil_st_social_group:0;
+                $newData3Grade['mil_general_social_group'] = isset($nasDetails3->mil_general_social_group)?$nasDetails3->mil_general_social_group:0;
+                $newData3Grade['eng_sc_social_group'] = isset($nasDetails3->eng_sc_social_group)?$nasDetails3->eng_sc_social_group:0;
+                $newData3Grade['eng_obc_social_group'] = isset($nasDetails3->eng_obc_social_group)?$nasDetails3->eng_obc_social_group:0;
+                $newData3Grade['eng_st_social_group'] = isset($nasDetails3->eng_st_social_group)?$nasDetails3->eng_st_social_group:0;
+                $newData3Grade['eng_general_social_group'] = isset($nasDetails3->eng_general_social_group)?$nasDetails3->eng_general_social_group:0;
+                $newData3Grade['sci_sc_social_group'] = isset($nasDetails3->sci_sc_social_group)?$nasDetails3->sci_sc_social_group:0;
+                $newData3Grade['sci_obc_social_group'] = isset($nasDetails3->sci_obc_social_group)?$nasDetails3->sci_obc_social_group:0;
+                $newData3Grade['sci_st_social_group'] = isset($nasDetails3->sci_st_social_group)?$nasDetails3->sci_st_social_group:0;
+                $newData3Grade['sci_general_social_group'] = isset($nasDetails3->sci_general_social_group)?$nasDetails3->sci_general_social_group:0;
+                $newData3Grade['sst_sc_social_group'] = isset($nasDetails3->sst_sc_social_group)?$nasDetails3->sst_sc_social_group:0;
+                $newData3Grade['sst_obc_social_group'] = isset($nasDetails3->sst_obc_social_group)?$nasDetails3->sst_obc_social_group:0;
+                $newData3Grade['sst_st_social_group'] = isset($nasDetails3->sst_st_social_group)?$nasDetails3->sst_st_social_group:0;
+                $newData3Grade['sst_general_social_group'] = isset($nasDetails3->sst_general_social_group)?$nasDetails3->sst_general_social_group:0;
+                $newData3Grade['l_govt_management'] = isset($nasDetails3->l_govt_management)?$nasDetails3->l_govt_management:0;
+                $newData3Grade['l_govt_aided_management'] = isset($nasDetails3->l_govt_aided_management)?$nasDetails3->l_govt_aided_management:0;
+                $newData3Grade['l_private_management'] = isset($nasDetails3->l_private_management)?$nasDetails3->l_private_management:0;
+                $newData3Grade['l_central_govt_management'] = isset($nasDetails3->l_central_govt_management)?$nasDetails3->l_central_govt_management:0;
+                $newData3Grade['m_govt_management'] = isset($nasDetails3->m_govt_management)?$nasDetails3->m_govt_management:0;
+                $newData3Grade['m_govt_aided_management'] = isset($nasDetails3->m_govt_aided_management)?$nasDetails3->m_govt_aided_management:0;
+                $newData3Grade['m_private_management'] = isset($nasDetails3->m_private_management)?$nasDetails3->m_private_management:0;
+                $newData3Grade['m_central_govt_management'] = isset($nasDetails3->m_central_govt_management)?$nasDetails3->m_central_govt_management:0;
+                $newData3Grade['evs_govt_management'] = isset($nasDetails3->evs_govt_management)?$nasDetails3->evs_govt_management:0;
+                $newData3Grade['evs_govt_aided_management'] = isset($nasDetails3->evs_govt_aided_management)?$nasDetails3->evs_govt_aided_management:0;
+                $newData3Grade['evs_private_management'] = isset($nasDetails3->evs_private_management)?$nasDetails3->evs_private_management:0;
+                $newData3Grade['evs_central_govt_management'] = isset($nasDetails3->evs_central_govt_management)?$nasDetails3->evs_central_govt_management:0;
+                $newData3Grade['mil_govt_management'] = isset($nasDetails3->mil_govt_management)?$nasDetails3->mil_govt_management:0;
+                $newData3Grade['mil_govt_aided_management'] = isset($nasDetails3->mil_govt_aided_management)?$nasDetails3->mil_govt_aided_management:0;
+                $newData3Grade['mil_private_management'] = isset($nasDetails3->mil_private_management)?$nasDetails3->mil_private_management:0;
+                $newData3Grade['mil_central_govt_management'] = isset($nasDetails3->mil_central_govt_management)?$nasDetails3->mil_central_govt_management:0;
+                $newData3Grade['eng_govt_management'] = isset($nasDetails3->eng_govt_management)?$nasDetails3->eng_govt_management:0;
+                $newData3Grade['eng_govt_aided_management'] = isset($nasDetails3->eng_govt_aided_management)?$nasDetails3->eng_govt_aided_management:0;
+                $newData3Grade['eng_private_management'] = isset($nasDetails3->eng_private_management)?$nasDetails3->eng_private_management:0;
+                $newData3Grade['eng_central_govt_management'] = isset($nasDetails3->eng_central_govt_management)?$nasDetails3->eng_central_govt_management:0;
+                $newData3Grade['sci_govt_management'] = isset($nasDetails3->sci_govt_management)?$nasDetails3->sci_govt_management:0;
+                $newData3Grade['sci_govt_aided_management'] = isset($nasDetails3->sci_govt_aided_management)?$nasDetails3->sci_govt_aided_management:0;
+                $newData3Grade['sci_private_management'] = isset($nasDetails3->sci_private_management)?$nasDetails3->sci_private_management:0;
+                $newData3Grade['sci_central_govt_management'] = isset($nasDetails3->sci_central_govt_management)?$nasDetails3->sci_central_govt_management:0;
+                $newData3Grade['sst_govt_management'] = isset($nasDetails3->sst_govt_management)?$nasDetails3->sst_govt_management:0;
+                $newData3Grade['sst_govt_aided_management'] = isset($nasDetails3->sst_govt_aided_management)?$nasDetails3->sst_govt_aided_management:0;
+                $newData3Grade['sst_private_management'] = isset($nasDetails3->sst_private_management)?$nasDetails3->sst_private_management:0;
+                $newData3Grade['sst_central_govt_management'] = isset($nasDetails3->sst_central_govt_management)?$nasDetails3->sst_central_govt_management:0;
+                $newData3Grade['l_rural_location'] = isset($nasDetails3->l_rural_location)?$nasDetails3->l_rural_location:0;
+                $newData3Grade['l_urban_location'] = isset($nasDetails3->l_urban_location)?$nasDetails3->l_urban_location:0;
+                $newData3Grade['m_rural_location'] = isset($nasDetails3->m_rural_location)?$nasDetails3->m_rural_location:0;
+                $newData3Grade['m_urban_location'] = isset($nasDetails3->m_urban_location)?$nasDetails3->m_urban_location:0;
+                $newData3Grade['e_rural_location'] = isset($nasDetails3->e_rural_location)?$nasDetails3->e_rural_location:0;
+                $newData3Grade['e_urban_location'] = isset($nasDetails3->e_urban_location)?$nasDetails3->e_urban_location:0;
+                $newData3Grade['mil_rural_location'] = isset($nasDetails3->mil_rural_location)?$nasDetails3->mil_rural_location:0;
+                $newData3Grade['mil_urban_location'] = isset($nasDetails3->mil_urban_location)?$nasDetails3->mil_urban_location:0;
+                $newData3Grade['eng_rural_location'] = isset($nasDetails3->eng_rural_location)?$nasDetails3->eng_rural_location:0;
+                $newData3Grade['eng_urban_location'] = isset($nasDetails3->eng_urban_location)?$nasDetails3->eng_urban_location:0;
+                $newData3Grade['sci_rural_location'] = isset($nasDetails3->sci_rural_location)?$nasDetails3->sci_rural_location:0;
+                $newData3Grade['sci_urban_location'] = isset($nasDetails3->sci_urban_location)?$nasDetails3->sci_urban_location:0;
+                $newData3Grade['sst_rural_location'] = isset($nasDetails3->sst_rural_location)?$nasDetails3->sst_rural_location:0;
+                $newData3Grade['sst_urban_location'] = isset($nasDetails3->sst_urban_location)?$nasDetails3->sst_urban_location:0;
+                $newData3Grade['l_male_gender'] = isset($nasDetails3->l_male_gender)?$nasDetails3->l_male_gender:0;
+                $newData3Grade['l_female_gender'] = isset($nasDetails3->l_female_gender)?$nasDetails3->l_female_gender:0;
+                $newData3Grade['m_male_gender'] = isset($nasDetails3->m_male_gender)?$nasDetails3->m_male_gender:0;
+                $newData3Grade['m_female_gender'] = isset($nasDetails3->m_female_gender)?$nasDetails3->m_female_gender:0;
+                $newData3Grade['e_male_gender'] = isset($nasDetails3->e_male_gender)?$nasDetails3->e_male_gender:0;
+                $newData3Grade['e_female_gender'] = isset($nasDetails3->e_female_gender)?$nasDetails3->e_female_gender:0;
+                $newData3Grade['mil_male_gender'] = isset($nasDetails3->mil_male_gender)?$nasDetails3->mil_male_gender:0;
+                $newData3Grade['mil_female_gender'] = isset($nasDetails3->mil_female_gender)?$nasDetails3->mil_female_gender:0;
+                $newData3Grade['eng_male_gender'] = isset($nasDetails3->eng_male_gender)?$nasDetails3->eng_male_gender:0;
+                $newData3Grade['eng_female_gender'] = isset($nasDetails3->eng_female_gender)?$nasDetails3->eng_female_gender:0;
+                $newData3Grade['sci_male_gender'] = isset($nasDetails3->sci_male_gender)?$nasDetails3->sci_male_gender:0;
+                $newData3Grade['sci_female_gender'] = isset($nasDetails3->sci_female_gender)?$nasDetails3->sci_female_gender:0;
+                $newData3Grade['sst_male_gender'] = isset($nasDetails3->sst_male_gender)?$nasDetails3->sst_male_gender:0;
+                $newData3Grade['sst_female_gender'] = isset($nasDetails3->sst_female_gender)?$nasDetails3->sst_female_gender:0;
+
                 $newData3Grade['created_at'] = now();
                 $newData3Grade['updated_at'] = now();
 
@@ -400,6 +883,7 @@ class QuestionnaireController extends Controller
             }
         }
         $districtMsg = DistrictGradeLevelPerformance::insert($getAll3GradeData);
+        dd('done');
         // District wise Process data in all grade End Here
         /*************************************************************
          * Name: Jogi
