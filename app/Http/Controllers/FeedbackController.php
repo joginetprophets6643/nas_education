@@ -81,7 +81,7 @@ class FeedbackController extends Controller
         $newFeedbackData = array();
         if(count($FeedbackData)>0)
         {
-            DB::table('pq_district_level_feedback')->where('level','pq')->truncate();
+            DB::table('pq_district_level_feedback')->where('level','pq')->delete();
             foreach($FeedbackData as $newLOData)
             {
                 $newFeedbackData['state_id'] = (int)$newLOData->state_id;
@@ -117,7 +117,7 @@ class FeedbackController extends Controller
         $newFeedbackDataS = array();
         if(count($FeedbackDataForState)>0)
         {
-            DB::table('pq_state_level_feedback')->where('level','pq')->truncate();
+            DB::table('pq_state_level_feedback')->where('level','pq')->delete();
             foreach($FeedbackDataForState as $newLODataState)
             {
                 $newFeedbackDataS['state_id'] = (int)$newLODataState->state_id;
@@ -151,7 +151,7 @@ class FeedbackController extends Controller
         $newFeedbackDataNational = array();
         if(count($FeedbackDataNational)>0)
         {
-            DB::table('pq_national_level_feedback')->where('level','pq')->truncate();
+            DB::table('pq_national_level_feedback')->where('level','pq')->delete();
             foreach($FeedbackDataNational as $newLODataNational)
             {
                 $newFeedbackDataNational['grade'] = (int)$newLODataNational->grade;
@@ -542,7 +542,7 @@ class FeedbackController extends Controller
         $newFeedbackData = array();
         if(count($FeedbackData)>0)
         {
-            DB::table('pq_district_level_feedback')->where('level','tq')->truncate();
+            DB::table('pq_district_level_feedback')->where('level','tq')->delete();
             foreach($FeedbackData as $newLOData)
             {
                 $newFeedbackData['state_id'] = (int)$newLOData->state_id;
@@ -572,12 +572,12 @@ class FeedbackController extends Controller
         $newFeedbackDataS = array();
         if(count($FeedbackDataForState)>0)
         {
-            DB::table('pq_state_level_feedback')->where('level','tq')->truncate();
+            DB::table('pq_state_level_feedback')->where('level','tq')->delete();
             foreach($FeedbackDataForState as $newLODataState)
             {
                 $newFeedbackDataS['state_id'] = (int)$newLODataState->state_id;
                 $newFeedbackDataS['grade'] = (int)$newLODataState->grade;
-                $newFeedbackData['level']     =  'tq';
+                $newFeedbackDataS['level']     =  'tq';
                 $newFeedbackDataS['question_code'] = isset($newLODataState->question_code)?$newLODataState->question_code:0;
                 $newFeedbackDataS['question_desc'] = isset($newLODataState->question)?$newLODataState->question:0;
                 $newFeedbackDataS['total_parent'] = isset($newLODataState->total_parent)?$newLODataState->total_parent:0;
@@ -600,11 +600,11 @@ class FeedbackController extends Controller
         $newFeedbackDataNational = array();
         if(count($FeedbackDataNational)>0)
         {
-            DB::table('pq_national_level_feedback')->where('level','tq')->truncate();
+            DB::table('pq_national_level_feedback')->where('level','tq')->delete();
             foreach($FeedbackDataNational as $newLODataNational)
             {
                 $newFeedbackDataNational['grade'] = (int)$newLODataNational->grade;
-                $newFeedbackData['level']     =  'tq';
+                $newFeedbackDataNational['level']     =  'tq';
                 $newFeedbackDataNational['question_code'] = isset($newLODataNational->question_code)?$newLODataNational->question_code:0;
                 $newFeedbackDataNational['question_desc'] = isset($newLODataNational->question)?$newLODataNational->question:0;
                 $newFeedbackDataNational['total_parent'] = isset($newLODataNational->total_parent)?$newLODataNational->total_parent:0;
