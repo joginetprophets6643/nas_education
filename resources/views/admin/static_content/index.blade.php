@@ -39,7 +39,7 @@
               @else
               <td>English</td>
               @endif
-              <td >{{$content->page_meta_title}}</td>
+              <td >{{$content->page_title}}</td>
               <td style="max-width:290px; overflow:hidden;" id="content">{!!$content->home_page_content!!}</td>
               <td>
                 <?php $id=encode5t($content->id)?>

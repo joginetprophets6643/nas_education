@@ -199,7 +199,7 @@
         <div class="row">
           <div class="col-md-12">
               <h2 class="heading-blue">
-                QUICK LINKS
+                {{__('lang.QUICK LINKS')}}
               </h2>
               <p class="title-black-sm mb-4">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -213,7 +213,7 @@
                           <img src="{{asset('assets/front/images/report-card.svg')}}" alt="img" class="img-fluid">
                       </div>
                       <h2 class="heading-white-sm">
-                        REPORT CARD
+                        {{__('lang.REPORT CARD')}}
                       </h2>
                     </div> 
                     <p class="desc-white">
@@ -222,7 +222,7 @@
                   </div>
                   
                   <div class="btn-wrap">
-                    <a href="#" class="white-link">
+                    <a href="{{url('/report-card')}}" class="white-link">
                       {{ __('lang.Read More') }}
                       <span class="material-icons-round">
                         east
@@ -239,7 +239,7 @@
                       <img src="{{asset('assets/front/images/analysis.svg')}}" alt="img" class="img-fluid">
                   </div>
                   <h2 class="heading-white-sm">
-                    VISUALIZATION
+                    {{__('lang.VISUALIZATION')}}
                   </h2>
                 </div> 
                 <p class="desc-white">
@@ -263,7 +263,7 @@
                       <img src="{{asset('assets/front/images/data-share.svg')}}" alt="img" class="img-fluid">
                   </div>
                   <h2 class="heading-white-sm">
-                    DATA SHARE
+                   {{__('lang.DATA SHARE')}}
                   </h2>
               </div> 
               <p class="desc-white">
@@ -272,7 +272,7 @@
               </div>
               
               <div class="btn-wrap">
-                <a href="#" class="white-link">
+                <a href="{{url('/data-share')}}" class="white-link">
                   {{ __('lang.Read More') }}
                   <span class="material-icons-round">
                     east
@@ -298,17 +298,12 @@
                         <div class="item">
                             <div class="gallery-img-wrap">
                               <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="width:100%;height:178.42px">
-                              <a href="#" class="gallery-zoom-icon">
-                                <span class="material-icons-round">
-                                  zoom_in
-                                </span>
-                              </a>
                             </div>
                         </div>
                         @endforeach
                       </div>
                       <div class="btn-wrap">
-                        <a href="{{url('/image-gallery')}}" class="org-link">
+                        <a href="{{url('/gallery/image-gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
                             east
@@ -337,7 +332,7 @@
                       @endforeach
                     </div>
                     <div class="btn-wrap">
-                      <a href="{{url('/vedio-gallery')}}" class="org-link">
+                      <a href="{{url('/gallery/vedio-gallery')}}" class="org-link">
                         {{ __('lang.VIEW ALL') }} 
                         <span class="material-icons-round">
                           east
@@ -513,6 +508,7 @@
             allowPointSelect: true,
             cursor: 'pointer',
             color: "#fff",
+            borderColor: "#000",
             states: {
                 hover: {
                     color: '#006BB6'

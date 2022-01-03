@@ -34,5 +34,8 @@ return[
     'National'=>'National',
     'State'=>'State',
     'District'=>'District',
-    
+    'QUICK LINKS'=>'QUICK LINKS',
+    'Copyright'=>'Copyright',
+    'Website Visit Count'=>'Website Visit Count'
+
 ];

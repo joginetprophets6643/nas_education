@@ -22,5 +22,5 @@
     <link rel="stylesheet" href="{{asset('assets/front/scss/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/style (2).css')}}">
-    <title>NAS</title>
+    <title id='title'>NAS</title>
   </head>

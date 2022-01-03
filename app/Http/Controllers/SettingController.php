@@ -48,6 +48,10 @@ class SettingController extends Controller
         $content->contact_us=$request->contact_us;
         $content->meta_title=$request->meta_title;
         $content->meta_description=$request->meta_description;
+        $content->website_title_hindi=$request->website_title_hindi;
+        $content->contact_us_hindi=$request->contact_us_hindi;
+        $content->meta_title_hindi=$request->meta_title_hindi;
+        $content->meta_description_hindi=$request->meta_description_hindi;
         $content->logo_1=$name1;
         $content->logo_2=$name2;
         $content->fb=$request->fb;
@@ -82,6 +86,10 @@ class SettingController extends Controller
         'contact_us'=>$request->contact_us,
         'meta_title'=>$request->meta_title,
         'meta_description'=>$request->meta_description,
+        'website_title_hindi'=>$request->website_title_hindi,
+        'contact_us_hindi'=>$request->contact_us_hindi,
+        'meta_title_hindi'=>$request->meta_title_hindi,
+        'meta_description_hindi'=>$request->meta_description_hindi,
         'fb'=>$request->fb,
         'twitter'=>$request->twitter,
         'insta'=>$request->insta,
