@@ -35,6 +35,8 @@ Route::get('generateFeedbackanswerkey',[FeedbackController::class,'generateFeedb
 Route::get('pqQuestionMaster',[FeedbackController::class,'pqQuestionMaster']);
 Route::get('get_feedback_tq',[FeedbackController::class,'get_feedback_tq']);
 Route::get('generateFeedbackanswerkeyTq',[FeedbackController::class,'generateFeedbackanswerkeyTq']);
+Route::get('get_feedback_sq',[FeedbackController::class,'get_feedback_sq']);
+Route::get('generateFeedbackanswerkeySq',[FeedbackController::class,'generateFeedbackanswerkeySq']);
 
 Route::get('home', 'App\Http\Controllers\MainController@landing');
 Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');

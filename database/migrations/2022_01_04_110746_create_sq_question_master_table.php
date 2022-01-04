@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTqQuestionMasterTable extends Migration
+class CreateSqQuestionMasterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTqQuestionMasterTable extends Migration
      */
     public function up()
     {
-        Schema::create('tq_question_master', function (Blueprint $table) {
+        Schema::create('sq_question_master', function (Blueprint $table) {
             $table->id();
             $table->string('question_id');
             $table->string('question_desc');
-            $table->string('grade');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateTqQuestionMasterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tq_question_master');
+        Schema::dropIfExists('sq_question_master');
     }
 }
