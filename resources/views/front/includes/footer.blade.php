@@ -89,7 +89,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="/gallery/vedio-gallery">
+                  <a href="/gallery/video-gallery">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Video Gallery')}}
                   </a>
