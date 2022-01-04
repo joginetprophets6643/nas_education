@@ -62,14 +62,14 @@ Route::get('/edit/event/{id}', 'App\Http\Controllers\EventController@edit');
 Route::post('/update/event/{id}', 'App\Http\Controllers\EventController@update');
 
 
-//Event Images & vediosRoutes
+//Event Images & videosRoutes
 
 Route::get('/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
 Route::post('/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
 Route::get('/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
-Route::get('/vedios','App\Http\Controllers\EventController@vedios')->name('vedios');
-Route::post('/add/vedio', 'App\Http\Controllers\EventController@addVedio');
-Route::get('/delete/vedio/{id}', 'App\Http\Controllers\EventController@deleteVedio');
+Route::get('/videos','App\Http\Controllers\EventController@videos')->name('videos');
+Route::post('/add/video', 'App\Http\Controllers\EventController@addvideo');
+Route::get('/delete/video/{id}', 'App\Http\Controllers\EventController@deletevideo');
 
 //Profile
 Route::get('/profile','App\Http\Controllers\AdminController@profile');
@@ -164,7 +164,7 @@ Route::post('/update/program/{id}','App\Http\Controllers\StaticProgramController
 Route::group(["middleware" => ["language"]], function(){
     Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
     Route::get('/gallery/image-gallery','App\Http\Controllers\GalleryController@index');
-    Route::get('/gallery/vedio-gallery','App\Http\Controllers\GalleryController@vedio');
+    Route::get('/gallery/video-gallery','App\Http\Controllers\GalleryController@video');
     Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
     Route::get('/about-nas','App\Http\Controllers\AboutController@index');
     Route::get('/terms-conditions','App\Http\Controllers\ContentPagesController@index')->name('terms');

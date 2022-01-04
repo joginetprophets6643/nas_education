@@ -42,11 +42,11 @@ class FrontController extends Controller
             $image[$event->id]=json_decode($event->images)[0];
         }
         
-        $vedios=Vedios::where('status','1')->get();
+        $videos=Vedios::where('status','1')->get();
         $states=State_Master::all();
 
         
-        return view('front.index',compact('content','events','image','vedios','states','client_logo','banners'));
+        return view('front.index',compact('content','events','image','videos','states','client_logo','banners'));
     }
 
     public function team(){
@@ -86,7 +86,7 @@ class FrontController extends Controller
             $count[$event->id]=count(json_decode($event->images));
             $image[$event->id]=json_decode($event->images)[0];
         }
-        $vedios=Vedios::where('status','1')->take(4)->get();
-        return view('front.gallery.index',compact('vedios','events','image'));
+        $videos=Vedios::where('status','1')->take(4)->get();
+        return view('front.gallery.index',compact('videos','events','image'));
     }
 }

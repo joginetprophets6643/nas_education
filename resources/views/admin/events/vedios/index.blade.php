@@ -35,7 +35,7 @@
                                     <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="card-body">
-                                    <form action="{{url('/add/vedio')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('/add/video')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                         <label for="images" class="form-label">Title</label>
@@ -55,7 +55,7 @@
 
                                         <div class="form-group">
                                         <!-- <label for="images" class="form-label">Event Images</label> -->
-                                        <input type="file" name="vedio" class="form-control" id="vedio">
+                                        <input type="file" name="vedio" class="form-control" id="video">
                                         @error('vedio')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -85,27 +85,27 @@
 
                     </div>
                     <div class="card-body">
-                        @if($vedios)
+                        @if($videos)
                         <div class="row">                       
-                        @foreach($vedios as $vedio)
-                        @if($vedio->url)
+                        @foreach($videos as $video)
+                        @if($video->url)
                         <div class="col-md-4">
                             <div class="video-wrap">
-                            <iframe width="300" height="240" src="https://www.youtube.com/embed/{{ $vedio->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <?php $id=encode5t($vedio->id)?>
-                            <button class="btn btn-danger btn-sm delete-vedio-btn" data-delete-link="{{url('delete/vedio/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteVedio">Delete</button>
+                            <iframe width="300" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <?php $id=encode5t($video->id)?>
+                            <button class="btn btn-danger btn-sm delete-video-btn" data-delete-link="{{url('delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
                             </div>
                         </div>
                         @endif
-                        @if($vedio->vedio)
+                        @if($video->vedio)
                         <div class="col-md-4">
                             <div class="video-wrap">
                             <video width="300" height="240" controls>
-                                <source src="{{URL::asset('/assets/uploads/vedios/'.$vedio->vedio)}}" type="video/mp4">
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <?php $id=encode5t($vedio->id)?>
-                            <button class="btn btn-danger btn-sm delete-vedio-btn" data-delete-link="{{url('delete/vedio/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteVedio">Delete</button>
+                            <?php $id=encode5t($video->id)?>
+                            <button class="btn btn-danger btn-sm delete-video-btn" data-delete-link="{{url('delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
                             </div>
                         </div>
                         @endif
@@ -117,7 +117,7 @@
                         </div>
 
 
-                        <div class="modal fade" id="DeleteVedio" >
+                        <div class="modal fade" id="Deletevideo" >
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 
@@ -160,7 +160,7 @@
 @endif
 
 <script>
-    $('.delete-vedio-btn').on('click',function(){
+    $('.delete-video-btn').on('click',function(){
         $('#delete-court-form').attr('action',$(this).data('delete-link'))
     })
 </script>
