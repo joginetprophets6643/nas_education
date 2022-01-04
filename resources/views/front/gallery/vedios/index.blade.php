@@ -25,21 +25,21 @@
 <section class="gallery-wrap bg-grey ptb-60">
     <div class="container">
         <div class="card-white">
-            @if($vedios)
+            @if($videos)
                         <div class="row">                       
-                        @foreach($vedios as $vedio)
-                        @if($vedio->url)
+                        @foreach($videos as $video)
+                        @if($video->url)
                         <div class="col-md-4">
                             <div class="video-wrap">
-                            <iframe width="280" height="240" src="https://www.youtube.com/embed/{{ $vedio->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="280" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         @endif
-                        @if($vedio->vedio)
+                        @if($video->vedio)
                         <div class="col-md-4">
                             <div class="video-wrap">
                             <video width="300" height="240" controls>
-                                <source src="{{URL::asset('/assets/uploads/vedios/'.$vedio->vedio)}}" type="video/mp4">
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                             </div>

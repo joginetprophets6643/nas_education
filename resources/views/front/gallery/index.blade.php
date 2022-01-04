@@ -53,41 +53,42 @@
                     <h2 class="heading-blue mb-4">
                         {{__('lang.Video Gallery')}}
                     </h2>
-                    @if($vedios)
+                    @if(!$videos->isEmpty())
                         <div class="row">                       
-                        @foreach($vedios as $vedio)
-                        @if($vedio->url)
+                        @foreach($videos as $video)
+                        @if($video->url)
                         <div class="col-md-4">
                             <div class="video-wrap">
-                            <iframe width="280" height="240" src="https://www.youtube.com/embed/{{ $vedio->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="280" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         @endif
-                        @if($vedio->vedio)
+                        @if($video->vedio)
                         <div class="col-md-4">
                             <div class="video-wrap">
                             <video width="300" height="240" controls>
-                                <source src="{{URL::asset('/assets/uploads/vedios/'.$vedio->vedio)}}" type="video/mp4">
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                             </div>
                         </div>
                         @endif
                         @endforeach
-                        </div>
-                        @else
-                        <p class="text-center">No Video Uploaded Yet!<p>
-                        @endif
-                        
-                        
                         <div class="col-md-12">
-                            <a href="{{url('/gallery/vedio-gallery')}}" class="org-link">
+                            <a href="{{url('/gallery/video-gallery')}}" class="org-link">
                                 {{ __('lang.VIEW ALL') }} 
                                 <span class="material-icons-round">
                                     east
                                 </span>
                             </a>
                         </div>
+                        </div>
+                        @else
+                        <p class="text-center">No Video Uploaded Yet!<p>
+                        @endif
+                        
+                        
+                        
                     </div>
                     </div>
                 </div>

@@ -19,9 +19,9 @@ class GalleryController extends Controller
         }
         return view('front.gallery.images.index',compact('events','count','image'));
     }
-    public function vedio(){
-        $vedios=Vedios::where('status','1')->get();
-        return view('front.gallery.vedios.index',compact('vedios'));
+    public function video(){
+        $videos=Vedios::where('status','1')->get();
+        return view('front.gallery.vedios.index',compact('videos'));
     }
     public function view($id){
         $id=decode5t($id);

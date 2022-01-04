@@ -155,17 +155,17 @@ class EventController extends Controller
 
     }
 
-    public function vedios(){
-        $vedios=DB::table('vedios')->get();
-        if($vedios->isEmpty()){
-            $vedios=0;
+    public function videos(){
+        $videos=DB::table('vedios')->get();
+        if($videos->isEmpty()){
+            $videos=0;
         }
         
-        return view('admin.events.vedios.index',compact('vedios'));
+        return view('admin.events.vedios.index',compact('videos'));
     }
 
 
-    public function addVedio(Request $request){
+    public function addvideo(Request $request){
         $request->validate([
             'vedio'=>'required_without_all:url',
             'title'=>'required',
@@ -191,18 +191,18 @@ class EventController extends Controller
             $res->vedio=$name;
             $res->status=$request->status;
             $res->save();
-        return Redirect()->route('vedios')->with('success','Vedio Uploaded Successfully');
+        return Redirect()->route('videos')->with('success','Vedio Uploaded Successfully');
     }
 
 
-    public function deleteVedio($id){
+    public function deletevideo($id){
         $id=decode5t($id);      
         $vedio=Vedios::find($id)->first();       
         Vedios::find($id)->delete();
         if($vedio->vedio){
         unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
         }
-        return Redirect()->route('vedios')->with('success','Vedio Deleted Successfully');
+        return Redirect()->route('videos')->with('success','Vedio Deleted Successfully');
     }
 
 }
