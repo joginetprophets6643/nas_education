@@ -16,6 +16,7 @@ class CreateTqQuestionMasterTable extends Migration
         Schema::create('tq_question_master', function (Blueprint $table) {
             $table->id();
             $table->string('question_id');
+            $table->string('question_type');
             $table->string('question_desc');
             $table->string('grade');
             $table->timestamps();
