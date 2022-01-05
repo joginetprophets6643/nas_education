@@ -47,7 +47,15 @@
               <i class="icon-screen-desktop menu-icon"></i>
             </a>
           </li>
-          <li class="nav-item">
+          
+          <li class="nav-item" id="User" style="display:none;">
+            <a class="nav-link" href="{{url('/user')}}">
+              <span class="menu-title">Manage User</span>
+              <i class="icon-user menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item" id="Media" style="display:none;">
             <a class="nav-link" data-toggle="collapse" href="#media" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Manage Media</span>
               <i class="icon-doc menu-icon"></i>
@@ -60,28 +68,28 @@
             </div>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" id="Team" style="display:none;">
             <a class="nav-link" href="{{url('/team-manager')}}">
               <span class="menu-title">Manage Team</span>
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" id="Content" style="display:none;">
             <a class="nav-link" href="{{url('/static-content')}}">
               <span class="menu-title">Manage Content</span>
               <i class="icon-doc menu-icon"></i>
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" id="Program" style="display:none;">
             <a class="nav-link" href="{{url('/static-program')}}">
               <span class="menu-title">Manage Program</span>
               <i class="icon-doc menu-icon"></i>
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" id="Master" style="display:none;">
             <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Master</span>
               <i class="icon-doc menu-icon"></i>
@@ -94,7 +102,7 @@
             </div>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" id="Statistic" style="display:none;">
             <a class="nav-link" href="{{url('/national-statistic')}}">
               <span class="menu-title">National Statistic</span>
               <i class="icon-user menu-icon"></i>
@@ -102,7 +110,7 @@
           </li>
 
 
-          <li class="nav-item">
+          <li class="nav-item" id="Data" style="display:none;">
             <a class="nav-link" href="{{url('/upload-csv-files')}}">
               <span class="menu-title">Manage Data</span>
               <i class="icon-user menu-icon"></i>
@@ -110,28 +118,28 @@
           </li>
 
 
-          <li class="nav-item">
+          <li class="nav-item" id="Banner" style="display:none;">
             <a class="nav-link" href="{{url('/manage-banner')}}">
               <span class="menu-title">Manage Banner</span>
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" id="Client-Logo" style="display:none;">
             <a class="nav-link" href="{{url('/client-logo')}}">
               <span class="menu-title">Manage Client Logo</span>
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" id="Registration" style="display:none;">
             <a class="nav-link" href="{{url('/user-list')}}">
               <span class="menu-title">Total Registration</span>
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" id="Setting" style="display:none;">
             <a class="nav-link" href="{{route('setting')}}">
               <span class="menu-title">Manage Setting</span>
               <i class="icon-user menu-icon"></i>
@@ -141,3 +149,8 @@
         </ul>
       </nav>
       <!-- partial -->
+      <?php $permission=permissions(Auth::user()->id);?>
+      <input type="hidden" name="view[]" value="{{$permission->view}}" id="view">
+      <input type="hidden" name="edit[]" value="{{$permission->edit}}" id="edit">
+      <input type="hidden" name="add[]" value="{{$permission->add}}" id="add">
+      <input type="hidden" name="delete[]" value="{{$permission->delete}}" id="delete">

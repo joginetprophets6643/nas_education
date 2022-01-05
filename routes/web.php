@@ -50,6 +50,9 @@ Route::get('secure-admin', 'App\Http\Controllers\AdminController@index')->name('
 Route::post('login-post', 'App\Http\Controllers\AdminController@login');
 Route::get('register', 'App\Http\Controllers\AdminController@register');
 
+
+
+
 Route::group(["middleware" => ["islogin"]], function(){
 Route::get('dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
 Route::get('logout', 'App\Http\Controllers\AdminController@logout');
@@ -75,7 +78,7 @@ Route::get('/delete/video/{id}', 'App\Http\Controllers\EventController@deletevid
 
 //Profile
 Route::get('/profile','App\Http\Controllers\AdminController@profile');
-Route::post('/update/profile','App\Http\Controllers\AdminController@updateProfile');
+Route::post('/update/profile','App\Http\Controllers\AdminController@updateProfile')->name('update-profile');
 
 //Team Routes
 Route::get('/team-manager','App\Http\Controllers\TeamController@index')->name('team');
@@ -156,6 +159,14 @@ Route::post('/store/program','App\Http\Controllers\StaticProgramController@store
 Route::get('/edit/program/{id}','App\Http\Controllers\StaticProgramController@edit')->name('edit-program');
 Route::get('/delete/program/{id}','App\Http\Controllers\StaticProgramController@destroy');
 Route::post('/update/program/{id}','App\Http\Controllers\StaticProgramController@update')->name('update-program');
+
+//User Routes
+Route::get('/user','App\Http\Controllers\PermissionController@index')->name('user');
+Route::get('/add/user','App\Http\Controllers\PermissionController@add')->name('add-user');
+Route::post('/store/user','App\Http\Controllers\PermissionController@store')->name('store-user');
+Route::get('/view/permission/{id}','App\Http\Controllers\PermissionController@permit')->name('permit-user');
+Route::post('/store/permission/{id}','App\Http\Controllers\PermissionController@storePermit')->name('store-permission');
+Route::get('/delete/user/{id}','App\Http\Controllers\PermissionController@destroy');
 
 });
 

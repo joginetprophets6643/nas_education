@@ -16,7 +16,7 @@
                     @endif
                     <div class="card-header">
                         <span>All Videos</span>
-                        <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+                        <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
 
 
 
@@ -67,7 +67,7 @@
                                         <label class="form-label">Status</label>
                                         </div>
                                         
-                                        <button type="submit" class="btn btn-primary btn-sm">Upload</button>
+                                        <button type="submit" class="btn btn-primary btn-sm Media_add">Upload</button>
                                     </form>
                                     </div>
                                     </div>
@@ -93,7 +93,7 @@
                             <div class="video-wrap">
                             <iframe width="300" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <?php $id=encode5t($video->id)?>
-                            <button class="btn btn-danger btn-sm delete-video-btn" data-delete-link="{{url('delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" data-delete-link="{{url('delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
                             </div>
                         </div>
                         @endif
@@ -105,7 +105,7 @@
                                 Your browser does not support the video tag.
                             </video>
                             <?php $id=encode5t($video->id)?>
-                            <button class="btn btn-danger btn-sm delete-video-btn" data-delete-link="{{url('delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" data-delete-link="{{url('delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
                             </div>
                         </div>
                         @endif
@@ -132,8 +132,8 @@
                                     <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
                                         @csrf
                                         <p>Are you sure you want to delete this video?</p> 
-                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        <button type="button" class="btn btn-secondary btn-sm Media_delete" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger btn-sm Media_delete">Delete</button>
                                     </form>
                                     </div>
                                     </div>

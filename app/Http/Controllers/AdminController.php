@@ -12,6 +12,7 @@ use Auth;
 use Session;
 use Hash;
 use App\Models\User;
+use App\Models\Permission;
 class AdminController extends BaseController
 {
     public function index()
@@ -29,6 +30,17 @@ class AdminController extends BaseController
         'email' => $username,
         'password' => $password
         ]);
+        $user=User::where('email',$username)->first();
+        $modules=['User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting'];
+        $modules=json_encode($modules);
+        Permission::insert([
+            'user_id'=>$user->id,
+            'role'=>'1',
+            'view'=>$modules,
+            'edit'=>$modules,
+            'delete'=>$modules,
+            'add'=>$modules,
+        ]);
 
     }
     public function login(Request $request)
@@ -37,8 +49,8 @@ class AdminController extends BaseController
             'email' => 'required',
             'password' => 'required',
         ]);
-
-        $credentials = $request->only('email', 'password');
+        
+        $credentials = $request->only('email', 'password','address');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard')->with('success','Signed in');
         }

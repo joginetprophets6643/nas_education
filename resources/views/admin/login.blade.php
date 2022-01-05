@@ -35,6 +35,7 @@
                 <h6 class="font-weight-light">Sign in to continue.</h6>
                 <form class="pt-3" action="{{url('/login-post')}}" method="POST">
                     @csrf
+                    <input type="hidden" name="address">
                   <div class="form-group">
                     <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
                   </div>
@@ -42,14 +43,14 @@
                     <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                   </div>
                   <div class="mt-3">
-                      <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Login"/>  
+                      <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="display:block;" value="Login"/>  
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
                         <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                     </div>
-                    <a href="#" class="auth-link text-black">Forgot password?</a>
+                    <button href="#" class="auth-link text-black" style="background:white;border:none;color:blue;">Forgot password?</a>
                   </div>
 
                 </form>

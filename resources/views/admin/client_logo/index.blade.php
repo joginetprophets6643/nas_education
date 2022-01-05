@@ -17,7 +17,7 @@
 
 
           <div class="card-header">Client Logo List
-          <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+          <a class="btn btn-primary float-right btn-sm Client-Logo_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -40,8 +40,8 @@
               
               <td>
                  <?php $id=encode5t($value->id)?>
-                <a href="{{url('edit/client-logo/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/client-logo/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteClientLogo">Delete</button>
+                <a href="{{url('edit/client-logo/'.$id)}}" class="btn btn-primary btn-sm Client-Logo_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Client-Logo_delete" data-delete-link="{{url('delete/client-logo/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteClientLogo">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -90,7 +90,7 @@
             </div>
             
           
-            <button type="submit" class="btn btn-primary btn-sm">Add</button>
+            <button type="submit" class="btn btn-primary btn-sm Client-Logo_add">Add</button>
           </form>
           
         </div>
@@ -119,8 +119,8 @@
           <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Client-Logo_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Client-Logo_delete">Delete</button>
           </form>
           </div>
           </div>

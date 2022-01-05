@@ -81,7 +81,7 @@
 
         
         
-        <button type="submit" class="btn btn-primary btn-sm">Update</button>
+        <button type="submit" class="btn btn-primary btn-sm Statistic_edit">Update</button>
         </form>
         </div>
     </div>

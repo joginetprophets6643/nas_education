@@ -5,31 +5,33 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="container">
-            <form action="/update/profile" method="POST">
+            <form action="{{route('update-profile')}}" method="POST">
                 @csrf
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Name</label>
                 <input class="form-control" name="name" value="{{$user->name}}" type="text">
-                </div>
                 @error('name')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
+                </div>
+                
 
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input class="form-control" name="email" value="{{$user->email}}" type="text"  aria-label="input example" readonly>
+                <input class="form-control" name="email" value="{{$user->email}}" type="email"  aria-label="input example" readonly>
                 </div>
 
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input class="form-control" name="password"  type="text" placeholder="Enter Password">
-                </div>
+                <input class="form-control" name="password"  type="password" placeholder="Enter Password">
                 @error('password')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
+                </div>
+                
 
                 <div class="mb-3">
-                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                <button type="submit" class="btn btn-primary btn-sm extra">Submit</button>
                 </div>
             </form>
         </div>

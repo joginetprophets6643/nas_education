@@ -17,7 +17,7 @@
 
 
           <div class="card-header">All Banner
-          <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+          <a class="btn btn-primary float-right btn-sm Banner_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -37,8 +37,8 @@
               <td><img src="{{asset('assets/uploads/banner/'.$banner->image)}}" alt=""></td>
               <td>
                 <?php $id=encode5t($banner->id)?>
-                <a href="{{url('edit/banner/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/banner/'.$banner->image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>
+                <a href="{{url('edit/banner/'.$id)}}" class="btn btn-primary btn-sm Banner_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Banner_delete" data-delete-link="{{url('delete/banner/'.$banner->image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -82,7 +82,7 @@
             @enderror
             </div>
             
-            <button type="submit" class="btn btn-primary btn-sm">Add</button>
+            <button type="submit" class="btn btn-primary btn-sm Banner_add">Add</button>
           </form>
           </div>
         </div>
@@ -116,8 +116,8 @@
           <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Banner_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Banner_delete">Delete</button>
           </form>
           </div>
           </div>
