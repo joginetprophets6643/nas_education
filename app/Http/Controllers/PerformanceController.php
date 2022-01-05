@@ -38,7 +38,7 @@ class PerformanceController extends Controller
          * Name: Sanjay,Jogi,Chanky
          * Desc: District wise learning outcome and Performance Process data in 3rd grade
          * Date: 28/12/2021
-         * subject: Calculation Count for Language , Mathmatics and EVS
+         * subject: Calculation Count for Language , math and EVS
          * Start Here
          *************************************************************/
 
@@ -131,7 +131,7 @@ class PerformanceController extends Controller
          * Name: Sanjay,Jogi,Chanky
          * Desc: District wise learning outcome and Performance Process data in 5th grade
          * Date: 28/12/2021
-         * subject: Calculation Count for Language , Mathmatics and EVS
+         * subject: Calculation Count for Language , math and EVS
          * Start Here
          *************************************************************/
 
@@ -443,152 +443,152 @@ class PerformanceController extends Controller
                             {
                                 $newArray['language'] =array(
                                     'cards'=>array(
-                                        'disrtict'=>isset($nasDetails3->avg_l_marks)?$nasDetails3->avg_l_marks:0,
-                                        'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:0,
-                                        'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:0),
+                                        'district'=>isset($nasDetails3->avg_l_marks)?$nasDetails3->avg_l_marks:'0',
+                                        'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
+                                        'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'),
                                     'gender'=>array(
-                                        'disrtict'=>array("boys"=>isset($nasDetails3->l_male_gender)?$nasDetails3->l_male_gender:0,"girls"=>isset($nasDetails3->l_female_gender)?$nasDetails3->l_female_gender:0),
-                                        'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:0,"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:0),
-                                        'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:0,"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:0)),
+                                        'district'=>array("boys"=>isset($nasDetails3->l_male_gender)?$nasDetails3->l_male_gender:'0',"girls"=>isset($nasDetails3->l_female_gender)?$nasDetails3->l_female_gender:'0'),
+                                        'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
+                                        'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')),
                                     'location'=>array(
-                                        'disrtict'=>array("urban"=>isset($nasDetails3->l_urban_location)?$nasDetails3->l_urban_location:0,"rural"=>isset($nasDetails3->l_rural_location)?$nasDetails3->l_rural_location:0),
-                                        'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:0,"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:0),
-                                        'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:0,"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:0)),
+                                        'district'=>array("urban"=>isset($nasDetails3->l_urban_location)?$nasDetails3->l_urban_location:'0',"rural"=>isset($nasDetails3->l_rural_location)?$nasDetails3->l_rural_location:'0'),
+                                        'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
+                                        'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')),
                                     'management'=>array(
-                                        'disrtict'=>array("govt"=>isset($nasDetails3->l_govt_management)?$nasDetails3->l_govt_management:0,"govt_aided"=>isset($nasDetails3->l_govt_aided_management)?$nasDetails3->l_govt_aided_management:0,"private"=>isset($nasDetails3->l_private_management)?$nasDetails3->l_private_management:0,"central_govt"=>isset($nasDetails3->l_central_govt_management)?$nasDetails3->l_central_govt_management:0),
-                                        'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:0,"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:0,"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:0,"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:0),
-                                        'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:0,"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:0,"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:0,"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:0)),
+                                        'district'=>array("govt"=>isset($nasDetails3->l_govt_management)?$nasDetails3->l_govt_management:'0',"govt_aided"=>isset($nasDetails3->l_govt_aided_management)?$nasDetails3->l_govt_aided_management:'0',"private"=>isset($nasDetails3->l_private_management)?$nasDetails3->l_private_management:'0',"central_govt"=>isset($nasDetails3->l_central_govt_management)?$nasDetails3->l_central_govt_management:'0'),
+                                        'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
+                                        'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')),
                                     'socialgroup'=>array(
-                                        'disrtict'=>array("sc"=>isset($nasDetails3->l_sc_social_group)?$nasDetails3->l_sc_social_group:0,"obc"=>isset($nasDetails3->l_obc_social_group)?$nasDetails3->l_obc_social_group:0,"st"=>isset($nasDetails3->l_st_social_group)?$nasDetails3->l_st_social_group:0,"general"=>isset($nasDetails3->l_general_social_group)?$nasDetails3->l_general_social_group:0),
-                                        'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:0,"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:0,"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:0,"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:0),
-                                        'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:0,"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:0,"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:0,"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:0)));
+                                        'district'=>array("sc"=>isset($nasDetails3->l_sc_social_group)?$nasDetails3->l_sc_social_group:'0',"obc"=>isset($nasDetails3->l_obc_social_group)?$nasDetails3->l_obc_social_group:'0',"st"=>isset($nasDetails3->l_st_social_group)?$nasDetails3->l_st_social_group:'0',"general"=>isset($nasDetails3->l_general_social_group)?$nasDetails3->l_general_social_group:'0'),
+                                        'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
+                                        'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')));
                 
-                                $newArray['mathmatics'] =array(
+                                $newArray['math'] =array(
                                     'cards'=>array(
-                                        'disrtict'=>isset($nasDetails3->avg_m_marks)?$nasDetails3->avg_m_marks:0,
-                                        'state'=>isset($statelevel->avg_m_marks)?$statelevel->avg_m_marks:0,
-                                        'national'=>isset($nationalLevel->avg_m_marks)?$nationalLevel->avg_m_marks:0),
+                                        'district'=>isset($nasDetails3->avg_m_marks)?$nasDetails3->avg_m_marks:'0',
+                                        'state'=>isset($statelevel->avg_m_marks)?$statelevel->avg_m_marks:'0',
+                                        'national'=>isset($nationalLevel->avg_m_marks)?$nationalLevel->avg_m_marks:'0'),
                                     'gender'=>array(
-                                        'disrtict'=>array("boys"=>isset($nasDetails3->m_male_gender)?$nasDetails3->m_male_gender:0,"girls"=>isset($nasDetails3->m_female_gender)?$nasDetails3->m_female_gender:0),
-                                        'state'=>array("boys"=>isset($statelevel->m_male_gender)?$statelevel->m_male_gender:0,"girls"=>isset($statelevel->m_female_gender)?$statelevel->m_female_gender:0),
-                                        'national'=>array("boys"=>isset($nationalLevel->m_male_gender)?$nationalLevel->m_male_gender:0,"girls"=>isset($nationalLevel->m_female_gender)?$nationalLevel->m_female_gender:0)),
+                                        'district'=>array("boys"=>isset($nasDetails3->m_male_gender)?$nasDetails3->m_male_gender:'0',"girls"=>isset($nasDetails3->m_female_gender)?$nasDetails3->m_female_gender:'0'),
+                                        'state'=>array("boys"=>isset($statelevel->m_male_gender)?$statelevel->m_male_gender:'0',"girls"=>isset($statelevel->m_female_gender)?$statelevel->m_female_gender:'0'),
+                                        'national'=>array("boys"=>isset($nationalLevel->m_male_gender)?$nationalLevel->m_male_gender:'0',"girls"=>isset($nationalLevel->m_female_gender)?$nationalLevel->m_female_gender:'0')),
                                     'location'=>array(
-                                        'disrtict'=>array("urban"=>isset($nasDetails3->m_urban_location)?$nasDetails3->m_urban_location:0,"rural"=>isset($nasDetails3->m_rural_location)?$nasDetails3->m_rural_location:0),
-                                        'state'=>array("urban"=>isset($statelevel->m_urban_location)?$statelevel->m_urban_location:0,"rural"=>isset($statelevel->m_rural_location)?$statelevel->m_rural_location:0),
-                                        'national'=>array("urban"=>isset($nationalLevel->m_urban_location)?$nationalLevel->m_urban_location:0,"rural"=>isset($nationalLevel->m_rural_location)?$nationalLevel->m_rural_location:0)),
+                                        'district'=>array("urban"=>isset($nasDetails3->m_urban_location)?$nasDetails3->m_urban_location:'0',"rural"=>isset($nasDetails3->m_rural_location)?$nasDetails3->m_rural_location:'0'),
+                                        'state'=>array("urban"=>isset($statelevel->m_urban_location)?$statelevel->m_urban_location:'0',"rural"=>isset($statelevel->m_rural_location)?$statelevel->m_rural_location:'0'),
+                                        'national'=>array("urban"=>isset($nationalLevel->m_urban_location)?$nationalLevel->m_urban_location:'0',"rural"=>isset($nationalLevel->m_rural_location)?$nationalLevel->m_rural_location:'0')),
                                     'management'=>array(
-                                        'disrtict'=>array("govt"=>isset($nasDetails3->m_govt_management)?$nasDetails3->m_govt_management:0,"govt_aided"=>isset($nasDetails3->m_govt_aided_management)?$nasDetails3->m_govt_aided_management:0,"private"=>isset($nasDetails3->m_private_management)?$nasDetails3->m_private_management:0,"central_govt"=>isset($nasDetails3->m_central_govt_management)?$nasDetails3->m_central_govt_management:0),
-                                        'state'=>array("govt"=>isset($statelevel->m_govt_management)?$statelevel->m_govt_management:0,"govt_aided"=>isset($statelevel->m_govt_aided_management)?$statelevel->m_govt_aided_management:0,"private"=>isset($statelevel->m_private_management)?$statelevel->m_private_management:0,"central_govt"=>isset($statelevel->m_central_govt_management)?$statelevel->m_central_govt_management:0),
-                                        'national'=>array("govt"=>isset($nationalLevel->m_govt_management)?$nationalLevel->m_govt_management:0,"govt_aided"=>isset($nationalLevel->m_govt_aided_management)?$nationalLevel->m_govt_aided_management:0,"private"=>isset($nationalLevel->m_private_management)?$nationalLevel->m_private_management:0,"central_govt"=>isset($nationalLevel->m_central_govt_management)?$nationalLevel->m_central_govt_management:0)),
+                                        'district'=>array("govt"=>isset($nasDetails3->m_govt_management)?$nasDetails3->m_govt_management:'0',"govt_aided"=>isset($nasDetails3->m_govt_aided_management)?$nasDetails3->m_govt_aided_management:'0',"private"=>isset($nasDetails3->m_private_management)?$nasDetails3->m_private_management:'0',"central_govt"=>isset($nasDetails3->m_central_govt_management)?$nasDetails3->m_central_govt_management:'0'),
+                                        'state'=>array("govt"=>isset($statelevel->m_govt_management)?$statelevel->m_govt_management:'0',"govt_aided"=>isset($statelevel->m_govt_aided_management)?$statelevel->m_govt_aided_management:'0',"private"=>isset($statelevel->m_private_management)?$statelevel->m_private_management:'0',"central_govt"=>isset($statelevel->m_central_govt_management)?$statelevel->m_central_govt_management:'0'),
+                                        'national'=>array("govt"=>isset($nationalLevel->m_govt_management)?$nationalLevel->m_govt_management:'0',"govt_aided"=>isset($nationalLevel->m_govt_aided_management)?$nationalLevel->m_govt_aided_management:'0',"private"=>isset($nationalLevel->m_private_management)?$nationalLevel->m_private_management:'0',"central_govt"=>isset($nationalLevel->m_central_govt_management)?$nationalLevel->m_central_govt_management:'0')),
                                     'socialgroup'=>array(
-                                        'disrtict'=>array("sc"=>isset($nasDetails3->m_sc_social_group)?$nasDetails3->m_sc_social_group:0,"obc"=>isset($nasDetails3->m_obc_social_group)?$nasDetails3->m_obc_social_group:0,"st"=>isset($nasDetails3->m_st_social_group)?$nasDetails3->m_st_social_group:0,"general"=>isset($nasDetails3->m_general_social_group)?$nasDetails3->m_general_social_group:0),
-                                        'state'=>array("sc"=>isset($statelevel->m_sc_social_group)?$statelevel->m_sc_social_group:0,"obc"=>isset($statelevel->m_obc_social_group)?$statelevel->m_obc_social_group:0,"st"=>isset($statelevel->m_st_social_group)?$statelevel->m_st_social_group:0,"general"=>isset($statelevel->m_general_social_group)?$statelevel->m_general_social_group:0),
-                                        'national'=>array("sc"=>isset($nationalLevel->m_sc_social_group)?$nationalLevel->m_sc_social_group:0,"obc"=>isset($nationalLevel->m_obc_social_group)?$nationalLevel->m_obc_social_group:0,"st"=>isset($nationalLevel->m_st_social_group)?$nationalLevel->m_st_social_group:0,"general"=>isset($nationalLevel->m_general_social_group)?$nationalLevel->m_general_social_group:0)));
+                                        'district'=>array("sc"=>isset($nasDetails3->m_sc_social_group)?$nasDetails3->m_sc_social_group:'0',"obc"=>isset($nasDetails3->m_obc_social_group)?$nasDetails3->m_obc_social_group:'0',"st"=>isset($nasDetails3->m_st_social_group)?$nasDetails3->m_st_social_group:'0',"general"=>isset($nasDetails3->m_general_social_group)?$nasDetails3->m_general_social_group:'0'),
+                                        'state'=>array("sc"=>isset($statelevel->m_sc_social_group)?$statelevel->m_sc_social_group:'0',"obc"=>isset($statelevel->m_obc_social_group)?$statelevel->m_obc_social_group:'0',"st"=>isset($statelevel->m_st_social_group)?$statelevel->m_st_social_group:'0',"general"=>isset($statelevel->m_general_social_group)?$statelevel->m_general_social_group:'0'),
+                                        'national'=>array("sc"=>isset($nationalLevel->m_sc_social_group)?$nationalLevel->m_sc_social_group:'0',"obc"=>isset($nationalLevel->m_obc_social_group)?$nationalLevel->m_obc_social_group:'0',"st"=>isset($nationalLevel->m_st_social_group)?$nationalLevel->m_st_social_group:'0',"general"=>isset($nationalLevel->m_general_social_group)?$nationalLevel->m_general_social_group:'0')));
                                 $newArray['evs'] =array(
                                     'cards'=>array(
-                                        'disrtict'=>isset($nasDetails3->avg_e_marks)?$nasDetails3->avg_e_marks:0,
-                                        'state'=>isset($statelevel->avg_e_marks)?$statelevel->avg_e_marks:0,
-                                        'national'=>isset($nationalLevel->avg_e_marks)?$nationalLevel->avg_e_marks:0),
+                                        'district'=>isset($nasDetails3->avg_e_marks)?$nasDetails3->avg_e_marks:'0',
+                                        'state'=>isset($statelevel->avg_e_marks)?$statelevel->avg_e_marks:'0',
+                                        'national'=>isset($nationalLevel->avg_e_marks)?$nationalLevel->avg_e_marks:'0'),
                                     'gender'=>array(
-                                        'disrtict'=>array("boys"=>isset($nasDetails3->e_male_gender)?$nasDetails3->e_male_gender:0,"girls"=>isset($nasDetails3->e_female_gender)?$nasDetails3->e_female_gender:0),
-                                        'state'=>array("boys"=>isset($statelevel->e_male_gender)?$statelevel->e_male_gender:0,"girls"=>isset($statelevel->e_female_gender)?$statelevel->e_female_gender:0),
-                                        'national'=>array("boys"=>isset($nationalLevel->e_male_gender)?$nationalLevel->e_male_gender:0,"girls"=>isset($nationalLevel->e_female_gender)?$nationalLevel->e_female_gender:0)),
+                                        'district'=>array("boys"=>isset($nasDetails3->e_male_gender)?$nasDetails3->e_male_gender:'0',"girls"=>isset($nasDetails3->e_female_gender)?$nasDetails3->e_female_gender:'0'),
+                                        'state'=>array("boys"=>isset($statelevel->e_male_gender)?$statelevel->e_male_gender:'0',"girls"=>isset($statelevel->e_female_gender)?$statelevel->e_female_gender:'0'),
+                                        'national'=>array("boys"=>isset($nationalLevel->e_male_gender)?$nationalLevel->e_male_gender:'0',"girls"=>isset($nationalLevel->e_female_gender)?$nationalLevel->e_female_gender:'0')),
                                     'location'=>array(
-                                        'disrtict'=>array("urban"=>isset($nasDetails3->e_urban_location)?$nasDetails3->e_urban_location:0,"rural"=>isset($nasDetails3->e_rural_location)?$nasDetails3->e_rural_location:0),
-                                        'state'=>array("urban"=>isset($statelevel->e_urban_location)?$statelevel->e_urban_location:0,"rural"=>isset($statelevel->e_rural_location)?$statelevel->e_rural_location:0),
-                                        'national'=>array("urban"=>isset($nationalLevel->e_urban_location)?$nationalLevel->e_urban_location:0,"rural"=>isset($nationalLevel->e_rural_location)?$nationalLevel->e_rural_location:0)),
+                                        'district'=>array("urban"=>isset($nasDetails3->e_urban_location)?$nasDetails3->e_urban_location:'0',"rural"=>isset($nasDetails3->e_rural_location)?$nasDetails3->e_rural_location:'0'),
+                                        'state'=>array("urban"=>isset($statelevel->e_urban_location)?$statelevel->e_urban_location:'0',"rural"=>isset($statelevel->e_rural_location)?$statelevel->e_rural_location:'0'),
+                                        'national'=>array("urban"=>isset($nationalLevel->e_urban_location)?$nationalLevel->e_urban_location:'0',"rural"=>isset($nationalLevel->e_rural_location)?$nationalLevel->e_rural_location:'0')),
                                     'management'=>array(
-                                        'disrtict'=>array("govt"=>isset($nasDetails3->e_govt_management)?$nasDetails3->e_govt_management:0,"govt_aided"=>isset($nasDetails3->e_govt_aided_management)?$nasDetails3->e_govt_aided_management:0,"private"=>isset($nasDetails3->e_private_management)?$nasDetails3->e_private_management:0,"central_govt"=>isset($nasDetails3->e_central_govt_management)?$nasDetails3->e_central_govt_management:0),
-                                        'state'=>array("govt"=>isset($statelevel->e_govt_management)?$statelevel->e_govt_management:0,"govt_aided"=>isset($statelevel->e_govt_aided_management)?$statelevel->e_govt_aided_management:0,"private"=>isset($statelevel->e_private_management)?$statelevel->e_private_management:0,"central_govt"=>isset($statelevel->e_central_govt_management)?$statelevel->e_central_govt_management:0),
-                                        'national'=>array("govt"=>isset($nationalLevel->e_govt_management)?$nationalLevel->e_govt_management:0,"govt_aided"=>isset($nationalLevel->e_govt_aided_management)?$nationalLevel->e_govt_aided_management:0,"private"=>isset($nationalLevel->e_private_management)?$nationalLevel->e_private_management:0,"central_govt"=>isset($nationalLevel->e_central_govt_management)?$nationalLevel->e_central_govt_management:0)),
+                                        'district'=>array("govt"=>isset($nasDetails3->e_govt_management)?$nasDetails3->e_govt_management:'0',"govt_aided"=>isset($nasDetails3->e_govt_aided_management)?$nasDetails3->e_govt_aided_management:'0',"private"=>isset($nasDetails3->e_private_management)?$nasDetails3->e_private_management:'0',"central_govt"=>isset($nasDetails3->e_central_govt_management)?$nasDetails3->e_central_govt_management:'0'),
+                                        'state'=>array("govt"=>isset($statelevel->e_govt_management)?$statelevel->e_govt_management:'0',"govt_aided"=>isset($statelevel->e_govt_aided_management)?$statelevel->e_govt_aided_management:'0',"private"=>isset($statelevel->e_private_management)?$statelevel->e_private_management:'0',"central_govt"=>isset($statelevel->e_central_govt_management)?$statelevel->e_central_govt_management:'0'),
+                                        'national'=>array("govt"=>isset($nationalLevel->e_govt_management)?$nationalLevel->e_govt_management:'0',"govt_aided"=>isset($nationalLevel->e_govt_aided_management)?$nationalLevel->e_govt_aided_management:'0',"private"=>isset($nationalLevel->e_private_management)?$nationalLevel->e_private_management:'0',"central_govt"=>isset($nationalLevel->e_central_govt_management)?$nationalLevel->e_central_govt_management:'0')),
                                     'socialgroup'=>array(
-                                        'disrtict'=>array("sc"=>isset($nasDetails3->e_sc_social_group)?$nasDetails3->e_sc_social_group:0,"obc"=>isset($nasDetails3->e_obc_social_group)?$nasDetails3->e_obc_social_group:0,"st"=>isset($nasDetails3->e_st_social_group)?$nasDetails3->e_st_social_group:0,"general"=>isset($nasDetails3->e_general_social_group)?$nasDetails3->e_general_social_group:0),
-                                        'state'=>array("sc"=>isset($statelevel->e_sc_social_group)?$statelevel->e_sc_social_group:0,"obc"=>isset($statelevel->e_obc_social_group)?$statelevel->e_obc_social_group:0,"st"=>isset($statelevel->e_st_social_group)?$statelevel->e_st_social_group:0,"general"=>isset($statelevel->e_general_social_group)?$statelevel->e_general_social_group:0),
-                                        'national'=>array("sc"=>isset($nationalLevel->e_sc_social_group)?$nationalLevel->e_sc_social_group:0,"obc"=>isset($nationalLevel->e_obc_social_group)?$nationalLevel->e_obc_social_group:0,"st"=>isset($nationalLevel->e_st_social_group)?$nationalLevel->e_st_social_group:0,"general"=>isset($nationalLevel->e_general_social_group)?$nationalLevel->e_general_social_group:0)));
+                                        'district'=>array("sc"=>isset($nasDetails3->e_sc_social_group)?$nasDetails3->e_sc_social_group:'0',"obc"=>isset($nasDetails3->e_obc_social_group)?$nasDetails3->e_obc_social_group:'0',"st"=>isset($nasDetails3->e_st_social_group)?$nasDetails3->e_st_social_group:'0',"general"=>isset($nasDetails3->e_general_social_group)?$nasDetails3->e_general_social_group:'0'),
+                                        'state'=>array("sc"=>isset($statelevel->e_sc_social_group)?$statelevel->e_sc_social_group:'0',"obc"=>isset($statelevel->e_obc_social_group)?$statelevel->e_obc_social_group:'0',"st"=>isset($statelevel->e_st_social_group)?$statelevel->e_st_social_group:'0',"general"=>isset($statelevel->e_general_social_group)?$statelevel->e_general_social_group:'0'),
+                                        'national'=>array("sc"=>isset($nationalLevel->e_sc_social_group)?$nationalLevel->e_sc_social_group:'0',"obc"=>isset($nationalLevel->e_obc_social_group)?$nationalLevel->e_obc_social_group:'0',"st"=>isset($nationalLevel->e_st_social_group)?$nationalLevel->e_st_social_group:'0',"general"=>isset($nationalLevel->e_general_social_group)?$nationalLevel->e_general_social_group:'0')));
                                 $newArray['mil'] =array(
                                     'cards'=>array(
-                                        'disrtict'=>isset($nasDetails3->avg_mil_marks)?$nasDetails3->avg_mil_marks:0,
-                                        'state'=>isset($statelevel->avg_mil_marks)?$statelevel->avg_mil_marks:0,
-                                        'national'=>isset($nationalLevel->avg_mil_marks)?$nationalLevel->avg_mil_marks:0),
+                                        'district'=>isset($nasDetails3->avg_mil_marks)?$nasDetails3->avg_mil_marks:'0',
+                                        'state'=>isset($statelevel->avg_mil_marks)?$statelevel->avg_mil_marks:'0',
+                                        'national'=>isset($nationalLevel->avg_mil_marks)?$nationalLevel->avg_mil_marks:'0'),
                                     'gender'=>array(
-                                        'disrtict'=>array("boys"=>isset($nasDetails3->mil_male_gender)?$nasDetails3->mil_male_gender:0,"girls"=>isset($nasDetails3->mil_female_gender)?$nasDetails3->mil_female_gender:0),
-                                        'state'=>array("boys"=>isset($statelevel->mil_male_gender)?$statelevel->mil_male_gender:0,"girls"=>isset($statelevel->mil_female_gender)?$statelevel->mil_female_gender:0),
-                                        'national'=>array("boys"=>isset($nationalLevel->mil_male_gender)?$nationalLevel->mil_male_gender:0,"girls"=>isset($nationalLevel->mil_female_gender)?$nationalLevel->mil_female_gender:0)),
+                                        'district'=>array("boys"=>isset($nasDetails3->mil_male_gender)?$nasDetails3->mil_male_gender:'0',"girls"=>isset($nasDetails3->mil_female_gender)?$nasDetails3->mil_female_gender:'0'),
+                                        'state'=>array("boys"=>isset($statelevel->mil_male_gender)?$statelevel->mil_male_gender:'0',"girls"=>isset($statelevel->mil_female_gender)?$statelevel->mil_female_gender:'0'),
+                                        'national'=>array("boys"=>isset($nationalLevel->mil_male_gender)?$nationalLevel->mil_male_gender:'0',"girls"=>isset($nationalLevel->mil_female_gender)?$nationalLevel->mil_female_gender:'0')),
                                     'location'=>array(
-                                        'disrtict'=>array("urban"=>isset($nasDetails3->mil_urban_location)?$nasDetails3->mil_urban_location:0,"rural"=>isset($nasDetails3->mil_rural_location)?$nasDetails3->mil_rural_location:0),
-                                        'state'=>array("urban"=>isset($statelevel->mil_urban_location)?$statelevel->mil_urban_location:0,"rural"=>isset($statelevel->mil_rural_location)?$statelevel->mil_rural_location:0),
-                                        'national'=>array("urban"=>isset($nationalLevel->mil_urban_location)?$nationalLevel->mil_urban_location:0,"rural"=>isset($nationalLevel->mil_rural_location)?$nationalLevel->mil_rural_location:0)),
+                                        'district'=>array("urban"=>isset($nasDetails3->mil_urban_location)?$nasDetails3->mil_urban_location:'0',"rural"=>isset($nasDetails3->mil_rural_location)?$nasDetails3->mil_rural_location:'0'),
+                                        'state'=>array("urban"=>isset($statelevel->mil_urban_location)?$statelevel->mil_urban_location:'0',"rural"=>isset($statelevel->mil_rural_location)?$statelevel->mil_rural_location:'0'),
+                                        'national'=>array("urban"=>isset($nationalLevel->mil_urban_location)?$nationalLevel->mil_urban_location:'0',"rural"=>isset($nationalLevel->mil_rural_location)?$nationalLevel->mil_rural_location:'0')),
                                     'management'=>array(
-                                        'disrtict'=>array("govt"=>isset($nasDetails3->mil_govt_management)?$nasDetails3->mil_govt_management:0,"govt_aided"=>isset($nasDetails3->mil_govt_aided_management)?$nasDetails3->mil_govt_aided_management:0,"private"=>isset($nasDetails3->mil_private_management)?$nasDetails3->mil_private_management:0,"central_govt"=>isset($nasDetails3->mil_central_govt_management)?$nasDetails3->mil_central_govt_management:0),
-                                        'state'=>array("govt"=>isset($statelevel->mil_govt_management)?$statelevel->mil_govt_management:0,"govt_aided"=>isset($statelevel->mil_govt_aided_management)?$statelevel->mil_govt_aided_management:0,"private"=>isset($statelevel->mil_private_management)?$statelevel->mil_private_management:0,"central_govt"=>isset($statelevel->mil_central_govt_management)?$statelevel->mil_central_govt_management:0),
-                                        'national'=>array("govt"=>isset($nationalLevel->mil_govt_management)?$nationalLevel->mil_govt_management:0,"govt_aided"=>isset($nationalLevel->mil_govt_aided_management)?$nationalLevel->mil_govt_aided_management:0,"private"=>isset($nationalLevel->mil_private_management)?$nationalLevel->mil_private_management:0,"central_govt"=>isset($nationalLevel->mil_central_govt_management)?$nationalLevel->mil_central_govt_management:0)),
+                                        'district'=>array("govt"=>isset($nasDetails3->mil_govt_management)?$nasDetails3->mil_govt_management:'0',"govt_aided"=>isset($nasDetails3->mil_govt_aided_management)?$nasDetails3->mil_govt_aided_management:'0',"private"=>isset($nasDetails3->mil_private_management)?$nasDetails3->mil_private_management:'0',"central_govt"=>isset($nasDetails3->mil_central_govt_management)?$nasDetails3->mil_central_govt_management:'0'),
+                                        'state'=>array("govt"=>isset($statelevel->mil_govt_management)?$statelevel->mil_govt_management:'0',"govt_aided"=>isset($statelevel->mil_govt_aided_management)?$statelevel->mil_govt_aided_management:'0',"private"=>isset($statelevel->mil_private_management)?$statelevel->mil_private_management:'0',"central_govt"=>isset($statelevel->mil_central_govt_management)?$statelevel->mil_central_govt_management:'0'),
+                                        'national'=>array("govt"=>isset($nationalLevel->mil_govt_management)?$nationalLevel->mil_govt_management:'0',"govt_aided"=>isset($nationalLevel->mil_govt_aided_management)?$nationalLevel->mil_govt_aided_management:'0',"private"=>isset($nationalLevel->mil_private_management)?$nationalLevel->mil_private_management:'0',"central_govt"=>isset($nationalLevel->mil_central_govt_management)?$nationalLevel->mil_central_govt_management:'0')),
                                     'socialgroup'=>array(
-                                        'disrtict'=>array("sc"=>isset($nasDetails3->mil_sc_social_group)?$nasDetails3->mil_sc_social_group:0,"obc"=>isset($nasDetails3->mil_obc_social_group)?$nasDetails3->mil_obc_social_group:0,"st"=>isset($nasDetails3->mil_st_social_group)?$nasDetails3->mil_st_social_group:0,"general"=>isset($nasDetails3->mil_general_social_group)?$nasDetails3->mil_general_social_group:0),
-                                        'state'=>array("sc"=>isset($statelevel->mil_sc_social_group)?$statelevel->mil_sc_social_group:0,"obc"=>isset($statelevel->mil_obc_social_group)?$statelevel->mil_obc_social_group:0,"st"=>isset($statelevel->mil_st_social_group)?$statelevel->mil_st_social_group:0,"general"=>isset($statelevel->mil_general_social_group)?$statelevel->mil_general_social_group:0),
-                                        'national'=>array("sc"=>isset($nationalLevel->mil_sc_social_group)?$nationalLevel->mil_sc_social_group:0,"obc"=>isset($nationalLevel->mil_obc_social_group)?$nationalLevel->mil_obc_social_group:0,"st"=>isset($nationalLevel->mil_st_social_group)?$nationalLevel->mil_st_social_group:0,"general"=>isset($nationalLevel->mil_general_social_group)?$nationalLevel->mil_general_social_group:0)));
+                                        'district'=>array("sc"=>isset($nasDetails3->mil_sc_social_group)?$nasDetails3->mil_sc_social_group:'0',"obc"=>isset($nasDetails3->mil_obc_social_group)?$nasDetails3->mil_obc_social_group:'0',"st"=>isset($nasDetails3->mil_st_social_group)?$nasDetails3->mil_st_social_group:'0',"general"=>isset($nasDetails3->mil_general_social_group)?$nasDetails3->mil_general_social_group:'0'),
+                                        'state'=>array("sc"=>isset($statelevel->mil_sc_social_group)?$statelevel->mil_sc_social_group:'0',"obc"=>isset($statelevel->mil_obc_social_group)?$statelevel->mil_obc_social_group:'0',"st"=>isset($statelevel->mil_st_social_group)?$statelevel->mil_st_social_group:'0',"general"=>isset($statelevel->mil_general_social_group)?$statelevel->mil_general_social_group:'0'),
+                                        'national'=>array("sc"=>isset($nationalLevel->mil_sc_social_group)?$nationalLevel->mil_sc_social_group:'0',"obc"=>isset($nationalLevel->mil_obc_social_group)?$nationalLevel->mil_obc_social_group:'0',"st"=>isset($nationalLevel->mil_st_social_group)?$nationalLevel->mil_st_social_group:'0',"general"=>isset($nationalLevel->mil_general_social_group)?$nationalLevel->mil_general_social_group:'0')));
                                 $newArray['eng'] =array(
                                     'cards'=>array(
-                                        'disrtict'=>isset($nasDetails3->avg_eng_marks)?$nasDetails3->avg_eng_marks:0,
-                                        'state'=>isset($statelevel->avg_eng_marks)?$statelevel->avg_eng_marks:0,
-                                        'national'=>isset($nationalLevel->avg_eng_marks)?$nationalLevel->avg_eng_marks:0),
+                                        'district'=>isset($nasDetails3->avg_eng_marks)?$nasDetails3->avg_eng_marks:'0',
+                                        'state'=>isset($statelevel->avg_eng_marks)?$statelevel->avg_eng_marks:'0',
+                                        'national'=>isset($nationalLevel->avg_eng_marks)?$nationalLevel->avg_eng_marks:'0'),
                                     'gender'=>array(
-                                        'disrtict'=>array("boys"=>isset($nasDetails3->eng_male_gender)?$nasDetails3->eng_male_gender:0,"girls"=>isset($nasDetails3->eng_female_gender)?$nasDetails3->eng_female_gender:0),
-                                        'state'=>array("boys"=>isset($statelevel->eng_male_gender)?$statelevel->eng_male_gender:0,"girls"=>isset($statelevel->eng_female_gender)?$statelevel->eng_female_gender:0),
-                                        'national'=>array("boys"=>isset($nationalLevel->eng_male_gender)?$nationalLevel->eng_male_gender:0,"girls"=>isset($nationalLevel->eng_female_gender)?$nationalLevel->eng_female_gender:0)),
+                                        'district'=>array("boys"=>isset($nasDetails3->eng_male_gender)?$nasDetails3->eng_male_gender:'0',"girls"=>isset($nasDetails3->eng_female_gender)?$nasDetails3->eng_female_gender:'0'),
+                                        'state'=>array("boys"=>isset($statelevel->eng_male_gender)?$statelevel->eng_male_gender:'0',"girls"=>isset($statelevel->eng_female_gender)?$statelevel->eng_female_gender:'0'),
+                                        'national'=>array("boys"=>isset($nationalLevel->eng_male_gender)?$nationalLevel->eng_male_gender:'0',"girls"=>isset($nationalLevel->eng_female_gender)?$nationalLevel->eng_female_gender:'0')),
                                     'location'=>array(
-                                        'disrtict'=>array("urban"=>isset($nasDetails3->eng_urban_location)?$nasDetails3->eng_urban_location:0,"rural"=>isset($nasDetails3->eng_rural_location)?$nasDetails3->eng_rural_location:0),
-                                        'state'=>array("urban"=>isset($statelevel->eng_urban_location)?$statelevel->eng_urban_location:0,"rural"=>isset($statelevel->eng_rural_location)?$statelevel->eng_rural_location:0),
-                                        'national'=>array("urban"=>isset($nationalLevel->eng_urban_location)?$nationalLevel->eng_urban_location:0,"rural"=>isset($nationalLevel->eng_rural_location)?$nationalLevel->eng_rural_location:0)),
+                                        'district'=>array("urban"=>isset($nasDetails3->eng_urban_location)?$nasDetails3->eng_urban_location:'0',"rural"=>isset($nasDetails3->eng_rural_location)?$nasDetails3->eng_rural_location:'0'),
+                                        'state'=>array("urban"=>isset($statelevel->eng_urban_location)?$statelevel->eng_urban_location:'0',"rural"=>isset($statelevel->eng_rural_location)?$statelevel->eng_rural_location:'0'),
+                                        'national'=>array("urban"=>isset($nationalLevel->eng_urban_location)?$nationalLevel->eng_urban_location:'0',"rural"=>isset($nationalLevel->eng_rural_location)?$nationalLevel->eng_rural_location:'0')),
                                     'management'=>array(
-                                        'disrtict'=>array("govt"=>isset($nasDetails3->eng_govt_management)?$nasDetails3->eng_govt_management:0,"govt_aided"=>isset($nasDetails3->eng_govt_aided_management)?$nasDetails3->eng_govt_aided_management:0,"private"=>isset($nasDetails3->eng_private_management)?$nasDetails3->eng_private_management:0,"central_govt"=>isset($nasDetails3->eng_central_govt_management)?$nasDetails3->eng_central_govt_management:0),
-                                        'state'=>array("govt"=>isset($statelevel->eng_govt_management)?$statelevel->eng_govt_management:0,"govt_aided"=>isset($statelevel->eng_govt_aided_management)?$statelevel->eng_govt_aided_management:0,"private"=>isset($statelevel->eng_private_management)?$statelevel->eng_private_management:0,"central_govt"=>isset($statelevel->eng_central_govt_management)?$statelevel->eng_central_govt_management:0),
-                                        'national'=>array("govt"=>isset($nationalLevel->eng_govt_management)?$nationalLevel->eng_govt_management:0,"govt_aided"=>isset($nationalLevel->eng_govt_aided_management)?$nationalLevel->eng_govt_aided_management:0,"private"=>isset($nationalLevel->eng_private_management)?$nationalLevel->eng_private_management:0,"central_govt"=>isset($nationalLevel->eng_central_govt_management)?$nationalLevel->eng_central_govt_management:0)),
+                                        'district'=>array("govt"=>isset($nasDetails3->eng_govt_management)?$nasDetails3->eng_govt_management:'0',"govt_aided"=>isset($nasDetails3->eng_govt_aided_management)?$nasDetails3->eng_govt_aided_management:'0',"private"=>isset($nasDetails3->eng_private_management)?$nasDetails3->eng_private_management:'0',"central_govt"=>isset($nasDetails3->eng_central_govt_management)?$nasDetails3->eng_central_govt_management:'0'),
+                                        'state'=>array("govt"=>isset($statelevel->eng_govt_management)?$statelevel->eng_govt_management:'0',"govt_aided"=>isset($statelevel->eng_govt_aided_management)?$statelevel->eng_govt_aided_management:'0',"private"=>isset($statelevel->eng_private_management)?$statelevel->eng_private_management:'0',"central_govt"=>isset($statelevel->eng_central_govt_management)?$statelevel->eng_central_govt_management:'0'),
+                                        'national'=>array("govt"=>isset($nationalLevel->eng_govt_management)?$nationalLevel->eng_govt_management:'0',"govt_aided"=>isset($nationalLevel->eng_govt_aided_management)?$nationalLevel->eng_govt_aided_management:'0',"private"=>isset($nationalLevel->eng_private_management)?$nationalLevel->eng_private_management:'0',"central_govt"=>isset($nationalLevel->eng_central_govt_management)?$nationalLevel->eng_central_govt_management:'0')),
                                     'socialgroup'=>array(
-                                        'disrtict'=>array("sc"=>isset($nasDetails3->eng_sc_social_group)?$nasDetails3->eng_sc_social_group:0,"obc"=>isset($nasDetails3->eng_obc_social_group)?$nasDetails3->eng_obc_social_group:0,"st"=>isset($nasDetails3->eng_st_social_group)?$nasDetails3->eng_st_social_group:0,"general"=>isset($nasDetails3->eng_general_social_group)?$nasDetails3->eng_general_social_group:0),
-                                        'state'=>array("sc"=>isset($statelevel->eng_sc_social_group)?$statelevel->eng_sc_social_group:0,"obc"=>isset($statelevel->eng_obc_social_group)?$statelevel->eng_obc_social_group:0,"st"=>isset($statelevel->eng_st_social_group)?$statelevel->eng_st_social_group:0,"general"=>isset($statelevel->eng_general_social_group)?$statelevel->eng_general_social_group:0),
-                                        'national'=>array("sc"=>isset($nationalLevel->eng_sc_social_group)?$nationalLevel->eng_sc_social_group:0,"obc"=>isset($nationalLevel->eng_obc_social_group)?$nationalLevel->eng_obc_social_group:0,"st"=>isset($nationalLevel->eng_st_social_group)?$nationalLevel->eng_st_social_group:0,"general"=>isset($nationalLevel->eng_general_social_group)?$nationalLevel->eng_general_social_group:0)));
+                                        'district'=>array("sc"=>isset($nasDetails3->eng_sc_social_group)?$nasDetails3->eng_sc_social_group:'0',"obc"=>isset($nasDetails3->eng_obc_social_group)?$nasDetails3->eng_obc_social_group:'0',"st"=>isset($nasDetails3->eng_st_social_group)?$nasDetails3->eng_st_social_group:'0',"general"=>isset($nasDetails3->eng_general_social_group)?$nasDetails3->eng_general_social_group:'0'),
+                                        'state'=>array("sc"=>isset($statelevel->eng_sc_social_group)?$statelevel->eng_sc_social_group:'0',"obc"=>isset($statelevel->eng_obc_social_group)?$statelevel->eng_obc_social_group:'0',"st"=>isset($statelevel->eng_st_social_group)?$statelevel->eng_st_social_group:'0',"general"=>isset($statelevel->eng_general_social_group)?$statelevel->eng_general_social_group:'0'),
+                                        'national'=>array("sc"=>isset($nationalLevel->eng_sc_social_group)?$nationalLevel->eng_sc_social_group:'0',"obc"=>isset($nationalLevel->eng_obc_social_group)?$nationalLevel->eng_obc_social_group:'0',"st"=>isset($nationalLevel->eng_st_social_group)?$nationalLevel->eng_st_social_group:'0',"general"=>isset($nationalLevel->eng_general_social_group)?$nationalLevel->eng_general_social_group:'0')));
                                 $newArray['sci'] =array(
                                     'cards'=>array(
-                                        'disrtict'=>isset($nasDetails3->avg_sci_marks)?$nasDetails3->avg_sci_marks:0,
-                                        'state'=>isset($statelevel->avg_sci_marks)?$statelevel->avg_sci_marks:0,
-                                        'national'=>isset($nationalLevel->avg_sci_marks)?$nationalLevel->avg_sci_marks:0),
+                                        'district'=>isset($nasDetails3->avg_sci_marks)?$nasDetails3->avg_sci_marks:'0',
+                                        'state'=>isset($statelevel->avg_sci_marks)?$statelevel->avg_sci_marks:'0',
+                                        'national'=>isset($nationalLevel->avg_sci_marks)?$nationalLevel->avg_sci_marks:'0'),
                                     'gender'=>array(
-                                        'disrtict'=>array("boys"=>isset($nasDetails3->sci_male_gender)?$nasDetails3->sci_male_gender:0,"girls"=>isset($nasDetails3->sci_female_gender)?$nasDetails3->sci_female_gender:0),
-                                        'state'=>array("boys"=>isset($statelevel->sci_male_gender)?$statelevel->sci_male_gender:0,"girls"=>isset($statelevel->sci_female_gender)?$statelevel->sci_female_gender:0),
-                                        'national'=>array("boys"=>isset($nationalLevel->sci_male_gender)?$nationalLevel->sci_male_gender:0,"girls"=>isset($nationalLevel->sci_female_gender)?$nationalLevel->sci_female_gender:0)),
+                                        'district'=>array("boys"=>isset($nasDetails3->sci_male_gender)?$nasDetails3->sci_male_gender:'0',"girls"=>isset($nasDetails3->sci_female_gender)?$nasDetails3->sci_female_gender:'0'),
+                                        'state'=>array("boys"=>isset($statelevel->sci_male_gender)?$statelevel->sci_male_gender:'0',"girls"=>isset($statelevel->sci_female_gender)?$statelevel->sci_female_gender:'0'),
+                                        'national'=>array("boys"=>isset($nationalLevel->sci_male_gender)?$nationalLevel->sci_male_gender:'0',"girls"=>isset($nationalLevel->sci_female_gender)?$nationalLevel->sci_female_gender:'0')),
                                     'location'=>array(
-                                        'disrtict'=>array("urban"=>isset($nasDetails3->sci_urban_location)?$nasDetails3->sci_urban_location:0,"rural"=>isset($nasDetails3->sci_rural_location)?$nasDetails3->sci_rural_location:0),
-                                        'state'=>array("urban"=>isset($statelevel->sci_urban_location)?$statelevel->sci_urban_location:0,"rural"=>isset($statelevel->sci_rural_location)?$statelevel->sci_rural_location:0),
-                                        'national'=>array("urban"=>isset($nationalLevel->sci_urban_location)?$nationalLevel->sci_urban_location:0,"rural"=>isset($nationalLevel->sci_rural_location)?$nationalLevel->sci_rural_location:0)),
+                                        'district'=>array("urban"=>isset($nasDetails3->sci_urban_location)?$nasDetails3->sci_urban_location:'0',"rural"=>isset($nasDetails3->sci_rural_location)?$nasDetails3->sci_rural_location:'0'),
+                                        'state'=>array("urban"=>isset($statelevel->sci_urban_location)?$statelevel->sci_urban_location:'0',"rural"=>isset($statelevel->sci_rural_location)?$statelevel->sci_rural_location:'0'),
+                                        'national'=>array("urban"=>isset($nationalLevel->sci_urban_location)?$nationalLevel->sci_urban_location:'0',"rural"=>isset($nationalLevel->sci_rural_location)?$nationalLevel->sci_rural_location:'0')),
                                     'management'=>array(
-                                        'disrtict'=>array("govt"=>isset($nasDetails3->sci_govt_management)?$nasDetails3->sci_govt_management:0,"govt_aided"=>isset($nasDetails3->sci_govt_aided_management)?$nasDetails3->sci_govt_aided_management:0,"private"=>isset($nasDetails3->sci_private_management)?$nasDetails3->sci_private_management:0,"central_govt"=>isset($nasDetails3->sci_central_govt_management)?$nasDetails3->sci_central_govt_management:0),
-                                        'state'=>array("govt"=>isset($statelevel->sci_govt_management)?$statelevel->sci_govt_management:0,"govt_aided"=>isset($statelevel->sci_govt_aided_management)?$statelevel->sci_govt_aided_management:0,"private"=>isset($statelevel->sci_private_management)?$statelevel->sci_private_management:0,"central_govt"=>isset($statelevel->sci_central_govt_management)?$statelevel->sci_central_govt_management:0),
-                                        'national'=>array("govt"=>isset($nationalLevel->sci_govt_management)?$nationalLevel->sci_govt_management:0,"govt_aided"=>isset($nationalLevel->sci_govt_aided_management)?$nationalLevel->sci_govt_aided_management:0,"private"=>isset($nationalLevel->sci_private_management)?$nationalLevel->sci_private_management:0,"central_govt"=>isset($nationalLevel->sci_central_govt_management)?$nationalLevel->sci_central_govt_management:0)),
+                                        'district'=>array("govt"=>isset($nasDetails3->sci_govt_management)?$nasDetails3->sci_govt_management:'0',"govt_aided"=>isset($nasDetails3->sci_govt_aided_management)?$nasDetails3->sci_govt_aided_management:'0',"private"=>isset($nasDetails3->sci_private_management)?$nasDetails3->sci_private_management:'0',"central_govt"=>isset($nasDetails3->sci_central_govt_management)?$nasDetails3->sci_central_govt_management:'0'),
+                                        'state'=>array("govt"=>isset($statelevel->sci_govt_management)?$statelevel->sci_govt_management:'0',"govt_aided"=>isset($statelevel->sci_govt_aided_management)?$statelevel->sci_govt_aided_management:'0',"private"=>isset($statelevel->sci_private_management)?$statelevel->sci_private_management:'0',"central_govt"=>isset($statelevel->sci_central_govt_management)?$statelevel->sci_central_govt_management:'0'),
+                                        'national'=>array("govt"=>isset($nationalLevel->sci_govt_management)?$nationalLevel->sci_govt_management:'0',"govt_aided"=>isset($nationalLevel->sci_govt_aided_management)?$nationalLevel->sci_govt_aided_management:'0',"private"=>isset($nationalLevel->sci_private_management)?$nationalLevel->sci_private_management:'0',"central_govt"=>isset($nationalLevel->sci_central_govt_management)?$nationalLevel->sci_central_govt_management:'0')),
                                     'socialgroup'=>array(
-                                        'disrtict'=>array("sc"=>isset($nasDetails3->sci_sc_social_group)?$nasDetails3->sci_sc_social_group:0,"obc"=>isset($nasDetails3->sci_obc_social_group)?$nasDetails3->sci_obc_social_group:0,"st"=>isset($nasDetails3->sci_st_social_group)?$nasDetails3->sci_st_social_group:0,"general"=>isset($nasDetails3->sci_general_social_group)?$nasDetails3->sci_general_social_group:0),
-                                        'state'=>array("sc"=>isset($statelevel->sci_sc_social_group)?$statelevel->sci_sc_social_group:0,"obc"=>isset($statelevel->sci_obc_social_group)?$statelevel->sci_obc_social_group:0,"st"=>isset($statelevel->sci_st_social_group)?$statelevel->sci_st_social_group:0,"general"=>isset($statelevel->sci_general_social_group)?$statelevel->sci_general_social_group:0),
-                                        'national'=>array("sc"=>isset($nationalLevel->sci_sc_social_group)?$nationalLevel->sci_sc_social_group:0,"obc"=>isset($nationalLevel->sci_obc_social_group)?$nationalLevel->sci_obc_social_group:0,"st"=>isset($nationalLevel->sci_st_social_group)?$nationalLevel->sci_st_social_group:0,"general"=>isset($nationalLevel->sci_general_social_group)?$nationalLevel->sci_general_social_group:0)));
+                                        'district'=>array("sc"=>isset($nasDetails3->sci_sc_social_group)?$nasDetails3->sci_sc_social_group:'0',"obc"=>isset($nasDetails3->sci_obc_social_group)?$nasDetails3->sci_obc_social_group:'0',"st"=>isset($nasDetails3->sci_st_social_group)?$nasDetails3->sci_st_social_group:'0',"general"=>isset($nasDetails3->sci_general_social_group)?$nasDetails3->sci_general_social_group:'0'),
+                                        'state'=>array("sc"=>isset($statelevel->sci_sc_social_group)?$statelevel->sci_sc_social_group:'0',"obc"=>isset($statelevel->sci_obc_social_group)?$statelevel->sci_obc_social_group:'0',"st"=>isset($statelevel->sci_st_social_group)?$statelevel->sci_st_social_group:'0',"general"=>isset($statelevel->sci_general_social_group)?$statelevel->sci_general_social_group:'0'),
+                                        'national'=>array("sc"=>isset($nationalLevel->sci_sc_social_group)?$nationalLevel->sci_sc_social_group:'0',"obc"=>isset($nationalLevel->sci_obc_social_group)?$nationalLevel->sci_obc_social_group:'0',"st"=>isset($nationalLevel->sci_st_social_group)?$nationalLevel->sci_st_social_group:'0',"general"=>isset($nationalLevel->sci_general_social_group)?$nationalLevel->sci_general_social_group:'0')));
                                 $newArray['sst'] =array(
                                     'cards'=>array(
-                                        'disrtict'=>isset($nasDetails3->avg_sst_marks)?$nasDetails3->avg_sst_marks:0,
-                                        'state'=>isset($statelevel->avg_sst_marks)?$statelevel->avg_sst_marks:0,
-                                        'national'=>isset($nationalLevel->avg_sst_marks)?$nationalLevel->avg_sst_marks:0),
+                                        'district'=>isset($nasDetails3->avg_sst_marks)?$nasDetails3->avg_sst_marks:'0',
+                                        'state'=>isset($statelevel->avg_sst_marks)?$statelevel->avg_sst_marks:'0',
+                                        'national'=>isset($nationalLevel->avg_sst_marks)?$nationalLevel->avg_sst_marks:'0'),
                                     'gender'=>array(
-                                        'disrtict'=>array("boys"=>isset($nasDetails3->sst_male_gender)?$nasDetails3->sst_male_gender:0,"girls"=>isset($nasDetails3->sst_female_gender)?$nasDetails3->sst_female_gender:0),
-                                        'state'=>array("boys"=>isset($statelevel->sst_male_gender)?$statelevel->sst_male_gender:0,"girls"=>isset($statelevel->sst_female_gender)?$statelevel->sst_female_gender:0),
-                                        'national'=>array("boys"=>isset($nationalLevel->sst_male_gender)?$nationalLevel->sst_male_gender:0,"girls"=>isset($nationalLevel->sst_female_gender)?$nationalLevel->sst_female_gender:0)),
+                                        'district'=>array("boys"=>isset($nasDetails3->sst_male_gender)?$nasDetails3->sst_male_gender:'0',"girls"=>isset($nasDetails3->sst_female_gender)?$nasDetails3->sst_female_gender:'0'),
+                                        'state'=>array("boys"=>isset($statelevel->sst_male_gender)?$statelevel->sst_male_gender:'0',"girls"=>isset($statelevel->sst_female_gender)?$statelevel->sst_female_gender:'0'),
+                                        'national'=>array("boys"=>isset($nationalLevel->sst_male_gender)?$nationalLevel->sst_male_gender:'0',"girls"=>isset($nationalLevel->sst_female_gender)?$nationalLevel->sst_female_gender:'0')),
                                     'location'=>array(
-                                        'disrtict'=>array("urban"=>isset($nasDetails3->sst_urban_location)?$nasDetails3->sst_urban_location:0,"rural"=>isset($nasDetails3->sst_rural_location)?$nasDetails3->sst_rural_location:0),
-                                        'state'=>array("urban"=>isset($statelevel->sst_urban_location)?$statelevel->sst_urban_location:0,"rural"=>isset($statelevel->sst_rural_location)?$statelevel->sst_rural_location:0),
-                                        'national'=>array("urban"=>isset($nationalLevel->sst_urban_location)?$nationalLevel->sst_urban_location:0,"rural"=>isset($nationalLevel->sst_rural_location)?$nationalLevel->sst_rural_location:0)),
+                                        'district'=>array("urban"=>isset($nasDetails3->sst_urban_location)?$nasDetails3->sst_urban_location:'0',"rural"=>isset($nasDetails3->sst_rural_location)?$nasDetails3->sst_rural_location:'0'),
+                                        'state'=>array("urban"=>isset($statelevel->sst_urban_location)?$statelevel->sst_urban_location:'0',"rural"=>isset($statelevel->sst_rural_location)?$statelevel->sst_rural_location:'0'),
+                                        'national'=>array("urban"=>isset($nationalLevel->sst_urban_location)?$nationalLevel->sst_urban_location:'0',"rural"=>isset($nationalLevel->sst_rural_location)?$nationalLevel->sst_rural_location:'0')),
                                     'management'=>array(
-                                        'disrtict'=>array("govt"=>isset($nasDetails3->sst_govt_management)?$nasDetails3->sst_govt_management:0,"govt_aided"=>isset($nasDetails3->sst_govt_aided_management)?$nasDetails3->sst_govt_aided_management:0,"private"=>isset($nasDetails3->sst_private_management)?$nasDetails3->sst_private_management:0,"central_govt"=>isset($nasDetails3->sst_central_govt_management)?$nasDetails3->sst_central_govt_management:0),
-                                        'state'=>array("govt"=>isset($statelevel->sst_govt_management)?$statelevel->sst_govt_management:0,"govt_aided"=>isset($statelevel->sst_govt_aided_management)?$statelevel->sst_govt_aided_management:0,"private"=>isset($statelevel->sst_private_management)?$statelevel->sst_private_management:0,"central_govt"=>isset($statelevel->sst_central_govt_management)?$statelevel->sst_central_govt_management:0),
-                                        'national'=>array("govt"=>isset($nationalLevel->sst_govt_management)?$nationalLevel->sst_govt_management:0,"govt_aided"=>isset($nationalLevel->sst_govt_aided_management)?$nationalLevel->sst_govt_aided_management:0,"private"=>isset($nationalLevel->sst_private_management)?$nationalLevel->sst_private_management:0,"central_govt"=>isset($nationalLevel->sst_central_govt_management)?$nationalLevel->sst_central_govt_management:0)),
+                                        'district'=>array("govt"=>isset($nasDetails3->sst_govt_management)?$nasDetails3->sst_govt_management:'0',"govt_aided"=>isset($nasDetails3->sst_govt_aided_management)?$nasDetails3->sst_govt_aided_management:'0',"private"=>isset($nasDetails3->sst_private_management)?$nasDetails3->sst_private_management:'0',"central_govt"=>isset($nasDetails3->sst_central_govt_management)?$nasDetails3->sst_central_govt_management:'0'),
+                                        'state'=>array("govt"=>isset($statelevel->sst_govt_management)?$statelevel->sst_govt_management:'0',"govt_aided"=>isset($statelevel->sst_govt_aided_management)?$statelevel->sst_govt_aided_management:'0',"private"=>isset($statelevel->sst_private_management)?$statelevel->sst_private_management:'0',"central_govt"=>isset($statelevel->sst_central_govt_management)?$statelevel->sst_central_govt_management:'0'),
+                                        'national'=>array("govt"=>isset($nationalLevel->sst_govt_management)?$nationalLevel->sst_govt_management:'0',"govt_aided"=>isset($nationalLevel->sst_govt_aided_management)?$nationalLevel->sst_govt_aided_management:'0',"private"=>isset($nationalLevel->sst_private_management)?$nationalLevel->sst_private_management:'0',"central_govt"=>isset($nationalLevel->sst_central_govt_management)?$nationalLevel->sst_central_govt_management:'0')),
                                     'socialgroup'=>array(
-                                        'disrtict'=>array("sc"=>isset($nasDetails3->sst_sc_social_group)?$nasDetails3->sst_sc_social_group:0,"obc"=>isset($nasDetails3->sst_obc_social_group)?$nasDetails3->sst_obc_social_group:0,"st"=>isset($nasDetails3->sst_st_social_group)?$nasDetails3->sst_st_social_group:0,"general"=>isset($nasDetails3->sst_general_social_group)?$nasDetails3->sst_general_social_group:0),
-                                        'state'=>array("sc"=>isset($statelevel->sst_sc_social_group)?$statelevel->sst_sc_social_group:0,"obc"=>isset($statelevel->sst_obc_social_group)?$statelevel->sst_obc_social_group:0,"st"=>isset($statelevel->sst_st_social_group)?$statelevel->sst_st_social_group:0,"general"=>isset($statelevel->sst_general_social_group)?$statelevel->sst_general_social_group:0),
-                                        'national'=>array("sc"=>isset($nationalLevel->sst_sc_social_group)?$nationalLevel->sst_sc_social_group:0,"obc"=>isset($nationalLevel->sst_obc_social_group)?$nationalLevel->sst_obc_social_group:0,"st"=>isset($nationalLevel->sst_st_social_group)?$nationalLevel->sst_st_social_group:0,"general"=>isset($nationalLevel->sst_general_social_group)?$nationalLevel->sst_general_social_group:0)));
+                                        'district'=>array("sc"=>isset($nasDetails3->sst_sc_social_group)?$nasDetails3->sst_sc_social_group:'0',"obc"=>isset($nasDetails3->sst_obc_social_group)?$nasDetails3->sst_obc_social_group:'0',"st"=>isset($nasDetails3->sst_st_social_group)?$nasDetails3->sst_st_social_group:'0',"general"=>isset($nasDetails3->sst_general_social_group)?$nasDetails3->sst_general_social_group:'0'),
+                                        'state'=>array("sc"=>isset($statelevel->sst_sc_social_group)?$statelevel->sst_sc_social_group:'0',"obc"=>isset($statelevel->sst_obc_social_group)?$statelevel->sst_obc_social_group:'0',"st"=>isset($statelevel->sst_st_social_group)?$statelevel->sst_st_social_group:'0',"general"=>isset($statelevel->sst_general_social_group)?$statelevel->sst_general_social_group:'0'),
+                                        'national'=>array("sc"=>isset($nationalLevel->sst_sc_social_group)?$nationalLevel->sst_sc_social_group:'0',"obc"=>isset($nationalLevel->sst_obc_social_group)?$nationalLevel->sst_obc_social_group:'0',"st"=>isset($nationalLevel->sst_st_social_group)?$nationalLevel->sst_st_social_group:'0',"general"=>isset($nationalLevel->sst_general_social_group)?$nationalLevel->sst_general_social_group:'0')));
                             }
                         }
                     }
@@ -603,7 +603,7 @@ class PerformanceController extends Controller
             }
         }
         $performanceMaster = PerformanceMaster::insert($getAll3GradeData);
-
+        
         if($performanceMaster)
         {
             return "Performance table successfully created.";
@@ -669,7 +669,7 @@ class PerformanceController extends Controller
                     }
    
               }
-               // Check Question for Mathmatics
+               // Check Question for math
               if(substr($checklang->$var,0,-3)=='M')
               {
                
@@ -764,7 +764,7 @@ class PerformanceController extends Controller
                     }
    
               }
-               // Check Question for Mathmatics
+               // Check Question for math
               if(substr($checklang->$var,0,-3)=='M')
               {
                
@@ -862,7 +862,7 @@ class PerformanceController extends Controller
                             $l_total_no_question++;
                     }
               }
-               // Check Question for Mathmatics
+               // Check Question for math
               if(substr($checklang->$var,0,-3)=='M')
               {
                
@@ -993,7 +993,7 @@ class PerformanceController extends Controller
                     }
                    
               }
-               // Check Question for Mathmatics
+               // Check Question for math
               if(substr($checklang->$var,0,-3)=='M')
               {
                
@@ -1321,7 +1321,6 @@ class PerformanceController extends Controller
 
     public function queryFunction($querySyntax,$queryGroupSyntax,$queryGroupCondition)
     {
-
         $query ="select ".$querySyntax."  grade, count(id) AS total_student, count(CASE WHEN location = '1' THEN 'Rural' END) AS rural_location, count(CASE WHEN location = '2' THEN 'Urban' END) AS urban_location, count(CASE WHEN management= 'F1' THEN 'Govt School' END) AS govt_school, count(CASE WHEN management= 'F2' THEN 'Govt Aided' END) AS govt_aided_school, count(CASE WHEN management= 'F3' THEN 'Private' END) AS private_school, count(CASE WHEN management= 'F4' THEN 'Central govt' END) AS central_govt_school, count(CASE WHEN socialgrp= '1' THEN 'SC' END) AS sc_social_group, count(CASE WHEN socialgrp= '2' THEN 'OBC' END) AS obc_social_group, count(CASE WHEN socialgrp= '3' THEN 'ST' END) AS st_social_group, count(CASE WHEN socialgrp= '4' THEN 'General' END) AS general_social_group, count(CASE WHEN gender= '1' THEN 'Boys' END) AS male_gender, count(CASE WHEN gender= '2' THEN 'Girls' END) AS female_gender,
         SUM(L_avg::float)/count(L_avg) AS avg_l_marks, SUM(l_avg::float) AS sum_l_marks, count(m_avg) AS total_m_student, SUM(m_avg::float)/count(l_avg) AS avg_m_marks, SUM(m_avg::float) AS sum_m_marks, count(e_avg) AS total_e_student, SUM(e_avg::float)/count(e_avg) AS avg_e_marks, SUM(e_avg::float) AS sum_e_marks, count(mil_avg) AS total_mil_student, SUM(mil_avg::float)/count(mil_avg) AS avg_mil_marks, SUM(mil_avg::float) AS sum_mil_marks, count(eng_avg) AS total_eng_student, SUM(eng_avg::float)/count(eng_avg) AS avg_eng_marks, SUM(eng_avg::float) AS sum_eng_marks, count(sci_avg) AS total_sci_student, SUM(sci_avg::float)/count(sci_avg) AS avg_sci_marks, SUM(sci_avg::float) AS sum_sci_marks, count(sst_avg) AS total_sst_student, SUM(sst_avg::float)/count(sst_avg) AS avg_sst_marks, SUM(sst_avg::float) AS sum_sst_marks,
         round(sum((CASE WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.l_avg
@@ -1734,8 +1733,6 @@ class PerformanceController extends Controller
                 END::float)::decimal/count(CASE 
                 WHEN at3_performance_data.gender= '2' THEN at3_performance_data.gender
                 END)::decimal) AS sst_female_gender
-        
-        
         from at3_performance_data
         ".$queryGroupCondition."
         group by ".$queryGroupSyntax." at3_performance_data.grade";
