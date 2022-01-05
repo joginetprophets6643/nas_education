@@ -13,6 +13,9 @@ use Session;
 use Hash;
 use App\Models\User;
 use App\Models\Permission;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ResetLinkMail;
+
 class AdminController extends BaseController
 {
     public function index()
@@ -67,7 +70,7 @@ class AdminController extends BaseController
     {
             Auth::logout();
             Session::flush();
-            return redirect('secure-admin')->with('adminlogout','Admin Logout Sucessfully .');
+            return redirect('secure-admin')->with('success','Logout Sucessfully');
     }
 
     public function profile(){
@@ -101,4 +104,43 @@ class AdminController extends BaseController
        $users=User::whereNotNull('address')->get();
        return view('admin.user_list.index',compact('users'));
    }
+
+   public function proceed(Request $request){
+    $request->validate([
+        'email' => 'required',
+    ]);
+    $email=encode5t($request->email);
+    $link=url('/').'/token='.$email;
+    $user=User::where('email',$request->email)->where('address')->first();
+    if($user){
+        Mail::to($request->email)->send(new ResetLinkMail($link));
+        return redirect()->back()->with('success','Reset Link sent to the given Email address');
+    }
+    else{
+        return redirect()->back()->with('error','Unauthorized User');
+    }
+   }
+
+   public function viewReset($email){
+    $email=decode5t($email);
+    $user=User::where('email',$email)->where('address')->first();
+    if($user){
+        return view('admin.reset-password',compact('email'));
+    }
+    else{
+        return redirect('secure-admin');
+    }
+   }
+
+   public function successful(Request $request,$email){
+    $request->validate([
+        'password'=>'required|confirmed|min:5',
+    ]);
+    $email=decode5t($email);
+    User::where('email',$email)->update([
+        'password'=>Hash::make($request->password),
+    ]);
+    return view('admin.successful');
+   }
+
 }

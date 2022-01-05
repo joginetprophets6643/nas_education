@@ -46,7 +46,7 @@ class PermissionController extends Controller
         
         $role->save();
 
-        return Redirect()->route('user')->with('success','User Added Successfully');
+        return Redirect()->route('user')->with('success','User Added Successfully.Now Grant the Permission to user');
     }
     public function destroy($id)
     {
