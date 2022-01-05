@@ -569,7 +569,7 @@
                                                           <thead class="thead-red">
                                                             <tr>
                                                               <th scope="col">LO Code</th>
-                                                              <th scope="col">Learning Outcome for Class 8</th>
+                                                              <th scope="col">Learning Outcome for Class 10</th>
                                                               <th scope="col">District</th>
                                                               <th scope="col">State</th>
                                                               <th scope="col">National</th>
