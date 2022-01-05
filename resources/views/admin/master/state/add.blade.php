@@ -279,7 +279,7 @@
         </div>
         <br>
 
-        <button type="submit" class="btn btn-primary btn-sm float-right">Add</button>
+        <button type="submit" class="btn btn-primary btn-sm float-right Master_add">Add</button>
         </form>
         </div>
     </div>

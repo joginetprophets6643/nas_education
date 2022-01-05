@@ -17,7 +17,7 @@
 
 
           <div class="card-header">All programs
-          <a href="{{route('add-program')}}" class="btn btn-primary float-right btn-sm">Add</a>
+          <a href="{{route('add-program')}}" class="btn btn-primary float-right btn-sm Program_add">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -43,8 +43,8 @@
               <td style="max-width:290px; overflow:hidden;" id="program">{!!$program->content!!}</td>
               <td>
                 <?php $id=encode5t($program->id)?>
-                <a href="{{url('edit/program/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/program/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteprogram">Delete</button>
+                <a href="{{url('edit/program/'.$id)}}" class="btn btn-primary btn-sm Program_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Program_delete" data-delete-link="{{url('delete/program/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteprogram">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -72,8 +72,8 @@
           <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Program_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Program_delete">Delete</button>
           </form>
           </div>
           </div>

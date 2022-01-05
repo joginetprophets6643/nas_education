@@ -17,7 +17,7 @@
 
 
           <div class="card-header">National Statistic
-          <a href="{{route('add-national')}}" class="btn btn-primary float-right btn-sm">Add</a>
+          <a href="{{route('add-national')}}" class="btn btn-primary float-right btn-sm Statistic_add">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -43,8 +43,8 @@
               <td>{{$national->literacy_rate}}</td>
               <td>
                 <?php $id=encode5t($national->id)?>
-                <a href="{{url('edit/national/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/national/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletenational">Delete</button>
+                <a href="{{url('edit/national/'.$id)}}" class="btn btn-primary btn-sm Statistic_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn Statistic_delete" data-delete-link="{{url('delete/national/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletenational">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -72,8 +72,8 @@
           <form action="" id="delete-dist-form" method="GET" >
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Statistic_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Statistic_delete">Delete</button>
           </form>
           </div>
           </div>

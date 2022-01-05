@@ -17,7 +17,7 @@
 
 
           <div class="card-header">All Districts
-          <a href="{{route('add-district')}}" class="btn btn-primary float-right btn-sm">Add</a>
+          <a href="{{route('add-district')}}" class="btn btn-primary float-right btn-sm Master_add">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -43,8 +43,8 @@
               <td>{{$district->udise_state_code}}</td>
               <td>
                 <?php $id=encode5t($district->id)?>
-                <a href="{{url('edit/district/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/district/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletedistrict">Delete</button>
+                <a href="{{url('edit/district/'.$id)}}" class="btn btn-primary btn-sm Master_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn Master_delete" data-delete-link="{{url('delete/district/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletedistrict">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -72,8 +72,8 @@
           <form action="" id="delete-dist-form" method="GET" >
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Master_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Master_delete">Delete</button>
           </form>
           </div>
           </div>
