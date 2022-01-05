@@ -1,3 +1,135 @@
+.card-blue {
+    background: #75a9d9;
+}
+
+.card-pink {
+    background: #e9769f;
+}
+
+.card-yellow {
+    background: #cac55f;
+}
+
+.card-green {
+    background: #72b562;
+}
+
+.card-sagegreen {
+    background: #3cacae;
+}
+
+.card-red {
+    background: #eb6c69;
+}
+
+.card-purple {
+    background: #c574bf;
+}
+
+.card-blue .card-desc:before {
+    background: #4f83b2;
+}
+
+.card-pink .card-desc:before {
+    background: #be4e76;
+}
+
+.card-yellow .card-desc:before {
+    background: #9a975e;
+}
+
+.card-green .card-desc:before {
+    background: #5c914e;
+}
+
+.card-sagegreen .card-desc:before {
+    background: #2a787a;
+}
+
+.card-red .card-desc:before {
+    background: #bc5654;
+}
+
+.card-purple .card-desc:before {
+    background: #9e5d9a;
+}
+
+.light-blue {
+    background-color: #e8f0f9;
+}
+
+.light-pink {
+    background-color: #fee5ee;
+}
+
+.light-yellow {
+    background-color: #f4f3df;
+}
+
+.light-green {
+    background-color: #e3f0e0;
+}
+
+.light-sagegreen {
+    background-color: #d8eeef;
+}
+
+.light-red {
+    background-color: #fbe1e1;
+}
+
+.light-purple {
+    background-color: #f3e3f2;
+}
+
+.dark-blue {
+    background: #4f83b2;
+}
+
+.dark-pink {
+    background: #be4e76;
+}
+
+.dark-yellow {
+    background: #9a975e;
+}
+
+.dark-green {
+    background: #5c914e;
+}
+
+.dark-sagegreen {
+    background: #2a787a;
+}
+
+.dark-red {
+    background: #bc5654;
+}
+
+.dark-purple {
+    background: #9e5d9a;
+}
+
+.light-blue-bg {
+    background: #d6e5f4;
+}
+
+.light-pink-bg {
+    background: #fedbe7;
+}
+
+.light-yellow-bg {
+    background: #efeecf;
+}
+
+.light-green-bg {
+    background: #d8e8c6;
+}
+
+.light-sagegreen-bg {
+    background: #d8eeef;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -311,8 +443,8 @@ ul {
 
 .org-link {
     font-size: 15px;
-    line-height: 21px;
-    font-weight: 700;
+    line-height: 1;
+    font-weight: 500;
     letter-spacing: 0.07px;
     color: #f7941c;
     text-transform: uppercase;
@@ -331,6 +463,7 @@ ul {
 
 .org-link span {
     font-size: 18px;
+    margin-left: 5px;
 }
 
 .title-black-sm {
@@ -458,16 +591,28 @@ ul {
     padding: 30px 0;
 }
 
-.mtb-20 {
-    margin: 20px 0;
-}
-
 .ptb-15 {
     padding: 15px 0;
 }
 
 .pb-15 {
     padding-bottom: 15px;
+}
+
+.mtb-30 {
+    margin: 30px 0;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mtb-20 {
+    margin: 20px 0;
 }
 
 .bg-grey {
@@ -1790,7 +1935,7 @@ ul {
 }
 
 .sidebar-accordion .state-list ul::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 .sidebar-accordion .state-list ul::-webkit-scrollbar-track {
@@ -2102,28 +2247,234 @@ ul {
     overflow: hidden;
 }
 
-.card-blue .card-desc:before {
-    background: #4f83b2;
+.per-card {
+    -webkit-box-shadow: 0px 14px 18px #00000040;
+    box-shadow: 0px 14px 18px #00000040;
+    border-radius: 6px;
+    margin: 30px 0;
 }
 
-.card-pink .card-desc:before {
-    background: #be4e76;
+.per-card h2 {
+    letter-spacing: 0px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    padding: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
-.card-yellow .card-desc:before {
-    background: #9a975e;
+.per-card h2 img {
+    margin-right: 10px;
 }
 
-.card-blue {
-    background: #75a9d9;
+.per-card .per-card-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 15px;
 }
 
-.card-pink {
-    background: #e9769f;
+.per-card .per-card-content.dark-blue .per-card-desc:nth-child(2) {
+    border: 1px dashed #75a9d9;
+    border-top: 0;
+    border-bottom: 0;
 }
 
-.card-yellow {
-    background: #cac55f;
+.per-card .per-card-content.dark-pink .per-card-desc:nth-child(2) {
+    border: 1px dashed #e9769f;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.per-card .per-card-content.dark-yellow .per-card-desc:nth-child(2) {
+    border: 1px dashed #cac55f;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.per-card .per-card-content.dark-green .per-card-desc:nth-child(2) {
+    border: 1px dashed #72b562;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.per-card .per-card-content.dark-sagegreen .per-card-desc:nth-child(2) {
+    border: 1px dashed #3cacae;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.per-card .per-card-content.dark-red .per-card-desc:nth-child(2) {
+    border: 1px dashed #eb6c69;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.per-card .per-card-content.dark-purple .per-card-desc:nth-child(2) {
+    border: 1px dashed #c574bf;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.per-card .per-card-content .per-card-desc {
+    text-align: center;
+    min-width: 100px;
+}
+
+.per-card .per-card-content .per-card-desc .total-no {
+    letter-spacing: 0.22px;
+    color: #ffffff;
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.per-card .per-card-content .per-card-desc .title {
+    letter-spacing: 0.11px;
+    color: #ffffff;
+    margin: 0;
+    font-size: 14px;
+}
+
+#perAccordion .accordion-item {
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    padding: 0 15px;
+}
+
+#perAccordion .accordion-button {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 15px;
+    letter-spacing: 0.09px;
+    color: #006bb6;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+#perAccordion .accordion-button:not(.collapsed) {
+    background: transparent;
+}
+
+#perAccordion .accordion-collapse {
+    border-top: 1px dashed #647781;
+}
+
+#perAccordion .accordion-body {
+    padding: 15px 0;
+}
+
+.percategory-wrap {
+    height: 100%;
+    padding: 15px;
+    position: relative;
+}
+
+.percategory-wrap.indigate-right:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    -webkit-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    display: block;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+
+.percategory-wrap.indigate-left:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    -webkit-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    display: block;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+
+.percategory-wrap.card-blue:before {
+    border-left: 15px solid #75a9d9;
+}
+
+.percategory-wrap.card-pink:before {
+    border-left: 15px solid #e9769f;
+}
+
+.percategory-wrap.card-red:before {
+    border-left: 15px solid #eb6c69;
+}
+
+.percategory-wrap.card-purple:before {
+    border-left: 15px solid #c574bf;
+}
+
+.percategory-wrap.card-yellow:before {
+    border-right: 15px solid #cac55f;
+}
+
+.percategory-wrap.card-green:before {
+    border-right: 15px solid #72b562;
+}
+
+.percategory-wrap.card-sagegreen:before {
+    border-right: 15px solid #3cacae;
+}
+
+.percategory-wrap .percategory-content {
+    text-align: center;
+    border: 1px solid #ffffff;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.percategory-wrap .percategory-content .title {
+    letter-spacing: 0px;
+    color: #ffffff;
+    margin: 0;
+    padding: 15px 0;
+    font-size: 28px;
+    font-family: "Roboto Slab", serif;
+}
+
+.per-graph-wrap {
+    height: 100%;
+    padding: 30px;
+}
+
+.per-graph-wrap figure {
+    margin: 0;
 }
 
 .category-wrap .img-wrap {
@@ -2154,8 +2505,7 @@ ul {
     font-size: 15px;
 }
 
-.category-wrap .card-blue,
-.category-wrap .card-pink {
+.category-wrap .card-round {
     min-width: 114px;
     min-height: 114px;
     border-radius: 50%;
@@ -2175,8 +2525,5519 @@ ul {
     flex-direction: column;
 }
 
+.highcharts-credits {
+    display: none;
+}
+
+.student-fbcard {
+    padding: 15px;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.student-fbcard .title {
+    letter-spacing: 0px;
+    color: #101010;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
 .graph-wrap figure {
     margin: 30px 0;
+}
+
+.feedback-wrap .heading-black {
+    margin-bottom: 20px;
+}
+
+.teacher-fbcard {
+    padding: 15px;
+    border-radius: 4px;
+    height: 100%;
+}
+
+.progressbar-blue .progress {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    background: none;
+    margin: 10px auto;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 6px #0000001f;
+    box-shadow: 0px 0px 6px #0000001f;
+    border-radius: 50%;
+}
+
+.progressbar-blue .progress:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid #efefef;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progressbar-blue .progress > span {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.progressbar-blue .progress .progress-left {
+    left: 0;
+}
+
+.progressbar-blue .progress .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    border-color: #75a9d9;
+}
+
+.progressbar-blue .progress .progress-left .progress-bar {
+    left: 100%;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+}
+
+.progressbar-blue .progress .progress-right {
+    right: 0;
+}
+
+.progressbar-blue .progress .progress-right .progress-bar {
+    left: -100%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+}
+
+.progressbar-blue .progress .progress-value {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    letter-spacing: 0px;
+    color: #101010;
+    font-weight: bold;
+}
+
+.progressbar-blue .progress .progress-value span {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.progressbar-blue .progress[data-percentage="1"] .progress-right .progress-bar {
+    -webkit-animation: loading-1 0.5s linear forwards;
+    animation: loading-1 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="1"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue .progress[data-percentage="2"] .progress-right .progress-bar {
+    -webkit-animation: loading-2 0.5s linear forwards;
+    animation: loading-2 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="2"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue .progress[data-percentage="3"] .progress-right .progress-bar {
+    -webkit-animation: loading-3 0.5s linear forwards;
+    animation: loading-3 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="3"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue .progress[data-percentage="4"] .progress-right .progress-bar {
+    -webkit-animation: loading-4 0.5s linear forwards;
+    animation: loading-4 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="4"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue .progress[data-percentage="5"] .progress-right .progress-bar {
+    -webkit-animation: loading-5 0.5s linear forwards;
+    animation: loading-5 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="5"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue .progress[data-percentage="6"] .progress-right .progress-bar {
+    -webkit-animation: loading-6 0.5s linear forwards;
+    animation: loading-6 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="6"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue .progress[data-percentage="7"] .progress-right .progress-bar {
+    -webkit-animation: loading-7 0.5s linear forwards;
+    animation: loading-7 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="7"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue .progress[data-percentage="8"] .progress-right .progress-bar {
+    -webkit-animation: loading-8 0.5s linear forwards;
+    animation: loading-8 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="8"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue .progress[data-percentage="9"] .progress-right .progress-bar {
+    -webkit-animation: loading-9 0.5s linear forwards;
+    animation: loading-9 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="9"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="10"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-10 0.5s linear forwards;
+    animation: loading-10 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="10"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="11"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-11 0.5s linear forwards;
+    animation: loading-11 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="11"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="12"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-12 0.5s linear forwards;
+    animation: loading-12 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="12"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="13"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-13 0.5s linear forwards;
+    animation: loading-13 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="13"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="14"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-14 0.5s linear forwards;
+    animation: loading-14 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="14"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="15"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-15 0.5s linear forwards;
+    animation: loading-15 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="15"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="16"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-16 0.5s linear forwards;
+    animation: loading-16 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="16"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="17"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-17 0.5s linear forwards;
+    animation: loading-17 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="17"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="18"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-18 0.5s linear forwards;
+    animation: loading-18 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="18"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="19"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-19 0.5s linear forwards;
+    animation: loading-19 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="19"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="20"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-20 0.5s linear forwards;
+    animation: loading-20 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="20"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="21"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-21 0.5s linear forwards;
+    animation: loading-21 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="21"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="22"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-22 0.5s linear forwards;
+    animation: loading-22 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="22"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="23"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-23 0.5s linear forwards;
+    animation: loading-23 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="23"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="24"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-24 0.5s linear forwards;
+    animation: loading-24 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="24"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="25"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-25 0.5s linear forwards;
+    animation: loading-25 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="25"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="26"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-26 0.5s linear forwards;
+    animation: loading-26 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="26"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="27"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-27 0.5s linear forwards;
+    animation: loading-27 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="27"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="28"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-28 0.5s linear forwards;
+    animation: loading-28 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="28"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="29"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-29 0.5s linear forwards;
+    animation: loading-29 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="29"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="30"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-30 0.5s linear forwards;
+    animation: loading-30 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="30"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="31"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-31 0.5s linear forwards;
+    animation: loading-31 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="31"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="32"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-32 0.5s linear forwards;
+    animation: loading-32 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="32"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="33"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-33 0.5s linear forwards;
+    animation: loading-33 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="33"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="34"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-34 0.5s linear forwards;
+    animation: loading-34 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="34"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="35"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-35 0.5s linear forwards;
+    animation: loading-35 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="35"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="36"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-36 0.5s linear forwards;
+    animation: loading-36 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="36"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="37"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-37 0.5s linear forwards;
+    animation: loading-37 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="37"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="38"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-38 0.5s linear forwards;
+    animation: loading-38 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="38"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="39"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-39 0.5s linear forwards;
+    animation: loading-39 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="39"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="40"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-40 0.5s linear forwards;
+    animation: loading-40 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="40"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="41"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-41 0.5s linear forwards;
+    animation: loading-41 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="41"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="42"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-42 0.5s linear forwards;
+    animation: loading-42 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="42"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="43"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-43 0.5s linear forwards;
+    animation: loading-43 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="43"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="44"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-44 0.5s linear forwards;
+    animation: loading-44 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="44"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="45"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-45 0.5s linear forwards;
+    animation: loading-45 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="45"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="46"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-46 0.5s linear forwards;
+    animation: loading-46 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="46"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="47"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-47 0.5s linear forwards;
+    animation: loading-47 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="47"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="48"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-48 0.5s linear forwards;
+    animation: loading-48 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="48"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="49"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-49 0.5s linear forwards;
+    animation: loading-49 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="49"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="50"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="50"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-blue
+    .progress[data-percentage="51"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="51"] .progress-left .progress-bar {
+    -webkit-animation: loading-1 0.5s linear forwards 0.5s;
+    animation: loading-1 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="52"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="52"] .progress-left .progress-bar {
+    -webkit-animation: loading-2 0.5s linear forwards 0.5s;
+    animation: loading-2 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="53"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="53"] .progress-left .progress-bar {
+    -webkit-animation: loading-3 0.5s linear forwards 0.5s;
+    animation: loading-3 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="54"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="54"] .progress-left .progress-bar {
+    -webkit-animation: loading-4 0.5s linear forwards 0.5s;
+    animation: loading-4 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="55"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="55"] .progress-left .progress-bar {
+    -webkit-animation: loading-5 0.5s linear forwards 0.5s;
+    animation: loading-5 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="56"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="56"] .progress-left .progress-bar {
+    -webkit-animation: loading-6 0.5s linear forwards 0.5s;
+    animation: loading-6 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="57"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="57"] .progress-left .progress-bar {
+    -webkit-animation: loading-7 0.5s linear forwards 0.5s;
+    animation: loading-7 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="58"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="58"] .progress-left .progress-bar {
+    -webkit-animation: loading-8 0.5s linear forwards 0.5s;
+    animation: loading-8 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="59"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="59"] .progress-left .progress-bar {
+    -webkit-animation: loading-9 0.5s linear forwards 0.5s;
+    animation: loading-9 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="60"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="60"] .progress-left .progress-bar {
+    -webkit-animation: loading-10 0.5s linear forwards 0.5s;
+    animation: loading-10 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="61"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="61"] .progress-left .progress-bar {
+    -webkit-animation: loading-11 0.5s linear forwards 0.5s;
+    animation: loading-11 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="62"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="62"] .progress-left .progress-bar {
+    -webkit-animation: loading-12 0.5s linear forwards 0.5s;
+    animation: loading-12 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="63"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="63"] .progress-left .progress-bar {
+    -webkit-animation: loading-13 0.5s linear forwards 0.5s;
+    animation: loading-13 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="64"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="64"] .progress-left .progress-bar {
+    -webkit-animation: loading-14 0.5s linear forwards 0.5s;
+    animation: loading-14 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="65"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="65"] .progress-left .progress-bar {
+    -webkit-animation: loading-15 0.5s linear forwards 0.5s;
+    animation: loading-15 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="66"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="66"] .progress-left .progress-bar {
+    -webkit-animation: loading-16 0.5s linear forwards 0.5s;
+    animation: loading-16 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="67"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="67"] .progress-left .progress-bar {
+    -webkit-animation: loading-17 0.5s linear forwards 0.5s;
+    animation: loading-17 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="68"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="68"] .progress-left .progress-bar {
+    -webkit-animation: loading-18 0.5s linear forwards 0.5s;
+    animation: loading-18 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="69"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="69"] .progress-left .progress-bar {
+    -webkit-animation: loading-19 0.5s linear forwards 0.5s;
+    animation: loading-19 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="70"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="70"] .progress-left .progress-bar {
+    -webkit-animation: loading-20 0.5s linear forwards 0.5s;
+    animation: loading-20 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="71"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="71"] .progress-left .progress-bar {
+    -webkit-animation: loading-21 0.5s linear forwards 0.5s;
+    animation: loading-21 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="72"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="72"] .progress-left .progress-bar {
+    -webkit-animation: loading-22 0.5s linear forwards 0.5s;
+    animation: loading-22 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="73"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="73"] .progress-left .progress-bar {
+    -webkit-animation: loading-23 0.5s linear forwards 0.5s;
+    animation: loading-23 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="74"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="74"] .progress-left .progress-bar {
+    -webkit-animation: loading-24 0.5s linear forwards 0.5s;
+    animation: loading-24 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="75"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="75"] .progress-left .progress-bar {
+    -webkit-animation: loading-25 0.5s linear forwards 0.5s;
+    animation: loading-25 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="76"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="76"] .progress-left .progress-bar {
+    -webkit-animation: loading-26 0.5s linear forwards 0.5s;
+    animation: loading-26 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="77"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="77"] .progress-left .progress-bar {
+    -webkit-animation: loading-27 0.5s linear forwards 0.5s;
+    animation: loading-27 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="78"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="78"] .progress-left .progress-bar {
+    -webkit-animation: loading-28 0.5s linear forwards 0.5s;
+    animation: loading-28 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="79"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="79"] .progress-left .progress-bar {
+    -webkit-animation: loading-29 0.5s linear forwards 0.5s;
+    animation: loading-29 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="80"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="80"] .progress-left .progress-bar {
+    -webkit-animation: loading-30 0.5s linear forwards 0.5s;
+    animation: loading-30 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="81"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="81"] .progress-left .progress-bar {
+    -webkit-animation: loading-31 0.5s linear forwards 0.5s;
+    animation: loading-31 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="82"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="82"] .progress-left .progress-bar {
+    -webkit-animation: loading-32 0.5s linear forwards 0.5s;
+    animation: loading-32 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="83"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="83"] .progress-left .progress-bar {
+    -webkit-animation: loading-33 0.5s linear forwards 0.5s;
+    animation: loading-33 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="84"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="84"] .progress-left .progress-bar {
+    -webkit-animation: loading-34 0.5s linear forwards 0.5s;
+    animation: loading-34 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="85"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="85"] .progress-left .progress-bar {
+    -webkit-animation: loading-35 0.5s linear forwards 0.5s;
+    animation: loading-35 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="86"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="86"] .progress-left .progress-bar {
+    -webkit-animation: loading-36 0.5s linear forwards 0.5s;
+    animation: loading-36 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="87"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="87"] .progress-left .progress-bar {
+    -webkit-animation: loading-37 0.5s linear forwards 0.5s;
+    animation: loading-37 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="88"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="88"] .progress-left .progress-bar {
+    -webkit-animation: loading-38 0.5s linear forwards 0.5s;
+    animation: loading-38 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="89"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="89"] .progress-left .progress-bar {
+    -webkit-animation: loading-39 0.5s linear forwards 0.5s;
+    animation: loading-39 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="90"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="90"] .progress-left .progress-bar {
+    -webkit-animation: loading-40 0.5s linear forwards 0.5s;
+    animation: loading-40 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="91"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="91"] .progress-left .progress-bar {
+    -webkit-animation: loading-41 0.5s linear forwards 0.5s;
+    animation: loading-41 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="92"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="92"] .progress-left .progress-bar {
+    -webkit-animation: loading-42 0.5s linear forwards 0.5s;
+    animation: loading-42 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="93"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="93"] .progress-left .progress-bar {
+    -webkit-animation: loading-43 0.5s linear forwards 0.5s;
+    animation: loading-43 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="94"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="94"] .progress-left .progress-bar {
+    -webkit-animation: loading-44 0.5s linear forwards 0.5s;
+    animation: loading-44 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="95"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="95"] .progress-left .progress-bar {
+    -webkit-animation: loading-45 0.5s linear forwards 0.5s;
+    animation: loading-45 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="96"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="96"] .progress-left .progress-bar {
+    -webkit-animation: loading-46 0.5s linear forwards 0.5s;
+    animation: loading-46 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="97"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="97"] .progress-left .progress-bar {
+    -webkit-animation: loading-47 0.5s linear forwards 0.5s;
+    animation: loading-47 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="98"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="98"] .progress-left .progress-bar {
+    -webkit-animation: loading-48 0.5s linear forwards 0.5s;
+    animation: loading-48 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="99"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue .progress[data-percentage="99"] .progress-left .progress-bar {
+    -webkit-animation: loading-49 0.5s linear forwards 0.5s;
+    animation: loading-49 0.5s linear forwards 0.5s;
+}
+
+.progressbar-blue
+    .progress[data-percentage="100"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-blue
+    .progress[data-percentage="100"]
+    .progress-left
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards 0.5s;
+    animation: loading-50 0.5s linear forwards 0.5s;
+}
+
+@-webkit-keyframes loading-1 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(3.6);
+        transform: rotate(3.6deg);
+    }
+}
+
+@keyframes loading-1 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(3.6);
+        transform: rotate(3.6deg);
+    }
+}
+
+@-webkit-keyframes loading-2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(7.2);
+        transform: rotate(7.2deg);
+    }
+}
+
+@keyframes loading-2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(7.2);
+        transform: rotate(7.2deg);
+    }
+}
+
+@-webkit-keyframes loading-3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(10.8);
+        transform: rotate(10.8deg);
+    }
+}
+
+@keyframes loading-3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(10.8);
+        transform: rotate(10.8deg);
+    }
+}
+
+@-webkit-keyframes loading-4 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(14.4);
+        transform: rotate(14.4deg);
+    }
+}
+
+@keyframes loading-4 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(14.4);
+        transform: rotate(14.4deg);
+    }
+}
+
+@-webkit-keyframes loading-5 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(18);
+        transform: rotate(18deg);
+    }
+}
+
+@keyframes loading-5 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(18);
+        transform: rotate(18deg);
+    }
+}
+
+@-webkit-keyframes loading-6 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(21.6);
+        transform: rotate(21.6deg);
+    }
+}
+
+@keyframes loading-6 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(21.6);
+        transform: rotate(21.6deg);
+    }
+}
+
+@-webkit-keyframes loading-7 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(25.2);
+        transform: rotate(25.2deg);
+    }
+}
+
+@keyframes loading-7 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(25.2);
+        transform: rotate(25.2deg);
+    }
+}
+
+@-webkit-keyframes loading-8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(28.8);
+        transform: rotate(28.8deg);
+    }
+}
+
+@keyframes loading-8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(28.8);
+        transform: rotate(28.8deg);
+    }
+}
+
+@-webkit-keyframes loading-9 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(32.4);
+        transform: rotate(32.4deg);
+    }
+}
+
+@keyframes loading-9 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(32.4);
+        transform: rotate(32.4deg);
+    }
+}
+
+@-webkit-keyframes loading-10 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(36);
+        transform: rotate(36deg);
+    }
+}
+
+@keyframes loading-10 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(36);
+        transform: rotate(36deg);
+    }
+}
+
+@-webkit-keyframes loading-11 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(39.6);
+        transform: rotate(39.6deg);
+    }
+}
+
+@keyframes loading-11 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(39.6);
+        transform: rotate(39.6deg);
+    }
+}
+
+@-webkit-keyframes loading-12 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(43.2);
+        transform: rotate(43.2deg);
+    }
+}
+
+@keyframes loading-12 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(43.2);
+        transform: rotate(43.2deg);
+    }
+}
+
+@-webkit-keyframes loading-13 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(46.8);
+        transform: rotate(46.8deg);
+    }
+}
+
+@keyframes loading-13 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(46.8);
+        transform: rotate(46.8deg);
+    }
+}
+
+@-webkit-keyframes loading-14 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(50.4);
+        transform: rotate(50.4deg);
+    }
+}
+
+@keyframes loading-14 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(50.4);
+        transform: rotate(50.4deg);
+    }
+}
+
+@-webkit-keyframes loading-15 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(54);
+        transform: rotate(54deg);
+    }
+}
+
+@keyframes loading-15 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(54);
+        transform: rotate(54deg);
+    }
+}
+
+@-webkit-keyframes loading-16 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(57.6);
+        transform: rotate(57.6deg);
+    }
+}
+
+@keyframes loading-16 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(57.6);
+        transform: rotate(57.6deg);
+    }
+}
+
+@-webkit-keyframes loading-17 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(61.2);
+        transform: rotate(61.2deg);
+    }
+}
+
+@keyframes loading-17 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(61.2);
+        transform: rotate(61.2deg);
+    }
+}
+
+@-webkit-keyframes loading-18 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(64.8);
+        transform: rotate(64.8deg);
+    }
+}
+
+@keyframes loading-18 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(64.8);
+        transform: rotate(64.8deg);
+    }
+}
+
+@-webkit-keyframes loading-19 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(68.4);
+        transform: rotate(68.4deg);
+    }
+}
+
+@keyframes loading-19 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(68.4);
+        transform: rotate(68.4deg);
+    }
+}
+
+@-webkit-keyframes loading-20 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(72);
+        transform: rotate(72deg);
+    }
+}
+
+@keyframes loading-20 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(72);
+        transform: rotate(72deg);
+    }
+}
+
+@-webkit-keyframes loading-21 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(75.6);
+        transform: rotate(75.6deg);
+    }
+}
+
+@keyframes loading-21 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(75.6);
+        transform: rotate(75.6deg);
+    }
+}
+
+@-webkit-keyframes loading-22 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(79.2);
+        transform: rotate(79.2deg);
+    }
+}
+
+@keyframes loading-22 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(79.2);
+        transform: rotate(79.2deg);
+    }
+}
+
+@-webkit-keyframes loading-23 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(82.8);
+        transform: rotate(82.8deg);
+    }
+}
+
+@keyframes loading-23 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(82.8);
+        transform: rotate(82.8deg);
+    }
+}
+
+@-webkit-keyframes loading-24 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(86.4);
+        transform: rotate(86.4deg);
+    }
+}
+
+@keyframes loading-24 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(86.4);
+        transform: rotate(86.4deg);
+    }
+}
+
+@-webkit-keyframes loading-25 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(90);
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes loading-25 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(90);
+        transform: rotate(90deg);
+    }
+}
+
+@-webkit-keyframes loading-26 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(93.6);
+        transform: rotate(93.6deg);
+    }
+}
+
+@keyframes loading-26 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(93.6);
+        transform: rotate(93.6deg);
+    }
+}
+
+@-webkit-keyframes loading-27 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(97.2);
+        transform: rotate(97.2deg);
+    }
+}
+
+@keyframes loading-27 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(97.2);
+        transform: rotate(97.2deg);
+    }
+}
+
+@-webkit-keyframes loading-28 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(100.8);
+        transform: rotate(100.8deg);
+    }
+}
+
+@keyframes loading-28 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(100.8);
+        transform: rotate(100.8deg);
+    }
+}
+
+@-webkit-keyframes loading-29 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(104.4);
+        transform: rotate(104.4deg);
+    }
+}
+
+@keyframes loading-29 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(104.4);
+        transform: rotate(104.4deg);
+    }
+}
+
+@-webkit-keyframes loading-30 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(108);
+        transform: rotate(108deg);
+    }
+}
+
+@keyframes loading-30 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(108);
+        transform: rotate(108deg);
+    }
+}
+
+@-webkit-keyframes loading-31 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(111.6);
+        transform: rotate(111.6deg);
+    }
+}
+
+@keyframes loading-31 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(111.6);
+        transform: rotate(111.6deg);
+    }
+}
+
+@-webkit-keyframes loading-32 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(115.2);
+        transform: rotate(115.2deg);
+    }
+}
+
+@keyframes loading-32 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(115.2);
+        transform: rotate(115.2deg);
+    }
+}
+
+@-webkit-keyframes loading-33 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(118.8);
+        transform: rotate(118.8deg);
+    }
+}
+
+@keyframes loading-33 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(118.8);
+        transform: rotate(118.8deg);
+    }
+}
+
+@-webkit-keyframes loading-34 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(122.4);
+        transform: rotate(122.4deg);
+    }
+}
+
+@keyframes loading-34 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(122.4);
+        transform: rotate(122.4deg);
+    }
+}
+
+@-webkit-keyframes loading-35 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(126);
+        transform: rotate(126deg);
+    }
+}
+
+@keyframes loading-35 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(126);
+        transform: rotate(126deg);
+    }
+}
+
+@-webkit-keyframes loading-36 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(129.6);
+        transform: rotate(129.6deg);
+    }
+}
+
+@keyframes loading-36 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(129.6);
+        transform: rotate(129.6deg);
+    }
+}
+
+@-webkit-keyframes loading-37 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(133.2);
+        transform: rotate(133.2deg);
+    }
+}
+
+@keyframes loading-37 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(133.2);
+        transform: rotate(133.2deg);
+    }
+}
+
+@-webkit-keyframes loading-38 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(136.8);
+        transform: rotate(136.8deg);
+    }
+}
+
+@keyframes loading-38 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(136.8);
+        transform: rotate(136.8deg);
+    }
+}
+
+@-webkit-keyframes loading-39 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(140.4);
+        transform: rotate(140.4deg);
+    }
+}
+
+@keyframes loading-39 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(140.4);
+        transform: rotate(140.4deg);
+    }
+}
+
+@-webkit-keyframes loading-40 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(144);
+        transform: rotate(144deg);
+    }
+}
+
+@keyframes loading-40 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(144);
+        transform: rotate(144deg);
+    }
+}
+
+@-webkit-keyframes loading-41 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(147.6);
+        transform: rotate(147.6deg);
+    }
+}
+
+@keyframes loading-41 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(147.6);
+        transform: rotate(147.6deg);
+    }
+}
+
+@-webkit-keyframes loading-42 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(151.2);
+        transform: rotate(151.2deg);
+    }
+}
+
+@keyframes loading-42 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(151.2);
+        transform: rotate(151.2deg);
+    }
+}
+
+@-webkit-keyframes loading-43 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(154.8);
+        transform: rotate(154.8deg);
+    }
+}
+
+@keyframes loading-43 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(154.8);
+        transform: rotate(154.8deg);
+    }
+}
+
+@-webkit-keyframes loading-44 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(158.4);
+        transform: rotate(158.4deg);
+    }
+}
+
+@keyframes loading-44 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(158.4);
+        transform: rotate(158.4deg);
+    }
+}
+
+@-webkit-keyframes loading-45 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(162);
+        transform: rotate(162deg);
+    }
+}
+
+@keyframes loading-45 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(162);
+        transform: rotate(162deg);
+    }
+}
+
+@-webkit-keyframes loading-46 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(165.6);
+        transform: rotate(165.6deg);
+    }
+}
+
+@keyframes loading-46 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(165.6);
+        transform: rotate(165.6deg);
+    }
+}
+
+@-webkit-keyframes loading-47 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(169.2);
+        transform: rotate(169.2deg);
+    }
+}
+
+@keyframes loading-47 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(169.2);
+        transform: rotate(169.2deg);
+    }
+}
+
+@-webkit-keyframes loading-48 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(172.8);
+        transform: rotate(172.8deg);
+    }
+}
+
+@keyframes loading-48 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(172.8);
+        transform: rotate(172.8deg);
+    }
+}
+
+@-webkit-keyframes loading-49 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(176.4);
+        transform: rotate(176.4deg);
+    }
+}
+
+@keyframes loading-49 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(176.4);
+        transform: rotate(176.4deg);
+    }
+}
+
+@-webkit-keyframes loading-50 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(180);
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes loading-50 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(180);
+        transform: rotate(180deg);
+    }
+}
+
+.progressbar-green {
+    padding-top: 30px;
+}
+
+.progressbar-green .progress {
+    height: 8px;
+    overflow: unset;
+    position: relative;
+}
+
+.progressbar-green .progress-bar {
+    border-radius: 4px 0 0 4px;
+    position: relative;
+    overflow: unset;
+    background: #7cb342;
+    width: 0;
+    -webkit-animation: progress 1.5s ease-in-out forwards;
+    animation: progress 1.5s ease-in-out forwards;
+}
+
+.progressbar-green .progress-bar .title {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    letter-spacing: 0px;
+    color: #101010;
+    font-size: 22px;
+    font-weight: bold;
+    opacity: 0;
+    -webkit-animation: show 0.35s forwards ease-in-out 0.5s;
+    animation: show 0.35s forwards ease-in-out 0.5s;
+}
+
+@-webkit-keyframes progress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes progress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.progressbar-green p {
+    letter-spacing: 0px;
+    color: #101010;
+    margin: 0;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.progressbar-pink .progress {
+    width: 230px;
+    height: 230px;
+    line-height: 230px;
+    background: none;
+    margin: 10px auto;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 6px #0000001f;
+    box-shadow: 0px 0px 6px #0000001f;
+    border-radius: 50%;
+}
+
+.progressbar-pink .progress:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid #efefef;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progressbar-pink .progress > span {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.progressbar-pink .progress .progress-left {
+    left: 0;
+}
+
+.progressbar-pink .progress .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    border-color: #e9769f;
+}
+
+.progressbar-pink .progress .progress-left .progress-bar {
+    left: 100%;
+    border-top-right-radius: 115px;
+    border-bottom-right-radius: 115px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+}
+
+.progressbar-pink .progress .progress-right {
+    right: 0;
+}
+
+.progressbar-pink .progress .progress-right .progress-bar {
+    left: -100%;
+    border-top-left-radius: 115px;
+    border-bottom-left-radius: 115px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+}
+
+.progressbar-pink .progress .progress-value {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 50%;
+    font-size: 32px;
+    text-align: center;
+    line-height: 32px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    letter-spacing: 0px;
+    color: #101010;
+    font-weight: bold;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0 25px;
+    background-color: #ffecf3;
+}
+
+.progressbar-pink .progress .progress-value span {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.progressbar-pink .progress .progress-value p {
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #101010;
+    margin: 0;
+    padding: 10px 0;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.progressbar-pink .progress[data-percentage="1"] .progress-right .progress-bar {
+    -webkit-animation: loading-1 0.5s linear forwards;
+    animation: loading-1 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="1"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink .progress[data-percentage="2"] .progress-right .progress-bar {
+    -webkit-animation: loading-2 0.5s linear forwards;
+    animation: loading-2 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="2"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink .progress[data-percentage="3"] .progress-right .progress-bar {
+    -webkit-animation: loading-3 0.5s linear forwards;
+    animation: loading-3 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="3"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink .progress[data-percentage="4"] .progress-right .progress-bar {
+    -webkit-animation: loading-4 0.5s linear forwards;
+    animation: loading-4 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="4"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink .progress[data-percentage="5"] .progress-right .progress-bar {
+    -webkit-animation: loading-5 0.5s linear forwards;
+    animation: loading-5 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="5"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink .progress[data-percentage="6"] .progress-right .progress-bar {
+    -webkit-animation: loading-6 0.5s linear forwards;
+    animation: loading-6 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="6"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink .progress[data-percentage="7"] .progress-right .progress-bar {
+    -webkit-animation: loading-7 0.5s linear forwards;
+    animation: loading-7 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="7"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink .progress[data-percentage="8"] .progress-right .progress-bar {
+    -webkit-animation: loading-8 0.5s linear forwards;
+    animation: loading-8 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="8"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink .progress[data-percentage="9"] .progress-right .progress-bar {
+    -webkit-animation: loading-9 0.5s linear forwards;
+    animation: loading-9 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="9"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="10"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-10 0.5s linear forwards;
+    animation: loading-10 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="10"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="11"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-11 0.5s linear forwards;
+    animation: loading-11 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="11"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="12"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-12 0.5s linear forwards;
+    animation: loading-12 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="12"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="13"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-13 0.5s linear forwards;
+    animation: loading-13 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="13"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="14"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-14 0.5s linear forwards;
+    animation: loading-14 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="14"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="15"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-15 0.5s linear forwards;
+    animation: loading-15 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="15"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="16"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-16 0.5s linear forwards;
+    animation: loading-16 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="16"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="17"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-17 0.5s linear forwards;
+    animation: loading-17 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="17"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="18"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-18 0.5s linear forwards;
+    animation: loading-18 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="18"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="19"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-19 0.5s linear forwards;
+    animation: loading-19 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="19"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="20"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-20 0.5s linear forwards;
+    animation: loading-20 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="20"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="21"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-21 0.5s linear forwards;
+    animation: loading-21 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="21"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="22"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-22 0.5s linear forwards;
+    animation: loading-22 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="22"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="23"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-23 0.5s linear forwards;
+    animation: loading-23 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="23"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="24"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-24 0.5s linear forwards;
+    animation: loading-24 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="24"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="25"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-25 0.5s linear forwards;
+    animation: loading-25 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="25"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="26"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-26 0.5s linear forwards;
+    animation: loading-26 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="26"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="27"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-27 0.5s linear forwards;
+    animation: loading-27 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="27"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="28"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-28 0.5s linear forwards;
+    animation: loading-28 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="28"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="29"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-29 0.5s linear forwards;
+    animation: loading-29 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="29"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="30"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-30 0.5s linear forwards;
+    animation: loading-30 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="30"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="31"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-31 0.5s linear forwards;
+    animation: loading-31 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="31"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="32"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-32 0.5s linear forwards;
+    animation: loading-32 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="32"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="33"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-33 0.5s linear forwards;
+    animation: loading-33 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="33"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="34"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-34 0.5s linear forwards;
+    animation: loading-34 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="34"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="35"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-35 0.5s linear forwards;
+    animation: loading-35 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="35"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="36"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-36 0.5s linear forwards;
+    animation: loading-36 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="36"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="37"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-37 0.5s linear forwards;
+    animation: loading-37 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="37"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="38"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-38 0.5s linear forwards;
+    animation: loading-38 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="38"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="39"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-39 0.5s linear forwards;
+    animation: loading-39 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="39"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="40"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-40 0.5s linear forwards;
+    animation: loading-40 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="40"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="41"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-41 0.5s linear forwards;
+    animation: loading-41 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="41"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="42"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-42 0.5s linear forwards;
+    animation: loading-42 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="42"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="43"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-43 0.5s linear forwards;
+    animation: loading-43 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="43"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="44"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-44 0.5s linear forwards;
+    animation: loading-44 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="44"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="45"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-45 0.5s linear forwards;
+    animation: loading-45 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="45"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="46"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-46 0.5s linear forwards;
+    animation: loading-46 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="46"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="47"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-47 0.5s linear forwards;
+    animation: loading-47 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="47"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="48"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-48 0.5s linear forwards;
+    animation: loading-48 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="48"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="49"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-49 0.5s linear forwards;
+    animation: loading-49 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="49"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="50"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="50"] .progress-left .progress-bar {
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.progressbar-pink
+    .progress[data-percentage="51"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="51"] .progress-left .progress-bar {
+    -webkit-animation: loading-1 0.5s linear forwards 0.5s;
+    animation: loading-1 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="52"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="52"] .progress-left .progress-bar {
+    -webkit-animation: loading-2 0.5s linear forwards 0.5s;
+    animation: loading-2 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="53"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="53"] .progress-left .progress-bar {
+    -webkit-animation: loading-3 0.5s linear forwards 0.5s;
+    animation: loading-3 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="54"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="54"] .progress-left .progress-bar {
+    -webkit-animation: loading-4 0.5s linear forwards 0.5s;
+    animation: loading-4 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="55"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="55"] .progress-left .progress-bar {
+    -webkit-animation: loading-5 0.5s linear forwards 0.5s;
+    animation: loading-5 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="56"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="56"] .progress-left .progress-bar {
+    -webkit-animation: loading-6 0.5s linear forwards 0.5s;
+    animation: loading-6 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="57"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="57"] .progress-left .progress-bar {
+    -webkit-animation: loading-7 0.5s linear forwards 0.5s;
+    animation: loading-7 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="58"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="58"] .progress-left .progress-bar {
+    -webkit-animation: loading-8 0.5s linear forwards 0.5s;
+    animation: loading-8 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="59"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="59"] .progress-left .progress-bar {
+    -webkit-animation: loading-9 0.5s linear forwards 0.5s;
+    animation: loading-9 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="60"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="60"] .progress-left .progress-bar {
+    -webkit-animation: loading-10 0.5s linear forwards 0.5s;
+    animation: loading-10 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="61"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="61"] .progress-left .progress-bar {
+    -webkit-animation: loading-11 0.5s linear forwards 0.5s;
+    animation: loading-11 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="62"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="62"] .progress-left .progress-bar {
+    -webkit-animation: loading-12 0.5s linear forwards 0.5s;
+    animation: loading-12 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="63"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="63"] .progress-left .progress-bar {
+    -webkit-animation: loading-13 0.5s linear forwards 0.5s;
+    animation: loading-13 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="64"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="64"] .progress-left .progress-bar {
+    -webkit-animation: loading-14 0.5s linear forwards 0.5s;
+    animation: loading-14 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="65"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="65"] .progress-left .progress-bar {
+    -webkit-animation: loading-15 0.5s linear forwards 0.5s;
+    animation: loading-15 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="66"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="66"] .progress-left .progress-bar {
+    -webkit-animation: loading-16 0.5s linear forwards 0.5s;
+    animation: loading-16 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="67"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="67"] .progress-left .progress-bar {
+    -webkit-animation: loading-17 0.5s linear forwards 0.5s;
+    animation: loading-17 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="68"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="68"] .progress-left .progress-bar {
+    -webkit-animation: loading-18 0.5s linear forwards 0.5s;
+    animation: loading-18 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="69"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="69"] .progress-left .progress-bar {
+    -webkit-animation: loading-19 0.5s linear forwards 0.5s;
+    animation: loading-19 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="70"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="70"] .progress-left .progress-bar {
+    -webkit-animation: loading-20 0.5s linear forwards 0.5s;
+    animation: loading-20 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="71"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="71"] .progress-left .progress-bar {
+    -webkit-animation: loading-21 0.5s linear forwards 0.5s;
+    animation: loading-21 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="72"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="72"] .progress-left .progress-bar {
+    -webkit-animation: loading-22 0.5s linear forwards 0.5s;
+    animation: loading-22 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="73"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="73"] .progress-left .progress-bar {
+    -webkit-animation: loading-23 0.5s linear forwards 0.5s;
+    animation: loading-23 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="74"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="74"] .progress-left .progress-bar {
+    -webkit-animation: loading-24 0.5s linear forwards 0.5s;
+    animation: loading-24 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="75"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="75"] .progress-left .progress-bar {
+    -webkit-animation: loading-25 0.5s linear forwards 0.5s;
+    animation: loading-25 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="76"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="76"] .progress-left .progress-bar {
+    -webkit-animation: loading-26 0.5s linear forwards 0.5s;
+    animation: loading-26 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="77"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="77"] .progress-left .progress-bar {
+    -webkit-animation: loading-27 0.5s linear forwards 0.5s;
+    animation: loading-27 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="78"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="78"] .progress-left .progress-bar {
+    -webkit-animation: loading-28 0.5s linear forwards 0.5s;
+    animation: loading-28 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="79"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="79"] .progress-left .progress-bar {
+    -webkit-animation: loading-29 0.5s linear forwards 0.5s;
+    animation: loading-29 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="80"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="80"] .progress-left .progress-bar {
+    -webkit-animation: loading-30 0.5s linear forwards 0.5s;
+    animation: loading-30 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="81"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="81"] .progress-left .progress-bar {
+    -webkit-animation: loading-31 0.5s linear forwards 0.5s;
+    animation: loading-31 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="82"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="82"] .progress-left .progress-bar {
+    -webkit-animation: loading-32 0.5s linear forwards 0.5s;
+    animation: loading-32 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="83"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="83"] .progress-left .progress-bar {
+    -webkit-animation: loading-33 0.5s linear forwards 0.5s;
+    animation: loading-33 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="84"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="84"] .progress-left .progress-bar {
+    -webkit-animation: loading-34 0.5s linear forwards 0.5s;
+    animation: loading-34 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="85"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="85"] .progress-left .progress-bar {
+    -webkit-animation: loading-35 0.5s linear forwards 0.5s;
+    animation: loading-35 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="86"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="86"] .progress-left .progress-bar {
+    -webkit-animation: loading-36 0.5s linear forwards 0.5s;
+    animation: loading-36 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="87"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="87"] .progress-left .progress-bar {
+    -webkit-animation: loading-37 0.5s linear forwards 0.5s;
+    animation: loading-37 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="88"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="88"] .progress-left .progress-bar {
+    -webkit-animation: loading-38 0.5s linear forwards 0.5s;
+    animation: loading-38 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="89"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="89"] .progress-left .progress-bar {
+    -webkit-animation: loading-39 0.5s linear forwards 0.5s;
+    animation: loading-39 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="90"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="90"] .progress-left .progress-bar {
+    -webkit-animation: loading-40 0.5s linear forwards 0.5s;
+    animation: loading-40 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="91"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="91"] .progress-left .progress-bar {
+    -webkit-animation: loading-41 0.5s linear forwards 0.5s;
+    animation: loading-41 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="92"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="92"] .progress-left .progress-bar {
+    -webkit-animation: loading-42 0.5s linear forwards 0.5s;
+    animation: loading-42 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="93"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="93"] .progress-left .progress-bar {
+    -webkit-animation: loading-43 0.5s linear forwards 0.5s;
+    animation: loading-43 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="94"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="94"] .progress-left .progress-bar {
+    -webkit-animation: loading-44 0.5s linear forwards 0.5s;
+    animation: loading-44 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="95"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="95"] .progress-left .progress-bar {
+    -webkit-animation: loading-45 0.5s linear forwards 0.5s;
+    animation: loading-45 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="96"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="96"] .progress-left .progress-bar {
+    -webkit-animation: loading-46 0.5s linear forwards 0.5s;
+    animation: loading-46 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="97"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="97"] .progress-left .progress-bar {
+    -webkit-animation: loading-47 0.5s linear forwards 0.5s;
+    animation: loading-47 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="98"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="98"] .progress-left .progress-bar {
+    -webkit-animation: loading-48 0.5s linear forwards 0.5s;
+    animation: loading-48 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="99"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink .progress[data-percentage="99"] .progress-left .progress-bar {
+    -webkit-animation: loading-49 0.5s linear forwards 0.5s;
+    animation: loading-49 0.5s linear forwards 0.5s;
+}
+
+.progressbar-pink
+    .progress[data-percentage="100"]
+    .progress-right
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards;
+    animation: loading-50 0.5s linear forwards;
+}
+
+.progressbar-pink
+    .progress[data-percentage="100"]
+    .progress-left
+    .progress-bar {
+    -webkit-animation: loading-50 0.5s linear forwards 0.5s;
+    animation: loading-50 0.5s linear forwards 0.5s;
+}
+
+@keyframes loading-1 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(3.6);
+        transform: rotate(3.6deg);
+    }
+}
+
+@keyframes loading-2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(7.2);
+        transform: rotate(7.2deg);
+    }
+}
+
+@keyframes loading-3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(10.8);
+        transform: rotate(10.8deg);
+    }
+}
+
+@keyframes loading-4 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(14.4);
+        transform: rotate(14.4deg);
+    }
+}
+
+@keyframes loading-5 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(18);
+        transform: rotate(18deg);
+    }
+}
+
+@keyframes loading-6 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(21.6);
+        transform: rotate(21.6deg);
+    }
+}
+
+@keyframes loading-7 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(25.2);
+        transform: rotate(25.2deg);
+    }
+}
+
+@keyframes loading-8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(28.8);
+        transform: rotate(28.8deg);
+    }
+}
+
+@keyframes loading-9 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(32.4);
+        transform: rotate(32.4deg);
+    }
+}
+
+@keyframes loading-10 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(36);
+        transform: rotate(36deg);
+    }
+}
+
+@keyframes loading-11 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(39.6);
+        transform: rotate(39.6deg);
+    }
+}
+
+@keyframes loading-12 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(43.2);
+        transform: rotate(43.2deg);
+    }
+}
+
+@keyframes loading-13 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(46.8);
+        transform: rotate(46.8deg);
+    }
+}
+
+@keyframes loading-14 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(50.4);
+        transform: rotate(50.4deg);
+    }
+}
+
+@keyframes loading-15 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(54);
+        transform: rotate(54deg);
+    }
+}
+
+@keyframes loading-16 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(57.6);
+        transform: rotate(57.6deg);
+    }
+}
+
+@keyframes loading-17 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(61.2);
+        transform: rotate(61.2deg);
+    }
+}
+
+@keyframes loading-18 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(64.8);
+        transform: rotate(64.8deg);
+    }
+}
+
+@keyframes loading-19 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(68.4);
+        transform: rotate(68.4deg);
+    }
+}
+
+@keyframes loading-20 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(72);
+        transform: rotate(72deg);
+    }
+}
+
+@keyframes loading-21 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(75.6);
+        transform: rotate(75.6deg);
+    }
+}
+
+@keyframes loading-22 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(79.2);
+        transform: rotate(79.2deg);
+    }
+}
+
+@keyframes loading-23 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(82.8);
+        transform: rotate(82.8deg);
+    }
+}
+
+@keyframes loading-24 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(86.4);
+        transform: rotate(86.4deg);
+    }
+}
+
+@keyframes loading-25 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(90);
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes loading-26 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(93.6);
+        transform: rotate(93.6deg);
+    }
+}
+
+@keyframes loading-27 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(97.2);
+        transform: rotate(97.2deg);
+    }
+}
+
+@keyframes loading-28 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(100.8);
+        transform: rotate(100.8deg);
+    }
+}
+
+@keyframes loading-29 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(104.4);
+        transform: rotate(104.4deg);
+    }
+}
+
+@keyframes loading-30 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(108);
+        transform: rotate(108deg);
+    }
+}
+
+@keyframes loading-31 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(111.6);
+        transform: rotate(111.6deg);
+    }
+}
+
+@keyframes loading-32 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(115.2);
+        transform: rotate(115.2deg);
+    }
+}
+
+@keyframes loading-33 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(118.8);
+        transform: rotate(118.8deg);
+    }
+}
+
+@keyframes loading-34 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(122.4);
+        transform: rotate(122.4deg);
+    }
+}
+
+@keyframes loading-35 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(126);
+        transform: rotate(126deg);
+    }
+}
+
+@keyframes loading-36 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(129.6);
+        transform: rotate(129.6deg);
+    }
+}
+
+@keyframes loading-37 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(133.2);
+        transform: rotate(133.2deg);
+    }
+}
+
+@keyframes loading-38 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(136.8);
+        transform: rotate(136.8deg);
+    }
+}
+
+@keyframes loading-39 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(140.4);
+        transform: rotate(140.4deg);
+    }
+}
+
+@keyframes loading-40 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(144);
+        transform: rotate(144deg);
+    }
+}
+
+@keyframes loading-41 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(147.6);
+        transform: rotate(147.6deg);
+    }
+}
+
+@keyframes loading-42 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(151.2);
+        transform: rotate(151.2deg);
+    }
+}
+
+@keyframes loading-43 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(154.8);
+        transform: rotate(154.8deg);
+    }
+}
+
+@keyframes loading-44 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(158.4);
+        transform: rotate(158.4deg);
+    }
+}
+
+@keyframes loading-45 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(162);
+        transform: rotate(162deg);
+    }
+}
+
+@keyframes loading-46 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(165.6);
+        transform: rotate(165.6deg);
+    }
+}
+
+@keyframes loading-47 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(169.2);
+        transform: rotate(169.2deg);
+    }
+}
+
+@keyframes loading-48 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(172.8);
+        transform: rotate(172.8deg);
+    }
+}
+
+@keyframes loading-49 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(176.4);
+        transform: rotate(176.4deg);
+    }
+}
+
+@keyframes loading-50 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(180);
+        transform: rotate(180deg);
+    }
+}
+
+.per-table {
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+.per-table .table {
+    margin: 0;
+}
+
+.per-table .table thead tr th:last-child {
+    border-top-right-radius: 6px;
+}
+
+.per-table .table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+}
+
+.per-table .table th {
+    border-bottom: none;
+    text-align: center;
+    padding: 10px 15px;
+    letter-spacing: 0px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    min-width: 200px;
+}
+
+.per-table .table th[scope="row"] {
+    letter-spacing: 0px;
+    color: #101010;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: left;
+    border-top: 1px solid #d6d6d6;
+}
+
+.per-table .table td {
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 18px;
+    letter-spacing: 0.14px;
+    color: #ffffff;
+    border: none;
+}
+
+.per-table .table .bg-grey {
+    background: #f5f5f5;
+}
+
+.per-table .table .blue-level-1 {
+    background: #3b546d;
+}
+
+.per-table .table .blue-level-2 {
+    background: #466582;
+}
+
+.per-table .table .blue-level-3 {
+    background: #527698;
+}
+
+.per-table .table .blue-level-4 {
+    background: #5e86ae;
+}
+
+.per-table .table .blue-level-5 {
+    background: #6997c3;
+}
+
+.per-table .table .pink-level-1 {
+    background: #753b4f;
+}
+
+.per-table .table .pink-level-2 {
+    background: #8c475f;
+}
+
+.per-table .table .pink-level-3 {
+    background: #a3536f;
+}
+
+.per-table .table .pink-level-4 {
+    background: #ba5e7e;
+}
+
+.per-table .table .pink-level-5 {
+    background: #d26a8e;
+}
+
+.per-table .table .yellow-level-1 {
+    background: #656330;
+}
+
+.per-table .table .yellow-level-2 {
+    background: #797639;
+}
+
+.per-table .table .yellow-level-3 {
+    background: #8d8a43;
+}
+
+.per-table .table .yellow-level-4 {
+    background: #a29e4c;
+}
+
+.per-table .table .yellow-level-5 {
+    background: #b6b156;
+}
+
+.per-table .table .sagegreen-level-1 {
+    background: #026565;
+}
+
+.per-table .table .sagegreen-level-2 {
+    background: #027979;
+}
+
+.per-table .table .sagegreen-level-3 {
+    background: #028d8d;
+}
+
+.per-table .table .sagegreen-level-4 {
+    background: #02a2a2;
+}
+
+.per-table .table .sagegreen-level-5 {
+    background: #03b6b6;
+}
+
+.per-table .table .green-level-1 {
+    background: #3a5b31;
+}
+
+.per-table .table .green-level-2 {
+    background: #456d3b;
+}
+
+.per-table .table .green-level-3 {
+    background: #517f45;
+}
+
+.per-table .table .green-level-4 {
+    background: #5c914e;
+}
+
+.per-table .table .green-level-5 {
+    background: #68a358;
+}
+
+.per-table .table .red-level-1 {
+    background: #763635;
+}
+
+.per-table .table .red-level-2 {
+    background: #8d403f;
+}
+
+.per-table .table .red-level-3 {
+    background: #a54b4a;
+}
+
+.per-table .table .red-level-4 {
+    background: #bc5654;
+}
+
+.per-table .table .red-level-5 {
+    background: #d4605f;
+}
+
+.per-table .table .purple-level-1 {
+    background: #633a60;
+}
+
+.per-table .table .purple-level-2 {
+    background: #764673;
+}
+
+.per-table .table .purple-level-3 {
+    background: #8a5186;
+}
+
+.per-table .table .purple-level-4 {
+    background: #9e5d9a;
+}
+
+.per-table .table .purple-level-5 {
+    background: #b168ad;
+}
+
+.learning-tabs {
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+}
+
+.learning-tabs #learningTab {
+    padding: 0 30px;
+}
+
+.learning-tabs #learningTab .nav-item {
+    margin-right: 50px;
+}
+
+.learning-tabs #learningTab .nav-item .nav-link {
+    letter-spacing: 0.09px;
+    color: #101010;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+.learning-tabs #learningTab .nav-item .nav-link:hover,
+.learning-tabs #learningTab .nav-item .nav-link:focus {
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+.learning-tabs #learningTab .nav-item .nav-link.active {
+    color: #006bb6;
+    border: none;
+    border-bottom: 3px solid #006bb6;
+}
+
+.learning-tabs .tab-content {
+    padding: 0 30px;
+}
+
+.learning-table-wrap {
+    margin: 30px 0;
+}
+
+.learning-table-wrap .table-title {
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    letter-spacing: 0px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.learning-table-wrap .table-title img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.learning-table-wrap .learning-table .table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+.learning-table-wrap .learning-table .table .thead-blue tr th {
+    color: #75a9d9;
+}
+
+.learning-table-wrap .learning-table .table .thead-pink tr th {
+    color: #e9769f;
+}
+
+.learning-table-wrap .learning-table .table .thead-yellow tr th {
+    color: #cac55f;
+}
+
+.learning-table-wrap .learning-table .table .thead-sagegreen tr th {
+    color: #3cacae;
+}
+
+.learning-table-wrap .learning-table .table .thead-green tr th {
+    color: #72b562;
+}
+
+.learning-table-wrap .learning-table .table .thead-red tr th {
+    color: #eb6c69;
+}
+
+.learning-table-wrap .learning-table .table .thead-purple tr th {
+    color: #c574bf;
+}
+
+.learning-table-wrap .learning-table .table tbody tr {
+    height: 65px;
+}
+
+.learning-table-wrap .learning-table .table th {
+    letter-spacing: 0.07px;
+    font-size: 15px;
+    font-weight: 400;
+    border: none;
+    padding: 5px 15px;
+    min-width: 100px;
+}
+
+.learning-table-wrap .learning-table .table th:nth-child(3),
+.learning-table-wrap .learning-table .table th:nth-child(4),
+.learning-table-wrap .learning-table .table th:nth-child(5) {
+    text-align: center;
+}
+
+.learning-table-wrap .learning-table .table td {
+    border: 1px solid #d6d6d6;
+    border-left: 0;
+    border-right: 0;
+    letter-spacing: 0.07px;
+    color: #101010;
+    font-size: 15px;
+    vertical-align: middle;
+    padding: 5px 15px;
+}
+
+.learning-table-wrap .learning-table .table td:first-child {
+    border-radius: 8px 0 0 8px;
+    border-left: 1px solid #d6d6d6;
+}
+
+.learning-table-wrap .learning-table .table td:last-child {
+    border-radius: 0px 10px 8px 0px;
+    border-right: 1px solid #d6d6d6;
+}
+
+.learning-table-wrap .learning-table .table td:nth-child(3),
+.learning-table-wrap .learning-table .table td:nth-child(4),
+.learning-table-wrap .learning-table .table td:nth-child(5) {
+    text-align: center;
+    font-weight: 500;
+}
+
+.map-wrap {
+    height: 100%;
+    border: 1px solid #d2d2d2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: end;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.map-wrap ul {
+    padding: 15px 30px;
+}
+
+.map-wrap ul li {
+    padding: 5px 0;
+}
+
+.map-wrap ul li .desc p {
+    letter-spacing: 0px;
+    color: #5e5e5e;
+    font-size: 13px;
+    margin: 0;
+}
+
+.map-wrap ul li .desc h2 {
+    letter-spacing: 0px;
+    color: #006bb6;
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.map-wrap .map-img {
+    width: 100%;
+    text-align: center;
+}
+
+.infotab-content-wrap {
+    margin-bottom: 15px;
+}
+
+.infotab-content-wrap h2 {
+    letter-spacing: 0.09px;
+    color: #101010;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.infotab-content-wrap .infotab-content {
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.infotab-content-wrap .infotab-content .title {
+    letter-spacing: 0px;
+    color: #101010;
+    font-size: 13px;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.infotab-content-wrap .infotab-content .total-no {
+    letter-spacing: 0px;
+    color: #101010;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.datashare-content {
+    text-align: center;
+}
+
+.datashare-content p {
+    letter-spacing: 0px;
+    color: #101010;
+    font-size: 22px;
+    margin: 0;
+    padding: 30px 0;
+}
+
+.datashare-content .btn-wrap {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.datashare-content .btn-wrap .btn {
+    border-radius: 4px;
+    position: relative;
+    letter-spacing: 0px;
+    color: #fff;
+    font-size: 18px;
+    height: 70px;
+    padding: 0px 30px 0px 120px;
+    margin-right: 25px;
+}
+
+.datashare-content .btn-wrap .btn:last-child {
+    margin-right: 0;
+}
+
+.datashare-content .btn-wrap .btn span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-width: 85px;
+}
+
+.datashare-content .btn-wrap .btn-pink {
+    background: #e9769f;
+}
+
+.datashare-content .btn-wrap .btn-pink span {
+    background-color: #d2698f;
+}
+
+.datashare-content .btn-wrap .btn-green {
+    background: #00a786;
+}
+
+.datashare-content .btn-wrap .btn-green span {
+    background-color: #029175;
+}
+
+.radio-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.radio-wrap .form-check {
+    margin: 0 30px 0 0;
+}
+
+.radio-wrap .form-check:last-child {
+    margin: 0;
+}
+
+.radio-wrap .form-check .form-check-label {
+    letter-spacing: 0px;
+    color: #101010;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.radio-wrap .form-check .form-check-input {
+    background: transparent;
+    border: 2px solid #5e5e5e;
+}
+
+.radio-wrap .form-check .form-check-input:checked {
+    background-color: #ebf3fb;
+    border-color: #006bb6;
+    outline: none;
+    padding: 2px;
+}
+
+.radio-wrap .form-check .form-check-input:checked:before {
+    content: "";
+    display: block;
+    background: #006bb6;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.radio-wrap .form-check .form-check-input:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.common-form .form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.common-form .form-control {
+    border: none;
+    border-bottom: 1px solid #5e5e5e;
+    outline: 0;
+    font-size: 14px;
+    padding: 10px 0;
+    -webkit-transition: border-color 0.2s;
+    transition: border-color 0.2s;
+    color: #101010;
+    border-radius: 0;
+    font-weight: 500;
+}
+
+.common-form .form-control::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.common-form .form-control:-ms-input-placeholder {
+    color: transparent;
+}
+
+.common-form .form-control::-ms-input-placeholder {
+    color: transparent;
+}
+
+.common-form .form-control::placeholder {
+    color: transparent;
+}
+
+.common-form .form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.common-form .form-control:placeholder-shown ~ label {
+    cursor: text;
+    top: 15px;
+    pointer-events: none;
+    font-size: 14px;
+    color: #5e5e5e;
+}
+
+.common-form .form-input-label,
+.common-form .form-control:focus ~ label {
+    position: absolute;
+    top: -10px;
+    display: block;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    font-size: 12px;
+    color: #5e5e5e;
+    margin: 0;
+}
+
+.common-form .form-control:focus ~ label {
+    color: #5e5e5e;
+}
+
+.common-form .input-icon {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    min-width: 40px;
+    min-height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.common-form .link-blue {
+    letter-spacing: 0px;
+    color: #006bb6;
+    margin: 10px 0;
+    display: block;
+    font-size: 13px;
+}
+
+.common-form .link-blue:hover {
+    text-decoration: underline;
+}
+
+.common-form .reset-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.common-form .register-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.common-form .register-link .link-blue {
+    margin: 15px 0;
+}
+
+.common-form .captcha-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.common-form .captcha-wrap .captcha-code {
+    margin: 0;
+    background: #f2f2f2;
+    padding: 10px 15px;
+    margin-right: 15px;
+    letter-spacing: 0.45px;
+    color: #5e5e5e;
+    font-size: 15px;
+}
+
+.common-form .org-btn {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+}
+
+.login-wrap .card-white {
+    padding: 15px;
+}
+
+.login-img-wrap {
+    background: #f5f5f5;
+    height: 100%;
+    text-align: center;
+}
+
+.login-content {
+    padding: 30px 60px;
+}
+
+.login-form .form-control {
+    padding-right: 40px;
+}
+
+.registration-wrap .card-white {
+    padding: 30px 60px;
+}
+
+.form-wrap h2 {
+    letter-spacing: 0px;
+    color: #101010;
+    font-size: 14px;
+    margin: 0;
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+.otp-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.otp-wrap .otp-input-wrap .otp-input {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    border: 1px solid #c2c2c2;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.grey-btn {
+    border-radius: 5px;
+    background: #b0bac8;
+    height: 40px;
+    padding: 0 20px;
+    letter-spacing: 0.07px;
+    color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.grey-btn:hover {
+    background: #101010;
+    color: #ffffff;
+}
+
+.resend-wrap {
+    display: none;
+}
+
+.resend-wrap p {
+    letter-spacing: 0.06px;
+    color: #5e5e5e;
+    margin: 0;
+    font-size: 13px;
+}
+
+.resend-wrap a {
+    letter-spacing: 0.06px;
+    color: #006bb6;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+.categorypart-card-wrap .col-md-6:nth-child(1) {
+    border-right: 1px dashed #647781;
+}
+
+.categorypart-card-wrap .col-md-6:last-child {
+    border-right: 0;
+}
+
+.part-wrap {
+    height: 100%;
+}
+
+.no-border {
+    border: 0 !important;
+}
+
+.gallery-main-wrap .gallery-img-wrap img {
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.gallery-main-wrap .org-link {
+    float: right;
+    margin: 15px;
+}
+
+.heading-blue-sm {
+    letter-spacing: 0.09px;
+    color: #006bb6;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.nasprogram-content ul li {
+    margin-bottom: 30px;
+}
+
+.nasprogram-content ul li .nasprogram-desc {
+    letter-spacing: 0.07px;
+    color: #5e5e5e;
+    font-size: 15px;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.nasprogram-content ul li .nasprogram-img img {
+    border-radius: 6px;
+}
+
+.nasprogram-content .nasprogram-about .name {
+    letter-spacing: 0.07px;
+    color: #101010;
+    font-size: 15px;
+    margin: 0;
+    font-weight: 500;
+    line-height: 2;
+}
+
+.nasprogram-content .nasprogram-about p {
+    letter-spacing: 0.07px;
+    color: #101010;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.nasteam-list .nasteam-heading {
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.nasteam-list .nasteam-heading .heading-black-sm {
+    letter-spacing: 0.09px;
+    color: #101010;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.team-blue:hover {
+    -webkit-box-shadow: 0px 3px 12px #00000029;
+    box-shadow: 0px 3px 12px #00000029;
+    background: #e8f0f9;
+}
+
+.team-blue .name-blue {
+    color: #4f83b2;
+}
+
+.team-pink:hover {
+    -webkit-box-shadow: 0px 3px 12px #00000029;
+    box-shadow: 0px 3px 12px #00000029;
+    background: #fee5ee;
+}
+
+.team-pink .name-blue {
+    color: #be4e76;
+}
+
+.nasteam-container {
+    border-bottom: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+}
+
+.nasteam-container:nth-child(3) {
+    border-right: 0;
+}
+
+.nasteam-container .nasteam-content {
+    padding: 15px;
+}
+
+.nasteam-container .name-blue {
+    letter-spacing: 0.11px;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.nasteam-container .title,
+.nasteam-container .number {
+    color: #101010;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.class-content-wrap {
+    background: #fff;
+    padding: 30px;
+}
+
+.grade-wrap {
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 30px 0;
+}
+
+.grade-card {
+    margin-bottom: 15px;
+}
+
+.grade-card h2 {
+    letter-spacing: 0px;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    margin: 0;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.grade-card h2 img {
+    height: 35px;
+    margin-right: 10px;
+}
+
+.grade-graph-wrap {
+    padding: 30px;
+}
+
+.light-red .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke: #e6cbcb;
+}
+
+.light-green .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke: #c1d4bd;
+}
+
+.light-sagegreen .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke: #bfdfdf;
+}
+
+.light-purple .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke: #d4c5d3;
+}
+
+.light-pink .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke: #dfc5ce;
+}
+
+.light-blue .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke: #bcd2eb;
+}
+
+.light-yellow .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke: #d2d1b7;
+}
+
+.range-wrap {
+    margin: 30px 0;
+}
+
+.range-wrap .col-md-6:nth-child(1) {
+    border-right: 1px dashed #647781;
+}
+
+.range-graph-wrap {
+    padding: 30px 0;
+}
+
+.range-graph-wrap .highcharts-title {
+    letter-spacing: 0px;
+    color: #222222;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 @media (min-width: 992px) {
@@ -2220,6 +8081,20 @@ ul {
     .desc-black {
         font-size: 14px;
     }
+    .infotab-content-wrap h2 {
+        font-size: 14px;
+    }
+    .infotab-content-wrap .infotab-content {
+        padding: 8px;
+        margin: 8px 0;
+    }
+    .nasteam-container .name-blue {
+        font-size: 16px;
+    }
+    .nasteam-container .title,
+    .nasteam-container .number {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -2250,6 +8125,20 @@ ul {
     .gallery-card .gallery-content .gallery-title {
         font-size: 14px;
         line-height: 18px;
+    }
+    .datashare-content p {
+        font-size: 14px;
+        padding: 15px 0;
+    }
+    .datashare-content .btn-wrap .btn {
+        font-size: 14px;
+        padding: 0px 15px 0px 90px;
+    }
+    .datashare-content .btn-wrap .btn span {
+        min-width: 65px;
+    }
+    .datashare-content .btn-wrap .btn span img {
+        height: 20px;
     }
 }
 
@@ -2466,6 +8355,22 @@ ul {
     .gallery-card .gallery-content .org-link {
         font-size: 12px;
     }
+    .login-content {
+        padding: 15px;
+    }
+    .registration-wrap .card-white {
+        padding: 15px;
+    }
+    .registration-wrap .ptb-30 {
+        padding: 15px 0;
+    }
+    .registration-wrap .otp-wrap {
+        -ms-flex-flow: wrap;
+        flex-flow: wrap;
+    }
+    .nasteam-list .nasteam-heading .heading-black-sm {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -2493,5 +8398,29 @@ ul {
         -ms-flex-pack: start;
         justify-content: flex-start;
     }
+    .datashare-content .btn-wrap {
+        display: block;
+    }
+    .datashare-content .btn-wrap .btn {
+        margin: 10px 0;
+        width: 100%;
+        font-size: 14px;
+        height: 50px;
+        padding: 0px 15px 0px 60px;
+    }
+    .grey-btn {
+        margin: 5px;
+    }
+    .nasprogram-img {
+        margin-bottom: 15px;
+    }
+    .nasteam-container {
+        border-right: 0;
+    }
+}
+
+.slider-viewbtn {
+    position: absolute;
+    bottom: 80px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -12,11 +12,11 @@
                   <div class="breadcrum-wrap">
                       <nav aria-label="breadcrumb">
                           <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="data-share.html">Data Share</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/data-share')}}">Data Share</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Login</li>
                           </ol>
-                        </nav>
+                      </nav>
                   </div>
               </div>
           </div>
@@ -71,9 +71,9 @@
                                     @enderror
                                     </div>
                                     <div class="form-group">
-                                      <input type="password" class="form-control" name="password" placeholder="Password">
+                                      <input type="password" class="form-control" name="password" placeholder="Password" id="pass_log_id">
                                       <label class="form-input-label">Password</label>
-                                      <sapn class="input-icon">
+                                      <sapn class="input-icon toggle-password">
                                         <img src="{{asset('assets/front/images/eye-icon.svg')}}" alt="icon" />
                                       </sapn>
                                       @error('password')
@@ -138,6 +138,16 @@ function captchaGenerate(){
         $('#html_captcha_code').html(captcha);
         $('#captcha').val(captcha);
 }
+
+$("body").on('click', '.toggle-password', function() {
+  var input = $("#pass_log_id");
+  if (input.attr("type") === "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+
+});
 
 
 </script>

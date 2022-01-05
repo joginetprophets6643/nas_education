@@ -12,11 +12,18 @@
     <!-- Material Icons -->
     <link rel="stylesheet" href="{{asset('assets/front/scss/material-icons.css')}}">
     <!-- AOS CSS -->
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/front/fav-icon/apple-icon-180x180.png')}}">
+    
     
     <link href="{{asset('assets/front/scss/aos.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/front/scss/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/style (2).css')}}">
-    <title>NAS</title>
+    <link rel="stylesheet" href="{{asset('assets/front/scss/nivo-lightbox.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/front/scss/lightbox-theme.css')}}">
+
+    <title id='title'></title>
   </head>

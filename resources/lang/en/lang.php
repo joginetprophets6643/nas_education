@@ -26,6 +26,16 @@ return[
     'RTI'=>'RTI',
     'Home'=>'Home',
     'Skip to Main Content'=>'Skip to Main Content',
-    
-    
+    'Screen Reader Access'=>'Screen Reader Access',
+    'NAS Program'=>'NAS Program',
+    'NAS Team'=>'NAS Team',
+    'Login'=>'Login',
+    'Registration'=>'Regirtration',
+    'National'=>'National',
+    'State'=>'State',
+    'District'=>'District',
+    'QUICK LINKS'=>'QUICK LINKS',
+    'Copyright'=>'Copyright',
+    'Website Visit Count'=>'Website Visit Count'
+
 ];

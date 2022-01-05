@@ -6,7 +6,8 @@
     <div class="card">
         <div class="card-header">Edit State</div>
         <div class="card-body">
-        <form action="{{route('update-state',$state->id)}}" method="POST">
+            <?php $id=encode5t($state->id)?>
+        <form action="{{route('update-state',$id)}}" method="POST">
             @csrf
 
         <div class="row">
@@ -28,17 +29,29 @@
         </div>
         <br>
 
-        <div class="mb-3">
+        <div class="row">
+        <div class="col-6">
             <label class="form-label">State Name</label>
             <input type="text" name="state_name" class="form-control" placeholder="State Name" value="{{$state->state_name}}">
             @error('state_name')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
+        
+        <div class="col-6">
+            <label class="form-label">Rank</label>
+            <input type="text" name="rank" class="form-control" placeholder="State Rank"  value="{{$state->rank}}">
+            @error('rank')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+
+        </div>
+        <br>
 
         <div class="mb-3" >
             <label class="form-label">State Description</label>
-            <textarea class="form-control" name="description" cols="30" rows="10" >{{$state->description}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="description" cols="30" rows="10" >{{$state->description}}</textarea>
             @error('description')
             <span class="text-danger">{{$message}}</span>
             @enderror

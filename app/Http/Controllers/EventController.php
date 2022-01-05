@@ -22,22 +22,7 @@ class EventController extends Controller
         return view('admin.events.index',compact('events'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         $validatedData=$request->validate([
@@ -56,12 +41,14 @@ class EventController extends Controller
 
     public function edit($id)
     {
+        $id=decode5t($id);
         $event=DB::table('events')->where('id',$id)->first();
         return view('admin.events.edit',compact('event'));
     }
 
     public function update(Request $request,$id)
     {
+        $id=decode5t($id);
         $event=Event::find($id)->update([
             'name'=>$request->name,
         ]);
@@ -74,6 +61,7 @@ class EventController extends Controller
     }
 
     public function getImages($id){
+        $id=decode5t($id);
         $data=DB::table('event_images')->where('event_id',$id)->first();
         if($data){
         $images=json_decode($data->images);
@@ -88,7 +76,7 @@ class EventController extends Controller
     // }
 
     public function addImages(Request $request,$id){
-
+        $id=decode5t($id);
         $request->validate([
             'images'=>'required',
         ]);
@@ -144,6 +132,8 @@ class EventController extends Controller
     }
 
     public function deleteImage($image,$id){
+        $id=decode5t($id);
+        $image=decode5t($image);
         $data=DB::table('event_images')->where('event_id',$id)->first();
         $images=json_decode($data->images);
         // dd($images);
@@ -165,20 +155,21 @@ class EventController extends Controller
 
     }
 
-    public function vedios(){
-        $vedios=DB::table('vedios')->get();
-        if($vedios->isEmpty()){
-            $vedios=0;
+    public function videos(){
+        $videos=DB::table('vedios')->get();
+        if($videos->isEmpty()){
+            $videos=0;
         }
         
-        return view('admin.events.vedios.index',compact('vedios'));
+        return view('admin.events.vedios.index',compact('videos'));
     }
 
 
-    public function addVedio(Request $request){
+    public function addvideo(Request $request){
         $request->validate([
-            'vedio'=>'required',
+            'vedio'=>'required_without_all:url',
             'title'=>'required',
+            'url'=>'required_without_all:vedio',
         ]);
         $vedio=$request->file('vedio');
         
@@ -188,25 +179,30 @@ class EventController extends Controller
         else{
             $request->status=0;
         }
-        
-
+        $name='';
+        if($request->vedio){
             $name=hexdec(uniqid()).'.'.$vedio->getClientOriginalExtension();
             $vedio->move(public_path('assets/uploads/vedios'),$name);
+        }
+            
             $res=new Vedios;
             $res->title=$request->title;
+            $res->url=$request->url;
             $res->vedio=$name;
             $res->status=$request->status;
             $res->save();
-        return Redirect()->route('vedios')->with('success','Vedio Uploaded Successfully');
+        return Redirect()->route('videos')->with('success','Vedio Uploaded Successfully');
     }
 
 
-    public function deleteVedio($id){
-       
-        $vedio=Vedios::find($id)->first();
+    public function deletevideo($id){
+        $id=decode5t($id);      
+        $vedio=Vedios::find($id)->first();       
         Vedios::find($id)->delete();
+        if($vedio->vedio){
         unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
-        return Redirect()->route('vedios')->with('success','Vedio Deleted Successfully');
+        }
+        return Redirect()->route('videos')->with('success','Vedio Deleted Successfully');
     }
 
 }

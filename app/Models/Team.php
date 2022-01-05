@@ -12,6 +12,9 @@ class Team extends Model
     protected $fillable=[
         'name',
         'image',
+        'address',
+        'mobile',
+        'date',
         'description',
         'designation'
     ];

@@ -79,7 +79,7 @@ $('#videoSlider').owlCarousel({
             items:2
         },
         1000:{
-            items:2
+            items: 2
         }
     }
 });
@@ -138,3 +138,10 @@ var fontSize = parseInt($('body').css("font-size"));
 		$('body').css({'font-size':fontSize});
 	});
 	
+  function parserInt(value){
+    if(typeof value === 'undefined' || value === null || value === 'null' || value === ''){
+      return 0
+    }else{
+        return parseInt(value)
+    }
+  }

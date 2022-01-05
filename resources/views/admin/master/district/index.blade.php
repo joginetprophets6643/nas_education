@@ -42,8 +42,9 @@
               <td>{{$district->udise_district_code}}</td>
               <td>{{$district->udise_state_code}}</td>
               <td>
-                <a href="{{url('edit/district/'.$district->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/district/'.$district->id)}}" data-bs-toggle="modal" data-bs-target="#Deletedistrict">Delete</button>
+                <?php $id=encode5t($district->id)?>
+                <a href="{{url('edit/district/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/district/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletedistrict">Delete</button>
               </td>
             </tr>
             @endforeach

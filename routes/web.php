@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\QuestionnaireController;
-
+use App\Http\Controllers\LearningOutcomeController;
+use App\Http\Controllers\FeedbackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,15 +19,24 @@ use App\Http\Controllers\QuestionnaireController;
 |
 */
 
+Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);
+
 
 Route::get('/upload-csv-files', function () {
     return view('welcome');
 });
 Route::resource('upload',UploadController::class);
-Route::get('index_At3',[UploadController::class,'index_At3']);
+Route::get('genrate_key',[UploadController::class,'genrate_key']);
 Route::get('view_parti_g3_school',[CommonController::class,'view_parti_g3_school']);
 Route::get('questionnaire_calculation',[QuestionnaireController::class,'questionnaireCalculation']);
 Route::get('generateAt3SetForLanguage',[QuestionnaireController::class,'generateAt3SetForLanguage']);
+Route::get('get_feedback',[FeedbackController::class,'get_feedback']);
+Route::get('generateFeedbackanswerkey',[FeedbackController::class,'generateFeedbackanswerkey']);
+Route::get('pqQuestionMaster',[FeedbackController::class,'pqQuestionMaster']);
+Route::get('get_feedback_tq',[FeedbackController::class,'get_feedback_tq']);
+Route::get('generateFeedbackanswerkeyTq',[FeedbackController::class,'generateFeedbackanswerkeyTq']);
+Route::get('get_feedback_sq',[FeedbackController::class,'get_feedback_sq']);
+Route::get('generateFeedbackanswerkeySq',[FeedbackController::class,'generateFeedbackanswerkeySq']);
 
 Route::get('home', 'App\Http\Controllers\MainController@landing');
 Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
@@ -34,14 +44,15 @@ Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name(
 
 
 //Admin routes
+Route::group(["middleware" => ["secure"]], function(){
 Route::get('secure-admin', 'App\Http\Controllers\AdminController@index')->name('secure-admin');
+});
 Route::post('login-post', 'App\Http\Controllers\AdminController@login');
-Route::get('logout', 'App\Http\Controllers\AdminController@logout');
 Route::get('register', 'App\Http\Controllers\AdminController@register');
 
-
+Route::group(["middleware" => ["islogin"]], function(){
 Route::get('dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
-
+Route::get('logout', 'App\Http\Controllers\AdminController@logout');
 
 //Event Routes
 
@@ -53,14 +64,14 @@ Route::get('/edit/event/{id}', 'App\Http\Controllers\EventController@edit');
 Route::post('/update/event/{id}', 'App\Http\Controllers\EventController@update');
 
 
-//Event Images & vediosRoutes
+//Event Images & videosRoutes
 
 Route::get('/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
 Route::post('/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
 Route::get('/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
-Route::get('/vedios','App\Http\Controllers\EventController@vedios')->name('vedios');
-Route::post('/add/vedio', 'App\Http\Controllers\EventController@addVedio');
-Route::get('/delete/vedio/{id}', 'App\Http\Controllers\EventController@deleteVedio');
+Route::get('/videos','App\Http\Controllers\EventController@videos')->name('videos');
+Route::post('/add/video', 'App\Http\Controllers\EventController@addvideo');
+Route::get('/delete/video/{id}', 'App\Http\Controllers\EventController@deletevideo');
 
 //Profile
 Route::get('/profile','App\Http\Controllers\AdminController@profile');
@@ -68,10 +79,11 @@ Route::post('/update/profile','App\Http\Controllers\AdminController@updateProfil
 
 //Team Routes
 Route::get('/team-manager','App\Http\Controllers\TeamController@index')->name('team');
-Route::post('/add/member','App\Http\Controllers\TeamController@store')->name('create-member');
+Route::get('/add/member','App\Http\Controllers\TeamController@add')->name('add-member');
+Route::post('/store/member','App\Http\Controllers\TeamController@store')->name('store-member');
 Route::get('/edit/member/{id}','App\Http\Controllers\TeamController@edit')->name('edit-member');
 Route::post('/update/member/{id}','App\Http\Controllers\TeamController@update')->name('update-member');
-Route::get('/delete/member/{image}/{id}','App\Http\Controllers\TeamController@destroy');
+Route::get('/delete/member/{id}','App\Http\Controllers\TeamController@destroy');
 
 //Static content Routes
 Route::get('/static-content','App\Http\Controllers\StaticContentController@index')->name('content');
@@ -126,25 +138,53 @@ Route::get('/edit/client-logo/{id}','App\Http\Controllers\ClientLogoController@e
 Route::get('/delete/client-logo/{id}','App\Http\Controllers\ClientLogoController@destroy');
 Route::post('/update/client-logo/{id}','App\Http\Controllers\ClientLogoController@update')->name('update-logo');
 
+//Regristration List Routes
+Route::get('/user-list','App\Http\Controllers\AdminController@list')->name('user-list');
+
+//Setting Routes
+Route::get('/manage-setting','App\Http\Controllers\SettingController@index')->name('setting');
+Route::get('/add/setting','App\Http\Controllers\SettingController@add')->name('add-setting');
+Route::post('/store/setting','App\Http\Controllers\SettingController@store')->name('store-setting');
+Route::get('/edit/setting','App\Http\Controllers\SettingController@edit')->name('edit-setting');
+Route::get('/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
+Route::post('/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
+
+//Program Routes
+Route::get('/static-program','App\Http\Controllers\StaticProgramController@index')->name('program');
+Route::get('/add/program','App\Http\Controllers\StaticProgramController@add')->name('add-program');
+Route::post('/store/program','App\Http\Controllers\StaticProgramController@store')->name('store-program');
+Route::get('/edit/program/{id}','App\Http\Controllers\StaticProgramController@edit')->name('edit-program');
+Route::get('/delete/program/{id}','App\Http\Controllers\StaticProgramController@destroy');
+Route::post('/update/program/{id}','App\Http\Controllers\StaticProgramController@update')->name('update-program');
+
+});
+
+
 
 //Front Routes
 
 Route::group(["middleware" => ["language"]], function(){
     Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
-    Route::get('/image-gallery','App\Http\Controllers\GalleryController@index');
-    Route::get('/vedio-gallery','App\Http\Controllers\GalleryController@vedio');
-    Route::get('/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
-    Route::get('/about','App\Http\Controllers\AboutController@index');
+    Route::get('/gallery/image-gallery','App\Http\Controllers\GalleryController@index');
+    Route::get('/gallery/video-gallery','App\Http\Controllers\GalleryController@video');
+    Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
+    Route::get('/about-nas','App\Http\Controllers\AboutController@index');
     Route::get('/terms-conditions','App\Http\Controllers\ContentPagesController@index')->name('terms');
     Route::get('/privacy-policy','App\Http\Controllers\ContentPagesController@index')->name('privacy');
     Route::get('/copyright-policy','App\Http\Controllers\ContentPagesController@index')->name('copyright');
     Route::get('/hyper-linking-policy','App\Http\Controllers\ContentPagesController@index')->name('hyperlink');
     Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
     Route::get('/rti','App\Http\Controllers\ContentPagesController@index')->name('rti');
+    Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
     Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
-    Route::get('/registration','App\Http\Controllers\UserController@register')->name('registration');
+    Route::get('/data-share/registration','App\Http\Controllers\UserController@register')->name('registration');
     Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
-    Route::get('/login','App\Http\Controllers\UserController@viewLogin')->name('login');
+    Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
+    Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
     Route::post('/check','App\Http\Controllers\UserController@login')->name('check');
+    Route::get('/nas-program','App\Http\Controllers\FrontController@program');
+    Route::get('/nas-team','App\Http\Controllers\FrontController@team');
+    Route::get('/data-share','App\Http\Controllers\FrontController@data');
+    Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');

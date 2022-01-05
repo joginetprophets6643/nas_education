@@ -6,7 +6,8 @@
     <div class="card">
         <div class="card-header">Edit Content</div>
         <div class="card-body">
-        <form action="{{route('update-content',$content->id)}}" method="POST">
+            <?php $id=encode5t($content->id)?>
+        <form action="{{route('update-content',$id)}}" method="POST">
             @csrf
 
         <div class="row">
@@ -19,12 +20,19 @@
                 @if($content->language=="1")
                 <option value="1" selected>Hindi</option>               
                 <option value="2">English</option>
-                @else
+                @elseif($content->language=="2")
                 <option value="1">Hindi</option>               
                 <option value="2" selected>English</option>
+                @else
+                <option value="1">Hindi</option>               
+                <option value="2">English</option>
                 @endif
             </select>
+            @error('language')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
         </div>
+        
         <div class="col-6">
             <label class="form-label">Page Title</label>
             <input type="text" name="title" class="form-control" placeholder="Page Title" value="{{$content->page_title}}">
@@ -36,7 +44,7 @@
         <br>
         <div class="mb-3">
             <label class="form-label">Home Page Content</label>
-            <textarea class="form-control" name="home_content" cols="30" rows="10">{{$content->home_page_content}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="home_content" cols="30" rows="10">{{$content->home_page_content}}</textarea>
             @error('home_content')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -44,7 +52,7 @@
 
         <div class="mb-3">
             <label class="form-label">Inner Page Content</label>
-            <textarea class="form-control" name="inner_content" cols="30" rows="10">{{$content->inner_page_content}}</textarea>
+            <textarea class="form-control textarea-ckeditor" name="inner_content" cols="30" rows="10">{{$content->inner_page_content}}</textarea>
             @error('inner_content')
             <span class="text-danger">{{$message}}</span>
             @enderror

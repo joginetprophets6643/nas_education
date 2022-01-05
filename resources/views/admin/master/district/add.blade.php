@@ -44,7 +44,7 @@
 
         <div class="mb-3" >
             <label class="form-label">District Description</label>
-            <textarea class="form-control" name="description" cols="30" rows="10" ></textarea>
+            <textarea class="form-control textarea-ckeditor" name="description" cols="30" rows="10" ></textarea>
             @error('description')
             <span class="text-danger">{{$message}}</span>
             @enderror

@@ -26,5 +26,15 @@ return[
     'RTI'=>'आर टी आई',
     'Home'=>'घर',
     'Skip to Main Content'=>'मुख्य विषय में जाएं',
-
+    'Screen Reader Access'=>'स्क्रीन रीडर एक्सेस',
+    'NAS Program'=>'एनएएस कार्यक्रम',
+    'NAS Team'=>'एनएएस टीम',
+    'Login'=>'लॉग इन करें',
+    'Registration'=>'पंजीकरण',
+    'National'=>'राष्ट्रीय',
+    'State'=>'राज्य',
+    'District'=>'ज़िला',
+    'QUICK LINKS'=>'त्वरित सम्पक',
+    'Copyright'=>'कॉपीराइट',
+    'Website Visit Count'=>'वेबसाइट विज़िट गणना'
 ];

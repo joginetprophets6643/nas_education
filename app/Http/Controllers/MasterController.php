@@ -54,6 +54,9 @@ class MasterController extends Controller
         $district->lgd_district_id=$request->lgd_district_id;
         $district->lgd_state_id=$request->lgd_state_id;
         $district->is_active=$request->status;
+        $district->rank=$request->rank;
+
+
         $district->year_id=$request->year_id;
         $district->total_district_area=$request->total_district_area;
         $district->total_population=$request->total_population;
@@ -81,6 +84,7 @@ class MasterController extends Controller
 
     public function editDistrict($id)
     {
+        $id=decode5t($id);
         $district=District_Master::where('id',$id)->first();
         $states=State_Master::orderBy('state_name','ASC')->get();
         
@@ -89,6 +93,7 @@ class MasterController extends Controller
 
     public function updateDistrict(Request $request,$id)
     {   
+        $id=decode5t($id);
         $request->validate([
             'district_id'=>'required',
             'state_id'=>'required',
@@ -123,6 +128,7 @@ class MasterController extends Controller
             'is_active'=>$request->status,
             'year_id'=>$request->year_id,
             
+            
             'total_district_area'=>$request->total_district_area,
             'total_population'=>$request->total_population,
             'rural_population'=>$request->rural_population,
@@ -147,6 +153,7 @@ class MasterController extends Controller
 
     public function destroyDistrict($id)
     {
+        $id=decode5t($id);
         District_Master::find($id)->delete();
         return Redirect()->route('district')->with('success','District Deleted Successfully');
     }
@@ -190,6 +197,8 @@ class MasterController extends Controller
         $state->udise_state_code=$request->state_code;
         $state->is_ut=$request->ut;
         $state->status=$request->status;
+        $state->rank=$request->rank;
+
         $state->lgd_state_id=$request->lgd_state_id;
         $state->is_active=$request->status;
         $state->view_order=$request->view_order;
@@ -219,12 +228,14 @@ class MasterController extends Controller
 
     public function editState($id)
     {
+        $id=decode5t($id);
         $state=State_Master::where('id',$id)->first();
         return view('admin.master.state.edit',compact('state'));
     }
 
     public function updateState(Request $request,$id)
     {
+        $id=decode5t($id);
         $request->validate([
             'state_id'=>'required',
             'state_name'=>'required',
@@ -253,6 +264,7 @@ class MasterController extends Controller
             'is_active'=>$request->status,
             'view_order'=>$request->view_order,
             'status'=>$request->status,
+            'rank'=>$request->rank,
 
             'total_district_area'=>$request->total_district_area,
             'total_population'=>$request->total_population,
@@ -278,6 +290,7 @@ class MasterController extends Controller
 
     public function destroyState($id)
     {
+        $id=decode5t($id);
         State_Master::find($id)->delete();
         return Redirect()->route('state')->with('success','State Deleted Successfully');
     }

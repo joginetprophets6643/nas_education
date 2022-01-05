@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use DB;
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 use Hash;
 use App\Models\User;
 class AdminController extends BaseController
@@ -83,4 +84,9 @@ class AdminController extends BaseController
         return Redirect()->route('dashboard');
    }
 
+
+   public function list(){
+       $users=User::whereNotNull('address')->get();
+       return view('admin.user_list.index',compact('users'));
+   }
 }

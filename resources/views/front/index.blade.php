@@ -179,7 +179,7 @@
                   </ul>
                 </div>
                 <div class="btn-wrap">
-                    <a href="#" class="btn btn_md org-btn">{{ __('lang.Read More') }}</a>
+                    <a href="javascript:void(0);" onClick="goToReportCard()" class="btn btn_md org-btn">{{ __('lang.Read More') }}</a>
                 </div>
               </div>
           </div>
@@ -199,7 +199,7 @@
         <div class="row">
           <div class="col-md-12">
               <h2 class="heading-blue">
-                QUICK LINKS
+                {{__('lang.QUICK LINKS')}}
               </h2>
               <p class="title-black-sm mb-4">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -213,7 +213,7 @@
                           <img src="{{asset('assets/front/images/report-card.svg')}}" alt="img" class="img-fluid">
                       </div>
                       <h2 class="heading-white-sm">
-                        REPORT CARD
+                        {{__('lang.REPORT CARD')}}
                       </h2>
                     </div> 
                     <p class="desc-white">
@@ -222,7 +222,7 @@
                   </div>
                   
                   <div class="btn-wrap">
-                    <a href="#" class="white-link">
+                    <a href="{{url('/report-card')}}" class="white-link">
                       {{ __('lang.Read More') }}
                       <span class="material-icons-round">
                         east
@@ -239,7 +239,7 @@
                       <img src="{{asset('assets/front/images/analysis.svg')}}" alt="img" class="img-fluid">
                   </div>
                   <h2 class="heading-white-sm">
-                    VISUALIZATION
+                    {{__('lang.VISUALIZATION')}}
                   </h2>
                 </div> 
                 <p class="desc-white">
@@ -263,7 +263,7 @@
                       <img src="{{asset('assets/front/images/data-share.svg')}}" alt="img" class="img-fluid">
                   </div>
                   <h2 class="heading-white-sm">
-                    DATA SHARE
+                   {{__('lang.DATA SHARE')}}
                   </h2>
               </div> 
               <p class="desc-white">
@@ -272,7 +272,7 @@
               </div>
               
               <div class="btn-wrap">
-                <a href="#" class="white-link">
+                <a href="{{url('/data-share')}}" class="white-link">
                   {{ __('lang.Read More') }}
                   <span class="material-icons-round">
                     east
@@ -298,17 +298,12 @@
                         <div class="item">
                             <div class="gallery-img-wrap">
                               <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="width:100%;height:178.42px">
-                              <a href="#" class="gallery-zoom-icon">
-                                <span class="material-icons-round">
-                                  zoom_in
-                                </span>
-                              </a>
                             </div>
                         </div>
                         @endforeach
                       </div>
                       <div class="btn-wrap">
-                        <a href="{{url('/image-gallery')}}" class="org-link">
+                        <a href="{{url('/gallery/image-gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
                             east
@@ -322,29 +317,44 @@
                     {{__('lang.Video Gallery')}}
                   </h2>
                   <div id="gallery-slider">
-                    <div class="owl-carousel owl-theme" id="videoSlider">
-                      @foreach($vedios as $vedio)
-                      <div class="item">
+                      <div class="owl-carousel owl-theme" id="videoSlider">                   
+                      @if(!$videos->isEmpty())
+                                             
+                        @foreach($videos as $video)
+                        @if($video->url)
+                        <div class="item">
+                            <div class="gallery-img-wrap">
+                                <iframe width="263" height="178" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        @endif
+                        @if($video->vedio)
+                        <div class="item">
                           <div class="gallery-img-wrap">
-                            <img src="{{asset('assets/front/images/video1.png')}}" alt="img" class="img-fluid" />
-                            <a href="#" class="gallery-play-icon">
-                                <span class="material-icons">
-                                  play_circle_filled
-                                </span>
-                            </a>
-                          </div>
+                            <video width="263" height="178" controls>
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            </div>
+                        </div> 
+                        
+                        @endif
+                        @endforeach
                       </div>
-                      @endforeach
-                    </div>
-                    <div class="btn-wrap">
-                      <a href="{{url('/vedio-gallery')}}" class="org-link">
-                        {{ __('lang.VIEW ALL') }} 
-                        <span class="material-icons-round">
-                          east
-                        </span>
-                      </a>
-                    </div>
-                  </div>
+                      </div>
+                        <div class="slider-viewbtn btn-wrap">
+                        <a href="{{url('/gallery/video-gallery')}}" class="org-link">
+                          {{ __('lang.VIEW ALL') }} 
+                          <span class="material-icons-round">
+                            east
+                          </span>
+                        </a>
+                      </div>
+                        @else
+                        <p class="text-center" style="margin-top:100px;">No Video Uploaded Yet!<p>
+                        @endif
+                        
+                  
                 </div>
             </div>
         </div>
@@ -436,7 +446,7 @@
   $(document).ready(function() {
     $.ajax({
       type: "GET",
-      url: api_url + 'state_masters',
+      url: api_url + 'state_masters?limit=-1',
     }).done(response=>{
         state_all_info = response.data
         const state_data = response.data.map((state,index) =>{
@@ -457,79 +467,75 @@
         }
     });
     getNationalDemographics()
+    removePreviousData()
   });
 
-function generateNationalMap(data){
-  Highcharts.mapChart('map-container', {
-      chart: {
-          map: 'countries/in/custom/in-all-disputed'
-      },
+  function generateNationalMap(data){
+    Highcharts.mapChart('map-container', {
+        chart: {
+            map: 'countries/in/custom/in-all-disputed'
+        },
 
-      title: {
-          text: ''
-      },
+        title: {
+            text: ''
+        },
 
-      subtitle: {
-          text: ''
-      },
-      legend: {
-        enabled: false
-      },
-    tooltip: { enabled: false },
-      navigation: {
-          buttonOptions: {
-              enabled: false
-          }
-      },
-      credits: {
-        enabled: false
-      },
-    plotOptions: {
-                series: {
-                    events: {
-                        click: function (e) {
-                          if(e.point.name === "NCT of Delhi")
-                          {
-                            $('#name').html('DELHI');
-                          }
-                          else{
-                            $('#name').html(e.point.name.toUpperCase());
-                          }
-                            $('#states').val(e.point.value);
-                            const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
-                              triggerDistrictChart(selectedMapData)                 
-                              populateDemographicInfo(e.point.value)
-                          }
+        subtitle: {
+            text: ''
+        },
+        legend: {
+          enabled: false
+        },
+      tooltip: { enabled: false },
+        navigation: {
+            buttonOptions: {
+                enabled: false
+            }
+        },
+        credits: {
+          enabled: false
+        },
+      plotOptions: {
+                  series: {
+                      events: {
+                          click: function (e) {
+                              $('#name').html(e.point.name.toUpperCase());
+                              $('#states').val(e.point.value);
+                              const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
+                                triggerDistrictChart(selectedMapData)                 
+                                populateDemographicInfo(e.point.value)
+                            }
 
-                    }
+                      }
+                  }
+              },
+      
+      /*  mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        }, */
+
+        series: [{
+            data: data,
+            name: 'Random data',
+            allowPointSelect: true,
+            cursor: 'pointer',
+            color: "#fff",
+            borderColor: "#000",
+            states: {
+                hover: {
+                    color: '#006BB6'
                 }
             },
-    
-    /*  mapNavigation: {
-          enabled: true,
-          buttonOptions: {
-              verticalAlign: 'bottom'
-          }
-      }, */
-
-      series: [{
-          data: data,
-          name: 'Random data',
-          allowPointSelect: true,
-          cursor: 'pointer',
-          color: "#fff",
-          states: {
-              hover: {
-                  color: '#006BB6'
-              }
-          },
-          dataLabels: {
-              enabled: false,
-              format: '{point.name}'
-          }
-      }]
-  });
-}
+            dataLabels: {
+                enabled: false,
+                format: '{point.name}'
+            }
+        }]
+    });
+  }
 
   AOS.init({
       duration: 1500,
@@ -578,10 +584,12 @@ function generateNationalMap(data){
     if(type === 'state'){
        demographic_info = state_all_info.filter(states_demographic=>{
         if(states_demographic.state_id === state_id){
+          sessionStorage.setItem('activeState',JSON.stringify(states_demographic))
           return states_demographic
         }
       })
     }else{
+     removePreviousData()
      const national_demographic_info = sessionStorage.getItem("national_demographic_data");
      demographic_info= JSON.parse(national_demographic_info)
     }
@@ -657,7 +665,7 @@ function generateNationalMap(data){
     console.log('api hit ----')
     $.ajax({
       type: "GET",
-      url: api_url + "national_statistic",
+      url: api_url + "national_statistic?limit=-1",
     }).done(response=>{
       const info = response.data
       setNationalDemographic(info)
@@ -669,4 +677,18 @@ function generateNationalMap(data){
     sessionStorage.setItem("national_demographic_data", JSON.stringify(data));
     populateDemographicInfo('','')
   }
+  
+  function goToReportCard(){
+    const activeState = JSON.parse(sessionStorage.getItem('activeState'))
+    console.log(activeState)
+    if(activeState !== null){
+      location.href = base_url + 'report-card'
+    }
+  }
+
+  function removePreviousData(){
+    sessionStorage.removeItem('activeState')
+    sessionStorage.removeItem('activeDistrict')
+  }
+
 </script>

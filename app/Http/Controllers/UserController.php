@@ -29,6 +29,7 @@ class UserController extends BaseController
 
     public function registered(Request $request)
     {
+        $ip=$request->ip();
         $request->validate([
             'email' => 'required|unique:users',
             'address' => 'required',
@@ -41,18 +42,20 @@ class UserController extends BaseController
             'district' => 'required',
             'mobile_no' => 'required|unique:users|digits:10',
             'password'=>'required|confirmed|min:5',
-            'email_otp1' => 'required',
-            'email_otp2' => 'required',
-            'email_otp3' => 'required',
-            'email_otp4' => 'required',
+            
+            // 'email_otp1' => 'required',
+            // 'email_otp2' => 'required',
+            // 'email_otp3' => 'required',
+            // 'email_otp4' => 'required',
             // 'mobile_otp1' => 'required',
             // 'mobile_otp2' => 'required',
             // 'mobile_otp3' => 'required',
             // 'mobile_otp4' => 'required',
         ]);
+        
         $email_otp=$request->email_otp1.$request->email_otp2.$request->email_otp3.$request->email_otp4;
         // $mobile_otp=$request->mobile_otp1.$request->mobile_otp2.$request->mobile_otp3.$request->mobile_otp4;
-        if($email_otp===$request->email_otp){
+        if($email_otp===$request->email_otp && $request->email_otp){
             $user=new User;
             $user->email=$request->email;
             $user->address=$request->address;
@@ -65,8 +68,9 @@ class UserController extends BaseController
             $user->country=$request->country;
             $user->district_id=$request->district;
             $user->password=Hash::make($request->password);
+            $user->ip_address=$ip;
             $user->save();
-            return Redirect()->route('login');
+            return Redirect()->route('success');
         }
         else{
             return Redirect()->back()->with('error','OTP is not valid');
@@ -88,5 +92,9 @@ class UserController extends BaseController
         }
 
         return redirect()->back()->with('success','Login details are not valid');
+    }
+
+    public function success(){
+        return view('front.successful');
     }
 }

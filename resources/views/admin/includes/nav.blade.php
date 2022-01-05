@@ -21,7 +21,7 @@
               </div>
               <a href="/profile" class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
               
-              <a class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+              <a href="/logout" class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
             </div>
           </li>
         </ul>
@@ -49,27 +49,34 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#media" aria-expanded="false" aria-controls="auth">
-              <span class="menu-title">Media Manage</span>
+              <span class="menu-title">Manage Media</span>
               <i class="icon-doc menu-icon"></i>
             </a>
             <div class="collapse" id="media">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/events')}}"> Manage Images </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('/vedios')}}"> Manage Videos </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/videos')}}"> Manage Videos </a></li>
               </ul>
             </div>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{url('/team-manager')}}">
-              <span class="menu-title">Team Manage</span>
+              <span class="menu-title">Manage Team</span>
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{url('/static-content')}}">
-              <span class="menu-title">Content Manage</span>
+              <span class="menu-title">Manage Content</span>
+              <i class="icon-doc menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('/static-program')}}">
+              <span class="menu-title">Manage Program</span>
               <i class="icon-doc menu-icon"></i>
             </a>
           </li>
@@ -113,6 +120,20 @@
           <li class="nav-item">
             <a class="nav-link" href="{{url('/client-logo')}}">
               <span class="menu-title">Manage Client Logo</span>
+              <i class="icon-user menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('/user-list')}}">
+              <span class="menu-title">Total Registration</span>
+              <i class="icon-user menu-icon"></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('setting')}}">
+              <span class="menu-title">Manage Setting</span>
               <i class="icon-user menu-icon"></i>
             </a>
           </li>
