@@ -159,6 +159,166 @@
                                     </div>
                                   </div>  
 
+                                  <div class="tab-pane fade" id="learning_class5" role="tabpanel" aria-labelledby="learning-tab">
+                                    <div class="learning-wrap">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <h2 class="heading-grey text-center">
+                                              Performance of the District in Learning Outcomes (LOs)
+                                            </h2>
+                                            <div class="learning-tabs mtb-30">
+                                              <ul class="nav nav-tabs" id="learningTab" role="tablist">
+                                                <li class="nav-item" role="presentation">
+                                                  <button class="nav-link active" id="all-lo-tab" data-bs-toggle="tab" data-bs-target="#all-class5 " type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                  <button class="nav-link" id="language-lo-tab" data-bs-toggle="tab" data-bs-target="#language-class5" type="button" role="tab" aria-controls="language" aria-selected="false">language</button>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                  <button class="nav-link" id="math-lo-tab" data-bs-toggle="tab" data-bs-target="#math-class5" type="button" role="tab" aria-controls="math" aria-selected="false">Mathematics</button>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                  <button class="nav-link" id="evs-lo-tab" data-bs-toggle="tab" data-bs-target="#evs-class5" type="button" role="tab" aria-controls="evs" aria-selected="false">EVS</button>
+                                                </li>
+                                              </ul>
+                                              <div class="tab-content" id="learningTabContent">
+                                                <div class="tab-pane fade show active" id="all-class5" role="tabpanel" aria-labelledby="all-lo-tab">
+                                                  <div class="learning-table-wrap">
+                                                    <h2 class="table-title card-blue">
+                                                        <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
+                                                    </h2>
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-blue">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome for Class 5</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="language_lo_class5">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <h2 class="table-title card-pink">
+                                                        <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
+                                                    </h2>
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-pink">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome for Class 5</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="math_lo_class5">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <h2 class="table-title card-yellow">
+                                                        <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid" /> EVS
+                                                    </h2>
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-yellow">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome for Class 5</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="evs_lo_class5">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="language-class5" role="tabpanel" aria-labelledby="language-lo-tab">
+                                                  <div class="learning-table-wrap">
+                                                    <h2 class="table-title card-blue">
+                                                        <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
+                                                    </h2>
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-blue">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome for Class 5</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="language_lo_class5">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="math-class5" role="tabpanel" aria-labelledby="math-lo-tab">
+                                                  <div class="learning-table-wrap">
+                                                    <h2 class="table-title card-pink">
+                                                        <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
+                                                    </h2>
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-pink">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome for Class 5</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="math_lo_class5">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="evs-class5" role="tabpanel" aria-labelledby="evs-lo-tab">
+                                                  <div class="learning-table-wrap">
+                                                    <h2 class="table-title card-yellow">
+                                                        <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid" /> EVS
+                                                    </h2>
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-yellow">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome for Class 5</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="evs_lo_class5">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                  </div>  
+
                                   <div class="tab-pane fade" id="learning_class8" role="tabpanel" aria-labelledby="state-learning-tab">
                                     <div class="learning-wrap">
                                         <div class="row">
@@ -239,13 +399,13 @@
                                                         <thead class="thead-pink">
                                                           <tr>
                                                             <th scope="col">LO Code</th>
-                                                            <th scope="col">Learning Outcome for Class 10</th>
+                                                            <th scope="col">Learning Outcome for Class 8</th>
                                                             <th scope="col">District</th>
                                                             <th scope="col">State</th>
                                                             <th scope="col">National</th>
                                                           </tr>
                                                         </thead>
-                                                        <tbody class="math_lo_class10">
+                                                        <tbody class="math_lo_class8">
                                                         </tbody>
                                                       </table>
                                                     </div>
@@ -260,13 +420,13 @@
                                                         <thead class="thead-green">
                                                           <tr>
                                                             <th scope="col">LO Code</th>
-                                                            <th scope="col">Learning Outcome for Class 10</th>
+                                                            <th scope="col">Learning Outcome for Class 8</th>
                                                             <th scope="col">District</th>
                                                             <th scope="col">State</th>
                                                             <th scope="col">National</th>
                                                           </tr>
                                                         </thead>
-                                                        <tbody class="social_lo_class10">
+                                                        <tbody class="social_lo_class8">
                                                         </tbody>
                                                       </table>
                                                     </div>
@@ -282,7 +442,7 @@
                                                         <thead class="thead-green">
                                                           <tr>
                                                             <th scope="col">LO Code</th>
-                                                            <th scope="col">Learning Outcome for Class 10</th>
+                                                            <th scope="col">Learning Outcome for Class 8</th>
                                                             <th scope="col">District</th>
                                                             <th scope="col">State</th>
                                                             <th scope="col">National</th>
@@ -304,7 +464,7 @@
                                                         <thead class="thead-sagegreen">
                                                           <tr>
                                                             <th scope="col">LO Code</th>
-                                                            <th scope="col">Learning Outcome for Class 10</th>
+                                                            <th scope="col">Learning Outcome for Class 8</th>
                                                             <th scope="col">District</th>
                                                             <th scope="col">State</th>
                                                             <th scope="col">National</th>
@@ -326,7 +486,7 @@
                                                         <thead class="thead-pink">
                                                           <tr>
                                                             <th scope="col">LO Code</th>
-                                                            <th scope="col">Learning Outcome for Class 10</th>
+                                                            <th scope="col">Learning Outcome for Class 8</th>
                                                             <th scope="col">District</th>
                                                             <th scope="col">State</th>
                                                             <th scope="col">National</th>
@@ -348,13 +508,13 @@
                                                         <thead class="thead-blue">
                                                           <tr>
                                                             <th scope="col">LO Code</th>
-                                                            <th scope="col">Learning Outcome for Class 3</th>
+                                                            <th scope="col">Learning Outcome for Class 8</th>
                                                             <th scope="col">District</th>
                                                             <th scope="col">State</th>
                                                             <th scope="col">National</th>
                                                           </tr>
                                                         </thead>
-                                                        <tbody class="language_lo_class3">
+                                                        <tbody class="language_lo_class8">
                                                         </tbody>
                                                       </table>
                                                     </div>
@@ -456,7 +616,7 @@
                                                             <th scope="col">National</th>
                                                           </tr>
                                                         </thead>
-                                                        <tbody class="eng_lo_class10">
+                                                        <tbody class="english_lo_class10">
                                                         </tbody>
                                                       </table>
                                                     </div>
@@ -563,7 +723,7 @@
                                                             <th scope="col">National</th>
                                                           </tr>
                                                         </thead>
-                                                        <tbody class="eng_lo_class10">
+                                                        <tbody class="english_lo_class10">
                                                         </tbody>
                                                       </table>
                                                     </div>
