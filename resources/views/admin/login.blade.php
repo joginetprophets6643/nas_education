@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Stellar Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="{{asset('/assets/admin/vendors/simple-line-icons/css/simple-line-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('/assets/admin/vendors/flag-icon-css/css/flag-icon.min.css')}}">
-    <link rel="stylesheet" href="{{asset('/assets/admin/vendors/css/vendor.bundle.base.css')}}">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="{{asset('assets/admin/vendors/css/style.css')}}" <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{asset('assets/admin/vendors/images/favicon.png')}}" />
-  </head>
-  <body>
+@include('admin.includes.header')
+
+<body>
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth">
@@ -26,13 +8,11 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <img src="{{asset('assets/admin/vendors/images/logo.svg')}}">
+                  <img src="{{asset('assets/front/images/logo.png')}}" style="width:100%">
                 </div>
                 @if(session('success'))
                   <span class="text-danger">{{session('success')}}</span>
                 @endif
-                <h4>Hello! let's get started</h4>
-                <h6 class="font-weight-light">Sign in to continue.</h6>
                 <form class="pt-3" action="{{url('/login-post')}}" method="POST">
                     @csrf
                     <input type="hidden" name="address">
@@ -50,7 +30,7 @@
                       <label class="form-check-label text-muted">
                         <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                     </div>
-                    <button href="#" class="auth-link text-black" style="background:white;border:none;color:blue;">Forgot password?</a>
+                    <a href="{{url('/forget-password')}}" class="auth-link text-black" style="display:block">Forgot password?</a>
                   </div>
 
                 </form>
@@ -63,14 +43,6 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="{{asset('assets/admin/vendors/js/vendor.bundle.base.js')}}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{asset('assets/admin/vendors/js/off-canvas.js')}}"></script>
-    <script src="{{asset('assets/admin/vendors/js/misc.js')}}"></script>
-    <!-- endinject -->
+    @include('admin.includes.footer')
   </body>
 </html>
