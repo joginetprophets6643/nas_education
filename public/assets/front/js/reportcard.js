@@ -23,6 +23,8 @@ let subjects_short_codes ={
   english:'eng'
 }
 
+let screens = ['information','participation','performance','learning','feedback']
+
 $(document).ready(()=>{
     $.ajax({
       type: "GET",
@@ -439,7 +441,9 @@ $(document).ready(()=>{
     }
     if(classType !== ''){
       if(classType !== 'all'){
-        filters = {... filters,class: classType}
+        if(screenType !== 'information' && screenType !== 'feedback'){
+          filters = {... filters,class: classType}
+        }
       }
     }
 
@@ -456,6 +460,9 @@ $(document).ready(()=>{
     if(screenType === 'feedback'){
       data = JSON.parse(sessionStorage.getItem('feedback_data'))
     }
+    if(screenType === 'information'){
+      data = JSON.parse(sessionStorage.getItem('information_data'))
+    }
     const filteredData = data.filter(par =>{
       let count = 0
       if (Object.keys(filters).length === 0) {
@@ -468,13 +475,25 @@ $(document).ready(()=>{
             }
           }
           if(key === 'state'){
-            if(parseInt(par.state_id) === val){
-              count +=1
+            if(screenType !== 'information'){
+              if(parseInt(par.state_id) === val){
+                count +=1
+              }
+            }else{
+              if(parseInt(par.udise_state_code) === val){
+                count +=1
+              }
             }
           }
           if(key === 'district'){
-            if(parseInt(par.district_id) === val){
-              count +=1
+            if(screenType !== 'information'){
+              if(parseInt(par.district_id) === val){
+                count +=1
+              }
+            }else{
+              if(parseInt(par.udise_district_code) === val){
+                count +=1
+              }
             }
           }
         }
@@ -501,6 +520,9 @@ $(document).ready(()=>{
     if(screenType === 'feedback'){
       table ='pq_district_level_feedback'
     }
+    if(screenType === 'information'){
+      table = 'district_masters'
+    }
 
     await $.ajax({
       type: "GET",
@@ -517,6 +539,9 @@ $(document).ready(()=>{
       }
       if(screenType === 'feedback'){
         sessionStorage.setItem('feedback_data',JSON.stringify(res.data))
+      }
+      if(screenType === 'information'){
+        sessionStorage.setItem('information_data',JSON.stringify(res.data))
       }
     });
     setInformation()
@@ -546,6 +571,9 @@ $(document).ready(()=>{
 
   function updateData(data){
     if(typeof data !== 'undefined'){
+      if(screenType === 'information'){
+        createInformationScreen(data)
+      }
       if(screenType === 'participation'){
         let total_school = 0
         let total_student = 0
@@ -946,4 +974,74 @@ $(document).ready(()=>{
 
   function updateCards(cardPosition,data){
     $('#'+cardPosition).html(data)
+  }
+
+  function createInformationScreen(data){
+    // const dataToShow = data.pop()
+    if(activeState === '' || activeDistrict === ''){
+      alert('please select state and district')
+      // setScreen('participation')
+      return
+    }
+    const dataToShow = activeDistrict
+    let state_name = ''
+    if(activeState.state_name === 'Delhi'){
+      state_name = 'nct of delhi'
+    }else{
+      state_name = activeState.state_name
+    }
+
+    const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
+    const prefix = 'information_district_'
+    const where = prefix + 'map'
+
+    $('.information_state_name').html(format_string(activeState.state_name))
+    $('.'+prefix+'name').html(format_string(activeDistrict.district_name))
+    $('#'+prefix +'area_class'+classType).html(parserInt(dataToShow.total_district_area))
+    $('#'+prefix +'description_class'+classType).html(dataToShow.description)
+    $('#'+prefix +'population_class'+classType ).html(parserInt(dataToShow.total_population))
+    $('#'+prefix+'rural_class'+classType ).html(parserInt(dataToShow.rural_population))
+    $('#'+prefix+'urban_class'+classType ).html(parserInt(dataToShow.urban_population))
+    $('#'+prefix + 'density_class'+classType ).html(parserInt(dataToShow.density_of_population))
+    $('#'+prefix +'literacy_class'+classType ).html(parserInt(dataToShow.literacy_rate))
+    $('#'+prefix +'sex_ratio_class'+classType ).html(parserInt(dataToShow.child_sex_ratio))
+    $('#'+prefix +'total_school_class'+classType ).html(parserInt(dataToShow.no_of_schools))
+    $('#'+prefix + 'state_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
+    $('#'+prefix +'govt_aided_school_class'+classType ).html(parserInt(dataToShow.govt_aided_schools))
+    $('#'+prefix + 'govt_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
+    $('#'+prefix+'private_school_class'+classType ).html(parserInt(dataToShow.private_unaided_reco_schools))
+    $('#'+prefix +'state_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
+    $('#'+prefix + 'govt_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
+    $('#'+prefix + 'govt_aided_teacher_class'+classType ).html(parserInt(dataToShow.teacher_govt_aided_schools))
+    $('#'+prefix + 'private_teacher_class'+classType ).html(parserInt(dataToShow.teacher_private_unaided_reco_schools))
+
+    createChart(where,selectedMapData)
+
+  }
+
+  function createChart(where,data){
+    Highcharts.mapChart(where,{
+      chart:{
+        backgroundColor: 'transparent',
+      },
+      title: {
+          text: data.name
+      },
+      legend: {
+        enabled: false
+      },
+      credits: {
+        enabled: false
+      },
+      series:data.data,
+      tooltip: { 
+        enabled: true 
+      },
+      navigation: {
+          buttonOptions: {
+              enabled: false
+          }
+      }
+
+    })
   }

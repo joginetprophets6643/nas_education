@@ -95,7 +95,7 @@
                 <a class="nav-link {{ Request::is('data-share') || Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}">{{__('lang.DATA SHARE')}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('visualization') ? 'active' : '' }}" href="#">{{__('lang.VISUALIZATION')}}</a>
+                <a class="nav-link {{ Request::is('visualization') ? 'active' : '' }}" href="{{url('/visualization')}}">{{__('lang.VISUALIZATION')}}</a>
               </li>
 
               <li class="nav-item">

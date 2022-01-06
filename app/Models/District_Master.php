@@ -12,6 +12,7 @@ class District_Master extends Model
     protected $fillable=[
         'district_id',
         'state_id',
+        'state_name',
         'district_name',
         'udise_district_code',
         'udise_state_code',

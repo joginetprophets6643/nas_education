@@ -2,7 +2,7 @@
 @include('admin.includes.nav')
   
 
-<div class="main-panel">
+<div class="main-panel" >
   <div class="content-wrapper">
       <div class="container">
           <a href="{{route('manage-banner')}}" class="btn btn-primary btn-sm" style="margin-bottom:20px;">Back</a>
