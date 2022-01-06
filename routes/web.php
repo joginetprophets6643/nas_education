@@ -22,10 +22,6 @@ use App\Http\Controllers\FeedbackController;
 
 Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);
 
-Route::get('/upload-csv-files', function () {
-    return view('welcome');
-});
-Route::resource('upload',UploadController::class);
 Route::get('genrate_key',[UploadController::class,'genrate_key']);
 Route::get('view_parti_g3_school',[CommonController::class,'view_parti_g3_school']);
 Route::get('questionnaire_calculation',[PerformanceController::class,'questionnaireCalculation']);
@@ -62,6 +58,12 @@ Route::post('/succeed/{email}', 'App\Http\Controllers\AdminController@successful
 Route::group(["middleware" => ["islogin"]], function(){
 Route::get('dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
 Route::get('logout', 'App\Http\Controllers\AdminController@logout');
+
+// Manage data route
+Route::get('/upload-csv-files', function () {
+    return view('welcome');
+});
+Route::resource('upload',UploadController::class);
 
 //Event Routes
 
@@ -148,7 +150,7 @@ Route::get('/delete/client-logo/{id}','App\Http\Controllers\ClientLogoController
 Route::post('/update/client-logo/{id}','App\Http\Controllers\ClientLogoController@update')->name('update-logo');
 
 //Regristration List Routes
-Route::get('/user-list','App\Http\Controllers\AdminController@list')->name('user-list');
+Route::get('/registration-list','App\Http\Controllers\AdminController@list')->name('user-list');
 
 //Setting Routes
 Route::get('/manage-setting','App\Http\Controllers\SettingController@index')->name('setting');
@@ -170,8 +172,8 @@ Route::post('/update/program/{id}','App\Http\Controllers\StaticProgramController
 Route::get('/user','App\Http\Controllers\PermissionController@index')->name('user');
 Route::get('/add/user','App\Http\Controllers\PermissionController@add')->name('add-user');
 Route::post('/store/user','App\Http\Controllers\PermissionController@store')->name('store-user');
-Route::get('/view/permission/{id}','App\Http\Controllers\PermissionController@permit')->name('permit-user');
-Route::post('/store/permission/{id}','App\Http\Controllers\PermissionController@storePermit')->name('store-permission');
+Route::get('/view/user/permission/{id}','App\Http\Controllers\PermissionController@permit')->name('permit-user');
+Route::post('/store/user/permission/{id}','App\Http\Controllers\PermissionController@storePermit')->name('store-permission');
 Route::get('/delete/user/{id}','App\Http\Controllers\PermissionController@destroy');
 
 });

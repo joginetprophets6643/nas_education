@@ -26,7 +26,7 @@
               <th scope="col">State Id</th>
               <th scope="col">State Name</th>
               <th scope="col">State Code</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Master_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -37,7 +37,7 @@
               <td>{{$state->state_id}}</td>
               <td>{{$state->state_name}}</td>
               <td>{{$state->udise_state_code}}</td>
-              <td>
+              <td class="action Master_action">
                 <?php $id=encode5t($state->id)?>
                 <a href="{{url('edit/state/'.$id)}}" class="btn btn-primary btn-sm Master_edit">Edit</a>
                 <button class="btn btn-danger btn-sm delete-dis-btn Master_delete" data-delete-link="{{url('delete/state/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletestate">Delete</button>

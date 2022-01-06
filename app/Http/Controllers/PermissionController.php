@@ -39,7 +39,7 @@ class PermissionController extends Controller
         $role=new Permission;
         $role->user_id=$user->id;
         $role->role=$request->role;
-        $role->view=json_encode([]);
+        $role->view=json_encode(['dashboard','profile','logout']);
         $role->edit=json_encode([]);
         $role->add=json_encode([]);
         $role->delete=json_encode([]);
@@ -70,7 +70,7 @@ class PermissionController extends Controller
         $id=decode5t($id);
         $modules=['User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting'];
         $permits=['view','add','edit','delete'];
-        $view=[];
+        $view=['dashboard','profile','logout'];
         $add=[];
         $edit=[];
         $delete=[];

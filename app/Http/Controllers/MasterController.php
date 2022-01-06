@@ -42,10 +42,13 @@ class MasterController extends Controller
         else{
             $request->status=1;
         }
+
+        $state_name = State_Master::where('udise_state_code',$request->state_code)->select('state_name')->first();
         
         $district=new District_Master;
         $district->district_id=$request->district_id;
         $district->state_id=$request->state_id;
+        $district->state_name=$state_name;
         $district->district_name=$request->district_name;
         $district->description=$request->description;
         $district->udise_district_code=$request->district_code;
@@ -114,10 +117,13 @@ class MasterController extends Controller
         else{
             $request->status=1;
         }
+
+        $state_name = State_Master::where('udise_state_code',$request->state_code)->select('state_name')->first();
         
         District_Master::where('id',$id)->update([
             'district_id'=>$request->district_id,
             'state_id'=>$request->state_id,
+            'state_name'=>$state_name,
             'district_name'=>$request->district_name,
             'description'=>$request->description,
             'udise_district_code'=>$request->district_code,

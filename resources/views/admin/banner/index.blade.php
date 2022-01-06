@@ -25,7 +25,7 @@
               <th scope="col" >SL no.</th>
               <th scope="col">Banner Description</th>
               <th scope="col">Banner Image</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Banner_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -35,7 +35,7 @@
               <th scope="row">{{$i++}}</th>
               <td style="max-width:500px; overflow:hidden;">{{$banner->description}}</td>
               <td><img src="{{asset('assets/uploads/banner/'.$banner->image)}}" alt=""></td>
-              <td>
+              <td class="action Banner_action">
                 <?php $id=encode5t($banner->id)?>
                 <a href="{{url('edit/banner/'.$id)}}" class="btn btn-primary btn-sm Banner_edit">Edit</a>
                 <button class="btn btn-danger btn-sm delete-mem-btn Banner_delete" data-delete-link="{{url('delete/banner/'.$banner->image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>

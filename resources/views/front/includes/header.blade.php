@@ -14,7 +14,7 @@
     <!-- AOS CSS -->
 
     
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/front/fav-icon/apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/svg+xml" href="{{asset('assets/admin/vendors/images/NAS_Icon.svg')}}">
     
     
     <link href="{{asset('assets/front/scss/aos.css')}}" rel="stylesheet">

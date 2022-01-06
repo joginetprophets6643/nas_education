@@ -8,7 +8,14 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <img src="{{asset('assets/front/images/logo.png')}}" style="width:100%">
+                <div class="row">
+                <div class="col-2">
+                <img src="{{asset('assets/admin/vendors/images/NAS_Icon.svg')}}" style="width:100%">
+                </div>
+                <div class="col-10">
+                <img src="{{asset('assets/front/images/logo.png')}}" style="width:100%">
+                </div>
+                </div>
                 </div>
                 @if(session('success'))
                   <span class="text-danger">{{session('success')}}</span>

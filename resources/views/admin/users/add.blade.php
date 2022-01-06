@@ -33,16 +33,18 @@
                 @enderror
                 </div>
 
-                <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">User Role</label>
-              <select name="role" class="form-control">
-                  <option value="">User Role</option>
-                  <option value="2">Admin</option>
-              </select>
-              @error('role')
-              <span class="text-danger">{{$message}}</span>
-              @enderror
-            </div>
+                <input type="hidden" name="role" value="2">
+
+                <!-- <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">User Role</label>
+                  <select name="role" class="form-control">
+                      <option value="">User Role</option>
+                      <option value="2">Admin</option>
+                  </select>
+                  @error('role')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div> -->
 
                 <div class="mb-3">
                 <button type="submit" class="btn btn-primary btn-sm User_add">Add</button>
