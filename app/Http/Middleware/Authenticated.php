@@ -18,7 +18,37 @@ class Authenticated
     public function handle(Request $request, Closure $next)
     {
         if(Auth::user()){
-            return $next($request);
+            $url=$request->url();
+            $url=explode('/',$url);
+            foreach($url as $u){
+                $url=array_merge(explode('-',$u),$url);
+            }
+            $permission=permissions(Auth::user()->id);
+            $view=json_decode($permission->view);
+            $view=array_map('strtolower',$view);
+            foreach($url as $item){
+            if($item=='district' || $item=='state'){
+                $item="master";
+            }
+            if($item=='events' || $item=='videos' || $item=='event' || $item=='image' || $item=='images' || $item=='video'){
+                $item="media";
+            }
+            if($item=='member'){
+                $item="team";
+            }
+            if($item=='national'){
+                $item="statistic";
+            }
+            if($item=='upload'){
+                $item="data";
+            }
+            if(in_array($item,$view))
+            {
+                return $next($request);
+            }
+            }
+            // dd($url);
+            return redirect()->back();
         }
         else{
             return redirect()->route('secure-admin');

@@ -133,7 +133,7 @@
           </li>
 
           <li class="nav-item" id="Registration" style="display:none;">
-            <a class="nav-link" href="{{url('/user-list')}}">
+            <a class="nav-link" href="{{url('/registration-list')}}">
               <span class="menu-title">Total Registration</span>
               <i class="icon-user menu-icon"></i>
             </a>

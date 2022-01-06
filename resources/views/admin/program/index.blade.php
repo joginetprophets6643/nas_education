@@ -26,7 +26,7 @@
               <th scope="col">Language</th>
               <th scope="col">Title</th>
               <th scope="col">Content</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Program_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +41,7 @@
               @endif
               <td >{{$program->title}}</td>
               <td style="max-width:290px; overflow:hidden;" id="program">{!!$program->content!!}</td>
-              <td>
+              <td class="action Program_action">
                 <?php $id=encode5t($program->id)?>
                 <a href="{{url('edit/program/'.$id)}}" class="btn btn-primary btn-sm Program_edit">Edit</a>
                 <button class="btn btn-danger btn-sm delete-mem-btn Program_delete" data-delete-link="{{url('delete/program/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteprogram">Delete</button>

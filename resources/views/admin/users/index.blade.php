@@ -26,7 +26,7 @@
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <!-- <th scope="col">Mobile No.</th> -->
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action User_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -37,9 +37,9 @@
               <td>{{$user->name}}</td>
               <td>{{$user->email}}</td>
               <!-- <td>{{$user->mobile}}</td> -->
-              <td>
+              <td class="action User_action">
                 <?php $id=encode5t($user->id)?>
-                <a href="{{url('/view/permission/'.$id)}}" class="btn btn-primary btn-sm User_edit">Permissions</a>
+                <a href="{{url('/view/user/permission/'.$id)}}" class="btn btn-primary btn-sm User_edit">Permissions</a>
                 <button class="btn btn-danger btn-sm delete-mem-btn User_delete" data-delete-link="{{url('delete/user/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteuser">Delete</button>
               </td>
             </tr>

@@ -54,14 +54,19 @@ view.forEach((item)=>{
 add.forEach((item)=>{
   // $('.'+item+'_add').attr("disabled",true);
   $('.'+item+'_add').css('display',"inline-block");
+  if(item=='Media'){
+  $('.'+item+'_action').css('display',"table-cell");
+  }
 })
 edit.forEach((item)=>{
   // $('.'+item+'_add').attr("disabled",true);
   $('.'+item+'_edit').css('display',"inline-block");
+  $('.'+item+'_action').css('display',"table-cell");
 })
 delet.forEach((item)=>{
   // $('.'+item+'_add').attr("disabled",true);
   $('.'+item+'_delete').css('display',"inline-block");
+  $('.'+item+'_action').css('display',"table-cell");
 })
 $('.extra').css('display',"inline-block");
 </script>

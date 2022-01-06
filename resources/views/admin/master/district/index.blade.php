@@ -28,7 +28,7 @@
               <th scope="col">District Name</th>
               <th scope="col">District Code</th>
               <th scope="col">State Code</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Master_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +41,7 @@
               <td>{{$district->district_name}}</td>
               <td>{{$district->udise_district_code}}</td>
               <td>{{$district->udise_state_code}}</td>
-              <td>
+              <td class="action Master_action">
                 <?php $id=encode5t($district->id)?>
                 <a href="{{url('edit/district/'.$id)}}" class="btn btn-primary btn-sm Master_edit">Edit</a>
                 <button class="btn btn-danger btn-sm delete-dis-btn Master_delete" data-delete-link="{{url('delete/district/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletedistrict">Delete</button>

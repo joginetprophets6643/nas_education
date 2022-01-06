@@ -26,7 +26,7 @@
               <th scope="col">Name</th>
               <th scope="col">Designation</th>
               <!-- <th scope="col">Mobile No.</th> -->
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Team_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -37,7 +37,7 @@
               <td>{{$member->name}}</td>
               <td>{{$member->designation}}</td>
               <!-- <td>{{$member->mobile}}</td> -->
-              <td>
+              <td class="action Team_action">
                 <?php $id=encode5t($member->id)?>
                 <a href="{{url('edit/member/'.$id)}}" class="btn btn-primary btn-sm Team_edit">Edit</a>
                 <button class="btn btn-danger btn-sm delete-mem-btn Team_delete" data-delete-link="{{url('delete/member/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteMember">Delete</button>
