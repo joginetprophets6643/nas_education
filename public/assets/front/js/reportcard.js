@@ -647,7 +647,7 @@ $(document).ready(()=>{
         const doughnutChartColors ={
           class_all:{
             gov:"#75A9D9",
-            private:"#72B562",
+            private:"#CAC55F",
             gov_aided:"#E9769F",
             cent_gov:"#3CACAE",
           },
