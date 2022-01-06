@@ -17,6 +17,7 @@ class CreateDistrictMastersTable extends Migration
             $table->id();
             $table->integer('district_id');
             $table->integer('state_id');
+            $table->string('state_name');
             $table->string('district_name');
             $table->text('description')->nullable();
             $table->integer('udise_district_code');
