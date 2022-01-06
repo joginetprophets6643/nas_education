@@ -16,35 +16,31 @@
             @endif
 
 
-          <div class="card-header">All Contents
-          <a href="{{route('add-content')}}" class="btn btn-primary float-right btn-sm Content_add">Add</a>
+          <div class="card-header">All Users
+          <a href="{{route('add-user')}}" class="btn btn-primary float-right btn-sm User_add">Add</a>
           </div>
         <table class="table">
           <thead>
             <tr>
               <th scope="col" width="70px">SL no.</th>
-              <th scope="col">Language</th>
-              <th scope="col">Page Title</th>
-              <th scope="col">Home Page Content</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <!-- <th scope="col">Mobile No.</th> -->
               <th scope="col" width="200px">Actions</th>
             </tr>
           </thead>
           <tbody>
             @php($i=1)
-            @foreach($contents as $content)
+            @foreach($users as $user)
             <tr>
               <th scope="row">{{$i++}}</th>
-              @if($content->language=="1")
-              <td>Hindi</td>
-              @else
-              <td>English</td>
-              @endif
-              <td >{{$content->page_title}}</td>
-              <td style="max-width:290px; overflow:hidden;" id="content">{!!$content->home_page_content!!}</td>
+              <td>{{$user->name}}</td>
+              <td>{{$user->email}}</td>
+              <!-- <td>{{$user->mobile}}</td> -->
               <td>
-                <?php $id=encode5t($content->id)?>
-                <a href="{{url('edit/content/'.$id)}}" class="btn btn-primary btn-sm Content_edit">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn Content_delete" data-delete-link="{{url('delete/content/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
+                <?php $id=encode5t($user->id)?>
+                <a href="{{url('/view/permission/'.$id)}}" class="btn btn-primary btn-sm User_edit">Permissions</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn User_delete" data-delete-link="{{url('delete/user/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteuser">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -57,7 +53,7 @@
 
 
 
-<div class="modal fade" id="Deletecontent" >
+<div class="modal fade" id="Deleteuser" >
   <div class="modal-dialog">
       <div class="modal-content">
       
@@ -65,15 +61,15 @@
           
       
           <div class="card">
-          <div class="card-header">Delete content
+          <div class="card-header">Delete user
           <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="card-body">
           <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm Content_delete" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm Content_delete">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm User_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm User_delete">Delete</button>
           </form>
           </div>
           </div>
@@ -84,13 +80,17 @@
   </div>
   </div>
 </div>
-    
-    </div>
-  </div>
-</div>
 
-@include('admin.includes.footer')
+
 </div>
+</div>
+</div>
+@include('admin.includes.footer')
+@if(count($errors)>0)
+<script>
+  $('#staticBackdrop').modal('show');
+</script>
+@endif
 
 <script>
     $('.delete-mem-btn').on('click',function(){

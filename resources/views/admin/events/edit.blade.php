@@ -21,7 +21,7 @@
             @error('name')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+            <button type="submit" class="btn btn-primary btn-sm Media_edit">Update</button>
           </form>
           </div>
         </div>

@@ -17,7 +17,7 @@
 
 
           <div class="card-header">All Members
-          <a href="{{route('add-member')}}" class="btn btn-primary float-right btn-sm">Add</a>
+          <a href="{{route('add-member')}}" class="btn btn-primary float-right btn-sm Team_add">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -39,8 +39,8 @@
               <!-- <td>{{$member->mobile}}</td> -->
               <td>
                 <?php $id=encode5t($member->id)?>
-                <a href="{{url('edit/member/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/member/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteMember">Delete</button>
+                <a href="{{url('edit/member/'.$id)}}" class="btn btn-primary btn-sm Team_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Team_delete" data-delete-link="{{url('delete/member/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteMember">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -68,8 +68,8 @@
           <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Team_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Team_delete">Delete</button>
           </form>
           </div>
           </div>

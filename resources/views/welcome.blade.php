@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="mb-3 text-center">
-                    <button class="btn btn-primary" type="submit">Upload </button>
+                    <button class="btn btn-primary Data_add" type="submit">Upload </button>
                 </div>
             </form>
           </div>

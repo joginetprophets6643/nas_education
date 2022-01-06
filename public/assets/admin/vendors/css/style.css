@@ -18464,3 +18464,7 @@ dl li {
 .dataTables_filter label {
     font-size: 15px;
 }
+
+a,.btn {
+    display:none;
+}
