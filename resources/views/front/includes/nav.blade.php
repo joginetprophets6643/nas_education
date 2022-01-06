@@ -92,14 +92,14 @@
                 </ul>
               </li> -->
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}">{{__('lang.DATA SHARE')}}</a>
+                <a class="nav-link {{ Request::is('data-share') || Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}">{{__('lang.DATA SHARE')}}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ Request::is('visualization') ? 'active' : '' }}" href="#">{{__('lang.VISUALIZATION')}}</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('gallery/*') ? 'active' : '' }}" href="{{url('gallery')}}">{{__('lang.GALLERY')}}</a>
+                <a class="nav-link {{ Request::is('gallery') || Request::is('gallery/*') ? 'active' : '' }}" href="{{url('gallery')}}">{{__('lang.GALLERY')}}</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('lang.GALLERY')}}</a>
