@@ -18,7 +18,14 @@ class Secure
     public function handle(Request $request, Closure $next)
     {
         if(Auth::user()){
+            if(!Auth::user()->address)
+            {
             return redirect()->back();
+            }
+            else
+            {
+                return redirect()->route('/');
+            }
         }
         else{
             return $next($request);
