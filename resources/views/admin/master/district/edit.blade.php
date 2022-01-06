@@ -295,7 +295,7 @@
         </div>
         <br>
 
-        <button type="submit" class="btn btn-primary btn-sm float-right">Update</button>
+        <button type="submit" class="btn btn-primary btn-sm float-right Master_edit">Update</button>
         </form>
         </div>
     </div>

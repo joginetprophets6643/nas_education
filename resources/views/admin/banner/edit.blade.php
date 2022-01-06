@@ -29,7 +29,7 @@
             <span class="text-danger">{{$message}}</span>
             @enderror
             </div>
-            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+            <button type="submit" class="btn btn-primary btn-sm Banner_edit">Update</button>
           </form>
           </div>
         </div>

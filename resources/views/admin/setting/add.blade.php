@@ -144,7 +144,7 @@
         </div>
         <br>
 
-        <button type="submit" class="btn btn-primary btn-sm float-right">Add</button>
+        <button type="submit" class="btn btn-primary btn-sm float-right Setting_add">Add</button>
         </form>
         </div>
     </div>

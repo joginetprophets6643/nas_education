@@ -17,7 +17,7 @@
                     @endif
                     <div class="card-header">
                         <span>All Images</span>
-                        <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+                        <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
 
 
 
@@ -52,7 +52,7 @@
                                         <input type="file" name="images[]" class="form-control" id="images" multiple="">
                                         </div>
                                     
-                                        <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                                        <button type="submit" class="btn btn-primary btn-sm Media_add">Add</button>
                                     </form>
                                     </div>
                                     </div>
@@ -74,7 +74,7 @@
                             <img src="{{asset('assets/uploads/'.$image)}}" class="w-100" alt="">
                             <?php $id=encode5t($id);
                             $image=encode5t($image)?>
-                            <button class="btn btn-danger btn-sm delete-img-btn" data-delete-link="{{url('delete/image/'.$image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-img-btn Media_delete" data-delete-link="{{url('delete/image/'.$image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
                         </li>
                         @endforeach
                         </ul>
@@ -98,8 +98,8 @@
                                     <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
                                         @csrf
                                         <p>Are you sure you want to delete this image?</p> 
-                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        <button type="button" class="btn btn-secondary btn-sm Media_delete" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger btn-sm Media_delete">Delete</button>
                                     </form>
                                     </div>
                                     </div>

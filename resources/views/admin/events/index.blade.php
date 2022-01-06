@@ -17,7 +17,7 @@
 
 
           <div class="card-header">All Event
-          <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+          <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -35,8 +35,8 @@
               <td>{{$event->name}}</td>
               <td>
                 <?php $id=encode5t($event->id)?>
-                <a href="{{url('event/images/'.$id)}}" class="btn btn-primary btn-sm">Add Images</a>
-                <a href="{{url('edit/event/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{{url('event/images/'.$id)}}" class="btn btn-primary btn-sm Media_add">Add Images</a>
+                <a href="{{url('edit/event/'.$id)}}" class="btn btn-primary btn-sm Media_edit">Edit</a>
               </td>
             </tr>
             @endforeach
@@ -71,7 +71,7 @@
             @error('name')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit" class="btn btn-primary btn-sm">Add</button>
+            <button type="submit" class="btn btn-primary btn-sm Media_add">Add</button>
           </form>
           </div>
         </div>
