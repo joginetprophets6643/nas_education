@@ -1224,7 +1224,7 @@
                                     </div>
                                   </div>
 </div>
-    
+
 <div class="tab-pane fade" id="performance_class10" role="tabpanel" aria-labelledby="performance3-tab">
                                   <div class="per-card-wrap">
                                     <div class="row">
@@ -1341,7 +1341,7 @@
                                       
                                       <div class="col-md-12">
                                         <div class="accordion" id="perAccordion">
-                                          <div class="accordion-item mtb-30">
+                                          <div class="accordion-item mtb-30" id="gender_section_performance_class10" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionOne">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                                                 Performance by Gender
@@ -1440,7 +1440,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="accordion-item mtb-30">
+                                          <div class="accordion-item mtb-30" id="location_section_performance_class10" style="display:none;>
                                             <h2 class="accordion-header" id="perAccordionTwo">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseTwo" aria-expanded="true" aria-controls="perAccordioncollapseTwo">
                                                 Performance by Location
@@ -1540,7 +1540,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="accordion-item mtb-30">
+                                          <div class="accordion-item mtb-30" id="management_section_performance_class10" style="display:none;" >
                                             <h2 class="accordion-header" id="perAccordionThree">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseThree" aria-expanded="true" aria-controls="perAccordioncollapseThree">
                                                 Performance by Managment
@@ -1640,7 +1640,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="accordion-item mtb-30">
+                                          <div class="accordion-item mtb-30" id="social_section_performance_class10" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionfour">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapsefour" aria-expanded="true" aria-controls="perAccordioncollapsefour">
                                                 Performance by Social Group
