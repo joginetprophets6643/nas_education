@@ -312,7 +312,7 @@ $(document).ready(()=>{
       if(grade === classType){
         $('#'+screen_type+'_class'+grade+'').addClass('show active')
       }else{
-        if(screen_type === 'feedback'){
+        if(screen_type === 'feedback' || screen_type === 'information'){
           // setInformation()
           $('#'+screen_type+'_class3').addClass('show active')
         }else{
@@ -324,7 +324,7 @@ $(document).ready(()=>{
     $('#'+screen_type+'-tab').addClass('active')
     $('#'+screen_type+'_class'+classType+'').addClass('show active')
 
-    chageDataWithFilter('sidebar_filter','all')
+    changePageDataViaSideFilter('all')
   }
 
   function chageDataWithFilter(filter_type, value){
@@ -827,23 +827,23 @@ $(document).ready(()=>{
         })
       }
       if(screenType === 'feedback'){
-        $('#feedback_pq_class'+classType).empty()
-        $('#feedback_tq_class'+classType).empty()
-        $('#feedback_htq_class'+classType).empty()
+        $('#feedback_pq_class3').empty()
+        $('#feedback_tq_class3').empty()
+        $('#feedback_htq_class3').empty()
 
         data.forEach(fb=>{
           const percentage = Math.round(fb.avg) 
           if(fb.level === 'pq'){
             const pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
-            $('#feedback_pq_class'+classType).append(pqChart)
+            $('#feedback_pq_class3').append(pqChart)
           }
           if(fb.level === 'tq'){
             const tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
-            $('#feedback_tq_class'+classType).append(tqChart)
+            $('#feedback_tq_class3').append(tqChart)
           }
           if(fb.level === 'htq'){
             const htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
-            $('#feedback_htq_class'+classType).append(htqChart)
+            $('#feedback_htq_class3').append(htqChart)
           }
         })
       }
