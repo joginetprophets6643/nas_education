@@ -9,8 +9,18 @@ let class_subjects = {
   class_3:['Language','Evs','Math'],
   class_5:['Language','Evs','Math'],
   class_8:['Language','Science','Math','Social'],
-  class_10:['Language','Evs','Math'],
-  class_all:['Language','Evs','Math']
+  class_10:['Mil','Social','English','Science','Math'],
+  class_all:['Mil','Social','English','Science','Math','Language','Evs']
+}
+
+let subjects_short_codes ={
+  math:"math",
+  evs:"evs",
+  social:'sst',
+  language:'language',
+  mil:'mil',
+  science:'sci',
+  english:'eng'
 }
 
 $(document).ready(()=>{
@@ -30,7 +40,6 @@ $(document).ready(()=>{
   });
 
   function createColumnChart(where,data){
-    console.log(data)
     Highcharts.chart(where, {
       chart: {
         backgroundColor: 'transparent',
@@ -87,7 +96,7 @@ $(document).ready(()=>{
     }
   }
 // create bar graph with data
-  function createSocialBarGraph(bar){
+  function createSocialBarGraph(bar,colors){
     Highcharts.chart('socialBarGraph_class'+classType, {
         chart: {
           type: 'column'
@@ -135,22 +144,22 @@ $(document).ready(()=>{
               {
                 name: "SC",
                 y: bar.sc,
-                color: '#75A9D9'
+                color: colors.sc
               },
               {
                 name: "OBC",
                 y: bar.obc,
-                color: '#E9769F'
+                color: colors.obc
               },
               {
                 name: "ST",
                 y: bar.st,
-                color: '#CAC55F'
+                color: colors.st
               },
               {
                 name: "General",
                 y: bar.gen,
-                color: '#4CAF50'
+                color: colors.gen
               }
             ]
           }
@@ -159,9 +168,8 @@ $(document).ready(()=>{
   }
 
 // create donought chart with data
-  function createManagementPieChart(chart){
-
-    Highcharts.chart('managementPieGraph_class'+classType, {
+  function createManagementPieChart(chart,colors){
+    Highcharts.chart('managementPieGraph_class'+classType,  {
       chart: {
         type: 'variablepie'
       },
@@ -180,7 +188,7 @@ $(document).ready(()=>{
             cursor: 'pointer',
             dataLabels: {
               enabled: true,
-                format: '{point.percentage:.1f} %',
+                format: '{point.percentage} %',
                 distance: -50,
                 filter: {
                     property: 'percentage',
@@ -200,22 +208,22 @@ $(document).ready(()=>{
           name: 'Govt.',
           y: chart.gov,
           z: 100,
-          color: '#75A9D9'
+          color: colors.gov
         }, {
           name: 'Govt. Aided',
           y: chart.gov_aided,
           z: 100,
-          color: '#E9769F'
+          color: colors.gov_aided
         }, {
           name: 'Private',
           y: chart.private,
           z: 100,
-          color: '#CAC55F'
+          color: colors.private
         }, {
           name: 'Central Govt.',
           y: chart.cent_gov,
           z: 100,
-          color: '#4CAF50'
+          color: colors.cent_gov
         }]
       }]
     });
@@ -235,14 +243,14 @@ $(document).ready(()=>{
 
     await data.map(state=>{
 
-      state_list += '<li><a href="javascript:void(0)" class="active" onClick ="toggleDistrictList('+state.state_id+',true)" id="showDistrict'+state.state_id +'" ><span class="material-icons-round radio_checked"> radio_button_checked </span><span class="material-icons-round radio_unchecked">radio_button_unchecked</span>'+ state.state_name +'</a>'
+      state_list += '<li><a href="javascript:void(0)" class="active" onClick ="toggleDistrictList('+state.udise_state_code+',true)" id="showDistrict'+state.udise_state_code +'" ><span class="material-icons-round radio_checked"> radio_button_checked </span><span class="material-icons-round radio_unchecked">radio_button_unchecked</span>'+ state.state_name +'</a>'
       const filteredDistrict = district_data.filter(district=>{
-        if(district.state_id === state.state_id)
+        if(district.udise_state_code === state.udise_state_code)
         return district
       })
 
-      state_list += '<div class="district-list" id="state_'+ state.state_id +'"><div class="d-flex align-items-center justify-content-between pb-15"><h2>'+ state.state_name +'</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList('+state.state_id+',false)"><span class="material-icons-round">highlight_off</span></button></div><ul>'
-      state_list +=  createDistrictForStates(filteredDistrict,state.state_name,state.state_id)
+      state_list += '<div class="district-list" id="state_'+ state.udise_state_code +'"><div class="d-flex align-items-center justify-content-between pb-15"><h2>'+ state.state_name +'</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList('+state.udise_state_code+',false)"><span class="material-icons-round">highlight_off</span></button></div><ul>'
+      state_list +=  createDistrictForStates(filteredDistrict,state.state_name,state.udise_state_code)
       state_list += '</ul></div>'
       state_list += '</li>'
     })
@@ -252,13 +260,13 @@ $(document).ready(()=>{
     if(already_active_district !== null) {
       chageDataWithFilter('global_filter','district')
       setBreadCrumb('district')
-      toggleDistrictList(already_active_state.state_id,true)
-      toggleActiveDistrict(already_active_district.district_id,true)
+      toggleDistrictList(already_active_state.udise_state_code,true)
+      toggleActiveDistrict(already_active_district.udise_district_code,true)
     }
     else if(already_active_state !== null) {
       chageDataWithFilter('global_filter','state')
       setBreadCrumb('state')
-      toggleDistrictList(already_active_state.state_id,true)
+      toggleDistrictList(already_active_state.udise_state_code,true)
     }
     else{
       setBreadCrumb('national')
@@ -269,7 +277,7 @@ $(document).ready(()=>{
   function createDistrictForStates(data){
     let district_list = ''
     data.map(district=>{
-      district_list +='<li><a href="javascript:void(0)" class="districts" id="district_'+district.district_id+'" onClick="setActiveStateDistrict('+ district.state_id+','+district.district_id+')">' +format_string(district.district_name) +'</a></li>'
+      district_list +='<li><a href="javascript:void(0)" class="districts" id="district_'+district.udise_district_code+'" onClick="setActiveStateDistrict('+ district.udise_state_code+','+district.udise_district_code+')">' +format_string(district.district_name) +'</a></li>'
     })
     return district_list
   }
@@ -302,7 +310,12 @@ $(document).ready(()=>{
       if(grade === classType){
         $('#'+screen_type+'_class'+grade+'').addClass('show active')
       }else{
-        $('#'+screen_type+'_class'+grade+'').removeClass('show active')
+        if(screen_type === 'feedback'){
+          // setInformation()
+          $('#'+screen_type+'_class3').addClass('show active')
+        }else{
+          $('#'+screen_type+'_class'+grade+'').removeClass('show active')
+        }
       }
     })
 
@@ -337,12 +350,12 @@ $(document).ready(()=>{
           activeState = lastActiveState
           activeDistrict = ''
           $('#sidebar_active_state').html(activeState.state_name)
-          toggleActiveDistrict(activeDistrict.district_id,false)
+          toggleActiveDistrict(activeDistrict.udise_district_code,false)
 
         }
       }
       if(value === 'national'){
-        toggleDistrictList(activeState.state_id,false)
+        toggleDistrictList(activeState.udise_state_code,false)
         sessionStorage.removeItem('activeState')
         sessionStorage.removeItem('activeDistrict')
         activeState = ''
@@ -360,7 +373,6 @@ $(document).ready(()=>{
           $('#active_district').html(activeDistrict.district_name)
         }
       }
-      console.log('hoo')
       setInformation()
       setBreadCrumb(value)
     }
@@ -420,10 +432,10 @@ $(document).ready(()=>{
     let filters = {};
     let data = []
     if(activeState !== ''){
-      filters = {...filters , state: activeState.state_id}
+      filters = {...filters , state: activeState.udise_state_code}
     }
     if(activeDistrict !== ''){
-      filters = {...filters ,district: activeDistrict.district_id}
+      filters = {...filters ,district: activeDistrict.udise_district_code}
     }
     if(classType !== ''){
       if(classType !== 'all'){
@@ -440,6 +452,9 @@ $(document).ready(()=>{
     }
     if(screenType === 'learning'){
       data = JSON.parse(sessionStorage.getItem('learning_data'))
+    }
+    if(screenType === 'feedback'){
+      data = JSON.parse(sessionStorage.getItem('feedback_data'))
     }
     const filteredData = data.filter(par =>{
       let count = 0
@@ -478,10 +493,13 @@ $(document).ready(()=>{
       table = 'all_grade_participation_tbl'
     }
     if(screenType === 'performance'){
-      table = 'district_grade_level_performance'
+      table = 'performance_master'
     }
     if(screenType === 'learning'){
       table ='district_grade_level_learningoutcome'
+    }
+    if(screenType === 'feedback'){
+      table ='pq_district_level_feedback'
     }
 
     await $.ajax({
@@ -497,6 +515,9 @@ $(document).ready(()=>{
       if(screenType === 'learning'){
         sessionStorage.setItem('learning_data',JSON.stringify(res.data))
       }
+      if(screenType === 'feedback'){
+        sessionStorage.setItem('feedback_data',JSON.stringify(res.data))
+      }
     });
     setInformation()
   }
@@ -506,12 +527,12 @@ $(document).ready(()=>{
     const all_states = JSON.parse(sessionStorage.getItem('states'))
     const all_districts = JSON.parse(sessionStorage.getItem('districts'))
     activeState =all_states.filter(state=>{
-      if(state.state_id === parseInt(state_id))
+      if(state.udise_state_code === parseInt(state_id))
       return state
     }).pop()
 
     activeDistrict = all_districts.filter(district =>{
-      if(district.district_id === district_id)
+      if(district.udise_district_code === district_id)
       return district
     }).pop()
 
@@ -519,12 +540,11 @@ $(document).ready(()=>{
     sessionStorage.setItem('activeDistrict',JSON.stringify(activeDistrict)) 
     $('#active_state').html(activeState.state_name)
     $('#active_district').html(activeDistrict.district_name)
-    toggleActiveDistrict(activeDistrict.district_id,true)
+    toggleActiveDistrict(activeDistrict.udise_district_code,true)
     setInformation()
   }
 
   function updateData(data){
-    // console.log(data)
     if(typeof data !== 'undefined'){
       if(screenType === 'participation'){
         let total_school = 0
@@ -586,7 +606,7 @@ $(document).ready(()=>{
         const doughnutChart = {
           gov: gov,
           private: priv,
-          govt_aided: gov_aided,
+          gov_aided: gov_aided,
           cent_gov: cent_gov,
         }
         const barChart = {
@@ -595,24 +615,99 @@ $(document).ready(()=>{
           st:st_group,
           obc:obc_group
         }
-        createManagementPieChart(doughnutChart)
-        createSocialBarGraph(barChart)
+
+        const doughnutChartColors ={
+          class_all:{
+            gov:"#75A9D9",
+            private:"#72B562",
+            gov_aided:"#E9769F",
+            cent_gov:"#3CACAE",
+          },
+          class_10:{
+            gov:"#3CACAE",
+            private:"#72B562",
+            gov_aided:"#EB6C69",
+            cent_gov:"#E9769F",
+          },
+          class_8:{
+            gov:"#75A9D9",
+            private:"#72B562",
+            gov_aided:"#E9769F",
+            cent_gov:"#3CACAE",
+          },
+          class_3:{
+            gov:"#75A9D9",
+            private:"#CAC55F",
+            gov_aided:"#E9769F",
+            cent_gov:"#4CAF50",
+          },
+          class_5:{
+            gov:"#75A9D9",
+            private:"#E9769F",
+            gov_aided:"#CAC55F",
+            cent_gov:"#4CAF50",
+          },
+          
+        }
+
+        const barChartColors ={
+          class_3:{
+            sc:'#75A9D9',
+            obc:'#E9769F',
+            st:'#CAC55F',
+            gen:'#4CAF50'
+          },
+          class_5:{
+            sc:'#75A9D9',
+            obc:'#E9769F',
+            st:'#CAC55F',
+            gen:'#4CAF50'
+          },
+          class_8:{
+            sc:'#72B562',
+            obc:'#E9769F',
+            st:'#3CACAE',
+            gen:'#75A9D9'
+          },
+          class_10:{
+            sc:'#3CACAE',
+            obc:'#EB6C69',
+            st:'#72B562',
+            gen:'#E9769F'
+          },
+          class_all:{
+            sc:'#3CACAE',
+            obc:'#EB6C69',
+            st:'#72B562',
+            gen:'#E9769F'
+          },
+        }
+        createManagementPieChart(doughnutChart,doughnutChartColors['class_'+classType])
+        createSocialBarGraph(barChart,barChartColors['class_'+classType])
       }
       if(screenType === 'performance'){
-        createCharts()
-        console.log(data)
+        if(data.length === 0){
+          createPerformanceScreen({})
+        }else{
+          data.forEach(performance=>{
+            createPerformanceScreen(JSON.parse(performance.data))
+          })
+        }
       }
       if(screenType === 'learning'){
-        // if(data.length === 0){
-          $('.language_lo_class'+classType).empty();
-          $('.math_lo_class'+classType).empty();
-          $('.evs_lo_class'+classType).empty();
-          $('.sci_lo_class'+classType).empty();
-          $('.sst_lo_class'+classType).empty();
-          $('.mil_lo_class'+classType).empty();
+        const all_subjects = class_subjects['class_all']
+        all_subjects.forEach(subject => {
+          $('.'+subject.toLowerCase()+'_lo_class'+classType).empty()
+        });
+        // $('.evs_lo_class'+classType).empty();
+        // $('.science_lo_class'+classType).empty();
+        // $('.social_lo_class'+classType).empty();
+        // $('.mil_lo_class'+classType).empty();
+        // $('.language_lo_class'+classType).empty();
+        // $('.math_lo_class'+classType).empty();
+        // $('.english_lo_class'+classType).empty()
 
-        // }
-        console.log(data)
+        
 
         let count_object = {
           language:0,
@@ -626,6 +721,7 @@ $(document).ready(()=>{
         data.forEach(lo=>{
           let classStyle = ''
           if(lo.language === 'L'){
+
             count_object.language +=1
             if(count_object.language > 0 && count_object.language %2 === 0){
               classStyle = 'light-blue'
@@ -635,6 +731,7 @@ $(document).ready(()=>{
             $('.language_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
           }
           if(lo.language === 'M'){
+
             count_object.math += 1
             if(count_object.math > 0 && count_object.math % 2 === 0){
               classStyle = 'light-pink'
@@ -645,6 +742,7 @@ $(document).ready(()=>{
             $('.math_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
           }
           if(lo.language === 'EVS'){
+
             count_object.evs += 1
             if(count_object.evs >0 && count_object.evs % 2 === 0){
               classStyle = 'light-yellow'
@@ -654,6 +752,7 @@ $(document).ready(()=>{
             $('.evs_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
           }
           if(lo.language === 'SCI'){
+
             count_object.sci += 1
 
             if(count_object.sci >0 && count_object.sci % 2 === 0){
@@ -665,6 +764,7 @@ $(document).ready(()=>{
             $('.science_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
           }
           if(lo.language === 'SST'){
+
             count_object.sst += 1
             if(count_object.sst > 0 && count_object.sst %2 == 0){
               classStyle='light-green'
@@ -675,16 +775,18 @@ $(document).ready(()=>{
             $('.social_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
           }
           if(lo.language === 'E'){
+
             count_object.eng += 1
             if(count_object.eng >0 && count_object.eng % 2 === 0){
               classStyle = 'light-purple'
             }else{
               classStyle = ''
             }
-            $('.eng_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
+            $('.english_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
           }
 
           if(lo.language === 'MIL'){
+
             count_object.mil += 1
             if(count_object.mil >0 && count_object.mil % 2 === 0){
               classStyle = 'light-red'
@@ -694,6 +796,27 @@ $(document).ready(()=>{
             $('.mil_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
           }
 
+        })
+      }
+      if(screenType === 'feedback'){
+        $('#feedback_pq_class'+classType).empty()
+        $('#feedback_tq_class'+classType).empty()
+        $('#feedback_htq_class'+classType).empty()
+
+        data.forEach(fb=>{
+          const percentage = Math.round(fb.avg) 
+          if(fb.level === 'pq'){
+            const pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
+            $('#feedback_pq_class'+classType).append(pqChart)
+          }
+          if(fb.level === 'tq'){
+            const tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
+            $('#feedback_tq_class'+classType).append(tqChart)
+          }
+          if(fb.level === 'htq'){
+            const htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
+            $('#feedback_htq_class'+classType).append(htqChart)
+          }
         })
       }
     }else{
@@ -723,60 +846,6 @@ $(document).ready(()=>{
     return formatted_string
   }
 
-  function createCharts(data){
-    console.log(data)
-    const sections = ['Location','Gender','Social','Management']
-    const graphs = class_subjects['class_'+classType]
-    console.log(graphs)
-    const entities = {
-      gender: ['Boys','Girls'],
-      management:['Govt.','Govt. Aided','Private','Central Govt.'],
-      social:['SC','OBC','ST','General'],
-      location:['Rural','Urban']
-    }
-
-    let dataList = {}
-    sections.forEach(section =>{
-      let temp_data = {}
-      graphs.map(sub => {
-        temp_data = {... temp_data ,[sub.toLowerCase()]:[10,10,10]}
-      })
-      dataList[section.toLowerCase()] = temp_data
-
-    })
-    // console.log(dataList)
-    // return
-    
-    const colorCode = {
-      language: ['#BAD4EC','#9EC2E4','#83B1DD','#6997C3'],
-      evs: ['#E5E2AF','#DAD68F','#CFCB6F','#B6B156'],
-      math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E'],
-      social:['#C7E1C0','#ABD3A1','#8FC481','#68A358'],
-      science:['#B1DEDF','#8ACDCE','#63BDBE','#369B9D']
-    }  
-
-    sections.forEach(section => {
-      graphs.forEach(sub=>{
-        const where = section + sub +'BarGraph_class'+classType
-        let data = []
-        const items = entities[section.toLowerCase()]
-        items.forEach((element,index) => {
-          const color =  colorCode[sub.toLowerCase()]
-          const dataToShow = dataList[section.toLowerCase()]
-          const item = {
-            color: color[index],
-            data:dataToShow[sub.toLowerCase()],
-            name: element 
-          }
-          data.push(item)
-        });
-        console.log(where)
-        createColumnChart(where,data)
-      })
-      
-    });
-  }
-
   function toggleActiveDistrict(district_id,value){
     if(value){
       $('.districts').removeClass('active')
@@ -788,6 +857,93 @@ $(document).ready(()=>{
   }
 
   function getOutcomeRow(lo,classStyle){
-    let row = '<tr class="'+classStyle+'"><td>'+lo.subject_code+'</td><td>'+lo.question+'</td><td>'+Math.round(lo.avg)+'</td><td>'+Math.round(lo.state_avg)+'</td><td>'+Math.round(lo.national_avg)+'</td></tr>'
+    let row = '<tr class="'+classStyle+'"><td>'+lo.subject_code+'</td><td>'+lo.question+'</td><td>'+parserInt(lo.avg)+'</td><td>'+parseInt(lo.state_avg)+'</td><td>'+parseInt(lo.national_avg)+'</td></tr>'
     return row
+  }
+
+  function createPerformanceScreen(data){
+    const sections = ['Location','Gender','SocialGroup','Management']
+    const graphs = class_subjects['class_'+classType]
+
+    const entities = {
+      boys:'Boys',
+      girls:'Girls',
+      govt:'Govt.',
+      govt_aided:'Govt. Aided',
+      private:'Private',
+      central_govt:'Central Govt.',
+      sc:'SC',
+      st:'ST',
+      obc:'OBC',
+      general:'General',
+      urban:'Urban',
+      rural:'Rural'
+
+    }   
+    const scales= {
+      gender: ['boys','girls'],
+      management:['govt','govt_aided','private','central_govt'],
+      socialgroup:['sc','obc','st','general'],
+      location:['rural','urban']
+    }
+    const colorCode = {
+      language: ['#BAD4EC','#9EC2E4','#83B1DD','#6997C3'],
+      evs: ['#E5E2AF','#DAD68F','#CFCB6F','#B6B156'],
+      math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E'],
+      social:['#C7E1C0','#ABD3A1','#8FC481','#68A358'],
+      science:['#B1DEDF','#8ACDCE','#63BDBE','#369B9D'],
+      mil:['#F7C4C3','#F3A6A5','#EF8987','#D4605F'],
+      english:['#E8C7E6','#DCACD9','#D190CD','#B168AD'],
+    }  
+    const demographics = ['national','state','district']
+    
+
+    let empty =  false
+    if(Object.keys(data).length === 0){
+      empty = true
+    }else{
+      empty = false
+    }
+    sections.forEach(section => {
+      graphs.forEach(sub=>{
+        const where = section + sub +'BarGraph_class'+classType
+        const scale = scales[section.toLowerCase()]
+        let chart = []
+
+        demographics.forEach(demo => {
+          const where = screenType +'_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
+          let cardData = 0
+          if(!empty){
+            cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+          }
+          updateCards(where,cardData)
+
+        });
+        scale.forEach((element,index) => {
+          const color =  colorCode[sub.toLowerCase()]
+          let chart_data = []
+          demographics.forEach(demo => {
+            let dataToShow = 0
+            if(empty){
+              dataToShow = 0
+            }else{
+              dataToShow = parserInt(data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()][demo][element])
+            }
+            chart_data.push(dataToShow)
+          });
+          const item = {
+            color: color[index],
+            data:chart_data,
+            name: entities[element] 
+          }
+          chart.push(item)
+        });
+        createColumnChart(where,chart)
+      })
+      
+    });
+  }
+
+  function updateCards(cardPosition,data){
+    $('#'+cardPosition).html(data)
   }
