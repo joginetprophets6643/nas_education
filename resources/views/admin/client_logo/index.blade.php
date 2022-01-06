@@ -26,7 +26,7 @@
               <th scope="col">Title</th>
               <th scope="col">URL</th>
               <th scope="col">Logo</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Client-Logo_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -38,7 +38,7 @@
               <td>{{$value->url}}</td>
               <td><img src="{{asset('assets/uploads/client_logo/'.$value->logo)}}" alt=""></td>
               
-              <td>
+              <td class="action Client-Logo_action">
                  <?php $id=encode5t($value->id)?>
                 <a href="{{url('edit/client-logo/'.$id)}}" class="btn btn-primary btn-sm Client-Logo_edit">Edit</a>
                 <button class="btn btn-danger btn-sm delete-mem-btn Client-Logo_delete" data-delete-link="{{url('delete/client-logo/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteClientLogo">Delete</button>

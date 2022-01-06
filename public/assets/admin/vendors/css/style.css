@@ -18465,6 +18465,6 @@ dl li {
     font-size: 15px;
 }
 
-a,.btn {
+a,.btn,.action {
     display:none;
 }

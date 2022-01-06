@@ -8,7 +8,14 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <img src="{{asset('assets/front/images/logo.png')}}" style="width:100%">
+                <div class="row">
+                <div class="col-2">
+                <img src="{{asset('assets/admin/vendors/images/NAS_Icon.svg')}}" style="width:100%">
+                </div>
+                <div class="col-10">
+                <img src="{{asset('assets/front/images/logo.png')}}" style="width:100%">
+                </div>
+                </div>
                 </div>
                 @if(session('success'))
                   <span style="color:green;">{{session('success')}}</span>
@@ -28,6 +35,9 @@
                       <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="display:block;" value="Proceed"/>  
                   </div>
                 </form>
+                <div class="mt-3">
+                <a href="{{url('/secure-admin')}}" class="auth-link text-center text-black" style="display:block">Back to Login!</a>
+                </div>
               </div>
             </div>
           </div>

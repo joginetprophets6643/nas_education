@@ -28,7 +28,7 @@
               <th scope="col">Rural Population</th>
               <th scope="col">Urban Population</th>
               <th scope="col">Literacy Rate</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Statistic_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +41,7 @@
               <td>{{$national->rural_population}}</td>
               <td>{{$national->urban_population}}</td>
               <td>{{$national->literacy_rate}}</td>
-              <td>
+              <td class="action Statistic_action">
                 <?php $id=encode5t($national->id)?>
                 <a href="{{url('edit/national/'.$id)}}" class="btn btn-primary btn-sm Statistic_edit">Edit</a>
                 <button class="btn btn-danger btn-sm delete-dis-btn Statistic_delete" data-delete-link="{{url('delete/national/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletenational">Delete</button>
