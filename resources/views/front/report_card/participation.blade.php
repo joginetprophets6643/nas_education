@@ -14,7 +14,7 @@
                                                   <img src="{{asset('assets/front/images/school-icon.svg')}}" alt="img" class="img-fluid" />
                                                 </div>
                                                 <div class="card-desc">
-                                                    <span class="total-no" id="participation_school_class3">59</span>
+                                                    <span class="total-no" id="participation_school_class3">0</span>
                                                     <p class="title">Schools</p>
                                                 </div>
                                             </div>
@@ -25,7 +25,7 @@
                                               <img src="{{asset('assets/front/images/teacher-icon.svg')}}" alt="img" class="img-fluid" />
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no" id="participation_teachers_class3">183</span>
+                                                <span class="total-no" id="participation_teachers_class3">0</span>
                                                 <p class="title" >Teachers</p>
                                             </div>
                                           </div>
@@ -36,7 +36,7 @@
                                               <img src="{{asset('assets/front/images/student-icon.svg')}}" alt="img" class="img-fluid" />
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no" id="participation_students_class3">738</span>
+                                                <span class="total-no" id="participation_students_class3">0</span>
                                                 <p class="title">Students</p>
                                             </div>
                                           </div>
@@ -55,7 +55,7 @@
                                               <div class="d-flex justify-content-evenly align-items-end">
                                                   <div class="category-wrap">
                                                     <div class="card-blue">
-                                                      <span class="percentage" id="paricipation_gender_male_class3">30%</span>
+                                                      <span class="percentage" id="paricipation_gender_male_class3">0%</span>
                                                       <small class="title">Boys</small>
                                                     </div>
                                                     <div class="img-wrap">
@@ -65,7 +65,7 @@
                                                   </div>
                                                   <div class="category-wrap">
                                                     <div class="card-pink">
-                                                      <span class="percentage" id="paricipation_gender_female_class3">70%</span>
+                                                      <span class="percentage" id="paricipation_gender_female_class3">0%</span>
                                                       <small class="title">Girls</small>
                                                     </div>
                                                     <div class="img-wrap">
@@ -85,7 +85,7 @@
                                               <div class="d-flex justify-content-evenly align-items-end">
                                                 <div class="category-wrap">
                                                   <div class="card-blue">
-                                                    <span class="percentage" id="participation_rural_class3">30%</span>
+                                                    <span class="percentage" id="participation_rural_class3">0%</span>
                                                     <small class="title">Rural</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -95,7 +95,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                   <div class="card-pink">
-                                                    <span class="percentage" id="participation_urban_class3">70%</span>
+                                                    <span class="percentage" id="participation_urban_class3">0%</span>
                                                     <small class="title">Urban</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -158,7 +158,7 @@
 
                                                 </div>
                                                 <div class="card-desc">
-                                                    <span class="total-no count" id="participation_school_class5">59</span>
+                                                    <span class="total-no count" id="participation_school_class5">0</span>
                                                     <p class="title">Schools</p>
                                                 </div>
                                             </div>
@@ -176,7 +176,7 @@
                                               </svg>
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no count" id="participation_teachers_class5">183</span>
+                                                <span class="total-no count" id="participation_teachers_class5">0</span>
                                                 <p class="title">Teachers</p>
                                             </div>
                                           </div>
@@ -197,7 +197,7 @@
                                               </svg>
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no count" id="participation_students_class5">738</span>
+                                                <span class="total-no count" id="participation_students_class5">0</span>
                                                 <p class="title">Students</p>
                                             </div>
                                           </div>
@@ -215,7 +215,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                                 <div class="category-wrap">
                                                   <div class="card-round card-blue">
-                                                    <span class="percentage" id="paricipation_gender_male_class5">30%</span>
+                                                    <span class="percentage" id="paricipation_gender_male_class5">0%</span>
                                                     <small class="title">Boys</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -228,7 +228,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                   <div class="card-round card-pink">
-                                                    <span class="percentage" id="paricipation_gender_female_class5">70%</span>
+                                                    <span class="percentage" id="paricipation_gender_female_class5">0%</span>
                                                     <small class="title">Girls</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -251,7 +251,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                               <div class="category-wrap">
                                                 <div class="card-round card-blue">
-                                                  <span class="percentage" id="participation_urban_class5">30%</span>
+                                                  <span class="percentage" id="participation_urban_class5">0%</span>
                                                   <small class="title">Rural</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -272,7 +272,7 @@
                                               </div>
                                               <div class="category-wrap">
                                                 <div class="card-round card-pink">
-                                                  <span class="percentage" id="participation_rural_class5">70%</span>
+                                                  <span class="percentage" id="participation_rural_class5">0%</span>
                                                   <small class="title">Urban</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -336,7 +336,7 @@
 
                                                 </div>
                                                 <div class="card-desc">
-                                                    <span class="total-no count" id="participation_school_class8">59</span>
+                                                    <span class="total-no count" id="participation_school_class8">0</span>
                                                     <p class="title">Schools</p>
                                                 </div>
                                             </div>
@@ -354,7 +354,7 @@
                                               </svg>
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no count" id="participation_teachers_class8">183</span>
+                                                <span class="total-no count" id="participation_teachers_class8">0</span>
                                                 <p class="title">Teachers</p>
                                             </div>
                                           </div>
@@ -375,7 +375,7 @@
                                               </svg>
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no count" id="participation_students_class8">738</span>
+                                                <span class="total-no count" id="participation_students_class8">0</span>
                                                 <p class="title">Students</p>
                                             </div>
                                           </div>
@@ -393,7 +393,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                                 <div class="category-wrap">
                                                   <div class="card-round card-green">
-                                                    <span class="percentage" id="paricipation_gender_male_class8">30%</span>
+                                                    <span class="percentage" id="paricipation_gender_male_class8">0%</span>
                                                     <small class="title">Boys</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -406,7 +406,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                   <div class="card-round card-pink">
-                                                    <span class="percentage" id="paricipation_gender_female_class8">70%</span>
+                                                    <span class="percentage" id="paricipation_gender_female_class8">0%</span>
                                                     <small class="title">Girls</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -429,7 +429,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                               <div class="category-wrap">
                                                 <div class="card-round card-green">
-                                                  <span class="percentage" id="participation_rural_class8">30%</span>
+                                                  <span class="percentage" id="participation_rural_class8">0%</span>
                                                   <small class="title">Rural</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -450,7 +450,7 @@
                                               </div>
                                               <div class="category-wrap">
                                                 <div class="card-round card-pink">
-                                                  <span class="percentage" id="participation_urban_class8">70%</span>
+                                                  <span class="percentage" id="participation_urban_class8">0%</span>
                                                   <small class="title">Urban</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -514,7 +514,7 @@
 
                                                 </div>
                                                 <div class="card-desc">
-                                                    <span class="total-no count" id="participation_school_class10">59</span>
+                                                    <span class="total-no count" id="participation_school_class10">0</span>
                                                     <p class="title">Schools</p>
                                                 </div>
                                             </div>
@@ -532,7 +532,7 @@
                                               </svg>
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no count" id="participation_teachers_class10">183</span>
+                                                <span class="total-no count" id="participation_teachers_class10">0</span>
                                                 <p class="title">Teachers</p>
                                             </div>
                                           </div>
@@ -553,7 +553,7 @@
                                               </svg>
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no count" id="participation_students_class10">738</span>
+                                                <span class="total-no count" id="participation_students_class10">0</span>
                                                 <p class="title">Students</p>
                                             </div>
                                           </div>
@@ -571,7 +571,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                                 <div class="category-wrap">
                                                   <div class="card-round card-sagegreen">
-                                                    <span class="percentage" id="paricipation_gender_male_class10">30%</span>
+                                                    <span class="percentage" id="paricipation_gender_male_class10">0%</span>
                                                     <small class="title">Boys</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -584,7 +584,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                   <div class="card-round card-red">
-                                                    <span class="percentage" id="paricipation_gender_female_class10">70%</span>
+                                                    <span class="percentage" id="paricipation_gender_female_class10">0%</span>
                                                     <small class="title">Girls</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -607,7 +607,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                               <div class="category-wrap">
                                                 <div class="card-round card-sagegreen">
-                                                  <span class="percentage" id="participation_urban_class10">30%</span>
+                                                  <span class="percentage" id="participation_urban_class10">0%</span>
                                                   <small class="title">Rural</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -628,7 +628,7 @@
                                               </div>
                                               <div class="category-wrap">
                                                 <div class="card-round card-red">
-                                                  <span class="percentage" id="participation_rural_class10">70%</span>
+                                                  <span class="percentage" id="participation_rural_class10">0%</span>
                                                   <small class="title">Urban</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -692,7 +692,7 @@
 
                                                 </div>
                                                 <div class="card-desc">
-                                                    <span class="total-no count" id="participation_school_classall">59</span>
+                                                    <span class="total-no count" id="participation_school_classall">0</span>
                                                     <p class="title">Schools</p>
                                                 </div>
                                             </div>
@@ -710,7 +710,7 @@
                                               </svg>
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no count" id="participation_teachers_classall">183</span>
+                                                <span class="total-no count" id="participation_teachers_classall">0</span>
                                                 <p class="title">Teachers</p>
                                             </div>
                                           </div>
@@ -731,7 +731,7 @@
                                               </svg>
                                             </div>
                                             <div class="card-desc">
-                                                <span class="total-no count" id="participation_students_classall">738</span>
+                                                <span class="total-no count" id="participation_students_classall">0</span>
                                                 <p class="title">Students</p>
                                             </div>
                                           </div>
@@ -749,7 +749,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                                 <div class="category-wrap">
                                                   <div class="card-round card-green">
-                                                    <span class="percentage" id="paricipation_gender_male_classall">30%</span>
+                                                    <span class="percentage" id="paricipation_gender_male_classall">0%</span>
                                                     <small class="title">Boys</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -762,7 +762,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                   <div class="card-round card-pink">
-                                                    <span class="percentage" id="paricipation_gender_female_classall">70%</span>
+                                                    <span class="percentage" id="paricipation_gender_female_classall">0%</span>
                                                     <small class="title">Girls</small>
                                                   </div>
                                                   <div class="img-wrap">
@@ -785,7 +785,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                               <div class="category-wrap">
                                                 <div class="card-round card-green">
-                                                  <span class="percentage" id="participation_urban_classall">30%</span>
+                                                  <span class="percentage" id="participation_urban_classall">0%</span>
                                                   <small class="title">Rural</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -806,7 +806,7 @@
                                               </div>
                                               <div class="category-wrap">
                                                 <div class="card-round card-pink">
-                                                  <span class="percentage" id="participation_rural_classall">70%</span>
+                                                  <span class="percentage" id="participation_rural_classall">0%</span>
                                                   <small class="title">Urban</small>
                                                 </div>
                                                 <div class="img-wrap">

@@ -311,7 +311,7 @@ $(document).ready(()=>{
         $('#'+screen_type+'_class'+grade+'').addClass('show active')
       }else{
         if(screen_type === 'feedback'){
-          setInformation()
+          // setInformation()
           $('#'+screen_type+'_class3').addClass('show active')
         }else{
           $('#'+screen_type+'_class'+grade+'').removeClass('show active')
@@ -909,18 +909,26 @@ $(document).ready(()=>{
         const where = section + sub +'BarGraph_class'+classType
         const scale = scales[section.toLowerCase()]
         let chart = []
+
+        demographics.forEach(demo => {
+          const where = screenType +'_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
+          let cardData = 0
+          if(!empty){
+            cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+          }
+          updateCards(where,cardData)
+
+        });
         scale.forEach((element,index) => {
           const color =  colorCode[sub.toLowerCase()]
           let chart_data = []
           demographics.forEach(demo => {
             let dataToShow = 0
-            const where = screenType +'_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
             if(empty){
               dataToShow = 0
             }else{
               dataToShow = parserInt(data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()][demo][element])
             }
-            updateCards(where,dataToShow)
             chart_data.push(dataToShow)
           });
           const item = {

@@ -14,15 +14,15 @@
                                             </h2>
                                             <div class="per-card-content dark-blue">
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_district_class3">77</span>
+                                                <span class="total-no" id="performance_language_district_class3">0</span>
                                                 <p class="title">District</p>
                                               </div>
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_state_class3">68</span>
+                                                <span class="total-no" id="performance_language_state_class3">0</span>
                                                 <p class="title">State</p>
                                               </div>
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_national_class3">32</span>
+                                                <span class="total-no" id="performance_language_national_class3">0</span>
                                                 <p class="title">National</p>
                                               </div>
                                             </div>
@@ -35,15 +35,15 @@
                                           </h2>
                                           <div class="per-card-content dark-pink">
                                             <div class="per-card-desc">
-                                              <span class="total-no"  id="performance_math_district_class3">77</span>
+                                              <span class="total-no"  id="performance_math_district_class3">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc" >
-                                              <span class="total-no" id="performance_math_state_class3">68</span>
+                                              <span class="total-no" id="performance_math_state_class3">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_national_class3">32</span>
+                                              <span class="total-no" id="performance_math_national_class3">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -56,15 +56,15 @@
                                           </h2>
                                           <div class="per-card-content dark-yellow">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_evs_district_class3">77</span>
+                                              <span class="total-no" id="performance_evs_district_class3">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_evs_state_class3">68</span>
+                                              <span class="total-no" id="performance_evs_state_class3">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_evs_national_class3">32</span>
+                                              <span class="total-no" id="performance_evs_national_class3">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -391,15 +391,15 @@
                                             </h2>
                                             <div class="per-card-content dark-blue">
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_district_class5">77</span>
+                                                <span class="total-no" id="performance_language_district_class5">0</span>
                                                 <p class="title">District</p>
                                               </div>
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_state_class5">68</span>
+                                                <span class="total-no" id="performance_language_state_class5">0</span>
                                                 <p class="title">State</p>
                                               </div>
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_national_class5">32</span>
+                                                <span class="total-no" id="performance_language_national_class5">0</span>
                                                 <p class="title">National</p>
                                               </div>
                                             </div>
@@ -412,15 +412,15 @@
                                           </h2>
                                           <div class="per-card-content dark-pink">
                                             <div class="per-card-desc">
-                                              <span class="total-no"  id="performance_math_district_class5">77</span>
+                                              <span class="total-no"  id="performance_math_district_class5">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc" >
-                                              <span class="total-no" id="performance_math_state_class5">68</span>
+                                              <span class="total-no" id="performance_math_state_class5">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_national_class5">32</span>
+                                              <span class="total-no" id="performance_math_national_class5">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -433,15 +433,15 @@
                                           </h2>
                                           <div class="per-card-content dark-yellow">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_evs_district_class5">77</span>
+                                              <span class="total-no" id="performance_evs_district_class5">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_evs_state_class5">68</span>
+                                              <span class="total-no" id="performance_evs_state_class5">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_evs_national_class5">32</span>
+                                              <span class="total-no" id="performance_evs_national_class5">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -768,15 +768,15 @@
                                             </h2>
                                             <div class="per-card-content dark-blue">
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_district_class8">77</span>
+                                                <span class="total-no" id="performance_language_district_class8">0</span>
                                                 <p class="title">District</p>
                                               </div>
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_state_class8">68</span>
+                                                <span class="total-no" id="performance_language_state_class8">0</span>
                                                 <p class="title">State</p>
                                               </div>
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_language_national_class8">32</span>
+                                                <span class="total-no" id="performance_language_national_class8">0</span>
                                                 <p class="title">National</p>
                                               </div>
                                             </div>
@@ -789,15 +789,15 @@
                                           </h2>
                                           <div class="per-card-content dark-sagegreen">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_district_class8">77</span>
+                                              <span class="total-no" id="performance_sci_district_class8">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_state_class8">68</span>
+                                              <span class="total-no" id="performance_sci_state_class8">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no"id="performance_sci_national_class8">32</span>
+                                              <span class="total-no"id="performance_sci_national_class8">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -810,15 +810,15 @@
                                           </h2>
                                           <div class="per-card-content dark-pink">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_district_class8">77</span>
+                                              <span class="total-no" id="performance_math_district_class8">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_state_class8">68</span>
+                                              <span class="total-no" id="performance_math_state_class8">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_national_class8">32</span>
+                                              <span class="total-no" id="performance_math_national_class8">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -831,15 +831,15 @@
                                           </h2>
                                           <div class="per-card-content dark-green">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sst_district_class8">77</span>
+                                              <span class="total-no" id="performance_sst_district_class8">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc" >
-                                              <span class="total-no" id="performance_sst_state_class8">68</span>
+                                              <span class="total-no" id="performance_sst_state_class8">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sst_national_class8">32</span>
+                                              <span class="total-no" id="performance_sst_national_class8">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -1223,7 +1223,8 @@
                                       </div>
                                     </div>
                                   </div>
-</div>    
+</div>
+    
 <div class="tab-pane fade" id="performance_class10" role="tabpanel" aria-labelledby="performance3-tab">
                                   <div class="per-card-wrap">
                                     <div class="row">
@@ -1239,15 +1240,15 @@
                                             </h2>
                                             <div class="per-card-content dark-red">
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_mil_district_class10">77</span>
+                                                <span class="total-no" id="performance_mil_district_class10">0</span>
                                                 <p class="title">District</p>
                                               </div>
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_mil_state_class10">68</span>
+                                                <span class="total-no" id="performance_mil_state_class10">0</span>
                                                 <p class="title">State</p>
                                               </div>
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performance_mil_national_class10">32</span>
+                                                <span class="total-no" id="performance_mil_national_class10">0</span>
                                                 <p class="title">National</p>
                                               </div>
                                             </div>
@@ -1260,15 +1261,15 @@
                                           </h2>
                                           <div class="per-card-content dark-green">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sst_district_class10">77</span>
+                                              <span class="total-no" id="performance_sst_district_class10">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sst_state_class10">68</span>
+                                              <span class="total-no" id="performance_sst_state_class10">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sst_national_class10">32</span>
+                                              <span class="total-no" id="performance_sst_national_class10">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -1281,15 +1282,15 @@
                                           </h2>
                                           <div class="per-card-content dark-purple">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_eng_district_class10">77</span>
+                                              <span class="total-no" id="performance_eng_district_class10">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_eng_state_class10">68</span>
+                                              <span class="total-no" id="performance_eng_state_class10">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_eng_national_class10">32</span>
+                                              <span class="total-no" id="performance_eng_national_class10">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -1302,15 +1303,15 @@
                                           </h2>
                                           <div class="per-card-content dark-sagegreen">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_district_class10">77</span>
+                                              <span class="total-no" id="performance_sci_district_class10">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_state_class10">68</span>
+                                              <span class="total-no" id="performance_sci_state_class10">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_national_class10">32</span>
+                                              <span class="total-no" id="performance_sci_national_class10">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -1323,15 +1324,15 @@
                                           </h2>
                                           <div class="per-card-content dark-pink">
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_district_class10">77</span>
+                                              <span class="total-no" id="performance_math_district_class10">0</span>
                                               <p class="title">District</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_state_class10">68</span>
+                                              <span class="total-no" id="performance_math_state_class10">0</span>
                                               <p class="title">State</p>
                                             </div>
                                             <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_national_class10">32</span>
+                                              <span class="total-no" id="performance_math_national_class10">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
