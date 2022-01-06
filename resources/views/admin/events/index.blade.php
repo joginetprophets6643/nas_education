@@ -24,7 +24,7 @@
             <tr>
               <th scope="col" width="70px">SL no.</th>
               <th scope="col">Event Name</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Media_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -33,7 +33,7 @@
             <tr>
               <th scope="row">{{$i++}}</th>
               <td>{{$event->name}}</td>
-              <td>
+              <td class="action Media_action">
                 <?php $id=encode5t($event->id)?>
                 <a href="{{url('event/images/'.$id)}}" class="btn btn-primary btn-sm Media_add">Add Images</a>
                 <a href="{{url('edit/event/'.$id)}}" class="btn btn-primary btn-sm Media_edit">Edit</a>
