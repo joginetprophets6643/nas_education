@@ -25,4 +25,25 @@
     <link rel="stylesheet" href="{{asset('assets/front/scss/nivo-lightbox.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/lightbox.min.css')}}">
     <title id='title'></title>
+    <style>
+      #loading {
+        position: fixed;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        text-align: center;
+        opacity: 0.7;
+        background-color: #fff;
+        z-index: 99;
+      }
+
+      #loading-image {
+        position: absolute;
+        top: 100px;
+        left: 240px;
+        z-index: 100;
+      }
+    </style>
   </head>
