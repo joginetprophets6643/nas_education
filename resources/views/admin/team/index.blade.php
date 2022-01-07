@@ -39,8 +39,8 @@
               <!-- <td>{{$member->mobile}}</td> -->
               <td class="action Team_action">
                 <?php $id=encode5t($member->id)?>
-                <a href="{{url('edit/member/'.$id)}}" class="btn btn-primary btn-sm Team_edit">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn Team_delete" data-delete-link="{{url('delete/member/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteMember">Delete</button>
+                <a href="{{url('/secure-admin/edit/member/'.$id)}}" class="btn btn-primary btn-sm Team_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Team_delete" data-delete-link="{{url('secure-admin/delete/member/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteMember">Delete</button>
               </td>
             </tr>
             @endforeach

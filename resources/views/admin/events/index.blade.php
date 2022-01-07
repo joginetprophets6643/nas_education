@@ -35,8 +35,8 @@
               <td>{{$event->name}}</td>
               <td class="action Media_action">
                 <?php $id=encode5t($event->id)?>
-                <a href="{{url('event/images/'.$id)}}" class="btn btn-primary btn-sm Media_add">Add Images</a>
-                <a href="{{url('edit/event/'.$id)}}" class="btn btn-primary btn-sm Media_edit">Edit</a>
+                <a href="{{url('/secure-admin/event/images/'.$id)}}" class="btn btn-primary btn-sm Media_add">Add Images</a>
+                <a href="{{url('secure-admin/edit/event/'.$id)}}" class="btn btn-primary btn-sm Media_edit">Edit</a>
               </td>
             </tr>
             @endforeach

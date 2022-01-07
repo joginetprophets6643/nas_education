@@ -222,7 +222,7 @@
                                 <div class="form-group col-md-12 mb-0">
                                     <button type="submit" class="btn org-btn">REGISTER</button>
                                     <div class="register-link">
-                                        <a href="{{url('login')}}" class="link-blue">Already Register? Login Here</a>
+                                        <a href="{{url('data-share/login')}}" class="link-blue">Already Register? Login Here</a>
                                     </div>
                                 </div>
                             </div>

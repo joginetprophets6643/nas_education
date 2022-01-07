@@ -39,8 +39,8 @@
               <!-- <td>{{$user->mobile}}</td> -->
               <td class="action User_action">
                 <?php $id=encode5t($user->id)?>
-                <a href="{{url('/view/user/permission/'.$id)}}" class="btn btn-primary btn-sm User_edit">Permissions</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn User_delete" data-delete-link="{{url('delete/user/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteuser">Delete</button>
+                <a href="{{url('/secure-admin/view/user/permission/'.$id)}}" class="btn btn-primary btn-sm User_edit">Permissions</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn User_delete" data-delete-link="{{url('secure-admin/delete/user/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteuser">Delete</button>
               </td>
             </tr>
             @endforeach

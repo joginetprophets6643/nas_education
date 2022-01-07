@@ -35,7 +35,7 @@
                                     <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="card-body">
-                                    <form action="{{url('/add/video')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('/secure-admin/add/video')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                         <label for="images" class="form-label">Title</label>
@@ -93,7 +93,7 @@
                             <div class="video-wrap">
                             <iframe width="300" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <?php $id=encode5t($video->id)?>
-                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" data-delete-link="{{url('delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" data-delete-link="{{url('secure-admin/delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
                             </div>
                         </div>
                         @endif
@@ -105,7 +105,7 @@
                                 Your browser does not support the video tag.
                             </video>
                             <?php $id=encode5t($video->id)?>
-                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" data-delete-link="{{url('delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" data-delete-link="{{url('secure-admin/delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
                             </div>
                         </div>
                         @endif

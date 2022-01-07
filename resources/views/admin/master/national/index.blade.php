@@ -43,8 +43,8 @@
               <td>{{$national->literacy_rate}}</td>
               <td class="action Statistic_action">
                 <?php $id=encode5t($national->id)?>
-                <a href="{{url('edit/national/'.$id)}}" class="btn btn-primary btn-sm Statistic_edit">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn Statistic_delete" data-delete-link="{{url('delete/national/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletenational">Delete</button>
+                <a href="{{url('secure-admin/edit/national/'.$id)}}" class="btn btn-primary btn-sm Statistic_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn Statistic_delete" data-delete-link="{{url('secure-admin/delete/national/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletenational">Delete</button>
               </td>
             </tr>
             @endforeach

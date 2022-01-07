@@ -36,8 +36,8 @@
               <td >{{$content->website_title}}</td>
               <td >{!!$content->contact_us!!}</td>
               <td class="action Setting_action">
-                <a href="{{url('edit/setting/'.$content->id)}}" class="btn btn-primary btn-sm Setting_edit">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn Setting_delete" data-delete-link="{{url('delete/setting/'.$content->id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
+                <a href="{{url('secure-admin/edit/setting/'.$content->id)}}" class="btn btn-primary btn-sm Setting_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Setting_delete" data-delete-link="{{url('secure-admin/delete/setting/'.$content->id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
               </td>
             </tr>
             @endforeach
