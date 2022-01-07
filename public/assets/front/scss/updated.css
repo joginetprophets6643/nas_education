@@ -685,7 +685,7 @@ ul {
     left: 0;
     right: 0;
     top: 0;
-    z-index: 10000;
+    z-index: 1000;
 }
 
 .header-top .date {
@@ -8101,6 +8101,12 @@ ul {
     }
     #lightbox .lb-outerContainer {
         background-color: transparent !important;
+    }
+    #lightbox {
+    
+        top: 50% !important;
+        transform: translate(-50%, -50%);
+        left: 50% !important;
     }
         
         

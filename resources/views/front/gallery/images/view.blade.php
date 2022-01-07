@@ -62,5 +62,24 @@
 
 @include('front.includes.footer')
 </div>
+<script>
+    $('a').click(()=>{
+        $('body').addClass('overflow-hidden');
+    });
+    $('.lightboxOverlay').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lightbox').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lb-close').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lb-closeContainer').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    
+    
+</script>
 
 
