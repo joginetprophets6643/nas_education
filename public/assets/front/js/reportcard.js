@@ -232,7 +232,7 @@ $(document).ready(()=>{
   }
 
   async function createSidebarStates(data){
-    let state_list = "<ul>"
+    let state_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_filter' onkeyup='filterList(0,state)' placeholder='Search for state'></div><ul id='state_list_national'>"
     let district_data = []
 
     await $.ajax({
@@ -245,7 +245,7 @@ $(document).ready(()=>{
 
     await data.map(state=>{
 
-      state_list += '<li><a href="javascript:void(0)" class="active" onClick ="toggleDistrictList('+state.udise_state_code+',true)" id="showDistrict'+state.udise_state_code +'" ><span class="material-icons-round radio_checked"> radio_button_checked </span><span class="material-icons-round radio_unchecked">radio_button_unchecked</span>'+ state.state_name +'</a>'
+      state_list += '<li class="national_states" id="state_no'+state.udise_state_code+'"><a href="javascript:void(0)" class="national_state_list" onClick ="toggleDistrictList('+state.udise_state_code+',true)" id="showDistrict'+state.udise_state_code +'" ><span class="material-icons-round radio_checked"> radio_button_checked </span><span class="material-icons-round radio_unchecked"> radio_button_unchecked </span>'+ state.state_name +'</a>'
       const filteredDistrict = district_data.filter(district=>{
         if(district.udise_state_code === state.udise_state_code)
         return district
@@ -261,15 +261,19 @@ $(document).ready(()=>{
     document.getElementById('all-state-list').innerHTML = state_list
 
     if(already_active_district !== null) {
+
       chageDataWithFilter('global_filter','district')
       setBreadCrumb('district')
       toggleDistrictList(already_active_state.udise_state_code,true)
       toggleActiveDistrict(already_active_district.udise_district_code,true)
+
     }
     else if(already_active_state !== null) {
+
       chageDataWithFilter('global_filter','state')
       setBreadCrumb('state')
       toggleDistrictList(already_active_state.udise_state_code,true)
+
     }
     else{
       setBreadCrumb('national')
@@ -278,20 +282,35 @@ $(document).ready(()=>{
 
 
   function createDistrictForStates(data,state_name,state_id){
-    let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_"+state_id+"' onkeyup='filterList("+state_id+")' placeholder='Search for district' title='Type in a name'></div>"
+    let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_"+state_id+"' onkeyup='filterList("+state_id+",district)' placeholder='Search for district' title='Type in a name'></div>"
     data.map(district=>{
-      district_list +='<li><a href="javascript:void(0)" class="districts" id="district_'+district.udise_district_code+'" onClick="setActiveStateDistrict('+ district.udise_state_code+','+district.udise_district_code+')">' +format_string(district.district_name) +'</a></li>'
+      district_list +='<li class="state_'+state_id+'_districts"><a href="javascript:void(0)" class="districts" id="district_'+district.udise_district_code+'" onClick="setActiveStateDistrict('+ district.udise_state_code+','+district.udise_district_code+')">' +format_string(district.district_name) +'</a></li>'
     })
     return district_list
   }
 
 
-  function toggleDistrictList(state_id,value){
+  function toggleDistrictList(state_id,value,from_where=""){
     if(value){
+      console.log(state_id)
+      makeStateActive(state_id)
+      if(activeDistrict !== null && typeof activeDistrict !== 'undefined'){
+        setBreadCrumb('state')
+        $('#sidebar_active_state').html(activeState.state_name)
+        setInformation()
+      }else{
+        activeDistrict = ''
+        setInformation()
+      }
       $('#state_'+ state_id +'').addClass("active");
-    }else{
-      $('#state_'+ state_id +'').removeClass("active");
+      $('.national_state_list').removeClass('active')
+      $('#showDistrict'+state_id).addClass("active")
 
+    }else{
+      if(from_where !== ''){
+        $('.national_state_list').removeClass('active')
+      }
+      $('#state_'+ state_id +'').removeClass("active");
     }
   }
 
@@ -352,15 +371,16 @@ $(document).ready(()=>{
         else{
           activeState = lastActiveState
           activeDistrict = ''
+          $('#active_state').html(activeState.state_name)
           $('#sidebar_active_state').html(activeState.state_name)
           toggleActiveDistrict(activeDistrict.udise_district_code,false)
-
+          removeItem('activeDistrict')
         }
       }
       if(value === 'national'){
-        toggleDistrictList(activeState.udise_state_code,false)
-        sessionStorage.removeItem('activeState')
-        sessionStorage.removeItem('activeDistrict')
+        toggleDistrictList(activeState.udise_state_code,false,'global_filter')
+        removeItem('activeState')
+        removeItem('activeDistrict')
         activeState = ''
         activeDistrict = ''
       }
@@ -374,6 +394,8 @@ $(document).ready(()=>{
           activeDistrict = lastActiveDistrict
           $('#active_state').html(activeState.state_name)
           $('#active_district').html(activeDistrict.district_name)
+          toggleDistrictList(activeDistrict.udise_state_code,true)
+          toggleActiveDistrict(activeDistrict.udise_district_code,true)
         }
       }
       setInformation()
@@ -555,23 +577,14 @@ $(document).ready(()=>{
   }
 
   function setActiveStateDistrict(state_id,district_id){
+
     setBreadCrumb('district')
-    const all_states = JSON.parse(sessionStorage.getItem('states'))
-    const all_districts = JSON.parse(sessionStorage.getItem('districts'))
-    activeState =all_states.filter(state=>{
-      if(state.udise_state_code === parseInt(state_id))
-      return state
-    }).pop()
+    makeStateActive(state_id)
+    makeDistrictActive(district_id)
 
-    activeDistrict = all_districts.filter(district =>{
-      if(district.udise_district_code === district_id)
-      return district
-    }).pop()
-
-    sessionStorage.setItem('activeState',JSON.stringify(activeState)) 
-    sessionStorage.setItem('activeDistrict',JSON.stringify(activeDistrict)) 
     $('#active_state').html(activeState.state_name)
     $('#active_district').html(activeDistrict.district_name)
+
     toggleActiveDistrict(activeDistrict.udise_district_code,true)
     setInformation()
   }
@@ -1120,20 +1133,65 @@ $(document).ready(()=>{
     })
   }
 
-  function filterList(state_id){
+  function filterList(state_id,type){
+    let ul = []
+    let li = []
+    let filter = ''
 
-    const filter = $('#input_state_'+state_id).val().toLowerCase()
-    const ul = document.getElementById('district_'+state_id+'_list')
-    const li = ul.getElementsByTagName('li')
-
+    if(type === district){
+      filter = $('#input_state_'+state_id).val().toLowerCase()
+      ul = document.getElementById('district_'+state_id+'_list')
+      li = ul.getElementsByClassName('state_'+state_id+'_districts')
+    }
+    else{
+      filter = $('#input_state_filter').val().toLowerCase()
+      ul = document.getElementById('state_list_national')
+      li = ul.getElementsByClassName('national_states')
+    }
     for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName("a")[0];
-      txtValue = a.textContent || a.innerText;
+      let txtValue = ''
+      if(type === district){
+        const a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+      }else{
+       const a = li[i].getElementsByTagName("a")[0]
+        txtValue = a.textContent || a.innerText;
+        txtValue = txtValue.replace('radio_button_checked','')
+        txtValue = txtValue.replace('radio_button_unchecked','')
+      }
       if (txtValue.toLowerCase().indexOf(filter) > -1) {
           li[i].style.display = "";
       } else {
           li[i].style.display = "none";
       }
-    }
+    } 
 
+  }
+
+  function makeStateActive(state_id){
+    const all_states = JSON.parse(sessionStorage.getItem('states'))
+
+    activeState =all_states.filter(state=>{
+      if(state.udise_state_code === parseInt(state_id))
+      return state
+    }).pop()
+
+    sessionStorage.setItem('activeState',JSON.stringify(activeState)) 
+
+  }
+
+  function makeDistrictActive(district_id){
+    const all_districts = JSON.parse(sessionStorage.getItem('districts'))
+
+    activeDistrict = all_districts.filter(district =>{
+      if(district.udise_district_code === district_id)
+      return district
+    }).pop()
+
+    sessionStorage.setItem('activeDistrict',JSON.stringify(activeDistrict)) 
+
+  }
+
+  function removeItem(item){
+    sessionStorage.removeItem(item)
   }
