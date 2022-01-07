@@ -8,7 +8,6 @@
 @include('front.report_card.performance')
 @include('front.report_card.participation')
 @include('front.report_card.information')
-
 <div class="tab-content tablayertwo-content">
                             <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
                               <ul class="nav nav-tabs tablayerthree" role="tablist" >

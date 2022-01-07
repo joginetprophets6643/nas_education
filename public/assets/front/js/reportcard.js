@@ -41,8 +41,8 @@ $(document).ready(()=>{
 
   });
 
-  function createColumnChart(where,data){
-    Highcharts.chart(where, {
+  async function createColumnChart(where,data){
+     await Highcharts.chart(where, {
       chart: {
         backgroundColor: 'transparent',
         height: 300,
@@ -232,7 +232,7 @@ $(document).ready(()=>{
   }
 
   async function createSidebarStates(data){
-    let state_list = "<ul>"
+    let state_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_filter' onkeyup='filterList(0,state)' placeholder='Search for state'></div><ul id='state_list_national'>"
     let district_data = []
 
     await $.ajax({
@@ -245,13 +245,14 @@ $(document).ready(()=>{
 
     await data.map(state=>{
 
-      state_list += '<li><a href="javascript:void(0)" class="active" onClick ="toggleDistrictList('+state.udise_state_code+',true)" id="showDistrict'+state.udise_state_code +'" ><span class="material-icons-round radio_checked"> radio_button_checked </span><span class="material-icons-round radio_unchecked">radio_button_unchecked</span>'+ state.state_name +'</a>'
+      state_list += '<li class="national_states" id="state_no'+state.udise_state_code+'"><a href="javascript:void(0)" class="national_state_list" onClick ="toggleDistrictList('+state.udise_state_code+',true)" id="showDistrict'+state.udise_state_code +'" ><span class="material-icons-round radio_checked"> radio_button_checked </span><span class="material-icons-round radio_unchecked"> radio_button_unchecked </span>'+ state.state_name +'</a>'
       const filteredDistrict = district_data.filter(district=>{
         if(district.udise_state_code === state.udise_state_code)
         return district
       })
+      // console.log(filteredDistrict)
 
-      state_list += '<div class="district-list" id="state_'+ state.udise_state_code +'"><div class="d-flex align-items-center justify-content-between pb-15"><h2>'+ state.state_name +'</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList('+state.udise_state_code+',false)"><span class="material-icons-round">highlight_off</span></button></div><ul>'
+      state_list += '<div class="district-list" id="state_'+ state.udise_state_code +'"><div class="d-flex align-items-center justify-content-between pb-15"><h2>'+ state.state_name +'</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList('+state.udise_state_code+',false)"><span class="material-icons-round">highlight_off</span></button></div><ul id="district_'+state.udise_state_code+'_list">'
       state_list +=  createDistrictForStates(filteredDistrict,state.state_name,state.udise_state_code)
       state_list += '</ul></div>'
       state_list += '</li>'
@@ -260,15 +261,19 @@ $(document).ready(()=>{
     document.getElementById('all-state-list').innerHTML = state_list
 
     if(already_active_district !== null) {
+
       chageDataWithFilter('global_filter','district')
       setBreadCrumb('district')
       toggleDistrictList(already_active_state.udise_state_code,true)
       toggleActiveDistrict(already_active_district.udise_district_code,true)
+
     }
     else if(already_active_state !== null) {
+
       chageDataWithFilter('global_filter','state')
       setBreadCrumb('state')
       toggleDistrictList(already_active_state.udise_state_code,true)
+
     }
     else{
       setBreadCrumb('national')
@@ -276,21 +281,36 @@ $(document).ready(()=>{
   }
 
 
-  function createDistrictForStates(data){
-    let district_list = ''
+  function createDistrictForStates(data,state_name,state_id){
+    let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_"+state_id+"' onkeyup='filterList("+state_id+",district)' placeholder='Search for district' title='Type in a name'></div>"
     data.map(district=>{
-      district_list +='<li><a href="javascript:void(0)" class="districts" id="district_'+district.udise_district_code+'" onClick="setActiveStateDistrict('+ district.udise_state_code+','+district.udise_district_code+')">' +format_string(district.district_name) +'</a></li>'
+      district_list +='<li class="state_'+state_id+'_districts"><a href="javascript:void(0)" class="districts" id="district_'+district.udise_district_code+'" onClick="setActiveStateDistrict('+ district.udise_state_code+','+district.udise_district_code+')">' +format_string(district.district_name) +'</a></li>'
     })
     return district_list
   }
 
 
-  function toggleDistrictList(state_id,value){
+  function toggleDistrictList(state_id,value,from_where=""){
     if(value){
+      console.log(state_id)
+      makeStateActive(state_id)
+      if(activeDistrict !== null && typeof activeDistrict !== 'undefined'){
+        setBreadCrumb('state')
+        $('#sidebar_active_state').html(activeState.state_name)
+        setInformation()
+      }else{
+        activeDistrict = ''
+        setInformation()
+      }
       $('#state_'+ state_id +'').addClass("active");
-    }else{
-      $('#state_'+ state_id +'').removeClass("active");
+      $('.national_state_list').removeClass('active')
+      $('#showDistrict'+state_id).addClass("active")
 
+    }else{
+      if(from_where !== ''){
+        $('.national_state_list').removeClass('active')
+      }
+      $('#state_'+ state_id +'').removeClass("active");
     }
   }
 
@@ -351,15 +371,16 @@ $(document).ready(()=>{
         else{
           activeState = lastActiveState
           activeDistrict = ''
+          $('#active_state').html(activeState.state_name)
           $('#sidebar_active_state').html(activeState.state_name)
           toggleActiveDistrict(activeDistrict.udise_district_code,false)
-
+          removeItem('activeDistrict')
         }
       }
       if(value === 'national'){
-        toggleDistrictList(activeState.udise_state_code,false)
-        sessionStorage.removeItem('activeState')
-        sessionStorage.removeItem('activeDistrict')
+        toggleDistrictList(activeState.udise_state_code,false,'global_filter')
+        removeItem('activeState')
+        removeItem('activeDistrict')
         activeState = ''
         activeDistrict = ''
       }
@@ -373,6 +394,8 @@ $(document).ready(()=>{
           activeDistrict = lastActiveDistrict
           $('#active_state').html(activeState.state_name)
           $('#active_district').html(activeDistrict.district_name)
+          toggleDistrictList(activeDistrict.udise_state_code,true)
+          toggleActiveDistrict(activeDistrict.udise_district_code,true)
         }
       }
       setInformation()
@@ -527,7 +550,13 @@ $(document).ready(()=>{
     await $.ajax({
       type: "GET",
       url: api_url + table + '?limit=-1',
-    }).done(res=>{
+      beforeSend: () =>{
+        $('#loader').show()
+      },
+      complete: ()=>{
+        $('#loader').hide()
+      },
+      }).done(res=>{
       if(screenType === 'participation'){
         sessionStorage.setItem('participation_data',JSON.stringify(res.data))
       }
@@ -548,23 +577,14 @@ $(document).ready(()=>{
   }
 
   function setActiveStateDistrict(state_id,district_id){
+
     setBreadCrumb('district')
-    const all_states = JSON.parse(sessionStorage.getItem('states'))
-    const all_districts = JSON.parse(sessionStorage.getItem('districts'))
-    activeState =all_states.filter(state=>{
-      if(state.udise_state_code === parseInt(state_id))
-      return state
-    }).pop()
+    makeStateActive(state_id)
+    makeDistrictActive(district_id)
 
-    activeDistrict = all_districts.filter(district =>{
-      if(district.udise_district_code === district_id)
-      return district
-    }).pop()
-
-    sessionStorage.setItem('activeState',JSON.stringify(activeState)) 
-    sessionStorage.setItem('activeDistrict',JSON.stringify(activeDistrict)) 
     $('#active_state').html(activeState.state_name)
     $('#active_district').html(activeDistrict.district_name)
+
     toggleActiveDistrict(activeDistrict.udise_district_code,true)
     setInformation()
   }
@@ -714,28 +734,30 @@ $(document).ready(()=>{
         createSocialBarGraph(barChart,barChartColors['class_'+classType])
       }
       if(screenType === 'performance'){
-        if(data.length === 0){
-          createPerformanceScreen({})
-        }else{
-          data.forEach(performance=>{
-            createPerformanceScreen(JSON.parse(performance.data))
-          })
-        }
+          let empty =  false
+          if(data.length === 0){
+            empty = true
+          }else{
+            empty = false
+          }
+          if(!empty){
+            data.forEach(performance=>{
+              createPerformanceScreen(performance,empty)
+            })
+          }else{
+            grades.forEach(grade=>{
+              const sample_data = {grade: grade}
+              if(grade !== 'all'){
+                createPerformanceScreen(sample_data,empty)
+              }
+            })  
+          } 
       }
       if(screenType === 'learning'){
         const all_subjects = class_subjects['class_all']
         all_subjects.forEach(subject => {
           $('.'+subject.toLowerCase()+'_lo_class'+classType).empty()
-        });
-        // $('.evs_lo_class'+classType).empty();
-        // $('.science_lo_class'+classType).empty();
-        // $('.social_lo_class'+classType).empty();
-        // $('.mil_lo_class'+classType).empty();
-        // $('.language_lo_class'+classType).empty();
-        // $('.math_lo_class'+classType).empty();
-        // $('.english_lo_class'+classType).empty()
-
-        
+        });  
 
         let count_object = {
           language:0,
@@ -889,9 +911,22 @@ $(document).ready(()=>{
     return row
   }
 
-  function createPerformanceScreen(data){
+  function createPerformanceScreen(data,empty){
+    const all_data = data 
+
+    if(!empty){
+      data = JSON.parse(all_data.data)
+    }
+
+    let graphs = []
+
     const sections = ['Location','Gender','SocialGroup','Management']
-    const graphs = class_subjects['class_'+classType]
+    
+    if(classType === 'all'){
+      graphs = class_subjects['class_'+ all_data.grade]
+    }else{
+      graphs = class_subjects['class_'+classType]
+    }
 
     const entities = {
       boys:'Boys',
@@ -924,29 +959,74 @@ $(document).ready(()=>{
       english:['#E8C7E6','#DCACD9','#D190CD','#B168AD'],
     }  
     const demographics = ['national','state','district']
-    
 
-    let empty =  false
-    if(Object.keys(data).length === 0){
-      empty = true
-    }else{
-      empty = false
+    let cumulative_subject_count = {
+      language:{
+        district:0,
+        state:0,
+        national:0
+      },
+      evs:{
+        district:0,
+        state:0,
+        national:0
+      },
+      math:{
+        district:0,
+        state:0,
+        national:0
+      },
+      mil:{
+        district:0,
+        state:0,
+        national:0
+      },
+      sci:{
+        district:0,
+        state:0,
+        national:0
+      },
+      sst:{
+        district:0,
+        state:0,
+        national:0
+      },
+      eng:{
+        district:0,
+        state:0,
+        national:0
+      },
     }
+
     sections.forEach(section => {
+
       graphs.forEach(sub=>{
-        const where = section + sub +'BarGraph_class'+classType
+        let where = ''
+        if(classType !== 'all'){
+          where = section + sub +'BarGraph_class' +classType
+
+        }else{
+          where = section + sub + all_data.grade +'BarGraph_class'+classType
+        }
         const scale = scales[section.toLowerCase()]
         let chart = []
 
         demographics.forEach(demo => {
-          const where = screenType +'_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
-          let cardData = 0
-          if(!empty){
-            cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
-          }
-          updateCards(where,cardData)
 
+          if(classType === 'all'){
+            if(!empty){
+              cumulative_subject_count[subjects_short_codes[sub.toLowerCase()]][demo] += parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+            }
+          }else{
+            const card_where = screenType + '_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
+            let cardData = 0
+            if(!empty){
+              cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+            }
+            updateCards(card_where,cardData)
+          }
         });
+
         scale.forEach((element,index) => {
           const color =  colorCode[sub.toLowerCase()]
           let chart_data = []
@@ -966,10 +1046,17 @@ $(document).ready(()=>{
           }
           chart.push(item)
         });
+        
         createColumnChart(where,chart)
+
       })
       
     });
+    if(classType === 'all'){
+      // console.log(cumulative_subject_count)
+    }
+
+
   }
 
   function updateCards(cardPosition,data){
@@ -1044,4 +1131,67 @@ $(document).ready(()=>{
       }
 
     })
+  }
+
+  function filterList(state_id,type){
+    let ul = []
+    let li = []
+    let filter = ''
+
+    if(type === district){
+      filter = $('#input_state_'+state_id).val().toLowerCase()
+      ul = document.getElementById('district_'+state_id+'_list')
+      li = ul.getElementsByClassName('state_'+state_id+'_districts')
+    }
+    else{
+      filter = $('#input_state_filter').val().toLowerCase()
+      ul = document.getElementById('state_list_national')
+      li = ul.getElementsByClassName('national_states')
+    }
+    for (i = 0; i < li.length; i++) {
+      let txtValue = ''
+      if(type === district){
+        const a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+      }else{
+       const a = li[i].getElementsByTagName("a")[0]
+        txtValue = a.textContent || a.innerText;
+        txtValue = txtValue.replace('radio_button_checked','')
+        txtValue = txtValue.replace('radio_button_unchecked','')
+      }
+      if (txtValue.toLowerCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+      } else {
+          li[i].style.display = "none";
+      }
+    } 
+
+  }
+
+  function makeStateActive(state_id){
+    const all_states = JSON.parse(sessionStorage.getItem('states'))
+
+    activeState =all_states.filter(state=>{
+      if(state.udise_state_code === parseInt(state_id))
+      return state
+    }).pop()
+
+    sessionStorage.setItem('activeState',JSON.stringify(activeState)) 
+
+  }
+
+  function makeDistrictActive(district_id){
+    const all_districts = JSON.parse(sessionStorage.getItem('districts'))
+
+    activeDistrict = all_districts.filter(district =>{
+      if(district.udise_district_code === district_id)
+      return district
+    }).pop()
+
+    sessionStorage.setItem('activeDistrict',JSON.stringify(activeDistrict)) 
+
+  }
+
+  function removeItem(item){
+    sessionStorage.removeItem(item)
   }
