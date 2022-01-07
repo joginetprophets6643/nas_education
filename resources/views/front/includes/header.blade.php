@@ -23,8 +23,7 @@
     <link rel="stylesheet" href="{{asset('assets/front/scss/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/style (2).css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/nivo-lightbox.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/front/scss/lightbox-theme.css')}}">
-
+    <link rel="stylesheet" href="{{asset('assets/front/scss/lightbox.min.css')}}">
     <title id='title'></title>
     <style>
       #loading {

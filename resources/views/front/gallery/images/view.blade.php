@@ -1,6 +1,8 @@
 @include('front.includes.header')
 @include('front.includes.nav')
 
+
+
 <section class="banner-wrap">
     <div class="container">
         <div class="row">
@@ -25,14 +27,13 @@
 <section class="gallery-wrap bg-grey ptb-60">
     <div class="container">
         <div class="card-white">
-            <div class="row">
+            <div class="row photos">
 
             @foreach($images as $image)
-                <div class="col-md-4">
+                <div class="col-md-4 item">
                     <div class="gallery-card">
                         <div class="gallery-img-wrap">
-                            
-                            <a href="{{asset('assets/uploads/'.$image)}}" title="sweet nickyyy" class="icon-magnifying-glass lightbox" data-lightbox-gallery="gallery1" data-lightbox-hidpi="{{asset('assets/uploads/'.$image)}}">
+                        <a class="" href="{{asset('assets/uploads/'.$image)}}" data-lightbox="photos">
                                 <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid" style="width:100%;height:200px">
                                 <button class="gallery-zoom-icon" style="width:100%">
                                 <span class="material-icons-round">
@@ -59,15 +60,7 @@
 
 
 
-
 @include('front.includes.footer')
 </div>
-<script>
-    $('#ZoomIn').on('show.bs.modal', function(e) {
-    let link     = $(e.relatedTarget),
-        modal    = $(this),
-        image = link.data("image");
 
-    modal.find("#modal_image").attr('src',image);
-});
-</script>
+

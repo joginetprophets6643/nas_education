@@ -48,7 +48,7 @@ Route::get('forget-password', function () {
 Route::post('proceed', 'App\Http\Controllers\AdminController@proceed')->name('proceed');
 Route::post('login-post', 'App\Http\Controllers\AdminController@login');
 Route::get('register', 'App\Http\Controllers\AdminController@register');
-Route::get('/token={email}', 'App\Http\Controllers\AdminController@viewReset');
+Route::get('/token={email}/{date}/{time}', 'App\Http\Controllers\AdminController@viewReset');
 Route::post('/succeed/{email}', 'App\Http\Controllers\AdminController@successful')->name('succeed');
 });
 
@@ -56,125 +56,125 @@ Route::post('/succeed/{email}', 'App\Http\Controllers\AdminController@successful
 
 
 Route::group(["middleware" => ["islogin"]], function(){
-Route::get('dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
-Route::get('logout', 'App\Http\Controllers\AdminController@logout');
+Route::get('/secure-admin/dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
+Route::get('/secure-admin/logout', 'App\Http\Controllers\AdminController@logout');
 
 // Manage data route
-Route::get('/upload-csv-files', function () {
+Route::get('/secure-admin/upload-csv-files', function () {
     return view('welcome');
 });
 Route::resource('upload',UploadController::class);
 
 //Event Routes
 
-Route::get('/events','App\Http\Controllers\EventController@index')->name('events');
+Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
 
 
-Route::post('/add/event', 'App\Http\Controllers\EventController@store')->name('store-event');
-Route::get('/edit/event/{id}', 'App\Http\Controllers\EventController@edit');
-Route::post('/update/event/{id}', 'App\Http\Controllers\EventController@update');
+Route::post('/secure-admin/add/event', 'App\Http\Controllers\EventController@store')->name('store-event');
+Route::get('/secure-admin/edit/event/{id}', 'App\Http\Controllers\EventController@edit');
+Route::post('/secure-admin/update/event/{id}', 'App\Http\Controllers\EventController@update');
 
 
 //Event Images & videosRoutes
 
-Route::get('/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
-Route::post('/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
-Route::get('/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
-Route::get('/videos','App\Http\Controllers\EventController@videos')->name('videos');
-Route::post('/add/video', 'App\Http\Controllers\EventController@addvideo');
-Route::get('/delete/video/{id}', 'App\Http\Controllers\EventController@deletevideo');
+Route::get('/secure-admin/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
+Route::post('/secure-admin/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
+Route::get('/secure-admin/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
+Route::get('/secure-admin/videos','App\Http\Controllers\EventController@videos')->name('videos');
+Route::post('/secure-admin/add/video', 'App\Http\Controllers\EventController@addvideo');
+Route::get('/secure-admin/delete/video/{id}', 'App\Http\Controllers\EventController@deletevideo');
 
 //Profile
-Route::get('/profile','App\Http\Controllers\AdminController@profile');
-Route::post('/update/profile','App\Http\Controllers\AdminController@updateProfile')->name('update-profile');
+Route::get('/secure-admin/profile','App\Http\Controllers\AdminController@profile');
+Route::post('/secure-admin/update/profile','App\Http\Controllers\AdminController@updateProfile')->name('update-profile');
 
 //Team Routes
-Route::get('/team-manager','App\Http\Controllers\TeamController@index')->name('team');
-Route::get('/add/member','App\Http\Controllers\TeamController@add')->name('add-member');
-Route::post('/store/member','App\Http\Controllers\TeamController@store')->name('store-member');
-Route::get('/edit/member/{id}','App\Http\Controllers\TeamController@edit')->name('edit-member');
-Route::post('/update/member/{id}','App\Http\Controllers\TeamController@update')->name('update-member');
-Route::get('/delete/member/{id}','App\Http\Controllers\TeamController@destroy');
+Route::get('/secure-admin/team-manager','App\Http\Controllers\TeamController@index')->name('team');
+Route::get('/secure-admin/add/member','App\Http\Controllers\TeamController@add')->name('add-member');
+Route::post('/secure-admin/store/member','App\Http\Controllers\TeamController@store')->name('store-member');
+Route::get('/secure-admin/edit/member/{id}','App\Http\Controllers\TeamController@edit')->name('edit-member');
+Route::post('/secure-admin/update/member/{id}','App\Http\Controllers\TeamController@update')->name('update-member');
+Route::get('/secure-admin/delete/member/{id}','App\Http\Controllers\TeamController@destroy');
 
 //Static content Routes
-Route::get('/static-content','App\Http\Controllers\StaticContentController@index')->name('content');
-Route::get('/add/content','App\Http\Controllers\StaticContentController@add')->name('add-content');
-Route::post('/store/content','App\Http\Controllers\StaticContentController@store')->name('store-content');
-Route::get('/edit/content/{id}','App\Http\Controllers\StaticContentController@edit')->name('edit-content');
-Route::get('/delete/content/{id}','App\Http\Controllers\StaticContentController@destroy');
-Route::post('/update/content/{id}','App\Http\Controllers\StaticContentController@update')->name('update-content');
+Route::get('secure-admin/static-content','App\Http\Controllers\StaticContentController@index')->name('content');
+Route::get('/secure-admin/add/content','App\Http\Controllers\StaticContentController@add')->name('add-content');
+Route::post('/secure-admin/store/content','App\Http\Controllers\StaticContentController@store')->name('store-content');
+Route::get('/secure-admin/edit/content/{id}','App\Http\Controllers\StaticContentController@edit')->name('edit-content');
+Route::get('/secure-admin/delete/content/{id}','App\Http\Controllers\StaticContentController@destroy');
+Route::post('/secure-admin/update/content/{id}','App\Http\Controllers\StaticContentController@update')->name('update-content');
 
 
 //Master Routes
 
 //District Routes
-Route::get('/district','App\Http\Controllers\MasterController@district')->name('district');
-Route::get('/add/district','App\Http\Controllers\MasterController@addDistrict')->name('add-district');
-Route::post('/store/district','App\Http\Controllers\MasterController@storeDistrict')->name('store-district');
-Route::get('/edit/district/{id}','App\Http\Controllers\MasterController@editDistrict')->name('edit-district');
-Route::get('/delete/district/{id}','App\Http\Controllers\MasterController@destroyDistrict');
-Route::post('/update/district/{id}','App\Http\Controllers\MasterController@updateDistrict')->name('update-district');
+Route::get('/secure-admin/district','App\Http\Controllers\MasterController@district')->name('district');
+Route::get('/secure-admin/add/district','App\Http\Controllers\MasterController@addDistrict')->name('add-district');
+Route::post('/secure-admin/store/district','App\Http\Controllers\MasterController@storeDistrict')->name('store-district');
+Route::get('/secure-admin/edit/district/{id}','App\Http\Controllers\MasterController@editDistrict')->name('edit-district');
+Route::get('/secure-admin/delete/district/{id}','App\Http\Controllers\MasterController@destroyDistrict');
+Route::post('/secure-admin/update/district/{id}','App\Http\Controllers\MasterController@updateDistrict')->name('update-district');
 
 //State Routes
-Route::get('/state','App\Http\Controllers\MasterController@state')->name('state');
-Route::get('/add/state','App\Http\Controllers\MasterController@addState')->name('add-state');
-Route::post('/store/state','App\Http\Controllers\MasterController@storeState')->name('store-state');
-Route::get('/edit/state/{id}','App\Http\Controllers\MasterController@editState')->name('edit-state');
-Route::get('/delete/state/{id}','App\Http\Controllers\MasterController@destroyState');
-Route::post('/update/state/{id}','App\Http\Controllers\MasterController@updateState')->name('update-state');
+Route::get('/secure-admin/state','App\Http\Controllers\MasterController@state')->name('state');
+Route::get('/secure-admin/add/state','App\Http\Controllers\MasterController@addState')->name('add-state');
+Route::post('/secure-admin/store/state','App\Http\Controllers\MasterController@storeState')->name('store-state');
+Route::get('/secure-admin/edit/state/{id}','App\Http\Controllers\MasterController@editState')->name('edit-state');
+Route::get('/secure-admin/delete/state/{id}','App\Http\Controllers\MasterController@destroyState');
+Route::post('/secure-admin/update/state/{id}','App\Http\Controllers\MasterController@updateState')->name('update-state');
 
 
 // End Master Routes
 
 
 //National Routes
-Route::get('/national-statistic','App\Http\Controllers\NationalController@index')->name('national');
-Route::get('/add/national','App\Http\Controllers\NationalController@add')->name('add-national');
-Route::post('/store/national','App\Http\Controllers\NationalController@store')->name('store-national');
-Route::get('/edit/national/{id}','App\Http\Controllers\NationalController@edit')->name('edit-national');
-Route::get('/delete/national/{id}','App\Http\Controllers\NationalController@destroy');
-Route::post('/update/national/{id}','App\Http\Controllers\NationalController@update')->name('update-national');
+Route::get('/secure-admin/national-statistic','App\Http\Controllers\NationalController@index')->name('national');
+Route::get('/secure-admin/add/national','App\Http\Controllers\NationalController@add')->name('add-national');
+Route::post('/secure-admin/store/national','App\Http\Controllers\NationalController@store')->name('store-national');
+Route::get('/secure-admin/edit/national/{id}','App\Http\Controllers\NationalController@edit')->name('edit-national');
+Route::get('/secure-admin/delete/national/{id}','App\Http\Controllers\NationalController@destroy');
+Route::post('/secure-admin/update/national/{id}','App\Http\Controllers\NationalController@update')->name('update-national');
 
 //Banner Routes
-Route::get('/manage-banner','App\Http\Controllers\BannerController@index')->name('manage-banner');
-Route::post('/store/banner','App\Http\Controllers\BannerController@store')->name('store-banner');
-Route::get('/edit/banner/{id}','App\Http\Controllers\BannerController@edit')->name('edit-banner');
-Route::get('/delete/banner/{image}/{id}','App\Http\Controllers\BannerController@destroy');
-Route::post('/update/banner/{id}','App\Http\Controllers\BannerController@update')->name('update-banner');
+Route::get('/secure-admin/manage-banner','App\Http\Controllers\BannerController@index')->name('manage-banner');
+Route::post('/secure-admin/store/banner','App\Http\Controllers\BannerController@store')->name('store-banner');
+Route::get('/secure-admin/edit/banner/{id}','App\Http\Controllers\BannerController@edit')->name('edit-banner');
+Route::get('/secure-admin/delete/banner/{image}/{id}','App\Http\Controllers\BannerController@destroy');
+Route::post('/secure-admin/update/banner/{id}','App\Http\Controllers\BannerController@update')->name('update-banner');
 
 //Client Logo Routes
-Route::get('/client-logo','App\Http\Controllers\ClientLogoController@index')->name('client-logo');
-Route::post('/store/client-logo','App\Http\Controllers\ClientLogoController@store')->name('store-logo');
-Route::get('/edit/client-logo/{id}','App\Http\Controllers\ClientLogoController@edit')->name('edit-logo');
-Route::get('/delete/client-logo/{id}','App\Http\Controllers\ClientLogoController@destroy');
-Route::post('/update/client-logo/{id}','App\Http\Controllers\ClientLogoController@update')->name('update-logo');
+Route::get('/secure-admin/client-logo','App\Http\Controllers\ClientLogoController@index')->name('client-logo');
+Route::post('/secure-admin/store/client-logo','App\Http\Controllers\ClientLogoController@store')->name('store-logo');
+Route::get('/secure-admin/edit/client-logo/{id}','App\Http\Controllers\ClientLogoController@edit')->name('edit-logo');
+Route::get('/secure-admin/delete/client-logo/{id}','App\Http\Controllers\ClientLogoController@destroy');
+Route::post('/secure-admin/update/client-logo/{id}','App\Http\Controllers\ClientLogoController@update')->name('update-logo');
 
 //Regristration List Routes
-Route::get('/registration-list','App\Http\Controllers\AdminController@list')->name('user-list');
+Route::get('/secure-admin/registration-list','App\Http\Controllers\AdminController@list')->name('user-list');
 
 //Setting Routes
-Route::get('/manage-setting','App\Http\Controllers\SettingController@index')->name('setting');
-Route::get('/add/setting','App\Http\Controllers\SettingController@add')->name('add-setting');
-Route::post('/store/setting','App\Http\Controllers\SettingController@store')->name('store-setting');
-Route::get('/edit/setting','App\Http\Controllers\SettingController@edit')->name('edit-setting');
-Route::get('/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
-Route::post('/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
+Route::get('/secure-admin/manage-setting','App\Http\Controllers\SettingController@index')->name('setting');
+Route::get('/secure-admin/add/setting','App\Http\Controllers\SettingController@add')->name('add-setting');
+Route::post('/secure-admin/store/setting','App\Http\Controllers\SettingController@store')->name('store-setting');
+Route::get('/secure-admin/edit/setting','App\Http\Controllers\SettingController@edit')->name('edit-setting');
+Route::get('/secure-admin/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
+Route::post('/secure-admin/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
 
 //Program Routes
-Route::get('/static-program','App\Http\Controllers\StaticProgramController@index')->name('program');
-Route::get('/add/program','App\Http\Controllers\StaticProgramController@add')->name('add-program');
-Route::post('/store/program','App\Http\Controllers\StaticProgramController@store')->name('store-program');
-Route::get('/edit/program/{id}','App\Http\Controllers\StaticProgramController@edit')->name('edit-program');
-Route::get('/delete/program/{id}','App\Http\Controllers\StaticProgramController@destroy');
-Route::post('/update/program/{id}','App\Http\Controllers\StaticProgramController@update')->name('update-program');
+Route::get('/secure-admin/static-program','App\Http\Controllers\StaticProgramController@index')->name('program');
+Route::get('/secure-admin/add/program','App\Http\Controllers\StaticProgramController@add')->name('add-program');
+Route::post('/secure-admin/store/program','App\Http\Controllers\StaticProgramController@store')->name('store-program');
+Route::get('/secure-admin/edit/program/{id}','App\Http\Controllers\StaticProgramController@edit')->name('edit-program');
+Route::get('/secure-admin/delete/program/{id}','App\Http\Controllers\StaticProgramController@destroy');
+Route::post('/secure-admin/update/program/{id}','App\Http\Controllers\StaticProgramController@update')->name('update-program');
 
 //User Routes
-Route::get('/user','App\Http\Controllers\PermissionController@index')->name('user');
-Route::get('/add/user','App\Http\Controllers\PermissionController@add')->name('add-user');
-Route::post('/store/user','App\Http\Controllers\PermissionController@store')->name('store-user');
-Route::get('/view/user/permission/{id}','App\Http\Controllers\PermissionController@permit')->name('permit-user');
-Route::post('/store/user/permission/{id}','App\Http\Controllers\PermissionController@storePermit')->name('store-permission');
-Route::get('/delete/user/{id}','App\Http\Controllers\PermissionController@destroy');
+Route::get('/secure-admin/user','App\Http\Controllers\PermissionController@index')->name('user');
+Route::get('/secure-admin/add/user','App\Http\Controllers\PermissionController@add')->name('add-user');
+Route::post('/secure-admin/store/user','App\Http\Controllers\PermissionController@store')->name('store-user');
+Route::get('/secure-admin/view/user/permission/{id}','App\Http\Controllers\PermissionController@permit')->name('permit-user');
+Route::post('/secure-admin/store/user/permission/{id}','App\Http\Controllers\PermissionController@storePermit')->name('store-permission');
+Route::get('/secure-admin/delete/user/{id}','App\Http\Controllers\PermissionController@destroy');
 
 });
 

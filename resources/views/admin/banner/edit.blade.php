@@ -12,7 +12,7 @@
           <div class="card-header">Edit Banner</div>
           <div class="card-body">
              <?php $id=encode5t($banner->id)?>
-          <form action="{{url('/update/banner/'.$id)}}" method="POST" enctype="multipart/form-data">
+          <form action="{{url('/secure-admin/update/banner/'.$id)}}" method="POST" enctype="multipart/form-data">
               @csrf
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Banner Description</label>

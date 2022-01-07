@@ -37,8 +37,8 @@
               <td><img src="{{asset('assets/uploads/banner/'.$banner->image)}}" alt=""></td>
               <td class="action Banner_action">
                 <?php $id=encode5t($banner->id)?>
-                <a href="{{url('edit/banner/'.$id)}}" class="btn btn-primary btn-sm Banner_edit">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn Banner_delete" data-delete-link="{{url('delete/banner/'.$banner->image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>
+                <a href="{{url('secure-admin/edit/banner/'.$id)}}" class="btn btn-primary btn-sm Banner_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Banner_delete" data-delete-link="{{url('secure-admin/delete/banner/'.$banner->image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>
               </td>
             </tr>
             @endforeach

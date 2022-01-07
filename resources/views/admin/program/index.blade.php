@@ -43,8 +43,8 @@
               <td style="max-width:290px; overflow:hidden;" id="program">{!!$program->content!!}</td>
               <td class="action Program_action">
                 <?php $id=encode5t($program->id)?>
-                <a href="{{url('edit/program/'.$id)}}" class="btn btn-primary btn-sm Program_edit">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn Program_delete" data-delete-link="{{url('delete/program/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteprogram">Delete</button>
+                <a href="{{url('secure-admin/edit/program/'.$id)}}" class="btn btn-primary btn-sm Program_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Program_delete" data-delete-link="{{url('secure-admin/delete/program/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deleteprogram">Delete</button>
               </td>
             </tr>
             @endforeach
