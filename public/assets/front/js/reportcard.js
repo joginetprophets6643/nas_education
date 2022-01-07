@@ -41,8 +41,8 @@ $(document).ready(()=>{
 
   });
 
-  function createColumnChart(where,data){
-    Highcharts.chart(where, {
+  async function createColumnChart(where,data){
+     await Highcharts.chart(where, {
       chart: {
         backgroundColor: 'transparent',
         height: 300,
@@ -250,8 +250,9 @@ $(document).ready(()=>{
         if(district.udise_state_code === state.udise_state_code)
         return district
       })
+      // console.log(filteredDistrict)
 
-      state_list += '<div class="district-list" id="state_'+ state.udise_state_code +'"><div class="d-flex align-items-center justify-content-between pb-15"><h2>'+ state.state_name +'</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList('+state.udise_state_code+',false)"><span class="material-icons-round">highlight_off</span></button></div><ul>'
+      state_list += '<div class="district-list" id="state_'+ state.udise_state_code +'"><div class="d-flex align-items-center justify-content-between pb-15"><h2>'+ state.state_name +'</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList('+state.udise_state_code+',false)"><span class="material-icons-round">highlight_off</span></button></div><ul id="district_'+state.udise_state_code+'_list">'
       state_list +=  createDistrictForStates(filteredDistrict,state.state_name,state.udise_state_code)
       state_list += '</ul></div>'
       state_list += '</li>'
@@ -276,8 +277,8 @@ $(document).ready(()=>{
   }
 
 
-  function createDistrictForStates(data){
-    let district_list = ''
+  function createDistrictForStates(data,state_name,state_id){
+    let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_"+state_id+"' onkeyup='filterList("+state_id+")' placeholder='Search for district' title='Type in a name'></div>"
     data.map(district=>{
       district_list +='<li><a href="javascript:void(0)" class="districts" id="district_'+district.udise_district_code+'" onClick="setActiveStateDistrict('+ district.udise_state_code+','+district.udise_district_code+')">' +format_string(district.district_name) +'</a></li>'
     })
@@ -527,7 +528,13 @@ $(document).ready(()=>{
     await $.ajax({
       type: "GET",
       url: api_url + table + '?limit=-1',
-    }).done(res=>{
+      beforeSend: () =>{
+        $('#loader').show()
+      },
+      complete: ()=>{
+        $('#loader').hide()
+      },
+      }).done(res=>{
       if(screenType === 'participation'){
         sessionStorage.setItem('participation_data',JSON.stringify(res.data))
       }
@@ -714,28 +721,30 @@ $(document).ready(()=>{
         createSocialBarGraph(barChart,barChartColors['class_'+classType])
       }
       if(screenType === 'performance'){
-        if(data.length === 0){
-          createPerformanceScreen({})
-        }else{
-          data.forEach(performance=>{
-            createPerformanceScreen(JSON.parse(performance.data))
-          })
-        }
+          let empty =  false
+          if(data.length === 0){
+            empty = true
+          }else{
+            empty = false
+          }
+          if(!empty){
+            data.forEach(performance=>{
+              createPerformanceScreen(performance,empty)
+            })
+          }else{
+            grades.forEach(grade=>{
+              const sample_data = {grade: grade}
+              if(grade !== 'all'){
+                createPerformanceScreen(sample_data,empty)
+              }
+            })  
+          } 
       }
       if(screenType === 'learning'){
         const all_subjects = class_subjects['class_all']
         all_subjects.forEach(subject => {
           $('.'+subject.toLowerCase()+'_lo_class'+classType).empty()
-        });
-        // $('.evs_lo_class'+classType).empty();
-        // $('.science_lo_class'+classType).empty();
-        // $('.social_lo_class'+classType).empty();
-        // $('.mil_lo_class'+classType).empty();
-        // $('.language_lo_class'+classType).empty();
-        // $('.math_lo_class'+classType).empty();
-        // $('.english_lo_class'+classType).empty()
-
-        
+        });  
 
         let count_object = {
           language:0,
@@ -889,9 +898,22 @@ $(document).ready(()=>{
     return row
   }
 
-  function createPerformanceScreen(data){
+  function createPerformanceScreen(data,empty){
+    const all_data = data 
+
+    if(!empty){
+      data = JSON.parse(all_data.data)
+    }
+
+    let graphs = []
+
     const sections = ['Location','Gender','SocialGroup','Management']
-    const graphs = class_subjects['class_'+classType]
+    
+    if(classType === 'all'){
+      graphs = class_subjects['class_'+ all_data.grade]
+    }else{
+      graphs = class_subjects['class_'+classType]
+    }
 
     const entities = {
       boys:'Boys',
@@ -924,29 +946,74 @@ $(document).ready(()=>{
       english:['#E8C7E6','#DCACD9','#D190CD','#B168AD'],
     }  
     const demographics = ['national','state','district']
-    
 
-    let empty =  false
-    if(Object.keys(data).length === 0){
-      empty = true
-    }else{
-      empty = false
+    let cumulative_subject_count = {
+      language:{
+        district:0,
+        state:0,
+        national:0
+      },
+      evs:{
+        district:0,
+        state:0,
+        national:0
+      },
+      math:{
+        district:0,
+        state:0,
+        national:0
+      },
+      mil:{
+        district:0,
+        state:0,
+        national:0
+      },
+      sci:{
+        district:0,
+        state:0,
+        national:0
+      },
+      sst:{
+        district:0,
+        state:0,
+        national:0
+      },
+      eng:{
+        district:0,
+        state:0,
+        national:0
+      },
     }
+
     sections.forEach(section => {
+
       graphs.forEach(sub=>{
-        const where = section + sub +'BarGraph_class'+classType
+        let where = ''
+        if(classType !== 'all'){
+          where = section + sub +'BarGraph_class' +classType
+
+        }else{
+          where = section + sub + all_data.grade +'BarGraph_class'+classType
+        }
         const scale = scales[section.toLowerCase()]
         let chart = []
 
         demographics.forEach(demo => {
-          const where = screenType +'_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
-          let cardData = 0
-          if(!empty){
-            cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
-          }
-          updateCards(where,cardData)
 
+          if(classType === 'all'){
+            if(!empty){
+              cumulative_subject_count[subjects_short_codes[sub.toLowerCase()]][demo] += parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+            }
+          }else{
+            const card_where = screenType + '_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
+            let cardData = 0
+            if(!empty){
+              cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+            }
+            updateCards(card_where,cardData)
+          }
         });
+
         scale.forEach((element,index) => {
           const color =  colorCode[sub.toLowerCase()]
           let chart_data = []
@@ -966,10 +1033,17 @@ $(document).ready(()=>{
           }
           chart.push(item)
         });
+        
         createColumnChart(where,chart)
+
       })
       
     });
+    if(classType === 'all'){
+      // console.log(cumulative_subject_count)
+    }
+
+
   }
 
   function updateCards(cardPosition,data){
@@ -1044,4 +1118,22 @@ $(document).ready(()=>{
       }
 
     })
+  }
+
+  function filterList(state_id){
+
+    const filter = $('#input_state_'+state_id).val().toLowerCase()
+    const ul = document.getElementById('district_'+state_id+'_list')
+    const li = ul.getElementsByTagName('li')
+
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toLowerCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+      } else {
+          li[i].style.display = "none";
+      }
+    }
+
   }
