@@ -12,7 +12,7 @@
           <div class="card-header">Edit Event</div>
           <div class="card-body">
             <?php $id=encode5t($event->id)?>
-          <form action="{{url('/update/event/'.$id)}}" method="POST">
+          <form action="{{url('/secure-admin/update/event/'.$id)}}" method="POST">
               @csrf
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Update Event Name</label>

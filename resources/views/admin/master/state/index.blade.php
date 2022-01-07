@@ -39,8 +39,8 @@
               <td>{{$state->udise_state_code}}</td>
               <td class="action Master_action">
                 <?php $id=encode5t($state->id)?>
-                <a href="{{url('edit/state/'.$id)}}" class="btn btn-primary btn-sm Master_edit">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn Master_delete" data-delete-link="{{url('delete/state/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletestate">Delete</button>
+                <a href="{{url('secure-admin/edit/state/'.$id)}}" class="btn btn-primary btn-sm Master_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn Master_delete" data-delete-link="{{url('secure-admin/delete/state/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletestate">Delete</button>
               </td>
             </tr>
             @endforeach

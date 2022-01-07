@@ -55,7 +55,7 @@ class AdminController extends BaseController
         
         $credentials = $request->only('email', 'password','address');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')->with('success','Signed in');
+            return redirect()->intended('/secure-admin/dashboard')->with('success','Signed in');
         }
 
         return redirect("secure-admin")->with('success','Login details are not valid');
@@ -110,26 +110,45 @@ class AdminController extends BaseController
         'email' => 'required',
     ]);
     $email=encode5t($request->email);
-    $link=url('/').'/token='.$email;
+    $date=encode5t(date('Y-m-d'));
+    date_default_timezone_set('Asia/Kolkata');
+    $time=encode5t(date('h:i:s'));
+    
+    $link=url('/').'/token='.$email.'/'.$date.'/'.$time;
     $user=User::where('email',$request->email)->where('address')->first();
     if($user){
+        dd($link);
         Mail::to($request->email)->send(new ResetLinkMail($link));
         return redirect()->back()->with('success','Reset Link sent to the given Email address');
     }
     else{
-        return redirect()->back()->with('error','Unauthorized User');
+        return redirect('secure-admin')->with('success','Unauthorized User');
     }
    }
 
-   public function viewReset($email){
+   public function viewReset($email,$date,$time){
     $email=decode5t($email);
-    $user=User::where('email',$email)->where('address')->first();
-    if($user){
-        return view('admin.reset-password',compact('email'));
+    $date=decode5t($date);
+    $time=decode5t($time);
+
+    $c_date=date('Y-m-d');
+    date_default_timezone_set('Asia/Kolkata');
+    $c_time=date('h:i:s');
+    $min=(int)round(abs(strtotime($c_time)-strtotime($time))/60);
+
+    if($date==$c_date && $min<=10){
+        $user=User::where('email',$email)->where('address')->first();
+        if($user){
+            return view('admin.reset-password',compact('email'));
+        }
+        else{
+            return redirect('secure-admin')->with('success','Unauthorized User');
+        }
     }
     else{
-        return redirect('secure-admin');
+        return redirect('forget-password')->with('success','Reset Link Expired.Generate new Reset Link');
     }
+    
    }
 
    public function successful(Request $request,$email){

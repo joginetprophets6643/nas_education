@@ -8099,5 +8099,10 @@ ul {
     .nasteam-container {
         border-right: 0;
     }
+    #lightbox .lb-outerContainer {
+        background-color: transparent !important;
+    }
+        
+        
 }
 /*# sourceMappingURL=style.css.map */
