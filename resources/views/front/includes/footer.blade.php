@@ -8,19 +8,19 @@
                 </h2>
                 <ul>
                   <li>
-                    <a href="#">
+                    <a href="{{url('/report-card')}}">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.National')}}
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="{{url('/report-card')}}">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.State')}}
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="{{url('/report-card')}}">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.District')}}
                     </a>
@@ -56,19 +56,19 @@
               </h2>
               <ul>
                   <li>
-                    <a href="#">
+                    <a href="{{url('/visualization')}}">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.National')}}
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="{{url('/visualization')}}">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.State')}}
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="{{url('/visualization')}}">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.District')}}
                     </a>
@@ -83,13 +83,13 @@
               </h2>
               <ul>
                 <li>
-                  <a href="/gallery/image-gallery">
+                  <a href="{{url('/gallery/image-gallery')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Photo Gallery')}}
                   </a>
                 </li>
                 <li>
-                  <a href="/gallery/video-gallery">
+                  <a href="{{url('/gallery/video-gallery')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Video Gallery')}}
                   </a>
@@ -146,22 +146,22 @@
                   <div class="footer-bottom-links">
                       <ul>
                         <li>
-                          <a href="/terms-conditions">{{__('lang.Terms & Conditions')}}</a>
+                          <a href="{{url('/terms-conditions')}}">{{__('lang.Terms & Conditions')}}</a>
                         </li>
                         <li>
-                          <a href="/privacy-policy">{{__('lang.Privacy Policy')}}</a>
+                          <a href="{{url('/privacy-policy')}}">{{__('lang.Privacy Policy')}}</a>
                         </li>
                         <li>
-                          <a href="/copyright-policy">{{__('lang.Copyright Policy')}}</a>
+                          <a href="{{url('/copyright-policy')}}">{{__('lang.Copyright Policy')}}</a>
                         </li>
                         <li>
-                          <a href="/hyper-linking-policy">{{__('lang.Hyper Linking Policy')}}</a>
+                          <a href="{{url('/hyper-linking-policy')}}">{{__('lang.Hyper Linking Policy')}}</a>
                         </li>
                         <li>
-                          <a href="/accessbility-statement">{{__('lang.Accessibility Statement')}}</a>
+                          <a href="{{url('/accessbility-statement')}}">{{__('lang.Accessibility Statement')}}</a>
                         </li>
                         <li>
-                          <a href="/rti">{{__('lang.RTI')}}</a>
+                          <a href="{{url('/rti')}}">{{__('lang.RTI')}}</a>
                         </li>
                       </ul>
                   </div>
@@ -182,7 +182,7 @@
             @if($setting)
                 <ul>
                   <li>
-                    <a href="{{url($setting->fb)}}">
+                    <a href="{{url($setting->fb)}}" target="_blank">
                       <div class="facebook">
                         <svg xmlns="http://www.w3.org/2000/svg" width="10.43" height="18.5" viewBox="0 0 10.43 18.5">
                           <path id="Icon_awesome-facebook-f" data-name="Icon awesome-facebook-f" d="M11.356,10.406,11.9,7.058H8.515V4.886c0-.916.472-1.809,1.987-1.809H12.04V.226A19.707,19.707,0,0,0,9.311,0C6.526,0,4.705,1.6,4.705,4.506V7.058h-3.1v3.348h3.1V18.5h3.81V10.406Z" transform="translate(-1.609)" fill="#fff"/>
@@ -191,7 +191,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="{{url($setting->twitter)}}">
+                    <a href="{{url($setting->twitter)}}" target="_blank">
                       <div class="twitter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16.805" height="14.552" viewBox="0 0 16.805 14.552">
                           <path id="icon-twitter" d="M765.642,22.528a6.541,6.541,0,0,1-1.981.568,3.634,3.634,0,0,0,1.514-2.024,6.526,6.526,0,0,1-2.186.886,3.342,3.342,0,0,0-2.517-1.16,3.563,3.563,0,0,0-3.445,3.673,4.4,4.4,0,0,0,.085.841,9.6,9.6,0,0,1-7.1-3.843,3.834,3.834,0,0,0-.469,1.854,3.738,3.738,0,0,0,1.536,3.058,3.316,3.316,0,0,1-1.557-.466v.045a3.622,3.622,0,0,0,2.762,3.6,3.434,3.434,0,0,1-.907.125,4.151,4.151,0,0,1-.651-.056,3.486,3.486,0,0,0,3.221,2.546,6.632,6.632,0,0,1-4.277,1.569,6.786,6.786,0,0,1-.832-.045,9.3,9.3,0,0,0,5.29,1.648c6.335,0,9.8-5.593,9.8-10.448,0-.158,0-.318-.011-.477a7.645,7.645,0,0,0,1.725-1.9Z" transform="translate(-748.836 -20.799)" fill="#fff"/>
@@ -200,7 +200,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="{{url($setting->insta)}}">
+                    <a href="{{url($setting->insta)}}" target="_blank">
                       <div class="insta">
                         <svg xmlns="http://www.w3.org/2000/svg" width="10.43" height="18.5" viewBox="0 0 10.43 18.5">
                           <path id="Icon_awesome-facebook-f" data-name="Icon awesome-facebook-f" d="M11.356,10.406,11.9,7.058H8.515V4.886c0-.916.472-1.809,1.987-1.809H12.04V.226A19.707,19.707,0,0,0,9.311,0C6.526,0,4.705,1.6,4.705,4.506V7.058h-3.1v3.348h3.1V18.5h3.81V10.406Z" transform="translate(-1.609)" fill="#fff"/>

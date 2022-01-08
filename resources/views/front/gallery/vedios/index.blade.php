@@ -32,7 +32,7 @@
                         <div class="col-md-5">
                             <div class="video-wrap">
                             <iframe width="385" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                            </div>  
                         </div>
                         @endif
                         @if($video->vedio)

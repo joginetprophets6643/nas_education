@@ -19,9 +19,9 @@
                 <p class="mb-1 mt-3">{{Auth::user()->name}}</p>
                 <p class="font-weight-light text-muted mb-0">{{Auth::user()->email}}</p>
               </div>
-              <a href="/secure-admin/profile" class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
+              <a href="{{url('/secure-admin/profile')}}" class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
               
-              <a href="/secure-admin/logout" class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+              <a href="{{url('/secure-admin/logout')}}" class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
             </div>
           </li>
         </ul>
