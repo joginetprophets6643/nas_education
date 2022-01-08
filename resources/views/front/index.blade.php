@@ -248,7 +248,7 @@
               </div>
               
               <div class="btn-wrap">
-                <a href="#" class="white-link">
+                <a href="{{url('visualization')}}" class="white-link">
                   {{ __('lang.Read More') }}
                   <span class="material-icons-round">
                     east
@@ -369,7 +369,7 @@
                 @foreach($client_logo as $key=>$logos)
                 <div class="item">
                   <div class="client-img-wrap">
-                    <a href="{{$logos->url}}">
+                    <a href="{{$logos->url}}" target="_blank">
                      <img src="{{asset('assets/uploads/client_logo/'.$logos->logo)}}" alt="img" class="img-fluid" />
                     </a>
                   </div>

@@ -25,7 +25,7 @@
               </div>
           </li> -->
           <li>
-            <a href="#">
+            <a href="javascript:void(0)">
               <div class="select-wrap">
                 <select class="form-select Langchange">
                   <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
@@ -47,7 +47,7 @@
             <?php $setting=get_setting()?>
             @if($setting)
             <div class="d-flex justify-content-between w-100">
-              <a class="navbar-brand" href="/">
+              <a class="navbar-brand" href="{{url('/')}}">
               
                 <img src="{{asset('assets/uploads/logo/'.$setting->logo_1)}}" alt="logo" class="img-fluid" />
               
