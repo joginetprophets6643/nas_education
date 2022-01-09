@@ -37,7 +37,7 @@
                       <label class="form-check-label text-muted">
                         <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                     </div>
-                    <a href="{{url('/forget-password')}}" class="auth-link text-black" style="display:block">Forgot password?</a>
+                    <a href="{{url('/secure-admin/forget-password')}}" class="auth-link text-black" style="display:block">Forgot password?</a>
                   </div>
 
                 </form>

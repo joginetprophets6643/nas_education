@@ -43,7 +43,7 @@
                   </div>
                   </div>
                   <div class="btn-wrap">
-                    <a href="{{url('/about')}}" class="btn btn_lg btn-white">{{ __('lang.Read More') }}</a>
+                    <a href="{{url('/about-nas')}}" class="btn btn_lg btn-white">{{ __('lang.Read More') }}</a>
                   </div>
                 </div>
                 
