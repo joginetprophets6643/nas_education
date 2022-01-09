@@ -117,7 +117,6 @@ class AdminController extends BaseController
     $link=url('/').'/token='.$email.'/'.$date.'/'.$time;
     $user=User::where('email',$request->email)->where('address')->first();
     if($user){
-        dd($link);
         Mail::to($request->email)->send(new ResetLinkMail($link));
         return redirect()->back()->with('success','Reset Link sent to the given Email address');
     }
