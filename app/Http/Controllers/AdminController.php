@@ -146,7 +146,7 @@ class AdminController extends BaseController
         }
     }
     else{
-        return redirect('forget-password')->with('success','Reset Link Expired.Generate new Reset Link');
+        return redirect()->route('forget-password')->with('success','Reset Link Expired.Generate New Reset Link');
     }
     
    }

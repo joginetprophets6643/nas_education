@@ -42,9 +42,9 @@ Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name(
 //Admin routes
 Route::group(["middleware" => ["secure"]], function(){
 Route::get('secure-admin', 'App\Http\Controllers\AdminController@index')->name('secure-admin');
-Route::get('forget-password', function () {
+Route::get('secure-admin/forget-password', function () {
     return view('admin.forget-password');
-});
+})->name('forget-password');
 Route::post('proceed', 'App\Http\Controllers\AdminController@proceed')->name('proceed');
 Route::post('login-post', 'App\Http\Controllers\AdminController@login');
 Route::get('register', 'App\Http\Controllers\AdminController@register');
