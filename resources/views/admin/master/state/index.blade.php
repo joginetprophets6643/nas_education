@@ -23,9 +23,9 @@
           <thead>
             <tr>
               <th scope="col" width="70px">SL no.</th>
-              <th scope="col">State Id</th>
+              <!-- <th scope="col">State Id</th> -->
               <th scope="col">State Name</th>
-              <th scope="col">State Code</th>
+              <!-- <th scope="col">State Code</th> -->
               <th scope="col" width="200px" class="action Master_action">Actions</th>
             </tr>
           </thead>
@@ -34,9 +34,9 @@
             @foreach($states as $state)
             <tr>
               <th scope="row">{{$i++}}</th>
-              <td>{{$state->state_id}}</td>
+              <!-- <td>{{$state->state_id}}</td> -->
               <td>{{$state->state_name}}</td>
-              <td>{{$state->udise_state_code}}</td>
+              <!-- <td>{{$state->udise_state_code}}</td> -->
               <td class="action Master_action">
                 <?php $id=encode5t($state->id)?>
                 <a href="{{url('secure-admin/edit/state/'.$id)}}" class="btn btn-primary btn-sm Master_edit">Edit</a>
