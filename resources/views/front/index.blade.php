@@ -341,8 +341,7 @@
                         @endif
                         @endforeach
                       </div>
-                      </div>
-                        <div class="slider-viewbtn btn-wrap">
+                      <div class="slider-viewbtn btn-wrap">
                         <a href="{{url('/gallery/video-gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
@@ -350,6 +349,8 @@
                           </span>
                         </a>
                       </div>
+                      </div>
+                        
                         @else
                         <p class="text-center" style="margin-top:100px;">No Video Uploaded Yet!<p>
                         @endif

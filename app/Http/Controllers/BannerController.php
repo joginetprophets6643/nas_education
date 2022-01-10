@@ -9,7 +9,7 @@ use App\Models\Banner;
 class BannerController extends Controller
 {
     public function index(){
-        $banners=Banner::all();
+        $banners=Banner::latest()->get();
         return view('admin.banner.index',compact('banners'));
     }
 

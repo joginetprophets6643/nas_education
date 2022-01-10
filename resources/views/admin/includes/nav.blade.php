@@ -51,7 +51,7 @@
           <li class="nav-item" id="User" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/user')}}">
               <span class="menu-title">Manage User</span>
-              <i class="icon-user menu-icon"></i>
+              <i class="fas fa-user menu-icon"></i>
             </a>
           </li>
 
