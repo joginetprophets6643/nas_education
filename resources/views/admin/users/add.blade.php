@@ -10,7 +10,7 @@
                 @csrf
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Name</label>
-                <input class="form-control" name="name" type="text" placeholder="Name">
+                <input class="form-control" name="name" type="text" placeholder="Name" value="{{old('name')}}">
                 @error('name')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -19,7 +19,7 @@
 
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email Address</label>
-                <input class="form-control" name="email" type="email"  aria-label="input example" placeholder="Email Address">
+                <input class="form-control" name="email" type="email"  aria-label="input example" placeholder="Email Address" value="{{old('email')}}">
                 @error('email')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -27,7 +27,7 @@
 
                 <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input class="form-control" name="password"  type="password" placeholder="Enter Password">
+                <input class="form-control" name="password"  type="password" placeholder="Enter Password" value="{{old('password')}}">
                 @error('password')
                 <span class="text-danger">{{$message}}</span>
                 @enderror

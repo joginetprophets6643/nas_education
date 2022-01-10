@@ -13,7 +13,7 @@
 
             <div class="col-6">
               <label for="exampleInputEmail1" class="form-label">Name</label>
-              <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{old('name')}}">
               @error('name')
               <span class="text-danger">{{$message}}</span>
               @enderror
@@ -21,7 +21,7 @@
 
             <div class="col-6">
               <label for="exampleInputEmail1" class="form-label">Designation</label>
-              <input type="text" name="designation" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="designation" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{old('designation')}}">
               @error('designation')
               <span class="text-danger">{{$message}}</span>
               @enderror
@@ -34,7 +34,7 @@
 
             <div class="col-6">
               <label for="exampleInputEmail1" class="form-label">Address</label>
-              <input type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{old('address')}}">
               @error('address')
               <span class="text-danger">{{$message}}</span>
               @enderror
@@ -42,7 +42,7 @@
 
             <div class="col-6">
               <label for="exampleInputEmail1" class="form-label">Mobile No.</label>
-              <input type="text" name="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" pattern="[0-9]{10}" value="{{old('mobile')}}">
               @error('mobile')
               <span class="text-danger">{{$message}}</span>
               @enderror
@@ -63,7 +63,7 @@
 
             <div class="col-6">
               <label for="exampleInputEmail1" class="form-label">Joining Date</label>
-              <input type="text" name="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{old('date')}}">
               @error('date')
               <span class="text-danger">{{$message}}</span>
               @enderror
@@ -78,8 +78,8 @@
               <label for="exampleInputEmail1" class="form-label">Section Title</label>
               <select name="description" class="form-control">
                   <option value="">Select Title</option>
-                  <option value="NAS-2021 National Steering Committee">NAS-2021 National Steering Committee</option>
-                  <option value="NAS Cell CBSE HQ">NAS Cell CBSE HQ</option>
+                  <option value="NAS-2021 National Steering Committee" {{ old('description') == "NAS-2021 National Steering Committee" ? 'selected' : '' }}>NAS-2021 National Steering Committee</option>
+                  <option value="NAS Cell CBSE HQ" {{ old('description') == "NAS Cell CBSE HQ" ? 'selected' : '' }}>NAS Cell CBSE HQ</option>
               </select>
               @error('description')
               <span class="text-danger">{{$message}}</span>

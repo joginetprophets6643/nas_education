@@ -24,6 +24,6 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/vendors/css/style.css')}}"> <!-- End layout styles -->
     <link rel="icon" type="image/svg+xml" href="{{asset('assets/admin/vendors/images/NAS_Icon.svg')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/vendors/css/jquery.dataTables.min.css')}}" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css"> -->
 
   </head>

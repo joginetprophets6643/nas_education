@@ -16,7 +16,7 @@ class BannerController extends Controller
     public function store(Request $request){
         $validatedData=$request->validate([
             'description'=>'required',
-            'image'=>'required|mimes:jpeg,jpg,png,svg',
+            'image'=>'required|mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
 
         $banner=new Banner;
@@ -45,7 +45,7 @@ class BannerController extends Controller
     {
         $id=decode5t($id);
         $request->validate([
-            'image'=>'mimes:jpeg,jpg,png',
+            'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'description'=>'required',
         ]);
 

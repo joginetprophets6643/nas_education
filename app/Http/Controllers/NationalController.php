@@ -20,13 +20,13 @@ class NationalController extends Controller
     {
         
         $request->validate([
-            'total_district_area'=>'required',
-            'total_population'=>'required',
-            'rural_population'=>'required',
-            'urban_population'=>'required',
-            'density_of_population'=>'required',
-            'literacy_rate'=>'required',
-            'child_sex_ratio'=>'required'
+            'total_district_area'=>'required|numeric',
+            'total_population'=>'required|numeric',
+            'rural_population'=>'required|numeric',
+            'urban_population'=>'required|numeric',
+            'density_of_population'=>'required|numeric',
+            'literacy_rate'=>'required|numeric',
+            'child_sex_ratio'=>'required|numeric'
         ]);
         
         $national=new NationalStatistic;
@@ -53,13 +53,13 @@ class NationalController extends Controller
     {
         $id=decode5t($id);
         $request->validate([
-            'total_district_area'=>'required',
-            'total_population'=>'required',
-            'rural_population'=>'required',
-            'urban_population'=>'required',
-            'density_of_population'=>'required',
-            'literacy_rate'=>'required',
-            'child_sex_ratio'=>'required'
+            'total_district_area'=>'required|numeric',
+            'total_population'=>'required|numeric',
+            'rural_population'=>'required|numeric',
+            'urban_population'=>'required|numeric',
+            'density_of_population'=>'required|numeric',
+            'literacy_rate'=>'required|numeric',
+            'child_sex_ratio'=>'required|numeric'
         ]);
         
         NationalStatistic::find($id)->update([

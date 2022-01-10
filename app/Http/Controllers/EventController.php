@@ -79,6 +79,7 @@ class EventController extends Controller
         $id=decode5t($id);
         $request->validate([
             'images'=>'required',
+            'images.*'=>'mimes:jpeg,jpg,png,JPEG,JPG,PNG',
         ]);
         $images=$request->file('images');
         $img= [];
@@ -116,7 +117,7 @@ class EventController extends Controller
             ]);
         }
 
-        
+        $id=encode5t($id);
         if($n_img){
             $strimg='';
             foreach($n_img as $img){
@@ -151,6 +152,7 @@ class EventController extends Controller
                 'images'=>$images
         ]);
         unlink("assets/uploads/".$image);
+        $id=encode5t($id);
         return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
 
     }
@@ -167,7 +169,7 @@ class EventController extends Controller
 
     public function addvideo(Request $request){
         $request->validate([
-            'vedio'=>'required_without_all:url',
+            'vedio'=>'required_without_all:url|mimes:mp4,wep',
             'title'=>'required',
             'url'=>'required_without_all:vedio',
         ]);
@@ -197,7 +199,7 @@ class EventController extends Controller
 
     public function deletevideo($id){
         $id=decode5t($id);      
-        $vedio=Vedios::find($id)->first();       
+        $vedio=Vedios::where('id',$id)->first(); 
         Vedios::find($id)->delete();
         if($vedio->vedio){
         unlink(public_path("assets/uploads/vedios/".$vedio->vedio));

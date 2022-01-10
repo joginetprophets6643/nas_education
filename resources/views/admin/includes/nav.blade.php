@@ -58,8 +58,8 @@
           <li class="nav-item" id="Media" style="display:none;">
             <a class="nav-link" data-toggle="collapse" href="#media" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Manage Media</span>
-              <i class="icon-doc menu-icon"></i>
-            </a>
+              <!-- <i class="icon-doc menu-icon"></i> -->
+              <i class="fa fa-photo-video menu-icon"></i>            </a>
             <div class="collapse" id="media">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/secure-admin/event')}}"> Manage Images </a></li>
@@ -71,28 +71,28 @@
           <li class="nav-item" id="Team" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/team-manager')}}">
               <span class="menu-title">Manage Team</span>
-              <i class="icon-user menu-icon"></i>
+              <i class="fa fa-users menu-icon"></i>            
             </a>
           </li>
 
           <li class="nav-item" id="Content" style="display:none;">
             <a class="nav-link" href="{{url('secure-admin/static-content')}}">
               <span class="menu-title">Manage Content</span>
-              <i class="icon-doc menu-icon"></i>
+              <i class="fas fa-file-alt menu-icon"></i>            
             </a>
           </li>
 
           <li class="nav-item" id="Program" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/static-program')}}">
               <span class="menu-title">Manage Program</span>
-              <i class="icon-doc menu-icon"></i>
+              <i class="far fa-file-alt menu-icon"></i>            
             </a>
           </li>
 
           <li class="nav-item" id="Master" style="display:none;">
             <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Master</span>
-              <i class="icon-doc menu-icon"></i>
+              <i class="fas fa-globe-africa menu-icon"></i>            
             </a>
             <div class="collapse" id="master">
               <ul class="nav flex-column sub-menu">
@@ -105,7 +105,7 @@
           <li class="nav-item" id="Statistic" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/national-statistic')}}">
               <span class="menu-title">National Statistic</span>
-              <i class="icon-user menu-icon"></i>
+              <i class="fas fa-globe menu-icon"></i>            
             </a>
           </li>
 
@@ -113,7 +113,7 @@
           <li class="nav-item" id="Data" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/upload-csv-files')}}">
               <span class="menu-title">Manage Data</span>
-              <i class="icon-user menu-icon"></i>
+              <i class="fas fa-database menu-icon"></i>            
             </a>
           </li>
 
@@ -121,28 +121,29 @@
           <li class="nav-item" id="Banner" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/manage-banner')}}">
               <span class="menu-title">Manage Banner</span>
-              <i class="icon-user menu-icon"></i>
+              <i class="far fa-images menu-icon"></i>            
             </a>
           </li>
 
           <li class="nav-item" id="Client-Logo" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/client-logo')}}">
               <span class="menu-title">Manage Client Logo</span>
-              <i class="icon-user menu-icon"></i>
+              <i class="fas fa-images menu-icon"></i>            
             </a>
           </li>
 
           <li class="nav-item" id="Registration" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/registration-list')}}">
               <span class="menu-title">Total Registration</span>
-              <i class="icon-user menu-icon"></i>
+              <i class="fas fa-user-friends menu-icon"></i>            
             </a>
           </li>
 
           <li class="nav-item" id="Setting" style="display:none;">
             <a class="nav-link" href="{{route('setting')}}">
               <span class="menu-title">Manage Setting</span>
-              <i class="icon-user menu-icon"></i>
+              <!-- <i class="icon-user menu-icon"></i> -->
+              <i class="fas fa-cog menu-icon"></i>
             </a>
           </li>
           
