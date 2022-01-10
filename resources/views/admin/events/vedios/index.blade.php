@@ -39,7 +39,7 @@
                                         @csrf
                                         <div class="form-group">
                                         <label for="images" class="form-label">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title">
+                                        <input type="text" name="title" class="form-control" id="title" value="{{ old('title') }}">
                                         @error('title')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -47,7 +47,7 @@
 
                                         <div class="form-group">
                                         <label for="images" class="form-label">URL</label>
-                                        <input type="text" name="url" class="form-control" id="url">
+                                        <input type="text" name="url" class="form-control" id="url" value="{{ old('url') }}">
                                         @error('url')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -93,7 +93,7 @@
                             <div class="video-wrap">
                             <iframe width="300" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <?php $id=encode5t($video->id)?>
-                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" data-delete-link="{{url('secure-admin/delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" style="margin-bottom:20px;" data-delete-link="{{url('secure-admin/delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
                             </div>
                         </div>
                         @endif
@@ -105,7 +105,7 @@
                                 Your browser does not support the video tag.
                             </video>
                             <?php $id=encode5t($video->id)?>
-                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" data-delete-link="{{url('secure-admin/delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" style="margin-bottom:20px;" data-delete-link="{{url('secure-admin/delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
                             </div>
                         </div>
                         @endif

@@ -86,7 +86,7 @@ class FrontController extends Controller
             $count[$event->id]=count(json_decode($event->images));
             $image[$event->id]=json_decode($event->images)[0];
         }
-        $videos=Vedios::where('status','1')->take(4)->get();
+        $videos=Vedios::where('status','1')->take(3)->get();
         return view('front.gallery.index',compact('videos','events','image'));
     }
 }

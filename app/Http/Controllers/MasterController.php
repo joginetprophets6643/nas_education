@@ -34,6 +34,23 @@ class MasterController extends Controller
             'lgd_district_id'=>'required',
             'lgd_state_id'=>'required',
             'year_id'=>'required',
+
+            'total_district_area'=>'numeric|nullable',
+            'total_population'=>'numeric|nullable',
+            'rural_population'=>'numeric|nullable',
+            'urban_population'=>'numeric|nullable',
+            'density_of_population'=>'numeric|nullable',
+            'literacy_rate'=>'numeric|nullable',
+            'child_sex_ratio'=>'numeric|nullable',
+            'no_of_schools'=>'numeric|nullable',
+            'state_govt_schools'=>'numeric|nullable',
+            'govt_aided_schools'=>'numeric|nullable',
+            'central_govt_schools'=>'numeric|nullable',
+            'private_unaided_reco_schools'=>'numeric|nullable',
+            'teacher_state_govt_schools'=>'numeric|nullable',
+            'teacher_govt_aided_schools'=>'numeric|nullable',
+            'teacher_central_govt_schools'=>'numeric|nullable',
+            'teacher_private_unaided_reco_schools'=>'numeric|nullable'
             
         ]);
         if($request->status){
@@ -98,16 +115,34 @@ class MasterController extends Controller
     {   
         $id=decode5t($id);
         $request->validate([
-            'district_id'=>'required',
-            'state_id'=>'required',
+            'district_id'=>'required|numeric',
+            'state_id'=>'required|numeric',
             'district_name'=>'required',
             
-            'district_code'=>'required',
-            'state_code'=>'required',
+            'district_code'=>'required|numeric',
+            'state_code'=>'required|numeric',
             'year'=>'required',
-            'lgd_district_id'=>'required',
-            'lgd_state_id'=>'required',
-            'year_id'=>'required',
+            'lgd_district_id'=>'required|numeric',
+            'lgd_state_id'=>'required|numeric',
+            'year_id'=>'required|numeric',
+
+            'total_district_area'=>'numeric|nullable',
+            'total_population'=>'numeric|nullable',
+            'rural_population'=>'numeric|nullable',
+            'urban_population'=>'numeric|nullable',
+            'density_of_population'=>'numeric|nullable',
+            'literacy_rate'=>'numeric|nullable',
+            'child_sex_ratio'=>'numeric|nullable',
+            'no_of_schools'=>'numeric|nullable',
+            'state_govt_schools'=>'numeric|nullable',
+            'govt_aided_schools'=>'numeric|nullable',
+            'central_govt_schools'=>'numeric|nullable',
+            'private_unaided_reco_schools'=>'numeric|nullable',
+            'teacher_state_govt_schools'=>'numeric|nullable',
+            'teacher_govt_aided_schools'=>'numeric|nullable',
+            'teacher_central_govt_schools'=>'numeric|nullable',
+            'teacher_private_unaided_reco_schools'=>'numeric|nullable'
+            
             
         ]);
         
@@ -186,6 +221,23 @@ class MasterController extends Controller
             'lgd_state_id'=>'required',
             'view_order'=>'required',
             'status'=>'required',
+
+            'total_district_area'=>'numeric|nullable',
+            'total_population'=>'numeric|nullable',
+            'rural_population'=>'numeric|nullable',
+            'urban_population'=>'numeric|nullable',
+            'density_of_population'=>'numeric|nullable',
+            'literacy_rate'=>'numeric|nullable',
+            'child_sex_ratio'=>'numeric|nullable',
+            'no_of_schools'=>'numeric|nullable',
+            'state_govt_schools'=>'numeric|nullable',
+            'govt_aided_schools'=>'numeric|nullable',
+            'central_govt_schools'=>'numeric|nullable',
+            'private_unaided_reco_schools'=>'numeric|nullable',
+            'teacher_state_govt_schools'=>'numeric|nullable',
+            'teacher_govt_aided_schools'=>'numeric|nullable',
+            'teacher_central_govt_schools'=>'numeric|nullable',
+            'teacher_private_unaided_reco_schools'=>'numeric|nullable'
             
         ]);
         
@@ -250,6 +302,23 @@ class MasterController extends Controller
             'lgd_state_id'=>'required',
             'view_order'=>'required',
             'status'=>'required',
+
+            'total_district_area'=>'numeric|nullable',
+            'total_population'=>'numeric|nullable',
+            'rural_population'=>'numeric|nullable',
+            'urban_population'=>'numeric|nullable',
+            'density_of_population'=>'numeric|nullable',
+            'literacy_rate'=>'numeric|nullable',
+            'child_sex_ratio'=>'numeric|nullable',
+            'no_of_schools'=>'numeric|nullable',
+            'state_govt_schools'=>'numeric|nullable',
+            'govt_aided_schools'=>'numeric|nullable',
+            'central_govt_schools'=>'numeric|nullable',
+            'private_unaided_reco_schools'=>'numeric|nullable',
+            'teacher_state_govt_schools'=>'numeric|nullable',
+            'teacher_govt_aided_schools'=>'numeric|nullable',
+            'teacher_central_govt_schools'=>'numeric|nullable',
+            'teacher_private_unaided_reco_schools'=>'numeric|nullable'
             
         ]);
         

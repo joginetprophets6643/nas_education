@@ -25,8 +25,9 @@ class TeamController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'image'=>'mimes:jpeg,jpg,png,PNG,JPEG,JPG',
+            'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
+            'mobile'=>'numeric|nullable'
         ]);
         $name='';
         if($request->image)
@@ -62,7 +63,7 @@ class TeamController extends Controller
         $id=decode5t($id);
         $request->validate([
             'name'=>'required',
-            'image'=>'mimes:jpeg,jpg,png,PNG,JPEG,JPG',
+            'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
         ]);
 
