@@ -57,16 +57,16 @@
                         <div class="row">                       
                         @foreach($videos as $video)
                         @if($video->url)
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="video-wrap">
-                            <iframe width="280" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="246" height="136" style="border-radius:6px;" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         @endif
                         @if($video->vedio)
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="video-wrap">
-                            <video width="300" height="240" controls>
+                            <video width="246" height="136" style="border-radius:6px;" controls>
                                 <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>

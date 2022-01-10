@@ -10,7 +10,7 @@ class TeamController extends Controller
     
     public function index()
     {
-        $members=Team::all();
+        $members=Team::latest()->get();
         return view('admin.team.index',compact('members'));
     }
 

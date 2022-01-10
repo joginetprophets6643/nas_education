@@ -7,7 +7,7 @@
       <div class="container">
           <a href="{{route('manage-banner')}}" class="btn btn-primary btn-sm" style="margin-bottom:20px;">Back</a>
         <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="card">
           <div class="card-header">Edit Banner</div>
           <div class="card-body">
@@ -21,14 +21,20 @@
             <span class="text-danger">{{$message}}</span>
             @enderror
             </div>
-            
-            <div class="mb-3">
+            <div class="row">
+            <div class="col-8">
               <label for="exampleInputEmail1" class="form-label">Banner Image</label>
-              <input type="file" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$banner->image}}">
+              <input type="file" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             @error('image')
             <span class="text-danger">{{$message}}</span>
             @enderror
             </div>
+            <div class="col-4">
+            <!-- <label for="exampleInputEmail1" class="form-label">Banner Image</label> -->
+              <img src="{{asset('assets/uploads/banner/'.$banner->image)}}" alt="" width="100px" style="margin-top:20px">
+            </div>
+            </div>
+            <br>
             <button type="submit" class="btn btn-primary btn-sm Banner_edit">Update</button>
           </form>
           </div>

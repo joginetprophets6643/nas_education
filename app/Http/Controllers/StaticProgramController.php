@@ -8,7 +8,7 @@ use App\Models\Program;
 class StaticProgramController extends Controller
 {
     public function index(){
-        $programs=Program::all();
+        $programs=Program::latest()->get();
         return view('admin.program.index',compact('programs'));
     }
 

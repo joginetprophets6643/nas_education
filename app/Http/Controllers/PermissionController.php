@@ -11,7 +11,7 @@ use Auth;
 class PermissionController extends Controller
 {
     public function index(){
-        $users=User::where('address')->whereNotIn('email',['admin@gmail.com',Auth::user()->email])->get();
+        $users=User::latest()->where('address')->whereNotIn('email',['admin@gmail.com',Auth::user()->email])->get();
         return view('admin.users.index',compact('users'));
     }
 

@@ -59,7 +59,7 @@
               </button>
             </div>
             
-            <a href="#">
+            <a href="{{url('https://www.education.gov.in/en/school-education')}}" target="_blank">
               <img src="{{asset('assets/uploads/logo/'.$setting->logo_2)}}" alt="img" class="img-fluid" />
             </a>
           </div>

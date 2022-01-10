@@ -74,7 +74,7 @@
                             <img src="{{asset('assets/uploads/'.$image)}}" class="w-100" alt="">
                             <?php
                             $image=encode5t($image)?>
-                            <button class="btn btn-danger btn-sm delete-img-btn Media_delete" data-delete-link="{{url('secure-admin/delete/image/'.$image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-img-btn Media_delete" style="margin-top:5px;margin-bottom:10px" data-delete-link="{{url('secure-admin/delete/image/'.$image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
                         </li>
                         @endforeach
                         </ul>
@@ -110,22 +110,20 @@
                             </div>
                             </div>
 </div>
-
-
-                    
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 @include('admin.includes.footer')
 @if(count($errors)>0)
 <script>
   $('#staticBackdrop').modal('show');
 </script>
 @endif
-</div>
+<!-- </div> -->
 
 <script>
     $('.delete-img-btn').on('click',function(){

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ClientLogoController extends Controller
 {
     public function index(){
-        $client_logo = ClientLogo::all();
+        $client_logo = ClientLogo::latest()->get();
         return view('admin.client_logo.index',compact('client_logo'));
     }
 

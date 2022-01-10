@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class NationalController extends Controller
 {
     public function index(){
-        $nationals=NationalStatistic::all();
+        $nationals=NationalStatistic::latest()->get();
         return view('admin.master.national.index',compact('nationals'));
     }
 
