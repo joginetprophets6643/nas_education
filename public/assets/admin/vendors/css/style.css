@@ -17667,7 +17667,7 @@ dl li {
     font-size: 1.125rem;
     line-height: 1;
     margin-left: auto;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 .sidebar .nav .nav-item .nav-link i.menu-icon:before {
     vertical-align: middle;
@@ -18401,7 +18401,7 @@ dl li {
 }
 
 .sidebar .nav .nav-item.active:not(.navbar-brand-mini-wrapper) > .nav-link i {
-    color: white;
+    color: #b3b3b3;
 }
 .navbar .navbar-brand {
     width: 100%;
