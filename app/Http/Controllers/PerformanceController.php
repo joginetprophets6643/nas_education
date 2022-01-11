@@ -123,7 +123,7 @@ class PerformanceController extends Controller
                 $msglo = LearningOutcome::insert($items);
             }
         }
-        // $msg = AT3PerformanceData::insert(array_merge($at3FinalCalculateData));
+        $msg3 = AT3PerformanceData::insert($at3FinalCalculateData);
 
         // dd($at3FinalCalculateData);
         // End here for 3rd grade
@@ -206,6 +206,9 @@ class PerformanceController extends Controller
 
             }
         }
+
+        $msg5 = AT3PerformanceData::insert($at5FinalCalculateData);
+
         // End here for 5th grade
         /*************************************************************
          * Name: Sanjay,Jogi,Chanky
@@ -295,6 +298,9 @@ class PerformanceController extends Controller
                 $msglo8 = LearningOutcome::insert($items8);
             }
         }
+
+        $msg8 = AT3PerformanceData::insert($at8FinalCalculateData);
+
         // End here for 8th grade
         /*************************************************************
          * Name: Sanjay,Jogi,Chanky
@@ -386,8 +392,9 @@ class PerformanceController extends Controller
                 $msglo10 = LearningOutcome::insert($items10);
             }
         }
+        $msg10 = AT3PerformanceData::insert($at10FinalCalculateData);
 
-        $msg = AT3PerformanceData::insert(array_merge($at3FinalCalculateData,$at5FinalCalculateData,$at8FinalCalculateData,$at10FinalCalculateData));
+        // $finalmsg = AT3PerformanceData::insert(array_merge($at3FinalCalculateData,$at5FinalCalculateData,$at8FinalCalculateData,$at10FinalCalculateData));
         // End 10th Grade Here
 
         // District wise learning outcome Process data in all grade End Here
@@ -412,10 +419,19 @@ class PerformanceController extends Controller
         if(count($at3Data)>0)
         {
             $stateLevel = 1;
+            $districtPerLevel = 1;
             $blog = DB::table('performance_master')->truncate();
             foreach($at3Data as $nasDetails3)
             {
-                
+                if($districtPerLevel==1)
+                {
+                    $querySyntax = 'state_id,district_id,';
+                    $queryGroupSyntax = 'at3_performance_data.state_id, at3_performance_data.district_id,';
+                    $queryGroupCondition = 'where  at3_performance_data.state_id='.(int)$nasDetails3->state_id.' and grade = '.(int)$nasDetails3->grade.' and at3_performance_data.district_id = '.(int)$nasDetails3->district_id;
+                    $queryPerformanceLevel = $this->queryFunctionPerformanceLevel($querySyntax,$queryGroupSyntax,$queryGroupCondition);
+                }
+                $districtPerformanceLevel = DB::select($queryPerformanceLevel);
+                // dd($districtPerformanceLevel[0]->l_avg_below_basic);
                 if($stateLevel==1)
                 {
                     $querySyntax = 'state_id,';
@@ -427,8 +443,18 @@ class PerformanceController extends Controller
                 if(count($stateLevelPerfomanceData)>0)
                 {
                     $nationalLevel = 1;
+                    $statePerformanceLevel = 1;
                     foreach($stateLevelPerfomanceData as $statelevel)
                     {
+                        if($statePerformanceLevel==1)
+                        {
+                            $querySyntax = 'state_id,';
+                            $queryGroupSyntax = 'at3_performance_data.state_id,';
+                            $queryGroupCondition = 'where  at3_performance_data.state_id='.(int)$nasDetails3->state_id.' and grade = '.(int)$nasDetails3->grade;
+                            $statePerformanceQuery =  $this->queryFunctionPerformanceLevel($querySyntax,$queryGroupSyntax,$queryGroupCondition);
+                        }
+                        $statePerLevel = DB::select($statePerformanceQuery);
+                        // dd($statePerLevel);
                         if($nationalLevel==1)
                         {
                             $querySyntax = '';
@@ -439,8 +465,18 @@ class PerformanceController extends Controller
                         $nationalLevelPerfomanceData = DB::select($nationalQuery);
                         if(count($nationalLevelPerfomanceData)>0)
                         {
+                            $nationalPerformaceLevel = 1;
                             foreach($nationalLevelPerfomanceData as $nationalLevel)
                             {
+                                if($nationalPerformaceLevel==1)
+                                {
+                                    $querySyntax = '';
+                                    $queryGroupSyntax = '';
+                                    $queryGroupCondition = 'where grade = '.(int)$nasDetails3->grade;
+                                    $nationalPerformanceQuery =  $this->queryFunctionPerformanceLevel($querySyntax,$queryGroupSyntax,$queryGroupCondition);
+                                }
+                                $nationalPerformanceQuery = DB::select($nationalPerformanceQuery);
+
                                 $newArray['language'] =array(
                                     'cards'=>array(
                                         'district'=>isset($nasDetails3->avg_l_marks)?$nasDetails3->avg_l_marks:'0',
@@ -461,7 +497,11 @@ class PerformanceController extends Controller
                                     'socialgroup'=>array(
                                         'district'=>array("sc"=>isset($nasDetails3->l_sc_social_group)?$nasDetails3->l_sc_social_group:'0',"obc"=>isset($nasDetails3->l_obc_social_group)?$nasDetails3->l_obc_social_group:'0',"st"=>isset($nasDetails3->l_st_social_group)?$nasDetails3->l_st_social_group:'0',"general"=>isset($nasDetails3->l_general_social_group)?$nasDetails3->l_general_social_group:'0'),
                                         'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
-                                        'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')));
+                                        'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')),
+                                    'performance_level'=>array(
+                                        'district'=>array("below_basic"=>isset($districtPerformanceLevel[0]->l_avg_below_basic)?$districtPerformanceLevel[0]->l_avg_below_basic:'0',"basic"=>isset($districtPerformanceLevel[0]->l_avg_basic)?$districtPerformanceLevel[0]->l_avg_basic:'0',"proficient"=>isset($districtPerformanceLevel[0]->l_avg_proficient)?$districtPerformanceLevel[0]->l_avg_proficient:'0',"advanced"=>isset($districtPerformanceLevel[0]->l_avg_advanced)?$districtPerformanceLevel[0]->l_avg_advanced:'0'),
+                                        'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
+                                        'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')));
                 
                                 $newArray['math'] =array(
                                     'cards'=>array(
@@ -483,7 +523,11 @@ class PerformanceController extends Controller
                                     'socialgroup'=>array(
                                         'district'=>array("sc"=>isset($nasDetails3->m_sc_social_group)?$nasDetails3->m_sc_social_group:'0',"obc"=>isset($nasDetails3->m_obc_social_group)?$nasDetails3->m_obc_social_group:'0',"st"=>isset($nasDetails3->m_st_social_group)?$nasDetails3->m_st_social_group:'0',"general"=>isset($nasDetails3->m_general_social_group)?$nasDetails3->m_general_social_group:'0'),
                                         'state'=>array("sc"=>isset($statelevel->m_sc_social_group)?$statelevel->m_sc_social_group:'0',"obc"=>isset($statelevel->m_obc_social_group)?$statelevel->m_obc_social_group:'0',"st"=>isset($statelevel->m_st_social_group)?$statelevel->m_st_social_group:'0',"general"=>isset($statelevel->m_general_social_group)?$statelevel->m_general_social_group:'0'),
-                                        'national'=>array("sc"=>isset($nationalLevel->m_sc_social_group)?$nationalLevel->m_sc_social_group:'0',"obc"=>isset($nationalLevel->m_obc_social_group)?$nationalLevel->m_obc_social_group:'0',"st"=>isset($nationalLevel->m_st_social_group)?$nationalLevel->m_st_social_group:'0',"general"=>isset($nationalLevel->m_general_social_group)?$nationalLevel->m_general_social_group:'0')));
+                                        'national'=>array("sc"=>isset($nationalLevel->m_sc_social_group)?$nationalLevel->m_sc_social_group:'0',"obc"=>isset($nationalLevel->m_obc_social_group)?$nationalLevel->m_obc_social_group:'0',"st"=>isset($nationalLevel->m_st_social_group)?$nationalLevel->m_st_social_group:'0',"general"=>isset($nationalLevel->m_general_social_group)?$nationalLevel->m_general_social_group:'0')),
+                                    'performance_level'=>array(
+                                        'district'=>array("below_basic"=>isset($districtPerformanceLevel[0]->m_avg_below_basic)?$districtPerformanceLevel[0]->m_avg_below_basic:'0',"basic"=>isset($districtPerformanceLevel[0]->m_avg_basic)?$districtPerformanceLevel[0]->m_avg_basic:'0',"proficient"=>isset($districtPerformanceLevel[0]->m_avg_proficient)?$districtPerformanceLevel[0]->m_avg_proficient:'0',"advanced"=>isset($districtPerformanceLevel[0]->m_avg_advanced)?$districtPerformanceLevel[0]->m_avg_advanced:'0'),
+                                        'state'=>array("below_basic"=>isset($statePerLevel[0]->m_avg_below_basic)?$statePerLevel[0]->m_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->m_avg_basic)?$statePerLevel[0]->m_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->m_avg_proficient)?$statePerLevel[0]->m_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->m_avg_advanced)?$statePerLevel[0]->m_avg_advanced:'0'),
+                                        'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->m_avg_below_basic)?$nationalPerformanceQuery[0]->m_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->m_avg_basic)?$nationalPerformanceQuery[0]->m_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->m_avg_proficient)?$nationalPerformanceQuery[0]->m_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->m_avg_advanced)?$nationalPerformanceQuery[0]->m_avg_advanced:'0')));
                                 $newArray['evs'] =array(
                                     'cards'=>array(
                                         'district'=>isset($nasDetails3->avg_e_marks)?$nasDetails3->avg_e_marks:'0',
@@ -504,7 +548,11 @@ class PerformanceController extends Controller
                                     'socialgroup'=>array(
                                         'district'=>array("sc"=>isset($nasDetails3->e_sc_social_group)?$nasDetails3->e_sc_social_group:'0',"obc"=>isset($nasDetails3->e_obc_social_group)?$nasDetails3->e_obc_social_group:'0',"st"=>isset($nasDetails3->e_st_social_group)?$nasDetails3->e_st_social_group:'0',"general"=>isset($nasDetails3->e_general_social_group)?$nasDetails3->e_general_social_group:'0'),
                                         'state'=>array("sc"=>isset($statelevel->e_sc_social_group)?$statelevel->e_sc_social_group:'0',"obc"=>isset($statelevel->e_obc_social_group)?$statelevel->e_obc_social_group:'0',"st"=>isset($statelevel->e_st_social_group)?$statelevel->e_st_social_group:'0',"general"=>isset($statelevel->e_general_social_group)?$statelevel->e_general_social_group:'0'),
-                                        'national'=>array("sc"=>isset($nationalLevel->e_sc_social_group)?$nationalLevel->e_sc_social_group:'0',"obc"=>isset($nationalLevel->e_obc_social_group)?$nationalLevel->e_obc_social_group:'0',"st"=>isset($nationalLevel->e_st_social_group)?$nationalLevel->e_st_social_group:'0',"general"=>isset($nationalLevel->e_general_social_group)?$nationalLevel->e_general_social_group:'0')));
+                                        'national'=>array("sc"=>isset($nationalLevel->e_sc_social_group)?$nationalLevel->e_sc_social_group:'0',"obc"=>isset($nationalLevel->e_obc_social_group)?$nationalLevel->e_obc_social_group:'0',"st"=>isset($nationalLevel->e_st_social_group)?$nationalLevel->e_st_social_group:'0',"general"=>isset($nationalLevel->e_general_social_group)?$nationalLevel->e_general_social_group:'0')),
+                                    'performance_level'=>array(
+                                        'district'=>array("below_basic"=>isset($districtPerformanceLevel[0]->e_avg_below_basic)?$districtPerformanceLevel[0]->e_avg_below_basic:'0',"basic"=>isset($districtPerformanceLevel[0]->e_avg_basic)?$districtPerformanceLevel[0]->e_avg_basic:'0',"proficient"=>isset($districtPerformanceLevel[0]->e_avg_proficient)?$districtPerformanceLevel[0]->e_avg_proficient:'0',"advanced"=>isset($districtPerformanceLevel[0]->e_avg_advanced)?$districtPerformanceLevel[0]->e_avg_advanced:'0'),
+                                        'state'=>array("below_basic"=>isset($statePerLevel[0]->e_avg_below_basic)?$statePerLevel[0]->e_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->e_avg_basic)?$statePerLevel[0]->e_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->e_avg_proficient)?$statePerLevel[0]->e_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->e_avg_advanced)?$statePerLevel[0]->e_avg_advanced:'0'),
+                                        'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->e_avg_below_basic)?$nationalPerformanceQuery[0]->e_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->e_avg_basic)?$nationalPerformanceQuery[0]->e_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->e_avg_proficient)?$nationalPerformanceQuery[0]->e_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->e_avg_advanced)?$nationalPerformanceQuery[0]->e_avg_advanced:'0')));
                                 $newArray['mil'] =array(
                                     'cards'=>array(
                                         'district'=>isset($nasDetails3->avg_mil_marks)?$nasDetails3->avg_mil_marks:'0',
@@ -525,7 +573,11 @@ class PerformanceController extends Controller
                                     'socialgroup'=>array(
                                         'district'=>array("sc"=>isset($nasDetails3->mil_sc_social_group)?$nasDetails3->mil_sc_social_group:'0',"obc"=>isset($nasDetails3->mil_obc_social_group)?$nasDetails3->mil_obc_social_group:'0',"st"=>isset($nasDetails3->mil_st_social_group)?$nasDetails3->mil_st_social_group:'0',"general"=>isset($nasDetails3->mil_general_social_group)?$nasDetails3->mil_general_social_group:'0'),
                                         'state'=>array("sc"=>isset($statelevel->mil_sc_social_group)?$statelevel->mil_sc_social_group:'0',"obc"=>isset($statelevel->mil_obc_social_group)?$statelevel->mil_obc_social_group:'0',"st"=>isset($statelevel->mil_st_social_group)?$statelevel->mil_st_social_group:'0',"general"=>isset($statelevel->mil_general_social_group)?$statelevel->mil_general_social_group:'0'),
-                                        'national'=>array("sc"=>isset($nationalLevel->mil_sc_social_group)?$nationalLevel->mil_sc_social_group:'0',"obc"=>isset($nationalLevel->mil_obc_social_group)?$nationalLevel->mil_obc_social_group:'0',"st"=>isset($nationalLevel->mil_st_social_group)?$nationalLevel->mil_st_social_group:'0',"general"=>isset($nationalLevel->mil_general_social_group)?$nationalLevel->mil_general_social_group:'0')));
+                                        'national'=>array("sc"=>isset($nationalLevel->mil_sc_social_group)?$nationalLevel->mil_sc_social_group:'0',"obc"=>isset($nationalLevel->mil_obc_social_group)?$nationalLevel->mil_obc_social_group:'0',"st"=>isset($nationalLevel->mil_st_social_group)?$nationalLevel->mil_st_social_group:'0',"general"=>isset($nationalLevel->mil_general_social_group)?$nationalLevel->mil_general_social_group:'0')),
+                                    'performance_level'=>array(
+                                        'district'=>array("below_basic"=>isset($districtPerformanceLevel[0]->mil_avg_below_basic)?$districtPerformanceLevel[0]->mil_avg_below_basic:'0',"basic"=>isset($districtPerformanceLevel[0]->mil_avg_basic)?$districtPerformanceLevel[0]->mil_avg_basic:'0',"proficient"=>isset($districtPerformanceLevel[0]->mil_avg_proficient)?$districtPerformanceLevel[0]->mil_avg_proficient:'0',"advanced"=>isset($districtPerformanceLevel[0]->mil_avg_advanced)?$districtPerformanceLevel[0]->mil_avg_advanced:'0'),
+                                        'state'=>array("below_basic"=>isset($statePerLevel[0]->mil_avg_below_basic)?$statePerLevel[0]->mil_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->mil_avg_basic)?$statePerLevel[0]->mil_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->mil_avg_proficient)?$statePerLevel[0]->mil_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->mil_avg_advanced)?$statePerLevel[0]->mil_avg_advanced:'0'),
+                                        'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->mil_avg_below_basic)?$nationalPerformanceQuery[0]->mil_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->mil_avg_basic)?$nationalPerformanceQuery[0]->mil_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->mil_avg_proficient)?$nationalPerformanceQuery[0]->mil_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->mil_avg_advanced)?$nationalPerformanceQuery[0]->mil_avg_advanced:'0')));
                                 $newArray['eng'] =array(
                                     'cards'=>array(
                                         'district'=>isset($nasDetails3->avg_eng_marks)?$nasDetails3->avg_eng_marks:'0',
@@ -546,7 +598,11 @@ class PerformanceController extends Controller
                                     'socialgroup'=>array(
                                         'district'=>array("sc"=>isset($nasDetails3->eng_sc_social_group)?$nasDetails3->eng_sc_social_group:'0',"obc"=>isset($nasDetails3->eng_obc_social_group)?$nasDetails3->eng_obc_social_group:'0',"st"=>isset($nasDetails3->eng_st_social_group)?$nasDetails3->eng_st_social_group:'0',"general"=>isset($nasDetails3->eng_general_social_group)?$nasDetails3->eng_general_social_group:'0'),
                                         'state'=>array("sc"=>isset($statelevel->eng_sc_social_group)?$statelevel->eng_sc_social_group:'0',"obc"=>isset($statelevel->eng_obc_social_group)?$statelevel->eng_obc_social_group:'0',"st"=>isset($statelevel->eng_st_social_group)?$statelevel->eng_st_social_group:'0',"general"=>isset($statelevel->eng_general_social_group)?$statelevel->eng_general_social_group:'0'),
-                                        'national'=>array("sc"=>isset($nationalLevel->eng_sc_social_group)?$nationalLevel->eng_sc_social_group:'0',"obc"=>isset($nationalLevel->eng_obc_social_group)?$nationalLevel->eng_obc_social_group:'0',"st"=>isset($nationalLevel->eng_st_social_group)?$nationalLevel->eng_st_social_group:'0',"general"=>isset($nationalLevel->eng_general_social_group)?$nationalLevel->eng_general_social_group:'0')));
+                                        'national'=>array("sc"=>isset($nationalLevel->eng_sc_social_group)?$nationalLevel->eng_sc_social_group:'0',"obc"=>isset($nationalLevel->eng_obc_social_group)?$nationalLevel->eng_obc_social_group:'0',"st"=>isset($nationalLevel->eng_st_social_group)?$nationalLevel->eng_st_social_group:'0',"general"=>isset($nationalLevel->eng_general_social_group)?$nationalLevel->eng_general_social_group:'0')),
+                                    'performance_level'=>array(
+                                        'district'=>array("below_basic"=>isset($districtPerformanceLevel[0]->eng_avg_below_basic)?$districtPerformanceLevel[0]->eng_avg_below_basic:'0',"basic"=>isset($districtPerformanceLevel[0]->eng_avg_basic)?$districtPerformanceLevel[0]->eng_avg_basic:'0',"proficient"=>isset($districtPerformanceLevel[0]->eng_avg_proficient)?$districtPerformanceLevel[0]->eng_avg_proficient:'0',"advanced"=>isset($districtPerformanceLevel[0]->eng_avg_advanced)?$districtPerformanceLevel[0]->eng_avg_advanced:'0'),
+                                        'state'=>array("below_basic"=>isset($statePerLevel[0]->eng_avg_below_basic)?$statePerLevel[0]->eng_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->eng_avg_basic)?$statePerLevel[0]->eng_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->eng_avg_proficient)?$statePerLevel[0]->eng_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->eng_avg_advanced)?$statePerLevel[0]->eng_avg_advanced:'0'),
+                                        'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->eng_avg_below_basic)?$nationalPerformanceQuery[0]->eng_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->eng_avg_basic)?$nationalPerformanceQuery[0]->eng_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->eng_avg_proficient)?$nationalPerformanceQuery[0]->eng_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->eng_avg_advanced)?$nationalPerformanceQuery[0]->eng_avg_advanced:'0')));
                                 $newArray['sci'] =array(
                                     'cards'=>array(
                                         'district'=>isset($nasDetails3->avg_sci_marks)?$nasDetails3->avg_sci_marks:'0',
@@ -567,7 +623,11 @@ class PerformanceController extends Controller
                                     'socialgroup'=>array(
                                         'district'=>array("sc"=>isset($nasDetails3->sci_sc_social_group)?$nasDetails3->sci_sc_social_group:'0',"obc"=>isset($nasDetails3->sci_obc_social_group)?$nasDetails3->sci_obc_social_group:'0',"st"=>isset($nasDetails3->sci_st_social_group)?$nasDetails3->sci_st_social_group:'0',"general"=>isset($nasDetails3->sci_general_social_group)?$nasDetails3->sci_general_social_group:'0'),
                                         'state'=>array("sc"=>isset($statelevel->sci_sc_social_group)?$statelevel->sci_sc_social_group:'0',"obc"=>isset($statelevel->sci_obc_social_group)?$statelevel->sci_obc_social_group:'0',"st"=>isset($statelevel->sci_st_social_group)?$statelevel->sci_st_social_group:'0',"general"=>isset($statelevel->sci_general_social_group)?$statelevel->sci_general_social_group:'0'),
-                                        'national'=>array("sc"=>isset($nationalLevel->sci_sc_social_group)?$nationalLevel->sci_sc_social_group:'0',"obc"=>isset($nationalLevel->sci_obc_social_group)?$nationalLevel->sci_obc_social_group:'0',"st"=>isset($nationalLevel->sci_st_social_group)?$nationalLevel->sci_st_social_group:'0',"general"=>isset($nationalLevel->sci_general_social_group)?$nationalLevel->sci_general_social_group:'0')));
+                                        'national'=>array("sc"=>isset($nationalLevel->sci_sc_social_group)?$nationalLevel->sci_sc_social_group:'0',"obc"=>isset($nationalLevel->sci_obc_social_group)?$nationalLevel->sci_obc_social_group:'0',"st"=>isset($nationalLevel->sci_st_social_group)?$nationalLevel->sci_st_social_group:'0',"general"=>isset($nationalLevel->sci_general_social_group)?$nationalLevel->sci_general_social_group:'0')),
+                                    'performance_level'=>array(
+                                        'district'=>array("below_basic"=>isset($districtPerformanceLevel[0]->sci_avg_below_basic)?$districtPerformanceLevel[0]->sci_avg_below_basic:'0',"basic"=>isset($districtPerformanceLevel[0]->sci_avg_basic)?$districtPerformanceLevel[0]->sci_avg_basic:'0',"proficient"=>isset($districtPerformanceLevel[0]->sci_avg_proficient)?$districtPerformanceLevel[0]->sci_avg_proficient:'0',"advanced"=>isset($districtPerformanceLevel[0]->sci_avg_advanced)?$districtPerformanceLevel[0]->sci_avg_advanced:'0'),
+                                        'state'=>array("below_basic"=>isset($statePerLevel[0]->sci_avg_below_basic)?$statePerLevel[0]->sci_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->sci_avg_basic)?$statePerLevel[0]->sci_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->sci_avg_proficient)?$statePerLevel[0]->sci_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->sci_avg_advanced)?$statePerLevel[0]->sci_avg_advanced:'0'),
+                                        'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->sci_avg_below_basic)?$nationalPerformanceQuery[0]->sci_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->sci_avg_basic)?$nationalPerformanceQuery[0]->sci_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->sci_avg_proficient)?$nationalPerformanceQuery[0]->sci_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->sci_avg_advanced)?$nationalPerformanceQuery[0]->sci_avg_advanced:'0')));
                                 $newArray['sst'] =array(
                                     'cards'=>array(
                                         'district'=>isset($nasDetails3->avg_sst_marks)?$nasDetails3->avg_sst_marks:'0',
@@ -588,7 +648,11 @@ class PerformanceController extends Controller
                                     'socialgroup'=>array(
                                         'district'=>array("sc"=>isset($nasDetails3->sst_sc_social_group)?$nasDetails3->sst_sc_social_group:'0',"obc"=>isset($nasDetails3->sst_obc_social_group)?$nasDetails3->sst_obc_social_group:'0',"st"=>isset($nasDetails3->sst_st_social_group)?$nasDetails3->sst_st_social_group:'0',"general"=>isset($nasDetails3->sst_general_social_group)?$nasDetails3->sst_general_social_group:'0'),
                                         'state'=>array("sc"=>isset($statelevel->sst_sc_social_group)?$statelevel->sst_sc_social_group:'0',"obc"=>isset($statelevel->sst_obc_social_group)?$statelevel->sst_obc_social_group:'0',"st"=>isset($statelevel->sst_st_social_group)?$statelevel->sst_st_social_group:'0',"general"=>isset($statelevel->sst_general_social_group)?$statelevel->sst_general_social_group:'0'),
-                                        'national'=>array("sc"=>isset($nationalLevel->sst_sc_social_group)?$nationalLevel->sst_sc_social_group:'0',"obc"=>isset($nationalLevel->sst_obc_social_group)?$nationalLevel->sst_obc_social_group:'0',"st"=>isset($nationalLevel->sst_st_social_group)?$nationalLevel->sst_st_social_group:'0',"general"=>isset($nationalLevel->sst_general_social_group)?$nationalLevel->sst_general_social_group:'0')));
+                                        'national'=>array("sc"=>isset($nationalLevel->sst_sc_social_group)?$nationalLevel->sst_sc_social_group:'0',"obc"=>isset($nationalLevel->sst_obc_social_group)?$nationalLevel->sst_obc_social_group:'0',"st"=>isset($nationalLevel->sst_st_social_group)?$nationalLevel->sst_st_social_group:'0',"general"=>isset($nationalLevel->sst_general_social_group)?$nationalLevel->sst_general_social_group:'0')),
+                                    'performance_level'=>array(
+                                        'district'=>array("below_basic"=>isset($districtPerformanceLevel[0]->sst_avg_below_basic)?$districtPerformanceLevel[0]->sst_avg_below_basic:'0',"basic"=>isset($districtPerformanceLevel[0]->sst_avg_basic)?$districtPerformanceLevel[0]->sst_avg_basic:'0',"proficient"=>isset($districtPerformanceLevel[0]->sst_avg_proficient)?$districtPerformanceLevel[0]->sst_avg_proficient:'0',"advanced"=>isset($districtPerformanceLevel[0]->sst_avg_advanced)?$districtPerformanceLevel[0]->sst_avg_advanced:'0'),
+                                        'state'=>array("below_basic"=>isset($statePerLevel[0]->sst_avg_below_basic)?$statePerLevel[0]->sst_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->sst_avg_basic)?$statePerLevel[0]->sst_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->sst_avg_proficient)?$statePerLevel[0]->sst_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->sst_avg_advanced)?$statePerLevel[0]->sst_avg_advanced:'0'),
+                                        'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->sst_avg_below_basic)?$nationalPerformanceQuery[0]->sst_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->sst_avg_basic)?$nationalPerformanceQuery[0]->sst_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->sst_avg_proficient)?$nationalPerformanceQuery[0]->sst_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->sst_avg_advanced)?$nationalPerformanceQuery[0]->sst_avg_advanced:'0')));
                             }
                         }
                     }
@@ -1740,5 +1804,44 @@ class PerformanceController extends Controller
         return $query;
 
     }
+    public function queryFunctionPerformanceLevel($querySyntax,$queryGroupSyntax,$queryGroupCondition)
+    {
+        $query ="select ".$querySyntax."  grade, count(CASE WHEN round(m_avg::float)<=35 THEN m_avg END) as b,count(m_avg::float),
+            (count(CASE WHEN (l_avg::float)>=1 and (l_avg::float)<=35 THEN l_avg END)::decimal*100)/count(l_avg::float) AS l_avg_below_basic,
+            (count(CASE WHEN (l_avg::float)>=36 and (l_avg::float)<=50 THEN l_avg END)::decimal*100)/count(l_avg::float) AS l_avg_basic,
+            (count(CASE WHEN (l_avg::float)>=51 and (l_avg::float)<=75 THEN l_avg END)::decimal*100)/count(l_avg::float) AS l_avg_proficient,
+            (count(CASE WHEN (l_avg::float)>=76 and (l_avg::float)<=100 THEN l_avg END)::decimal*100)/count(l_avg::float) AS l_avg_advanced,
+            (count(CASE WHEN (m_avg::float)>=1 and (m_avg::float)<=35 THEN m_avg END)::decimal*100)/count(m_avg::float) AS m_avg_below_basic,
+            (count(CASE WHEN (m_avg::float)>=36 and (m_avg::float)<=50 THEN m_avg END)::decimal*100)/count(m_avg::float) AS m_avg_basic,
+            (count(CASE WHEN (m_avg::float)>=51 and (m_avg::float)<=75 THEN m_avg END)::decimal*100)/count(m_avg::float) AS m_avg_proficient,
+            (count(CASE WHEN (m_avg::float)>=76 and (m_avg::float)<=100 THEN m_avg END)::decimal*100)/count(m_avg::float) AS m_avg_advanced,
+            (count(CASE WHEN (e_avg::float)>=1 and (e_avg::float)<=35 THEN e_avg END)::decimal*100)/count(e_avg::float) AS e_avg_below_basic,
+            (count(CASE WHEN (e_avg::float)>=36 and (e_avg::float)<=50 THEN e_avg END)::decimal*100)/count(e_avg::float) AS e_avg_basic,
+            (count(CASE WHEN (e_avg::float)>=51 and (e_avg::float)<=75 THEN e_avg END)::decimal*100)/count(e_avg::float) AS e_avg_proficient,
+            (count(CASE WHEN (e_avg::float)>=76 and (e_avg::float)<=100 THEN e_avg END)::decimal*100)/count(e_avg::float) AS e_avg_advanced,
+            (count(CASE WHEN (mil_avg::float)>=1 and (mil_avg::float)<=35 THEN mil_avg END)::decimal*100)/count(mil_avg::float) AS mil_avg_below_basic,
+            (count(CASE WHEN (mil_avg::float)>=36 and (mil_avg::float)<=50 THEN mil_avg END)::decimal*100)/count(m_avg::float) AS mil_avg_basic,
+            (count(CASE WHEN (mil_avg::float)>=51 and (mil_avg::float)<=75 THEN mil_avg END)::decimal*100)/count(m_avg::float) AS mil_avg_proficient,
+            (count(CASE WHEN (mil_avg::float)>=76 and (mil_avg::float)<=100 THEN mil_avg END)::decimal*100)/count(m_avg::float) AS mil_avg_advanced,
+            (count(CASE WHEN (eng_avg::float)>=1 and (eng_avg::float)<=35 THEN eng_avg END)::decimal*100)/count(eng_avg::float) AS eng_avg_below_basic,
+            (count(CASE WHEN (eng_avg::float)>=36 and (eng_avg::float)<=50 THEN eng_avg END)::decimal*100)/count(m_avg::float) AS eng_avg_basic,
+            (count(CASE WHEN (eng_avg::float)>=51 and (eng_avg::float)<=75 THEN eng_avg END)::decimal*100)/count(m_avg::float) AS eng_avg_proficient,
+            (count(CASE WHEN (eng_avg::float)>=76 and (eng_avg::float)<=100 THEN eng_avg END)::decimal*100)/count(m_avg::float) AS mil_avg_advanced,
+            (count(CASE WHEN (sci_avg::float)>=1 and (sci_avg::float)<=35 THEN sci_avg END)::decimal*100)/count(sci_avg::float) AS sci_avg_below_basic,
+            (count(CASE WHEN (sci_avg::float)>=36 and (sci_avg::float)<=50 THEN sci_avg END)::decimal*100)/count(m_avg::float) AS sci_avg_basic,
+            (count(CASE WHEN (sci_avg::float)>=51 and (sci_avg::float)<=75 THEN sci_avg END)::decimal*100)/count(m_avg::float) AS sci_avg_proficient,
+            (count(CASE WHEN (sci_avg::float)>=76 and (sci_avg::float)<=100 THEN sci_avg END)::decimal*100)/count(m_avg::float) AS sci_avg_advanced,
+            (count(CASE WHEN (sst_avg::float)>=1 and (sst_avg::float)<=35 THEN sst_avg END)::decimal*100)/count(sst_avg::float) AS sst_avg_below_basic,
+            (count(CASE WHEN (sst_avg::float)>=36 and (sst_avg::float)<=50 THEN sst_avg END)::decimal*100)/count(m_avg::float) AS sst_avg_basic,
+            (count(CASE WHEN (sst_avg::float)>=51 and (sst_avg::float)<=75 THEN sst_avg END)::decimal*100)/count(m_avg::float) AS sst_avg_proficient,
+            (count(CASE WHEN (sst_avg::float)>=76 and (sst_avg::float)<=100 THEN sst_avg END)::decimal*100)/count(m_avg::float) AS sst_avg_advanced
+        from at3_performance_data
+        ".$queryGroupCondition."
+        group by ".$queryGroupSyntax." at3_performance_data.grade";
+
+        return $query;
+
+    }
+
 
 }
