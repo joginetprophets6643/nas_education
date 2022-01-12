@@ -29,14 +29,14 @@
                         <div class="row">                       
                         @foreach($videos as $video)
                         @if($video->url)
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <div class="video-wrap">
                             <iframe width="385" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>  
                         </div>
                         @endif
                         @if($video->vedio)
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <div class="video-wrap">
                             <video width="385" height="240" controls>
                                 <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
