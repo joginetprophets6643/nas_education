@@ -780,5 +780,474 @@
                                         </div>
                                     </div>
                                   </div>
+                                  <div class="tab-pane fade" id="learning_classall" role="tabpanel" aria-labelledby="dac-learning-tab">
+                                  <div class="learning-wrap">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <h2 class="heading-grey text-center">
+                                          Performance of the District in Learning Outcomes (LOs)
+                                        </h2>
+                                        <div class="dac-lo-accordion-wrap mtb-20">
+                                          <div class="accordion dac-lo-accordion" id="dac-loAccordion">
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="dac-loAccordionOne">
+                                                <button class="accordion-button card-blue" type="button" data-bs-toggle="collapse" data-bs-target="#dac-loAccordioncollapseOne" aria-expanded="true" aria-controls="dac-loAccordioncollapseOne">
+                                                  <div class="accordion-btn-content">
+                                                    <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
+                                                  </div>  
+                                                  
+                                                </button>
+                                              </h2>
+                                              <div id="dac-loAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="dac-loAccordionOne">
+                                                <div class="accordion-body">
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-blue">
+                                                        CLASS 3
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-blue">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="language_lo3_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-blue">
+                                                        CLASS 5
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-blue">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="language_lo5_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-blue">
+                                                        CLASS 8
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-blue">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="language_lo8_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="dac-loAccordionTwo">
+                                                <button class="accordion-button card-pink collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dac-loAccordioncollapseTwo" aria-expanded="true" aria-controls="dac-loAccordioncollapseTwo">
+                                                  <div class="accordion-btn-content">
+                                                    <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35" /> Mathematics
+                                                  </div>
+                                                </button>
+                                              </h2>
+                                              <div id="dac-loAccordioncollapseTwo" class="accordion-collapse collapse show" aria-labelledby="dac-loAccordionTwo">
+                                                <div class="accordion-body">
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-pink">
+                                                        CLASS 3
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-pink">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="math_lo3_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-pink">
+                                                        CLASS 5
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-pink">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="math_lo5_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-pink">
+                                                        CLASS 8
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-pink">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="math_lo8_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-pink">
+                                                        CLASS 10
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-pink">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="math_lo10_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="dac-loAccordionThree">
+                                                <button class="accordion-button card-yellow collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dac-loAccordioncollapseThree" aria-expanded="true" aria-controls="dac-loAccordioncollapseThree">
+                                                  <div class="accordion-btn-content">
+                                                    <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid" /> EVS
+                                                  </div>
+                                                </button>
+                                              </h2>
+                                              <div id="dac-loAccordioncollapseThree" class="accordion-collapse collapse show" aria-labelledby="dac-loAccordionThree">
+                                                <div class="accordion-body">
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-yellow">
+                                                        CLASS 3
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-yellow">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="evs_lo3_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-yellow">
+                                                        CLASS 5
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-yellow">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="evs_lo5_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="dac-loAccordionfour">
+                                                <button class="accordion-button card-red collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dac-loAccordioncollapsefour" aria-expanded="true" aria-controls="dac-loAccordioncollapsefour">
+                                                  <div class="accordion-btn-content">
+                                                    <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL
+                                                  </div>
+                                                </button>
+                                              </h2>
+                                              <div id="dac-loAccordioncollapsefour" class="accordion-collapse collapse show" aria-labelledby="dac-loAccordionfour">
+                                                <div class="accordion-body">
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-red">
+                                                        CLASS 10
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-red">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="mil_lo10_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="dac-loAccordionfive">
+                                                <button class="accordion-button card-green collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dac-loAccordioncollapsefive" aria-expanded="true" aria-controls="dac-loAccordioncollapsefive">
+                                                  <div class="accordion-btn-content">
+                                                    <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science
+                                                  </div>
+                                                </button>
+                                              </h2>
+                                              <div id="dac-loAccordioncollapsefive" class="accordion-collapse collapse show" aria-labelledby="dac-loAccordionfive">
+                                                <div class="accordion-body">
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-green">
+                                                        CLASS 8
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-green">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="social_lo8_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-green">
+                                                        CLASS 10
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-green">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="social_lo10_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="dac-loAccordionsix">
+                                                <button class="accordion-button card-purple collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dac-loAccordioncollapsesix" aria-expanded="true" aria-controls="dac-loAccordioncollapsesix">
+                                                  <div class="accordion-btn-content">
+                                                    <img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English
+                                                  </div>
+                                                </button>
+                                              </h2>
+                                              <div id="dac-loAccordioncollapsesix" class="accordion-collapse collapse show" aria-labelledby="dac-loAccordionsix">
+                                                <div class="accordion-body">
+                                                  
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-purple">
+                                                        CLASS 10
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-purple">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="english_lo10_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="dac-loAccordionseven">
+                                                <button class="accordion-button card-sagegreen collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dac-loAccordioncollapseseven" aria-expanded="true" aria-controls="dac-loAccordioncollapseseven">
+                                                  <div class="accordion-btn-content">
+                                                    <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science
+                                                  </div>
+                                                </button>
+                                              </h2>
+                                              <div id="dac-loAccordioncollapseseven" class="accordion-collapse collapse show" aria-labelledby="dac-loAccordionseven">
+                                                <div class="accordion-body">
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-sagegreen">
+                                                        CLASS 8
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-sagegreen">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="science_lo8_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="learning-table-wrap">
+                                                    <div class="dac-lo-classtitle-wrap">
+                                                      <h2 class="dac-lo-classtitle title-sagegreen">
+                                                        CLASS 10
+                                                      </h2>
+                                                    </div>
+                                                    
+                                                    <div class="learning-table">
+                                                      <table class="table">
+                                                        <thead class="thead-sagegreen">
+                                                          <tr>
+                                                            <th scope="col">LO Code</th>
+                                                            <th scope="col">Learning Outcome</th>
+                                                            <th scope="col">District</th>
+                                                            <th scope="col">State</th>
+                                                            <th scope="col">National</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody class="social_lo10_classall">
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                   
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                </div>
+
 
 @endsection
