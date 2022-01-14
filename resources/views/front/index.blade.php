@@ -569,13 +569,20 @@
 
   function triggerDistrictChart(data){
     let demographicInfo = []
-
     document.getElementById("map-container").style.display = "none";
     if(typeof data  === 'undefined'){
       $('#district-map-container').html('<p class="text-center">Map not found</p>')
       document.getElementById("district-map-container").style.display = "";
       return
     }
+
+    console.log(data.data[0].data)
+    data.data[0].data.forEach((item)=>{
+      if(item.id=='1007'){
+        item.color="blue"
+      }
+    })
+
     Highcharts.mapChart('district-map-container',{
       title: {
           text: data.name
@@ -598,6 +605,24 @@
 
     })
     document.getElementById("district-map-container").style.display = "";
+    // let chart=$('#district-map-container').highcharts();
+    // console.log(chart.series[0].data,chart.series[0].mapData)
+    
+    // let d=chart.series[0].data;
+    // d.forEach((item)=>{
+    //   if(item.id=='1007'){
+    //   item.color="blue";
+    //   console.log(item)
+    //   }
+    // })
+    // // chart.series[0].update({
+    // //   data:[
+    // //     {
+    // //     id:'1007',
+    // //     name:'la',
+    // //     color:'blue',
+    // //   }]
+    // // })
 
   }
 

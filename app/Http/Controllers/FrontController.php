@@ -43,7 +43,7 @@ class FrontController extends Controller
         }
         
         $videos=Vedios::where('status','1')->get();
-        $states=State_Master::all();
+        $states=State_Master::orderBy('state_name')->get();
 
         
         return view('front.index',compact('content','events','image','videos','states','client_logo','banners'));
@@ -56,7 +56,21 @@ class FrontController extends Controller
     }
 
     public function data(){
-        return view('front.data-share.index');
+        $lang="2";
+        if (Session::has('locale')) {
+            $lang = Session::get('locale');
+            if($lang=="hi")
+            {
+                $lang='1';
+            }
+            else{
+                $lang='2';
+            }
+        }
+
+        $content=Static_Content::where('language',$lang)->where('page_title','Data Share')->first();
+        
+        return view('front.data-share.index',compact('content'));
     }
 
     public function program(){
