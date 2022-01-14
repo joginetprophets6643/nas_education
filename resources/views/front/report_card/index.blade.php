@@ -161,8 +161,11 @@
 
     let state = states.filter(function(states){
         return states.state_id==id;
-    })
-    console.log(state);
+    }).pop()
+
+    sessionStorage.setItem('activeState',JSON.stringify(state))
+    sessionStorage.removeItem('activeDistrict')
+    location.href = base_url + 'report-card/nas-2021'
 
     }
 
@@ -170,11 +173,15 @@
 
     let district = districts.filter(function(districts){
         return districts.district_id==id;
-    })
+    }).pop()
     let state =states.filter(function(states){
-        return states.state_id==district[0].state_id;
-    })
-    console.log(district,state);
+        return states.state_id==district.state_id;
+    }).pop()
+
+    sessionStorage.setItem('activeState',JSON.stringify(state))
+    sessionStorage.setItem('activeDistrict',JSON.stringify(district))
+    location.href = base_url + 'report-card/nas-2021'
+    // console.log(district,state);
 
     }
 
