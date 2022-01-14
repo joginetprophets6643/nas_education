@@ -34,12 +34,15 @@
                     </div>
                     <div class="col-md-6">
                     <div class="mobileapp-content">
+                    @if(!empty($content->page_meta_title))
                         <h2 class="heading-blue">
-                            MOBILE APP
+                        {!!$content->page_meta_title!!}
                         </h2>
-                        <p class="desc-black">
-                            This mobile application provides a quick and an easy access to information on learning outcome. Disaggregated and details learning achievement by management of schools, gender, social groups and location till district level in classes 3, 5 and 8 and detailed achievement by learning outcomes in classes 3, 5 and 8 are provided in the mobile app. After the selection of indicator and subgroup user can visualize information in charts and maps as per his/her choice and easily share through email or social media to any other user.
-                        </p>
+                        <div class="desc-black">
+                            <!-- This mobile application provides a quick and an easy access to information on learning outcome. Disaggregated and details learning achievement by management of schools, gender, social groups and location till district level in classes 3, 5 and 8 and detailed achievement by learning outcomes in classes 3, 5 and 8 are provided in the mobile app. After the selection of indicator and subgroup user can visualize information in charts and maps as per his/her choice and easily share through email or social media to any other user. -->
+                            {!!$content->inner_page_content!!}
+                        </div>
+                    @endif
                         <div class="app-wrap">
                             <h3 class="text-black">
                                 Download the <span class="text-red">FREE</span> App Today!

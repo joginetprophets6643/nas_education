@@ -98,6 +98,7 @@
               </ul>
             </div>
           </div>
+
           <div class="col-md-4">
               <div class="footer-links contact-info">
                 <h2 class="heading-white-xs">

@@ -208,9 +208,7 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/data-share','App\Http\Controllers\FrontController@data');
     Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
     Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
+    Route::get('/mobile-app','App\Http\Controllers\VisualizationController@mobile');
     
-    Route::get('/mobile-app',function(){
-        return view('front.mobile-app.index');
-    });
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');

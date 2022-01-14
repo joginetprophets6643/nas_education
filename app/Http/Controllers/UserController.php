@@ -18,7 +18,7 @@ class UserController extends BaseController
 {
     public function register()
     {
-        $states=State_Master::all();
+        $states=State_Master::orderBy('state_name')->get();
         return view('front.registration',compact('states'));
     }
 
