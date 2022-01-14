@@ -42,9 +42,16 @@
                       @endif
                   </div>
                   </div>
+
                   <div class="btn-wrap">
-                    <a href="{{url('/about-nas')}}" class="btn btn_lg btn-white">{{ __('lang.Read More') }}</a>
+                    <a href="{{url('/about-nas')}}" class="white-link">
+                      {{ __('lang.Read More') }}
+                      <span class="material-icons-round">
+                        east
+                      </span>
+                    </a>
                   </div>
+
                 </div>
                 
                 
@@ -178,9 +185,16 @@
                     </li>
                   </ul>
                 </div>
+                
                 <div class="btn-wrap">
-                    <a href="javascript:void(0);" onClick="goToReportCard()" class="btn btn_md org-btn">{{ __('lang.Read More') }}</a>
+                <a href="javascript:void(0);" onClick="goToReportCard()" class="white-link" style="color:black;">
+                    {{ __('lang.Read More') }}
+                    <span class="material-icons-round">
+                      east
+                    </span>
+                  </a>
                 </div>
+                  
               </div>
           </div>
           <div class="col-md-6">
@@ -217,13 +231,14 @@
                       </h2>
                     </div> 
                     <p class="desc-white">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    NCERT, under the aegis of MHRD, conducted the National Achievement Survey (NAS) throughout the country on November 13, 2021, for Classes 3, 5 and 8 in government and government-aided schools. The survey tools used multiple test booklets with 45 questions in Classes 3 and 5 and 60 questions in Class VIII in Mathematics, Language, Sciences and Social Sciences. The competency-based test questions reflect the learning outcomes developed by NCERT which were recently incorporated in the RTE Act by the Government of India. Along with the test items, questionnaires about students, teachers and schools were also used. The learning levels of 2.2 million students from 1,10,000 schools across 701 districts in all 36 states/UTs were assessed...
+                    <!-- NCERT, under the aegis of MHRD, conducted the National Achievement Survey (NAS) throughout the country on November 13, 2021, for Classes 3, 5 and 8 in government and government-aided schools. The survey tools used multiple test booklets with 45 questions in Classes 3 and 5 and 60 questions in Class VIII in Mathematics, Language, Sciences and Social Sciences. The competency-based test questions reflect the learning outcomes developed by...                      -->
                     </p>
                   </div>
                   
                   <div class="btn-wrap">
                     <a href="{{url('/report-card')}}" class="white-link">
-                      {{ __('lang.Read More') }}
+                      {{ __('lang.Explore') }}
                       <span class="material-icons-round">
                         east
                       </span>
@@ -243,13 +258,13 @@
                   </h2>
                 </div> 
                 <p class="desc-white">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to ...
                 </p>
               </div>
               
               <div class="btn-wrap">
                 <a href="{{url('visualization')}}" class="white-link">
-                  {{ __('lang.Read More') }}
+                  {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
@@ -267,13 +282,13 @@
                   </h2>
               </div> 
               <p class="desc-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+              The NAS 2021 collects data on the learning levels disaggregated by gender, location, social groups and management of schools, wherever applicable...
               </p>
               </div>
               
               <div class="btn-wrap">
                 <a href="{{url('/data-share')}}" class="white-link">
-                  {{ __('lang.Read More') }}
+                  {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
@@ -287,8 +302,8 @@
 
     <section class="gallery-wrap ptb-60" data-aos="fade-up">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row photos">
+                <div class="col-md-6 item">
                     <h2 class="heading-blue mb-4">
                      {{__('lang.Photo Gallery')}}
                     </h2>
@@ -297,7 +312,15 @@
                         @foreach($events as $event)
                         <div class="item">
                             <div class="gallery-img-wrap">
-                              <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="width:100%;height:178.42px">
+                            <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
+                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="width:100%;height:178.42px">                        
+                            <button class="gallery-zoom-icon" style="width:100%">
+                        <span class="material-icons-round">
+                        zoom_in
+                        </span>
+                        </button>
+                        </a>
+                              
                             </div>
                         </div>
                         @endforeach
@@ -691,5 +714,5 @@
     sessionStorage.removeItem('activeState')
     sessionStorage.removeItem('activeDistrict')
   }
-
+    
 </script>

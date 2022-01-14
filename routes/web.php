@@ -197,6 +197,7 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/rti','App\Http\Controllers\ContentPagesController@index')->name('rti');
     Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
     Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
+    Route::get('/report-card/nas-2021','App\Http\Controllers\ReportCardController@details');
     Route::get('/data-share/registration','App\Http\Controllers\UserController@register')->name('registration');
     Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
     Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
@@ -206,8 +207,10 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/nas-team','App\Http\Controllers\FrontController@team');
     Route::get('/data-share','App\Http\Controllers\FrontController@data');
     Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
-    Route::get('/visualization',function(){
-        return view('front.visualization.visualization');
+    Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
+    
+    Route::get('/mobile-app',function(){
+        return view('front.mobile-app.index');
     });
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
