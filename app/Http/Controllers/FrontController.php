@@ -30,6 +30,9 @@ class FrontController extends Controller
             }
         }
         $content=Static_Content::where('language',$lang,)->where('page_title','About NAS')->first();
+        $report=Static_Content::where('language',$lang,)->where('page_title','Report Card')->first();
+        $data=Static_Content::where('language',$lang,)->where('page_title','Data Share')->first();
+        $visual=Static_Content::where('language',$lang,)->where('page_title','Visualization')->first();
         $client_logo = ClientLogo::all();
         $banners=Banner::all();
 
@@ -46,7 +49,7 @@ class FrontController extends Controller
         $states=State_Master::orderBy('state_name')->get();
 
         
-        return view('front.index',compact('content','events','image','videos','states','client_logo','banners'));
+        return view('front.index',compact('content','events','image','videos','states','client_logo','banners','report','data','visual'));
     }
 
     public function team(){

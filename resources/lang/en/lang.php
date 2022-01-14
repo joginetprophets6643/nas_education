@@ -6,6 +6,7 @@ return[
     'ANALYTICS'=>'ANALYTICS',
     'VISUALIZATION'=>'VISUALIZATION',
     'Visualization'=>'Visualization',
+    'Content'=>'Below is the collection of services provided by NAS',
     'GALLERY'=>'GALLERY',
     'Gallery'=>'Gallery',
     'Photo Gallery'=>'Photo Gallery',

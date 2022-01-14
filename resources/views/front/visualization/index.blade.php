@@ -29,9 +29,12 @@
                 <div class="card-white">
                 <div class="row justify-content-center text-center">
                     <div class="col-md-12">
-                    <p class="desc-black">
-                    Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to promptly understand complex analytics through visual representations. The data visualisation tool facilitates the development of an interface to interact between multiple indicators and form a pattern. This also addresses the bottlenecks that could be identified and targeted for effective planning, implementation, monitoring of the progress of key input, output, and outcome level indicators. Data Visualisation is a useful tool for policymakers, senior government officials, academia and researchers and other stakeholders for its easy interactive features and actionable directions.
-                    </p>
+                    <div class="desc-black">
+                    @if(!empty($content->page_meta_title))
+                        {!!$content->inner_page_content!!}
+                    @endif
+                    <!-- Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to promptly understand complex analytics through visual representations. The data visualisation tool facilitates the development of an interface to interact between multiple indicators and form a pattern. This also addresses the bottlenecks that could be identified and targeted for effective planning, implementation, monitoring of the progress of key input, output, and outcome level indicators. Data Visualisation is a useful tool for policymakers, senior government officials, academia and researchers and other stakeholders for its easy interactive features and actionable directions. -->
+                    </div>
                     </div>
                 <div class="col-md-4">
                     <div class="line-card line-card-pink">
