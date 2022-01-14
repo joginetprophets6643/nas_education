@@ -216,7 +216,8 @@
                 {{__('lang.QUICK LINKS')}}
               </h2>
               <p class="title-black-sm mb-4">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                {{__('lang.Content')}}
+              <!-- Below is the collection of services provided by NAS -->
               </p>
           </div>
           <div class="col-md-6 mb-4-sm">
@@ -230,10 +231,12 @@
                         {{__('lang.REPORT CARD')}}
                       </h2>
                     </div> 
-                    <p class="desc-white">
-                    NCERT, under the aegis of MHRD, conducted the National Achievement Survey (NAS) throughout the country on November 13, 2021, for Classes 3, 5 and 8 in government and government-aided schools. The survey tools used multiple test booklets with 45 questions in Classes 3 and 5 and 60 questions in Class VIII in Mathematics, Language, Sciences and Social Sciences. The competency-based test questions reflect the learning outcomes developed by NCERT which were recently incorporated in the RTE Act by the Government of India. Along with the test items, questionnaires about students, teachers and schools were also used. The learning levels of 2.2 million students from 1,10,000 schools across 701 districts in all 36 states/UTs were assessed...
+                    <div class="desc-white">
+                    @if(!empty($report->page_meta_title))
+                        {!!$report->home_page_content!!}
+                    @endif
                     <!-- NCERT, under the aegis of MHRD, conducted the National Achievement Survey (NAS) throughout the country on November 13, 2021, for Classes 3, 5 and 8 in government and government-aided schools. The survey tools used multiple test booklets with 45 questions in Classes 3 and 5 and 60 questions in Class VIII in Mathematics, Language, Sciences and Social Sciences. The competency-based test questions reflect the learning outcomes developed by...                      -->
-                    </p>
+                    </div>
                   </div>
                   
                   <div class="btn-wrap">
@@ -257,9 +260,12 @@
                     {{__('lang.VISUALIZATION')}}
                   </h2>
                 </div> 
-                <p class="desc-white">
-                Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to ...
-                </p>
+                <div class="desc-white">
+                @if(!empty($visual->page_meta_title))
+                        {!!$visual->home_page_content!!}
+                    @endif
+                <!-- Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to ... -->
+                </div>
               </div>
               
               <div class="btn-wrap">
@@ -281,9 +287,12 @@
                    {{__('lang.DATA SHARE')}}
                   </h2>
               </div> 
-              <p class="desc-white">
-              The NAS 2021 collects data on the learning levels disaggregated by gender, location, social groups and management of schools, wherever applicable...
-              </p>
+              <div class="desc-white">
+              @if(!empty($data->page_meta_title))
+                        {!!$data->home_page_content!!}
+                    @endif
+              <!-- The NAS 2021 collects data on the learning levels disaggregated by gender, location, social groups and management of schools, wherever applicable... -->
+              </div>
               </div>
               
               <div class="btn-wrap">
@@ -576,12 +585,12 @@
       return
     }
 
-    console.log(data.data[0].data)
-    data.data[0].data.forEach((item)=>{
-      if(item.id=='1007'){
-        item.color="blue"
-      }
-    })
+    // console.log(data.data[0].data)
+    // data.data[0].data.forEach((item)=>{
+    //   if(item.id=='1007'){
+    //     item.color="blue"
+    //   }
+    // })
 
     Highcharts.mapChart('district-map-container',{
       title: {
@@ -605,25 +614,6 @@
 
     })
     document.getElementById("district-map-container").style.display = "";
-    // let chart=$('#district-map-container').highcharts();
-    // console.log(chart.series[0].data,chart.series[0].mapData)
-    
-    // let d=chart.series[0].data;
-    // d.forEach((item)=>{
-    //   if(item.id=='1007'){
-    //   item.color="blue";
-    //   console.log(item)
-    //   }
-    // })
-    // // chart.series[0].update({
-    // //   data:[
-    // //     {
-    // //     id:'1007',
-    // //     name:'la',
-    // //     color:'blue',
-    // //   }]
-    // // })
-
   }
 
   function populateDemographicInfo(state_id,type='state'){

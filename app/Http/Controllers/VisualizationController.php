@@ -13,10 +13,23 @@ class VisualizationController extends Controller
 {
     
     public function index(){
+        $lang="2";
+        if (Session::has('locale')) {
+            $lang = Session::get('locale');
+            if($lang=="hi")
+            {
+                $lang='1';
+            }
+            else{
+                $lang='2';
+            }
+        }
 
+        $content=Static_Content::where('language',$lang)->where('page_title','Visualization')->first();
+        
         $states=State_Master::all();
         $districts=District_Master::orderBy('district_name')->get();
-        return view('front.visualization.index',compact('states','districts'));
+        return view('front.visualization.index',compact('states','districts','content'));
     }
 
     public function mobile(){

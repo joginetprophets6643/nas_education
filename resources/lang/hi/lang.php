@@ -6,6 +6,7 @@ return[
     'ANALYTICS'=>'एनालिटिक्स',
     'VISUALIZATION'=>'दृश्यकरण',
     'Visualization'=>'दृश्यकरण',
+    'Content' => 'एनएएस द्वारा प्रदान की जाने वाली सेवाओं का संग्रह नीचे है',
     'GALLERY'=>'गेलरी',
     'Gallery'=>'गेलरी',
     'Photo Gallery'=>'चित्र गेलरी',
