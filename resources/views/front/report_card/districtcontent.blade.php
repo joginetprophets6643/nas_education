@@ -27,8 +27,7 @@
                                   <button class="nav-link" id="feedback-tab" data-bs-toggle="tab" data-bs-target="#feedback" type="button" role="tab" aria-controls="feedback" aria-selected="false"onClick="setScreen('feedback')">Feedback</button>
                                 </li>
                               </ul>
-
-                            <div class="tab-content tablayerthree-content">
+                            <div class="tab-content tablayerthree-content" id="screen-content">
                                 @yield('information')
                                 @yield('participation')
                                 @yield('performance')
@@ -36,10 +35,10 @@
                                 @yield('feedback')
                             </div>
                             </div>
-                            <div class="tab-pane fade" id="class5" role="tabpanel" aria-labelledby="class5-tab">...</div>
+                            <!-- <div class="tab-pane fade" id="class5" role="tabpanel" aria-labelledby="class5-tab">...</div>
                             <div class="tab-pane fade" id="class8" role="tabpanel" aria-labelledby="class8-tab">...</div>
                             <div class="tab-pane fade" id="class10" role="tabpanel" aria-labelledby="class10-tab">...</div>
-                            <div class="tab-pane fade" id="allclasses" role="tabpanel" aria-labelledby="allclasses-tab">...</div>
+                            <div class="tab-pane fade" id="allclasses" role="tabpanel" aria-labelledby="allclasses-tab">...</div> -->
                           </div>
                         </div>
                       </div>
