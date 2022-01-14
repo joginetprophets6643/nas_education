@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\State_Master;
+use App\Models\District_Master;
 
 class ReportCardController extends Controller
 {
@@ -31,6 +33,12 @@ class ReportCardController extends Controller
         //     }
         // }
         // dd($data);
+        // return view('front.report_card.districtcontent');
+        $states=State_Master::all();
+        $districts=District_Master::orderBy('district_name')->get();
+        return view('front.report_card.index',compact('states','districts'));
+    }
+    public function details(){
         return view('front.report_card.districtcontent');
     }
 }

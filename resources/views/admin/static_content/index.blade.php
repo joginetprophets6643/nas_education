@@ -25,7 +25,7 @@
               <th scope="col" width="70px">SL no.</th>
               <th scope="col">Language</th>
               <th scope="col">Page Title</th>
-              <th scope="col">Home Page Content</th>
+              <th scope="col">Page Content</th>
               <th scope="col" width="200px" class="action Content_action">Actions</th>
             </tr>
           </thead>
@@ -40,7 +40,7 @@
               <td>English</td>
               @endif
               <td >{{$content->page_title}}</td>
-              <td style="max-width:290px; overflow:hidden;" id="content">{!!$content->home_page_content!!}</td>
+              <td style="max-width:290px; overflow:hidden;" id="content">{!!$content->inner_page_content!!}</td>
               <td class="action Content_action">
                 <?php $id=encode5t($content->id)?>
                 <a href="{{url('secure-admin/edit/content/'.$id)}}" class="btn btn-primary btn-sm Content_edit">Edit</a>

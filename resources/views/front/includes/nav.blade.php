@@ -82,7 +82,7 @@
                 <a class="nav-link {{ Request::is('nas-program') ? 'active' : '' }}" href="{{url('/nas-program')}}">{{__('lang.NAS PROGRAM')}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('report-card') ? 'active' : '' }}" href="{{url('/report-card')}}">{{__('lang.REPORT CARD')}}</a>
+                <a class="nav-link {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="{{url('/report-card')}}">{{__('lang.REPORT CARD')}}</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('lang.REPORT CARD')}}</a>
@@ -95,7 +95,7 @@
                 <a class="nav-link {{ Request::is('data-share') || Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}">{{__('lang.DATA SHARE')}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('visualization') ? 'active' : '' }}" href="{{url('/visualization')}}">{{__('lang.VISUALIZATION')}}</a>
+                <a class="nav-link {{ Request::is('visualization') || Request::is('visualization/*') ? 'active' : '' }}" href="{{url('/visualization')}}">{{__('lang.VISUALIZATION')}}</a>
               </li>
 
               <li class="nav-item">
@@ -110,6 +110,14 @@
               </li> -->
               <li class="nav-item">
                 <a class="nav-link {{ Request::is('nas-team') ? 'active' : '' }}" href="{{url('nas-team')}}">{{__('lang.NAS TEAM')}}</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link {{ Request::is('nas-exam') ? 'active' : '' }}" href="{{url('https://nas.education.gov.in/home')}}" target="_blank">{{__('lang.NAS EXAM')}}</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link {{ Request::is('mobile-app') ? 'active' : '' }}" href="{{url('mobile-app')}}">{{__('lang.MOBILE APP')}}</a>
               </li>
             </ul>
             <!-- <div class="btn-wrap">

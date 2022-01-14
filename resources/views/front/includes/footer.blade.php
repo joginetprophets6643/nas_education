@@ -308,6 +308,24 @@ function changeFontSize(direction){
           $('span').css('font-size', '' + size + 'px');
           $('a').css('font-size', '' + size + 'px');
       }
+
+
+      $('.gallery-anchor').click(()=>{
+        $('body').addClass('overflow-hidden');
+    });
+    $('.lightboxOverlay').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lightbox').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lb-close').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lb-closeContainer').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    
     </script>
 
   </body>
