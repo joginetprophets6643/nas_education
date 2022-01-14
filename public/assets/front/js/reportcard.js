@@ -28,7 +28,7 @@ let screens = ['information','participation','performance','learning','feedback'
 $(document).ready(()=>{
     $.ajax({
       type: "GET",
-      url: api_url + 'state_masters?limit-1',
+      url: api_url + 'state_masters?limit-1&sort[]=state_name',
     }).done((response)=>{
        createSidebarStates(response.data)
        sessionStorage.setItem('states',JSON.stringify(response.data))
