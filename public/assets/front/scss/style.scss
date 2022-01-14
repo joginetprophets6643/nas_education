@@ -170,6 +170,10 @@ $color_pink: #E9769F;
     background:#D8EEEF;
 }
 
+.light-purple-bg{
+    background:#ffcffc;
+}
+
 
 @mixin d_flex_between{
     display: flex;
@@ -3481,7 +3485,24 @@ ul{
         border-right: 0;
     }
     .nasteam-content{
-        padding: 15px;
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+        .img-wrap{
+            position: relative;
+            height: 80px;
+            width: 80px;
+            margin-right: 15px;
+            img{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
     }
     .name-blue {
         letter-spacing: 0.11px;
@@ -4097,6 +4118,91 @@ ul{
     .btn:last-child {
         margin-right: 0px;
     }
+}
+
+
+.district-table{
+    border: 1px solid #D6D6D6;
+    border-radius: 8px;
+    .table{
+        margin: 0;
+        thead{
+            th {
+                letter-spacing: 0.08px;
+                color: #FFFFFF;
+                font-size: 16px;
+                font-weight: 400;
+                padding: 0 0 0 20px;
+                &:first-child{
+                    border-radius: 8px 0px 0px 0px;
+                }
+                &:last-child{
+                    border-radius: 0px 8px 0px 0px;
+                    .thead-content{
+                        .percentage{
+                            border-radius: 0px 8px 0px 0px;
+                        }
+                    }
+                }
+            }
+            .thead-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .percentage{
+                    letter-spacing: 0.12px;
+                    color: #FFFFFF;
+                    font-weight: 500;
+                    font-size: 24px;
+                    padding: 5px 20px;
+                }
+                .percentage-purple-bg {
+                        background: #B168AD;   
+                }
+            }  
+        }
+        .card-purple {
+            background: #C574BF;
+        }
+        tbody {
+            background: #f1f1f1;
+            tr{
+                &:last-child{
+                    td{
+                        border-bottom: none;
+                        &:first-child{
+                            border-radius: 0px 0px 0px 8px;
+                        }
+                        &:last-child{
+                            border-radius: 0px 0px 8px 0px;
+                            .tbody-content{
+                                .percentage-no{
+                                    border-radius: 0px 0px 8px 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            td {
+                padding: 0 0 0 20px;
+                border-bottom: 1px solid #D6D6D6;
+                .tbody-content{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .percentage-no {
+                        letter-spacing: 0.07px;
+                        color: #101010;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 8px 20px;
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 // media-query

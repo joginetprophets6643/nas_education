@@ -31,9 +31,17 @@
                         @foreach($members as $key =>$member)
                         @if($key)
                         <div class="col-md-12 nasteam-heading">
-                            <h2 class="heading-black-sm">
-                                {{$key}}
+
+                            @if($key=="NAS-2021 National Steering Committee")
+                            <h2 class="heading-black-sm" style="background-color:#4F83B2;">
+                            {{$key}}
                             </h2>
+                            @else
+                            <h2 class="heading-black-sm" style="background-color:#BE4E76;">
+                            {{$key}}
+                            </h2>
+                            @endif
+                            
                         </div>
                           
                     </div> 
@@ -44,6 +52,16 @@
                                 @if($key=="NAS-2021 National Steering Committee")
                                 <div class="col-md-4 nasteam-container team-blue">
                                     <div class="nasteam-content">
+                                        <div class="content-left">
+                                        <div class="img-wrap">
+                                            @if(empty($mem->image))
+                                            <img src="{{asset('assets/front/images/user.png')}}" alt="user" class="img-fluid" />
+                                            @else
+                                            <img src="{{asset('assets/uploads/team/'.$mem->image)}}" alt="user" class="img-fluid" />
+                                            @endif
+                                        </div>  
+                                        </div>
+                                        <div class="content-right">
                                         <h2 class="name-blue">
                                             {{$mem->name}}
                                         </h2>
@@ -53,11 +71,22 @@
                                         <p class="number">
                                             {{$mem->mobile}}
                                         </p>
+                                        </div>
                                     </div>
                                 </div>
                                 @else
                                 <div class="col-md-4 nasteam-container team-pink">
                                     <div class="nasteam-content">
+                                    <div class="content-left">
+                                        <div class="img-wrap">
+                                        @if(empty($mem->image))
+                                        <img src="{{asset('assets/front/images/user.png')}}" alt="user" class="img-fluid" />
+                                        @else
+                                        <img src="{{asset('assets/uploads/team/'.$mem->image)}}" alt="user" class="img-fluid" />
+                                        @endif
+                                        </div>  
+                                        </div>
+                                        <div class="content-right">
                                         <h2 class="name-blue">
                                             {{$mem->name}}
                                         </h2>
@@ -67,6 +96,7 @@
                                         <p class="number">
                                             {{$mem->mobile}}
                                         </p>
+                                        </div>
                                     </div>
                                 </div>
                                 @endif

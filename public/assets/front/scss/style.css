@@ -134,6 +134,10 @@
   background: #D8EEEF;
 }
 
+.light-purple-bg {
+  background: #ffcffc;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -7535,7 +7539,30 @@ ul {
 }
 
 .nasteam-container .nasteam-content {
-  padding: 15px;
+  padding: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nasteam-container .nasteam-content .img-wrap {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  margin-right: 15px;
+}
+
+.nasteam-container .nasteam-content .img-wrap img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .nasteam-container .name-blue {
@@ -8191,6 +8218,108 @@ ul {
 
 .visualization-content .btn:last-child {
   margin-right: 0px;
+}
+
+.district-table {
+  border: 1px solid #D6D6D6;
+  border-radius: 8px;
+}
+
+.district-table .table {
+  margin: 0;
+}
+
+.district-table .table thead th {
+  letter-spacing: 0.08px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0 0 0 20px;
+}
+
+.district-table .table thead th:first-child {
+  border-radius: 8px 0px 0px 0px;
+}
+
+.district-table .table thead th:last-child {
+  border-radius: 0px 8px 0px 0px;
+}
+
+.district-table .table thead th:last-child .thead-content .percentage {
+  border-radius: 0px 8px 0px 0px;
+}
+
+.district-table .table thead .thead-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.district-table .table thead .thead-content .percentage {
+  letter-spacing: 0.12px;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 24px;
+  padding: 5px 20px;
+}
+
+.district-table .table thead .thead-content .percentage-purple-bg {
+  background: #B168AD;
+}
+
+.district-table .table .card-purple {
+  background: #C574BF;
+}
+
+.district-table .table tbody {
+  background: #f1f1f1;
+}
+
+.district-table .table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.district-table .table tbody tr:last-child td:first-child {
+  border-radius: 0px 0px 0px 8px;
+}
+
+.district-table .table tbody tr:last-child td:last-child {
+  border-radius: 0px 0px 8px 0px;
+}
+
+.district-table .table tbody tr:last-child td:last-child .tbody-content .percentage-no {
+  border-radius: 0px 0px 8px 0px;
+}
+
+.district-table .table tbody td {
+  padding: 0 0 0 20px;
+  border-bottom: 1px solid #D6D6D6;
+}
+
+.district-table .table tbody td .tbody-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.district-table .table tbody td .tbody-content .percentage-no {
+  letter-spacing: 0.07px;
+  color: #101010;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 20px;
 }
 
 @media (min-width: 992px) {
