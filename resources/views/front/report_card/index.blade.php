@@ -40,7 +40,7 @@
                         <img src="{{asset('assets/front/images/national.png')}}" alt="national" class="img-fluid" />
                         </div>
                         <div class="btn-wrap">
-                        <a href="report-card-national.html" class="line-cardbtn w-100 btn-pink">National Report Card</a>
+                        <a href="javascript:void(0);" onClick="goToNationalReport();"class="line-cardbtn w-100 btn-pink">National Report Card</a>
                         </div>
                     </div>
                     </div>
@@ -157,6 +157,13 @@
 
 @include('front.includes.footer')
 <script>
+    function goToNationalReport(){
+
+      sessionStorage.removeItem('activeState')
+      sessionStorage.removeItem('activeDistrict')
+      location.href = base_url + 'report-card/nas-2021'
+
+    }
     function stateRC(id){
 
     let state = states.filter(function(states){

@@ -706,7 +706,7 @@
     const activeState = JSON.parse(sessionStorage.getItem('activeState'))
     console.log(activeState)
     if(activeState !== null){
-      location.href = base_url + 'report-card'
+      location.href = base_url + 'report-card/nas-2021'
     }
   }
 
