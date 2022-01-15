@@ -42,9 +42,16 @@
                       @endif
                   </div>
                   </div>
+
                   <div class="btn-wrap">
-                    <a href="{{url('/about-nas')}}" class="btn btn_lg btn-white">{{ __('lang.Read More') }}</a>
+                    <a href="{{url('/about-nas')}}" class="white-link">
+                      {{ __('lang.Read More') }}
+                      <span class="material-icons-round">
+                        east
+                      </span>
+                    </a>
                   </div>
+
                 </div>
                 
                 
@@ -178,9 +185,16 @@
                     </li>
                   </ul>
                 </div>
+                
                 <div class="btn-wrap">
-                    <a href="javascript:void(0);" onClick="goToReportCard()" class="btn btn_md org-btn">{{ __('lang.Read More') }}</a>
+                <a href="javascript:void(0);" onClick="goToReportCard()" class="white-link" style="color:black;">
+                    {{ __('lang.Read More') }}
+                    <span class="material-icons-round">
+                      east
+                    </span>
+                  </a>
                 </div>
+                  
               </div>
           </div>
           <div class="col-md-6">
@@ -202,7 +216,8 @@
                 {{__('lang.QUICK LINKS')}}
               </h2>
               <p class="title-black-sm mb-4">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                {{__('lang.Content')}}
+              <!-- Below is the collection of services provided by NAS -->
               </p>
           </div>
           <div class="col-md-6 mb-4-sm">
@@ -216,14 +231,17 @@
                         {{__('lang.REPORT CARD')}}
                       </h2>
                     </div> 
-                    <p class="desc-white">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                    <div class="desc-white">
+                    @if(!empty($report->page_meta_title))
+                        {!!$report->home_page_content!!}
+                    @endif
+                    <!-- NCERT, under the aegis of MHRD, conducted the National Achievement Survey (NAS) throughout the country on November 13, 2021, for Classes 3, 5 and 8 in government and government-aided schools. The survey tools used multiple test booklets with 45 questions in Classes 3 and 5 and 60 questions in Class VIII in Mathematics, Language, Sciences and Social Sciences. The competency-based test questions reflect the learning outcomes developed by...                      -->
+                    </div>
                   </div>
                   
                   <div class="btn-wrap">
                     <a href="{{url('/report-card')}}" class="white-link">
-                      {{ __('lang.Read More') }}
+                      {{ __('lang.Explore') }}
                       <span class="material-icons-round">
                         east
                       </span>
@@ -242,14 +260,17 @@
                     {{__('lang.VISUALIZATION')}}
                   </h2>
                 </div> 
-                <p class="desc-white">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
-                </p>
+                <div class="desc-white">
+                @if(!empty($visual->page_meta_title))
+                        {!!$visual->home_page_content!!}
+                    @endif
+                <!-- Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to ... -->
+                </div>
               </div>
               
               <div class="btn-wrap">
                 <a href="{{url('visualization')}}" class="white-link">
-                  {{ __('lang.Read More') }}
+                  {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
@@ -266,14 +287,17 @@
                    {{__('lang.DATA SHARE')}}
                   </h2>
               </div> 
-              <p class="desc-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
-              </p>
+              <div class="desc-white">
+              @if(!empty($data->page_meta_title))
+                        {!!$data->home_page_content!!}
+                    @endif
+              <!-- The NAS 2021 collects data on the learning levels disaggregated by gender, location, social groups and management of schools, wherever applicable... -->
+              </div>
               </div>
               
               <div class="btn-wrap">
                 <a href="{{url('/data-share')}}" class="white-link">
-                  {{ __('lang.Read More') }}
+                  {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
@@ -287,8 +311,8 @@
 
     <section class="gallery-wrap ptb-60" data-aos="fade-up">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row photos">
+                <div class="col-md-6 item">
                     <h2 class="heading-blue mb-4">
                      {{__('lang.Photo Gallery')}}
                     </h2>
@@ -297,7 +321,15 @@
                         @foreach($events as $event)
                         <div class="item">
                             <div class="gallery-img-wrap">
-                              <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="width:100%;height:178.42px">
+                            <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
+                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="width:100%;height:178.42px">                        
+                            <button class="gallery-zoom-icon" style="width:100%">
+                        <span class="material-icons-round">
+                        zoom_in
+                        </span>
+                        </button>
+                        </a>
+                              
                             </div>
                         </div>
                         @endforeach
@@ -546,13 +578,20 @@
 
   function triggerDistrictChart(data){
     let demographicInfo = []
-
     document.getElementById("map-container").style.display = "none";
     if(typeof data  === 'undefined'){
       $('#district-map-container').html('<p class="text-center">Map not found</p>')
       document.getElementById("district-map-container").style.display = "";
       return
     }
+
+    // console.log(data.data[0].data)
+    // data.data[0].data.forEach((item)=>{
+    //   if(item.id=='1007'){
+    //     item.color="blue"
+    //   }
+    // })
+
     Highcharts.mapChart('district-map-container',{
       title: {
           text: data.name
@@ -575,7 +614,6 @@
 
     })
     document.getElementById("district-map-container").style.display = "";
-
   }
 
   function populateDemographicInfo(state_id,type='state'){
@@ -683,7 +721,7 @@
     const activeState = JSON.parse(sessionStorage.getItem('activeState'))
     console.log(activeState)
     if(activeState !== null){
-      location.href = base_url + 'report-card'
+      location.href = base_url + 'report-card/nas-2021'
     }
   }
 
@@ -691,5 +729,5 @@
     sessionStorage.removeItem('activeState')
     sessionStorage.removeItem('activeDistrict')
   }
-
+    
 </script>

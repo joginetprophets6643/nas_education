@@ -30,11 +30,20 @@
                     <h2 class="heading-blue mb-4">
                         {{ __('lang.Photo Gallery') }}
                     </h2>
-                    <div class="row">
+                    <div class="row photos">
                         @foreach($events as $event)
-                        <div class="col-md-3">
+                        <div class="col-md-3 item">
+                            <div class="gallery-card">
                             <div class="gallery-img-wrap">
-                              <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="height:136.48px" >
+                            <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
+                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="height:136.48px" >                        
+                            <button class="gallery-zoom-icon" style="width:100%">
+                        <span class="material-icons-round">
+                        zoom_in
+                        </span>
+                        </button>
+                        </a>
+                        </div>
                             </div>
                         </div>
                         @endforeach

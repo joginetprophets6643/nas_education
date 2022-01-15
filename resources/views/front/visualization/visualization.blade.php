@@ -5,13 +5,13 @@
     <section class="report-card-wrap bg-grey pb-60">
         <div class="top-content">
             <h2 class="heading-black">
-                Visualization
+            {{ __('lang.Visualization') }}
             </h2>
             <div class="breadcrum-wrap breadcrum-grey">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Visualization</li>
+                    <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Visualization') }}</li>
                     </ol>
                 </nav>
             </div>

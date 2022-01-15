@@ -98,6 +98,7 @@
               </ul>
             </div>
           </div>
+
           <div class="col-md-4">
               <div class="footer-links contact-info">
                 <h2 class="heading-white-xs">
@@ -308,6 +309,24 @@ function changeFontSize(direction){
           $('span').css('font-size', '' + size + 'px');
           $('a').css('font-size', '' + size + 'px');
       }
+
+
+      $('.gallery-anchor').click(()=>{
+        $('body').addClass('overflow-hidden');
+    });
+    $('.lightboxOverlay').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lightbox').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lb-close').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    $('.lb-closeContainer').click(()=>{
+        $('body').removeClass('overflow-hidden');
+    })
+    
     </script>
 
   </body>

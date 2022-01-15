@@ -33,14 +33,14 @@
                 <div class="col-md-4 item">
                     <div class="gallery-card">
                         <div class="gallery-img-wrap">
-                        <a class="" href="{{asset('assets/uploads/'.$image)}}" data-lightbox="photos">
-                                <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid" style="width:100%;height:200px">
-                                <button class="gallery-zoom-icon" style="width:100%">
-                                <span class="material-icons-round">
-                                zoom_in
-                                </span>
-                            </button>
-                            </a>
+                        <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image)}}" data-lightbox="photos">
+                        <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid" style="width:100%;height:200px">
+                        <button class="gallery-zoom-icon" style="width:100%">
+                        <span class="material-icons-round">
+                        zoom_in
+                        </span>
+                        </button>
+                        </a>
                             
                         </div>
                     </div>
@@ -62,24 +62,5 @@
 
 @include('front.includes.footer')
 </div>
-<script>
-    $('a').click(()=>{
-        $('body').addClass('overflow-hidden');
-    });
-    $('.lightboxOverlay').click(()=>{
-        $('body').removeClass('overflow-hidden');
-    })
-    $('.lightbox').click(()=>{
-        $('body').removeClass('overflow-hidden');
-    })
-    $('.lb-close').click(()=>{
-        $('body').removeClass('overflow-hidden');
-    })
-    $('.lb-closeContainer').click(()=>{
-        $('body').removeClass('overflow-hidden');
-    })
-    
-    
-</script>
 
 
