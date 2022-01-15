@@ -15,6 +15,7 @@ class CreateVediosTable extends Migration
     {
         Schema::create('vedios', function (Blueprint $table) {
             $table->id();
+            $table->integer('event_id');
             $table->string('title');
             $table->string('vedio')->nullable();
             $table->string('url')->nullable();

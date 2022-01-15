@@ -9,6 +9,7 @@ use App\Models\Banner;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Vedios;
+use App\Models\Video_Events;
 use App\Models\Team;
 use App\Models\Program;
 use App\Models\ClientLogo;
@@ -42,7 +43,7 @@ class FrontController extends Controller
             $image[$event->id]=json_decode($event->images)[0];
         }
         
-        $videos=Vedios::where('status','1')->get();
+        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->get();
         $states=State_Master::all();
 
         
@@ -86,7 +87,9 @@ class FrontController extends Controller
             $count[$event->id]=count(json_decode($event->images));
             $image[$event->id]=json_decode($event->images)[0];
         }
-        $videos=Vedios::where('status','1')->take(3)->get();
+        
+        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->distinct('video_events.id')->take(4)->get();
+        
         return view('front.gallery.index',compact('videos','events','image'));
     }
 }

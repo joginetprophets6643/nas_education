@@ -32,7 +32,7 @@ class Authenticated
                 if($item=='district' || $item=='state'){
                     $item="master";
                 }
-                if($item=='events' || $item=='videos' || $item=='event' || $item=='image' || $item=='images' || $item=='video'){
+                if($item=='events' || $item=='videos' || $item=='event' || $item=='image' || $item=='images' || $item=='video' || $item=='video_event'){
                     $item="media";
                 }
                 if($item=='member'){

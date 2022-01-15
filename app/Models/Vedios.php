@@ -9,7 +9,10 @@ class Vedios extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'event_id',
+        'title',
         'vedio',
+        'url',
         'status'
     ];
 }

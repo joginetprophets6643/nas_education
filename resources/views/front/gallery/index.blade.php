@@ -56,13 +56,6 @@
                     @if(!$videos->isEmpty())
                         <div class="row">                       
                         @foreach($videos as $video)
-                        @if($video->url)
-                        <div class="col-md-3">
-                            <div class="video-wrap">
-                            <iframe width="246" height="136" style="border-radius:6px;" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        @endif
                         @if($video->vedio)
                         <div class="col-md-3">
                             <div class="video-wrap">
@@ -72,7 +65,14 @@
                             </video>
                             </div>
                         </div>
+                        @else
+                        <div class="col-md-3">
+                            <div class="video-wrap">
+                            <iframe width="246" height="136" style="border-radius:6px;" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
                         @endif
+                        
                         @endforeach
                         <div class="col-md-12">
                             <a href="{{url('/gallery/video-gallery')}}" class="org-link">

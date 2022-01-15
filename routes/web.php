@@ -69,21 +69,28 @@ Route::resource('upload',UploadController::class);
 //Event Routes
 
 Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
-
-
 Route::post('/secure-admin/add/event', 'App\Http\Controllers\EventController@store')->name('store-event');
 Route::get('/secure-admin/edit/event/{id}', 'App\Http\Controllers\EventController@edit');
 Route::post('/secure-admin/update/event/{id}', 'App\Http\Controllers\EventController@update');
 
-
-//Event Images & videosRoutes
+//Event Images
 
 Route::get('/secure-admin/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
 Route::post('/secure-admin/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
 Route::get('/secure-admin/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
-Route::get('/secure-admin/videos','App\Http\Controllers\EventController@videos')->name('videos');
-Route::post('/secure-admin/add/video', 'App\Http\Controllers\EventController@addvideo');
-Route::get('/secure-admin/delete/video/{id}', 'App\Http\Controllers\EventController@deletevideo');
+
+//Video Event Routes
+
+Route::get('/secure-admin/video_event','App\Http\Controllers\EventController@video_event_index')->name('video-events');
+Route::post('/secure-admin/add/video_event', 'App\Http\Controllers\EventController@video_event_store')->name('store-video-event');
+Route::get('/secure-admin/edit/video_event/{id}', 'App\Http\Controllers\EventController@video_event_edit');
+Route::post('/secure-admin/update/video_event/{id}', 'App\Http\Controllers\EventController@video_event_update');
+
+//Videos Route
+
+Route::get('/secure-admin/event/videos/{id}','App\Http\Controllers\EventController@getVideos')->name('getVideos');
+Route::post('/secure-admin/add/videos/{id}', 'App\Http\Controllers\EventController@addVideos');
+Route::get('/secure-admin/delete/videos/{id}', 'App\Http\Controllers\EventController@deleteVideos');
 
 //Profile
 Route::get('/secure-admin/profile','App\Http\Controllers\AdminController@profile');
@@ -187,6 +194,7 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
     Route::get('/gallery/image-gallery','App\Http\Controllers\GalleryController@index');
     Route::get('/gallery/video-gallery','App\Http\Controllers\GalleryController@video');
+    Route::get('/gallery/video-gallery/{id}','App\Http\Controllers\GalleryController@viewvideos');
     Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
     Route::get('/about-nas','App\Http\Controllers\AboutController@index');
     Route::get('/terms-conditions','App\Http\Controllers\ContentPagesController@index')->name('terms');
