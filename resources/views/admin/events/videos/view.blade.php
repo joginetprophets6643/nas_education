@@ -89,32 +89,32 @@
                         <div class="row">                       
                           @foreach($videos as $video)
                           @if($video->vedio)
-                            <div class="col-md-4" style="border:groove;">
+                            <div class="col-md-4">
                                 <div class="video-wrap">
                                 <video width="300" height="240" controls>
                                     <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
-                                <h5>{{ $video->title }}</h5>
+                                <!-- <h5>{{ $video->title }}</h5> -->
                                 <?php $id=encode5t($video->id)?>
                                 
-                                <h5>Status:<input type="checkbox" onclick="return false;" {{ $video->status ? 'checked' : '' }}>
+                                <!-- <h5>Status:<input type="checkbox" onclick="return false;" {{ $video->status ? 'checked' : '' }}> -->
                                   <button class="btn btn-danger btn-sm delete-video-btn Media_delete" style="margin-bottom:20px;float:right;" data-delete-video="video" data-delete-link="{{url('secure-admin/delete/videos/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
-                                </h5>
+                                <!-- </h5> -->
                                 
                             </div>
                             </div>
                             @endif
                             @if($video->url)
-                            <div class="col-md-4" style="border:groove;">
+                            <div class="col-md-4">
                                 <div class="video-wrap">
                                 <iframe width="300" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <h5>{{ $video->title}}</h5>
+                                    <!-- <h5>{{ $video->title}}</h5> -->
                                     
                                     <?php $id=encode5t($video->id)?>
-                                <h5>Status:<input type="checkbox" onclick="return false;" {{ $video->status ? 'checked' : '' }}>
+                                <!-- <h5>Status:<input type="checkbox" onclick="return false;" {{ $video->status ? 'checked' : '' }}> -->
                                 <button class="btn btn-danger btn-sm delete-video-btn Media_delete" style="margin-bottom:20px;float:right;" data-delete-video="url" data-delete-link="{{url('secure-admin/delete/videos/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
-                                </h5>  
+                                <!-- </h5>   -->
                               </div>
                             </div>
                             @endif

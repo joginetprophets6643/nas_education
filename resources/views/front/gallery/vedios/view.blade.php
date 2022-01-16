@@ -31,26 +31,26 @@
             <div class="row">
             @foreach($videos as $video)
                     @if($video->vedio)
-                    <div class="col-md-4 item">
-                    <div class="gallery-card">
+                    <div class="col-md-5 item">
+                    <!-- <div class="gallery-card"> -->
                         <div class="video-wrap">
-                            <video width="325" height="240" controls>
+                            <video width="385" height="240" controls>
                                 <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <h5>{{ $video->title}}</h5>
+                            <!-- <h5>{{ $video->title}}</h5> -->
                         </div>
-                    </div>
+                    <!-- </div> -->
                     </div>
                     @endif
                     @if($video->url)
-                    <div class="col-md-4 item">
-                    <div class="gallery-card">
+                    <div class="col-md-5 item">
+                    <!-- <div class="gallery-card"> -->
                         <div class="video-wrap">
-                            <iframe width="325" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h5>{{ $video->title}}</h5>
+                            <iframe width="385" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <!-- <h5>{{ $video->title}}</h5> -->
                         </div>
-                    </div>
+                    <!-- </div> -->
                     </div>
                     @endif
 
