@@ -71,13 +71,13 @@
           <div class="col-md-6">
               <div class="report-card-content" data-aos="fade-right">
                 <h2 class="heading-blue">
-                  <span id="name">All India</span> REPORT CARD
+                  <span id="name">NATIONAL</span> REPORT CARD
                 </h2>
                 <p class="title-grey-sm">
                   Please select a State on the interactive map or search<br />
                   for the name below to continue.
                 </p>
-                <div class="report-select-wrap col-md-10">
+                <div class="report-select-wrap col-md-12">
                   <label>State</label>
                   <select class="form-select" id="states">
                     <option value="" selected>All India</option>
@@ -86,7 +86,7 @@
                     @endforeach
                   </select>
                 </div>
-                <div class="info-wrap">
+                <!-- <div class="info-wrap">
                   <ul>
                     <li>
                       <div class="d-flex">
@@ -184,6 +184,121 @@
                       </div>
                     </li>
                   </ul>
+                </div> -->
+
+                <div class="info-wrap">
+                  <div class="infotab-content-wrap">
+                    <div class="row">
+                      <div class="col-md-12 col-lg-6">
+                          <div class="infotab-content light-blue-bg">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="content">
+                                  <h3 class="title">
+                                    Area of the Nation
+                                  </h3>
+                                  <p class="total-no">
+                                  <span id="total_area">3.287</span>
+                                  <small>million km<sup>2</sup></small>
+                                  </p>
+                                </div>
+                                <div class="img">
+                                  <img src="{{asset('assets/front/images/area-blue.svg')}}" alt="icon" class="img-fluid" />
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-12 col-lg-6">
+                          <div class="infotab-content light-pink-bg">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <div class="content">
+                                <h3 class="title">
+                                  Population
+                                </h3>
+                                <p class="total-no" id="total_population">
+                                138 Crores
+                                </p>
+                              </div>
+                              <div class="img">
+                                <img src="{{asset('assets/front/images/population-pink.svg')}}" alt="icon" class="img-fluid" />
+                              </div>
+                            </div>
+                            
+                          </div>
+                      </div>
+                      <div class="col-md-12 col-lg-6">
+                          <div class="infotab-content light-green-bg">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <div class="content">
+                                <h3 class="title">
+                                  Density of population
+                                </h3>
+                                <p class="total-no">
+                                <span id="population_density">464</span>
+                                <small>per km<sup>2</sup></small>
+                                </p>
+                              </div>
+                              <div class="img">
+                                <img src="{{asset('assets/front/images/density-green.svg')}}" alt="icon" class="img-fluid" />
+                              </div>
+                            </div>
+                            
+                          </div>
+                      </div>
+                      <div class="col-md-12 col-lg-6">
+                          <div class="infotab-content light-yellow-bg">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <div class="content">
+                                <h3 class="title">
+                                  Literacy Rate
+                                </h3>
+                                <p class="total-no" id="literacy_rate">
+                                  88.7%
+                                </p>
+                              </div>
+                              <div class="img">
+                                <img src="{{asset('assets/front/images/litracy-yellow.svg')}}" alt="icon" class="img-fluid" />
+                              </div>
+                            </div>
+                            
+                          </div>
+                      </div>
+                      <div class="col-md-12 col-lg-6">
+                        <div class="infotab-content light-purple-bg">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="content">
+                              <h3 class="title">
+                                Teachers in Nation
+                              </h3>
+                              <p class="total-no" id="total_teachers">
+                                5,816,673
+                              </p>
+                            </div>
+                            <div class="img">
+                              <img src="{{asset('assets/front/images/teacher-purple.svg')}}" alt="icon" class="img-fluid" />
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                      <div class="col-md-12 col-lg-6">
+                          <div class="infotab-content light-sagegreen-bg">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <div class="content">
+                                <h3 class="title">
+                                  Child sex ration (0-6 age)
+                                </h3>
+                                <p class="total-no" >
+                                <span id="sex_ratio"> 963</span>
+                                <small>girls per 1000 boys</small>
+                                </p>
+                              </div>
+                              <div class="img">
+                                <img src="{{asset('assets/front/images/child-sagegreen.svg')}}" alt="icon" class="img-fluid" />
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
                 <div class="btn-wrap">
@@ -199,7 +314,7 @@
           </div>
           <div class="col-md-6">
             <div class="report-img-wrap" data-aos="fade-left">
-              <div id="map-container"></div>
+              <div id="map-container" style="height:550px;"></div>
               <div id="district-map-container"></div>
                 <!-- <img src="{{asset('assets/front/images/map.svg')}}" alt="map" class="img-fluid" /> -->
             </div>
@@ -216,7 +331,7 @@
                 {{__('lang.QUICK LINKS')}}
               </h2>
               <p class="title-black-sm mb-4">
-                {{__('lang.Content')}}
+                <!-- {{__('lang.Content')}} -->
               <!-- Below is the collection of services provided by NAS -->
               </p>
           </div>
@@ -555,8 +670,8 @@
             name: 'Random data',
             allowPointSelect: true,
             cursor: 'pointer',
-            color: "#fff",
-            borderColor: "#000",
+            color: "#9ec2e4",
+            borderColor: "#6e6f70",
             states: {
                 hover: {
                     color: '#006BB6'
@@ -665,7 +780,7 @@
 
     if(val === ''){
       populateDemographicInfo('','')
-      $('#name').html('All India');
+      $('#name').html('NATIONAL');
       document.getElementById("map-container").style.display = "";
       document.getElementById("district-map-container").style.display = "none";
 
