@@ -37,7 +37,7 @@ class ReportCardController extends Controller
         // }
         // dd($data);
         // return view('front.report_card.districtcontent');
-        $states=State_Master::all();
+        $states=State_Master::orderBy('state_name')->get();
         $districts=District_Master::orderBy('district_name')->get();
         return view('front.report_card.index',compact('states','districts','content'));
     }

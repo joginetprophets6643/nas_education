@@ -1,6 +1,47 @@
 @include('front.includes.header')
 @include('front.includes.nav')
 
+<div class="sidebaroverlay"></div>
+<div class="sidebarmenu" id="statesidebar">
+  <a class="closesidebar">
+    <svg viewBox="0 0 311 311.07733">
+          <path d="m16.035156 311.078125c-4.097656 0-8.195312-1.558594-11.308594-4.695313-6.25-6.25-6.25-16.382812 0-22.632812l279.0625-279.0625c6.25-6.25 16.382813-6.25 22.632813 0s6.25 16.382812 0 22.636719l-279.058594 279.058593c-3.136719 3.117188-7.234375 4.695313-11.328125 4.695313zm0 0"></path>
+          <path d="m295.117188 311.078125c-4.097657 0-8.191407-1.558594-11.308594-4.695313l-279.082032-279.058593c-6.25-6.253907-6.25-16.386719 0-22.636719s16.382813-6.25 22.636719 0l279.058594 279.0625c6.25 6.25 6.25 16.382812 0 22.632812-3.136719 3.117188-7.230469 4.695313-11.304687 4.695313zm0 0"></path>
+      </svg>
+  </a>
+  <div class="sidebarwrap scrollbar-y">
+      <div class="search-bar">
+        <input type="text" class="form-control" placeholder="Search for State">
+      </div>
+      <ul>
+      @foreach($states as $state)
+      <li onclick="stateRC({{$state->state_id}})"><a href="javascript:void(0);">{{$state->state_name}}</a></li>
+      @endforeach
+      </ul>
+  </div>
+</div>
+
+
+<!-- <div class="sidebaroverlay"></div> -->
+<div class="sidebarmenu" id="districtsidebar">
+  <a class="closesidebar">
+    <svg viewBox="0 0 311 311.07733">
+          <path d="m16.035156 311.078125c-4.097656 0-8.195312-1.558594-11.308594-4.695313-6.25-6.25-6.25-16.382812 0-22.632812l279.0625-279.0625c6.25-6.25 16.382813-6.25 22.632813 0s6.25 16.382812 0 22.636719l-279.058594 279.058593c-3.136719 3.117188-7.234375 4.695313-11.328125 4.695313zm0 0"></path>
+          <path d="m295.117188 311.078125c-4.097657 0-8.191407-1.558594-11.308594-4.695313l-279.082032-279.058593c-6.25-6.253907-6.25-16.386719 0-22.636719s16.382813-6.25 22.636719 0l279.058594 279.0625c6.25 6.25 6.25 16.382812 0 22.632812-3.136719 3.117188-7.230469 4.695313-11.304687 4.695313zm0 0"></path>
+      </svg>
+  </a>
+  <div class="sidebarwrap scrollbar-y">
+    <div class="search-bar">
+      <input type="text" class="form-control" placeholder="Search for District">
+    </div>
+    
+      <ul>
+      @foreach($districts as $district)
+      <li onclick="districtRC({{$district->district_id}})"><a href="javascript:void(0);">{{strtoupper($district->state_name)}} > {{$district->district_name}}</a></li>
+      @endforeach
+      </ul>
+  </div>
+</div>
 
 <section class="banner-wrap">
     <div class="container">
@@ -52,7 +93,7 @@
                         <img src="{{asset('assets/front/images/state-v.png')}}" alt="state" class="img-fluid" />
                     </div>
                     <div class="btn-wrap">
-                        <a class="line-cardbtn w-100 btn-green" data-bs-toggle="modal" data-bs-target="#stateModal">State Visualization</a>
+                        <a class="line-cardbtn w-100 btn-green stateopen" href="javascript:void(0);">State Visualization</a>
                     </div>
                     </div>
                 </div>
@@ -62,7 +103,7 @@
                         <img src="{{asset('assets/front/images/district-v.png')}}" alt="district" class="img-fluid" />
                     </div>
                     <div class="btn-wrap">
-                        <a class="line-cardbtn w-100 btn-blue" data-bs-toggle="modal" data-bs-target="#districtModal">District Visualization</a>
+                        <a class="line-cardbtn w-100 btn-blue districtopen" href="javascript:void(0);">District Visualization</a>
                     </div>
                     </div>
                 </div>
@@ -73,87 +114,6 @@
     </div>
 </section>
 
-<!-- Modal -->
-<div class="modal fade" id="stateModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div> -->
-      <div class="modal-body p-0">
-        
-
-      <div class="">
-        <div class="card">
-          <div class="card-header">Select State
-          <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="card-body">
-
-            <div class="mb-3">
-                <ul>
-                @foreach($states as $state)
-                <li onclick="stateV({{$state->state_id}})">{{$state->state_name}}</li>
-                @endforeach
-                </ul>
-            </div>
-            
-          </div>
-        </div>
-    </div>
-
-
-
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade" id="districtModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div> -->
-      <div class="modal-body p-0">
-        
-
-      <div class="">
-        <div class="card">
-          <div class="card-header">Select District
-          <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="card-body">
-
-            <div class="mb-3">
-                <ul>
-                @foreach($districts as $district)
-                <li onclick=districtV({{$district->district_id}})> {{strtoupper($district->state_name)}} -> {{$district->district_name}}</li>
-                @endforeach
-                </ul>
-            </div>
-            
-          </div>
-        </div>
-    </div>
-
-
-
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
 
 @include('front.includes.footer')
 <script>
@@ -206,4 +166,16 @@ location.href = base_url + 'visualization/nas-2021'
         })
         
     })
+</script>
+
+<script>
+      $(document).on('click','.stateopen', function(e) {
+        $('.sidebaroverlay,#statesidebar').addClass('opened');
+      });
+      $(document).on('click','.districtopen', function(e) {
+        $('.sidebaroverlay,#districtsidebar').addClass('opened');
+      });
+      $(document).on('click','.closesidebar', function(e) {
+        $('.sidebaroverlay,.sidebarmenu').removeClass('opened');
+      }); 
 </script>
