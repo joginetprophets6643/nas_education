@@ -32,6 +32,10 @@ class VisualizationController extends Controller
         return view('front.visualization.index',compact('states','districts','content'));
     }
 
+    public function details(){
+        return view('front.visualization.visualization');
+    }
+
     public function mobile(){
         $lang="2";
         if (Session::has('locale')) {

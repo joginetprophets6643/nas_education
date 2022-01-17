@@ -26,11 +26,11 @@
         <div class="row">
         <div class="col-md-12">
                 <div class="card-white">
+                @foreach($members as $key =>$member)
                     <div class="nasteam-list mb-4">
                     <div class="row">
-                        @foreach($members as $key =>$member)
                         @if($key)
-                        <div class="col-md-12 nasteam-heading">
+                        <div class="col-md-12 nasteam-heading p-0">
 
                             @if($key=="NAS-2021 National Steering Committee")
                             <h2 class="heading-black-sm" style="background-color:#4F83B2;">

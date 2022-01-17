@@ -42,7 +42,7 @@
                         <img src="{{asset('assets/front/images/national-v.png')}}" alt="national" class="img-fluid" />
                     </div>
                     <div class="btn-wrap">
-                        <a href="visualization-national.html" class="line-cardbtn w-100 btn-pink">National Visualization</a>
+                        <a href="javascript:void(0);" onClick="goToNationalV();" class="line-cardbtn w-100 btn-pink">National Visualization</a>
                     </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
             <div class="mb-3">
                 <ul>
                 @foreach($districts as $district)
-                <li onclick=districtV({{$district->district_id}})>{{$district->district_name}}</li>
+                <li onclick=districtV({{$district->district_id}})> {{strtoupper($district->state_name)}} -> {{$district->district_name}}</li>
                 @endforeach
                 </ul>
             </div>
@@ -157,6 +157,14 @@
 
 @include('front.includes.footer')
 <script>
+
+function goToNationalV(){
+
+sessionStorage.removeItem('activeState')
+sessionStorage.removeItem('activeDistrict')
+location.href = base_url + 'visualization/nas-2021'
+
+}
     function stateV(id){
 
     let state = states.filter(function(states){
