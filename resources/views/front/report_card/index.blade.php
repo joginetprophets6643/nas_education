@@ -138,7 +138,7 @@
             <div class="mb-3">
                 <ul>
                 @foreach($districts as $district)
-                <li onclick=districtRC({{$district->district_id}})>{{$district->state_name}}->{{$district->district_name}}</li>
+                <li onclick=districtRC({{$district->district_id}})> {{strtoupper($district->state_name)}} -> {{$district->district_name}}</li>
                 @endforeach
                 </ul>
             </div>

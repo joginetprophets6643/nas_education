@@ -7502,11 +7502,11 @@ ul {
 
 .nasteam-list .nasteam-heading .heading-black-sm {
   letter-spacing: 0.09px;
-  color: #101010;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 500;
   margin: 0;
-  padding: 15px 0;
+  padding: 15px;
 }
 
 .team-blue:hover {
