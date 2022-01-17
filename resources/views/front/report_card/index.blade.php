@@ -12,11 +12,11 @@
   </a>
   <div class="sidebarwrap scrollbar-y">
       <div class="search-bar">
-        <input type="text" class="form-control" placeholder="Search for State">
+        <input type="text" class="form-control" id="rc-state-search" placeholder="Search for State" onkeyup='filterList("state")'>
       </div>
-      <ul>
+      <ul id="rc-state-list">
       @foreach($states as $state)
-      <li onclick="stateRC({{$state->state_id}})"><a href="javascript:void(0);">{{$state->state_name}}</a></li>
+      <li onclick="stateRC({{$state->state_id}})" class="state-list-custom"><a href="javascript:void(0);">{{$state->state_name}}</a></li>
       @endforeach
       </ul>
   </div>
@@ -33,12 +33,12 @@
   </a>
   <div class="sidebarwrap scrollbar-y">
     <div class="search-bar">
-      <input type="text" class="form-control" placeholder="Search for District">
+      <input type="text" class="form-control" placeholder="Search for District" id="rc-district-search" onkeyup='filterList("district")'>
     </div>
     
-      <ul>
+      <ul id="rc-district-list">
       @foreach($districts as $district)
-      <li onclick="districtRC({{$district->district_id}})"><a href="javascript:void(0);">{{strtoupper($district->state_name)}} > {{$district->district_name}}</a></li>
+      <li onclick="districtRC({{$district->district_id}})" class="district-list-custom"><a href="javascript:void(0);">{{strtoupper($district->state_name)}} > {{$district->district_name}}</a></li>
       @endforeach
       </ul>
   </div>
@@ -177,6 +177,35 @@
         })
 
     })
+
+    function filterList(type){
+    let ul = []
+    let li = []
+    let filter = ''
+
+    if(type === "district"){
+      filter = $('#rc-district-search').val().toLowerCase()
+      ul = document.getElementById('rc-district-list')
+      li = ul.getElementsByClassName('district-list-custom')
+    }
+    else{
+      filter = $('#rc-state-search').val().toLowerCase()
+      ul = document.getElementById('rc-state-list')
+      li = ul.getElementsByClassName('state-list-custom')
+    }
+    for (i = 0; i < li.length; i++) {
+      let txtValue = ''
+      const a = li[i].getElementsByTagName("a")[0]
+      txtValue = a.textContent || a.innerText;
+
+      if (txtValue.toLowerCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+      } else {
+          li[i].style.display = "none";
+      }
+    } 
+
+  }
 </script>
 
 <script>
