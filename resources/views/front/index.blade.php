@@ -68,7 +68,7 @@
     <section class="report-card-wrap ptb-60">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6">
+          <div class="col-md-5">
               <div class="report-card-content" data-aos="fade-right">
                 <h2 class="heading-blue">
                   <span id="name">NATIONAL</span> REPORT CARD
@@ -189,7 +189,7 @@
                 <div class="info-wrap">
                   <div class="infotab-content-wrap">
                     <div class="row">
-                      <div class="col-md-12 col-lg-6">
+                      <div class="col-md-12">
                           <div class="infotab-content light-blue-bg">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="content">
@@ -207,7 +207,7 @@
                             </div>
                           </div>
                       </div>
-                      <div class="col-md-12 col-lg-6">
+                      <div class="col-md-12">
                           <div class="infotab-content light-pink-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -225,7 +225,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-12 col-lg-6">
+                      <div class="col-md-12">
                           <div class="infotab-content light-green-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -244,7 +244,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-12 col-lg-6">
+                      <div class="col-md-12">
                           <div class="infotab-content light-yellow-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -262,7 +262,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-12 col-lg-6">
+                      <div class="col-md-12">
                         <div class="infotab-content light-purple-bg">
                           <div class="d-flex align-items-center justify-content-between">
                             <div class="content">
@@ -279,7 +279,7 @@
                           </div>
                         </div>
                     </div>
-                      <div class="col-md-12 col-lg-6">
+                      <div class="col-md-12">
                           <div class="infotab-content light-sagegreen-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -312,10 +312,20 @@
                   
               </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-7">
             <div class="report-img-wrap" data-aos="fade-left">
-              <div id="map-container" style="height:550px;"></div>
-              <div id="district-map-container"></div>
+              <div id="map-container" style="height:610px;margin-left:50px"></div>
+              <div id="district-map-container" style="margin-left:50px;"></div>
+
+              <div class="btn-wrap" id="BackToN" style="margin-left: 80%;display:none;">
+                <a href="javascript:void(0);" onClick="BackToNational()" class="white-link" style="color:black;">
+                  <span class="material-icons-round" style="margin-right:10px">
+                    west
+                  </span>    
+                    Back
+                </a>
+              </div>
+              
                 <!-- <img src="{{asset('assets/front/images/map.svg')}}" alt="map" class="img-fluid" /> -->
             </div>
           </div>
@@ -674,7 +684,11 @@
             borderColor: "#6e6f70",
             states: {
                 hover: {
-                    color: '#006BB6'
+                    // color: '#006BB6'
+                    color:'#f7941c'
+                },
+                select: {
+                  color: '#9ec2e4'
                 }
             },
             dataLabels: {
@@ -691,22 +705,33 @@
       disable: 'mobile'
   });
 
+  function BackToNational(){
+    $('#states').val('');
+    populateDemographicInfo('','')
+      $('#name').html('NATIONAL');
+      document.getElementById("map-container").style.display = "";
+      document.getElementById("district-map-container").style.display = "none";
+      $('#BackToN').css('display','none');
+  }
+
   function triggerDistrictChart(data){
     let demographicInfo = []
     document.getElementById("map-container").style.display = "none";
     if(typeof data  === 'undefined'){
       $('#district-map-container').html('<p class="text-center">Map not found</p>')
       document.getElementById("district-map-container").style.display = "";
+      $('#BackToN').css('display','block');
       return
     }
 
     // console.log(data.data[0].data)
-    // data.data[0].data.forEach((item)=>{
-    //   if(item.id=='1007'){
-    //     item.color="blue"
-    //   }
-    // })
-
+    data.data[0].data.forEach((item)=>{
+      // if(item.id=='1007'){
+        item.color="#9ec2e4";
+        item.borderColor="#6e6f70";
+        item.states.hover.color="#f7941c";
+      // }
+    })
     Highcharts.mapChart('district-map-container',{
       title: {
           text: data.name
@@ -729,6 +754,7 @@
 
     })
     document.getElementById("district-map-container").style.display = "";
+    $('#BackToN').css('display','block');
   }
 
   function populateDemographicInfo(state_id,type='state'){
@@ -783,6 +809,8 @@
       $('#name').html('NATIONAL');
       document.getElementById("map-container").style.display = "";
       document.getElementById("district-map-container").style.display = "none";
+      $('#BackToN').css('display','none');
+
 
     }else{
       if(index > -1){

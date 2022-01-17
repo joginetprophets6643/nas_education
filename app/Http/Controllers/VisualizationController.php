@@ -27,7 +27,7 @@ class VisualizationController extends Controller
 
         $content=Static_Content::where('language',$lang)->where('page_title','Visualization')->first();
         
-        $states=State_Master::all();
+        $states=State_Master::orderBy('state_name')->get();
         $districts=District_Master::orderBy('district_name')->get();
         return view('front.visualization.index',compact('states','districts','content'));
     }
