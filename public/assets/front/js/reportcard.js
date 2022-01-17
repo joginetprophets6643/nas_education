@@ -1183,6 +1183,13 @@ $(document).ready(()=>{
   }
 
   function createChart(where,data){
+    data.data[0].data.forEach((item)=>{
+      // if(item.id=='1007'){
+        item.color="#9ec2e4";
+        item.borderColor="#6e6f70";
+        item.states.hover.color="#f7941c";
+      // }
+    })
     Highcharts.mapChart(where,{
       chart:{
         backgroundColor: 'transparent',
