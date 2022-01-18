@@ -113,7 +113,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('nas-exam') ? 'active' : '' }}" href="{{url('https://nas.education.gov.in/home')}}" target="_blank">{{__('lang.NAS EXAM')}}</a>
+                <a class="nav-link {{ Request::is('nas-exam') ? 'active' : '' }}" href="{{url('http://nas21.inroad.in/web/nas-exam.html')}}" target="_blank">{{__('lang.NAS EXAM')}}</a>
               </li>
 
               <li class="nav-item">

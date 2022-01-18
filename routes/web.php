@@ -172,7 +172,7 @@ Route::get('/secure-admin/manage-setting','App\Http\Controllers\SettingControlle
 Route::get('/secure-admin/add/setting','App\Http\Controllers\SettingController@add')->name('add-setting');
 Route::post('/secure-admin/store/setting','App\Http\Controllers\SettingController@store')->name('store-setting');
 Route::get('/secure-admin/edit/setting','App\Http\Controllers\SettingController@edit')->name('edit-setting');
-Route::get('/secure-admin/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
+// Route::get('/secure-admin/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
 Route::post('/secure-admin/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
 
 //Program Routes
@@ -190,6 +190,15 @@ Route::post('/secure-admin/store/user','App\Http\Controllers\PermissionControlle
 Route::get('/secure-admin/view/user/permission/{id}','App\Http\Controllers\PermissionController@permit')->name('permit-user');
 Route::post('/secure-admin/store/user/permission/{id}','App\Http\Controllers\PermissionController@storePermit')->name('store-permission');
 Route::get('/secure-admin/delete/user/{id}','App\Http\Controllers\PermissionController@destroy');
+
+//RTI Routes
+
+Route::get('/secure-admin/manage-rti','App\Http\Controllers\SettingController@rti')->name('manage-rti');
+Route::post('/secure-admin/add/rti','App\Http\Controllers\SettingController@storeRTI')->name('store-rti');
+Route::get('/secure-admin/edit/rti/{id}','App\Http\Controllers\SettingController@editRTI')->name('edit-rti');
+Route::get('/secure-admin/delete/rti/{id}','App\Http\Controllers\SettingController@destroy');
+Route::get('/secure-admin/delete/file/{id}/{file}','App\Http\Controllers\SettingController@deleteFile');
+Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingController@updateRTI')->name('update-rti');
 
 });
 
@@ -209,7 +218,7 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/copyright-policy','App\Http\Controllers\ContentPagesController@index')->name('copyright');
     Route::get('/hyper-linking-policy','App\Http\Controllers\ContentPagesController@index')->name('hyperlink');
     Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
-    Route::get('/rti','App\Http\Controllers\ContentPagesController@index')->name('rti');
+    Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
     Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
     Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
     Route::get('/report-card/nas-2021','App\Http\Controllers\ReportCardController@details');
@@ -217,6 +226,7 @@ Route::group(["middleware" => ["language"]], function(){
     Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
     Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
     Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
+    Route::get('/data-share/logout','App\Http\Controllers\UserController@logout');
     Route::post('/check','App\Http\Controllers\UserController@login')->name('check');
     Route::get('/nas-program','App\Http\Controllers\FrontController@program');
     Route::get('/nas-team','App\Http\Controllers\FrontController@team');

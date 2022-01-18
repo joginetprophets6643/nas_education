@@ -18468,3 +18468,8 @@ dl li {
 a,.btn,.action {
     display:none;
 }
+
+a.btn.btn-danger.btn-sm.RTI_delete {
+    float: right;
+    margin-top: -40px;
+}

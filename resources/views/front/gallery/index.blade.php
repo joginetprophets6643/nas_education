@@ -36,8 +36,8 @@
                             <div class="gallery-card">
                             <div class="gallery-img-wrap">
                             <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
-                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="height:136.48px" >                        
-                            <button class="gallery-zoom-icon" style="width:100%">
+                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid">                        
+                            <button class="gallery-zoom-icon">
                         <span class="material-icons-round">
                         zoom_in
                         </span>

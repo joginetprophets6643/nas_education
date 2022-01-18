@@ -146,6 +146,14 @@
               <i class="fas fa-cog menu-icon"></i>
             </a>
           </li>
+
+          <li class="nav-item" id="RTI" style="display:none;">
+            <a class="nav-link" href="{{url('/secure-admin/manage-rti')}}">
+              <span class="menu-title">Manage RTI</span>
+              <!-- <i class="icon-user menu-icon"></i> -->
+              <i class="fas fa-cog menu-icon"></i>
+            </a>
+          </li>
           
         </ul>
       </nav>

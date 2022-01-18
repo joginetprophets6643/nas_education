@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Static_Content;
 use App\Models\State_Master;
 use App\Models\Event;
+use App\Models\RTI;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -108,5 +109,10 @@ class FrontController extends Controller
         $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->distinct('video_events.id')->take(4)->get();
         
         return view('front.gallery.index',compact('videos','events','image'));
+    }
+
+    public function rti(){
+        $links=RTI::all();
+        return view('front.content.rti',compact('links'));
     }
 }

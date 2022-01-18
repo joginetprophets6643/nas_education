@@ -32,10 +32,10 @@
             @foreach($images as $image)
                 <div class="col-md-4 item">
                     <div class="gallery-card">
-                        <div class="gallery-img-wrap">
+                        <div class="gallery-img-wrap gallery-level-three">
                         <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image)}}" data-lightbox="photos">
-                        <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid" style="width:100%;height:200px">
-                        <button class="gallery-zoom-icon" style="width:100%">
+                        <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid">
+                        <button class="gallery-zoom-icon">
                         <span class="material-icons-round">
                         zoom_in
                         </span>
