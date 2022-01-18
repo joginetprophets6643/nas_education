@@ -13,7 +13,7 @@
                         <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                         <li class="breadcrumb-item"><a href="{{url('/data-share')}}">Data Share</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Registration</li>
+                        <li class="breadcrumb-item active" aria-current="page">Login</li>
                         </ol>
                     </nav>
                 </div>
@@ -29,12 +29,12 @@
                 <div class="card-white">
                     <div class="registration-content">
                     <h2 class="heading-blue">
-                        REGISTRATION
+                        LOGIN
                     </h2>
                     <div>
-                        <p>Regitration Successfully Done</p>
+                        <p>LOGIN Successfully Done</p>
                         <div class="register-link">
-                        <a href="{{url('data-share/login')}}" class="link-blue">Back to Login</a>
+                        <a href="{{url('data-share/logout')}}" class="link-blue">Logout</a>
                         </div>
                     </div>
                     </div>

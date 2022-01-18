@@ -28,10 +28,9 @@
     <div class="container">
         <div class="card-white">
             <div class="row photos">
-            <div class="row">
             @foreach($videos as $video)
                     @if($video->vedio)
-                    <div class="col-md-5 item">
+                    <div class="col-md-6 item">
                     <!-- <div class="gallery-card"> -->
                         <div class="video-wrap">
                             <video width="385" height="240" controls>
@@ -44,10 +43,10 @@
                     </div>
                     @endif
                     @if($video->url)
-                    <div class="col-md-5 item">
+                    <div class="col-md-6 item">
                     <!-- <div class="gallery-card"> -->
                         <div class="video-wrap">
-                            <iframe width="385" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe height="300" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <!-- <h5>{{ $video->title}}</h5> -->
                         </div>
                     <!-- </div> -->
@@ -55,7 +54,6 @@
                     @endif
 
                 @endforeach
-                </div>
                 
 
                 

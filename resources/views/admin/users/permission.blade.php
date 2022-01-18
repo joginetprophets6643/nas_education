@@ -29,7 +29,7 @@
                 <form action="{{route('store-permission',$id)}}" method="POST">
                 @csrf
 
-                <?php $modules=['User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting'];?>
+                <?php $modules=['User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting','RTI'];?>
                 @foreach($modules as $module)
                 <div class="row text-center">
             

@@ -302,7 +302,7 @@
                 </div>
                 
                 <div class="btn-wrap">
-                <a href="javascript:void(0);" onClick="goToReportCard()" class="white-link" style="color:black;">
+                <a href="javascript:void(0);" onClick="goToReportCard()" class="black-link">
                     {{ __('lang.Read More') }}
                     <span class="material-icons-round">
                       east
@@ -314,18 +314,19 @@
           </div>
           <div class="col-md-7">
             <div class="report-img-wrap" data-aos="fade-left">
-              <div id="map-container" style="height:610px;margin-left:50px"></div>
-              <div id="district-map-container" style="margin-left:50px;"></div>
-
-              <div class="btn-wrap" id="BackToN" style="margin-left: 80%;display:none;">
-                <a href="javascript:void(0);" onClick="BackToNational()" class="white-link" style="color:black;">
-                  <span class="material-icons-round" style="margin-right:10px">
+              <div id="map-container"></div>
+              <div class="btn-wrap justify-content-end">
+              <div id="BackToN">
+                <a href="javascript:void(0);" onClick="BackToNational()" class="black-link">
+                  <span class="material-icons-round">
                     west
                   </span>    
                     Back
                 </a>
               </div>
-              
+              </div>
+              <div id="district-map-container"></div>
+
                 <!-- <img src="{{asset('assets/front/images/map.svg')}}" alt="map" class="img-fluid" /> -->
             </div>
           </div>
@@ -346,7 +347,7 @@
               </p>
           </div>
           <div class="col-md-6 mb-4-sm">
-              <div class="links-card report-bg" data-aos="fade-up">
+              <a href="{{url('/report-card')}}" class="links-card report-bg" data-aos="fade-up">
                   <div class="links-content">
                     <div class="d-flex align-items-center">
                       <div class="link-icon">
@@ -365,17 +366,17 @@
                   </div>
                   
                   <div class="btn-wrap">
-                    <a href="{{url('/report-card')}}" class="white-link">
+                    <button class="white-link btn">
                       {{ __('lang.Explore') }}
                       <span class="material-icons-round">
                         east
                       </span>
-                    </a>
+                     </button>
                   </div>
-              </div>
+              </a>
           </div>
           <div class="col-md-6">
-            <div class="links-card analytics-bg mb-4" data-aos="fade-up">
+            <a href="{{url('visualization')}}" class="links-card analytics-bg mb-4" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -394,15 +395,15 @@
               </div>
               
               <div class="btn-wrap">
-                <a href="{{url('visualization')}}" class="white-link">
+                <button class="white-link btn">
                   {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
-                </a>
+                </button>
               </div>
-            </div>
-            <div class="links-card data-bg" data-aos="fade-up">
+            </a>
+            <a href="{{url('/data-share')}}" class="links-card data-bg" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -421,14 +422,14 @@
               </div>
               
               <div class="btn-wrap">
-                <a href="{{url('/data-share')}}" class="white-link">
+                <button class="white-link btn">
                   {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
-                </a>
+                </button>
               </div>
-          </div>
+            </a>
           </div>
         </div>
       </div>
@@ -447,8 +448,8 @@
                         <div class="item">
                             <div class="gallery-img-wrap">
                             <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
-                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="width:100%;height:178.42px">                        
-                            <button class="gallery-zoom-icon" style="width:100%">
+                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid">                        
+                            <button class="gallery-zoom-icon">
                         <span class="material-icons-round">
                         zoom_in
                         </span>
@@ -481,14 +482,14 @@
                         @if($video->url)
                         <div class="item">
                             <div class="gallery-img-wrap">
-                                <iframe width="263" height="178" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="263" height="150" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         @endif
                         @if($video->vedio)
                         <div class="item">
                           <div class="gallery-img-wrap">
-                            <video width="263" height="178" controls>
+                            <video width="263" height="150" controls>
                                 <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>

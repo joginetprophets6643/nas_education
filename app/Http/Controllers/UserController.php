@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use DB;
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 use Hash;
 use App\Models\User;
 use App\Models\State_Master;
@@ -88,7 +89,7 @@ class UserController extends BaseController
         }
         $credentials = $request->only('mobile_no', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->route('login')->with('success','Signed in');
+            return view('front.successlogin');
         }
 
         return redirect()->back()->with('success','Login details are not valid');
@@ -96,5 +97,11 @@ class UserController extends BaseController
 
     public function success(){
         return view('front.successful');
+    }
+
+    public function logout(){
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('login')->with('success','Logout Sucessfully');
     }
 }
