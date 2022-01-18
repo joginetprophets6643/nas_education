@@ -24,7 +24,14 @@ Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'Lear
 
 Route::get('genrate_key',[UploadController::class,'genrate_key']);
 Route::get('view_parti_g3_school',[CommonController::class,'view_parti_g3_school']);
+
+// Performance Start
+// First Run for District Level
 Route::get('questionnaire_calculation',[PerformanceController::class,'questionnaireCalculation']);
+// Second Run for State Level
+Route::get('performance_state_calculation',[PerformanceController::class,'StateLevelPerformance']);
+// Performance End
+
 Route::get('generateAt3SetForLanguage',[PerformanceController::class,'generateAt3SetForLanguage']);
 Route::get('get_feedback',[FeedbackController::class,'get_feedback']);
 Route::get('generateFeedbackanswerkey',[FeedbackController::class,'generateFeedbackanswerkey']);
