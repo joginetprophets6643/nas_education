@@ -20,7 +20,7 @@
     <link href="{{asset('assets/front/scss/aos.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/front/scss/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/front/scss/updated.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('assets/front/scss/updated.css')}}"> -->
     <link rel="stylesheet" href="{{asset('assets/front/scss/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/nivo-lightbox.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/scss/lightbox.min.css')}}">
