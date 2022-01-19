@@ -54,7 +54,7 @@
                                               </h2>
                                               <div class="d-flex justify-content-evenly align-items-end">
                                                   <div class="category-wrap">
-                                                    <div class="card-blue">
+                                                    <div class="card-round card-blue">
                                                       <span class="percentage" id="paricipation_gender_male_class3">0%</span>
                                                       <small class="title">Boys</small>
                                                     </div>
@@ -64,7 +64,7 @@
                                                     
                                                   </div>
                                                   <div class="category-wrap">
-                                                    <div class="card-pink">
+                                                    <div class="card-round card-pink">
                                                       <span class="percentage" id="paricipation_gender_female_class3">0%</span>
                                                       <small class="title">Girls</small>
                                                     </div>
@@ -84,7 +84,7 @@
                                               </h2>
                                               <div class="d-flex justify-content-evenly align-items-end">
                                                 <div class="category-wrap">
-                                                  <div class="card-blue">
+                                                  <div class="card-round card-blue">
                                                     <span class="percentage" id="participation_rural_class3">0%</span>
                                                     <small class="title">Rural</small>
                                                   </div>
@@ -94,7 +94,7 @@
                                                   
                                                 </div>
                                                 <div class="category-wrap">
-                                                  <div class="card-pink">
+                                                  <div class="card-round card-pink">
                                                     <span class="percentage" id="participation_urban_class3">0%</span>
                                                     <small class="title">Urban</small>
                                                   </div>
