@@ -210,13 +210,12 @@ class SettingController extends Controller
     public function deleteFile($id,$file){
         $id=decode5t($id);
         $file=decode5t($file);
-        dd($id);
 
         $rti=RTI::where('id',$id)->first();
         $files=json_decode($rti->file);
-        dd($file);
 
         $files=array_diff($files,[$file]);
+
         unlink(public_path("assets/uploads/rti/".$file));
         RTI::where('id',$id)->update([
             'file'=>$files
