@@ -107,7 +107,8 @@ class PerformanceController extends Controller
                             'district_id'   =>  $at3['NasExamDetails']->district_cd,
                             'grade'     =>  $at3->at3_grade,
                             'subject_code'=>$key,
-                            'language'=>substr($key,0,-3),
+                            // 'language'=>substr($key,0,-3),
+                            'language'=>$this->GetSubjectName(substr($key,0,-3)),
                             'total_no_question'=>$checkLaguage[3][$key],
                             'correct_ans'=>$value,
                             'average_performance_in_percentage'=>($value*100)/$checkLaguage[3][$key],
@@ -189,7 +190,8 @@ class PerformanceController extends Controller
                             'district_id'   =>  $at5['NasExamDetails']->district_cd,
                             'grade'     =>  $at5->at5_grade,
                             'subject_code'=>$key5,
-                            'language'=>substr($key5,0,-3),
+                            // 'language'=>substr($key5,0,-3),
+                            'language'=>$this->GetSubjectName(substr($key5,0,-3)),
                             'total_no_question'=>$checkLaguage[3][$key5],
                             'correct_ans'=>$value5,
                             'average_performance_in_percentage'=>($value5*100)/$checkLaguage[3][$key5],
@@ -282,7 +284,8 @@ class PerformanceController extends Controller
                             'district_id'   =>  $at8['NasExamDetails']->district_cd,
                             'grade'     =>  $at8->at8_grade,
                             'subject_code'=>$key8,
-                            'language'=>substr($key8,0,-3),
+                            // 'language'=>substr($key8,0,-3),
+                            'language'=>$this->GetSubjectName(substr($key8,0,-3)),
                             'total_no_question'=>$checkLaguage[4][$key8],
                             'correct_ans'=>$value8,
                             'average_performance_in_percentage'=>($value8*100)/$checkLaguage[4][$key8],
@@ -375,7 +378,8 @@ class PerformanceController extends Controller
                             'district_id'   =>  $at10['NasExamDetails']->district_cd,
                             'grade'     =>  $at10->at1_grade,
                             'subject_code'=>$key10,
-                            'language'=>substr($key10,0,-3),
+                            // 'language'=>substr($key10,0,-3),
+                            'language'=>$this->GetSubjectName(substr($key10,0,-3)),
                             'total_no_question'=>$checkLaguage[5][$key10],
                             'correct_ans'=>$value10,
                             'average_performance_in_percentage'=>($value10*100)/$checkLaguage[5][$key10],
@@ -2116,5 +2120,10 @@ class PerformanceController extends Controller
 
     }
 
+    public function GetSubjectName($SubjectCode)
+    {
+        $allSubject = array('L'=>'language','M'=>'math','EVS'=>'evs','MIL'=>'mil','E'=>'eng','SCI'=>'sci','SST'=>'sst');
+        return $allSubject[$SubjectCode];
+    }
 
 }
