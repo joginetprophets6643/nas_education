@@ -41,9 +41,9 @@ Route::get('generateFeedbackanswerkeyTq',[FeedbackController::class,'generateFee
 Route::get('get_feedback_sq',[FeedbackController::class,'get_feedback_sq']);
 Route::get('generateFeedbackanswerkeySq',[FeedbackController::class,'generateFeedbackanswerkeySq']);
 
-Route::get('home', 'App\Http\Controllers\MainController@landing');
-Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
-Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name('preloaddata');
+// Route::get('home', 'App\Http\Controllers\MainController@landing');
+// Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
+// Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name('preloaddata');
 
 
 //Admin routes
@@ -192,12 +192,12 @@ Route::post('/secure-admin/store/user/permission/{id}','App\Http\Controllers\Per
 Route::get('/secure-admin/delete/user/{id}','App\Http\Controllers\PermissionController@destroy');
 
 //RTI Routes
+Route::get('/secure-admin/delete/file-rti/{id}/{file}','App\Http\Controllers\SettingController@deleteFile');
 
 Route::get('/secure-admin/manage-rti','App\Http\Controllers\SettingController@rti')->name('manage-rti');
 Route::post('/secure-admin/add/rti','App\Http\Controllers\SettingController@storeRTI')->name('store-rti');
 Route::get('/secure-admin/edit/rti/{id}','App\Http\Controllers\SettingController@editRTI')->name('edit-rti');
 Route::get('/secure-admin/delete/rti/{id}','App\Http\Controllers\SettingController@destroy');
-Route::get('/secure-admin/delete/file/{id}/{file}','App\Http\Controllers\SettingController@deleteFile');
 Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingController@updateRTI')->name('update-rti');
 
 });

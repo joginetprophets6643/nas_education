@@ -38,8 +38,9 @@
                         {{$link->title}}
                         <?php $files=json_decode($link->file) ?>
                         @foreach($files as $file)
-                        <a href="{{asset('assets/uploads/rti/'.$file)}}">{{$file}}</a>
+                        <a href="{{asset('assets/uploads/rti/'.$file)}}" target="_blank">Download/View</a>
                         @endforeach
+                        <br>
                         @endforeach
                         </div>
                     </div>

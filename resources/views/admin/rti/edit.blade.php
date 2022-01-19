@@ -31,7 +31,7 @@
                 @foreach($files as $file)
                 <p>{{$file}}</p>
                 <?php $file=encode5t($file)?>
-                <a href="{{url('/secure-admin/delete/file/'.$id.'/'.$file)}}" class="btn btn-danger btn-sm RTI_delete">Delete</a>
+                <a href="{{url('/secure-admin/delete/file-rti/'.$id.'/'.$file)}}" class="btn btn-danger btn-sm RTI_delete">Delete</a>
                 @endforeach
                 </div>
                 <br>
