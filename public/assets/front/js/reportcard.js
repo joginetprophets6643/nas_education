@@ -786,10 +786,10 @@ $(document).ready(()=>{
           mil:0,
           eng:0, 
         }
-
+        // console.log(data)
         data.forEach(lo=>{
           let classStyle = ''
-          if(lo.language === 'L'){
+          if(lo.language === 'language'){
 
             count_object.language +=1
             if(count_object.language > 0 && count_object.language %2 === 0){
@@ -804,7 +804,7 @@ $(document).ready(()=>{
               $('.language_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
             }
           }
-          if(lo.language === 'M'){
+          if(lo.language === 'math'){
 
             count_object.math += 1
             if(count_object.math > 0 && count_object.math % 2 === 0){
@@ -820,7 +820,7 @@ $(document).ready(()=>{
               $('.math_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
             }
           }
-          if(lo.language === 'EVS'){
+          if(lo.language === 'evs'){
 
             count_object.evs += 1
             if(count_object.evs >0 && count_object.evs % 2 === 0){
@@ -836,7 +836,7 @@ $(document).ready(()=>{
               $('.evs_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
             }
           }
-          if(lo.language === 'SCI'){
+          if(lo.language === 'sci'){
 
             count_object.sci += 1
 
@@ -854,7 +854,7 @@ $(document).ready(()=>{
             }
 
           }
-          if(lo.language === 'SST'){
+          if(lo.language === 'sst'){
 
             count_object.sst += 1
             if(count_object.sst > 0 && count_object.sst %2 == 0){
@@ -870,7 +870,7 @@ $(document).ready(()=>{
               $('.social_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
             }
           }
-          if(lo.language === 'E'){
+          if(lo.language === 'eng'){
 
             count_object.eng += 1
             if(count_object.eng >0 && count_object.eng % 2 === 0){
@@ -886,7 +886,7 @@ $(document).ready(()=>{
             }
           }
 
-          if(lo.language === 'MIL'){
+          if(lo.language === 'mil'){
 
             count_object.mil += 1
             if(count_object.mil >0 && count_object.mil % 2 === 0){
