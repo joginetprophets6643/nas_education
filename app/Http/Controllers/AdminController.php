@@ -34,7 +34,7 @@ class AdminController extends BaseController
         'password' => $password
         ]);
         $user=User::where('email',$username)->first();
-        $modules=['dashboard','profile','logout','User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting'];
+        $modules=['dashboard','profile','logout','User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting','RTI'];
         $modules=json_encode($modules);
         Permission::insert([
             'user_id'=>$user->id,

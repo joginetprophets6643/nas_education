@@ -215,7 +215,6 @@ class SettingController extends Controller
         $files=json_decode($rti->file);
 
         $files=array_diff($files,[$file]);
-
         unlink(public_path("assets/uploads/rti/".$file));
         RTI::where('id',$id)->update([
             'file'=>$files
