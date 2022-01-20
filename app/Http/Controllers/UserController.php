@@ -74,7 +74,7 @@ class UserController extends BaseController
             return Redirect()->route('success');
         }
         else{
-            return Redirect()->back()->with('error','OTP is not valid');
+            return Redirect()->back()->with('error','OTP is not correct');
         }
     }
 

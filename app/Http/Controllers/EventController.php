@@ -100,10 +100,11 @@ class EventController extends Controller
     //images
     public function getImages($id){
         $id=decode5t($id);
+        $name=DB::table('events')->where('id',$id)->first();
         $data=DB::table('event_images')->where('event_id',$id)->first();
         if($data){
         $images=json_decode($data->images);
-        return view('admin.events.images.index',compact('images','id'));
+        return view('admin.events.images.index',compact('images','id','name'));
         }
         $images=0;
         return view('admin.events.images.index',compact('images','id'));
@@ -196,9 +197,10 @@ class EventController extends Controller
     //videos
     public function getVideos($id){
         $id=decode5t($id);
+        $name=DB::table('video_events')->where('id',$id)->first();
         $videos=DB::table('vedios')->where('event_id',$id)->get();
         
-        return view('admin.events.videos.view',compact('videos','id'));
+        return view('admin.events.videos.view',compact('videos','id','name'));
     }
 
     public function addVideos(Request $request,$id){

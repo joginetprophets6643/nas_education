@@ -287,8 +287,8 @@
                                   Child sex ration (0-6 age)
                                 </h3>
                                 <p class="total-no" >
-                                <span id="sex_ratio"> 963</span>
-                                <small>girls per 1000 boys</small>
+                                <span id="sex_ratio"> 963 girls per 1000 boys</span>
+                                <!-- <small>girls per 1000 boys</small> -->
                                 </p>
                               </div>
                               <div class="img">
