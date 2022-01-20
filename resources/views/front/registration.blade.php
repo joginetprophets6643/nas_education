@@ -175,10 +175,10 @@
                                     <input type="hidden" name="email_otp" id="email_otp">
                                     <div class="otp-wrap">
                                         <div class="otp-input-wrap">
-                                            <input class="otp-input" maxlength="1" name="email_otp1"type="text">
-                                            <input class="otp-input" maxlength="1" name="email_otp2" type="text">
-                                            <input class="otp-input" maxlength="1" name="email_otp3" type="text">
-                                            <input class="otp-input" maxlength="1" name="email_otp4" type="text">
+                                            <input class="otp-input" maxlength="1" name="email_otp1"type="text" required>
+                                            <input class="otp-input" maxlength="1" name="email_otp2" type="text" required>
+                                            <input class="otp-input" maxlength="1" name="email_otp3" type="text" required>
+                                            <input class="otp-input" maxlength="1" name="email_otp4" type="text" required>
                                         </div>
                                         <div class="otp-btn">
                                             <a class="btn grey-btn" onclick="emailValidation()" id="email-btn">SEND OTP</a>

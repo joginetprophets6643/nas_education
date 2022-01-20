@@ -68,7 +68,7 @@ class PermissionController extends Controller
 
     public function storePermit(Request $request,$id){
         $id=decode5t($id);
-        $modules=['User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting'];
+        $modules=['User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting','RTI'];
         $permits=['view','add','edit','delete'];
         $view=['dashboard','profile','logout'];
         $add=[];
