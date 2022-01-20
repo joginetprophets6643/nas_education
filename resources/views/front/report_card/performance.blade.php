@@ -10,7 +10,7 @@
                                       <div class="col-md-4">
                                           <div class="per-card card-blue">
                                             <h2>
-                                              <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="img" class="img-fluid" /> Language
+                                              <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="img" class="img-fluid" width="35"  /> Language
                                             </h2>
                                             <div class="per-card-content dark-blue">
                                               <div class="per-card-desc">
@@ -31,7 +31,7 @@
                                       <div class="col-md-4">
                                         <div class="per-card card-pink">
                                           <h2>
-                                            <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" /> Mathematics
+                                            <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35" /> Mathematics
                                           </h2>
                                           <div class="per-card-content dark-pink">
                                             <div class="per-card-desc">
@@ -52,7 +52,7 @@
                                       <div class="col-md-4">
                                         <div class="per-card card-yellow">
                                           <h2>
-                                            <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" /> EVS
+                                            <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="35"  /> EVS
                                           </h2>
                                           <div class="per-card-content dark-yellow">
                                             <div class="per-card-desc">
@@ -387,7 +387,7 @@
                                       <div class="col-md-4">
                                           <div class="per-card card-blue">
                                             <h2>
-                                              <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="img" class="img-fluid" /> Language
+                                              <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="img" class="img-fluid" width="35"  /> Language
                                             </h2>
                                             <div class="per-card-content dark-blue">
                                               <div class="per-card-desc">
@@ -408,7 +408,7 @@
                                       <div class="col-md-4">
                                         <div class="per-card card-pink">
                                           <h2>
-                                            <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" /> Mathematics
+                                            <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid"  width="35" /> Mathematics
                                           </h2>
                                           <div class="per-card-content dark-pink">
                                             <div class="per-card-desc">
@@ -429,7 +429,7 @@
                                       <div class="col-md-4">
                                         <div class="per-card card-yellow">
                                           <h2>
-                                            <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" /> EVS
+                                            <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid"  width="35" /> EVS
                                           </h2>
                                           <div class="per-card-content dark-yellow">
                                             <div class="per-card-desc">

@@ -786,10 +786,10 @@ $(document).ready(()=>{
           mil:0,
           eng:0, 
         }
-
+        // console.log(data)
         data.forEach(lo=>{
           let classStyle = ''
-          if(lo.language === 'L'){
+          if(lo.language === 'language'){
 
             count_object.language +=1
             if(count_object.language > 0 && count_object.language %2 === 0){
@@ -804,7 +804,7 @@ $(document).ready(()=>{
               $('.language_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
             }
           }
-          if(lo.language === 'M'){
+          if(lo.language === 'math'){
 
             count_object.math += 1
             if(count_object.math > 0 && count_object.math % 2 === 0){
@@ -820,7 +820,7 @@ $(document).ready(()=>{
               $('.math_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
             }
           }
-          if(lo.language === 'EVS'){
+          if(lo.language === 'evs'){
 
             count_object.evs += 1
             if(count_object.evs >0 && count_object.evs % 2 === 0){
@@ -836,7 +836,7 @@ $(document).ready(()=>{
               $('.evs_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
             }
           }
-          if(lo.language === 'SCI'){
+          if(lo.language === 'sci'){
 
             count_object.sci += 1
 
@@ -854,7 +854,7 @@ $(document).ready(()=>{
             }
 
           }
-          if(lo.language === 'SST'){
+          if(lo.language === 'sst'){
 
             count_object.sst += 1
             if(count_object.sst > 0 && count_object.sst %2 == 0){
@@ -870,7 +870,7 @@ $(document).ready(()=>{
               $('.social_lo_class'+classType).append(getOutcomeRow(lo,classStyle));
             }
           }
-          if(lo.language === 'E'){
+          if(lo.language === 'eng'){
 
             count_object.eng += 1
             if(count_object.eng >0 && count_object.eng % 2 === 0){
@@ -886,7 +886,7 @@ $(document).ready(()=>{
             }
           }
 
-          if(lo.language === 'MIL'){
+          if(lo.language === 'mil'){
 
             count_object.mil += 1
             if(count_object.mil >0 && count_object.mil % 2 === 0){
@@ -912,15 +912,15 @@ $(document).ready(()=>{
         data.forEach(fb=>{
           const percentage = Math.round(fb.avg) 
           if(fb.level === 'pq'){
-            const pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
+            const pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
             $('#feedback_pq_class3').append(pqChart)
           }
           if(fb.level === 'tq'){
-            const tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
+            const tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-line progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
             $('#feedback_tq_class3').append(tqChart)
           }
           if(fb.level === 'htq'){
-            const htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
+            const htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-circle-lg progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
             $('#feedback_htq_class3').append(htqChart)
           }
         })

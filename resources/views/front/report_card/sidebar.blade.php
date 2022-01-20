@@ -31,10 +31,10 @@
                     <ul id="state_geography" style="display:none;">
                       <li><a href="javascript:void(0);" id="sidebar_active_state"> State</a> </li>
                     </ul>
-                    <div class="counter">
+                    <!-- <div class="counter">
                         <span>22</span>
                         <p class="text-grey">District Ranking in NAS</p>
-                    </div>
+                    </div> -->
                 </div> 
                 <div  class="sidebar-accordion">
                     <div class="accordion">
