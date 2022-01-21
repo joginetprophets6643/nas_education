@@ -1637,7 +1637,7 @@ class PerformanceController extends Controller
     public function queryFunction($querySyntax,$queryGroupSyntax,$queryGroupCondition)
     {
         $query ="select ".$querySyntax."  grade, count(id) AS total_student, count(CASE WHEN location = '1' THEN 'Rural' END) AS rural_location, count(CASE WHEN location = '2' THEN 'Urban' END) AS urban_location, count(CASE WHEN management= 'F1' THEN 'Govt School' END) AS govt_school, count(CASE WHEN management= 'F2' THEN 'Govt Aided' END) AS govt_aided_school, count(CASE WHEN management= 'F3' THEN 'Private' END) AS private_school, count(CASE WHEN management= 'F4' THEN 'Central govt' END) AS central_govt_school, count(CASE WHEN socialgrp= '1' THEN 'SC' END) AS sc_social_group, count(CASE WHEN socialgrp= '2' THEN 'OBC' END) AS obc_social_group, count(CASE WHEN socialgrp= '3' THEN 'ST' END) AS st_social_group, count(CASE WHEN socialgrp= '4' THEN 'General' END) AS general_social_group, count(CASE WHEN gender= '1' THEN 'Boys' END) AS male_gender, count(CASE WHEN gender= '2' THEN 'Girls' END) AS female_gender,
-        SUM(L_avg::float)/count(L_avg) AS avg_l_marks, SUM(l_avg::float) AS sum_l_marks, count(m_avg) AS total_m_student, SUM(m_avg::float)/count(l_avg) AS avg_m_marks, SUM(m_avg::float) AS sum_m_marks, count(e_avg) AS total_e_student, SUM(e_avg::float)/count(e_avg) AS avg_e_marks, SUM(e_avg::float) AS sum_e_marks, count(mil_avg) AS total_mil_student, SUM(mil_avg::float)/count(mil_avg) AS avg_mil_marks, SUM(mil_avg::float) AS sum_mil_marks, count(eng_avg) AS total_eng_student, SUM(eng_avg::float)/count(eng_avg) AS avg_eng_marks, SUM(eng_avg::float) AS sum_eng_marks, count(sci_avg) AS total_sci_student, SUM(sci_avg::float)/count(sci_avg) AS avg_sci_marks, SUM(sci_avg::float) AS sum_sci_marks, count(sst_avg) AS total_sst_student, SUM(sst_avg::float)/count(sst_avg) AS avg_sst_marks, SUM(sst_avg::float) AS sum_sst_marks,
+        round(SUM(L_avg::float)/count(L_avg)) AS avg_l_marks, SUM(l_avg::float) AS sum_l_marks, count(m_avg) AS total_m_student, round(SUM(m_avg::float)/count(l_avg)) AS avg_m_marks, SUM(m_avg::float) AS sum_m_marks, count(e_avg) AS total_e_student, round(SUM(e_avg::float)/count(e_avg)) AS avg_e_marks, SUM(e_avg::float) AS sum_e_marks, count(mil_avg) AS total_mil_student, round(SUM(mil_avg::float)/count(mil_avg)) AS avg_mil_marks, SUM(mil_avg::float) AS sum_mil_marks, count(eng_avg) AS total_eng_student, round(SUM(eng_avg::float)/count(eng_avg)) AS avg_eng_marks, SUM(eng_avg::float) AS sum_eng_marks, count(sci_avg) AS total_sci_student, round(SUM(sci_avg::float)/count(sci_avg)) AS avg_sci_marks, SUM(sci_avg::float) AS sum_sci_marks, count(sst_avg) AS total_sst_student, round(SUM(sst_avg::float)/count(sst_avg)) AS avg_sst_marks, SUM(sst_avg::float) AS sum_sst_marks,
         round(sum((CASE WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.l_avg
                 END)::decimal)/count((CASE 
                 WHEN at3_performance_data.socialgrp= '1' THEN at3_performance_data.socialgrp
@@ -2058,34 +2058,34 @@ class PerformanceController extends Controller
     public function queryFunctionPerformanceLevel($querySyntax,$queryGroupSyntax,$queryGroupCondition)
     {
         $query ="select ".$querySyntax."  grade, count(CASE WHEN round(m_avg::float)<=35 THEN m_avg END) as b,count(m_avg::float),
-        round((count(CASE WHEN (l_avg::float)>=1 and(l_avg::float)<=30 THEN l_avg END)::decimal*100)/count(l_avg::float),2) AS l_avg_below_basic,
-        round((count(CASE WHEN (l_avg::float)>=31 and (l_avg::float)<=50 THEN l_avg END)::decimal*100)/count(l_avg::float),2) AS l_avg_basic,
-        round((count(CASE WHEN (l_avg::float)>=51 and (l_avg::float)<=75 THEN l_avg END)::decimal*100)/count(l_avg::float),2) AS l_avg_proficient,
-        round((count(CASE WHEN (l_avg::float)>=76 and (l_avg::float)<=100 THEN l_avg END)::decimal*100)/count(l_avg::float),2) AS l_avg_advanced,
-        round((count(CASE WHEN (m_avg::float)>=1 and(m_avg::float)<=30 THEN m_avg END)::decimal*100)/count(m_avg::float),2) AS m_avg_below_basic,
-        round((count(CASE WHEN (m_avg::float)>=31 and (m_avg::float)<=50 THEN m_avg END)::decimal*100)/count(m_avg::float),2) AS m_avg_basic,
-        round((count(CASE WHEN (m_avg::float)>=51 and (m_avg::float)<=75 THEN m_avg END)::decimal*100)/count(m_avg::float),2) AS m_avg_proficient,
-        round((count(CASE WHEN (m_avg::float)>=76 and (m_avg::float)<=100 THEN m_avg END)::decimal*100)/count(m_avg::float),2) AS m_avg_advanced,
-        round((count(CASE WHEN (e_avg::float)>=1 and(e_avg::float)<=30 THEN e_avg END)::decimal*100)/count(e_avg::float),2) AS e_avg_below_basic,
-        round((count(CASE WHEN (e_avg::float)>=31 and (e_avg::float)<=50 THEN e_avg END)::decimal*100)/count(e_avg::float),2) AS e_avg_basic,
-        round((count(CASE WHEN (e_avg::float)>=51 and (e_avg::float)<=75 THEN e_avg END)::decimal*100)/count(e_avg::float),2) AS e_avg_proficient,
-        round((count(CASE WHEN (e_avg::float)>=76 and (e_avg::float)<=100 THEN e_avg END)::decimal*100)/count(e_avg::float),2) AS e_avg_advanced,
-        round((count(CASE WHEN (mil_avg::float)>=1 and (mil_avg::float)<=30 THEN mil_avg END)::decimal*100)/count(mil_avg::float),2) AS mil_avg_below_basic,
-        round((count(CASE WHEN (mil_avg::float)>=31 and (mil_avg::float)<=50 THEN mil_avg END)::decimal*100)/count(m_avg::float),2) AS mil_avg_basic,
-        round((count(CASE WHEN (mil_avg::float)>=51 and (mil_avg::float)<=75 THEN mil_avg END)::decimal*100)/count(m_avg::float),2) AS mil_avg_proficient,
-        round((count(CASE WHEN (mil_avg::float)>=76 and (mil_avg::float)<=100 THEN mil_avg END)::decimal*100)/count(m_avg::float),2) AS mil_avg_advanced,
-        round((count(CASE WHEN (eng_avg::float)>=1 and(eng_avg::float)<=30 THEN eng_avg END)::decimal*100)/count(eng_avg::float),2) AS eng_avg_below_basic,
-        round((count(CASE WHEN (eng_avg::float)>=31 and (eng_avg::float)<=50 THEN eng_avg END)::decimal*100)/count(m_avg::float),2) AS eng_avg_basic,
-        round((count(CASE WHEN (eng_avg::float)>=51 and (eng_avg::float)<=75 THEN eng_avg END)::decimal*100)/count(m_avg::float),2) AS eng_avg_proficient,
-        round((count(CASE WHEN (eng_avg::float)>=76 and (eng_avg::float)<=100 THEN eng_avg END)::decimal*100)/count(m_avg::float),2) AS mil_avg_advanced,
-        round((count(CASE WHEN (sci_avg::float)>=1 and(sci_avg::float)<=30 THEN sci_avg END)::decimal*100)/count(sci_avg::float),2) AS sci_avg_below_basic,
-        round((count(CASE WHEN (sci_avg::float)>=31 and (sci_avg::float)<=50 THEN sci_avg END)::decimal*100)/count(m_avg::float),2) AS sci_avg_basic,
-        round((count(CASE WHEN (sci_avg::float)>=51 and (sci_avg::float)<=75 THEN sci_avg END)::decimal*100)/count(m_avg::float),2) AS sci_avg_proficient,
-        round((count(CASE WHEN (sci_avg::float)>=76 and (sci_avg::float)<=100 THEN sci_avg END)::decimal*100)/count(m_avg::float),2) AS sci_avg_advanced,
-        round((count(CASE WHEN (sst_avg::float)>=1 and (sst_avg::float)<=30 THEN sst_avg END)::decimal*100)/count(sst_avg::float),2) AS sst_avg_below_basic,
-        round((count(CASE WHEN (sst_avg::float)>=31 and (sst_avg::float)<=50 THEN sst_avg END)::decimal*100)/count(m_avg::float),2) AS sst_avg_basic,
-        round((count(CASE WHEN (sst_avg::float)>=51 and (sst_avg::float)<=75 THEN sst_avg END)::decimal*100)/count(m_avg::float),2) AS sst_avg_proficient,
-        round((count(CASE WHEN (sst_avg::float)>=76 and (sst_avg::float)<=100 THEN sst_avg END)::decimal*100)/count(m_avg::float),2) AS sst_avg_advanced
+        round((count(CASE WHEN (l_avg::float)>=1 and(l_avg::float)<=30 THEN l_avg END)::decimal*100)/count(l_avg::float)) AS l_avg_below_basic,
+        round((count(CASE WHEN (l_avg::float)>=31 and (l_avg::float)<=50 THEN l_avg END)::decimal*100)/count(l_avg::float)) AS l_avg_basic,
+        round((count(CASE WHEN (l_avg::float)>=51 and (l_avg::float)<=75 THEN l_avg END)::decimal*100)/count(l_avg::float)) AS l_avg_proficient,
+        round((count(CASE WHEN (l_avg::float)>=76 and (l_avg::float)<=100 THEN l_avg END)::decimal*100)/count(l_avg::float)) AS l_avg_advanced,
+        round((count(CASE WHEN (m_avg::float)>=1 and(m_avg::float)<=30 THEN m_avg END)::decimal*100)/count(m_avg::float)) AS m_avg_below_basic,
+        round((count(CASE WHEN (m_avg::float)>=31 and (m_avg::float)<=50 THEN m_avg END)::decimal*100)/count(m_avg::float)) AS m_avg_basic,
+        round((count(CASE WHEN (m_avg::float)>=51 and (m_avg::float)<=75 THEN m_avg END)::decimal*100)/count(m_avg::float)) AS m_avg_proficient,
+        round((count(CASE WHEN (m_avg::float)>=76 and (m_avg::float)<=100 THEN m_avg END)::decimal*100)/count(m_avg::float)) AS m_avg_advanced,
+        round((count(CASE WHEN (e_avg::float)>=1 and(e_avg::float)<=30 THEN e_avg END)::decimal*100)/count(e_avg::float)) AS e_avg_below_basic,
+        round((count(CASE WHEN (e_avg::float)>=31 and (e_avg::float)<=50 THEN e_avg END)::decimal*100)/count(e_avg::float)) AS e_avg_basic,
+        round((count(CASE WHEN (e_avg::float)>=51 and (e_avg::float)<=75 THEN e_avg END)::decimal*100)/count(e_avg::float)) AS e_avg_proficient,
+        round((count(CASE WHEN (e_avg::float)>=76 and (e_avg::float)<=100 THEN e_avg END)::decimal*100)/count(e_avg::float)) AS e_avg_advanced,
+        round((count(CASE WHEN (mil_avg::float)>=1 and (mil_avg::float)<=30 THEN mil_avg END)::decimal*100)/count(mil_avg::float)) AS mil_avg_below_basic,
+        round((count(CASE WHEN (mil_avg::float)>=31 and (mil_avg::float)<=50 THEN mil_avg END)::decimal*100)/count(m_avg::float)) AS mil_avg_basic,
+        round((count(CASE WHEN (mil_avg::float)>=51 and (mil_avg::float)<=75 THEN mil_avg END)::decimal*100)/count(m_avg::float)) AS mil_avg_proficient,
+        round((count(CASE WHEN (mil_avg::float)>=76 and (mil_avg::float)<=100 THEN mil_avg END)::decimal*100)/count(m_avg::float)) AS mil_avg_advanced,
+        round((count(CASE WHEN (eng_avg::float)>=1 and(eng_avg::float)<=30 THEN eng_avg END)::decimal*100)/count(eng_avg::float)) AS eng_avg_below_basic,
+        round((count(CASE WHEN (eng_avg::float)>=31 and (eng_avg::float)<=50 THEN eng_avg END)::decimal*100)/count(m_avg::float)) AS eng_avg_basic,
+        round((count(CASE WHEN (eng_avg::float)>=51 and (eng_avg::float)<=75 THEN eng_avg END)::decimal*100)/count(m_avg::float)) AS eng_avg_proficient,
+        round((count(CASE WHEN (eng_avg::float)>=76 and (eng_avg::float)<=100 THEN eng_avg END)::decimal*100)/count(m_avg::float)) AS mil_avg_advanced,
+        round((count(CASE WHEN (sci_avg::float)>=1 and(sci_avg::float)<=30 THEN sci_avg END)::decimal*100)/count(sci_avg::float)) AS sci_avg_below_basic,
+        round((count(CASE WHEN (sci_avg::float)>=31 and (sci_avg::float)<=50 THEN sci_avg END)::decimal*100)/count(m_avg::float)) AS sci_avg_basic,
+        round((count(CASE WHEN (sci_avg::float)>=51 and (sci_avg::float)<=75 THEN sci_avg END)::decimal*100)/count(m_avg::float)) AS sci_avg_proficient,
+        round((count(CASE WHEN (sci_avg::float)>=76 and (sci_avg::float)<=100 THEN sci_avg END)::decimal*100)/count(m_avg::float)) AS sci_avg_advanced,
+        round((count(CASE WHEN (sst_avg::float)>=1 and (sst_avg::float)<=30 THEN sst_avg END)::decimal*100)/count(sst_avg::float)) AS sst_avg_below_basic,
+        round((count(CASE WHEN (sst_avg::float)>=31 and (sst_avg::float)<=50 THEN sst_avg END)::decimal*100)/count(m_avg::float)) AS sst_avg_basic,
+        round((count(CASE WHEN (sst_avg::float)>=51 and (sst_avg::float)<=75 THEN sst_avg END)::decimal*100)/count(m_avg::float)) AS sst_avg_proficient,
+        round((count(CASE WHEN (sst_avg::float)>=76 and (sst_avg::float)<=100 THEN sst_avg END)::decimal*100)/count(m_avg::float)) AS sst_avg_advanced
         from at3_performance_data
         ".$queryGroupCondition."
         group by ".$queryGroupSyntax." at3_performance_data.grade";
@@ -2097,18 +2097,18 @@ class PerformanceController extends Controller
     public function GetAllDistrictLevelPerformance($totalnoofsubject,$queryGroupCondition)
     {
         $query = "select at3_performance_data.state_id,at3_performance_data.district_id ,at3_performance_data.grade,
-        round(SUM(l_avg::decimal)/count(at3_performance_data.district_id),2)  as l,
-        round(SUM(m_avg::decimal)/count(at3_performance_data.district_id),2) as m ,
-        round(SUM(e_avg::decimal)/count(at3_performance_data.district_id),2) as evs,
-        round(SUM(mil_avg::decimal)/count(at3_performance_data.district_id),2) as mil,
-        round(SUM(eng_avg::decimal)/count(at3_performance_data.district_id),2) as eng,
-        round(SUM(sci_avg::decimal)/count(at3_performance_data.district_id),2) as sci,
-        round(SUM(sst_avg::decimal)/count(at3_performance_data.district_id),2) as sst,
+        round(SUM(l_avg::decimal)/count(at3_performance_data.district_id))  as l,
+        round(SUM(m_avg::decimal)/count(at3_performance_data.district_id)) as m ,
+        round(SUM(e_avg::decimal)/count(at3_performance_data.district_id)) as evs,
+        round(SUM(mil_avg::decimal)/count(at3_performance_data.district_id)) as mil,
+        round(SUM(eng_avg::decimal)/count(at3_performance_data.district_id)) as eng,
+        round(SUM(sci_avg::decimal)/count(at3_performance_data.district_id)) as sci,
+        round(SUM(sst_avg::decimal)/count(at3_performance_data.district_id)) as sst,
         count(at3_performance_data.district_id),
         round(((SUM(l_avg::decimal)+SUM(m_avg::decimal)
         +SUM(e_avg::decimal)+SUM(mil_avg::decimal)+
         SUM(eng_avg::decimal)+SUM(sci_avg::decimal)
-        +SUM(sst_avg::decimal))/count(at3_performance_data.district_id))/".$totalnoofsubject.",2) AS percentage,
+        +SUM(sst_avg::decimal))/count(at3_performance_data.district_id))/".$totalnoofsubject.") AS percentage,
         district_masters.udise_district_code,
         district_masters.district_name
         from at3_performance_data
