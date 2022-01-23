@@ -31,9 +31,10 @@
                    </div>  
                   
                     <div class="col-md-12">
-                      <div class="desc-black rti-desc" data-aos="fade-up">
-                        <?php $i=1 ?>
+                    <?php $i=1 ?>
                         @foreach($links as $link)
+
+                      <div class="desc-black rti-desc">
                         {{$i++}}.
                         {{$link->title}}
                         <?php $files=json_decode($link->file) ?>
@@ -41,8 +42,8 @@
                         <a href="{{asset('assets/uploads/rti/'.$file)}}" target="_blank">Download/View</a>
                         @endforeach
                         <br>
-                        @endforeach
                         </div>
+                        @endforeach
                     </div>
 
                     <br>
@@ -51,7 +52,7 @@
                    <h4 class="heading-blue-sm">Office Hours:</h4>
                    </div>  
                    <div class="col-md-12">
-                      <div class="desc-black" data-aos="fade-up">
+                      <div class="desc-black">
                       <p>Administrative : 9.00 Hrs to 17.30 Hrs Lunch Break : 13:00 Hrs to 13.30 Hrs Sales Counter (Publication): 9.00 Hrs to 16.00 Hrs (Working days only) Library : 8.00 Hrs to 20.30 Hrs (Monday to Friday) 9.00 Hrs to 17.30 Hrs (Saturday & Sunday) Closed on Public and Gazetted Holidays</p>
                       </div>
                     </div>
