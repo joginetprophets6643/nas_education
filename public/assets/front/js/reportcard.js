@@ -25,6 +25,8 @@ let subjects_short_codes ={
 
 let screens = ['information','participation','performance','learning','feedback']
 
+let selected_geography = ''
+
 $(document).ready(()=>{
     $.ajax({
       type: "GET",
@@ -33,7 +35,6 @@ $(document).ready(()=>{
        createSidebarStates(response.data)
        sessionStorage.setItem('states',JSON.stringify(response.data))
     });
-    setScreen(screenType)
     setClass(classType)
 
     already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
@@ -263,18 +264,16 @@ $(document).ready(()=>{
     if(already_active_district !== null) {
 
       chageDataWithFilter('global_filter','district')
-      setBreadCrumb('district')
       toggleDistrictList(already_active_state.udise_state_code,true)
       toggleActiveDistrict(already_active_district.udise_district_code,true)
     }
     else if(already_active_state !== null) {
 
       chageDataWithFilter('global_filter','state')
-      setBreadCrumb('state')
       toggleDistrictList(already_active_state.udise_state_code,true)
     }
     else{
-      setBreadCrumb('national')
+      chageDataWithFilter('global_filter','national')
     }
   }
 
@@ -296,12 +295,12 @@ $(document).ready(()=>{
         activeDistrict = ''
       }
       if(activeDistrict !== null && typeof activeDistrict !== 'undefined' && activeDistrict !== ''){
-        setBreadCrumb('district')
+        setBreadCrumb('district',false)
         $('#sidebar_active_district').html(activeDistrict.district_name)
         setInformation()
       }else{
         activeDistrict = ''
-        setBreadCrumb('state')
+        setBreadCrumb('state',false)
         $('#sidebar_active_state').html(activeState.state_name)
         setInformation()
       }
@@ -323,29 +322,36 @@ $(document).ready(()=>{
     chageDataWithFilter('sidebar_filter',value)
   }
 
-  function setScreen(screen_type = 'participation'){
-    if(screenType !== screen_type){
-      grades.forEach(grade=>{
-          $('#'+screenType+'_class'+grade+'').removeClass('show active')
+  async function setScreen(screen_type = 'information', load_data = true){
+    console.log(screen_type)
+    const exceptions = ['participation','learning']
+    const current_demography = ( selected_geography === 'district' || exceptions.includes(screen_type) ? '' : selected_geography )
+    const demographics = ['','state','national']
+
+    grades.forEach(grade=>{
+      demographics.forEach(demo=>{
+        $('#'+screenType+ demo + '_class'+grade+'').removeClass('show active')
       })
-      screenType = screen_type
-      getData()
+    })
+    screenType = screen_type
+    if(load_data){
+      await getData()
     }
     grades.forEach(grade=>{
-      if(grade === classType){
-        $('#'+screen_type+'_class'+grade+'').addClass('show active')
-      }else{
-        if(screen_type === 'feedback' || screen_type === 'information'){
-          // setInformation()
-          $('#'+screen_type+'_class3').addClass('show active')
+        if(grade === classType){
+          $('#'+screen_type+ current_demography +'_class'+grade+'').addClass('show active')
         }else{
-          $('#'+screen_type+'_class'+grade+'').removeClass('show active')
+          if(screen_type === 'feedback' || screen_type === 'information'){
+            // setInformation()
+            $('#'+screen_type+ current_demography +'_class3').addClass('show active')
+          }else{
+            $('#'+screen_type+ current_demography +'_class'+grade+'').removeClass('show active')
+          }
         }
-      }
     })
 
     $('#'+screen_type+'-tab').addClass('active')
-    $('#'+screen_type+'_class'+classType+'').addClass('show active')
+    $('#'+screen_type+ current_demography+ '_class'+classType+'').addClass('show active')
 
     changePageDataViaSideFilter('all')
   }
@@ -360,25 +366,26 @@ $(document).ready(()=>{
     if(filter_type === 'data_filter'){
       classType = value
       setClass()
-      setScreen(screenType)
+      setScreen(screenType,false)
       setInformation()
       changePageDataViaSideFilter('all')
     }
     if(filter_type === 'global_filter'){
+      setBreadCrumb(value)
       if(value === 'state'){
-        activeDistrict = ''
-        if(typeof lastActiveState === 'undefined' || lastActiveState === null ){
-          alert('you do not have any active state')
-          return
-        }
-        else{
+        // activeDistrict = ''
+        // if(typeof lastActiveState === 'undefined' || lastActiveState === null ){
+        //   alert('you do not have any active state')
+        //   return
+        // }
+        // else{
           activeState = lastActiveState
           activeDistrict = ''
           $('#active_state').html(activeState.state_name)
           $('#sidebar_active_state').html(activeState.state_name)
           toggleActiveDistrict(activeDistrict.udise_district_code,false)
           removeItem('activeDistrict')
-        }
+        // }
       }
       if(value === 'national'){
         toggleDistrictList(activeState.udise_state_code,false,'global_filter')
@@ -402,7 +409,6 @@ $(document).ready(()=>{
         }
       }
       setInformation()
-      setBreadCrumb(value)
     }
   }
 
@@ -532,22 +538,40 @@ $(document).ready(()=>{
   }
 
   async function getData(){
-    console.log(screenType)
+    const screen_wise_table = {
+
+      information :{
+        state: 'state_masters',
+        national: 'national_statistic',
+        district: 'district_masters',
+      },
+      performance :{
+        state: 'performance_master',
+        national: 'performance_master',
+        district: 'performance_master',
+      },
+      learning :{
+        state: 'district_grade_level_learningoutcome',
+        national: 'district_grade_level_learningoutcome',
+        district: 'district_grade_level_learningoutcome',
+      },
+      feedback :{
+        state: 'pq_district_level_feedback',
+        national: 'pq_district_level_feedback',
+        district: 'pq_district_level_feedback',
+      },
+      participation :{
+        state: 'all_grade_participation_tbl',
+        national: 'all_grade_participation_tbl',
+        district: 'all_grade_participation_tbl',
+      }
+    }
     let table = ''
-    if(screenType === 'participation' || typeof screenType === 'undefined'){
-      table = 'all_grade_participation_tbl'
-    }
-    if(screenType === 'performance'){
-      table = 'performance_master'
-    }
-    if(screenType === 'learning'){
-      table ='district_grade_level_learningoutcome'
-    }
-    if(screenType === 'feedback'){
-      table ='pq_district_level_feedback'
-    }
-    if(screenType === 'information'){
-      table = 'district_masters'
+    if(typeof screenType === 'undefined'){
+       table = screen_wise_table['information'][selected_geography]
+
+    }else{
+      table = screen_wise_table[screenType][selected_geography]
     }
 
     await $.ajax({
@@ -581,7 +605,7 @@ $(document).ready(()=>{
 
   function setActiveStateDistrict(state_id,district_id){
 
-    setBreadCrumb('district')
+    setBreadCrumb('district',false)
     makeStateActive(state_id)
     makeDistrictActive(district_id)
 
@@ -931,7 +955,8 @@ $(document).ready(()=>{
   }
 
 
-  function setBreadCrumb(active){
+  function setBreadCrumb(active,load = true){
+    selected_geography = active
     let items = ['state','national','district']
     items.map(item=>{
       if(item === active){
@@ -943,6 +968,19 @@ $(document).ready(()=>{
 
       }
     })
+    if(active === 'state'){
+      $('#district-tab').prop('disabled', true);
+    }
+    if(active === 'national'){
+      $('#state-tab').prop('disabled', true);
+      $('#district-tab').prop('disabled', true);
+    }
+    if(active === 'district'){
+      items.map(item=>{
+        $('#'+item+'-tab').prop('disabled', false);
+      })
+    }
+    setScreen(screenType,load)
   }
   
   function format_string(str){
@@ -1140,45 +1178,80 @@ $(document).ready(()=>{
   }
 
   function createInformationScreen(data){
-    // const dataToShow = data.pop()
-    if(activeState === '' || activeDistrict === ''){
-      alert('please select state and district')
-      // setScreen('participation')
-      return
+    // const dataToShow = data.pop()'
+    let dataToShow = {}
+    if(activeState === '' && activeDistrict === ''){
+      dataToShow = data.pop()
+      console.log(dataToShow)
+    }else{
+      if(selected_geography === 'district'){
+        dataToShow = activeDistrict
+      }
+      if(selected_geography === 'state'){
+        dataToShow = activeState
+      }
     }
-    const dataToShow = activeDistrict
+
     let state_name = ''
     if(activeState.state_name === 'Delhi'){
       state_name = 'nct of delhi'
     }else{
-      state_name = activeState.state_name
+      state_name = dataToShow.state_name
     }
 
-    const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
-    const prefix = 'information_district_'
+    let prefix = ''
+    if(selected_geography === 'state'){
+      prefix = 'information_state_'
+    }
+    if(selected_geography === 'district'){
+      prefix = 'information_district_'
+    }
+    if(selected_geography === 'national'){
+      prefix = 'infromation_national_'
+    }
     const where = prefix + 'map'
+    
+    if(selected_geography === 'district' || selected_geography === 'state'){
+      const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
+      createChart(where,selectedMapData)
+    }else{
+      let states = JSON.parse(sessionStorage.getItem('states'))
+      const state_data = states.map((state,index) =>{
+        if(state.state_name === 'Delhi'){
+         return ['nct of delhi',state.state_id]
+        }else{
+          return [ state.state_name.toLowerCase(),state.state_id]
+        }
+      })
+      generateNationalMap(where,state_data)
+    }
 
-    $('.information_state_name').html(format_string(activeState.state_name))
-    $('.'+prefix+'name').html(format_string(activeDistrict.district_name))
+    if(selected_geography !== 'national'){
+      $('.information_state_name').html(format_string(state_name))
+    }
     $('#'+prefix +'area_class'+classType).html(parserInt(dataToShow.total_district_area))
-    $('#'+prefix +'description_class'+classType).html(dataToShow.description)
     $('#'+prefix +'population_class'+classType ).html(parserInt(dataToShow.total_population))
-    $('#'+prefix+'rural_class'+classType ).html(parserInt(dataToShow.rural_population))
-    $('#'+prefix+'urban_class'+classType ).html(parserInt(dataToShow.urban_population))
     $('#'+prefix + 'density_class'+classType ).html(parserInt(dataToShow.density_of_population))
-    $('#'+prefix +'literacy_class'+classType ).html(parserInt(dataToShow.literacy_rate))
     $('#'+prefix +'sex_ratio_class'+classType ).html(parserInt(dataToShow.child_sex_ratio))
-    $('#'+prefix +'total_school_class'+classType ).html(parserInt(dataToShow.no_of_schools))
-    $('#'+prefix + 'state_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
-    $('#'+prefix +'govt_aided_school_class'+classType ).html(parserInt(dataToShow.govt_aided_schools))
-    $('#'+prefix + 'govt_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
-    $('#'+prefix+'private_school_class'+classType ).html(parserInt(dataToShow.private_unaided_reco_schools))
-    $('#'+prefix +'state_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
-    $('#'+prefix + 'govt_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
-    $('#'+prefix + 'govt_aided_teacher_class'+classType ).html(parserInt(dataToShow.teacher_govt_aided_schools))
-    $('#'+prefix + 'private_teacher_class'+classType ).html(parserInt(dataToShow.teacher_private_unaided_reco_schools))
+    $('#'+prefix +'literacy_class'+classType ).html(parserInt(dataToShow.literacy_rate))
 
-    createChart(where,selectedMapData)
+    if(selected_geography === 'district'){
+      $('.'+prefix+'name').html(format_string(dataToShow.district_name))
+      $('#'+prefix+'rural_class'+classType ).html(parserInt(dataToShow.rural_population))
+      $('#'+prefix+'urban_class'+classType ).html(parserInt(dataToShow.urban_population))
+      $('#'+prefix +'total_school_class'+classType ).html(parserInt(dataToShow.no_of_schools))
+      $('#'+prefix + 'state_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
+      $('#'+prefix +'govt_aided_school_class'+classType ).html(parserInt(dataToShow.govt_aided_schools))
+      $('#'+prefix + 'govt_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
+      $('#'+prefix+'private_school_class'+classType ).html(parserInt(dataToShow.private_unaided_reco_schools))
+      $('#'+prefix +'state_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
+      $('#'+prefix + 'govt_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
+      $('#'+prefix + 'govt_aided_teacher_class'+classType ).html(parserInt(dataToShow.teacher_govt_aided_schools))
+      $('#'+prefix + 'private_teacher_class'+classType ).html(parserInt(dataToShow.teacher_private_unaided_reco_schools))
+      $('#'+prefix +'description_class'+classType).html(dataToShow.description)
+    }
+
+
 
   }
 
@@ -1277,4 +1350,54 @@ $(document).ready(()=>{
 
   function removeItem(item){
     sessionStorage.removeItem(item)
+  }
+
+
+  function generateNationalMap(where,data){
+    Highcharts.mapChart(where, {
+        chart: {
+            map: 'countries/in/custom/in-all-disputed'
+        },
+
+        title: {
+            text: ''
+        },
+
+        subtitle: {
+            text: ''
+        },
+        legend: {
+          enabled: false
+        },
+      tooltip: { enabled: false },
+        navigation: {
+            buttonOptions: {
+                enabled: false
+            }
+        },
+        credits: {
+          enabled: false
+        },
+      
+        series: [{
+            data: data,
+            name: 'Random data',
+            allowPointSelect: true,
+            cursor: 'pointer',
+            color: "#9ec2e4",
+            borderColor: "#6e6f70",
+            states: {
+                hover: {
+                    color:'#f7941c'
+                },
+                select: {
+                  color: '#9ec2e4'
+                }
+            },
+            dataLabels: {
+                enabled: false,
+                format: '{point.name}'
+            }
+        }]
+    });
   }
