@@ -23,11 +23,19 @@
                               Data View
                             </label>
                           </div>
-                          <div class="form-check">
+                          <!-- <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                             <label class="form-check-label" for="flexRadioDefault2">
                               Report View
                             </label>
+                          </div> -->
+                          <div class="btn-wrap">
+                            <a href="{{asset('assets/front/images/drc.pdf')}}" target="/" class="btn org-btn report-btn">
+                              Report View 
+                              <span class="material-icons-round">
+                                file_download
+                              </span>
+                            </a>
                           </div>
                         </div>
                      </div>
