@@ -7,10 +7,10 @@
               <div class="skip-wrap nic-skip-wrap">
                 <ul>
                     <li>
-                    <a>Government of India</a>
+                    <a class="white-text">Government of India</a>
                     </li>
                     <li>
-                    <a>Ministry of Education</a>
+                    <a class="white-text">Ministry of Education</a>
                     </li>
                 </ul>
               </div>
