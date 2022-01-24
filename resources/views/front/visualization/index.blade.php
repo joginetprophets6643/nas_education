@@ -77,7 +77,7 @@
                     <!-- Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to promptly understand complex analytics through visual representations. The data visualisation tool facilitates the development of an interface to interact between multiple indicators and form a pattern. This also addresses the bottlenecks that could be identified and targeted for effective planning, implementation, monitoring of the progress of key input, output, and outcome level indicators. Data Visualisation is a useful tool for policymakers, senior government officials, academia and researchers and other stakeholders for its easy interactive features and actionable directions. -->
                     </div>
                     </div>
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <div class="line-card line-card-pink">
                     <div class="line-cardimg">
                         <img src="{{asset('assets/front/images/national-v.png')}}" alt="national" class="img-fluid" />
@@ -86,18 +86,18 @@
                         <a href="javascript:void(0);" onClick="goToNationalV();" class="line-cardbtn w-100 btn-pink">National Visualization</a>
                     </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-4">
                     <div class="line-card line-card-green">
                     <div class="line-cardimg">
                         <img src="{{asset('assets/front/images/state-v.png')}}" alt="state" class="img-fluid" />
                     </div>
                     <div class="btn-wrap">
-                        <a class="line-cardbtn w-100 btn-green stateopen" href="javascript:void(0);">State Visualization</a>
+                        <a class="line-cardbtn w-100 btn-green" href="{{url('visualization/nas-2021')}}">View Visualization</a>
                     </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <div class="line-card line-card-blue">
                     <div class="line-cardimg">
                         <img src="{{asset('assets/front/images/district-v.png')}}" alt="district" class="img-fluid" />
@@ -106,7 +106,7 @@
                         <a class="line-cardbtn w-100 btn-blue districtopen" href="javascript:void(0);">District Visualization</a>
                     </div>
                     </div>
-                </div>
+                </div> -->
                 </div>
                 </div>
         </div>   

@@ -8,19 +8,19 @@
                 </h2>
                 <ul>
                   <li>
-                    <a href="{{url('/report-card')}}">
+                    <a href="{{url('/report-card')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.National')}}
                     </a>
                   </li>
                   <li>
-                    <a href="{{url('/report-card')}}">
+                    <a href="{{url('/report-card')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.State')}}
                     </a>
                   </li>
                   <li>
-                    <a href="{{url('/report-card')}}">
+                    <a href="{{url('/report-card')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.District')}}
                     </a>
@@ -35,13 +35,13 @@
               </h2>
               <ul>
                 <li>
-                  <a href="{{url('/data-share/login')}}">
+                  <a href="{{url('/data-share/login')}}" target="_blank">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Login')}}
                   </a>
                 </li>
                 <li>
-                  <a href="{{url('/data-share/registration')}}">
+                  <a href="{{url('/data-share/registration')}}" target="_blank">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Registration')}}
                   </a>
@@ -55,7 +55,7 @@
                 {{__('lang.VISUALIZATION')}}
               </h2>
               <ul>
-                  <li>
+                  <!-- <li>
                     <a href="{{url('/visualization')}}">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.National')}}
@@ -66,11 +66,11 @@
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.State')}}
                     </a>
-                  </li>
+                  </li> -->
                   <li>
-                    <a href="{{url('/visualization')}}">
+                    <a href="{{url('/visualization')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
-                      {{__('lang.District')}}
+                      {{__('lang.View')}}
                     </a>
                   </li>
               </ul>
