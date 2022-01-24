@@ -48,5 +48,6 @@ return[
     'Government of India'=>'Government of India',
     'Ministry of Education'=>'Ministry of Education',
     'Last Modified'=>'Last Modified',
+    'View'=>'View',
     'Footer Content'=>'This site is designed, developed, maintained and hosted by National Informatics Centre (NIC), Ministry of Electronics Information Technology, Government of India.',
 ];
