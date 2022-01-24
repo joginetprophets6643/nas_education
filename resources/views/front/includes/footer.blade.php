@@ -143,7 +143,7 @@
                       {{__('lang.Website Visit Count')}} : <?php echo visit_count() ?>
                     </span>
                     <div class="date">
-                      Last Modified : 25/11/2021
+                    {{__('lang.Last Modified')}} : 25/11/2021
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-8">
@@ -193,8 +193,10 @@
                  <img src="{{asset('assets/front/images/nic-transparent.png')}}" alt="img">
                </div>
                <span class="divider"></span>
-               <p class="nic-foot-desc">This site is designed, developed, maintained and hosted by National Informatics Centre (NIC),
-                 Ministry of Electronics Information Technology, Government of India.
+               <p class="nic-foot-desc">
+                 <!-- This site is designed, developed, maintained and hosted by National Informatics Centre (NIC),
+                 Ministry of Electronics Information Technology, Government of India. -->
+                 {{__('lang.Footer Content')}}
                </p>
               </div>
               <p class="nic-foot-desc_sm">v2021.11.2600</p> 
