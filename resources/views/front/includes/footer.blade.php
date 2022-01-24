@@ -142,6 +142,9 @@
                     <span class="counter">
                       {{__('lang.Website Visit Count')}} : <?php echo visit_count() ?>
                     </span>
+                    <div class="date">
+                      Last Modified : 25/11/2021
+                    </div>
                 </div>
                 <div class="col-md-12 col-lg-8">
                   <div class="footer-bottom-links">
@@ -171,14 +174,33 @@
           </div>
       </div>
       <div class="container">
-        <div class="row align-items-center row-reverse-sm">
-          <div class="col-md-6">
+        <div class="row align-items-center">
+          <!-- <div class="col-md-6">
               <p class="copyright-text">
               
-                © {{__('lang.Copyright')}} <?php echo date("Y"); ?> | {{ __('lang.National Achievement Survey') }} (NAS)
+                © {{__('lang.Copyright')}} <?php //echo date("Y"); ?> | {{ __('lang.National Achievement Survey') }} (NAS)
               </p>
+          </div> -->
+          <div class="col-md-12 col-lg-3">
+              <div class="emblem-imgwrap">
+                  <img src="{{asset('assets/front/images/emblem-white.svg')}}" alt="img" class="img-fluid">
+              </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-12 col-lg-7">
+            <div class="nic-foot-wrap">
+              <div class="nic-foot-content">
+               <div class="nic-foot-imgwrap">
+                 <img src="{{asset('assets/front/images/nic-transparent.png')}}" alt="img">
+               </div>
+               <span class="divider"></span>
+               <p class="nic-foot-desc">This site is designed, developed, maintained and hosted by National Informatics Centre (NIC),
+                 Ministry of Electronics Information Technology, Government of India.
+               </p>
+              </div>
+              <p class="nic-foot-desc_sm">v2021.11.2600</p> 
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-2">
             <div class="social-links">
             @if($setting)
                 <ul>

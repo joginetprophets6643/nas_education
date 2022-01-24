@@ -2,7 +2,7 @@
     
 <div class="top-content">
             <h2 class="heading-black">
-            {{ __('lang.Report Card') }}
+            <!-- {{ __('lang.Report Card') }} -->
             </h2>
             <div class="breadcrum-wrap breadcrum-grey">
                 <nav aria-label="breadcrumb">

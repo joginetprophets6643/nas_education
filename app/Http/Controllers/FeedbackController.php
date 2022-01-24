@@ -74,7 +74,7 @@ class FeedbackController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $FeedbackData = DB::table('feedback_data')->select('feedback_data.state_id','feedback_data.district_id','feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
+        $FeedbackData = DB::table('feedback_data')->select('feedback_data.state_id','feedback_data.district_id','feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
         ->leftJoin('pq_question_master','pq_question_master.question_id','=','feedback_data.question_code')
         ->groupBy('feedback_data.state_id')
         ->groupBy('feedback_data.district_id')
@@ -111,7 +111,7 @@ class FeedbackController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $FeedbackDataForState = DB::table('feedback_data')->select('feedback_data.state_id','feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
+        $FeedbackDataForState = DB::table('feedback_data')->select('feedback_data.state_id','feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
         ->leftJoin('pq_question_master','pq_question_master.question_id','=','feedback_data.question_code')
         ->groupBy('feedback_data.state_id')
         ->groupBy('feedback_data.grade')
@@ -146,7 +146,7 @@ class FeedbackController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $FeedbackDataNational = DB::table('feedback_data')->select('feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
+        $FeedbackDataNational = DB::table('feedback_data')->select('feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
         ->leftJoin('pq_question_master','pq_question_master.question_id','=','feedback_data.question_code')
         ->groupBy('feedback_data.grade')
         ->groupBy('feedback_data.question_code')
@@ -535,7 +535,7 @@ class FeedbackController extends Controller
             }
         }
 
-        $FeedbackData = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.district_id','feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
+        $FeedbackData = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.district_id','feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
         ->leftJoin('tq_question_master','tq_question_master.question_id','=','feedback_data_tq.question_code')
         ->groupBy('feedback_data_tq.state_id')
         ->groupBy('feedback_data_tq.district_id')
@@ -567,7 +567,7 @@ class FeedbackController extends Controller
 
         $dNLOData = PQDistrictLevelFeedback::insert($districtFeedbackFinalData);
 
-        $FeedbackDataForState = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
+        $FeedbackDataForState = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
         ->leftJoin('tq_question_master','tq_question_master.question_id','=','feedback_data_tq.question_code')
         ->groupBy('feedback_data_tq.state_id')
         ->groupBy('feedback_data_tq.grade')
@@ -596,7 +596,7 @@ class FeedbackController extends Controller
 
         $dNLODataState = PQStateLevelFeedback::insert($stateFeedbackFinalData);
 
-        $FeedbackDataNational = DB::table('feedback_data_tq')->select('feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
+        $FeedbackDataNational = DB::table('feedback_data_tq')->select('feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
         ->leftJoin('tq_question_master','tq_question_master.question_id','=','feedback_data_tq.question_code')
         ->groupBy('feedback_data_tq.grade')
         ->groupBy('feedback_data_tq.question_code')
@@ -886,7 +886,7 @@ class FeedbackController extends Controller
             }
         }
 
-        $FeedbackDataSq = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.district_id','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
+        $FeedbackDataSq = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.district_id','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
         ->leftJoin('sq_question_master','sq_question_master.question_id','=','feedback_data_sq.question_code')
         ->groupBy('feedback_data_sq.state_id')
         ->groupBy('feedback_data_sq.grade')
@@ -917,7 +917,7 @@ class FeedbackController extends Controller
 
         $dNLOData = PQDistrictLevelFeedback::insert($districtFeedbackFinalData);
 
-        $FeedbackDataForState = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
+        $FeedbackDataForState = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
         ->leftJoin('sq_question_master','sq_question_master.question_id','=','feedback_data_sq.question_code')
         ->groupBy('feedback_data_sq.state_id')
         ->groupBy('feedback_data_sq.grade')
@@ -946,7 +946,7 @@ class FeedbackController extends Controller
 
         $dNLODataState = PQStateLevelFeedback::insert($stateFeedbackFinalData);
 
-        $FeedbackDataNational = DB::table('feedback_data_sq')->select('feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
+        $FeedbackDataNational = DB::table('feedback_data_sq')->select('feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
         ->leftJoin('sq_question_master','sq_question_master.question_id','=','feedback_data_sq.question_code')
         ->groupBy('feedback_data_sq.grade')
         ->groupBy('feedback_data_sq.question_code')
