@@ -17,6 +17,7 @@ class CreateSqQuestionMasterTable extends Migration
             $table->id();
             $table->string('question_id');
             $table->string('question_desc');
+            $table->string('level');
             $table->timestamps();
         });
     }

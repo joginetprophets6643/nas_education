@@ -53,7 +53,8 @@ class FeedbackController extends Controller
                             'pq_bar'     =>  $pq->pq_bar,
                             'state_id'     =>  $pq['NasExamDetails']->state_cd,
                             'district_id'   =>  $pq['NasExamDetails']->district_cd,
-                            'grade'     =>  $pq->pq_grade,
+                            'grade'     =>  0,
+                            // 'grade'     =>  $pq->pq_grade,
                             'question_code'=>$key,
                             'correct_ans'=>($value==1)?$value:0,
                             'average_performance_in_percentage'=>($value*100)/1,
@@ -74,13 +75,15 @@ class FeedbackController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $FeedbackData = DB::table('feedback_data')->select('feedback_data.state_id','feedback_data.district_id','feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
+        $FeedbackData = DB::table('feedback_data')->select('feedback_data.state_id','feedback_data.district_id','feedback_data.grade','pq_question_master.level','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
         ->leftJoin('pq_question_master','pq_question_master.question_id','=','feedback_data.question_code')
         ->groupBy('feedback_data.state_id')
         ->groupBy('feedback_data.district_id')
         ->groupBy('feedback_data.grade')
         ->groupBy('feedback_data.question_code')
         ->groupBy('pq_question_master.question_desc')
+        ->groupBy('pq_question_master.level')
+        ->where('pq_question_master.level','=','pq')
         ->get();
         $newFeedbackData = array();
         if(count($FeedbackData)>0)
@@ -91,7 +94,7 @@ class FeedbackController extends Controller
                 $newFeedbackData['state_id'] = (int)$newLOData->state_id;
                 $newFeedbackData['district_id'] = (int)$newLOData->district_id;
                 $newFeedbackData['grade'] = (int)$newLOData->grade;
-                $newFeedbackData['level']     =  'pq';
+                $newFeedbackData['level']     =  isset($newLOData->level)?$newLOData->level:'-';
                 $newFeedbackData['question_code'] = isset($newLOData->question_code)?$newLOData->question_code:0;
                 $newFeedbackData['question_desc'] = isset($newLOData->question)?$newLOData->question:0;
                 $newFeedbackData['total_parent'] = isset($newLOData->total_parent)?$newLOData->total_parent:0;
@@ -111,22 +114,23 @@ class FeedbackController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $FeedbackDataForState = DB::table('feedback_data')->select('feedback_data.state_id','feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
+        $FeedbackDataForState = DB::table('feedback_data')->select('feedback_data.state_id','feedback_data.grade','feedback_data.question_code','pq_question_master.level','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
         ->leftJoin('pq_question_master','pq_question_master.question_id','=','feedback_data.question_code')
         ->groupBy('feedback_data.state_id')
         ->groupBy('feedback_data.grade')
         ->groupBy('feedback_data.question_code')
         ->groupBy('pq_question_master.question_desc')
+        ->groupBy('pq_question_master.level')
         ->get();
         $newFeedbackDataS = array();
         if(count($FeedbackDataForState)>0)
         {
-            DB::table('pq_state_level_feedback')->where('level','pq')->delete();
+            DB::table('pq_state_level_feedback')->whereIn('level',['pq','pq1','pq2','pq3'])->delete();
             foreach($FeedbackDataForState as $newLODataState)
             {
                 $newFeedbackDataS['state_id'] = (int)$newLODataState->state_id;
                 $newFeedbackDataS['grade'] = (int)$newLODataState->grade;
-                $newFeedbackDataS['level']     =  'pq';
+                $newFeedbackDataS['level']     =  isset($newLODataState->level)?$newLODataState->level:'-';
                 $newFeedbackDataS['question_code'] = isset($newLODataState->question_code)?$newLODataState->question_code:0;
                 $newFeedbackDataS['question_desc'] = isset($newLODataState->question)?$newLODataState->question:0;
                 $newFeedbackDataS['total_parent'] = isset($newLODataState->total_parent)?$newLODataState->total_parent:0;
@@ -191,7 +195,8 @@ class FeedbackController extends Controller
          {
             //  dd($questionNumbers);
             $pqQuestionNumber  = $this->excelrowData($key);
-            $checkquestion = PQQuestionMaster::where('grade',ltrim($grade,"0"))->pluck('question_id')->toArray();
+            // $checkquestion = PQQuestionMaster::where('grade',ltrim($grade,"0"))->pluck('question_id')->toArray();
+            $checkquestion = PQQuestionMaster::pluck('question_id')->toArray();
             $result = PqAnswerKey::where('pq_grade',ltrim($grade,"0"))
                          ->where($pqQuestionNumber,$value)->count();
             if(in_array($pqQuestionNumber,$checkquestion))
@@ -520,7 +525,8 @@ class FeedbackController extends Controller
                             'tq_bar'     =>  $tq->tq_bar,
                             'state_id'     =>  $tq['NasExamDetails']->state_cd,
                             'district_id'   =>  $tq['NasExamDetails']->district_cd,
-                            'grade'     =>  $tq->tq_grade,
+                            // 'grade'     =>  $tq->tq_grade,
+                            'grade'     =>  0,
                             'question_code'=>$key,
                             'correct_ans'=>($value==1)?$value:0,
                             'average_performance_in_percentage'=>($value*100)/1,
@@ -535,15 +541,17 @@ class FeedbackController extends Controller
             }
         }
 
-        $FeedbackData = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.district_id','feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
+        $FeedbackData = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.district_id','feedback_data_tq.grade','tq_question_master.level','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
         ->leftJoin('tq_question_master','tq_question_master.question_id','=','feedback_data_tq.question_code')
         ->groupBy('feedback_data_tq.state_id')
         ->groupBy('feedback_data_tq.district_id')
         ->groupBy('feedback_data_tq.grade')
         ->groupBy('feedback_data_tq.question_code')
         ->groupBy('tq_question_master.question_desc')
+        ->groupBy('tq_question_master.level')
+        ->where('tq_question_master.level','=','tq')
         ->get();
-        
+       
         $newFeedbackData = array();
         if(count($FeedbackData)>0)
         {
@@ -553,7 +561,7 @@ class FeedbackController extends Controller
                 $newFeedbackData['state_id'] = (int)$newLOData->state_id;
                 $newFeedbackData['district_id'] = (int)$newLOData->district_id;
                 $newFeedbackData['grade'] = (int)$newLOData->grade;
-                $newFeedbackData['level']     =  'tq';
+                $newFeedbackData['level']     =  isset($newLOData->level)?$newLOData->level:'-';
                 $newFeedbackData['question_code'] = isset($newLOData->question_code)?$newLOData->question_code:0;
                 $newFeedbackData['question_desc'] = isset($newLOData->question)?$newLOData->question:0;
                 $newFeedbackData['total_parent'] = isset($newLOData->total_parent)?$newLOData->total_parent:0;
@@ -567,12 +575,14 @@ class FeedbackController extends Controller
 
         $dNLOData = PQDistrictLevelFeedback::insert($districtFeedbackFinalData);
 
-        $FeedbackDataForState = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
+        $FeedbackDataForState = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.level','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
         ->leftJoin('tq_question_master','tq_question_master.question_id','=','feedback_data_tq.question_code')
         ->groupBy('feedback_data_tq.state_id')
         ->groupBy('feedback_data_tq.grade')
         ->groupBy('feedback_data_tq.question_code')
         ->groupBy('tq_question_master.question_desc')
+        ->groupBy('tq_question_master.level')
+        ->where('tq_question_master.level','=','tq')
         ->get();
         $newFeedbackDataS = array();
         if(count($FeedbackDataForState)>0)
@@ -582,7 +592,7 @@ class FeedbackController extends Controller
             {
                 $newFeedbackDataS['state_id'] = (int)$newLODataState->state_id;
                 $newFeedbackDataS['grade'] = (int)$newLODataState->grade;
-                $newFeedbackDataS['level']     =  'tq';
+                $newFeedbackDataS['level']     =  isset($newLODataState->level)?$newLODataState->level:'-';
                 $newFeedbackDataS['question_code'] = isset($newLODataState->question_code)?$newLODataState->question_code:0;
                 $newFeedbackDataS['question_desc'] = isset($newLODataState->question)?$newLODataState->question:0;
                 $newFeedbackDataS['total_parent'] = isset($newLODataState->total_parent)?$newLODataState->total_parent:0;
@@ -596,20 +606,21 @@ class FeedbackController extends Controller
 
         $dNLODataState = PQStateLevelFeedback::insert($stateFeedbackFinalData);
 
-        $FeedbackDataNational = DB::table('feedback_data_tq')->select('feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
+        $FeedbackDataNational = DB::table('feedback_data_tq')->select('feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.level','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
         ->leftJoin('tq_question_master','tq_question_master.question_id','=','feedback_data_tq.question_code')
         ->groupBy('feedback_data_tq.grade')
         ->groupBy('feedback_data_tq.question_code')
         ->groupBy('tq_question_master.question_desc')
+        ->groupBy('tq_question_master.level')
         ->get();
         $newFeedbackDataNational = array();
         if(count($FeedbackDataNational)>0)
         {
-            DB::table('pq_national_level_feedback')->where('level','tq')->delete();
+            DB::table('pq_national_level_feedback')->whereIn('level',['tq','tqn','-'])->delete();
             foreach($FeedbackDataNational as $newLODataNational)
             {
                 $newFeedbackDataNational['grade'] = (int)$newLODataNational->grade;
-                $newFeedbackDataNational['level']     =  'tq';
+                $newFeedbackDataNational['level']     =  isset($newLODataNational->level)?$newLODataNational->level:'-';
                 $newFeedbackDataNational['question_code'] = isset($newLODataNational->question_code)?$newLODataNational->question_code:0;
                 $newFeedbackDataNational['question_desc'] = isset($newLODataNational->question)?$newLODataNational->question:0;
                 $newFeedbackDataNational['total_parent'] = isset($newLODataNational->total_parent)?$newLODataNational->total_parent:0;
@@ -640,7 +651,8 @@ class FeedbackController extends Controller
          {
             //  dd($questionNumbers);
             $tqQuestionNumber  = $this->excelrowDataTq($key);
-            $checkquestion = TQQuestionMaster::where('grade',ltrim($grade,"0"))->pluck('question_id')->toArray();
+            // $checkquestion = TQQuestionMaster::where('grade',ltrim($grade,"0"))->pluck('question_id')->toArray();
+             $checkquestion = TQQuestionMaster::pluck('question_id')->toArray();
             $result = TqAnswerKey::where('tq_grade',ltrim($grade,"0"))
                          ->where($tqQuestionNumber,$value)->count();
             if(in_array($tqQuestionNumber,$checkquestion))
@@ -886,13 +898,15 @@ class FeedbackController extends Controller
             }
         }
 
-        $FeedbackDataSq = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.district_id','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
+        $FeedbackDataSq = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.district_id','sq_question_master.level','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
         ->leftJoin('sq_question_master','sq_question_master.question_id','=','feedback_data_sq.question_code')
         ->groupBy('feedback_data_sq.state_id')
         ->groupBy('feedback_data_sq.grade')
         ->groupBy('feedback_data_sq.district_id')
         ->groupBy('feedback_data_sq.question_code')
         ->groupBy('sq_question_master.question_desc')
+        ->groupBy('sq_question_master.level')
+        ->where('sq_question_master.level','=','sq')
         ->get();
         $newFeedbackData = array();
         if(count($FeedbackDataSq)>0)
@@ -903,7 +917,7 @@ class FeedbackController extends Controller
                 $newFeedbackData['state_id'] = (int)$newLOData->state_id;
                 $newFeedbackData['district_id'] = (int)$newLOData->district_id;
                 $newFeedbackData['grade'] = (int)$newLOData->grade;
-                $newFeedbackData['level']     =  'sq';
+                $newFeedbackData['level']     =  isset($newLOData->level)?$newLOData->level:'-';
                 $newFeedbackData['question_code'] = isset($newLOData->question_code)?$newLOData->question_code:0;
                 $newFeedbackData['question_desc'] = isset($newLOData->question)?$newLOData->question:0;
                 $newFeedbackData['total_parent'] = isset($newLOData->total_parent)?$newLOData->total_parent:0;
@@ -917,12 +931,14 @@ class FeedbackController extends Controller
 
         $dNLOData = PQDistrictLevelFeedback::insert($districtFeedbackFinalData);
 
-        $FeedbackDataForState = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
+        $FeedbackDataForState = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.level','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
         ->leftJoin('sq_question_master','sq_question_master.question_id','=','feedback_data_sq.question_code')
         ->groupBy('feedback_data_sq.state_id')
         ->groupBy('feedback_data_sq.grade')
         ->groupBy('feedback_data_sq.question_code')
         ->groupBy('sq_question_master.question_desc')
+        ->groupBy('sq_question_master.level')
+        ->where('sq_question_master.level','=','sq')
         ->get();
         $newFeedbackDataS = array();
         if(count($FeedbackDataForState)>0)
@@ -932,7 +948,7 @@ class FeedbackController extends Controller
             {
                 $newFeedbackDataS['state_id'] = (int)$newLODataState->state_id;
                 $newFeedbackDataS['grade'] = (int)$newLODataState->grade;
-                $newFeedbackDataS['level']     =  'sq';
+                $newFeedbackDataS['level']     =  isset($newLODataState->level)?$newLODataState->level:'-';
                 $newFeedbackDataS['question_code'] = isset($newLODataState->question_code)?$newLODataState->question_code:0;
                 $newFeedbackDataS['question_desc'] = isset($newLODataState->question)?$newLODataState->question:0;
                 $newFeedbackDataS['total_parent'] = isset($newLODataState->total_parent)?$newLODataState->total_parent:0;
@@ -946,21 +962,22 @@ class FeedbackController extends Controller
 
         $dNLODataState = PQStateLevelFeedback::insert($stateFeedbackFinalData);
 
-        $FeedbackDataNational = DB::table('feedback_data_sq')->select('feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
+        $FeedbackDataNational = DB::table('feedback_data_sq')->select('feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.level','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
         ->leftJoin('sq_question_master','sq_question_master.question_id','=','feedback_data_sq.question_code')
         ->groupBy('feedback_data_sq.grade')
         ->groupBy('feedback_data_sq.question_code')
         ->groupBy('sq_question_master.question_desc')
+        ->groupBy('sq_question_master.level')
         ->get();
 
         $newFeedbackDataNational = array();
         if(count($FeedbackDataNational)>0)
         {
-            DB::table('pq_national_level_feedback')->where('level','sq')->delete();
+            DB::table('pq_national_level_feedback')->whereIn('level',['sq','sqn1','sqn2'])->delete();
             foreach($FeedbackDataNational as $newLODataNational)
             {
                 $newFeedbackDataNational['grade'] = (int)$newLODataNational->grade;
-                $newFeedbackDataNational['level']     =  'sq';
+                $newFeedbackDataNational['level']     =  isset($newLODataNational->level)?$newLODataNational->level:'-';
                 $newFeedbackDataNational['question_code'] = isset($newLODataNational->question_code)?$newLODataNational->question_code:0;
                 $newFeedbackDataNational['question_desc'] = isset($newLODataNational->question)?$newLODataNational->question:0;
                 $newFeedbackDataNational['total_parent'] = isset($newLODataNational->total_parent)?$newLODataNational->total_parent:0;
