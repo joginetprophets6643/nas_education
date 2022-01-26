@@ -18,6 +18,7 @@ class CreatePqQuestionMasterTable extends Migration
             $table->string('question_id');
             $table->string('question_desc');
             $table->string('grade');
+            $table->string('level');
             $table->timestamps();
         });
     }

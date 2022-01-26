@@ -33,7 +33,7 @@ class VisualizationController extends Controller
     }
 
     public function details(){
-        return view('front.visualization.visualization');
+        return view('front.visualization.v_image');
     }
 
     public function mobile(){

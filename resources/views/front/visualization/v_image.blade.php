@@ -1,0 +1,1 @@
+<img src="{{asset('assets/front/images/Visualization.png')}}" alt="">

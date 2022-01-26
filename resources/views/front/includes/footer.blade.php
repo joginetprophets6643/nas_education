@@ -8,19 +8,19 @@
                 </h2>
                 <ul>
                   <li>
-                    <a href="{{url('/report-card')}}">
+                    <a href="{{url('/report-card')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.National')}}
                     </a>
                   </li>
                   <li>
-                    <a href="{{url('/report-card')}}">
+                    <a href="{{url('/report-card')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.State')}}
                     </a>
                   </li>
                   <li>
-                    <a href="{{url('/report-card')}}">
+                    <a href="{{url('/report-card')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.District')}}
                     </a>
@@ -35,13 +35,13 @@
               </h2>
               <ul>
                 <li>
-                  <a href="{{url('/data-share/login')}}">
+                  <a href="{{url('/data-share/login')}}" target="_blank">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Login')}}
                   </a>
                 </li>
                 <li>
-                  <a href="{{url('/data-share/registration')}}">
+                  <a href="{{url('/data-share/registration')}}" target="_blank">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Registration')}}
                   </a>
@@ -55,7 +55,7 @@
                 {{__('lang.VISUALIZATION')}}
               </h2>
               <ul>
-                  <li>
+                  <!-- <li>
                     <a href="{{url('/visualization')}}">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.National')}}
@@ -66,11 +66,11 @@
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.State')}}
                     </a>
-                  </li>
+                  </li> -->
                   <li>
-                    <a href="{{url('/visualization')}}">
+                    <a href="{{url('/visualization')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
-                      {{__('lang.District')}}
+                      {{__('lang.View')}}
                     </a>
                   </li>
               </ul>
@@ -143,7 +143,7 @@
                       {{__('lang.Website Visit Count')}} : <?php echo visit_count() ?>
                     </span>
                     <div class="date">
-                      Last Modified : 25/11/2021
+                    {{__('lang.Last Modified')}} : 25/11/2021
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-8">
@@ -193,8 +193,10 @@
                  <img src="{{asset('assets/front/images/nic-transparent.png')}}" alt="img">
                </div>
                <span class="divider"></span>
-               <p class="nic-foot-desc">This site is designed, developed, maintained and hosted by National Informatics Centre (NIC),
-                 Ministry of Electronics Information Technology, Government of India.
+               <p class="nic-foot-desc">
+                 <!-- This site is designed, developed, maintained and hosted by National Informatics Centre (NIC),
+                 Ministry of Electronics Information Technology, Government of India. -->
+                 {{__('lang.Footer Content')}}
                </p>
               </div>
               <p class="nic-foot-desc_sm">v2021.11.2600</p> 
