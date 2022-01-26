@@ -365,7 +365,7 @@
                                     <div class="row">
                                       <div class="col-md-6">
                                           <div class="map-wrap">
-                                            <div class="map-img" id="infromation_national_map">
+                                            <div class="map-img" id="information_national_map">
                                             </div>
                                           </div>
                                       </div>
@@ -378,13 +378,30 @@
                                               </h2>
                                             </div>
                                             <div class="col-md-10">
+                                                <div class="infotab-content light-blue-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                      <div class="content">
+                                                        <h3 class="title">
+                                                          Area of Nation
+                                                        </h3>
+                                                        <p class="total-no">
+                                                          <span id="information_national_area_class3"> 0 </span> sq. km.
+                                                        </p>
+                                                      </div>
+                                                      <div class="img">
+                                                        <img src="{{asset('assets/front/images/area-blue.svg')}}" alt="icon" class="img-fluid" />
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
                                                 <div class="infotab-content light-pink-bg">
                                                   <div class="d-flex align-items-center justify-content-between">
                                                     <div class="content">
                                                       <h3 class="title">
                                                         Population
                                                       </h3>
-                                                      <p class="total-no" id="infromation_national_population_class3">
+                                                      <p class="total-no" id="information_national_population_class3">
                                                         0
                                                       </p>
                                                     </div>
@@ -403,7 +420,7 @@
                                                         Density of population
                                                       </h3>
                                                       <p class="total-no">
-                                                        <span id="infromation_national_density_class3">0</span> per sq. km.
+                                                        <span id="information_national_density_class3">0</span> per sq. km.
                                                       </p>
                                                     </div>
                                                     <div class="img">
@@ -421,7 +438,7 @@
                                                         Literacy Rate
                                                       </h3>
                                                       <p class="total-no">
-                                                        <span id="infromation_national_literacy_class3"></span>%
+                                                        <span id="information_national_literacy_class3"></span>%
                                                       </p>
                                                     </div>
                                                     <div class="img">
@@ -439,7 +456,7 @@
                                                         Child sex ration (0-6 age)
                                                       </h3>
                                                       <p class="total-no" >
-                                                      <span id="infromation_national_sex_ratio_class3">0</span> girls per 1000 boys 
+                                                      <span id="information_national_sex_ratio_class3">0</span> girls per 1000 boys 
                                                       </p>
 
                                                     </div>

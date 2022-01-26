@@ -33,9 +33,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 3</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="language_lo_class3">
@@ -54,9 +54,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 3</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo_class3">
@@ -74,9 +74,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 3</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="evs_lo_class3">
@@ -96,9 +96,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 3</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="language_lo_class3">
@@ -119,9 +119,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 3</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo_class3">
@@ -141,9 +141,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 3</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="evs_lo_class3">
@@ -193,9 +193,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 5</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="language_lo_class5">
@@ -214,9 +214,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 5</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo_class5">
@@ -234,9 +234,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 5</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="evs_lo_class5">
@@ -256,9 +256,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 5</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="language_lo_class5">
@@ -279,9 +279,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 5</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo_class5">
@@ -301,9 +301,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 5</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="evs_lo_class5">
@@ -358,9 +358,9 @@
                                                             <tr>
                                                               <th scope="col">LO Code</th>
                                                               <th scope="col">Learning Outcome for Class 8</th>
-                                                              <th scope="col">District</th>
-                                                              <th scope="col">State</th>
-                                                              <th scope="col">National</th>
+                                                              <th scope="col" class="district-header">District</th>
+                                                              <th scope="col" class="state-header">State</th>
+                                                              <th scope="col" class="national-header">National</th>
                                                             </tr>
                                                           </thead>
                                                           <tbody class="language_lo_class8">
@@ -380,9 +380,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 8</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="science_lo_class8">
@@ -400,9 +400,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 8</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo_class8">
@@ -421,9 +421,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 8</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="social_lo_class8">
@@ -443,9 +443,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 8</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="social_lo_class8">
@@ -465,9 +465,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 8</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="science_lo_class8">
@@ -487,9 +487,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 8</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo_class8">
@@ -509,9 +509,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 8</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="language_lo_class8">
@@ -570,9 +570,9 @@
                                                             <tr>
                                                               <th scope="col">LO Code</th>
                                                               <th scope="col">Learning Outcome for Class 10</th>
-                                                              <th scope="col">District</th>
-                                                              <th scope="col">State</th>
-                                                              <th scope="col">National</th>
+                                                              <th scope="col" class="district-header">District</th>
+                                                              <th scope="col" class="state-header">State</th>
+                                                              <th scope="col" class="national-header">National</th>
                                                             </tr>
                                                           </thead>
                                                           <tbody class="mil_lo_class10">
@@ -591,9 +591,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="social_lo_class10">
@@ -611,9 +611,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="english_lo_class10">
@@ -631,9 +631,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="science_lo_class10">
@@ -651,9 +651,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo_class10">
@@ -673,9 +673,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="mil_lo_class10">
@@ -696,9 +696,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="social_lo_class10">
@@ -718,9 +718,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="english_lo_class10">
@@ -740,9 +740,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="science_lo_class10">
@@ -762,9 +762,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome for Class 10</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo_class10">
@@ -813,9 +813,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="language_lo3_classall">
@@ -837,9 +837,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="language_lo5_classall">
@@ -861,9 +861,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="language_lo8_classall">
@@ -898,9 +898,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo3_classall">
@@ -922,9 +922,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo5_classall">
@@ -946,9 +946,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo8_classall">
@@ -970,9 +970,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="math_lo10_classall">
@@ -1007,9 +1007,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="evs_lo3_classall">
@@ -1031,9 +1031,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="evs_lo5_classall">
@@ -1068,9 +1068,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="mil_lo10_classall">
@@ -1105,9 +1105,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="social_lo8_classall">
@@ -1129,9 +1129,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="social_lo10_classall">
@@ -1167,9 +1167,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="english_lo10_classall">
@@ -1204,9 +1204,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="science_lo8_classall">
@@ -1228,9 +1228,9 @@
                                                           <tr>
                                                             <th scope="col">LO Code</th>
                                                             <th scope="col">Learning Outcome</th>
-                                                            <th scope="col">District</th>
-                                                            <th scope="col">State</th>
-                                                            <th scope="col">National</th>
+                                                            <th scope="col" class="district-header">District</th>
+                                                            <th scope="col" class="state-header">State</th>
+                                                            <th scope="col" class="national-header">National</th>
                                                           </tr>
                                                         </thead>
                                                         <tbody class="social_lo10_classall">

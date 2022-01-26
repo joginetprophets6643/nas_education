@@ -1236,7 +1236,7 @@
                                       <div class="col-md-4">
                                           <div class="per-card card-red">
                                             <h2>
-                                              <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="img" class="img-fluid" width="35" /> Language
+                                              <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="img" class="img-fluid" width="35" /> MIL
                                             </h2>
                                             <div class="per-card-content dark-red">
                                               <div class="per-card-desc">
@@ -1257,7 +1257,7 @@
                                       <div class="col-md-4">
                                         <div class="per-card card-green">
                                           <h2>
-                                            <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20" /> Science
+                                            <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20" /> Social Science
                                           </h2>
                                           <div class="per-card-content dark-green">
                                             <div class="per-card-desc">
@@ -1278,7 +1278,7 @@
                                       <div class="col-md-4">
                                         <div class="per-card card-purple">
                                           <h2>
-                                            <img src="{{asset('assets/front/images/english-icon.svg')}}" alt="img" class="img-fluid" width="25" /> Science
+                                            <img src="{{asset('assets/front/images/english-icon.svg')}}" alt="img" class="img-fluid" width="25" /> English
                                           </h2>
                                           <div class="per-card-content dark-purple">
                                             <div class="per-card-desc">
@@ -1299,7 +1299,7 @@
                                       <div class="col-md-4">
                                         <div class="per-card card-sagegreen">
                                           <h2>
-                                            <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20" /> Social Science
+                                            <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20" /> Science
                                           </h2>
                                           <div class="per-card-content dark-sagegreen">
                                             <div class="per-card-desc">
@@ -2970,4 +2970,490 @@
                                       </div>
                                     </div>
 </div>
+
+<div class="tab-pane fade" id="performancestate_class10" role="tabpanel" aria-labelledby="sc10-performance-tab">
+                                    <div class="sc10-per-wrap">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <h2 class="heading-grey text-center">
+                                              GRADEWISE PERFORMANCE OF STUDENTS IN THE DIFFERENT SUBJECT DOMAIN
+                                            </h2>
+                                            <div class="grade-wrap">
+                                                <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="grade-card">
+                                                        <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL</h2>
+                                                        <div class="grade-graph-wrap light-red">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="performancestate_mil_class10"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="grade-card">
+                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science</h2>
+                                                        <div class="grade-graph-wrap light-green">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="performancestate_sst_class10"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="grade-card">
+                                                      <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science</h2>
+                                                      <div class="grade-graph-wrap light-sagegreen">
+                                                        <figure class="highcharts-figure">
+                                                          <div id="performancestate_sci_class10"></div>
+                                                        </figure>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="grade-card">
+                                                      <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English</h2>
+                                                      <div class="grade-graph-wrap light-purple">
+                                                        <figure class="highcharts-figure">
+                                                          <div id="performancestate_eng_class10"></div>
+                                                        </figure>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="grade-card">
+                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35" /> Mathematics</h2>
+                                                      <div class="grade-graph-wrap light-pink">
+                                                        <figure class="highcharts-figure">
+                                                          <div id="performancestate_math_class10"></div>
+                                                        </figure>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-12">
+                                            <h2 class="heading-grey text-center">
+                                              DISTRIBUTION OF STUDENTS BY RANGE
+                                            </h2>
+                                            <div class="range-wrap">
+                                              <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="range-graph-wrap">
+                                                      <figure class="highcharts-figure">
+                                                        <div id="doghnut_below_basicstate_class10"></div>
+                                                      </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                  <div class="range-graph-wrap">
+                                                    <figure class="highcharts-figure">
+                                                      <div id="doghnut_basicstate_class10"></div>
+                                                    </figure>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <hr />
+                                              <div class="row">
+                                                <div class="col-md-6">
+                                                  <div class="range-graph-wrap">
+                                                    <figure class="highcharts-figure">
+                                                      <div id="doghnut_proficientstate_class10"></div>
+                                                    </figure>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                  <div class="range-graph-wrap">
+                                                    <figure class="highcharts-figure">
+                                                      <div id="doghnut_advancedstate_class10"></div>
+                                                    </figure>
+                                                  </div>
+                                                </div>
+                                              </div>  
+                                            </div>
+                                          </div>
+                                          <div class="col-md-12">
+                                            <h2 class="heading-grey text-center">
+                                              AVERAGE PERFORMANCE
+                                            </h2>
+                                            <div class="accordion commonAccordion" id="sc10-perAccordion">
+                                              <div class="accordion-item mtb-30" id="genderstate_section_performance_class10" style="display:none;">
+                                                <h2 class="accordion-header" id="sc10-perAccordionOne">
+                                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sc10-perAccordioncollapseOne" aria-expanded="true" aria-controls="sc10-perAccordioncollapseOne">
+                                                    Performance by Gender
+                                                  </button>
+                                                </h2>
+                                                <div id="sc10-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc10-perAccordionOne">
+                                                  <div class="accordion-body">
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="grade-card">
+                                                            <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL</h2>
+                                                            <div class="grade-graph-wrap light-red">
+                                                              <figure class="highcharts-figure">
+                                                                <div id="GenderMilstateBarGraph_class10"></div>
+                                                              </figure>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                          <div class="grade-card">
+                                                            <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science</h2>
+                                                            <div class="grade-graph-wrap light-green">
+                                                              <figure class="highcharts-figure">
+                                                                <div id="GenderSocialstateBarGraph_class10"></div>
+                                                              </figure>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science</h2>
+                                                          <div class="grade-graph-wrap light-sagegreen">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="GenderSciencestateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English</h2>
+                                                          <div class="grade-graph-wrap light-purple">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="GenderEnglishstateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35" /> Mathematics</h2>
+                                                          <div class="grade-graph-wrap light-pink">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="GenderMathstateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="accordion-item mtb-30" id="locationstate_section_performance_class10" style="display:none;">
+                                                <h2 class="accordion-header" id="sc10-perAccordionTwo">
+                                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sc10-perAccordioncollapseTwo" aria-expanded="true" aria-controls="sc10-perAccordioncollapseTwo">
+                                                    Performance by Location
+                                                  </button>
+                                                </h2>
+                                                <div id="sc10-perAccordioncollapseTwo" class="accordion-collapse collapse show" aria-labelledby="sc10-perAccordionTwo">
+                                                  <div class="accordion-body">
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="grade-card">
+                                                            <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL</h2>
+                                                            <div class="grade-graph-wrap light-red">
+                                                              <figure class="highcharts-figure">
+                                                                <div id="LocationMilstateBarGraph_class10"></div>
+                                                              </figure>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                          <div class="grade-card">
+                                                            <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science</h2>
+                                                            <div class="grade-graph-wrap light-green">
+                                                              <figure class="highcharts-figure">
+                                                                <div id="LocationSocialstateBarGraph_class10"></div>
+                                                              </figure>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science</h2>
+                                                          <div class="grade-graph-wrap light-sagegreen">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="LocationSciencestateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English</h2>
+                                                          <div class="grade-graph-wrap light-purple">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="LocationEnglishstateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35" /> Mathematics</h2>
+                                                          <div class="grade-graph-wrap light-pink">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="LocationMathstateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="accordion-item mtb-30" id="managementstate_section_performance_class10" style="display:none;">
+                                                <h2 class="accordion-header" id="sc10-perAccordionThree">
+                                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sc10-perAccordioncollapseThree" aria-expanded="true" aria-controls="sc10-perAccordioncollapseThree">
+                                                    Performance by Managment
+                                                  </button>
+                                                </h2>
+                                                <div id="sc10-perAccordioncollapseThree" class="accordion-collapse collapse show" aria-labelledby="sc10-perAccordionThree">
+                                                  <div class="accordion-body">
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="grade-card">
+                                                            <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL</h2>
+                                                            <div class="grade-graph-wrap light-red">
+                                                              <figure class="highcharts-figure">
+                                                                <div id="ManagementMilstateBarGraph_class10"></div>
+                                                              </figure>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                          <div class="grade-card">
+                                                            <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science</h2>
+                                                            <div class="grade-graph-wrap light-green">
+                                                              <figure class="highcharts-figure">
+                                                                <div id="ManagementSocialstateBarGraph_class10"></div>
+                                                              </figure>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-sagegreen">Science</h2>
+                                                          <div class="grade-graph-wrap light-sagegreen">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="ManagementSciencestateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English</h2>
+                                                          <div class="grade-graph-wrap light-purple">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="ManagementEnglishstateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35" /> Mathematics</h2>
+                                                          <div class="grade-graph-wrap light-pink">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="ManagementMathstateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="accordion-item mtb-30" id="socialstate_section_performance_class10" style="display:none;">
+                                                <h2 class="accordion-header" id="sc10-perAccordionfour">
+                                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sc10-perAccordioncollapsefour" aria-expanded="true" aria-controls="sc10-perAccordioncollapsefour">
+                                                    Performance by Social Group
+                                                  </button>
+                                                </h2>
+                                                <div id="sc10-perAccordioncollapsefour" class="accordion-collapse collapse show" aria-labelledby="sc10-perAccordionfour">
+                                                  <div class="accordion-body">
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="grade-card">
+                                                            <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL</h2>
+                                                            <div class="grade-graph-wrap light-red">
+                                                              <figure class="highcharts-figure">
+                                                                <div id="SocialGroupMilstateBarGraph_class10"></div>
+                                                              </figure>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                          <div class="grade-card">
+                                                            <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science</h2>
+                                                            <div class="grade-graph-wrap light-green">
+                                                              <figure class="highcharts-figure">
+                                                                <div id="SocialGroupSocialstateBarGraph_class10"></div>
+                                                              </figure>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science</h2>
+                                                          <div class="grade-graph-wrap light-sagegreen">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="SocialGroupSciencestateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English</h2>
+                                                          <div class="grade-graph-wrap light-purple">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="SocialGroupEnglishstateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="grade-card">
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35" /> Mathematics</h2>
+                                                          <div class="grade-graph-wrap light-pink">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="SocialGroupMathstateBarGraph_class10"></div>
+                                                            </figure>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-12">
+                                            <h2 class="heading-grey text-center">
+                                              AVERAGE PERFORMANCE OF THE DISTRICTS
+                                            </h2>
+                                            <div class="district-table mtb-30">
+                                              <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col" class="card-purple">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-purple-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                     
+                                                    </th>
+                                                    <th scope="col" class="card-purple">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-purple-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                    </th>
+                                                    <th scope="col" class="card-purple">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-purple-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                    </th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody id="state_district_table_class10">
+                                                  <!-- <tr>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Kokrajhar
+                                                        <span class="percentage-no light-purple">72</span>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Tinsukia
+                                                        <span class="percentage-no light-purple">35</span>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Dima Hasao
+                                                        <span class="percentage-no light-purple">45</span>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        amrup-Rural
+                                                        <span class="percentage-no light-purple">25</span>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Kamrup-Metro
+                                                        <span class="percentage-no light-purple">62</span>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Goalpara
+                                                        <span class="percentage-no light-purple">30</span>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Bongaigaond
+                                                        <span class="percentage-no light-purple">22</span>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Dhubri
+                                                        <span class="percentage-no light-purple">42</span>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Jorhat
+                                                        <span class="percentage-no light-purple">10</span>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Bongaigaon
+                                                        <span class="percentage-no light-purple">72</span>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Morigaon
+                                                        <span class="percentage-no light-purple">35</span>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="tbody-content">
+                                                        Karimganj
+                                                        <span class="percentage-no light-purple">45</span>
+                                                      </div>
+                                                    </td>
+                                                  </tr> -->
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
 @endsection
