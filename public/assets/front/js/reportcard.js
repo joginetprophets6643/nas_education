@@ -23,6 +23,16 @@ let subjects_short_codes ={
   english:'eng'
 }
 
+let subjects_full_names ={
+  math: "Mathematics",
+  evs: "EVS",
+  sst: "Social Science",
+  language: "Language",
+  mil: "Mil",
+  sci:"Science",
+  eng:"English"
+}
+
 let screens = ['information','participation','performance','learning','feedback']
 
 let selected_geography = ''
@@ -39,7 +49,6 @@ $(document).ready(()=>{
 
     already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
     already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
-    $('.loader').hide()
 
   });
 
@@ -54,6 +63,7 @@ $(document).ready(()=>{
         verticalAlign: 'middle',
         y: 0
       },
+      exporting: { enabled: false },
       tooltip: {
         headerFormat: '',
         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
@@ -111,11 +121,39 @@ $(document).ready(()=>{
         categories: categories,
         crosshair: true
       }
+      config['plotOptions'] = {
+        column: {
+          pointPadding: 0.1,
+          borderWidth: 0
+        },
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y}'
+            }
+        }
+      }
+      
     }else{
       config['xAxis'] = {
         type: 'category'
       }
-      config['legends'] = { enabled:false }
+      config['legend'] = { enabled:false }
+      config['plotOptions'] = {
+        column: {
+            pointWidth: 25,
+            
+          },
+          series: {
+              borderWidth: 0,
+              dataLabels: {
+                  enabled: true,
+                  format: '{point.y}'
+              }
+          }
+      }
+      
     }
 
     config = {... config,
@@ -131,6 +169,7 @@ $(document).ready(()=>{
         min: 0,
         title: false
       },
+      exporting: { enabled: false },
       tooltip: {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
@@ -138,19 +177,6 @@ $(document).ready(()=>{
         footerFormat: '</table>',
         shared: true,
         useHTML: true
-      },
-      plotOptions: {
-        column: {
-          pointPadding: 0.1,
-          borderWidth: 0
-        },
-        series: {
-            borderWidth: 0,
-            dataLabels: {
-                enabled: true,
-                format: '{point.y}'
-            }
-        }
       },
       series: data
     }
@@ -174,6 +200,7 @@ $(document).ready(()=>{
         title: {
           text: ''
         },
+        exporting: { enabled: false },    
         accessibility: {
           announceNewData: {
             enabled: true
@@ -246,6 +273,7 @@ $(document).ready(()=>{
       title: {
         text: ''
       },
+      exporting: { enabled: false },
       tooltip: {
         headerFormat: '',
         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
@@ -327,9 +355,7 @@ $(document).ready(()=>{
     })
     state_list +="</ul>"
     document.getElementById('all-state-list').innerHTML = state_list
-
     if(already_active_district !== null) {
-
       chageDataWithFilter('global_filter','district')
       toggleDistrictList(already_active_state.udise_state_code,true)
       toggleActiveDistrict(already_active_district.udise_district_code,true)
@@ -633,7 +659,7 @@ $(document).ready(()=>{
       },
       performance :{
         state: 'state_grade_level_performance',
-        national: '',
+        national: 'performance_master',
         district: 'performance_master',
       },
       learning :{
@@ -673,12 +699,6 @@ $(document).ready(()=>{
     await $.ajax({
       type: "GET",
       url: api_url + table + '?limit=-1',
-      beforeSend: function(){
-        $('.loader').show();
-      },
-      complete: function(){
-          $('.loader').hide();
-      },
       }).done(res=>{
       if(screenType === 'participation'){
         sessionStorage.setItem('participation_data',JSON.stringify(res.data))
@@ -859,7 +879,6 @@ $(document).ready(()=>{
       if(screenType === 'performance'){
         try{
           console.log('started')
-          $('.loader').removeAttr('style')
           let empty =  false
           if(data.length === 0){
             empty = true
@@ -867,6 +886,9 @@ $(document).ready(()=>{
             empty = false
           }
           if(!empty){
+            if(selected_geography  === 'national'){
+              data = [data.pop()]
+            }
             data.forEach(performance=>{
               createPerformanceScreen(performance,empty)
             })
@@ -887,7 +909,6 @@ $(document).ready(()=>{
           console.log(e)
         }finally{
           console.log("finished")
-          $('.loader').hide()
         }
 
  
@@ -1050,23 +1071,25 @@ $(document).ready(()=>{
         })
       }
       if(screenType === 'feedback'){
-        $('#feedback_pq_class3').empty()
-        $('#feedback_tq_class3').empty()
-        $('#feedback_htq_class3').empty()
+        const current_demography = ( selected_geography === 'district'  ? '' : selected_geography )
+
+        $('#feedback'+current_demography+'_pq_class3').empty()
+        $('#feedback'+current_demography+'_tq_class3').empty()
+        $('#feedback'+current_demography+'_htq_class3').empty()
 
         data.forEach(fb=>{
           const percentage = Math.round(fb.avg) 
           if(fb.level === 'pq'){
             const pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
-            $('#feedback_pq_class3').append(pqChart)
+            $('#feedback'+current_demography+'_pq_class3').append(pqChart)
           }
           if(fb.level === 'tq'){
             const tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-line progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
-            $('#feedback_tq_class3').append(tqChart)
+            $('#feedback'+current_demography+'_tq_class3').append(tqChart)
           }
           if(fb.level === 'htq'){
             const htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-circle-lg progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
-            $('#feedback_htq_class3').append(htqChart)
+            $('#feedback'+current_demography+'_htq_class3').append(htqChart)
           }
         })
       }
@@ -1208,6 +1231,9 @@ $(document).ready(()=>{
         if(current_demography === 'state'){
           demographics = ['national','state']
         }
+        if(current_demography === 'national'){
+          demographics = ['national']
+        }
 
         // total for cards all classes
         let cumulative_subject_count = {
@@ -1259,6 +1285,7 @@ $(document).ready(()=>{
         sections.forEach(section => {
   
           graphs.forEach(sub=>{
+
             let where = ''
             const color =  colorCode[sub.toLowerCase()]
 
@@ -1270,7 +1297,7 @@ $(document).ready(()=>{
             const scale = scales[section.toLowerCase()]
             let chart = []
 
-            // district cards and table
+            // district table
             if(!empty){
               if(current_demography === ''){
                 table_criteria.forEach((criteria)=>{
@@ -1282,14 +1309,15 @@ $(document).ready(()=>{
             }
             let state_chart_data = []
 
-            demographics.forEach(demo => {
-              if(current_demography === ''){
+            //  state average chart and district/national average cards
+            demographics.forEach((demo,index) => {
+              if(current_demography === '' || current_demography === 'national'){
                 if(classType === 'all'){
                   if(!empty){
                     cumulative_subject_count[subjects_short_codes[sub.toLowerCase()]][demo] += parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
                   }
                 }else{
-                  const card_where = screenType + '_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
+                  const card_where = screenType + current_demography + '_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
                   let cardData = 0
                   if(!empty){
                     cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
@@ -1299,7 +1327,7 @@ $(document).ready(()=>{
               }
               if(current_demography === 'state'){
                 const item = {
-                  color: color[3],
+                  color: color[index+2],
                   y: !empty ? parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo]) : 0,
                   name: entities[demo + '_average'] 
                 }
@@ -1330,43 +1358,61 @@ $(document).ready(()=>{
               }
             }
 
-            // creating main column chart 
-            scale.forEach((element,index) => {
-              let chart_data = []
-              demographics.forEach(demo => {
-                let dataToShow = 0
-                if(empty){
-                  dataToShow = 0
-                }else{
-                  dataToShow = parserInt(data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()][demo][element])
-                }
-                chart_data.push(dataToShow)
-              });
-              const item = {
-                color: color[index],
-                data:chart_data,
-                name: entities[element] 
+            // creating main column chart for district and state only
+            if(current_demography !== 'national'){
+                scale.forEach((element,index) => {
+                  let chart_data = []
+                  demographics.forEach(demo => {
+                    let dataToShow = 0
+                    if(empty){
+                      dataToShow = 0
+                    }else{
+                      dataToShow = parserInt(data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()][demo][element])
+                    }
+                    chart_data.push(dataToShow)
+                  });
+                  const item = {
+                    color: color[index],
+                    data:chart_data,
+                    name: entities[element] 
+                  }
+                  chart.push(item)
+                });
+                
+                createColumnChart(where,chart)
               }
-              chart.push(item)
-            });
-            
-            createColumnChart(where,chart)
+
   
           })
           
         });
 
+        // updating card value for district and national
         if(classType === 'all'){
-          Object.keys(cumulative_subject_count).forEach(key => {
-            let subject  = key
-            demographics.forEach(demo => {
-              const where = screenType + '_' + subject + '_' + demo + '_class' + classType
-              const val =cumulative_subject_count[subject][demo]
-              updateCards(where,val)
+          if(current_demography === ''){
+            Object.keys(cumulative_subject_count).forEach(key => {
+              let subject  = key
+              demographics.forEach(demo => {
+                const where = screenType + '_' + subject + '_' + demo + '_class' + classType
+                const val =cumulative_subject_count[subject][demo]
+                updateCards(where,val)
+              })
             })
-          })
+          }
+          if(current_demography === 'national'){
+            Object.keys(cumulative_subject_count).forEach(key => {
+              let subject  = key
+              demographics.forEach(demo => {
+                const where = screenType + current_demography + '_' + subject + '_' + demo + '_class' + classType
+                const val =cumulative_subject_count[subject][demo]
+                updateCards(where,val)
+              })
+            })
+            return
+          }
         }
 
+        //  creating pie chart and table for state
         if(current_demography === 'state'){
           createDognutDataAndChart(doghnut,encounterd_subject)
           let row = '<tr>'
@@ -1432,7 +1478,7 @@ $(document).ready(()=>{
     
     if(selected_geography === 'district' || selected_geography === 'state'){
       const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
-      createChart(where,selectedMapData)
+      createChart(where,selectedMapData,dataToShow.district_id)
     }else{
       let states = JSON.parse(sessionStorage.getItem('states'))
       const state_data = states.map((state,index) =>{
@@ -1448,39 +1494,43 @@ $(document).ready(()=>{
     if(selected_geography !== 'national'){
       $('.information_state_name').html(format_string(state_name))
     }
-    $('#'+prefix +'area_class'+classType).html(parserInt(dataToShow.total_district_area))
-    $('#'+prefix +'population_class'+classType ).html(parserInt(dataToShow.total_population))
-    $('#'+prefix + 'density_class'+classType ).html(parserInt(dataToShow.density_of_population))
-    $('#'+prefix +'sex_ratio_class'+classType ).html(parserInt(dataToShow.child_sex_ratio))
-    $('#'+prefix +'literacy_class'+classType ).html(parserInt(dataToShow.literacy_rate))
+    $('#'+prefix +'area_class3').html(parserInt(dataToShow.total_district_area))
+    $('#'+prefix +'population_class3').html(parserInt(dataToShow.total_population))
+    $('#'+prefix + 'density_class3').html(parserInt(dataToShow.density_of_population))
+    $('#'+prefix +'sex_ratio_class3').html(parserInt(dataToShow.child_sex_ratio))
+    $('#'+prefix +'literacy_class3').html(parserInt(dataToShow.literacy_rate))
 
     if(selected_geography === 'district'){
       $('.'+prefix+'name').html(format_string(dataToShow.district_name))
-      $('#'+prefix+'rural_class'+classType ).html(parserInt(dataToShow.rural_population))
-      $('#'+prefix+'urban_class'+classType ).html(parserInt(dataToShow.urban_population))
-      $('#'+prefix +'total_school_class'+classType ).html(parserInt(dataToShow.no_of_schools))
-      $('#'+prefix + 'state_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
-      $('#'+prefix +'govt_aided_school_class'+classType ).html(parserInt(dataToShow.govt_aided_schools))
-      $('#'+prefix + 'govt_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
-      $('#'+prefix+'private_school_class'+classType ).html(parserInt(dataToShow.private_unaided_reco_schools))
-      $('#'+prefix +'state_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
-      $('#'+prefix + 'govt_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
-      $('#'+prefix + 'govt_aided_teacher_class'+classType ).html(parserInt(dataToShow.teacher_govt_aided_schools))
-      $('#'+prefix + 'private_teacher_class'+classType ).html(parserInt(dataToShow.teacher_private_unaided_reco_schools))
-      $('#'+prefix +'description_class'+classType).html(dataToShow.description)
+      $('#'+prefix+'rural_class3').html(parserInt(dataToShow.rural_population))
+      $('#'+prefix+'urban_class3').html(parserInt(dataToShow.urban_population))
+      $('#'+prefix +'total_school_class3').html(parserInt(dataToShow.no_of_schools))
+      $('#'+prefix + 'state_school_class3').html(parserInt(dataToShow.state_govt_schools))
+      $('#'+prefix +'govt_aided_school_class3').html(parserInt(dataToShow.govt_aided_schools))
+      $('#'+prefix + 'govt_school_class3').html(parserInt(dataToShow.state_govt_schools))
+      $('#'+prefix+'private_school_class3').html(parserInt(dataToShow.private_unaided_reco_schools))
+      $('#'+prefix +'state_teacher_class3').html(parserInt(dataToShow.teacher_state_govt_schools))
+      $('#'+prefix + 'govt_teacher_class3').html(parserInt(dataToShow.teacher_state_govt_schools))
+      $('#'+prefix + 'govt_aided_teacher_class3').html(parserInt(dataToShow.teacher_govt_aided_schools))
+      $('#'+prefix + 'private_teacher_class3').html(parserInt(dataToShow.teacher_private_unaided_reco_schools))
+      $('#'+prefix +'description_class3').html(dataToShow.description)
     }
 
 
 
   }
 
-  async function createChart(where,data){
+  async function createChart(where,data,district_id){
     data.data[0].data.forEach((item)=>{
-      // if(item.id=='1007'){
+      if(item.id==district_id){
+        item.color="#f7941c";
+        item.borderColor="#6e6f70";
+        item.states.hover.color="#f7941c";
+      }else{
         item.color="#9ec2e4";
         item.borderColor="#6e6f70";
         item.states.hover.color="#f7941c";
-      // }
+      }
     })
   await Highcharts.mapChart(where,{
       chart:{
@@ -1624,6 +1674,7 @@ $(document).ready(()=>{
   function showAdditionalTab(){
     $('#result-glimpses-tab').hide()
     $('#achievementstate-tab').hide()
+    $('#learningoutcome-tab').hide()
 
     if(selected_geography === 'national'){
       $('#result-glimpses-tab').show()
@@ -1633,6 +1684,8 @@ $(document).ready(()=>{
     else{
       $('#result-glimpses-tab').hide()
       $('#achievementstate-tab').hide()
+      $('#learningoutcome-tab').show()
+
     }
   }
 
@@ -1640,12 +1693,12 @@ $(document).ready(()=>{
  function createDognutDataAndChart(data,subjects){
   let color_code = {
     mil:'#EB6C69',
-    eng:'#72B562',
-    math:'#C574BF',
+    eng:'#C574BF',
+    math:'#E9769F',
     sci:'#3CACAE',
-    sst:'#E9769F',
-    language:'#E9769F',
-    evs:'#E9769F'
+    sst:'#72B562',
+    language:'#75a9d9',
+    evs:'#cac55f'
   }
 
   const titles = {
@@ -1660,7 +1713,7 @@ $(document).ready(()=>{
     const where = 'doghnut_'+ key + selected_geography+ '_class'+ classType 
     data[key].forEach((tupple,i)=>{
       const series_obj = {
-        name: subjects[i],
+        name: subjects_full_names[subjects[i]],
         y: parserInt(tupple),
         z: 100,
         color: color_code[subjects[i]]

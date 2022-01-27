@@ -10,7 +10,6 @@
 @include('front.report_card.information')
 @include('front.report_card.resultglimpses')
 @include('front.report_card.achievement')
-<div class="loader"></div>
 <div class="tab-content tablayertwo-content">
                             <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
                               <ul class="nav nav-tabs tablayerthree" role="tablist" >
@@ -23,7 +22,7 @@
                                 <li class="nav-item" role="presentation">
                                   <button class="nav-link" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab" aria-controls="performance" aria-selected="false"onClick="setScreen('performance')">Performance</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                <li class="nav-item" role="presentation" id="learningoutcome-tab">
                                   <button class="nav-link" id="learning-tab" data-bs-toggle="tab" data-bs-target="#learning" type="button" role="tab" aria-controls="learning" aria-selected="false"onClick="setScreen('learning')">Learning Outcomes</button>
                                 </li>
                                 <li class="nav-item" role="presentation" id="result-glimpses-tab">
