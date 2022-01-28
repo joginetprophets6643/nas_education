@@ -20,7 +20,6 @@
                                                     <div class="glimps-card">
                                                       <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
                                                       <div class="glimps-graph light-green">
-                                                          <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                       </div>
                                                     </div>
                                                   </div>
@@ -98,7 +97,6 @@
                                                           <div class="glimps-card">
                                                             <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
                                                             <div class="glimps-graph light-blue">
-                                                                <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                             </div>
                                                           </div>
                                                       </div>
@@ -106,7 +104,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
                                                           <div class="glimps-graph light-green">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>
@@ -114,7 +111,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
                                                           <div class="glimps-graph light-sagegreen">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>
@@ -122,7 +118,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
                                                           <div class="glimps-graph light-pink">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>
@@ -144,7 +139,6 @@
                                                           <div class="glimps-card">
                                                             <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
                                                             <div class="glimps-graph light-blue">
-                                                                <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                             </div>
                                                           </div>
                                                       </div>
@@ -152,7 +146,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
                                                           <div class="glimps-graph light-green">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>
@@ -160,7 +153,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
                                                           <div class="glimps-graph light-sagegreen">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>
@@ -168,7 +160,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
                                                           <div class="glimps-graph light-pink">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>
@@ -190,7 +181,6 @@
                                                           <div class="glimps-card">
                                                             <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
                                                             <div class="glimps-graph light-blue">
-                                                                <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                             </div>
                                                           </div>
                                                       </div>
@@ -198,7 +188,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
                                                           <div class="glimps-graph light-green">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>
@@ -206,7 +195,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
                                                           <div class="glimps-graph light-sagegreen">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>
@@ -214,7 +202,6 @@
                                                         <div class="glimps-card">
                                                           <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
                                                           <div class="glimps-graph light-pink">
-                                                              <img src="{{asset('assets/front/images/map-white.svg')}}" alt="img" class="img-fluid" />
                                                           </div>
                                                         </div>
                                                       </div>

@@ -1969,7 +1969,7 @@
                                             <div id="dac-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="dac-perAccordionOne">
                                               <div class="accordion-body">
                                                 
-                                                <div class="graph-card-container">
+                                                <div class="graph-card-container graph-linecard-container">
                                                   <div class="row">
                                                     <div class="col-md-12 p-0">
                                                         <div class="graph-card">
@@ -1977,8 +1977,8 @@
                                                           <div class="graph-card-content light-blue">
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-blue">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -1989,8 +1989,8 @@
                                                                   </div>  
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-blue">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2004,8 +2004,8 @@
                                                               <hr />
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-blue">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2025,8 +2025,8 @@
                                                         <div class="graph-card-content light-pink">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -2037,8 +2037,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2052,8 +2052,8 @@
                                                             <hr />
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2064,8 +2064,8 @@
                                                                 </div>
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2085,8 +2085,8 @@
                                                         <div class="graph-card-content light-yellow">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-yellow">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-yellow">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -2097,8 +2097,8 @@
                                                                 </div> 
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-yellow">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-yellow">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2118,8 +2118,8 @@
                                                         <div class="graph-card-content light-sagegreen">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-sagegreen">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-sagegreen">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2130,8 +2130,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-sagegreen">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-sagegreen">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2151,8 +2151,8 @@
                                                         <div class="graph-card-content light-green">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-green">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-green">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2163,8 +2163,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-green">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-green">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2184,8 +2184,8 @@
                                                         <div class="graph-card-content light-red">
                                                             <div class="row">
                                                               <div class="col-md-12">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-red">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-red">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2205,8 +2205,8 @@
                                                         <div class="graph-card-content light-purple">
                                                             <div class="row">
                                                               <div class="col-md-12">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-purple">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-purple">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2235,7 +2235,7 @@
                                             <div id="dac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionTwo">
                                             <div class="accordion-body">
                                                 
-                                                <div class="graph-card-container">
+                                                <div class="graph-card-container graph-linecard-container">
                                                   <div class="row">
                                                     <div class="col-md-12 p-0">
                                                         <div class="graph-card">
@@ -2243,8 +2243,8 @@
                                                           <div class="graph-card-content light-blue">
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-blue">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -2255,8 +2255,8 @@
                                                                   </div>  
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-blue">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2270,8 +2270,8 @@
                                                               <hr />
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-blue">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2291,8 +2291,8 @@
                                                         <div class="graph-card-content light-pink">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -2303,8 +2303,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2318,8 +2318,8 @@
                                                             <hr />
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2330,8 +2330,8 @@
                                                                 </div>
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2351,8 +2351,8 @@
                                                         <div class="graph-card-content light-yellow">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-yellow">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-yellow">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -2363,8 +2363,8 @@
                                                                 </div> 
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-yellow">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-yellow">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2384,8 +2384,8 @@
                                                         <div class="graph-card-content light-sagegreen">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-sagegreen">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-sagegreen">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2396,8 +2396,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-sagegreen">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-sagegreen">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2417,8 +2417,8 @@
                                                         <div class="graph-card-content light-green">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-green">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-green">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2429,8 +2429,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-green">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-green">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2450,8 +2450,8 @@
                                                         <div class="graph-card-content light-red">
                                                             <div class="row">
                                                               <div class="col-md-12">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-red">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-red">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2471,8 +2471,8 @@
                                                         <div class="graph-card-content light-purple">
                                                             <div class="row">
                                                               <div class="col-md-12">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-purple">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-purple">
                                                                   CLASS 10 
                                                                 </h2>
                                                                 </div>
@@ -2499,7 +2499,7 @@
                                             </h2>
                                             <div id="dac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionThree">
                                               <div class="accordion-body">
-                                              <div class="graph-card-container">
+                                              <div class="graph-card-container graph-linecard-container">
                                                   <div class="row">
                                                     <div class="col-md-12 p-0">
                                                         <div class="graph-card">
@@ -2507,8 +2507,8 @@
                                                           <div class="graph-card-content light-blue">
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                  <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                  <h2 class="sac-lo-classtitle title-blue">
                                                                       CLASS 3
                                                                   </h2>
                                                                 </div>
@@ -2519,8 +2519,8 @@
                                                                   </div>  
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                  <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                  <h2 class="sac-lo-classtitle title-blue">
                                                                       CLASS 5
                                                                   </h2>
                                                                 </div>
@@ -2534,8 +2534,8 @@
                                                               <hr />
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                  <h2 class="dac-lo-classtitle title-blue">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                  <h2 class="sac-lo-classtitle title-blue">
                                                                       CLASS 8
                                                                   </h2>
                                                                 </div>
@@ -2555,8 +2555,8 @@
                                                         <div class="graph-card-content light-pink">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -2567,8 +2567,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2582,8 +2582,8 @@
                                                             <hr />
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2594,8 +2594,8 @@
                                                                 </div>
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2615,8 +2615,8 @@
                                                         <div class="graph-card-content light-yellow">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-yellow">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-yellow">
                                                                   CLASS 3
                                                                 </h2>
                                                               </div>
@@ -2627,8 +2627,8 @@
                                                                 </div> 
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-yellow">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-yellow">
                                                                   CLASS 5
                                                                 </h2>
                                                               </div>
@@ -2648,8 +2648,8 @@
                                                         <div class="graph-card-content light-sagegreen">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-sagegreen">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-sagegreen">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2660,8 +2660,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-sagegreen">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-sagegreen">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2681,8 +2681,8 @@
                                                         <div class="graph-card-content light-green">
                                                             <div class="row">
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-green">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-green">
                                                                   CLASS 8
                                                                 </h2>
                                                               </div>
@@ -2693,8 +2693,8 @@
                                                                 </div>  
                                                               </div>
                                                               <div class="col-md-6">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-green">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-green">
                                                                   CLASS 10
                                                                 </h2>
                                                               </div>
@@ -2714,8 +2714,8 @@
                                                         <div class="graph-card-content light-red">
                                                             <div class="row">
                                                               <div class="col-md-12">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-red">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-red">
                                                                   CLASS 10
                                                                 </h2>
                                                               </div>
@@ -2735,8 +2735,8 @@
                                                         <div class="graph-card-content light-purple">
                                                             <div class="row">
                                                               <div class="col-md-12">
-                                                              <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-purple">
+                                                              <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-purple">
                                                                   CLASS 10
                                                                 </h2>
                                                               </div>
@@ -2763,7 +2763,7 @@
                                             </h2>
                                             <div id="dac-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionfour">
                                               <div class="accordion-body">
-                                                <div class="graph-card-container">
+                                                <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">
                                                       <div class="col-md-12 p-0">
                                                           <div class="graph-card">
@@ -2771,8 +2771,8 @@
                                                             <div class="graph-card-content light-blue">
                                                                 <div class="row">
                                                                   <div class="col-md-6">
-                                                                  <div class="dac-lo-classtitle-wrap">
-                                                                      <h2 class="dac-lo-classtitle title-blue">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                      <h2 class="sac-lo-classtitle title-blue">
                                                                           CLASS 3
                                                                       </h2>
                                                                     </div>
@@ -2783,8 +2783,8 @@
                                                                     </div>  
                                                                   </div>
                                                                   <div class="col-md-6">
-                                                                  <div class="dac-lo-classtitle-wrap">
-                                                                  <h2 class="dac-lo-classtitle title-blue">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                  <h2 class="sac-lo-classtitle title-blue">
                                                                       CLASS 5
                                                                   </h2>
                                                                 </div>
@@ -2798,8 +2798,8 @@
                                                                 <hr />
                                                                 <div class="row">
                                                                   <div class="col-md-6">
-                                                                  <div class="dac-lo-classtitle-wrap">
-                                                                  <h2 class="dac-lo-classtitle title-blue">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                  <h2 class="sac-lo-classtitle title-blue">
                                                                       CLASS 8
                                                                   </h2>
                                                                 </div>
@@ -2819,8 +2819,8 @@
                                                           <div class="graph-card-content light-pink">
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -2831,8 +2831,8 @@
                                                                   </div>  
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2846,8 +2846,8 @@
                                                               <hr />
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2858,8 +2858,8 @@
                                                                   </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-pink">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-pink">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2879,8 +2879,8 @@
                                                           <div class="graph-card-content light-yellow">
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-yellow">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-yellow">
                                                                   CLASS 3
                                                                 </h2>
                                                                 </div>
@@ -2891,8 +2891,8 @@
                                                                   </div> 
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-yellow">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-yellow">
                                                                   CLASS 5
                                                                 </h2>
                                                                 </div>
@@ -2912,8 +2912,8 @@
                                                           <div class="graph-card-content light-sagegreen">
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-sagegreen">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-sagegreen">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2924,8 +2924,8 @@
                                                                   </div>  
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-sagegreen">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-sagegreen">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2945,8 +2945,8 @@
                                                           <div class="graph-card-content light-green">
                                                               <div class="row">
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-green">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-green">
                                                                   CLASS 8
                                                                 </h2>
                                                                 </div>
@@ -2957,8 +2957,8 @@
                                                                   </div>  
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-green">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-green">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2978,8 +2978,8 @@
                                                           <div class="graph-card-content light-red">
                                                               <div class="row">
                                                                 <div class="col-md-12">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-red">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-red">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -2999,8 +2999,8 @@
                                                           <div class="graph-card-content light-purple">
                                                               <div class="row">
                                                                 <div class="col-md-12">
-                                                                <div class="dac-lo-classtitle-wrap">
-                                                                <h2 class="dac-lo-classtitle title-purple">
+                                                                <div class="sac-lo-classtitle-wrap">
+                                                                <h2 class="sac-lo-classtitle title-purple">
                                                                   CLASS 10
                                                                 </h2>
                                                                 </div>
@@ -4463,9 +4463,1389 @@
                                                                         </div>
                                                                     </div>
                                 </div>
-
+                                <div class="tab-pane fade" id="performancestate_classall" role="tabpanel" aria-labelledby="sac-performance-tab">
+                                  <div class="sac-per-wrap">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            GRADEWISE PERFORMANCE OF STUDENTS IN THE DIFFERENT SUBJECT DOMAIN
+                                          </h2>
+                                          <div class="grade-wrap">
+                                              <div class="row">
+                                                <div class="col-md-6">
+                                                  <div class="grade-card">
+                                                    <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language</h2>
+                                                    <div class="grade-graph-wrap light-blue">
+                                                      <figure class="highcharts-figure">
+                                                        <div id="performancestate_language_classall"></div>
+                                                      </figure>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                  <div class="grade-card">
+                                                    <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35" /> Mathematics</h2>
+                                                    <div class="grade-graph-wrap light-pink">
+                                                      <figure class="highcharts-figure">
+                                                        <div id="performancestate_math_classall"></div>
+                                                      </figure>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                  <div class="grade-card">
+                                                    <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid" width="35" /> EVS</h2>
+                                                    <div class="grade-graph-wrap light-yellow">
+                                                      <figure class="highcharts-figure">
+                                                        <div id="performancestate_evs_classall"></div>
+                                                      </figure>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="grade-card">
+                                                      <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL</h2>
+                                                      <div class="grade-graph-wrap light-red">
+                                                        <figure class="highcharts-figure">
+                                                          <div id="performancestate_mil_classall"></div>
+                                                        </figure>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="grade-card">
+                                                      <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science</h2>
+                                                      <div class="grade-graph-wrap light-green">
+                                                        <figure class="highcharts-figure">
+                                                          <div id="performancestate_sst_classall"></div>
+                                                        </figure>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                  <div class="grade-card">
+                                                    <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English</h2>
+                                                    <div class="grade-graph-wrap light-purple">
+                                                      <figure class="highcharts-figure">
+                                                        <div id="performancestate_eng_classall"></div>
+                                                      </figure>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                  <div class="grade-card">
+                                                    <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science</h2>
+                                                    <div class="grade-graph-wrap light-sagegreen">
+                                                      <figure class="highcharts-figure">
+                                                        <div id="performancestate_sci_classall"></div>
+                                                      </figure>
+                                                    </div>
+                                                  </div>
+                                                </div>  
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            DISTRIBUTION OF STUDENTS BY RANGE
+                                          </h2>
+                                          <div class="accordion commonAccordion" id="sac-rg-perAccordion">
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="sac-rg-perAccordionOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sac-rg-perAccordioncollapseOne" aria-expanded="true" aria-controls="sac-rg-perAccordioncollapseOne">
+                                                  Class 3
+                                                </button>
+                                              </h2>
+                                              <div id="sac-rg-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sac-rg-perAccordionOne">
+                                                <div class="accordion-body">
+                                                  <div class="range-wrap">
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="range-graph-wrap">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="doghnut_below_basic3state_classall"></div>
+                                                            </figure>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_basic3state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_proficient3state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_advanced3state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                    </div>  
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="sac-rg-perAccordionTwo">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-rg-perAccordioncollapseTwo" aria-expanded="false" aria-controls="sac-rg-perAccordioncollapseTwo">
+                                                  Class 5
+                                                </button>
+                                              </h2>
+                                              <div id="sac-rg-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionTwo">
+                                                <div class="accordion-body">
+                                                  <div class="range-wrap">
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="range-graph-wrap">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="doghnut_below_basic5state_classall"></div>
+                                                            </figure>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_basic5state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_proficient5state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_advanced5state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                    </div>  
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="sac-rg-perAccordionThree">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-rg-perAccordioncollapseThree" aria-expanded="false" aria-controls="sac-rg-perAccordioncollapseThree">
+                                                  Class 8
+                                                </button>
+                                              </h2>
+                                              <div id="sac-rg-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionThree">
+                                                <div class="accordion-body">
+                                                  <div class="range-wrap">
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="range-graph-wrap">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="doghnut_below_basic8state_classall"></div>
+                                                            </figure>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_basic8state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_proficient8state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_advanced8state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                    </div>  
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="sac-rg-perAccordionfour">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-rg-perAccordioncollapsefour" aria-expanded="false" aria-controls="sac-rg-perAccordioncollapsefour">
+                                                  Class 10
+                                                </button>
+                                              </h2>
+                                              <div id="sac-rg-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionfour">
+                                                <div class="accordion-body">
+                                                  <div class="range-wrap">
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                          <div class="range-graph-wrap">
+                                                            <figure class="highcharts-figure">
+                                                              <div id="doghnut_below_basic10state_classall"></div>
+                                                            </figure>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_basic10state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_proficient10state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                        <div class="range-graph-wrap">
+                                                          <figure class="highcharts-figure">
+                                                            <div id="doghnut_advanced10state_classall"></div>
+                                                          </figure>
+                                                        </div>
+                                                      </div>
+                                                    </div>  
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            AVERAGE PERFORMANCE
+                                          </h2>
+                                          <div class="accordion commonAccordion" id="sac-perAccordion">
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="sac-perAccordionOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapseOne" aria-expanded="true" aria-controls="sac-perAccordioncollapseOne">
+                                                  Performance by Gender
+                                                </button>
+                                              </h2>
+                                              <div id="sac-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sac-perAccordionOne">
+                                                <div class="accordion-body">
+                                                  <div class="graph-card-container graph-linecard-container">
+                                                    <div class="row">
+                                                      <div class="col-md-12 p-0">
+                                                          <div class="graph-card">
+                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                            <div class="graph-card-content light-blue">
+                                                                <div class="row">
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 3
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="GenderLanguage3stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>  
+                                                                  </div>
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 5
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="GenderLanguage5stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                                <hr>
+                                                                <div class="row">
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 8
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="GenderLanguage8stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div> 
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                          <div class="graph-card-content light-pink">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 3
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderMath3stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 5
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderMath5stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              <hr>
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderMath8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderMath10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
+                                                          <div class="graph-card-content light-yellow">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-yellow">
+                                                                      CLASS 3
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderEvs3stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div> 
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-yellow">
+                                                                      CLASS 5
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderEvs5stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                          <div class="graph-card-content light-sagegreen">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-sagegreen">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderScience8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-sagegreen">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderScience10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                          <div class="graph-card-content light-green">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-green">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderSocial8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-green">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderSocial10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                          <div class="graph-card-content light-red">
+                                                              <div class="row">
+                                                                <div class="col-md-12">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-red">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderMil10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                          <div class="graph-card-content light-purple">
+                                                              <div class="row">
+                                                                <div class="col-md-12">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-purple">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="GenderEnglish10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                    </div> 
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="sac-perAccordionTwo">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapseTwo" aria-expanded="false" aria-controls="sac-perAccordioncollapseTwo">
+                                                  Performance by Location
+                                                </button>
+                                              </h2>
+                                              <div id="sac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionTwo">
+                                                <div class="accordion-body">
+                                                  <div class="graph-card-container graph-linecard-container">
+                                                    <div class="row">
+                                                      <div class="col-md-12 p-0">
+                                                          <div class="graph-card">
+                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                            <div class="graph-card-content light-blue">
+                                                                <div class="row">
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 3
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="LocationLanguage3stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>  
+                                                                  </div>
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 5
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="LocationLanguage5stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                                <hr>
+                                                                <div class="row">
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 8
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="LocationLanguage8stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div> 
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                          <div class="graph-card-content light-pink">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 3
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationMath3stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 5
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationMath5stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              <hr>
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationMath8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationMath10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
+                                                          <div class="graph-card-content light-yellow">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-yellow">
+                                                                      CLASS 3
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationEvs3stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div> 
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-yellow">
+                                                                      CLASS 5
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationEvs5stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                          <div class="graph-card-content light-sagegreen">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-sagegreen">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationScience8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-sagegreen">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationScience10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                          <div class="graph-card-content light-green">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-green">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationSocial8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-green">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationSocial10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                          <div class="graph-card-content light-red">
+                                                              <div class="row">
+                                                                <div class="col-md-12">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-red">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationMil10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                          <div class="graph-card-content light-purple">
+                                                              <div class="row">
+                                                                <div class="col-md-12">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-purple">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="LocationEnglish10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                    </div> 
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="sac-perAccordionThree">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapseThree" aria-expanded="false" aria-controls="sac-perAccordioncollapseThree">
+                                                  Performance by Managment
+                                                </button>
+                                              </h2>
+                                              <div id="sac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionThree">
+                                                <div class="accordion-body">
+                                                  <div class="graph-card-container graph-linecard-container">
+                                                    <div class="row">
+                                                      <div class="col-md-12 p-0">
+                                                          <div class="graph-card">
+                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                            <div class="graph-card-content light-blue">
+                                                                <div class="row">
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 3
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="ManagementLanguage3stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>  
+                                                                  </div>
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 5
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="ManagementLanguage5stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                                <hr>
+                                                                <div class="row">
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 8
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="ManagementLanguage8stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div> 
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                          <div class="graph-card-content light-pink">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 3
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementMath3stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 5
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementMath5stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              <hr>
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementMath8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementMath10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
+                                                          <div class="graph-card-content light-yellow">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-yellow">
+                                                                      CLASS 3
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementEvs3stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div> 
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-yellow">
+                                                                      CLASS 5
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementEvs5stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                          <div class="graph-card-content light-sagegreen">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-sagegreen">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementScience8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-sagegreen">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementScience10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                          <div class="graph-card-content light-green">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-green">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementSocial8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-green">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementSocial10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                          <div class="graph-card-content light-red">
+                                                              <div class="row">
+                                                                <div class="col-md-12">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-red">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementMil10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                          <div class="graph-card-content light-purple">
+                                                              <div class="row">
+                                                                <div class="col-md-12">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-purple">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="ManagementEnglish10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item mtb-30">
+                                              <h2 class="accordion-header" id="sac-perAccordionfour">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapsefour" aria-expanded="false" aria-controls="sac-perAccordioncollapsefour">
+                                                  Performance by Social Group
+                                                </button>
+                                              </h2>
+                                              <div id="sac-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionfour">
+                                                <div class="accordion-body">
+                                                  <div class="graph-card-container graph-linecard-container">
+                                                    <div class="row">
+                                                      <div class="col-md-12 p-0">
+                                                          <div class="graph-card">
+                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                            <div class="graph-card-content light-blue">
+                                                                <div class="row">
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 3
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="SocialGroupLanguage3stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>  
+                                                                  </div>
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 5
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="SocialGroupLanguage5stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                                <hr>
+                                                                <div class="row">
+                                                                  <div class="col-md-6">
+                                                                    <div class="sac-lo-classtitle-wrap">
+                                                                      <h3 class="sac-lo-classtitle title-blue">
+                                                                        CLASS 8
+                                                                      </h3>
+                                                                    </div>
+                                                                    <div class="bargraph-wrap">
+                                                                      <figure class="highcharts-figure">
+                                                                        <div id="SocialGroupLanguage8stateBarGraph_classall"></div>
+                                                                      </figure>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div> 
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                          <div class="graph-card-content light-pink">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 3
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupMath3stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 5
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupMath5stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              <hr>
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupMath8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-pink">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupMath10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
+                                                          <div class="graph-card-content light-yellow">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-yellow">
+                                                                      CLASS 3
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupEvs3stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div> 
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-yellow">
+                                                                      CLASS 5
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupEvs5stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                          <div class="graph-card-content light-sagegreen">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-sagegreen">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupScience8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-sagegreen">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupScience10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                          <div class="graph-card-content light-green">
+                                                              <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-green">
+                                                                      CLASS 8
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupSocial8stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>  
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-green">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupSocial10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                          <div class="graph-card-content light-red">
+                                                              <div class="row">
+                                                                <div class="col-md-12">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-red">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupMil10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 p-0">
+                                                        <div class="graph-card">
+                                                          <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                          <div class="graph-card-content light-purple">
+                                                              <div class="row">
+                                                                <div class="col-md-12">
+                                                                  <div class="sac-lo-classtitle-wrap">
+                                                                    <h3 class="sac-lo-classtitle title-purple">
+                                                                      CLASS 10
+                                                                    </h3>
+                                                                  </div>
+                                                                  <div class="bargraph-wrap">
+                                                                    <figure class="highcharts-figure">
+                                                                      <div id="SocialGroupEnglish10stateBarGraph_classall"></div>
+                                                                    </figure>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          </div> 
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            AVERAGE PERFORMANCE OF THE DISTRICTS
+                                          </h2>
+                                          <div class="district-table mtb-30">
+                                            <table class="table">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col" class="card-purple">
+                                                    <div class="thead-content">
+                                                      District Name
+                                                      <span class="percentage percentage-purple-bg">
+                                                        %
+                                                      </span>
+                                                    </div>
+                                                   
+                                                  </th>
+                                                  <th scope="col" class="card-purple">
+                                                    <div class="thead-content">
+                                                      District Name
+                                                      <span class="percentage percentage-purple-bg">
+                                                        %
+                                                      </span>
+                                                    </div>
+                                                  </th>
+                                                  <th scope="col" class="card-purple">
+                                                    <div class="thead-content">
+                                                      District Name
+                                                      <span class="percentage percentage-purple-bg">
+                                                        %
+                                                      </span>
+                                                    </div>
+                                                  </th>
+                                                </tr>
+                                              </thead>
+                                              <tbody id="state_district_table_classall">
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                </div>
                               <!--national screens  -->
-                                <div class="tab-pane fade" id="performancenational_class8" role="tabpanel" aria-labelledby="national-performance-tab">
+
+
+                            <div class="tab-pane fade" id="performancenational_class3" role="tabpanel" aria-labelledby="national-performance-tab">
                                     <div class="nc8-per-wrap">
                                       <div class="row">
                                         <div class="col-md-12">
@@ -4473,7 +5853,103 @@
                                             AVERAGE PERFORMANCE OF STUDENTS
                                           </h2>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
+                                            <div class="per-card card-blue">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="img" class="img-fluid" width="25"> Language
+                                              </h2>
+                                              <div class="per-card-content dark-blue">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_language_national_class3">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="per-card card-pink">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
+                                            </h2>
+                                            <div class="per-card-content dark-pink">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_math_national_class3">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> 
+                                        <div class="col-md-4">
+                                          <div class="per-card card-yellow">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> Evs
+                                            </h2>
+                                            <div class="per-card-content dark-yellow">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_evs_national_class3">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="performancenational_class5" role="tabpanel" aria-labelledby="national-performance-tab">
+                                    <div class="nc8-per-wrap">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            AVERAGE PERFORMANCE OF STUDENTS
+                                          </h2>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="per-card card-blue">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="img" class="img-fluid" width="25"> Language
+                                              </h2>
+                                              <div class="per-card-content dark-blue">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_language_national_class5">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="per-card card-pink">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
+                                            </h2>
+                                            <div class="per-card-content dark-pink">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_math_national_class5">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> 
+                                        <div class="col-md-4">
+                                          <div class="per-card card-yellow">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> Evs
+                                            </h2>
+                                            <div class="per-card-content dark-yellow">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_evs_national_class5">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="performancenational_class8" role="tabpanel" aria-labelledby="national-performance-tab">
+                                    <div class="nc8-per-wrap">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            AVERAGE PERFORMANCE OF STUDENTS
+                                          </h2>
+                                        </div>
+                                        <div class="col-md-4">
                                             <div class="per-card card-blue">
                                               <h2 class="justify-content-center">
                                                 <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="img" class="img-fluid" width="25"> Language
@@ -4485,19 +5961,19 @@
                                               </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                           <div class="per-card card-sagegreen">
                                             <h2 class="justify-content-center">
                                               <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20"> Science
                                             </h2>
                                             <div class="per-card-content dark-sagegreen">
                                               <div class="per-card-desc">
-                                                <span class="total-no" id="performancenational_sci_national_classa8">0</span>
+                                                <span class="total-no" id="performancenational_sci_national_class8">0</span>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                           <div class="per-card card-pink">
                                             <h2 class="justify-content-center">
                                               <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
@@ -4509,7 +5985,9 @@
                                             </div>
                                           </div>
                                         </div> 
-                                        <div class="col-md-3">
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">
                                           <div class="per-card card-green">
                                             <h2 class="justify-content-center">
                                               <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20"> Science
@@ -4523,5 +6001,179 @@
                                         </div>
                                       </div>
                                     </div>
-                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="performancenational_class10" role="tabpanel" aria-labelledby="national-performance-tab">
+                                    <div class="nc8-per-wrap">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            AVERAGE PERFORMANCE OF STUDENTS
+                                          </h2>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="per-card card-red">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="img" class="img-fluid" width="25"> Mil
+                                              </h2>
+                                              <div class="per-card-content dark-red">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_mil_national_class10">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="per-card card-green">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20">Social Science
+                                            </h2>
+                                            <div class="per-card-content dark-green">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_sst_national_class10">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="per-card card-purple">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/english-icon.svg')}}" alt="img" class="img-fluid" width="20"> English
+                                              </h2>
+                                              <div class="per-card-content dark-purple">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_eng_national_class10">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">
+                                          <div class="per-card card-sagegreen">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20">Science
+                                            </h2>
+                                            <div class="per-card-content dark-sagegreen">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_sci_national_class10">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="per-card card-pink">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
+                                              </h2>
+                                              <div class="per-card-content dark-pink">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_math_national_class10">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div> 
+                                      </div>
+                                    </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="performancenational_classall" role="tabpanel" aria-labelledby="national-performance-tab">
+                                    <div class="nc8-per-wrap">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            AVERAGE PERFORMANCE OF STUDENTS
+                                          </h2>
+                                        </div>
+                                          <div class="col-md-4">
+                                              <div class="per-card card-blue">
+                                                <h2 class="justify-content-center">
+                                                  <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="img" class="img-fluid" width="25"> Language
+                                                </h2>
+                                                <div class="per-card-content dark-blue">
+                                                  <div class="per-card-desc">
+                                                    <span class="total-no" id="performancenational_language_national_classall">0</span>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <div class="per-card card-pink">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
+                                              </h2>
+                                              <div class="per-card-content dark-pink">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_math_national_classall">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div> 
+                                          <div class="col-md-4">
+                                          <div class="per-card card-yellow">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> Evs
+                                            </h2>
+                                            <div class="per-card-content dark-yellow">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_evs_national_classall">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="per-card card-red">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="img" class="img-fluid" width="25"> Mil
+                                              </h2>
+                                              <div class="per-card-content dark-red">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_mil_national_classall">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="per-card card-green">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20">Social Science
+                                            </h2>
+                                            <div class="per-card-content dark-green">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_sst_national_classall">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="per-card card-purple">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/english-icon.svg')}}" alt="img" class="img-fluid" width="20"> English
+                                              </h2>
+                                              <div class="per-card-content dark-purple">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_eng_national_classall">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                          <div class="per-card card-sagegreen">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20">Science
+                                            </h2>
+                                            <div class="per-card-content dark-sagegreen">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_sci_national_classall">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                            </div>
 @endsection

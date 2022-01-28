@@ -46,7 +46,6 @@ $(document).ready(()=>{
        sessionStorage.setItem('states',JSON.stringify(response.data))
     });
     setClass(classType)
-
     already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
     already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
 
@@ -421,7 +420,6 @@ $(document).ready(()=>{
   }
 
   async function setScreen(screen_type = 'information', load_data = true){
-    console.log(screen_type)
     const exceptions = ['participation','learning']
     const current_demography = ( selected_geography === 'district' || exceptions.includes(screen_type) ? '' : selected_geography )
     const demographics = ['','state','national']
@@ -453,7 +451,6 @@ $(document).ready(()=>{
 
     changePageDataViaSideFilter('all')
     if(screenType === 'learning' || screenType === 'feedback'){
-      console.log('s')
       $('.side_list_action').prop('disabled',true)
       $('.side_filter').prop('disabled',true)
     }
@@ -579,8 +576,13 @@ $(document).ready(()=>{
       }
       if(classType !== ''){
         if(classType !== 'all'){
-          if(screenType !== 'information' && screenType !== 'feedback'){
+          if(screenType !== 'information'){
             filters = {... filters,class: classType}
+          }
+          if(screenType !== 'feedback'){
+            if(selected_geography === 'state'){
+              filters = {...filters , class: classType}
+            }
           }
         }
       }
@@ -668,7 +670,7 @@ $(document).ready(()=>{
         district: 'district_grade_level_learningoutcome',
       },
       feedback :{
-        state: 'pq_district_level_feedback',
+        state: 'pq_state_level_feedback',
         national: 'pq_district_level_feedback',
         district: 'pq_district_level_feedback',
       },
@@ -878,7 +880,6 @@ $(document).ready(()=>{
       }
       if(screenType === 'performance'){
         try{
-          console.log('started')
           let empty =  false
           if(data.length === 0){
             empty = true
@@ -908,7 +909,6 @@ $(document).ready(()=>{
         }catch(e){
           console.log(e)
         }finally{
-          console.log("finished")
         }
 
  
@@ -1077,6 +1077,10 @@ $(document).ready(()=>{
         $('#feedback'+current_demography+'_tq_class3').empty()
         $('#feedback'+current_demography+'_htq_class3').empty()
 
+        let countPq2 =1
+        let countPq3 =1
+        let pq2Average = 0
+        let pq3Average = 0
         data.forEach(fb=>{
           const percentage = Math.round(fb.avg) 
           if(fb.level === 'pq'){
@@ -1087,11 +1091,31 @@ $(document).ready(()=>{
             const tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-line progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
             $('#feedback'+current_demography+'_tq_class3').append(tqChart)
           }
-          if(fb.level === 'htq'){
+          if(fb.level === 'sq'){
             const htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-circle-lg progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
             $('#feedback'+current_demography+'_htq_class3').append(htqChart)
           }
+          if(fb.level === 'pq1'){
+            const pq1 = '<div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div>'
+            $('#feedback'+current_demography +'_pq1_class3').html(pq1)
+          }
+          if(fb.level === 'pq2'){
+            const pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
+            $('#feedback'+current_demography +'_pq2_'+countPq2+'_class3').html(pq2)
+            countPq2+=1
+            pq2Average += percentage
+          }
+          if(fb.level === 'pq3'){
+            const pq3 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-green"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
+            $('#feedback'+current_demography +'_pq3_'+countPq3+'_class3').html(pq3)
+            countPq3+=1
+            pq3Average+=percentage
+          }
         })
+
+        $('#feedback'+current_demography +'_pq2_average_class3').html(parserInt(pq2Average/4)+ '%')
+        $('#feedback'+current_demography +'_pq3_average_class3').html(parserInt(pq3Average/3)+ '%')
+
       }
     }else{
       console.log('no data ')
@@ -1226,10 +1250,10 @@ $(document).ready(()=>{
         // setting required demography
         let demographics = []
         if(current_demography === ''){
-          demographics = ['national','state','district']
+          demographics = ['district','state','national']
         }
         if(current_demography === 'state'){
-          demographics = ['national','state']
+          demographics = ['state','national']
         }
         if(current_demography === 'national'){
           demographics = ['national']
@@ -1414,20 +1438,23 @@ $(document).ready(()=>{
 
         //  creating pie chart and table for state
         if(current_demography === 'state'){
-          createDognutDataAndChart(doghnut,encounterd_subject)
-          let row = '<tr>'
-          state_table.forEach((tupple,index)=>{
-            if((index+1) % 3 !== 0 && index !== state_table.length)
-            row += '<td><div class="tbody-content">'+tupple.district_name+'<span class="percentage-no light-purple">'+tupple.percentage+'</span></div></td>'
-            else{
-              if(index < state_table.length){
-                row += '</tr><tr>'
-              }else{
-                row += '</tr>'
-              }
-            }
-          })
-          $('#state_district_table_class'+classType).html(row)
+          createDognutDataAndChart(doghnut,encounterd_subject,all_data.grade)
+          // if(classType !== 'all'){
+              let row = '<tr>'
+              state_table.forEach((tupple,index)=>{
+                if((index+1) % 3 !== 0 && index !== state_table.length)
+                row += '<td><div class="tbody-content">'+tupple.district_name+'<span class="percentage-no light-purple">'+tupple.percentage+'</span></div></td>'
+                else{
+                  if(index < state_table.length){
+                    row += '</tr><tr>'
+                  }else{
+                    row += '</tr>'
+                  }
+                }
+              })
+              $('#state_district_table_class'+classType).html(row)
+          // }
+
         }
       }catch(e){
         console.log(e)
@@ -1680,6 +1707,8 @@ $(document).ready(()=>{
       $('#result-glimpses-tab').show()
     }else if(selected_geography === 'state'){
       $('#achievementstate-tab').show()
+      $('#learningoutcome-tab').show()
+
     }
     else{
       $('#result-glimpses-tab').hide()
@@ -1690,7 +1719,7 @@ $(document).ready(()=>{
   }
 
 
- function createDognutDataAndChart(data,subjects){
+ function createDognutDataAndChart(data,subjects,grade){
   let color_code = {
     mil:'#EB6C69',
     eng:'#C574BF',
@@ -1710,7 +1739,14 @@ $(document).ready(()=>{
 
   Object.keys(data).forEach((key,index) => {
     let series_data = []
-    const where = 'doghnut_'+ key + selected_geography+ '_class'+ classType 
+    let where = ''
+    if(classType === 'all'){
+      where = 'doghnut_'+ key + grade +selected_geography+ '_class'+ classType 
+
+    }else{
+      where = 'doghnut_'+ key + selected_geography+ '_class'+ classType 
+
+    }
     data[key].forEach((tupple,i)=>{
       const series_obj = {
         name: subjects_full_names[subjects[i]],
