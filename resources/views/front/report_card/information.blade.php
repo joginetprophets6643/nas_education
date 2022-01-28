@@ -226,5 +226,251 @@
                                       </div>
                                     </div>
                                   </div>
-                                </div>      
+                                </div>
+
+                                <div class="tab-pane fade" id="informationstate_class3" role="tabpanel" aria-labelledby="state-information-tab">
+                                  <div class="infotab-wrap">
+                                    <div class="row">
+                                      <div class="col-md-5">
+                                          <div class="map-wrap">
+                                            <ul>
+                                              <li>
+                                                <div class="desc">
+                                                  <p class="information_state_name">
+                                                  </p>
+                                                </div>
+                                              </li>
+                                              <li>
+                                                <!-- <div class="desc">
+                                                  <p>
+                                                    District Rank in NAS
+                                                  </p>
+                                                  <h2>
+                                                    671
+                                                  </h2>
+                                                </div> -->
+                                              </li>
+                                            </ul>
+                                            <div class="map-img" id="information_state_map">
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-7">
+                                        <div class="infotab-content-wrap">
+                                          <div class="row">
+                                            <div class="col-md-12">
+                                              <h2>
+                                                Certain Parameters of the Assam State
+                                              </h2>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-blue-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                      <div class="content">
+                                                        <h3 class="title">
+                                                          Area of <span class="information_state_name"></span>
+                                                        </h3>
+                                                        <p class="total-no">
+                                                          <span id="information_state_area_class3"> 0 </span> sq. km.
+                                                        </p>
+                                                      </div>
+                                                      <div class="img">
+                                                        <img src="{{asset('assets/front/images/area-blue.svg')}}" alt="icon" class="img-fluid" />
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-pink-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="content">
+                                                      <h3 class="title">
+                                                        Population
+                                                      </h3>
+                                                      <p class="total-no" id="information_state_population_class3">
+                                                        0
+                                                      </p>
+                                                    </div>
+                                                    <div class="img">
+                                                      <img src="{{asset('assets/front/images/population-pink.svg')}}" alt="icon" class="img-fluid" />
+                                                    </div>
+                                                  </div>
+                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-green-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="content">
+                                                      <h3 class="title">
+                                                        Density of population
+                                                      </h3>
+                                                      <p class="total-no">
+                                                        <span id="information_state_density_class3">0</span> per sq. km.
+                                                      </p>
+                                                    </div>
+                                                    <div class="img">
+                                                      <img src="{{asset('assets/front/images/density-green.svg')}}" alt="icon" class="img-fluid" />
+                                                    </div>
+                                                  </div>
+                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-yellow-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="content">
+                                                      <h3 class="title">
+                                                        Literacy Rate
+                                                      </h3>
+                                                      <p class="total-no">
+                                                        <span id="information_state_literacy_class3"></span>%
+                                                      </p>
+                                                    </div>
+                                                    <div class="img">
+                                                      <img src="{{asset('assets/front/images/litracy-yellow.svg')}}" alt="icon" class="img-fluid" />
+                                                    </div>
+                                                  </div>
+                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-sagegreen-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="content">
+                                                      <h3 class="title">
+                                                        Child sex ration (0-6 age)
+                                                      </h3>
+                                                      <p class="total-no" >
+                                                      <span id="information_state_sex_ratio_class3">0</span> girls per 1000 boys 
+                                                      </p>
+
+                                                    </div>
+                                                    <div class="img">
+                                                      <img src="{{asset('assets/front/images/child-sagegreen.svg')}}" alt="icon" class="img-fluid" />
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> 
+
+
+                                <div class="tab-pane fade" id="informationnational_class3" role="tabpanel" aria-labelledby="national-information-tab">
+                                  <div class="infotab-wrap">
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="map-wrap">
+                                            <div class="map-img" id="information_national_map">
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="infotab-content-wrap">
+                                          <div class="row">
+                                            <div class="col-md-12">
+                                              <h2>
+                                                Certain Parameters of the Nation
+                                              </h2>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-blue-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                      <div class="content">
+                                                        <h3 class="title">
+                                                          Area of Nation
+                                                        </h3>
+                                                        <p class="total-no">
+                                                          <span id="information_national_area_class3"> 0 </span> sq. km.
+                                                        </p>
+                                                      </div>
+                                                      <div class="img">
+                                                        <img src="{{asset('assets/front/images/area-blue.svg')}}" alt="icon" class="img-fluid" />
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-pink-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="content">
+                                                      <h3 class="title">
+                                                        Population
+                                                      </h3>
+                                                      <p class="total-no" id="information_national_population_class3">
+                                                        0
+                                                      </p>
+                                                    </div>
+                                                    <div class="img">
+                                                      <img src="{{asset('assets/front/images/population-pink.svg')}}" alt="icon" class="img-fluid" />
+                                                    </div>
+                                                  </div>
+                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-green-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="content">
+                                                      <h3 class="title">
+                                                        Density of population
+                                                      </h3>
+                                                      <p class="total-no">
+                                                        <span id="information_national_density_class3">0</span> per sq. km.
+                                                      </p>
+                                                    </div>
+                                                    <div class="img">
+                                                      <img src="{{asset('assets/front/images/density-green.svg')}}" alt="icon" class="img-fluid" />
+                                                    </div>
+                                                  </div>
+                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-yellow-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="content">
+                                                      <h3 class="title">
+                                                        Literacy Rate
+                                                      </h3>
+                                                      <p class="total-no">
+                                                        <span id="information_national_literacy_class3"></span>%
+                                                      </p>
+                                                    </div>
+                                                    <div class="img">
+                                                      <img src="{{asset('assets/front/images/litracy-yellow.svg')}}" alt="icon" class="img-fluid" />
+                                                    </div>
+                                                  </div>
+                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="infotab-content light-sagegreen-bg">
+                                                  <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="content">
+                                                      <h3 class="title">
+                                                        Child sex ration (0-6 age)
+                                                      </h3>
+                                                      <p class="total-no" >
+                                                      <span id="information_national_sex_ratio_class3">0</span> girls per 1000 boys 
+                                                      </p>
+
+                                                    </div>
+                                                    <div class="img">
+                                                      <img src="{{asset('assets/front/images/child-sagegreen.svg')}}" alt="icon" class="img-fluid" />
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                     
 @endsection

@@ -8,6 +8,8 @@
 @include('front.report_card.performance')
 @include('front.report_card.participation')
 @include('front.report_card.information')
+@include('front.report_card.resultglimpses')
+@include('front.report_card.achievement')
 <div class="tab-content tablayertwo-content">
                             <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
                               <ul class="nav nav-tabs tablayerthree" role="tablist" >
@@ -20,8 +22,14 @@
                                 <li class="nav-item" role="presentation">
                                   <button class="nav-link" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab" aria-controls="performance" aria-selected="false"onClick="setScreen('performance')">Performance</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                <li class="nav-item" role="presentation" id="learningoutcome-tab">
                                   <button class="nav-link" id="learning-tab" data-bs-toggle="tab" data-bs-target="#learning" type="button" role="tab" aria-controls="learning" aria-selected="false"onClick="setScreen('learning')">Learning Outcomes</button>
+                                </li>
+                                <li class="nav-item" role="presentation" id="result-glimpses-tab">
+                                  <button class="nav-link" id="glimpses-tab" data-bs-toggle="tab" data-bs-target="#glimpses" type="button" role="tab" aria-controls="glimpses" aria-selected="false" onClick="setScreen('glimpses')">Result Glimpsis</button>
+                                </li>
+                                <li class="nav-item" role="presentation" id="achievementstate-tab">
+                                  <button class="nav-link" id="achievement-tab" data-bs-toggle="tab" data-bs-target="#achievement" type="button" role="tab" aria-controls="achievement" aria-selected="false" onClick="setScreen('achievement')">Achievement</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                   <button class="nav-link" id="feedback-tab" data-bs-toggle="tab" data-bs-target="#feedback" type="button" role="tab" aria-controls="feedback" aria-selected="false"onClick="setScreen('feedback')">Feedback</button>
@@ -33,6 +41,8 @@
                                 @yield('performance')
                                 @yield('learning')
                                 @yield('feedback')
+                                @yield('result-glimpses')
+                                @yield('achievement')
                             </div>
                             </div>
                             <!-- <div class="tab-pane fade" id="class5" role="tabpanel" aria-labelledby="class5-tab">...</div>

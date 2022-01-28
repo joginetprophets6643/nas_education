@@ -23,7 +23,19 @@ let subjects_short_codes ={
   english:'eng'
 }
 
+let subjects_full_names ={
+  math: "Mathematics",
+  evs: "EVS",
+  sst: "Social Science",
+  language: "Language",
+  mil: "Mil",
+  sci:"Science",
+  eng:"English"
+}
+
 let screens = ['information','participation','performance','learning','feedback']
+
+let selected_geography = ''
 
 $(document).ready(()=>{
     $.ajax({
@@ -33,46 +45,82 @@ $(document).ready(()=>{
        createSidebarStates(response.data)
        sessionStorage.setItem('states',JSON.stringify(response.data))
     });
-    setScreen(screenType)
     setClass(classType)
-
     already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
     already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
 
   });
 
-  async function createColumnChart(where,data){
-     await Highcharts.chart(where, {
+  async function createDoghnutChart(where,data,title){
+   await Highcharts.chart(where, {
       chart: {
-        backgroundColor: 'transparent',
-        height: 300,
-        type: 'column',
+        type: 'variablepie'
       },
       title: {
-        text: ''
+        text: title,
+        align: 'center',
+        verticalAlign: 'middle',
+        y: 0
+      },
+      exporting: { enabled: false },
+      tooltip: {
+        headerFormat: '',
+        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
+          '{point.y}%'
       },
       
-      xAxis: {
-        categories: [
+      plotOptions: {
+        variablepie: {
+            borderWidth: 0,
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: true,
+                format: '{point.percentage,.0f}',
+                distance: -50,
+                filter: {
+                    property: 'percentage',
+                    operator: '>',
+                    value: 4
+                }
+            },
+            showInLegend: true
+        }
+      },
+      series: [{
+        minPointSize: 10,
+        innerSize: '50%',
+        zMin: 0,
+        name: 'Range',
+        data: data
+      }]
+
+    });
+  }
+
+  async function createColumnChart(where,data,type=''){
+    let config = {}
+    if(type === ''){
+      let categories = []
+      if(selected_geography === 'district'){
+        categories = [
           'District',
           'State',
           'National'
-        ],
+        ]
+      }
+  
+      if(selected_geography === 'state'){
+        categories = [
+          'State',
+          'National'
+        ]
+      }
+      config['xAxis']= {
+        categories: categories,
         crosshair: true
-      },
-      yAxis: {
-        min: 0,
-        title: false
-      },
-      tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-          '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-      },
-      plotOptions: {
+      }
+      config['plotOptions'] = {
         column: {
           pointPadding: 0.1,
           borderWidth: 0
@@ -84,9 +132,54 @@ $(document).ready(()=>{
                 format: '{point.y}'
             }
         }
+      }
+      
+    }else{
+      config['xAxis'] = {
+        type: 'category'
+      }
+      config['legend'] = { enabled:false }
+      config['plotOptions'] = {
+        column: {
+            pointWidth: 25,
+            
+          },
+          series: {
+              borderWidth: 0,
+              dataLabels: {
+                  enabled: true,
+                  format: '{point.y}'
+              }
+          }
+      }
+      
+    }
+
+    config = {... config,
+      chart: {
+        backgroundColor: 'transparent',
+        height: 300,
+        type: 'column',
+      },
+      title: {
+        text: ''
+      },
+      yAxis: {
+        min: 0,
+        title: false
+      },
+      exporting: { enabled: false },
+      tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+          '<td style="padding:0"><b>{point.y}%</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
       },
       series: data
-    });
+    }
+    await Highcharts.chart(where,config);
 
   }
 
@@ -106,6 +199,7 @@ $(document).ready(()=>{
         title: {
           text: ''
         },
+        exporting: { enabled: false },    
         accessibility: {
           announceNewData: {
             enabled: true
@@ -178,6 +272,7 @@ $(document).ready(()=>{
       title: {
         text: ''
       },
+      exporting: { enabled: false },
       tooltip: {
         headerFormat: '',
         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
@@ -190,7 +285,7 @@ $(document).ready(()=>{
             cursor: 'pointer',
             dataLabels: {
               enabled: true,
-                format: '{point.percentage} %',
+                format: '{point.percentage,.1f}',
                 distance: -50,
                 filter: {
                     property: 'percentage',
@@ -259,22 +354,18 @@ $(document).ready(()=>{
     })
     state_list +="</ul>"
     document.getElementById('all-state-list').innerHTML = state_list
-
     if(already_active_district !== null) {
-
       chageDataWithFilter('global_filter','district')
-      setBreadCrumb('district')
       toggleDistrictList(already_active_state.udise_state_code,true)
       toggleActiveDistrict(already_active_district.udise_district_code,true)
     }
     else if(already_active_state !== null) {
 
       chageDataWithFilter('global_filter','state')
-      setBreadCrumb('state')
       toggleDistrictList(already_active_state.udise_state_code,true)
     }
     else{
-      setBreadCrumb('national')
+      chageDataWithFilter('global_filter','national')
     }
   }
 
@@ -292,18 +383,23 @@ $(document).ready(()=>{
     if(value){
       makeStateActive(state_id)
       if(from_where !== ''){
+        toggleActiveDistrict(activeDistrict.udise_district_code,false)
         removeItem('activeDistrict')
         activeDistrict = ''
       }
       if(activeDistrict !== null && typeof activeDistrict !== 'undefined' && activeDistrict !== ''){
-        setBreadCrumb('district')
+        setBreadCrumb('district',false)
         $('#sidebar_active_district').html(activeDistrict.district_name)
         setInformation()
       }else{
         activeDistrict = ''
-        setBreadCrumb('state')
+        if(from_where === ''){
+          setBreadCrumb('state',false)
+          setInformation()
+        }else{
+          setBreadCrumb('state',true)
+        }
         $('#sidebar_active_state').html(activeState.state_name)
-        setInformation()
       }
       $('#state_'+ state_id +'').addClass("active");
       $('.national_state_list').removeClass('active')
@@ -323,31 +419,41 @@ $(document).ready(()=>{
     chageDataWithFilter('sidebar_filter',value)
   }
 
-  function setScreen(screen_type = 'participation'){
-    if(screenType !== screen_type){
-      grades.forEach(grade=>{
-          $('#'+screenType+'_class'+grade+'').removeClass('show active')
+  async function setScreen(screen_type = 'information', load_data = true){
+    const exceptions = ['participation','learning']
+    const current_demography = ( selected_geography === 'district' || exceptions.includes(screen_type) ? '' : selected_geography )
+    const demographics = ['','state','national']
+
+    grades.forEach(grade=>{
+      demographics.forEach(demo=>{
+        $('#'+screenType+ demo + '_class'+grade+'').removeClass('show active')
       })
-      screenType = screen_type
-      getData()
+    })
+    screenType = screen_type
+    if(load_data){
+      await getData()
     }
     grades.forEach(grade=>{
-      if(grade === classType){
-        $('#'+screen_type+'_class'+grade+'').addClass('show active')
-      }else{
-        if(screen_type === 'feedback' || screen_type === 'information'){
-          // setInformation()
-          $('#'+screen_type+'_class3').addClass('show active')
+        if(grade === classType){
+          $('#'+screen_type+ current_demography +'_class'+grade+'').addClass('show active')
         }else{
-          $('#'+screen_type+'_class'+grade+'').removeClass('show active')
+          if(screen_type === 'feedback' || screen_type === 'information' || screen_type === 'glimpses' || screen_type === 'achievement'){
+            // setInformation()
+            $('#'+screen_type+ current_demography +'_class3').addClass('show active')
+          }else{
+            $('#'+screen_type+ current_demography +'_class'+grade+'').removeClass('show active')
+          }
         }
-      }
     })
 
     $('#'+screen_type+'-tab').addClass('active')
-    $('#'+screen_type+'_class'+classType+'').addClass('show active')
+    $('#'+screen_type+ current_demography+ '_class'+classType+'').addClass('show active')
 
     changePageDataViaSideFilter('all')
+    if(screenType === 'learning' || screenType === 'feedback'){
+      $('.side_list_action').prop('disabled',true)
+      $('.side_filter').prop('disabled',true)
+    }
   }
 
   function chageDataWithFilter(filter_type, value){
@@ -360,25 +466,26 @@ $(document).ready(()=>{
     if(filter_type === 'data_filter'){
       classType = value
       setClass()
-      setScreen(screenType)
+      setScreen(screenType,false)
       setInformation()
       changePageDataViaSideFilter('all')
     }
     if(filter_type === 'global_filter'){
+      setBreadCrumb(value)
       if(value === 'state'){
-        activeDistrict = ''
-        if(typeof lastActiveState === 'undefined' || lastActiveState === null ){
-          alert('you do not have any active state')
-          return
-        }
-        else{
+        // activeDistrict = ''
+        // if(typeof lastActiveState === 'undefined' || lastActiveState === null ){
+        //   alert('you do not have any active state')
+        //   return
+        // }
+        // else{
           activeState = lastActiveState
           activeDistrict = ''
           $('#active_state').html(activeState.state_name)
           $('#sidebar_active_state').html(activeState.state_name)
           toggleActiveDistrict(activeDistrict.udise_district_code,false)
           removeItem('activeDistrict')
-        }
+        // }
       }
       if(value === 'national'){
         toggleDistrictList(activeState.udise_state_code,false,'global_filter')
@@ -401,8 +508,7 @@ $(document).ready(()=>{
           toggleActiveDistrict(activeDistrict.udise_district_code,true)
         }
       }
-      setInformation()
-      setBreadCrumb(value)
+      // setInformation()
     }
   }
 
@@ -427,21 +533,23 @@ $(document).ready(()=>{
 
 
   function toggleSection(value){
+    const exceptions = ['participation','learning']
+    const current_demography = ( selected_geography === 'district' || exceptions.includes(screenType) ? '' : selected_geography )
     let section = ''
     let availableSections = ['gender','location','management','social']
     if(value !== 'all'){
-      section += value+ '_section_'+ screenType +'_class' + classType
+      section += value+ current_demography+ '_section_'+ screenType +'_class' + classType
     }else{
       section = ''
     }
     if(section === ''){
       availableSections.forEach(sec=>{
-        $('#'+sec+'_section_'+screenType+'_class'+classType).removeAttr('style')
-        $('#'+sec+'_section_'+screenType+'_class'+classType).removeClass('no-border')
+        $('#'+sec+current_demography+'_section_'+screenType+'_class'+classType).removeAttr('style')
+        $('#'+sec+current_demography+'_section_'+screenType+'_class'+classType).removeClass('no-border')
       })
     }else{
       const filteredSections = availableSections.filter(sec=>{
-        const temp_name = sec + '_section_' + screenType +'_class' + classType
+        const temp_name = sec + current_demography +  '_section_' + screenType +'_class' + classType
         if(section !== temp_name){
           return sec
         }
@@ -451,114 +559,148 @@ $(document).ready(()=>{
       // $('#'+section +'').removeClass('col-md-6')
       $('#'+section +'').addClass('no-border')
       filteredSections.forEach(sec =>{
-        $('#'+sec+'_section_'+screenType+'_class'+classType).attr('style','display:none;')
+        $('#'+sec+current_demography+'_section_'+screenType+'_class'+classType).attr('style','display:none;')
       })
     }
   }
 
-  function setInformation(){
-    let filters = {};
-    let data = []
-    if(activeState !== ''){
-      filters = {...filters , state: activeState.udise_state_code}
-    }
-    if(activeDistrict !== ''){
-      filters = {...filters ,district: activeDistrict.udise_district_code}
-    }
-    if(classType !== ''){
-      if(classType !== 'all'){
-        if(screenType !== 'information' && screenType !== 'feedback'){
-          filters = {... filters,class: classType}
+  async function setInformation(){
+    try{
+      let filters = {};
+      let data = []
+      if(activeState !== ''){
+        filters = {...filters , state: activeState.udise_state_code}
+      }
+      if(activeDistrict !== ''){
+        filters = {...filters ,district: activeDistrict.udise_district_code}
+      }
+      if(classType !== ''){
+        if(classType !== 'all'){
+          if(screenType !== 'information'){
+            filters = {... filters,class: classType}
+          }
+          if(screenType !== 'feedback'){
+            if(selected_geography === 'state'){
+              filters = {...filters , class: classType}
+            }
+          }
         }
       }
+  
+      console.log(filters)
+      if(screenType === 'participation'){
+        data = await JSON.parse(sessionStorage.getItem('participation_data'))
+      }
+      if(screenType === 'performance'){
+        data = await JSON.parse(sessionStorage.getItem('performance_data'))
+      }
+      if(screenType === 'learning'){
+        data = await JSON.parse(sessionStorage.getItem('learning_data'))
+      }
+      if(screenType === 'feedback'){
+        data = await JSON.parse(sessionStorage.getItem('feedback_data'))
+      }
+      if(screenType === 'information'){
+        data = await JSON.parse(sessionStorage.getItem('information_data'))
+      }
+      const filteredData = await data.filter(par =>{
+        let count = 0
+        if (Object.keys(filters).length === 0) {
+          return true
+        }else{
+          for (const [key, val] of Object.entries(filters)) {
+            if(key === 'class'){
+              if(par.grade === val){
+                count +=1
+              }
+            }
+            if(key === 'state'){
+              if(screenType !== 'information'){
+                if(parseInt(par.state_id) === val){
+                  count +=1
+                }
+              }else{
+                if(parseInt(par.udise_state_code) === val){
+                  count +=1
+                }
+              }
+            }
+            if(key === 'district'){
+              if(screenType !== 'information'){
+                if(parseInt(par.district_id) === val){
+                  count +=1
+                }
+              }else{
+                if(parseInt(par.udise_district_code) === val){
+                  count +=1
+                }
+              }
+            }
+          }
+        }
+        if (count === Object.keys(filters).length) {
+          return true
+        }
+      })
+      await updateData(filteredData)
+
+    }catch(exceptions){
+      console.log(exceptions)
+    }finally{
     }
 
-    console.log(filters)
-    if(screenType === 'participation'){
-      data = JSON.parse(sessionStorage.getItem('participation_data'))
-    }
-    if(screenType === 'performance'){
-      data = JSON.parse(sessionStorage.getItem('performance_data'))
-    }
-    if(screenType === 'learning'){
-      data = JSON.parse(sessionStorage.getItem('learning_data'))
-    }
-    if(screenType === 'feedback'){
-      data = JSON.parse(sessionStorage.getItem('feedback_data'))
-    }
-    if(screenType === 'information'){
-      data = JSON.parse(sessionStorage.getItem('information_data'))
-    }
-    const filteredData = data.filter(par =>{
-      let count = 0
-      if (Object.keys(filters).length === 0) {
-        return true
-      }else{
-        for (const [key, val] of Object.entries(filters)) {
-          if(key === 'class'){
-            if(par.grade === val){
-              count +=1
-            }
-          }
-          if(key === 'state'){
-            if(screenType !== 'information'){
-              if(parseInt(par.state_id) === val){
-                count +=1
-              }
-            }else{
-              if(parseInt(par.udise_state_code) === val){
-                count +=1
-              }
-            }
-          }
-          if(key === 'district'){
-            if(screenType !== 'information'){
-              if(parseInt(par.district_id) === val){
-                count +=1
-              }
-            }else{
-              if(parseInt(par.udise_district_code) === val){
-                count +=1
-              }
-            }
-          }
-        }
-      }
-      if (count === Object.keys(filters).length) {
-        return true
-      }
-    })
-    updateData(filteredData)
   }
 
   async function getData(){
-    console.log(screenType)
+    const screen_wise_table = {
+
+      information :{
+        state: 'state_masters',
+        national: 'national_statistic',
+        district: 'district_masters',
+      },
+      performance :{
+        state: 'state_grade_level_performance',
+        national: 'performance_master',
+        district: 'performance_master',
+      },
+      learning :{
+        state: 'district_grade_level_learningoutcome',
+        national: 'district_grade_level_learningoutcome',
+        district: 'district_grade_level_learningoutcome',
+      },
+      feedback :{
+        state: 'pq_state_level_feedback',
+        national: 'pq_district_level_feedback',
+        district: 'pq_district_level_feedback',
+      },
+      participation :{
+        state: 'all_grade_participation_tbl',
+        national: 'all_grade_participation_tbl',
+        district: 'all_grade_participation_tbl',
+      },
+      glimpses :{
+        state: 'all_grade_participation_tbl',
+        national: 'all_grade_participation_tbl',
+        district: 'all_grade_participation_tbl',
+      },
+      achievement :{
+        state: 'all_grade_participation_tbl',
+        national: 'all_grade_participation_tbl',
+        district: 'all_grade_participation_tbl',
+      }
+    }
     let table = ''
-    if(screenType === 'participation' || typeof screenType === 'undefined'){
-      table = 'all_grade_participation_tbl'
-    }
-    if(screenType === 'performance'){
-      table = 'performance_master'
-    }
-    if(screenType === 'learning'){
-      table ='district_grade_level_learningoutcome'
-    }
-    if(screenType === 'feedback'){
-      table ='pq_district_level_feedback'
-    }
-    if(screenType === 'information'){
-      table = 'district_masters'
+    if(typeof screenType === 'undefined'){
+       table = screen_wise_table['information'][selected_geography]
+
+    }else{
+      table = screen_wise_table[screenType][selected_geography]
     }
 
     await $.ajax({
       type: "GET",
       url: api_url + table + '?limit=-1',
-      beforeSend: () =>{
-        $('#loader').show()
-      },
-      complete: ()=>{
-        $('#loader').hide()
-      },
       }).done(res=>{
       if(screenType === 'participation'){
         sessionStorage.setItem('participation_data',JSON.stringify(res.data))
@@ -575,13 +717,13 @@ $(document).ready(()=>{
       if(screenType === 'information'){
         sessionStorage.setItem('information_data',JSON.stringify(res.data))
       }
+      setInformation()
     });
-    setInformation()
   }
 
   function setActiveStateDistrict(state_id,district_id){
 
-    setBreadCrumb('district')
+    setBreadCrumb('district',true)
     makeStateActive(state_id)
     makeDistrictActive(district_id)
 
@@ -589,7 +731,7 @@ $(document).ready(()=>{
     $('#active_district').html(activeDistrict.district_name)
 
     toggleActiveDistrict(activeDistrict.udise_district_code,true)
-    setInformation()
+    // setInformation()
   }
 
   function updateData(data){
@@ -745,21 +887,30 @@ $(document).ready(()=>{
             empty = false
           }
           if(!empty){
+            if(selected_geography  === 'national'){
+              data = [data.pop()]
+            }
             data.forEach(performance=>{
               createPerformanceScreen(performance,empty)
             })
           }else{
-            grades.forEach(grade=>{
-              const sample_data = {grade: grade}
-              if(grade !== 'all'){
-                createPerformanceScreen(sample_data,empty)
-              }
-            })  
+            if(classType === 'all'){
+              grades.forEach(grade=>{
+                const sample_data = {grade: grade}
+                if(grade !== 'all'){
+                  createPerformanceScreen(sample_data,empty)
+                }
+              }) 
+            }else{
+              createPerformanceScreen({grade: classType},empty)
+            }
+ 
           }
         }catch(e){
           console.log(e)
         }finally{
         }
+
  
       }
       if(screenType === 'learning'){
@@ -787,6 +938,21 @@ $(document).ready(()=>{
           eng:0, 
         }
         // console.log(data)
+        $('.state-header').hide()
+        $('.district-header').hide()
+        $('.national-header').hide()
+
+        if(selected_geography === 'national'){
+          $('.national-header').show()
+        }
+        else if(selected_geography === 'state'){
+          $('.national-header').show()
+          $('.state-header').show()
+        }else{
+          $('.state-header').show()
+          $('.district-header').show()
+          $('.national-header').show()
+        }
         data.forEach(lo=>{
           let classStyle = ''
           if(lo.language === 'language'){
@@ -905,25 +1071,51 @@ $(document).ready(()=>{
         })
       }
       if(screenType === 'feedback'){
-        $('#feedback_pq_class3').empty()
-        $('#feedback_tq_class3').empty()
-        $('#feedback_htq_class3').empty()
+        const current_demography = ( selected_geography === 'district'  ? '' : selected_geography )
 
+        $('#feedback'+current_demography+'_pq_class3').empty()
+        $('#feedback'+current_demography+'_tq_class3').empty()
+        $('#feedback'+current_demography+'_htq_class3').empty()
+
+        let countPq2 =1
+        let countPq3 =1
+        let pq2Average = 0
+        let pq3Average = 0
         data.forEach(fb=>{
           const percentage = Math.round(fb.avg) 
           if(fb.level === 'pq'){
             const pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
-            $('#feedback_pq_class3').append(pqChart)
+            $('#feedback'+current_demography+'_pq_class3').append(pqChart)
           }
           if(fb.level === 'tq'){
             const tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-line progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
-            $('#feedback_tq_class3').append(tqChart)
+            $('#feedback'+current_demography+'_tq_class3').append(tqChart)
           }
-          if(fb.level === 'htq'){
+          if(fb.level === 'sq'){
             const htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-circle-lg progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
-            $('#feedback_htq_class3').append(htqChart)
+            $('#feedback'+current_demography+'_htq_class3').append(htqChart)
+          }
+          if(fb.level === 'pq1'){
+            const pq1 = '<div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div>'
+            $('#feedback'+current_demography +'_pq1_class3').html(pq1)
+          }
+          if(fb.level === 'pq2'){
+            const pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
+            $('#feedback'+current_demography +'_pq2_'+countPq2+'_class3').html(pq2)
+            countPq2+=1
+            pq2Average += percentage
+          }
+          if(fb.level === 'pq3'){
+            const pq3 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-green"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
+            $('#feedback'+current_demography +'_pq3_'+countPq3+'_class3').html(pq3)
+            countPq3+=1
+            pq3Average+=percentage
           }
         })
+
+        $('#feedback'+current_demography +'_pq2_average_class3').html(parserInt(pq2Average/4)+ '%')
+        $('#feedback'+current_demography +'_pq3_average_class3').html(parserInt(pq3Average/3)+ '%')
+
       }
     }else{
       console.log('no data ')
@@ -931,7 +1123,8 @@ $(document).ready(()=>{
   }
 
 
-  function setBreadCrumb(active){
+  function setBreadCrumb(active,load = true){
+    selected_geography = active
     let items = ['state','national','district']
     items.map(item=>{
       if(item === active){
@@ -943,6 +1136,20 @@ $(document).ready(()=>{
 
       }
     })
+    if(active === 'state'){
+      $('#district-tab').prop('disabled', true);
+    }
+    if(active === 'national'){
+      $('#state-tab').prop('disabled', true);
+      $('#district-tab').prop('disabled', true);
+    }
+    if(active === 'district'){
+      items.map(item=>{
+        $('#'+item+'-tab').prop('disabled', false);
+      })
+    }
+    showAdditionalTab()
+    setScreen(screenType,load)
   }
   
   function format_string(str){
@@ -963,175 +1170,298 @@ $(document).ready(()=>{
   }
 
   function getOutcomeRow(lo,classStyle){
-    let row = '<tr class="'+classStyle+'"><td>'+lo.subject_code+'</td><td>'+lo.question+'</td><td>'+parserInt(lo.avg)+'</td><td>'+parseInt(lo.state_avg)+'</td><td>'+parseInt(lo.national_avg)+'</td></tr>'
+    let row = ''
+    if(selected_geography === 'district'){
+      row = '<tr class="'+classStyle+'"><td>'+lo.subject_code+'</td><td>'+(lo.question === '0' ? 'N/A' : lo.question)+'</td><td>'+parserInt(lo.avg)+'</td><td>'+parseInt(lo.state_avg)+'</td><td>'+parseInt(lo.national_avg)+'</td></tr>'
+    }
+    else if(selected_geography === 'state'){
+      row = '<tr class="'+classStyle+'"><td>'+lo.subject_code+'</td><td>'+(lo.question === '0' ? 'N/A' : lo.question)+'</td><td>'+parseInt(lo.state_avg)+'</td><td>'+parseInt(lo.national_avg)+'</td></tr>'
+    }else{
+      row = '<tr class="'+classStyle+'"><td>'+lo.subject_code+'</td><td>'+(lo.question === '0' ? 'N/A' : lo.question)+'</td><td>'+parseInt(lo.national_avg)+'</td></tr>'
+    }
     return row
   }
 
   function createPerformanceScreen(data,empty){
-    try {
-      const all_data = data 
-
-      if(!empty){
-        data = JSON.parse(all_data.data)
-      }
-
-      let graphs = []
-
-      const sections = ['Location','Gender','SocialGroup','Management']
-      
-      if(classType === 'all'){
-        graphs = class_subjects['class_'+ all_data.grade]
-      }else{
-        graphs = class_subjects['class_'+classType]
-      }
-
-      const entities = {
-        boys:'Boys',
-        girls:'Girls',
-        govt:'Govt.',
-        govt_aided:'Govt. Aided',
-        private:'Private',
-        central_govt:'Central Govt.',
-        sc:'SC',
-        st:'ST',
-        obc:'OBC',
-        general:'General',
-        urban:'Urban',
-        rural:'Rural'
-
-      }   
-      const scales= {
-        gender: ['boys','girls'],
-        management:['govt','govt_aided','private','central_govt'],
-        socialgroup:['sc','obc','st','general'],
-        location:['rural','urban']
-      }
-      const colorCode = {
-        language: ['#BAD4EC','#9EC2E4','#83B1DD','#6997C3'],
-        evs: ['#E5E2AF','#DAD68F','#CFCB6F','#B6B156'],
-        math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E'],
-        social:['#C7E1C0','#ABD3A1','#8FC481','#68A358'],
-        science:['#B1DEDF','#8ACDCE','#63BDBE','#369B9D'],
-        mil:['#F7C4C3','#F3A6A5','#EF8987','#D4605F'],
-        english:['#E8C7E6','#DCACD9','#D190CD','#B168AD'],
-      }  
-      const demographics = ['national','state','district']
-
-      let cumulative_subject_count = {
-        language:{
-          district:0,
-          state:0,
-          national:0
-        },
-        evs:{
-          district:0,
-          state:0,
-          national:0
-        },
-        math:{
-          district:0,
-          state:0,
-          national:0
-        },
-        mil:{
-          district:0,
-          state:0,
-          national:0
-        },
-        sci:{
-          district:0,
-          state:0,
-          national:0
-        },
-        sst:{
-          district:0,
-          state:0,
-          national:0
-        },
-        eng:{
-          district:0,
-          state:0,
-          national:0
-        },
-      }
-
-      const table_criteria = ['below_basic','basic','proficient','advanced']
-      sections.forEach(section => {
-
-        graphs.forEach(sub=>{
-          let where = ''
-          if(classType !== 'all'){
-            where = section + sub +'BarGraph_class' +classType
-
-          }else{
-            where = section + sub + all_data.grade +'BarGraph_class'+classType
+    const current_demography = ( selected_geography === 'district'  ? '' : selected_geography )
+    // if(selected_geography === ''){
+      try {
+        const all_data = data 
+  
+        // removing district table for state geography
+        let state_table =[]
+        if(!empty){
+          data = JSON.parse(all_data.data)
+          if(current_demography === 'state'){
+            state_table = data.statedistrictlevelperformance
+            delete data.statedistrictlevelperformance
           }
-          const scale = scales[section.toLowerCase()]
-          let chart = []
+        }
+  
+        let graphs = []
+  
+        // sections for performance screen
+        const sections = ['Location','Gender','SocialGroup','Management']
+        
+        // getting subjects for classes
+        if(classType === 'all'){
+          graphs = class_subjects['class_'+ all_data.grade]
+        }else{
+          graphs = class_subjects['class_'+classType]
+        }
+  
+        // legends for column charts
+        const entities = {
+          boys:'Boys',
+          girls:'Girls',
+          govt:'Govt.',
+          govt_aided:'Govt. Aided',
+          private:'Private',
+          central_govt:'Central Govt.',
+          sc:'SC',
+          st:'ST',
+          obc:'OBC',
+          general:'General',
+          urban:'Urban',
+          rural:'Rural',
+          state_average:'State Average',
+          national_average:'National Average',
+        }   
 
-          if(!empty){
-            table_criteria.forEach((criteria)=>{
-              const table_tupple =  parserInt(data[subjects_short_codes[sub.toLowerCase()]]['performance_level']['district'][criteria])
-              const table_where = "peformance_"+ sub +"_"+criteria+"_table_class"+ classType 
-              $('#'+table_where).html(table_tupple)
+        // scales for column charts
+        const scales= {
+          gender: ['boys','girls'],
+          management:['govt','govt_aided','private','central_govt'],
+          socialgroup:['sc','obc','st','general'],
+          location:['rural','urban'],
+        }
+
+        // colorcode for column charts
+        const colorCode = {
+          language: ['#BAD4EC','#9EC2E4','#83B1DD','#6997C3'],
+          evs: ['#E5E2AF','#DAD68F','#CFCB6F','#B6B156'],
+          math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E'],
+          social:['#C7E1C0','#ABD3A1','#8FC481','#68A358'],
+          science:['#B1DEDF','#8ACDCE','#63BDBE','#369B9D'],
+          mil:['#F7C4C3','#F3A6A5','#EF8987','#D4605F'],
+          english:['#E8C7E6','#DCACD9','#D190CD','#B168AD'],
+        }
+        
+        // setting required demography
+        let demographics = []
+        if(current_demography === ''){
+          demographics = ['district','state','national']
+        }
+        if(current_demography === 'state'){
+          demographics = ['state','national']
+        }
+        if(current_demography === 'national'){
+          demographics = ['national']
+        }
+
+        // total for cards all classes
+        let cumulative_subject_count = {
+          language:{
+            district:0,
+            state:0,
+            national:0
+          },
+          evs:{
+            district:0,
+            state:0,
+            national:0
+          },
+          math:{
+            district:0,
+            state:0,
+            national:0
+          },
+          mil:{
+            district:0,
+            state:0,
+            national:0
+          },
+          sci:{
+            district:0,
+            state:0,
+            national:0
+          },
+          sst:{
+            district:0,
+            state:0,
+            national:0
+          },
+          eng:{
+            district:0,
+            state:0,
+            national:0
+          },
+        }
+
+        // table , pie chart criteria
+        const table_criteria = ['below_basic','basic','proficient','advanced']
+
+        let doghnut = {}
+        let encounterd = []
+        let encounterd_subject = []
+
+        // creating column charts ,cards , table
+        sections.forEach(section => {
+  
+          graphs.forEach(sub=>{
+
+            let where = ''
+            const color =  colorCode[sub.toLowerCase()]
+
+            if(classType !== 'all'){
+              where = section + sub +current_demography+'BarGraph_class' +classType  
+            }else{
+              where = section + sub + all_data.grade + current_demography  +'BarGraph_class'+classType
+            }
+            const scale = scales[section.toLowerCase()]
+            let chart = []
+
+            // district table
+            if(!empty){
+              if(current_demography === ''){
+                table_criteria.forEach((criteria)=>{
+                  const table_tupple =  parserInt(data[subjects_short_codes[sub.toLowerCase()]]['performance_level']['district'][criteria])
+                  const table_where = "peformance_"+ sub +"_"+criteria+"_table_class"+ classType 
+                  $('#'+table_where).html(table_tupple)
+                })
+              }
+            }
+            let state_chart_data = []
+
+            //  state average chart and district/national average cards
+            demographics.forEach((demo,index) => {
+              if(current_demography === '' || current_demography === 'national'){
+                if(classType === 'all'){
+                  if(!empty){
+                    cumulative_subject_count[subjects_short_codes[sub.toLowerCase()]][demo] += parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+                  }
+                }else{
+                  const card_where = screenType + current_demography + '_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
+                  let cardData = 0
+                  if(!empty){
+                    cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+                  }
+                  updateCards(card_where,cardData)
+                }
+              }
+              if(current_demography === 'state'){
+                const item = {
+                  color: color[index+2],
+                  y: !empty ? parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo]) : 0,
+                  name: entities[demo + '_average'] 
+                }
+                state_chart_data.push(item)
+              }
+
+            });
+
+            // state doghnuts, table and card charts
+            if(current_demography === 'state'){
+              if(!encounterd_subject.includes(subjects_short_codes[sub.toLowerCase()])){
+                table_criteria.forEach(criteria=>{
+                    if(!encounterd.includes(criteria)){
+                      doghnut[criteria] = (!empty ? [data[subjects_short_codes[sub.toLowerCase()]]['performance_level']['state'][criteria]] : [0])
+                      encounterd.push(criteria)
+                    }
+                    else{
+                      doghnut[criteria].push((!empty ? data[subjects_short_codes[sub.toLowerCase()]]['performance_level']['state'][criteria] : 0))
+                    }
+                  
+                })
+                const card_chart_where = screenType + current_demography + '_' + subjects_short_codes[sub.toLowerCase()] + '_class' + classType
+                const final_state_chart_data = [{
+                  data:state_chart_data
+                }]
+                createColumnChart(card_chart_where,final_state_chart_data,'single')
+                encounterd_subject.push(subjects_short_codes[sub.toLowerCase()])
+              }
+            }
+
+            // creating main column chart for district and state only
+            if(current_demography !== 'national'){
+                scale.forEach((element,index) => {
+                  let chart_data = []
+                  demographics.forEach(demo => {
+                    let dataToShow = 0
+                    if(empty){
+                      dataToShow = 0
+                    }else{
+                      dataToShow = parserInt(data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()][demo][element])
+                    }
+                    chart_data.push(dataToShow)
+                  });
+                  const item = {
+                    color: color[index],
+                    data:chart_data,
+                    name: entities[element] 
+                  }
+                  chart.push(item)
+                });
+                
+                createColumnChart(where,chart)
+              }
+
+  
+          })
+          
+        });
+
+        // updating card value for district and national
+        if(classType === 'all'){
+          if(current_demography === ''){
+            Object.keys(cumulative_subject_count).forEach(key => {
+              let subject  = key
+              demographics.forEach(demo => {
+                const where = screenType + '_' + subject + '_' + demo + '_class' + classType
+                const val =cumulative_subject_count[subject][demo]
+                updateCards(where,val)
+              })
             })
           }
+          if(current_demography === 'national'){
+            Object.keys(cumulative_subject_count).forEach(key => {
+              let subject  = key
+              demographics.forEach(demo => {
+                const where = screenType + current_demography + '_' + subject + '_' + demo + '_class' + classType
+                const val =cumulative_subject_count[subject][demo]
+                updateCards(where,val)
+              })
+            })
+            return
+          }
+        }
 
-          demographics.forEach(demo => {
+        //  creating pie chart and table for state
+        if(current_demography === 'state'){
+          createDognutDataAndChart(doghnut,encounterd_subject,all_data.grade)
+          // if(classType !== 'all'){
+              let row = '<tr>'
+              state_table.forEach((tupple,index)=>{
+                if((index+1) % 3 !== 0 && index !== state_table.length)
+                row += '<td><div class="tbody-content">'+tupple.district_name+'<span class="percentage-no light-purple">'+tupple.percentage+'</span></div></td>'
+                else{
+                  if(index < state_table.length){
+                    row += '</tr><tr>'
+                  }else{
+                    row += '</tr>'
+                  }
+                }
+              })
+              $('#state_district_table_class'+classType).html(row)
+          // }
 
-            if(classType === 'all'){
-              if(!empty){
-                cumulative_subject_count[subjects_short_codes[sub.toLowerCase()]][demo] += parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
-              }
-            }else{
-              const card_where = screenType + '_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
-              let cardData = 0
-              if(!empty){
-                cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
-              }
-              updateCards(card_where,cardData)
-            }
-          });
-
-          scale.forEach((element,index) => {
-            const color =  colorCode[sub.toLowerCase()]
-            let chart_data = []
-            demographics.forEach(demo => {
-              let dataToShow = 0
-              if(empty){
-                dataToShow = 0
-              }else{
-                dataToShow = parserInt(data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()][demo][element])
-              }
-              chart_data.push(dataToShow)
-            });
-            const item = {
-              color: color[index],
-              data:chart_data,
-              name: entities[element] 
-            }
-            chart.push(item)
-          });
-          
-          createColumnChart(where,chart)
-
-        })
-        
-      });
-      if(classType === 'all'){
-        Object.keys(cumulative_subject_count).forEach(key => {
-          let subject  = key
-          demographics.forEach(demo => {
-            const where = screenType + '_' + subject + '_' + demo + '_class' + classType
-            const val =cumulative_subject_count[subject][demo]
-            updateCards(where,val)
-          })
-        })
+        }
+      }catch(e){
+        console.log(e)
+      }finally{
       }
-    }catch(e){
-      console.log(e)
-    }finally{
-    }
+    // }
+
 
   }
 
@@ -1139,58 +1469,97 @@ $(document).ready(()=>{
     $('#'+cardPosition).html(data)
   }
 
-  function createInformationScreen(data){
-    // const dataToShow = data.pop()
-    if(activeState === '' || activeDistrict === ''){
-      alert('please select state and district')
-      // setScreen('participation')
-      return
+  async function createInformationScreen(data){
+    // const dataToShow = data.pop()'
+    let dataToShow = {}
+    if(activeState === '' && activeDistrict === ''){
+      dataToShow = data.pop()
+      // console.log(dataToShow)
+    }else{
+      if(selected_geography === 'district'){
+        dataToShow = activeDistrict
+      }
+      if(selected_geography === 'state'){
+        dataToShow = activeState
+      }
     }
-    const dataToShow = activeDistrict
+
     let state_name = ''
     if(activeState.state_name === 'Delhi'){
       state_name = 'nct of delhi'
     }else{
-      state_name = activeState.state_name
+      state_name = dataToShow.state_name
     }
 
-    const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
-    const prefix = 'information_district_'
+    let prefix = ''
+    if(selected_geography === 'state'){
+      prefix = 'information_state_'
+    }
+    if(selected_geography === 'district'){
+      prefix = 'information_district_'
+    }
+    if(selected_geography === 'national'){
+      prefix = 'information_national_'
+    }
     const where = prefix + 'map'
+    
+    if(selected_geography === 'district' || selected_geography === 'state'){
+      const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
+      createChart(where,selectedMapData,dataToShow.district_id)
+    }else{
+      let states = JSON.parse(sessionStorage.getItem('states'))
+      const state_data = states.map((state,index) =>{
+        if(state.state_name === 'Delhi'){
+         return ['nct of delhi',state.state_id]
+        }else{
+          return [ state.state_name.toLowerCase(),state.state_id]
+        }
+      })
+      generateNationalMap(where,state_data)
+    }
 
-    $('.information_state_name').html(format_string(activeState.state_name))
-    $('.'+prefix+'name').html(format_string(activeDistrict.district_name))
-    $('#'+prefix +'area_class'+classType).html(parserInt(dataToShow.total_district_area))
-    $('#'+prefix +'description_class'+classType).html(dataToShow.description)
-    $('#'+prefix +'population_class'+classType ).html(parserInt(dataToShow.total_population))
-    $('#'+prefix+'rural_class'+classType ).html(parserInt(dataToShow.rural_population))
-    $('#'+prefix+'urban_class'+classType ).html(parserInt(dataToShow.urban_population))
-    $('#'+prefix + 'density_class'+classType ).html(parserInt(dataToShow.density_of_population))
-    $('#'+prefix +'literacy_class'+classType ).html(parserInt(dataToShow.literacy_rate))
-    $('#'+prefix +'sex_ratio_class'+classType ).html(parserInt(dataToShow.child_sex_ratio))
-    $('#'+prefix +'total_school_class'+classType ).html(parserInt(dataToShow.no_of_schools))
-    $('#'+prefix + 'state_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
-    $('#'+prefix +'govt_aided_school_class'+classType ).html(parserInt(dataToShow.govt_aided_schools))
-    $('#'+prefix + 'govt_school_class'+classType ).html(parserInt(dataToShow.state_govt_schools))
-    $('#'+prefix+'private_school_class'+classType ).html(parserInt(dataToShow.private_unaided_reco_schools))
-    $('#'+prefix +'state_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
-    $('#'+prefix + 'govt_teacher_class'+classType ).html(parserInt(dataToShow.teacher_state_govt_schools))
-    $('#'+prefix + 'govt_aided_teacher_class'+classType ).html(parserInt(dataToShow.teacher_govt_aided_schools))
-    $('#'+prefix + 'private_teacher_class'+classType ).html(parserInt(dataToShow.teacher_private_unaided_reco_schools))
+    if(selected_geography !== 'national'){
+      $('.information_state_name').html(format_string(state_name))
+    }
+    $('#'+prefix +'area_class3').html(parserInt(dataToShow.total_district_area))
+    $('#'+prefix +'population_class3').html(parserInt(dataToShow.total_population))
+    $('#'+prefix + 'density_class3').html(parserInt(dataToShow.density_of_population))
+    $('#'+prefix +'sex_ratio_class3').html(parserInt(dataToShow.child_sex_ratio))
+    $('#'+prefix +'literacy_class3').html(parserInt(dataToShow.literacy_rate))
 
-    createChart(where,selectedMapData)
+    if(selected_geography === 'district'){
+      $('.'+prefix+'name').html(format_string(dataToShow.district_name))
+      $('#'+prefix+'rural_class3').html(parserInt(dataToShow.rural_population))
+      $('#'+prefix+'urban_class3').html(parserInt(dataToShow.urban_population))
+      $('#'+prefix +'total_school_class3').html(parserInt(dataToShow.no_of_schools))
+      $('#'+prefix + 'state_school_class3').html(parserInt(dataToShow.state_govt_schools))
+      $('#'+prefix +'govt_aided_school_class3').html(parserInt(dataToShow.govt_aided_schools))
+      $('#'+prefix + 'govt_school_class3').html(parserInt(dataToShow.state_govt_schools))
+      $('#'+prefix+'private_school_class3').html(parserInt(dataToShow.private_unaided_reco_schools))
+      $('#'+prefix +'state_teacher_class3').html(parserInt(dataToShow.teacher_state_govt_schools))
+      $('#'+prefix + 'govt_teacher_class3').html(parserInt(dataToShow.teacher_state_govt_schools))
+      $('#'+prefix + 'govt_aided_teacher_class3').html(parserInt(dataToShow.teacher_govt_aided_schools))
+      $('#'+prefix + 'private_teacher_class3').html(parserInt(dataToShow.teacher_private_unaided_reco_schools))
+      $('#'+prefix +'description_class3').html(dataToShow.description)
+    }
+
+
 
   }
 
-  function createChart(where,data){
+  async function createChart(where,data,district_id){
     data.data[0].data.forEach((item)=>{
-      // if(item.id=='1007'){
+      if(item.id==district_id){
+        item.color="#f7941c";
+        item.borderColor="#6e6f70";
+        item.states.hover.color="#f7941c";
+      }else{
         item.color="#9ec2e4";
         item.borderColor="#6e6f70";
         item.states.hover.color="#f7941c";
-      // }
+      }
     })
-    Highcharts.mapChart(where,{
+  await Highcharts.mapChart(where,{
       chart:{
         backgroundColor: 'transparent',
       },
@@ -1278,3 +1647,122 @@ $(document).ready(()=>{
   function removeItem(item){
     sessionStorage.removeItem(item)
   }
+
+
+  async function generateNationalMap(where,data){
+    await Highcharts.mapChart(where, {
+        chart: {
+            map: 'countries/in/custom/in-all-disputed'
+        },
+
+        title: {
+            text: ''
+        },
+
+        subtitle: {
+            text: ''
+        },
+        legend: {
+          enabled: false
+        },
+      tooltip: { enabled: false },
+        navigation: {
+            buttonOptions: {
+                enabled: false
+            }
+        },
+        credits: {
+          enabled: false
+        },
+      
+        series: [{
+            data: data,
+            name: 'Random data',
+            allowPointSelect: true,
+            cursor: 'pointer',
+            color: "#9ec2e4",
+            borderColor: "#6e6f70",
+            states: {
+                hover: {
+                    color:'#f7941c'
+                },
+                select: {
+                  color: '#9ec2e4'
+                }
+            },
+            dataLabels: {
+                enabled: false,
+                format: '{point.name}'
+            }
+        }]
+    });
+  }
+
+  function showAdditionalTab(){
+    $('#result-glimpses-tab').hide()
+    $('#achievementstate-tab').hide()
+    $('#learningoutcome-tab').hide()
+
+    if(selected_geography === 'national'){
+      $('#result-glimpses-tab').show()
+    }else if(selected_geography === 'state'){
+      $('#achievementstate-tab').show()
+      $('#learningoutcome-tab').show()
+
+    }
+    else{
+      $('#result-glimpses-tab').hide()
+      $('#achievementstate-tab').hide()
+      $('#learningoutcome-tab').show()
+
+    }
+  }
+
+
+ function createDognutDataAndChart(data,subjects,grade){
+  let color_code = {
+    mil:'#EB6C69',
+    eng:'#C574BF',
+    math:'#E9769F',
+    sci:'#3CACAE',
+    sst:'#72B562',
+    language:'#75a9d9',
+    evs:'#cac55f'
+  }
+
+  const titles = {
+    below_basic: 'Below 30%',
+    basic: '30% - 50%',
+    proficient: '51% - 75%',
+    advanced:'Above 75%'
+  }
+
+  Object.keys(data).forEach((key,index) => {
+    let series_data = []
+    let where = ''
+    if(classType === 'all'){
+      where = 'doghnut_'+ key + grade +selected_geography+ '_class'+ classType 
+
+    }else{
+      where = 'doghnut_'+ key + selected_geography+ '_class'+ classType 
+
+    }
+    data[key].forEach((tupple,i)=>{
+      const series_obj = {
+        name: subjects_full_names[subjects[i]],
+        y: parserInt(tupple),
+        z: 100,
+        color: color_code[subjects[i]]
+      }
+      series_data.push(series_obj)
+    })
+    const final_doghnut = [{
+      minPointSize: 10,
+      innerSize: '50%',
+      zMin: 0,
+      name: 'Range',
+      data:series_data
+    }]
+    createDoghnutChart(where,series_data,titles[key])
+  });
+ }

@@ -602,8 +602,9 @@
   let fetchedStateData;
   let state_all_info;
 
-  $(document).ready(function() {
-    $.ajax({
+  $(document).ready( async function() {
+    
+    await $.ajax({
       type: "GET",
       url: api_url + 'state_masters?limit=-1',
     }).done(response=>{
@@ -751,7 +752,17 @@
           buttonOptions: {
               enabled: false
           }
-      }
+      },
+      plotOptions: {
+        series:{
+          events:{
+            click: (e)=>{
+              setActiveDistrict(e.point.id)
+              e.point.color = '#f7941c'
+            }
+          }
+        }  
+      },
 
     })
     document.getElementById("district-map-container").style.display = "";
@@ -769,7 +780,12 @@
           return states_demographic
         }
       })
-    }else{
+
+    }
+    else if(type === 'district'){
+      demographic_info = [JSON.parse(sessionStorage.getItem('activeDistrict'))]
+    }
+    else{
      removePreviousData()
      const national_demographic_info = sessionStorage.getItem("national_demographic_data");
      demographic_info= JSON.parse(national_demographic_info)
@@ -789,12 +805,12 @@
     // populating demographics
 
     $('.type_of_chart').html(display_name)
-    $('#literacy_rate').html(info.literacy_rate)
-    $('#total_area').html(info.total_district_area)
-    $('#total_population').html(info.total_population)
-    $('#population_density').html(info.density_of_population)
+    $('#literacy_rate').html(info.literacy_rate ? info.literacy_rate : 0 )
+    $('#total_area').html(info.total_district_area ? info.total_district_area : 0)
+    $('#total_population').html(info.total_population ? info.total_population : 0)
+    $('#population_density').html(info.density_of_population ? info.density_of_population : 0)
     $('#total_teachers').html(total_teachers)
-    $('#sex_ratio').html(info.child_sex_ratio)
+    $('#sex_ratio').html(info.child_sex_ratio ? info.child_sex_ratio : 0)
 
   }
 
@@ -872,6 +888,16 @@
   function removePreviousData(){
     sessionStorage.removeItem('activeState')
     sessionStorage.removeItem('activeDistrict')
+  }
+
+  async function setActiveDistrict(district_id){
+    await $.ajax({
+      type: "GET",
+      url: api_url + 'district_masters?limit=-1&filter={"district_id":{"_eq":'+district_id+'}}',
+    }).done(response=>{
+      sessionStorage.setItem('activeDistrict',JSON.stringify(response.data.pop()))
+    });
+    populateDemographicInfo('','district')
   }
     
 </script>
