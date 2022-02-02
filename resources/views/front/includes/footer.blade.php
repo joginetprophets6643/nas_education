@@ -243,6 +243,7 @@
     
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="{{asset('assets/front/js/custom-glimpses.js')}}"></script>
     <script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('assets/front/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AOS JS -->
