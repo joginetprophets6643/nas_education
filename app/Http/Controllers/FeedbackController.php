@@ -53,8 +53,8 @@ class FeedbackController extends Controller
                             'pq_bar'     =>  $pq->pq_bar,
                             'state_id'     =>  $pq['NasExamDetails']->state_cd,
                             'district_id'   =>  $pq['NasExamDetails']->district_cd,
-                            'grade'     =>  0,
-                            // 'grade'     =>  $pq->pq_grade,
+                            // 'grade'     =>  0,
+                            'grade'     =>  $pq->pq_grade,
                             'question_code'=>$key,
                             'correct_ans'=>($value==1)?$value:0,
                             'average_performance_in_percentage'=>($value*100)/1,
@@ -150,20 +150,23 @@ class FeedbackController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $FeedbackDataNational = DB::table('feedback_data')->select('feedback_data.grade','feedback_data.question_code','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
+        $FeedbackDataNational = DB::table('feedback_data')->select('feedback_data.grade','feedback_data.question_code','pq_question_master.level','pq_question_master.question_desc  as question',DB::raw("count(feedback_data.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data.id)) as avg"))
         ->leftJoin('pq_question_master','pq_question_master.question_id','=','feedback_data.question_code')
         ->groupBy('feedback_data.grade')
         ->groupBy('feedback_data.question_code')
         ->groupBy('pq_question_master.question_desc')
+        ->groupBy('pq_question_master.level')
+        ->where('pq_question_master.level','!=','pq1')
         ->get();
         $newFeedbackDataNational = array();
         if(count($FeedbackDataNational)>0)
         {
-            DB::table('pq_national_level_feedback')->where('level','pq')->delete();
+            
+            DB::table('pq_national_level_feedback')->whereIn('level',['pq','pq2','pq3'])->delete();
             foreach($FeedbackDataNational as $newLODataNational)
             {
                 $newFeedbackDataNational['grade'] = (int)$newLODataNational->grade;
-                $newFeedbackDataNational['level']     =  'pq';
+                $newFeedbackDataNational['level']     =   isset($newLODataNational->level)?$newLODataNational->level:'-';
                 $newFeedbackDataNational['question_code'] = isset($newLODataNational->question_code)?$newLODataNational->question_code:0;
                 $newFeedbackDataNational['question_desc'] = isset($newLODataNational->question)?$newLODataNational->question:0;
                 $newFeedbackDataNational['total_parent'] = isset($newLODataNational->total_parent)?$newLODataNational->total_parent:0;
@@ -525,8 +528,8 @@ class FeedbackController extends Controller
                             'tq_bar'     =>  $tq->tq_bar,
                             'state_id'     =>  $tq['NasExamDetails']->state_cd,
                             'district_id'   =>  $tq['NasExamDetails']->district_cd,
-                            // 'grade'     =>  $tq->tq_grade,
-                            'grade'     =>  0,
+                            'grade'     =>  $tq->tq_grade,
+                            // 'grade'     =>  0,
                             'question_code'=>$key,
                             'correct_ans'=>($value==1)?$value:0,
                             'average_performance_in_percentage'=>($value*100)/1,
@@ -859,12 +862,14 @@ class FeedbackController extends Controller
 
     public function get_feedback_sq()
     {
+
         ini_set('max_execution_time', '1500');
         DB::table('feedback_data_sq')->truncate();
         $sqData =  SQs::with(['NasExamDetails'=>function($q){
-            $q->select('state_cd','district_cd','udise_sch_code');
+            $q->select('state_cd','district_cd','udise_sch_code','c3_nas_flag','c5_nas_flag','c8_nas_flag','c10_nas_flag');
         }])->get();
-
+        $getGrade3 =$getGrade5 = $getGrade8 = $getGrade10=0;
+        $collectArray = array();
         $allGradeCalculateData = array();
         if(count($sqData)>0)
         {
@@ -874,22 +879,52 @@ class FeedbackController extends Controller
                 $questionPassArray = array($sq->sq_q01,$sq->sq_q02,$sq->sq_q03,$sq->sq_q04,$sq->sq_q05,$sq->sq_q06,$sq->sq_q07,$sq->sq_q08,$sq->sq_q09,$sq->sq_q10,$sq->sq_q11,$sq->sq_q12,$sq->sq_q13,$sq->sq_q14,$sq->sq_q15,$sq->sq_q16,$sq->sq_q17,$sq->sq_q18,$sq->sq_q19,$sq->sq_q20,$sq->sq_q21,$sq->sq_q22,$sq->sq_q23,$sq->sq_q24,$sq->sq_q25,$sq->sq_q26,$sq->sq_q27,$sq->sq_q28,$sq->sq_q29,$sq->sq_q30,$sq->sq_q31,$sq->sq_q32,$sq->sq_q33,$sq->sq_q34,$sq->sq_q35,$sq->sq_q36,$sq->sq_q37,$sq->sq_q38,$sq->sq_q39,$sq->sq_q40,$sq->sq_q41,$sq->sq_q42,$sq->sq_q43,$sq->sq_q44,$sq->sq_q45,$sq->sq_q46,$sq->sq_q47,$sq->sq_q48,$sq->sq_q49,$sq->sq_q50,$sq->sq_q51,$sq->sq_q52,$sq->sq_q53,$sq->sq_q54,$sq->sq_q55,$sq->sq_q56,$sq->sq_q57,$sq->sq_q58,$sq->sq_q59,$sq->sq_q60,$sq->sq_q61,$sq->sq_q62,$sq->sq_q63,$sq->sq_q64,$sq->sq_q65,$sq->sq_q66,$sq->sq_q67,$sq->sq_q68,$sq->sq_q69a,$sq->sq_q69b,$sq->sq_q69c,$sq->sq_q69d,$sq->sq_q69e,$sq->sq_q69f,$sq->sq_q69g,$sq->sq_q69h,$sq->sq_q70,$sq->sq_q71,$sq->sq_q72,$sq->sq_q73);
 
                 $checkLaguage  =  $this->checkAnswerfunctionsq($questionPassArray);
+                if($sq['NasExamDetails']->c3_nas_flag==1)
+                {
+
+                    $getGrade3 = 3;
+                    array_push($collectArray,$getGrade3);
+
+                }
+                if($sq['NasExamDetails']->c5_nas_flag==1)
+                {
+                    $getGrade5 = 5;
+                    array_push($collectArray,$getGrade5);
+
+                }
+                if($sq['NasExamDetails']->c8_nas_flag==1)
+                {
+                    $getGrade8 = 8;
+                    array_push($collectArray,$getGrade8);
+
+                }
+                if($sq['NasExamDetails']->c10_nas_flag==1)
+                {
+                    $getGrade10 = 10;
+                    array_push($collectArray,$getGrade10);
+
+                    
+                }       
                 $items=array();
                 if(count($checkLaguage[1])>0)
                 {
                     foreach($checkLaguage[1] as $key=>$value)
                     {
-                        $items[] = [
+                       foreach ($collectArray as $key1 => $gradeValue) {
+                           
+                           $items[] = [
                             'sq_bar'     =>  $sq->sq_bar,
                             'state_id'     =>  $sq['NasExamDetails']->state_cd,
                             'district_id'   =>  $sq['NasExamDetails']->district_cd,
-                            'grade'     =>  0,
+                            'grade'     =>  $gradeValue,
                             'question_code'=>$key,
                             'correct_ans'=>($value==1)?$value:0,
                             'average_performance_in_percentage'=>($value*100)/1,
                             'created_at' => now(),
                             'updated_at' => now()
                         ];
+                       }
+                       
                         
                     }
                 }
