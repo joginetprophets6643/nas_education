@@ -1808,7 +1808,7 @@ $(document).ready(()=>{
     }
 
     const section_legends = {
-      cards:["Substantially above national average", "Not substantially different from the national average" , "Substantially below natioanl average"],
+      cards:["Substantially above national average", "Not substantially different from the national average" , "Substantially below national average"],
       gender:["No significant difference between Boys and Girls","Boys peform significantly better than Girls","Girls peform significantly better than Boys"],
       location:["No significant difference between Rural and Urban","Rural peform significantly better than Urban","Urban peform significantly better than Rural"],
       management:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
