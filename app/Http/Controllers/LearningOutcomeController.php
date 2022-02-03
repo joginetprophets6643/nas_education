@@ -19,9 +19,9 @@ class LearningOutcomeController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $learningOutComeData = DB::table('learning_outcome_data')->select('learning_outcome_data.state_id','learning_outcome_data.district_id','learning_outcome_data.grade','learning_outcome_data.subject_code','learning_outcome_data.language','los_masters.lo_desc as question',DB::raw("count(learning_outcome_data.id)  AS total_student"),"total_no_question as total_no_question",DB::raw("SUM(correct_ans::int) as right_answer_sum"), DB::raw("(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as avg"), DB::raw("(select (SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as state_avg
+        $learningOutComeData = DB::table('learning_outcome_data')->select('learning_outcome_data.state_id','learning_outcome_data.district_id','learning_outcome_data.grade','learning_outcome_data.subject_code','learning_outcome_data.language','los_masters.lo_desc as question',DB::raw("count(learning_outcome_data.id)  AS total_student"),"total_no_question as total_no_question",DB::raw("SUM(correct_ans::int) as right_answer_sum"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as avg"), DB::raw("(select round(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as state_avg
         from learning_outcome_data as l_state
-        where l_state.subject_code= learning_outcome_data.subject_code and l_state.state_id= learning_outcome_data.state_id)"), DB::raw("(select (SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as national_avg
+        where l_state.subject_code= learning_outcome_data.subject_code and l_state.state_id= learning_outcome_data.state_id)"), DB::raw("(select round(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as national_avg
         from learning_outcome_data as l_national
         where l_national.subject_code= learning_outcome_data.subject_code)"))
         ->leftJoin('los_masters','los_masters.lo_id','=','learning_outcome_data.subject_code')
@@ -64,7 +64,7 @@ class LearningOutcomeController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $learningOutComeDataForState = DB::table('learning_outcome_data')->select('learning_outcome_data.state_id','learning_outcome_data.grade','learning_outcome_data.subject_code','learning_outcome_data.language','los_masters.lo_desc as question',DB::raw("count(learning_outcome_data.id)  AS total_student"),"total_no_question as total_no_question",DB::raw("SUM(correct_ans::int) as right_answer_sum"), DB::raw("(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as avg"))
+        $learningOutComeDataForState = DB::table('learning_outcome_data')->select('learning_outcome_data.state_id','learning_outcome_data.grade','learning_outcome_data.subject_code','learning_outcome_data.language','los_masters.lo_desc as question',DB::raw("count(learning_outcome_data.id)  AS total_student"),"total_no_question as total_no_question",DB::raw("round(SUM(correct_ans::int)) as right_answer_sum"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as state_avg"),DB::raw("(select round(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as national_avg from learning_outcome_data as l_national where l_national.subject_code= learning_outcome_data.subject_code)"))
         ->leftJoin('los_masters','los_masters.lo_id','=','learning_outcome_data.subject_code')
         ->groupBy('learning_outcome_data.state_id')
         ->groupBy('learning_outcome_data.grade')
@@ -85,7 +85,8 @@ class LearningOutcomeController extends Controller
                 $newlearningOutComeDataS['language'] = isset($newLODataState->language)?$newLODataState->language:0;
                 $newlearningOutComeDataS['question'] = isset($newLODataState->question)?$newLODataState->question:0;
                 $newlearningOutComeDataS['total_student'] = isset($newLODataState->total_student)?$newLODataState->total_student:0;
-                $newlearningOutComeDataS['avg'] = isset($newLODataState->avg)?$newLODataState->avg:0;
+                $newlearningOutComeDataS['state_avg'] = isset($newLODataState->state_avg)?$newLODataState->state_avg:0;
+                $newlearningOutComeDataS['national_avg'] = isset($newLODataState->national_avg)?$newLODataState->national_avg:0;
                 $newlearningOutComeDataS['created_at'] = now();
                 $newlearningOutComeDataS['updated_at'] = now();
 
@@ -101,7 +102,7 @@ class LearningOutcomeController extends Controller
          * Date: 29/12/2021
          * Start Here
          *************************************************************/
-        $learningOutComeDataNational = DB::table('learning_outcome_data')->select('learning_outcome_data.grade','learning_outcome_data.subject_code','learning_outcome_data.language','los_masters.lo_desc as question',DB::raw("count(learning_outcome_data.id)  AS total_student"),"total_no_question as total_no_question",DB::raw("SUM(correct_ans::int) as right_answer_sum"), DB::raw("(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as avg"))
+        $learningOutComeDataNational = DB::table('learning_outcome_data')->select('learning_outcome_data.grade','learning_outcome_data.subject_code','learning_outcome_data.language','los_masters.lo_desc as question',DB::raw("count(learning_outcome_data.id)  AS total_student"),"total_no_question as total_no_question",DB::raw("SUM(correct_ans::int) as right_answer_sum"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(total_no_question::int)) as avg"))
         ->leftJoin('los_masters','los_masters.lo_id','=','learning_outcome_data.subject_code')
         ->groupBy('learning_outcome_data.grade')
         ->groupBy('learning_outcome_data.subject_code')

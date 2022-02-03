@@ -9,14 +9,14 @@ use App\Models\Banner;
 class BannerController extends Controller
 {
     public function index(){
-        $banners=Banner::all();
+        $banners=Banner::latest()->get();
         return view('admin.banner.index',compact('banners'));
     }
 
     public function store(Request $request){
         $validatedData=$request->validate([
             'description'=>'required',
-            'image'=>'required|mimes:jpeg,jpg,png,svg',
+            'image'=>'required|mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
 
         $banner=new Banner;
@@ -45,7 +45,7 @@ class BannerController extends Controller
     {
         $id=decode5t($id);
         $request->validate([
-            'image'=>'mimes:jpeg,jpg,png',
+            'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'description'=>'required',
         ]);
 

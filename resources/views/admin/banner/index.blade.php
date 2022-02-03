@@ -17,7 +17,7 @@
 
 
           <div class="card-header">All Banner
-          <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+          <a class="btn btn-primary float-right btn-sm Banner_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -25,7 +25,7 @@
               <th scope="col" >SL no.</th>
               <th scope="col">Banner Description</th>
               <th scope="col">Banner Image</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Banner_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -35,10 +35,10 @@
               <th scope="row">{{$i++}}</th>
               <td style="max-width:500px; overflow:hidden;">{{$banner->description}}</td>
               <td><img src="{{asset('assets/uploads/banner/'.$banner->image)}}" alt=""></td>
-              <td>
+              <td class="action Banner_action">
                 <?php $id=encode5t($banner->id)?>
-                <a href="{{url('edit/banner/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/banner/'.$banner->image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>
+                <a href="{{url('secure-admin/edit/banner/'.$id)}}" class="btn btn-primary btn-sm Banner_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Banner_delete" data-delete-link="{{url('secure-admin/delete/banner/'.$banner->image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletebanner">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -68,7 +68,7 @@
               @csrf
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Banner Description</label>
-              <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('description') }}">
               @error('description')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -82,7 +82,7 @@
             @enderror
             </div>
             
-            <button type="submit" class="btn btn-primary btn-sm">Add</button>
+            <button type="submit" class="btn btn-primary btn-sm Banner_add">Add</button>
           </form>
           </div>
         </div>
@@ -116,8 +116,8 @@
           <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Banner_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Banner_delete">Delete</button>
           </form>
           </div>
           </div>

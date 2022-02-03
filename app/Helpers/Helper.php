@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\BlogWithTags;
+use App\Models\Permission;
 
 use Illuminate\Support\Facades\DB;
 
@@ -128,5 +129,16 @@ function Image($image_id)
 
     return $images;
 
+}
+
+if (! function_exists('permissions')) {
+function permissions($id){
+  $user=Permission::where('user_id',$id)->first();
+  // $user->view=json_decode($user->view);
+  // $user->add=json_decode($user->add);
+  // $user->edit=json_decode($user->edit);
+  // $user->delete=json_decode($user->delete);
+   return $user; 
+}
 }
 

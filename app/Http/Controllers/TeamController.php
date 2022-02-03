@@ -10,7 +10,7 @@ class TeamController extends Controller
     
     public function index()
     {
-        $members=Team::all();
+        $members=Team::latest()->get();
         return view('admin.team.index',compact('members'));
     }
 
@@ -25,8 +25,9 @@ class TeamController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'image'=>'mimes:jpeg,jpg,png,PNG,JPEG,JPG',
+            'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
+            'mobile'=>'numeric|nullable'
         ]);
         $name='';
         if($request->image)
@@ -62,7 +63,7 @@ class TeamController extends Controller
         $id=decode5t($id);
         $request->validate([
             'name'=>'required',
-            'image'=>'mimes:jpeg,jpg,png,PNG,JPEG,JPG',
+            'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
         ]);
 
@@ -72,8 +73,11 @@ class TeamController extends Controller
         {
         $image=$request->file('image');
         $member=Team::where('id',$id)->first();
+        if($member->image){
         unlink(public_path("assets/uploads/team/".$member->image));
+        }
         $name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('assets/uploads/team'),$name);
         }
 
         Team::where('id',$id)->update([

@@ -16,7 +16,7 @@
                     @endif
                     <div class="card-header">
                         <span>All Videos</span>
-                        <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+                        <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
 
 
 
@@ -35,19 +35,27 @@
                                     <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="card-body">
-                                    <form action="{{url('/add/vedio')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('/secure-admin/add/video')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                         <label for="images" class="form-label">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title">
+                                        <input type="text" name="title" class="form-control" id="title" value="{{ old('title') }}">
                                         @error('title')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                         </div>
 
                                         <div class="form-group">
+                                        <label for="images" class="form-label">URL</label>
+                                        <input type="text" name="url" class="form-control" id="url" value="{{ old('url') }}">
+                                        @error('url')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group">
                                         <!-- <label for="images" class="form-label">Event Images</label> -->
-                                        <input type="file" name="vedio" class="form-control" id="vedio">
+                                        <input type="file" name="vedio" class="form-control" id="video">
                                         @error('vedio')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -59,7 +67,7 @@
                                         <label class="form-label">Status</label>
                                         </div>
                                         
-                                        <button type="submit" class="btn btn-primary btn-sm">Upload</button>
+                                        <button type="submit" class="btn btn-primary btn-sm Media_add">Upload</button>
                                     </form>
                                     </div>
                                     </div>
@@ -77,27 +85,39 @@
 
                     </div>
                     <div class="card-body">
-
-                        @if($vedios)
-                        <ul class="imageslist">
-                        @foreach($vedios as $vedio)
-                        <li>
-                        <video width="300" height="240" controls>
-                            <source src="{{URL::asset('/assets/upload/vedios/'.$vedio->vedio)}}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <?php $id=encode5t($vedio->id)?>
-                        <button class="btn btn-danger btn-sm delete-vedio-btn" data-delete-link="{{url('delete/vedio/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteVedio">Delete</button>
-                        </li>
+                        @if($videos)
+                        <div class="row">                       
+                        @foreach($videos as $video)
+                        @if($video->url)
+                        <div class="col-md-4">
+                            <div class="video-wrap">
+                            <iframe width="300" height="240" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <?php $id=encode5t($video->id)?>
+                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" style="margin-bottom:20px;" data-delete-link="{{url('secure-admin/delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
+                            </div>
+                        </div>
+                        @endif
+                        @if($video->vedio)
+                        <div class="col-md-4">
+                            <div class="video-wrap">
+                            <video width="300" height="240" controls>
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <?php $id=encode5t($video->id)?>
+                            <button class="btn btn-danger btn-sm delete-video-btn Media_delete" style="margin-bottom:20px;" data-delete-link="{{url('secure-admin/delete/video/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletevideo">Delete</button>
+                            </div>
+                        </div>
+                        @endif
                         @endforeach
-                        </ul>
+                        </div>
                         @else
                         <p class="text-center">No Video Uploaded Yet!<p>
                         @endif
-                        
+                        </div>
 
 
-                        <div class="modal fade" id="DeleteVedio" >
+                        <div class="modal fade" id="Deletevideo" >
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 
@@ -112,8 +132,8 @@
                                     <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
                                         @csrf
                                         <p>Are you sure you want to delete this video?</p> 
-                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        <button type="button" class="btn btn-secondary btn-sm Media_delete" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger btn-sm Media_delete">Delete</button>
                                     </form>
                                     </div>
                                     </div>
@@ -131,7 +151,7 @@
         </div>
     </div>
 </div>
-</div>
+
 @include('admin.includes.footer')
 @if(count($errors)>0)
 <script>
@@ -140,7 +160,7 @@
 @endif
 
 <script>
-    $('.delete-vedio-btn').on('click',function(){
+    $('.delete-video-btn').on('click',function(){
         $('#delete-court-form').attr('action',$(this).data('delete-link'))
     })
 </script>

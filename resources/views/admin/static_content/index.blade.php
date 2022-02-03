@@ -17,7 +17,7 @@
 
 
           <div class="card-header">All Contents
-          <a href="{{route('add-content')}}" class="btn btn-primary float-right btn-sm">Add</a>
+          <a href="{{route('add-content')}}" class="btn btn-primary float-right btn-sm Content_add">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -25,8 +25,8 @@
               <th scope="col" width="70px">SL no.</th>
               <th scope="col">Language</th>
               <th scope="col">Page Title</th>
-              <th scope="col">Home Page Content</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col">Page Content</th>
+              <th scope="col" width="200px" class="action Content_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -39,12 +39,12 @@
               @else
               <td>English</td>
               @endif
-              <td >{{$content->page_meta_title}}</td>
-              <td style="max-width:290px; overflow:hidden;" id="content">{!!$content->home_page_content!!}</td>
-              <td>
+              <td >{{$content->page_title}}</td>
+              <td style="max-width:290px; overflow:hidden;" id="content">{!!$content->inner_page_content!!}</td>
+              <td class="action Content_action">
                 <?php $id=encode5t($content->id)?>
-                <a href="{{url('edit/content/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/content/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
+                <a href="{{url('secure-admin/edit/content/'.$id)}}" class="btn btn-primary btn-sm Content_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Content_delete" data-delete-link="{{url('secure-admin/delete/content/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -72,8 +72,8 @@
           <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Content_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Content_delete">Delete</button>
           </form>
           </div>
           </div>

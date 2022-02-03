@@ -16,8 +16,8 @@
                     </div>
                     @endif
                     <div class="card-header">
-                        <span>All Images</span>
-                        <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+                        <span>All Images ({{$name->name}})</span>
+                        <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
 
 
 
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="card-body">
                                         <?php $id=encode5t($id)?>
-                                    <form action="{{url('add/images/'.$id)}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('secure-admin/add/images/'.$id)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             @if($errors->any())
@@ -52,7 +52,7 @@
                                         <input type="file" name="images[]" class="form-control" id="images" multiple="">
                                         </div>
                                     
-                                        <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                                        <button type="submit" class="btn btn-primary btn-sm Media_add">Add</button>
                                     </form>
                                     </div>
                                     </div>
@@ -72,9 +72,9 @@
                         @foreach($images as $image)
                         <li>
                             <img src="{{asset('assets/uploads/'.$image)}}" class="w-100" alt="">
-                            <?php $id=encode5t($id);
+                            <?php
                             $image=encode5t($image)?>
-                            <button class="btn btn-danger btn-sm delete-img-btn" data-delete-link="{{url('delete/image/'.$image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-img-btn Media_delete" style="margin-top:5px;margin-bottom:10px" data-delete-link="{{url('secure-admin/delete/image/'.$image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
                         </li>
                         @endforeach
                         </ul>
@@ -98,8 +98,8 @@
                                     <form action="" id="delete-court-form" method="GET" enctype="multipart/form-data">
                                         @csrf
                                         <p>Are you sure you want to delete this image?</p> 
-                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        <button type="button" class="btn btn-secondary btn-sm Media_delete" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger btn-sm Media_delete">Delete</button>
                                     </form>
                                     </div>
                                     </div>
@@ -110,22 +110,20 @@
                             </div>
                             </div>
 </div>
-
-
-                    
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 @include('admin.includes.footer')
 @if(count($errors)>0)
 <script>
   $('#staticBackdrop').modal('show');
 </script>
 @endif
-</div>
+<!-- </div> -->
 
 <script>
     $('.delete-img-btn').on('click',function(){

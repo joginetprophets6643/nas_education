@@ -8,7 +8,7 @@ use App\Models\Program;
 class StaticProgramController extends Controller
 {
     public function index(){
-        $programs=Program::all();
+        $programs=Program::latest()->get();
         return view('admin.program.index',compact('programs'));
     }
 
@@ -23,7 +23,7 @@ class StaticProgramController extends Controller
             'language'=>'required|not_in:0',
             'title'=>'required',
             'content'=>'required',
-            'image'=>'required|mimes:jpeg,jpg,png,PNG,JPEG,JPG',
+            'image'=>'required|mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
 
         $image=$request->file('image');
@@ -55,7 +55,7 @@ class StaticProgramController extends Controller
             'language'=>'required|not_in:0',
             'title'=>'required',
             'content'=>'required',
-            'image'=>'mimes:jpeg,jpg,png,PNG,JPEG,JPG',
+            'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
         
         if($request->image)

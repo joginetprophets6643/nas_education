@@ -2,14 +2,14 @@
     
 <div class="top-content">
             <h2 class="heading-black">
-                Report card
+            <!-- {{ __('lang.Report Card') }} -->
             </h2>
             <div class="breadcrum-wrap breadcrum-grey">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                      <li class="breadcrumb-item"><a href="{{url('/report-card')}}">Report card</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Nas 2021</li>
+                      <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
+                      <li class="breadcrumb-item"><a href="{{url('/report-card')}}">{{ __('lang.Report Card') }}</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">{{ __('lang.NAS 2021') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -31,10 +31,10 @@
                     <ul id="state_geography" style="display:none;">
                       <li><a href="javascript:void(0);" id="sidebar_active_state"> State</a> </li>
                     </ul>
-                    <div class="counter">
+                    <!-- <div class="counter">
                         <span>22</span>
                         <p class="text-grey">District Ranking in NAS</p>
-                    </div>
+                    </div> -->
                 </div> 
                 <div  class="sidebar-accordion">
                     <div class="accordion">

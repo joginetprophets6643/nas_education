@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Vedios;
+use App\Models\Video_Events;
 use App\Models\Event_Images;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -11,11 +12,7 @@ use DB;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Events
     public function index()
     {
         $events=Event::latest()->get();
@@ -28,10 +25,6 @@ class EventController extends Controller
         $validatedData=$request->validate([
             'name'=>'required|unique:events',
         ]);
-        // Event::insert([
-        //     'name'=>$request->name,
-        //     'created_at'=>Carbon::now()
-        // ]);
 
         $event= new Event;
         $event->name=$request->name;
@@ -59,26 +52,69 @@ class EventController extends Controller
     {
         //
     }
+    //end Events
 
+    //Video Events
+    public function video_event_index()
+    {
+        $events=Video_Events::latest()->get();
+        return view('admin.events.videos.index',compact('events'));
+    }
+
+    
+    public function video_event_store(Request $request)
+    {
+        $validatedData=$request->validate([
+            'name'=>'required|unique:video_events',
+        ]);
+
+        $event= new Video_Events;
+        $event->name=$request->name;
+        $event->save();
+        return Redirect()->back()->with('success','Event Added Successfully');
+    }
+
+    public function video_event_edit($id)
+    {
+        $id=decode5t($id);
+        $event=DB::table('video_events')->where('id',$id)->first();
+        return view('admin.events.videos.edit',compact('event'));
+    }
+
+    public function video_event_update(Request $request,$id)
+    {
+        $id=decode5t($id);
+        $event=Video_Events::find($id)->update([
+            'name'=>$request->name,
+        ]);
+        return Redirect()->route('video-events')->with('success','Event Updated Successfully');
+    }
+
+    public function video_event_destroy()
+    {
+        //
+    }
+
+    //end Video Events
+    
+    //images
     public function getImages($id){
         $id=decode5t($id);
+        $name=DB::table('events')->where('id',$id)->first();
         $data=DB::table('event_images')->where('event_id',$id)->first();
         if($data){
         $images=json_decode($data->images);
-        return view('admin.events.images.index',compact('images','id'));
+        return view('admin.events.images.index',compact('images','id','name'));
         }
         $images=0;
         return view('admin.events.images.index',compact('images','id'));
     }
 
-    // public function chooseImages($id){
-    //     return view('admin.events.images.add',compact('id'));
-    // }
-
     public function addImages(Request $request,$id){
         $id=decode5t($id);
         $request->validate([
             'images'=>'required',
+            'images.*'=>'mimes:jpeg,jpg,png,JPEG,JPG,PNG',
         ]);
         $images=$request->file('images');
         $img= [];
@@ -116,7 +152,7 @@ class EventController extends Controller
             ]);
         }
 
-        
+        $id=encode5t($id);
         if($n_img){
             $strimg='';
             foreach($n_img as $img){
@@ -136,13 +172,14 @@ class EventController extends Controller
         $image=decode5t($image);
         $data=DB::table('event_images')->where('event_id',$id)->first();
         $images=json_decode($data->images);
-        // dd($images);
-        $key=array_search($image,$images);
         
+        $key=array_search($image,$images);
         unset($images[$key]);
+
         if(!$images){
             DB::table('event_images')->where('event_id',$id)->delete();
             unlink(public_path("assets/uploads/".$image));
+            $id=encode5t($id);
             return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
         }
         // dd(array_values($images));
@@ -151,52 +188,84 @@ class EventController extends Controller
                 'images'=>$images
         ]);
         unlink("assets/uploads/".$image);
+        $id=encode5t($id);
         return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
 
     }
+    //end images
 
-    public function vedios(){
-        $vedios=DB::table('vedios')->get();
-        if($vedios->isEmpty()){
-            $vedios=0;
-        }
+    //videos
+    public function getVideos($id){
+        $id=decode5t($id);
+        $name=DB::table('video_events')->where('id',$id)->first();
+        $videos=DB::table('vedios')->where('event_id',$id)->get();
         
-        return view('admin.events.vedios.index',compact('vedios'));
+        return view('admin.events.videos.view',compact('videos','id','name'));
     }
 
+    public function addVideos(Request $request,$id){
 
-    public function addVedio(Request $request){
+        $id=decode5t($id);
         $request->validate([
-            'vedio'=>'required',
+            'vedio'=>'required_without_all:url|mimes:mp4,wep',
             'title'=>'required',
+            'url'=>'required_without_all:vedio',
         ]);
         $vedio=$request->file('vedio');
-        
         if($request->status){
             $request->status=1;
         }
         else{
             $request->status=0;
         }
-        
-
+        $name=NULL;
+        if($request->vedio){
             $name=hexdec(uniqid()).'.'.$vedio->getClientOriginalExtension();
             $vedio->move(public_path('assets/uploads/vedios'),$name);
+        }
+
+            
             $res=new Vedios;
+            $res->event_id=$id;
             $res->title=$request->title;
+            $res->url=$request->url ? $request->url: NULL;
             $res->vedio=$name;
             $res->status=$request->status;
             $res->save();
-        return Redirect()->route('vedios')->with('success','Vedio Uploaded Successfully');
+
+        $id=encode5t($id);
+        
+        return Redirect()->route('getVideos',$id)->with('success','Video Uploaded Successfully');
     }
 
-
-    public function deleteVedio($id){
+    public function deleteVideos(Request $request,$id){
         $id=decode5t($id);      
-        $vedio=Vedios::find($id)->first();
-        Vedios::find($id)->delete();
-        unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
-        return Redirect()->route('vedios')->with('success','Vedio Deleted Successfully');
+        $vedio=Vedios::where('id',$id)->first(); 
+        //dd($request);
+        if($vedio->vedio && $vedio->url){
+            if($request->type=="video"){   
+                if($vedio->vedio){
+                    unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+                    }
+                Vedios::where('id',$id)->update(['vedio'=>NULL]);
+            }
+
+            if($request->type=="url"){   
+                Vedios::where('id',$id)->update(['url'=>NULL]);
+            }
+        }
+
+        else{
+            Vedios::find($id)->delete();
+            if($vedio->vedio){
+                unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+                }
+        }
+        
+        $id=encode5t($vedio->event_id);
+        return Redirect()->route('getVideos',$id)->with('success','Video Deleted Successfully');
+
     }
+    //end videos
 
 }

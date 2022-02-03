@@ -17,14 +17,14 @@
 
 
           <div class="card-header">All Event
-          <a class="btn btn-primary float-right btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
+          <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
         <table class="table">
           <thead>
             <tr>
               <th scope="col" width="70px">SL no.</th>
               <th scope="col">Event Name</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Media_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -33,10 +33,10 @@
             <tr>
               <th scope="row">{{$i++}}</th>
               <td>{{$event->name}}</td>
-              <td>
+              <td class="action Media_action">
                 <?php $id=encode5t($event->id)?>
-                <a href="{{url('event/images/'.$id)}}" class="btn btn-primary btn-sm">Add Images</a>
-                <a href="{{url('edit/event/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{{url('/secure-admin/event/images/'.$id)}}" class="btn btn-primary btn-sm Media_add">Add Images</a>
+                <a href="{{url('secure-admin/edit/event/'.$id)}}" class="btn btn-primary btn-sm Media_edit">Edit</a>
               </td>
             </tr>
             @endforeach
@@ -71,7 +71,7 @@
             @error('name')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit" class="btn btn-primary btn-sm">Add</button>
+            <button type="submit" class="btn btn-primary btn-sm Media_add">Add</button>
           </form>
           </div>
         </div>

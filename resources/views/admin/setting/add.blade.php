@@ -12,42 +12,80 @@
 
         <div class="row">
         <div class="col-6">
-            <label class="form-label">Website Title</label>
-            <input type="text" name="website_title" class="form-control" placeholder="Website Title">
+            <label class="form-label">Website Title(English)</label>
+            <input type="text" name="website_title" class="form-control" placeholder="Website Title" >
             @error('website_title')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
 
         <div class="col-6">
-            <label class="form-label">Meta Title</label>
+            <label class="form-label">Website Title(Hindi)</label>
+            <input type="text" name="website_title_hindi" class="form-control" placeholder="Website Title">
+            @error('website_title_hindi')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+        </div>
+        <br>
+
+        <div class="row">
+        <div class="col-6">
+            <label class="form-label">Meta Title(English)</label>
             <input type="text" name="meta_title" class="form-control" placeholder="Meta Title">
             @error('meta_title')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
+
+        <div class="col-6">
+            <label class="form-label">Meta Title(Hindi)</label>
+            <input type="text" name="meta_title_hindi" class="form-control" placeholder="Meta Title">
+            @error('meta_title_hindi')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
         </div>
         <br>
         
-
-        <div class="mb-12" >
-            <label class="form-label">Contact Us</label>
+        <div class="row">
+        <div class="col-6" >
+            <label class="form-label">Contact Us(English)</label>
             <textarea class="form-control textarea-ckeditor" name="contact_us" cols="30" rows="10"></textarea>
             @error('contact_us')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
+
+        <div class="col-6" >
+            <label class="form-label">Contact Us(Hindi)</label>
+            <textarea class="form-control textarea-ckeditor" name="contact_us_hindi" cols="30" rows="10"></textarea>
+            @error('contact_us_hindi')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+        </div>
         <br>
         
-
-        <div class="mb-12" >
-            <label class="form-label">Meta Description</label>
-            <textarea class="form-control textarea-ckeditor" name="meta_description" cols="30" rows="10"></textarea>
+        <div class="row">
+        <div class="col-6" >
+            <label class="form-label">Meta Description(English)</label>
+            <textarea class="form-control textarea-ckeditor" name="meta_description" cols="30" rows="10" ></textarea>
             @error('meta_description')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
+
+        <div class="col-6" >
+            <label class="form-label">Meta Description(Hindi)</label>
+            <textarea class="form-control textarea-ckeditor" name="meta_description_hindi" cols="30" rows="10" ></textarea>
+            @error('meta_description_hindi')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+        </div>
         <br>
+
         <div class="row">
         <div class="col-6">
             <label class="form-label">Logo 1</label>
@@ -106,7 +144,7 @@
         </div>
         <br>
 
-        <button type="submit" class="btn btn-primary btn-sm float-right">Add</button>
+        <button type="submit" class="btn btn-primary btn-sm float-right Setting_add">Add</button>
         </form>
         </div>
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Setting;
+use App\Models\RTI;
 
 class SettingController extends Controller
 {
@@ -48,6 +49,10 @@ class SettingController extends Controller
         $content->contact_us=$request->contact_us;
         $content->meta_title=$request->meta_title;
         $content->meta_description=$request->meta_description;
+        $content->website_title_hindi=$request->website_title_hindi;
+        $content->contact_us_hindi=$request->contact_us_hindi;
+        $content->meta_title_hindi=$request->meta_title_hindi;
+        $content->meta_description_hindi=$request->meta_description_hindi;
         $content->logo_1=$name1;
         $content->logo_2=$name2;
         $content->fb=$request->fb;
@@ -82,6 +87,10 @@ class SettingController extends Controller
         'contact_us'=>$request->contact_us,
         'meta_title'=>$request->meta_title,
         'meta_description'=>$request->meta_description,
+        'website_title_hindi'=>$request->website_title_hindi,
+        'contact_us_hindi'=>$request->contact_us_hindi,
+        'meta_title_hindi'=>$request->meta_title_hindi,
+        'meta_description_hindi'=>$request->meta_description_hindi,
         'fb'=>$request->fb,
         'twitter'=>$request->twitter,
         'insta'=>$request->insta,
@@ -126,4 +135,105 @@ class SettingController extends Controller
     //     Setting::where('id',$id)->delete();
     //     return Redirect()->route('setting')->with('success','Setting Deleted Successfully');
     // }
+
+    public function rti(){
+        $files=RTI::latest()->get();
+        return view('admin.rti.index',compact('files'));
+    }
+
+    public function storeRTI(Request $request){
+        $request->validate([
+            'title'=>'required',
+            'files'=>'required',
+            'files.*'=>'mimes:pdf'
+        ]);
+        $files=$request->file('files');
+        $file= [];
+        
+        foreach($files as $multi){
+            $filename = $multi->getClientOriginalName();
+            $extension=$multi->getClientOriginalExtension();
+            $name=hexdec(uniqid()).'.'.$extension;
+            
+            $multi->move(public_path('assets/uploads/rti'),$name);
+            $file[]=$name;
+        }
+        $files = json_encode($file);
+        $rti=new RTI;
+        $rti->title=$request->title;        
+        $rti->file=$files;        
+        $rti->save();
+        return Redirect()->route('manage-rti')->with('success','RTI Added Successfully');
+    }
+
+    public function editRTI($id){
+        $id=decode5t($id);
+        $file=RTI::where('id',$id)->first();
+        return view('admin.rti.edit',compact('file'));
+    }
+
+    public function updateRTI($id,Request $request){
+        $request->validate([
+            'title'=>'required',
+            'files.*'=>'mimes:pdf'
+        ]);
+
+        $id=decode5t($id);
+
+        $rti=RTI::where('id',$id)->first();
+        $file=json_decode($rti->file);
+        if($request->file('files'))
+        {
+            $files=$request->file('files');            
+            foreach($files as $multi){
+                $filename = $multi->getClientOriginalName();
+                $extension=$multi->getClientOriginalExtension();
+                $name=hexdec(uniqid()).'.'.$extension;
+                
+                $multi->move(public_path('assets/uploads/rti'),$name);
+                $file[]=$name;
+            }
+            $files=json_encode($file);
+            RTI::where('id',$id)->update([
+                'title'=>$request->title,
+                'file'=>$files,        
+            ]);
+        }
+        else{
+            RTI::where('id',$id)->update([
+                'title'=>$request->title,
+            ]);
+        }
+        return Redirect()->route('manage-rti')->with('success','RTI Added Successfully');
+    }
+
+    public function deleteFile($id,$file){
+        $id=decode5t($id);
+        $file=decode5t($file);
+
+        $rti=RTI::where('id',$id)->first();
+        $files=json_decode($rti->file);
+
+        $files=array_diff($files,[$file]);
+        unlink(public_path("assets/uploads/rti/".$file));
+        RTI::where('id',$id)->update([
+            'file'=>$files
+        ]);
+
+        $id=encode5t($id);
+        return Redirect()->route('edit-rti',$id)->with('success','File Deleted Successfully');
+    }
+    
+    public function destroy($id){
+        $id=decode5t($id);
+
+        $rti=RTI::where('id',$id)->first();
+        $files=json_decode($rti->file);
+        foreach($files as $file){
+            unlink(public_path("assets/uploads/rti/".$file));
+        }
+        RTI::where('id',$id)->delete();
+        return Redirect()->route('manage-rti')->with('success','RTI Deleted Successfully');
+    }
+
 }

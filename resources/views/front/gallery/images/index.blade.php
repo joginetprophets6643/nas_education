@@ -12,7 +12,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
-                            <li class="breadcrumb-item"><a href="{{url('/image-gallery')}}">{{ __('lang.Gallery') }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/gallery')}}">{{ __('lang.Gallery') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Photo Gallery') }}</li>
                         </ol>
                         </nav>
@@ -32,11 +32,6 @@
                     <div class="gallery-card">
                         <div class="gallery-img-wrap">
                             <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" style="width:100%;height:200px">
-                            <a class="gallery-zoom-icon" >
-                                <span class="material-icons-round">
-                                zoom_in
-                                </span>
-                            </a>
 
                         </div>
                         <div class="gallery-content">
@@ -45,7 +40,7 @@
                                     <img src="{{asset('assets/front/images/gallery.svg')}}" alt="img" class="img-fluid" />  {{$count[$event->id]}}
                                 </span>
                                 <?php $id=encode5t($event->event_id)?>
-                                <a href="{{url('image-gallery/'.$id)}}" class="org-link">View All</a>
+                                <a href="{{url('gallery/image-gallery/'.$id)}}" class="org-link">View All</a>
                             </div>
                             
                             <p class="gallery-title">

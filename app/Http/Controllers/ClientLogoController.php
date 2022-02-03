@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ClientLogoController extends Controller
 {
     public function index(){
-        $client_logo = ClientLogo::all();
+        $client_logo = ClientLogo::latest()->get();
         return view('admin.client_logo.index',compact('client_logo'));
     }
 
@@ -16,7 +16,7 @@ class ClientLogoController extends Controller
         $validatedData=$request->validate([
             'title'=>'required',
             'url'=>'required',
-            'logo'=>'required|mimes:jpeg,jpg,png,svg',
+            'logo'=>'required|mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
 
         $client_logo = new ClientLogo;
@@ -48,7 +48,7 @@ class ClientLogoController extends Controller
         $request->validate([
             'title'=>'required',
             'url'=>'required',
-            'logo'=>'mimes:jpeg,jpg,png',
+            'logo'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
 
         $client_logo = ClientLogo::where('id',$id)->first();

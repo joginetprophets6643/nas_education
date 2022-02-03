@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Static_Content;
 use App\Models\State_Master;
 use App\Models\Event;
+use App\Models\RTI;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Vedios;
+use App\Models\Video_Events;
 use App\Models\Team;
 use App\Models\Program;
 use App\Models\ClientLogo;
@@ -30,6 +32,9 @@ class FrontController extends Controller
             }
         }
         $content=Static_Content::where('language',$lang,)->where('page_title','About NAS')->first();
+        $report=Static_Content::where('language',$lang,)->where('page_title','Report Card')->first();
+        $data=Static_Content::where('language',$lang,)->where('page_title','Data Share')->first();
+        $visual=Static_Content::where('language',$lang,)->where('page_title','Visualization')->first();
         $client_logo = ClientLogo::all();
         $banners=Banner::all();
 
@@ -42,11 +47,11 @@ class FrontController extends Controller
             $image[$event->id]=json_decode($event->images)[0];
         }
         
-        $vedios=Vedios::where('status','1')->get();
-        $states=State_Master::all();
+        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->get();
+        $states=State_Master::orderBy('state_name')->get();
 
         
-        return view('front.index',compact('content','events','image','vedios','states','client_logo','banners'));
+        return view('front.index',compact('content','events','image','videos','states','client_logo','banners','report','data','visual'));
     }
 
     public function team(){
@@ -56,7 +61,21 @@ class FrontController extends Controller
     }
 
     public function data(){
-        return view('front.data-share.index');
+        $lang="2";
+        if (Session::has('locale')) {
+            $lang = Session::get('locale');
+            if($lang=="hi")
+            {
+                $lang='1';
+            }
+            else{
+                $lang='2';
+            }
+        }
+
+        $content=Static_Content::where('language',$lang)->where('page_title','Data Share')->first();
+        
+        return view('front.data-share.index',compact('content'));
     }
 
     public function program(){
@@ -86,7 +105,14 @@ class FrontController extends Controller
             $count[$event->id]=count(json_decode($event->images));
             $image[$event->id]=json_decode($event->images)[0];
         }
-        $vedios=Vedios::where('status','1')->take(4)->get();
-        return view('front.gallery.index',compact('vedios','events','image'));
+        
+        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->distinct('video_events.id')->take(4)->get();
+        
+        return view('front.gallery.index',compact('videos','events','image'));
+    }
+
+    public function rti(){
+        $links=RTI::all();
+        return view('front.content.rti',compact('links'));
     }
 }

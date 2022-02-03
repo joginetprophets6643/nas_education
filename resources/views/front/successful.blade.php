@@ -34,7 +34,7 @@
                     <div>
                         <p>Regitration Successfully Done</p>
                         <div class="register-link">
-                        <a href="{{url('login')}}" class="link-blue">Back to Login</a>
+                        <a href="{{url('data-share/login')}}" class="link-blue">Back to Login</a>
                         </div>
                     </div>
                     </div>

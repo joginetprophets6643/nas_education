@@ -30,18 +30,27 @@
                     <h2 class="heading-blue mb-4">
                         {{ __('lang.Photo Gallery') }}
                     </h2>
-                    <div class="row">
+                    <div class="row photos">
                         @foreach($events as $event)
-                        <div class="col-md-3">
+                        <div class="col-md-3 item">
+                            <div class="gallery-card">
                             <div class="gallery-img-wrap">
-                              <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid" >
+                            <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
+                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid">                        
+                            <button class="gallery-zoom-icon">
+                        <span class="material-icons-round">
+                        zoom_in
+                        </span>
+                        </button>
+                        </a>
+                        </div>
                             </div>
                         </div>
                         @endforeach
                         
                         <div class="col-md-12">
-                            <a href="{{url('/image-gallery')}}" class="org-link">
-                                VIEW ALL 
+                            <a href="{{url('/gallery/image-gallery')}}" class="org-link">
+                                {{ __('lang.VIEW ALL') }}  
                                 <span class="material-icons-round">
                                     east
                                 </span>
@@ -53,23 +62,42 @@
                     <h2 class="heading-blue mb-4">
                         {{__('lang.Video Gallery')}}
                     </h2>
-                    <div class="row">
-                        @foreach($vedios as $vedio)
-                      <div class="col-md-3">
-                            <div class="gallery-img-wrap">
-                            <img src="{{asset('assets/front/images/video1.png')}}" alt="img" class="img-fluid" />
-                          </div>
-                      </div>
-                      @endforeach
+                    @if(!$videos->isEmpty())
+                        <div class="row">                       
+                        @foreach($videos as $video)
+                        @if($video->vedio)
+                        <div class="col-md-3">
+                            <div class="video-wrap">
+                            <video width="246" height="136" style="border-radius:6px;" controls>
+                                <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            </div>
+                        </div>
+                        @else
+                        <div class="col-md-3">
+                            <div class="video-wrap">
+                            <iframe width="246" height="136" style="border-radius:6px;" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        @endif
                         
+                        @endforeach
                         <div class="col-md-12">
-                            <a href="{{url('/vedio-gallery')}}" class="org-link">
-                                VIEW ALL 
+                            <a href="{{url('/gallery/video-gallery')}}" class="org-link">
+                                {{ __('lang.VIEW ALL') }} 
                                 <span class="material-icons-round">
                                     east
                                 </span>
                             </a>
                         </div>
+                        </div>
+                        @else
+                        <p class="text-center">No Video Uploaded Yet!<p>
+                        @endif
+                        
+                        
+                        
                     </div>
                     </div>
                 </div>

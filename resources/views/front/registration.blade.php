@@ -6,14 +6,14 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="heading-yellow">
-                Data Share
+                {{__('lang.Data Share')}}
                 </h2>
                 <div class="breadcrum-wrap">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{url('/data-share')}}">Data Share</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Registration</li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/data-share')}}">{{__('lang.Data Share')}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{__('lang.Registration')}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -175,10 +175,10 @@
                                     <input type="hidden" name="email_otp" id="email_otp">
                                     <div class="otp-wrap">
                                         <div class="otp-input-wrap">
-                                            <input class="otp-input" maxlength="1" name="email_otp1"type="text">
-                                            <input class="otp-input" maxlength="1" name="email_otp2" type="text">
-                                            <input class="otp-input" maxlength="1" name="email_otp3" type="text">
-                                            <input class="otp-input" maxlength="1" name="email_otp4" type="text">
+                                            <input class="otp-input" maxlength="1" name="email_otp1"type="text" required>
+                                            <input class="otp-input" maxlength="1" name="email_otp2" type="text" required>
+                                            <input class="otp-input" maxlength="1" name="email_otp3" type="text" required>
+                                            <input class="otp-input" maxlength="1" name="email_otp4" type="text" required>
                                         </div>
                                         <div class="otp-btn">
                                             <a class="btn grey-btn" onclick="emailValidation()" id="email-btn">SEND OTP</a>
@@ -222,7 +222,7 @@
                                 <div class="form-group col-md-12 mb-0">
                                     <button type="submit" class="btn org-btn">REGISTER</button>
                                     <div class="register-link">
-                                        <a href="{{url('login')}}" class="link-blue">Already Register? Login Here</a>
+                                        <a href="{{url('data-share/login')}}" class="link-blue">Already Register? Login Here</a>
                                     </div>
                                 </div>
                             </div>
@@ -353,6 +353,7 @@
         let dis = districts.filter(function(districts){
             return districts.state_id==id;
         })
+        dis=dis.sort((a, b) => a.district_name.localeCompare(b.district_name))
         dis.forEach((item)=>{
              $('#ajax_districts').append(`<option value="${item.district_id}">
                 ${item.district_name}

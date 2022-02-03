@@ -30,15 +30,22 @@
                 @error('url')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
-                <div class="mb-3">
-                    <label for="logo" class="form-label">Logo</label>
+                <div class="row">
+                <div class="col-8">
+                    <label for="logo" class="form-label">New Logo</label>
                     <input type="file" name="logo" class="form-control">
                 </div>
                 @error('logo')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
-                
-                <button type="submit" class="btn btn-primary btn-sm">Update</button>
+
+                <div class="col-4">
+                    <!-- <label for="logo" class="form-label">Logo</label> -->
+                    <img src="{{asset('assets/uploads/client_logo/'.$client_logo->logo)}}" alt="" width="100px" height="50px" style="margin-top:20px">
+                </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-sm Client-Logo_edit">Update</button>
                 </form>
                 </div>
             </div>

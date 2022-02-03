@@ -17,7 +17,7 @@
 
 
           <div class="card-header">All Contents
-          <a href="{{route('add-setting')}}" class="btn btn-primary float-right btn-sm">Add</a>
+          <a href="{{route('add-setting')}}" class="btn btn-primary float-right btn-sm Setting_add">Add</a>
           </div>
         <table class="table">
           <thead>
@@ -25,7 +25,7 @@
               <th scope="col" width="70px">SL no.</th>
               <th scope="col">Website Title</th>
               <th scope="col">Contact Us</th>
-              <th scope="col" width="200px">Actions</th>
+              <th scope="col" width="200px" class="action Setting_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -35,9 +35,9 @@
               <th scope="row">{{$i++}}</th>
               <td >{{$content->website_title}}</td>
               <td >{!!$content->contact_us!!}</td>
-              <td>
-                <a href="{{url('edit/setting/'.$content->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-mem-btn" data-delete-link="{{url('delete/setting/'.$content->id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
+              <td class="action Setting_action">
+                <a href="{{url('secure-admin/edit/setting/'.$content->id)}}" class="btn btn-primary btn-sm Setting_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-mem-btn Setting_delete" data-delete-link="{{url('secure-admin/delete/setting/'.$content->id)}}" data-bs-toggle="modal" data-bs-target="#Deletecontent">Delete</button>
               </td>
             </tr>
             @endforeach

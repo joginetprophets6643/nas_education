@@ -17667,7 +17667,7 @@ dl li {
     font-size: 1.125rem;
     line-height: 1;
     margin-left: auto;
-    color: #626262;
+    color: #ffffff !important;
 }
 .sidebar .nav .nav-item .nav-link i.menu-icon:before {
     vertical-align: middle;
@@ -17699,7 +17699,7 @@ dl li {
     font-weight: 600;
 }
 .sidebar .nav .nav-item.active:not(.navbar-brand-mini-wrapper) > .nav-link i {
-    color: #38ce3c;
+    color: #b3b3b3 !important;
 }
 .sidebar .nav .nav-item:not(.nav-category):hover {
     background: #2c2c43;
@@ -18401,7 +18401,7 @@ dl li {
 }
 
 .sidebar .nav .nav-item.active:not(.navbar-brand-mini-wrapper) > .nav-link i {
-    color: white;
+    color: #b3b3b3;
 }
 .navbar .navbar-brand {
     width: 100%;
@@ -18463,4 +18463,13 @@ dl li {
 
 .dataTables_filter label {
     font-size: 15px;
+}
+
+a,.btn,.action {
+    display:none;
+}
+
+a.btn.btn-danger.btn-sm.RTI_delete {
+    float: right;
+    margin-top: -40px;
 }

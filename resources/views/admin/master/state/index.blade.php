@@ -17,16 +17,16 @@
 
 
           <div class="card-header">All States
-          <a href="{{route('add-state')}}" class="btn btn-primary float-right btn-sm">Add</a>
+          <a href="{{route('add-state')}}" class="btn btn-primary float-right btn-sm Master_add">Add</a>
           </div>
         <table class="table">
           <thead>
             <tr>
               <th scope="col" width="70px">SL no.</th>
-              <th scope="col">State Id</th>
+              <!-- <th scope="col">State Id</th> -->
               <th scope="col">State Name</th>
-              <th scope="col">State Code</th>
-              <th scope="col" width="200px">Actions</th>
+              <!-- <th scope="col">State Code</th> -->
+              <th scope="col" width="200px" class="action Master_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -34,13 +34,13 @@
             @foreach($states as $state)
             <tr>
               <th scope="row">{{$i++}}</th>
-              <td>{{$state->state_id}}</td>
+              <!-- <td>{{$state->state_id}}</td> -->
               <td>{{$state->state_name}}</td>
-              <td>{{$state->udise_state_code}}</td>
-              <td>
+              <!-- <td>{{$state->udise_state_code}}</td> -->
+              <td class="action Master_action">
                 <?php $id=encode5t($state->id)?>
-                <a href="{{url('edit/state/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/state/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletestate">Delete</button>
+                <a href="{{url('secure-admin/edit/state/'.$id)}}" class="btn btn-primary btn-sm Master_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn Master_delete" data-delete-link="{{url('secure-admin/delete/state/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletestate">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -68,8 +68,8 @@
           <form action="" id="delete-dist-form" method="GET" >
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Master_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Master_delete">Delete</button>
           </form>
           </div>
           </div>

@@ -17,18 +17,18 @@
 
 
           <div class="card-header">All Districts
-          <a href="{{route('add-district')}}" class="btn btn-primary float-right btn-sm">Add</a>
+          <a href="{{route('add-district')}}" class="btn btn-primary float-right btn-sm Master_add">Add</a>
           </div>
         <table class="table">
           <thead>
             <tr>
               <th scope="col" width="70px">SL no.</th>
-              <th scope="col">District Id</th>
-              <th scope="col">State Id</th>
+              <!-- <th scope="col">District Id</th> -->
+              <th scope="col">State Name</th>
               <th scope="col">District Name</th>
-              <th scope="col">District Code</th>
-              <th scope="col">State Code</th>
-              <th scope="col" width="200px">Actions</th>
+              <!-- <th scope="col">District Code</th> -->
+              <!-- <th scope="col">State Code</th> -->
+              <th scope="col" width="200px" class="action Master_action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -36,15 +36,15 @@
             @foreach($districts as $district)
             <tr>
               <th scope="row">{{$i++}}</th>
-              <td>{{$district->district_id}}</td>
+              <!-- <td>{{$district->district_id}}</td> -->
               <td>{{$district->state_name}}</td>
               <td>{{$district->district_name}}</td>
-              <td>{{$district->udise_district_code}}</td>
-              <td>{{$district->udise_state_code}}</td>
-              <td>
+              <!-- <td>{{$district->udise_district_code}}</td> -->
+              <!-- <td>{{$district->udise_state_code}}</td> -->
+              <td class="action Master_action">
                 <?php $id=encode5t($district->id)?>
-                <a href="{{url('edit/district/'.$id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm delete-dis-btn" data-delete-link="{{url('delete/district/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletedistrict">Delete</button>
+                <a href="{{url('secure-admin/edit/district/'.$id)}}" class="btn btn-primary btn-sm Master_edit">Edit</a>
+                <button class="btn btn-danger btn-sm delete-dis-btn Master_delete" data-delete-link="{{url('secure-admin/delete/district/'.$id)}}" data-bs-toggle="modal" data-bs-target="#Deletedistrict">Delete</button>
               </td>
             </tr>
             @endforeach
@@ -72,8 +72,8 @@
           <form action="" id="delete-dist-form" method="GET" >
               @csrf
               <p>Are you sure you want to delete?</p> 
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-secondary btn-sm Master_delete" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger btn-sm Master_delete">Delete</button>
           </form>
           </div>
           </div>

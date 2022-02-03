@@ -27,7 +27,7 @@ let state_static_data = [
     ['mizoram', 25],
     ['tripura', 26],
     ['manipur', 27],
-    ['arunanchal pradesh', 28],
+    ['arunachal pradesh', 28],
     ['jharkhand', 29],
     ['goa', 30],
     ['nct of delhi', 31],
