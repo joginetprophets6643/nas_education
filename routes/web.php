@@ -238,3 +238,6 @@ Route::group(["middleware" => ["language"]], function(){
     
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
+Route::get('/visualization-new',function(){
+    return view('front.visualization.visualization_new');
+});
