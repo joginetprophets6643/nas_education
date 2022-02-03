@@ -180,3 +180,4 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
+
