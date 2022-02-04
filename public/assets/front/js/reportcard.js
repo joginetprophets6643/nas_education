@@ -60,6 +60,7 @@ const entities = {
   national_average:'National Average',
 }   
 
+// geography wise screen
 const geography_wise_screen = {
   district:['information','participation','performance','learning','feedback'],
   state:['information','participation','performance','learning','feedback','achievement'],
@@ -84,6 +85,7 @@ $(document).ready(()=>{
 
   });
 
+// doghnut chart for performance only
   async function createDoghnutChart(where,data,title){
    await Highcharts.chart(where, {
       chart: {
@@ -131,6 +133,7 @@ $(document).ready(()=>{
     });
   }
 
+  // column chart for performance only
   async function createColumnChart(where,data,type=''){
     let config = {}
     if(type === ''){
@@ -223,7 +226,8 @@ $(document).ready(()=>{
       $('#current_class').html(classType)
     }
   }
-// create bar graph with data
+
+// create bar graph with data for participation only
   function createSocialBarGraph(bar,colors){
     Highcharts.chart('socialBarGraph_class'+classType, {
         chart: {
@@ -296,7 +300,7 @@ $(document).ready(()=>{
       });
   }
 
-// create donought chart with data
+// create donought chart with data for participation only
   function createManagementPieChart(chart,colors){
     Highcharts.chart('managementPieGraph_class'+classType,  {
       chart: {
@@ -359,6 +363,7 @@ $(document).ready(()=>{
     });
   }
 
+  // sidebar states for report card
   async function createSidebarStates(data){
     let state_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_filter' onkeyup='filterList(0,state)' placeholder='Search for state'></div><ul id='state_list_national'>"
     let district_data = []
@@ -402,7 +407,7 @@ $(document).ready(()=>{
     }
   }
 
-
+// sidebar districts for report card
   function createDistrictForStates(data,state_name,state_id){
     let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_"+state_id+"' onkeyup='filterList("+state_id+",district)' placeholder='Search for district' title='Type in a name'></div>"
     data.map(district=>{
@@ -411,7 +416,7 @@ $(document).ready(()=>{
     return district_list
   }
 
-
+//  toggling district lists
   function toggleDistrictList(state_id,value,from_where=""){
     if(value){
       makeStateActive(state_id)
@@ -452,6 +457,7 @@ $(document).ready(()=>{
     chageDataWithFilter('sidebar_filter',value)
   }
 
+  //  setting screens for geographies
   async function setScreen(screen_type = 'information', load_data = true){
     const exceptions = ['participation','learning']
     const current_demography = ( selected_geography === 'district' || exceptions.includes(screen_type) ? '' : selected_geography )
@@ -491,6 +497,7 @@ $(document).ready(()=>{
     }
   }
 
+// data change via any action
   function chageDataWithFilter(filter_type, value){
     const lastActiveState =JSON.parse(sessionStorage.getItem('activeState'))
     const lastActiveDistrict =JSON.parse(sessionStorage.getItem('activeDistrict'))
@@ -547,6 +554,7 @@ $(document).ready(()=>{
     }
   }
 
+// sidebar filters action 
   function manipulateView(value){
     if(value === 'all'){
        toggleSection('all')
@@ -566,7 +574,7 @@ $(document).ready(()=>{
     }
   }
 
-
+//  manipulaing via sidebar filter actions
   function toggleSection(value){
     const exceptions = ['participation','learning']
     const current_demography = ( selected_geography === 'district' || exceptions.includes(screenType) ? '' : selected_geography )
@@ -599,6 +607,7 @@ $(document).ready(()=>{
     }
   }
 
+// changing the screen with the data
   async function setInformation(){
     try{
       let filters = {};
@@ -689,6 +698,7 @@ $(document).ready(()=>{
 
   }
 
+  // getting data for screens
   async function getData(){
     const screen_wise_table = {
 
@@ -760,6 +770,7 @@ $(document).ready(()=>{
     });
   }
 
+// setting state and district
   function setActiveStateDistrict(state_id,district_id){
 
     setBreadCrumb('district',true)
@@ -773,6 +784,7 @@ $(document).ready(()=>{
     // setInformation()
   }
 
+// updating view screenwise
   function updateData(data){
     if(typeof data !== 'undefined'){
       if(screenType === 'information'){
@@ -1209,6 +1221,7 @@ $(document).ready(()=>{
     }
   }
   
+  // formatting string
   function format_string(str){
     const formatted_string = str.split(' ').map((word,index) =>{
       return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
@@ -1216,6 +1229,7 @@ $(document).ready(()=>{
     return formatted_string
   }
 
+// highlighting districts
   function toggleActiveDistrict(district_id,value){
     if(value){
       $('.districts').removeClass('active')
@@ -1226,6 +1240,7 @@ $(document).ready(()=>{
     }
   }
 
+// creating rows for learning outcome
   function getOutcomeRow(lo,classStyle){
     let row = ''
     if(selected_geography === 'district'){
@@ -1239,6 +1254,7 @@ $(document).ready(()=>{
     return row
   }
 
+//  creating preformance screen charts
   function createPerformanceScreen(data,empty){
     const current_demography = ( selected_geography === 'district'  ? '' : selected_geography )
     try {
@@ -1784,6 +1800,7 @@ $(document).ready(()=>{
     })
  }
 
+// creating glimpses chart
  async function generateGlimpsesMap(where,req_colors,section_data,legends){
 
   let states = await JSON.parse(sessionStorage.getItem('states'))
