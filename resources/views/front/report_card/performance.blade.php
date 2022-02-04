@@ -5803,7 +5803,144 @@
                                           <h2 class="heading-grey text-center">
                                             AVERAGE PERFORMANCE OF THE DISTRICTS
                                           </h2>
-                                          <div class="district-table mtb-30">
+
+                                          <div class="table-main-wrap ptb-30">
+                                            <div class="sac-lo-classtitle-wrap mtb-30">
+                                              <h3 class="sac-lo-classtitle title-blue">
+                                                CLASS 3
+                                              </h3>
+                                            </div>
+                                            <div class="district-table">  
+                                              <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col" class="card-blue">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-blue-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                     
+                                                    </th>
+                                                    <th scope="col" class="card-blue">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-blue-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                    </th>
+                                                    <th scope="col" class="card-blue">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-blue-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                    </th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody id="state_district_table3_classall">
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                          
+                                          <div class="table-main-wrap ptb-30">
+                                            <div class="sac-lo-classtitle-wrap mtb-30">
+                                              <h3 class="sac-lo-classtitle title-pink">
+                                                CLASS 5
+                                              </h3>
+                                            </div>
+                                            <div class="district-table">  
+                                              <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col" class="card-pink">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-pink-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                     
+                                                    </th>
+                                                    <th scope="col" class="card-pink">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-pink-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                    </th>
+                                                    <th scope="col" class="card-pink">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-pink-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                    </th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody id="state_district_table5_classall">
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+
+                                          <div class="table-main-wrap ptb-30">
+                                            <div class="sac-lo-classtitle-wrap mtb-30">
+                                              <h3 class="sac-lo-classtitle title-sagegreen">
+                                                CLASS 8
+                                              </h3>
+                                            </div>
+                                            <div class="district-table">  
+                                              <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col" class="card-sagegreen">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-sagegreen-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                     
+                                                    </th>
+                                                    <th scope="col" class="card-sagegreen">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-sagegreen-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                    </th>
+                                                    <th scope="col" class="card-sagegreen">
+                                                      <div class="thead-content">
+                                                        District Name
+                                                        <span class="percentage percentage-sagegreen-bg">
+                                                          %
+                                                        </span>
+                                                      </div>
+                                                    </th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody id="state_district_table8_classall">
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                          
+
+                                          <div class="table-main-wrap ptb-30">
+                                          <div class="sac-lo-classtitle-wrap mtb-30">
+                                            <h3 class="sac-lo-classtitle title-purple">
+                                              CLASS 10
+                                            </h3>
+                                          </div>
+                                          <div class="district-table">
                                             <table class="table">
                                               <thead>
                                                 <tr>
@@ -5834,10 +5971,13 @@
                                                   </th>
                                                 </tr>
                                               </thead>
-                                              <tbody id="state_district_table_classall">
+                                              <tbody id="state_district_table10_classall">
                                               </tbody>
                                             </table>
                                           </div>
+                                          </div>
+
+                                          
                                         </div>
                                       </div>
                                   </div>
