@@ -38,8 +38,8 @@
 
 
                                     </div>
-                                </div> 
-                                <div class="tab-pane fade" id="feedbackstate_class3" role="tabpanel" aria-labelledby="sc3-feedback-tab">
+</div> 
+<div class="tab-pane fade" id="feedbackstate_class3" role="tabpanel" aria-labelledby="sc3-feedback-tab">
                                   <div class="feedback-wrap">
                                     <div class="pendamic-wrap mtb-30">
                                       <div class="virus-icon1">
@@ -188,6 +188,75 @@
                                           <div class="row" id="feedbackstate_tq_class3">
                                           </div>
                                         </div>
+                                      </div>
+                                    </div>
+                                  </div>
+</div>
+<div class="tab-pane fade" id="feedbacknational_class3" role="tabpanel" aria-labelledby="nc3-feedback-tab">
+                                  <div class="nc3-feedback-wrap feedback-wrap">
+                                    <div class="teacher-fb-wrap mb-30"> 
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center mb-30">
+                                            PROFILE OF SAMPLED TEACHERS AT THE NATIONAL LEVEL
+                                          </h2>
+                                        </div>
+                                        <div class="row" id="feedbacknational_tq_class3">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="headteacher-fb-wrap mb-30">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-black text-left">
+                                            Percentage of teacher doing the following activities in school:
+                                          </h2>
+                                        </div>
+                                        <div class="row" id="feedbacknational_tqn_class3">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="student-fb-wrap mb-30">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center mb-30">
+                                            PROFILE OF SAMPLED SCHOOLS AT THE NATIONAL LEVEL
+                                          </h2>
+                                        </div>
+
+                                        <div class="row" id="feedbacknational_pq_class3">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="headteacher-fb-wrap mb-30">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center mb-30">
+                                            PROFILE OF SAMPLED STUDENTS AT THE NATIONAL LEVEL
+                                          </h2>
+                                        </div>
+                                        <div class="col-md-12">
+                                          <h2 class="heading-black text-left">
+                                            Educational status of mother
+                                          </h2>
+                                        </div>
+                                        <div class="row" id="feedbacknational_sq_class3">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="teacher-fb-wrap mb-30"> 
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-black text-left">
+                                            How students commute to school
+                                          </h2>
+                                        </div>
+                                        <div class="row" id="feedbacknational_sqn1_class3">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="student-fb-wrap mb-30">
+                                      <div class="row" id="feedbacknational_sqn2_class3">
                                       </div>
                                     </div>
                                   </div>

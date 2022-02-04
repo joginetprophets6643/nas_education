@@ -66,6 +66,7 @@ const geography_wise_screen = {
   state:['information','participation','performance','learning','feedback','achievement'],
   national:['information','participation','performance','glimpses','feedback']
 }
+const category_filter_screen = ['participation','performance','glimpses']
 
 let screens = ['information','participation','performance','learning','feedback','glimpses','achievement']
 
@@ -463,6 +464,9 @@ $(document).ready(()=>{
     const current_demography = ( selected_geography === 'district' || exceptions.includes(screen_type) ? '' : selected_geography )
     const demographics = ['','state','national']
 
+    // if(category_filter_screen.includes(screen_type)){
+    // }else{
+    // }
     grades.forEach(grade=>{
       demographics.forEach(demo=>{
         screens.forEach(sc=>{
@@ -628,6 +632,10 @@ $(document).ready(()=>{
               filters = {...filters , class: classType}
             }
           }
+        }else{
+          if(screenType === 'feedback'){
+            filters = {...filters , class: "11"}
+          }
         }
       }
   
@@ -719,7 +727,7 @@ $(document).ready(()=>{
       },
       feedback :{
         state: 'pq_state_level_feedback',
-        national: 'pq_district_level_feedback',
+        national: 'pq_national_level_feedback',
         district: 'pq_district_level_feedback',
       },
       participation :{
@@ -1131,6 +1139,11 @@ $(document).ready(()=>{
         $('#feedback'+current_demography+'_pq_class3').empty()
         $('#feedback'+current_demography+'_tq_class3').empty()
         $('#feedback'+current_demography+'_htq_class3').empty()
+        $('#feedback'+current_demography+'_sq_class3').empty()
+        $('#feedback'+current_demography+'_sqn1_class3').empty()
+        $('#feedback'+current_demography+'_sqn2_class3').empty()
+        $('#feedback'+current_demography+'_sq_class3').empty()
+        $('#feedback'+current_demography+'_tqn_class3').empty()
 
         let countPq2 =1
         let countPq3 =1
@@ -1139,32 +1152,79 @@ $(document).ready(()=>{
         data.forEach(fb=>{
           const percentage = Math.round(fb.avg) 
           if(fb.level === 'pq'){
-            const pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
+            let pqChart = ''
+            if(current_demography === 'national'){
+              pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
+            }else{
+              pqChart = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-blue-bg"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
+            }
             $('#feedback'+current_demography+'_pq_class3').append(pqChart)
+
           }
           if(fb.level === 'tq'){
-            const tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-line progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
+            let tqChart = ''
+            if(current_demography === 'national'){
+              tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-line progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p class="title">'+fb.question_desc+'</p></div></div></div>'
+            }else{
+              tqChart = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-green-bg"><div class="progressbar-line progressbar-green"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p class="title">'+fb.question_desc+'</p></div></div></div>'
+            }
             $('#feedback'+current_demography+'_tq_class3').append(tqChart)
           }
           if(fb.level === 'sq'){
-            const htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-circle-lg progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
-            $('#feedback'+current_demography+'_htq_class3').append(htqChart)
+            let htqChart = ''
+            if(current_demography === 'national'){
+              htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-circle-lg progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
+              $('#feedback'+current_demography+'_sq_class3').append(htqChart)
+            }else{
+              htqChart = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-circle-lg progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
+              $('#feedback'+current_demography+'_htq_class3').append(htqChart)
+            }
+          }
+          if(fb.level === 'sqn1'){
+            let sqn1 = ''
+            if(current_demography === 'national'){
+              sqn1 = '<div class="col-md-4 mb-15"><div class="teacher-fbcard light-pink-bg"><div class="progressbar-line progressbar-pink"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="max-width: '+percentage+'%"><span class="title">'+percentage+'%</span></div></div><p>'+fb.question_desc+'</p></div></div></div>'
+              $('#feedback'+current_demography+'_sqn1_class3').append(sqn1)
+            }
+          }
+          if(fb.level === 'sqn2'){
+            let sqn2 = ''
+            if(current_demography === 'national'){
+              sqn2 = '<div class="col-lg-3 mb-15"><div class="student-fbcard light-pink-bg"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div></div>'
+              $('#feedback'+current_demography+'_sqn2_class3').append(sqn2)
+            }
           }
           if(fb.level === 'pq1'){
-            const pq1 = '<div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div>'
+            let pq1 = ''
+            if(current_demography === 'national'){
+
+            }else{
+              pq1 = '<div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div>'
+            }
             $('#feedback'+current_demography +'_pq1_class3').html(pq1)
           }
           if(fb.level === 'pq2'){
-            const pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
-            $('#feedback'+current_demography +'_pq2_'+countPq2+'_class3').html(pq2)
-            countPq2+=1
-            pq2Average += percentage
+            if(current_demography === '' || current_demography === 'state'){
+              const pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
+              $('#feedback'+current_demography +'_pq2_'+countPq2+'_class3').html(pq2)
+              countPq2+=1
+              pq2Average += percentage
+            }
           }
           if(fb.level === 'pq3'){
-            const pq3 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-green"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
-            $('#feedback'+current_demography +'_pq3_'+countPq3+'_class3').html(pq3)
-            countPq3+=1
-            pq3Average+=percentage
+            if(current_demography === '' || current_demography === 'state'){
+              const pq3 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-green"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
+              $('#feedback'+current_demography +'_pq3_'+countPq3+'_class3').html(pq3)
+              countPq3+=1
+              pq3Average+=percentage
+            }
+          }
+          if(fb.level === 'tqn'){
+            let tqn = ''
+            if(current_demography === 'national'){
+              tqn = '<div class="col-md-3 mb-15"><div class="headteacher-fbcard"><div class="progressbar-circle-lg progressbar-green"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%<p>'+fb.question_desc+'</p></div></div></div></div></div>'
+              $('#feedback'+current_demography+'_tqn_class3').append(tqn)
+            }
           }
         })
 
