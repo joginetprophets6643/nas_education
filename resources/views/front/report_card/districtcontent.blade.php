@@ -26,7 +26,7 @@
                                   <button class="nav-link" id="learning-tab" data-bs-toggle="tab" data-bs-target="#learning" type="button" role="tab" aria-controls="learning" aria-selected="false"onClick="setScreen('learning')">Learning Outcomes</button>
                                 </li>
                                 <li class="nav-item" role="presentation" id="result-glimpses-tab">
-                                  <button class="nav-link" id="glimpses-tab" data-bs-toggle="tab" data-bs-target="#glimpses" type="button" role="tab" aria-controls="glimpses" aria-selected="false" onClick="setScreen('glimpses')">Result Glimpsis</button>
+                                  <button class="nav-link" id="glimpses-tab" data-bs-toggle="tab" data-bs-target="#glimpses" type="button" role="tab" aria-controls="glimpses" aria-selected="false" onClick="setScreen('glimpses')">Result Glimpses</button>
                                 </li>
                                 <li class="nav-item" role="presentation" id="achievementstate-tab">
                                   <button class="nav-link" id="achievement-tab" data-bs-toggle="tab" data-bs-target="#achievement" type="button" role="tab" aria-controls="achievement" aria-selected="false" onClick="setScreen('achievement')">Achievement</button>

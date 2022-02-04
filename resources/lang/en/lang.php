@@ -38,7 +38,7 @@ return[
     'MOBILE APP'=>'MOBILE APP',
     'Mobile App'=>'Mobile App',
     'Login'=>'Login',
-    'Registration'=>'Regirtration',
+    'Registration'=>'Registration',
     'National'=>'National',
     'State'=>'State',
     'District'=>'District',
