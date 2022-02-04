@@ -23,6 +23,12 @@ class FeedbackController extends Controller
 {
     public function get_feedback()
     {
+
+        // $stringPQState = 'state';
+        // $wherePQState = "('pq','pq2','pq3')";
+        // $allStateFBPQ = $this->RaqQuery($stringPQState,$wherePQState);
+        // dd($allStateFBPQ);
+
         /*************************************************************
          * Name: Sanjay,Jogi
          * Desc: PQ and TQ Calculation 
@@ -107,6 +113,19 @@ class FeedbackController extends Controller
         }
 
         $dNLOData = PQDistrictLevelFeedback::insert($districtFeedbackFinalData);
+        if($dNLOData)
+        {
+            $stringPQDistrict = 'pq_district_level_feedback.state_id,pq_district_level_feedback.district_id,';
+            $wherePQDistrict = "('pq')";
+            $stringGroupBYPQDistrict = 'pq_district_level_feedback.state_id,pq_district_level_feedback.district_id,';
+            $districtTBLPQ = "pq_district_level_feedback";
+            $allDistrictFBPQ = $this->RaqQuery($stringPQDistrict,$wherePQDistrict,$stringGroupBYPQDistrict,$districtTBLPQ);
+            $allPQData = DB::select($allDistrictFBPQ);
+            $allPQData = json_decode(json_encode($allPQData), true);
+            $allDNLODistrictDataPQ = PQDistrictLevelFeedback::insert($allPQData);            
+        }
+
+
 
         /*************************************************************
          * Name: Sanjay
@@ -144,6 +163,18 @@ class FeedbackController extends Controller
 
         $dNLODataState = PQStateLevelFeedback::insert($stateFeedbackFinalData);
 
+        if($dNLODataState)
+        {
+            $stringPQState = 'pq_state_level_feedback.state_id,';
+            $wherePQState = "('pq','pq1','pq2','pq3')";
+            $stringGroupBYPQState = 'pq_state_level_feedback.state_id,';
+            $stateTBLPQ = "pq_state_level_feedback";
+            $allStateFBPQ = $this->RaqQuery($stringPQState,$wherePQState,$stringGroupBYPQState,$stateTBLPQ);
+            $allPQStateData = DB::select($allStateFBPQ);
+            $allPQStateData = json_decode(json_encode($allPQStateData), true);
+            $allDNLODataStatePQ = PQStateLevelFeedback::insert($allPQStateData);            
+        }
+
         /*************************************************************
          * Name: Sanjay
          * Desc: National wise learning outcome Process data in all grade
@@ -179,6 +210,19 @@ class FeedbackController extends Controller
         }
 
         $dNLODataNational = PQNationaLevelFeedback::insert($NationalFeedbackFinalData);
+
+        if($dNLODataNational)
+        {
+            $stringPQNational = '';
+            $wherePQNational = "('pq','pq2','pq3')";
+            $stringGroupBYPQNational = '';
+            $nationalTBLPQ = "pq_national_level_feedback";
+            $allNationalFBPQ = $this->RaqQuery($stringPQNational,$wherePQNational,$stringGroupBYPQNational,$nationalTBLPQ);
+            $allPQNationalData = DB::select($allNationalFBPQ);
+            $allPQNationalData = json_decode(json_encode($allPQNationalData), true);
+            $allDNLODataNationalPQ = PQNationaLevelFeedback::insert($allPQNationalData);            
+        }
+
         if($dNLODataNational)
         {
             return "FeedBack Process table successfully created.";
@@ -578,6 +622,19 @@ class FeedbackController extends Controller
 
         $dNLOData = PQDistrictLevelFeedback::insert($districtFeedbackFinalData);
 
+        if($dNLOData)
+        {
+            $stringTQDistrict = 'pq_district_level_feedback.state_id,pq_district_level_feedback.district_id,';
+            $whereTQDistrict = "('tq')";
+            $stringGroupBYTQDistrict = 'pq_district_level_feedback.state_id,pq_district_level_feedback.district_id,';
+            $districtTBLTQ = "pq_district_level_feedback";
+            $allDistrictFBTQ = $this->RaqQuery($stringTQDistrict,$whereTQDistrict,$stringGroupBYTQDistrict,$districtTBLTQ);
+            $allTQData = DB::select($allDistrictFBTQ);
+            $allTQData = json_decode(json_encode($allTQData), true);
+            $allDNLODistrictDataTQ = PQDistrictLevelFeedback::insert($allTQData);            
+        }
+
+
         $FeedbackDataForState = DB::table('feedback_data_tq')->select('feedback_data_tq.state_id','feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.level','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
         ->leftJoin('tq_question_master','tq_question_master.question_id','=','feedback_data_tq.question_code')
         ->groupBy('feedback_data_tq.state_id')
@@ -609,6 +666,18 @@ class FeedbackController extends Controller
 
         $dNLODataState = PQStateLevelFeedback::insert($stateFeedbackFinalData);
 
+        if($dNLODataState)
+        {
+            $stringTQState = 'pq_state_level_feedback.state_id,';
+            $whereTQState = "('tq')";
+            $stringGroupBYTQState = 'pq_state_level_feedback.state_id,';
+            $stateTBLTQ = "pq_state_level_feedback";
+            $allStateFBTQ = $this->RaqQuery($stringTQState,$whereTQState,$stringGroupBYTQState,$stateTBLTQ);
+            $allTQStateData = DB::select($allStateFBTQ);
+            $allTQStateData = json_decode(json_encode($allTQStateData), true);
+            $alldNLODataStateTQ = PQStateLevelFeedback::insert($allTQStateData);            
+        }
+
         $FeedbackDataNational = DB::table('feedback_data_tq')->select('feedback_data_tq.grade','feedback_data_tq.question_code','tq_question_master.level','tq_question_master.question_desc  as question',DB::raw("count(feedback_data_tq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_tq.id)) as avg"))
         ->leftJoin('tq_question_master','tq_question_master.question_id','=','feedback_data_tq.question_code')
         ->groupBy('feedback_data_tq.grade')
@@ -636,6 +705,19 @@ class FeedbackController extends Controller
         }
 
         $dNLODataNational = PQNationaLevelFeedback::insert($NationalFeedbackFinalData);
+
+        if($dNLODataNational)
+        {
+            $stringTQNational = '';
+            $whereTQNational = "('tq','tqn')";
+            $stringGroupBYTQNational = '';
+            $nationalTBLTQ = "pq_national_level_feedback";
+            $allNationalFBTQ = $this->RaqQuery($stringTQNational,$whereTQNational,$stringGroupBYTQNational,$nationalTBLTQ);
+            $allTQNationalData = DB::select($allNationalFBTQ);
+            $allTQNationalData = json_decode(json_encode($allTQNationalData), true);
+            $allDNLODataNationalTQ = PQNationaLevelFeedback::insert($allTQNationalData);            
+        }
+
         if($dNLODataNational)
         {
             return "FeedBack Process table successfully created.";
@@ -966,6 +1048,18 @@ class FeedbackController extends Controller
 
         $dNLOData = PQDistrictLevelFeedback::insert($districtFeedbackFinalData);
 
+        if($dNLOData)
+        {
+            $stringSQDistrict = 'pq_district_level_feedback.state_id,pq_district_level_feedback.district_id,';
+            $whereSQDistrict = "('sq')";
+            $stringGroupBYSQDistrict = 'pq_district_level_feedback.state_id,pq_district_level_feedback.district_id,';
+            $districtTBLSQ = "pq_district_level_feedback";
+            $allDistrictFBSQ = $this->RaqQuery($stringSQDistrict,$whereSQDistrict,$stringGroupBYSQDistrict,$districtTBLSQ);
+            $allSQData = DB::select($allDistrictFBSQ);
+            $allSQData = json_decode(json_encode($allSQData), true);
+            $allDNLODistrictDataSQ = PQDistrictLevelFeedback::insert($allSQData);            
+        }
+
         $FeedbackDataForState = DB::table('feedback_data_sq')->select('feedback_data_sq.state_id','feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.level','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
         ->leftJoin('sq_question_master','sq_question_master.question_id','=','feedback_data_sq.question_code')
         ->groupBy('feedback_data_sq.state_id')
@@ -997,6 +1091,18 @@ class FeedbackController extends Controller
 
         $dNLODataState = PQStateLevelFeedback::insert($stateFeedbackFinalData);
 
+        if($dNLODataState)
+        {
+            $stringSQState = 'pq_state_level_feedback.state_id,';
+            $whereSQState = "('sq')";
+            $stringGroupBYSQState = 'pq_state_level_feedback.state_id,';
+            $stateTBLSQ = "pq_state_level_feedback";
+            $allStateFBSQ = $this->RaqQuery($stringSQState,$whereSQState,$stringGroupBYSQState,$stateTBLSQ);
+            $allSQStateData = DB::select($allStateFBSQ);
+            $allSQStateData = json_decode(json_encode($allSQStateData), true);
+            $allDNLODataStateSQ = PQStateLevelFeedback::insert($allSQStateData);            
+        }
+
         $FeedbackDataNational = DB::table('feedback_data_sq')->select('feedback_data_sq.grade','feedback_data_sq.question_code','sq_question_master.level','sq_question_master.question_desc  as question',DB::raw("count(feedback_data_sq.id)  AS total_parent"), DB::raw("round(SUM(average_performance_in_percentage::float)/count(feedback_data_sq.id)) as avg"))
         ->leftJoin('sq_question_master','sq_question_master.question_id','=','feedback_data_sq.question_code')
         ->groupBy('feedback_data_sq.grade')
@@ -1025,6 +1131,18 @@ class FeedbackController extends Controller
         }
 
         $dNLODataNational = PQNationaLevelFeedback::insert($NationalFeedbackFinalData);
+        if($dNLODataNational)
+        {
+            $stringSQNational = '';
+            $whereSQNational = "('sq','sqn1','sqn2')";
+            $stringGroupBYSQNational = '';
+            $nationalTBLSQ = "pq_national_level_feedback";
+            $allNationalFBSQ = $this->RaqQuery($stringSQNational,$whereSQNational,$stringGroupBYSQNational,$nationalTBLSQ);
+            $allSQNationalData = DB::select($allNationalFBSQ);
+            $allSQNationalData = json_decode(json_encode($allSQNationalData), true);
+            $allDNLODataNationalSQ = PQNationaLevelFeedback::insert($allSQNationalData);            
+        }
+
         if($dNLODataNational)
         {
             return "FeedBack Process table successfully created.";
@@ -1238,6 +1356,23 @@ class FeedbackController extends Controller
             ];
 
         return $arr[$key];
+    }
+
+    public function RaqQuery($string,$wherePQNational,$groupByString,$tbl_name)
+    {
+        $query = "select ".$string."
+        CASE 
+             WHEN ".$tbl_name.".question_code IS NOT NULL THEN '11' 
+               ELSE ".$tbl_name.".question_code
+             END AS grade,
+        ".$tbl_name.".level, ".$tbl_name.".question_code, ".$tbl_name.".question_desc, 
+        sum(".$tbl_name.".total_parent::float) AS total_parent,
+         round(SUM(avg::float)/count(".$tbl_name.".id)) as avg 
+        from ".$tbl_name."
+        where ".$tbl_name.".level in ".$wherePQNational."
+        group by ".$groupByString." ".$tbl_name.".question_code, ".$tbl_name.".question_desc,".$tbl_name.".level";
+
+        return $query;
     }
 
 }
