@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="col-md-12">
                                           <div class="accordion commonAccordion" id="nc3-perAccordion">
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="gendernational_section_glimpses_class3">
                                               <h2 class="accordion-header" id="nc3-perAccordionOne">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapseOne" aria-expanded="true" aria-controls="nc3-perAccordioncollapseOne">
                                                   Performance of States by Gender
@@ -83,7 +83,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="locationnational_section_glimpses_class3">
                                               <h2 class="accordion-header" id="nc3-perAccordionTwo">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapseTwo" aria-expanded="true" aria-controls="nc3-perAccordioncollapseTwo">
                                                   Performance of States by Location
@@ -127,7 +127,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class3">
                                               <h2 class="accordion-header" id="nc3-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc3-perAccordioncollapseThree">
                                                   Performance of States by School Management
@@ -260,7 +260,7 @@
                                         </div>
                                         <div class="col-md-12">
                                           <div class="accordion commonAccordion" id="nc5-perAccordion">
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="gendernational_section_glimpses_class5">
                                               <h2 class="accordion-header" id="nc5-perAccordionOne">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapseOne" aria-expanded="true" aria-controls="nc5-perAccordioncollapseOne">
                                                 Performance of States by Gender
@@ -304,7 +304,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="locationnational_section_glimpses_class5">
                                               <h2 class="accordion-header" id="nc5-perAccordionTwo">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapseTwo" aria-expanded="true" aria-controls="nc5-perAccordioncollapseTwo">
                                                 Performance of States by Location
@@ -348,7 +348,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class5">
                                               <h2 class="accordion-header" id="nc5-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc5-perAccordioncollapseThree">
                                                 Performance of States by School Management
@@ -497,7 +497,7 @@
                                           </div>
                                           <div class="col-md-12">
                                             <div class="accordion commonAccordion" id="nc8-perAccordion">
-                                              <div class="accordion-item mtb-30">
+                                              <div class="accordion-item mtb-30" id="gendernational_section_glimpses_class8">
                                                 <h2 class="accordion-header" id="nc8-perAccordionOne">
                                                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapseOne" aria-expanded="true" aria-controls="nc8-perAccordioncollapseOne">
                                                   Performance of States by Gender
@@ -551,7 +551,7 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                              <div class="accordion-item mtb-30">
+                                              <div class="accordion-item mtb-30" id="locationnational_section_glimpses_class8">
                                                 <h2 class="accordion-header" id="nc8-perAccordionTwo">
                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapseTwo" aria-expanded="true" aria-controls="nc8-perAccordioncollapseTwo">
                                                   Performance of States by Location
@@ -605,7 +605,7 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                              <div class="accordion-item mtb-30">
+                                              <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class8">
                                                 <h2 class="accordion-header" id="nc8-perAccordionThree">
                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc8-perAccordioncollapseThree">
                                                   Performance of States by School Management
@@ -774,7 +774,7 @@
                                         </div>
                                         <div class="col-md-12">
                                           <div class="accordion commonAccordion" id="nc10-perAccordion">
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="gendernational_section_glimpses_class10">
                                               <h2 class="accordion-header" id="nc10-perAccordionOne">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapseOne" aria-expanded="true" aria-controls="nc10-perAccordioncollapseOne">
                                                 Performance of States by Gender
@@ -839,7 +839,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="locationnational_section_glimpses_class10">
                                               <h2 class="accordion-header" id="nc10-perAccordionTwo">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapseTwo" aria-expanded="false" aria-controls="nc10-perAccordioncollapseTwo">
                                                 Performance of States by Location
@@ -903,7 +903,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class10">
                                               <h2 class="accordion-header" id="nc10-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapseThree" aria-expanded="false" aria-controls="nc10-perAccordioncollapseThree">
                                                 Performance of States by School Management
@@ -1113,7 +1113,7 @@
                                             AVERAGE PERFORMANCE
                                           </h2>
                                           <div class="accordion commonAccordion" id="sac-perAccordion">
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="gendernational_section_glimpses_classall">
                                               <h2 class="accordion-header" id="sac-perAccordionOne">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapseOne" aria-expanded="true" aria-controls="sac-perAccordioncollapseOne">
                                                 Performance of States by Gender
@@ -1389,7 +1389,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="locationnational_section_glimpses_classall">
                                               <h2 class="accordion-header" id="sac-perAccordionTwo">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapseTwo" aria-expanded="false" aria-controls="sac-perAccordioncollapseTwo">
                                                 Performance of States by Location
@@ -1668,7 +1668,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="managementnational_section_glimpses_classall">
                                               <h2 class="accordion-header" id="sac-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapseThree" aria-expanded="false" aria-controls="sac-perAccordioncollapseThree">
                                                 Performance of States by School Management

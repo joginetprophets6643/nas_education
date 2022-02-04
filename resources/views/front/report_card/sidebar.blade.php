@@ -293,40 +293,40 @@
                             <div class="accordion-body">
                                 <div class="side-navlist">
                                     <ul id="side_bar_filters">
-                                        <li onClick="changePageDataViaSideFilter('all')">
-                                            <a href="javascript:void(0);" class="side_filter" id="all">
+                                        <li>
+                                            <a href="javascript:void(0);" class="side_filter" id="all" onClick="changePageDataViaSideFilter('all')">
                                                <span class="icon-wrap">
                                                     <img src="{{asset('assets/front/images/chart-bar.svg')}}" alt="img" class="img-fluid" /> 
                                                </span>
                                                All
                                             </a>
                                         </li>
-                                        <li onClick="changePageDataViaSideFilter('gender')">
-                                            <a href="javascript:void(0);" class="side_filter" id="gender">
+                                        <li>
+                                            <a href="javascript:void(0);" class="side_filter" id="gender"  onClick="changePageDataViaSideFilter('gender')">
                                                <span class="icon-wrap">
                                                     <img src="{{asset('assets/front/images/gender.svg')}}" alt="img" class="img-fluid" /> 
                                                </span>
                                                Gender   
                                             </a>
                                         </li>
-                                        <li onClick="changePageDataViaSideFilter('location')">
-                                            <a href="javascript:void(0);" class="side_filter" id="location">
+                                        <li>
+                                            <a href="javascript:void(0);" class="side_filter" id="location" onClick="changePageDataViaSideFilter('location')">
                                                <span class="icon-wrap">
                                                     <img src="{{asset('assets/front/images/location-searching.svg')}}" alt="img" class="img-fluid" /> 
                                                </span>
                                                Location
                                             </a>
                                         </li>
-                                        <li  onClick="changePageDataViaSideFilter('management')">
-                                            <a href="javascript:void(0);" class="side_filter" id="management">
+                                        <li>
+                                            <a href="javascript:void(0);" class="side_filter" id="management"  onClick="changePageDataViaSideFilter('management')">
                                                <span class="icon-wrap">
                                                     <img src="{{asset('assets/front/images/management.svg')}}" alt="img" class="img-fluid" /> 
                                                </span>
                                                Management
                                             </a>
                                         </li>
-                                        <li  onClick="changePageDataViaSideFilter('social_group')">
-                                            <a href="javascript:void(0);" class="side_filter" id="social_group">
+                                        <li>
+                                            <a href="javascript:void(0);" class="side_filter" id="social_group" onClick="changePageDataViaSideFilter('social_group')">
                                                <span class="icon-wrap">
                                                     <img src="{{asset('assets/front/images/social-group.svg')}}" alt="img" class="img-fluid" /> 
                                                </span> 
