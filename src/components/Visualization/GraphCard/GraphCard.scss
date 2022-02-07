@@ -1,0 +1,68 @@
+.apcard-white {
+    box-shadow: 0px 0px 20px #75a9d94d;
+    border-radius: 6px;
+    background: #fff;
+    margin: 15px 0;
+    .apcard-header {
+        border-bottom: 1px dashed #647781;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .apcard-heading{
+            letter-spacing: 0.1px;
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+            padding: 15px;
+            img{
+                margin-right: 5px;
+            }
+        }
+        .toggle-btn {
+            padding: 15px;
+        }
+        .apcard-heading-red {
+            color: #F2744A;
+        }
+        .apcard-heading-darkgreen {
+            color: #16A085;
+        }
+        .apcard-heading-darkpurple {
+            color: #9262E6;
+        }
+        .apcard-heading-blue {
+            color: #2196F3;
+        }
+        .apcard-heading-darkpink {
+            color: #EC4A6A;
+        }
+        .apcard-heading-lightpurple {
+            color: #D13CEB;
+        }
+        .apcard-heading-orange {
+            color: #FFB142;
+        }
+        .apcard-heading-green {
+            color: #BDC581;
+        }
+        .apcard-heading-pink {
+            color: #FD7272;
+        }   
+    }
+    .apcard-content {
+        padding: 30px;
+        figure{
+            margin: 0;
+        }
+    }   
+}
+
+
+.apcard-graph-wrap{
+    .select-wrap {
+        margin-bottom: 30px;
+    }
+    .img-wrap {
+        text-align: center;
+    }
+}

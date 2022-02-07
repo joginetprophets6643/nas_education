@@ -1,3 +1,6 @@
+@include('front.includes.header')
+@include('front.includes.nav')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,3 +15,4 @@
   <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
+@include('front.includes.footer')

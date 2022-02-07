@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getStateList } from "../actions/visualization.action";
 import { States } from '../models/visualization'
 import '../styles/_style.scss'
+import Main from "./Visualization/Main/Main";
 
 const App = () => {
 
@@ -22,8 +23,8 @@ const App = () => {
     
 
     return (
-        <div>
-            <h1>State list</h1>
+        <>
+            {/* <h1>State list</h1>
             <ul>
                 {states.map((state: States) => {
                     return (
@@ -32,8 +33,9 @@ const App = () => {
                         </li>
                     );
                 })}
-            </ul>
-        </div>
+            </ul> */}
+            <Main />
+        </>
     );
 };
 

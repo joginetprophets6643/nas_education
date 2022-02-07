@@ -1,0 +1,56 @@
+.heading-black {
+  letter-spacing: 0px;
+  color: #101010;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.breadcrum-grey .breadcrumb {
+  margin: 10px 0;
+}
+
+.breadcrum-grey .breadcrumb .breadcrumb-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+}
+
+.breadcrum-grey .breadcrumb .breadcrumb-item.active {
+  color: #2A6AA9;
+}
+
+.breadcrum-grey .breadcrumb .breadcrumb-item a {
+  letter-spacing: 0.07px;
+  color: #5E5E5E;
+  font-size: 13px;
+}
+
+.breadcrum-grey .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: #5E5E5E;
+  padding: 0;
+}
+
+.visualization-wrap .select-wrap .select-label {
+  letter-spacing: 0px;
+  color: #777777;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.visualization-wrap .select-wrap .form-select {
+  -webkit-box-shadow: 0px 0px 5px #00000033;
+          box-shadow: 0px 0px 5px #00000033;
+  border-radius: 21px;
+  letter-spacing: 0px;
+  color: #101010;
+  height: 42px;
+  padding: 0 35px 0 20px;
+  font-size: 16px;
+}
+/*# sourceMappingURL=TopBar.css.map */

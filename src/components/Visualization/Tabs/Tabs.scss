@@ -1,0 +1,25 @@
+#visualtab {
+    justify-content: space-between;
+    background: #2A6AA9;
+    border: none;
+    .nav-link {
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        font-size: 17px;
+        padding: 10px 30px;
+        border: transparent;
+        margin: 0;
+        text-transform: uppercase;
+        border-radius: 0;
+        &:hover {
+            border: transparent;
+            background: #F7941C;
+            border-radius: 0;
+        }
+        &.active {
+            background: #F7941C;
+            border: transparent;
+            border-radius: 0;
+        }
+    }
+}
