@@ -662,8 +662,8 @@
                               $('#name').html(e.point.name.toUpperCase());
                               $('#states').val(e.point.value);
                               const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
-                                triggerDistrictChart(selectedMapData)                 
-                                populateDemographicInfo(e.point.value)
+                              triggerDistrictChart(selectedMapData)                 
+                              populateDemographicInfo(e.point.value)
                             }
 
                       }
@@ -726,14 +726,13 @@
       return
     }
 
-    // console.log(data.data[0].data)
+    // console.log(data.data)
     data.data[0].data.forEach((item)=>{
-      // if(item.id=='1007'){
         item.color="#9ec2e4";
         item.borderColor="#6e6f70";
         item.states.hover.color="#f7941c";
-      // }
     })
+
     Highcharts.mapChart('district-map-container',{
       title: {
           text: data.name
@@ -753,18 +752,27 @@
               enabled: false
           }
       },
+      
       plotOptions: {
         series:{
+          allowPointSelect: true,
+          states: {
+            select: {
+              color: '#f7941c'
+            }
+          },
           events:{
             click: (e)=>{
-              setActiveDistrict(e.point.id)
-              e.point.color = '#f7941c'
+              setActiveDistrict(e.point.id);
+              // e.point.color = '#f7941c';
             }
-          }
+          },
+          
         }  
       },
 
-    })
+    });
+    
     document.getElementById("district-map-container").style.display = "";
     $('#BackToN').css('display','block');
   }
