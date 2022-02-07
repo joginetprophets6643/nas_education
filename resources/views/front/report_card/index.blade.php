@@ -31,16 +31,21 @@
           <path d="m295.117188 311.078125c-4.097657 0-8.191407-1.558594-11.308594-4.695313l-279.082032-279.058593c-6.25-6.253907-6.25-16.386719 0-22.636719s16.382813-6.25 22.636719 0l279.058594 279.0625c6.25 6.25 6.25 16.382812 0 22.632812-3.136719 3.117188-7.230469 4.695313-11.304687 4.695313zm0 0"></path>
       </svg>
   </a>
-  <div class="sidebarwrap scrollbar-y">
-    <div class="search-bar">
+  <div class="sidebar-select-wrap sidebarwrap scrollbar-y">
+    <!-- <div class="search-bar">
       <input type="text" class="form-control" placeholder="Search for District" id="rc-district-search" onkeyup='filterList("district")'>
-    </div>
-    
-      <ul id="rc-district-list">
-      @foreach($districts as $district)
-      <li onclick="districtRC({{$district->district_id}})" class="district-list-custom"><a href="javascript:void(0);">{{strtoupper($district->state_name)}} > {{$district->district_name}}</a></li>
-      @endforeach
-      </ul>
+    </div> -->
+    <select class="state-select" name="state">
+    <option value="">Select State</option>
+    @foreach($states as $state)
+    <option value="{{$state->state_id}}">{{$state->state_name}}</option>
+    @endforeach
+    </select>
+      
+    <select class="district-select" name="state">
+    <option value="">Select District</option>
+    </select>
+
   </div>
 </div>
 
@@ -141,21 +146,40 @@
 
     }
 
-    function districtRC(id){
+    $('.state-select').change((e)=>{
+
+      $('.district-select').empty();
+      $('.district-select').append('<option value="">Select District</option>')
+      let id = e.target.value;
+
+      let dis = districts.filter(function(districts){
+          return districts.state_id==id;
+      })
+      dis=dis.sort((a, b) => a.district_name.localeCompare(b.district_name))
+      dis.forEach((item)=>{
+          $('.district-select').append(`<option value="${item.district_id}">
+              ${item.district_name}
+          </option>`);
+      })
+
+    })
+
+    $('.district-select').change((e)=>{
 
     let district = districts.filter(function(districts){
-        return districts.district_id==id;
-    }).pop()
-    let state =states.filter(function(states){
-        return states.state_id==district.state_id;
+        return districts.district_id==e.target.value;
     }).pop()
 
+    let state =states.filter(function(states){
+        return states.state_id==$('.state-select').val();
+    }).pop()
+    
     sessionStorage.setItem('activeState',JSON.stringify(state))
     sessionStorage.setItem('activeDistrict',JSON.stringify(district))
     location.href = base_url + 'report-card/nas-2021'
     // console.log(district,state);
 
-    }
+    })
 
     let districts='';
     let states='';
@@ -218,4 +242,8 @@
       $(document).on('click','.closesidebar', function(e) {
         $('.sidebaroverlay,.sidebarmenu').removeClass('opened');
       }); 
+      $(document).ready(function() {
+          $('.state-select').select2();
+          $('.district-select').select2();
+      });
 </script>
