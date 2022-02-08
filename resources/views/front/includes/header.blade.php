@@ -46,4 +46,6 @@
         z-index: 100;
       }
     </style>
+    <link rel="stylesheet" href="{{asset('assets/front/scss/select2.min.css')}}">
+
   </head>
