@@ -339,15 +339,15 @@ function changeFontSize(direction){
         $this.css( "font-size" , parseInt($this.css("font-size"))+direction );
     });
 }
-      function setFontSize(size) {
-        const fontSize = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);
-        console.log(fontSize);
-          $('p').css('font-size', '' + size + 'px');
-          $('h2').css('font-size', '' + size + 'px');
-          $('h1').css('font-size', '' + size + 'px');
-          $('span').css('font-size', '' + size + 'px');
-          $('a').css('font-size', '' + size + 'px');
-      }
+      // function setFontSize(size) {
+      //   const fontSize = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0]);
+      //   console.log(fontSize);
+      //     $('p').css('font-size', '' + size + 'px');
+      //     $('h2').css('font-size', '' + size + 'px');
+      //     $('h1').css('font-size', '' + size + 'px');
+      //     $('span').css('font-size', '' + size + 'px');
+      //     $('a').css('font-size', '' + size + 'px');
+      // }
 
 
       $('.gallery-anchor').click(()=>{
