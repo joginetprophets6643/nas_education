@@ -296,6 +296,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{asset('assets/front/js/lightbox.min.js')}}"></script>
     <script src="{{asset('assets/front/js/scripts.js')}}"></script>
+    <script src="{{asset('assets/front/js/select2.min.js')}}"></script>
 
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
     <script>
@@ -366,6 +367,5 @@ function changeFontSize(direction){
     })
     
     </script>
-
   </body>
 </html>
