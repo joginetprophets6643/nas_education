@@ -1,5 +1,4 @@
 import React from 'react';
-import './WhiteCard.scss';
 import Building from '../../../assets/images/building.svg';
 
 const WhiteCard = () => {

@@ -1,5 +1,4 @@
-import React from 'react';
-import './Tabs.scss';   
+import React from 'react'; 
 
 const Tabs = () => {
   return (

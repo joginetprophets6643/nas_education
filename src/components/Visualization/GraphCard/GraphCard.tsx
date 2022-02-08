@@ -1,5 +1,4 @@
 import React from 'react';
-import './GraphCard.scss';
 import People from '../../../assets/images/ap-people.svg';
 
 const GraphCard = () => {

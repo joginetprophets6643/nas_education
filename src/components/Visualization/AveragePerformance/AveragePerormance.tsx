@@ -1,5 +1,4 @@
 import React from 'react';
-import './AveragePerformance.scss';
 import Globe from '../../../assets/images/globe-icon.svg';
 import GraphCard from '../GraphCard/GraphCard';
 
