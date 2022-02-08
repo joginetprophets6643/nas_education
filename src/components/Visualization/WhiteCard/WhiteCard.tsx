@@ -1,5 +1,5 @@
 import React from 'react';
-import Building from '../../../assets/images/building.svg';
+import Building from '@/assets/images/building.svg';
 
 const WhiteCard = () => {
   return (

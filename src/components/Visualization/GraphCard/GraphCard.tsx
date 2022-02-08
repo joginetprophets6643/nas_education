@@ -1,5 +1,5 @@
 import React from 'react';
-import People from '../../../assets/images/ap-people.svg';
+import People from '@/assets/images/ap-people.svg';
 
 const GraphCard = () => {
   return (

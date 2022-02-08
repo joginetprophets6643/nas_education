@@ -1,7 +1,7 @@
 import React from 'react';
-import TopBar from '../TopBar/TopBar';
-import Tabs from '../Tabs/Tabs';
-import TabContent from '../TabContent/TabContent';
+import TopBar from '@/components/Visualization/TopBar/TopBar';
+import Tabs from '@/components/Visualization/Tabs/Tabs';
+import TabContent from '@/components/Visualization/TabContent/TabContent';
 
 const Main = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import Globe from '../../../assets/images/globe-icon.svg';
-import GraphCard from '../GraphCard/GraphCard';
+import Globe from '@/assets/images/globe-icon.svg';
+import GraphCard from '@/components/Visualization/GraphCard/GraphCard';
 
 const AveragePerormance = () => {
   return (

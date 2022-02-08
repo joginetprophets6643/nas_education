@@ -1,5 +1,5 @@
 import React from 'react';
-import Globe from "../../../assets/images/globe-icon.svg";
+import Globe from "@/assets/images/globe-icon.svg";
 
 const SubjectCard = () => {
   return (

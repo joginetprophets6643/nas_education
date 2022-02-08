@@ -1,7 +1,7 @@
 import React from 'react';
-import AveragePerormance from '../AveragePerformance/AveragePerormance';
-import SubjectCard from '../SubjectCard/SubjectCard';
-import WhiteCard from '../WhiteCard/WhiteCard';
+import AveragePerormance from '@/components/Visualization/AveragePerformance/AveragePerormance';
+import SubjectCard from '@/components/Visualization/SubjectCard/SubjectCard';
+import WhiteCard from '@/components/Visualization/WhiteCard/WhiteCard';
 
 
 const TabContent = () => {
