@@ -347,7 +347,7 @@
               </p>
           </div>
           <div class="col-md-6 mb-4-sm">
-              <a href="{{url('/report-card')}}" class="links-card report-bg" data-aos="fade-up">
+              <a href="{{url('/report-card')}}" target="_blank" class="links-card report-bg" data-aos="fade-up">
                   <div class="links-content">
                     <div class="d-flex align-items-center">
                       <div class="link-icon">
@@ -376,7 +376,7 @@
               </a>
           </div>
           <div class="col-md-6">
-            <a href="{{url('visualization')}}" class="links-card analytics-bg mb-4" data-aos="fade-up">
+            <a href="{{url('visualization')}}" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -403,7 +403,7 @@
                 </button>
               </div>
             </a>
-            <a href="{{url('/data-share')}}" class="links-card data-bg" data-aos="fade-up">
+            <a href="{{url('/data-share')}}" target="_blank" class="links-card data-bg" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -889,7 +889,8 @@
     const activeState = JSON.parse(sessionStorage.getItem('activeState'))
     console.log(activeState)
     if(activeState !== null){
-      location.href = base_url + 'report-card/nas-2021'
+      window.open(base_url + 'report-card/nas-2021', '_blank');
+      // location.href = base_url + 'report-card/nas-2021'
     }
   }
 
