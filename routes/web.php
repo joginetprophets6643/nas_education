@@ -20,6 +20,8 @@ use App\Http\Controllers\PdfGenerateController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
+Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
 
 Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);
 
