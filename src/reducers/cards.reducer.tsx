@@ -1,28 +1,28 @@
-import { GRADE_FETCH_FULFILLED, GRADE_FETCH_PENDING, GRADE_FETCH_REJECTED } from "@/constants/types";
+import { CARDS_FETCH_FULFILLED, CARDS_FETCH_PENDING, CARDS_FETCH_REJECTED } from "@/constants/types";
 import { IntialStateModel } from "@/models/visualization";
-const initialGradeList = {
+const initialCardData = {
     loading: false,
     loaded: false,
     error: false,
-    data: 3
+    data: []
 } as IntialStateModel
 
 
-export const gradeReducer = function (state = initialGradeList,action: any) {
+export const cardsReducers = function (state = initialCardData,action: any) {
     const { type, payload } = action;
     switch (type) {
-        case GRADE_FETCH_PENDING: {
+        case CARDS_FETCH_PENDING: {
             return { ...state, loading: true };
         }
-        case GRADE_FETCH_FULFILLED: {
+        case CARDS_FETCH_FULFILLED: {
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                data: payload
+                data: payload.data.data
             };
         }
-        case GRADE_FETCH_REJECTED: {
+        case CARDS_FETCH_REJECTED: {
             return { ...state, loading: false, loaded: false, error: true };
         }
         default:
