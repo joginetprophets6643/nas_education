@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Visualization_Participation_Tbl extends Model
+{
+    use HasFactory;
+    protected $table = 'visualization_participation_tbl';
+    protected $fillable = ['*'];
+    public $timestamps = true;
+}
