@@ -19,9 +19,10 @@ class PdfGenerateController extends Controller
         $districtData = District_Master::select('id','state_name','district_name','udise_district_code','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
                             ->with(['DistrictParticipation'=>function($participation){
                                 $participation->select('id','state_id','district_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
+                                $participation->with(['DistrictPerformance']);
                                 $participation->orderBy('grade','asc');
                             }])
-                            ->whereIn('udise_district_code',['710','721','715'])
+                            ->whereIn('udise_district_code',['710'])
                             ->get();
         // dd($districtData);
         if(count($districtData)>0)
@@ -44,6 +45,7 @@ class PdfGenerateController extends Controller
         $districtData = District_Master::select('id','state_name','district_name','udise_district_code','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
                             ->with(['DistrictParticipation'=>function($participation){
                                 $participation->select('id','state_id','district_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
+                                $participation->with(['DistrictPerformance']);
                                 $participation->orderBy('grade','asc');
                             }])
                             ->whereIn('udise_district_code',['710'])
@@ -55,7 +57,7 @@ class PdfGenerateController extends Controller
             foreach($districtData as $districtVal)
             {
                 $districtParticipationData = $districtVal['DistrictParticipation'];
-                // dd($districtVal['DistrictParticipation']);
+                // dd($districtVal['DistrictParticipation'][0]['DistrictPerformance']);
                 $folderPath = public_path('nas_pdf/national/'.$districtVal->udise_state_code.'/'.$districtVal->udise_district_code.'/');
 
                 if(File::isDirectory($folderPath)){

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-<link href="http://nas21.inroad.in/report-pdf/assets/scss/bootstrap.min.css" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="http://nas21.inroad.in/report-pdf/assets/scss/bootstrap.min.css" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- Material Icons -->
     <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/material-icons.css">
@@ -61,11 +62,11 @@
             <div class="reportview-container">
               <div class="reportview-content-wrap">
                 <div class="reportview-content dark-blue-bg">
-                  <!-- <div class="row">
+                  <div class="row">
                     <div class="col-md-4">
                       <div class="imgwrap text-start">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/ncert-view.svg"
+                          src="http://nas21.inroad.in/report-pdf/assets/images/ncert-view.jpg"
                           alt="img"
                           class="img-fluid"
                         />
@@ -74,7 +75,7 @@
                     <div class="col-md-4">
                       <div class="imgwrap text-center">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/ministry-view.svg"
+                          src="http://nas21.inroad.in/report-pdf/assets/images/ministry-view.jpg"
                           alt="img"
                           class="img-fluid"
                         />
@@ -83,13 +84,13 @@
                     <div class="col-md-4">
                       <div class="imgwrap text-end">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/cbse-view.svg"
+                          src="http://nas21.inroad.in/report-pdf/assets/images/cbsc-view.png"
                           alt="img"
                           class="img-fluid"
                         />
                       </div>
                     </div>
-                  </div> -->
+                  </div>
                   <h2 class="heading-white-xl text-center ptb-30">
                     District Report Card
                   </h2>
@@ -284,29 +285,29 @@
                       <div class="row align-items-center text-center">
                         <div class="col-md-4">
                           <div class="img-tile dark-blue-bg mb-3">
-                            <!-- <img class="school-img" src="http://nas21.inroad.in/report-pdf/assets/images/School.svg" alt="school" /> -->
+                            <img class="school-img" src="http://nas21.inroad.in/report-pdf/assets/images/school.jpg" alt="school" />
                           </div>
                           <h4 class="heading-black-bold">Schools</h4>
                           <span>{{isset($districtParticipation->total_school)?$districtParticipation->total_school:'0'}}</span>
                         </div>
                         <div class="col-md-4">
                           <div class="img-tile dark-blue-bg mb-3">
-                            <!-- <img
-                              src="http://nas21.inroad.in/report-pdf/assets/images/teachers-draw.svg"
+                            <img
+                              src="http://nas21.inroad.in/report-pdf/assets/images/teacher.jpg"
                               class="teacher-img"
                               alt="teacher"
-                            /> -->
+                            />
                           </div>
                           <h4 class="heading-black-bold">Teachers</h4>
                           <span>{{isset($districtParticipation->total_teacher)?$districtParticipation->total_teacher:'0'}}</span>
                         </div>
                         <div class="col-md-4">
                           <div class="img-tile dark-blue-bg mb-3">
-                            <!-- <img
-                              src="http://nas21.inroad.in/report-pdf/assets/images/students.svg"
+                            <img
+                              src="http://nas21.inroad.in/report-pdf/assets/images/students.jpg"
                               class="student-img"
                               alt="students"
-                            /> -->
+                            />
                           </div>
                           <h4 class="heading-black-bold">Students</h4>
                           <span>{{isset($districtParticipation->total_student)?$districtParticipation->total_student:'0'}}</span>
@@ -319,60 +320,119 @@
                         Average Performance of Students
                       </h3>
                       <div class="row graph-mark">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-2">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure">
-                              <div id="language"></div>
-                              <div class="category text-center card-blue p-1">
-                                <span class="text-white text-28">Language</span>
+                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                          @foreach($districtParticipation['DistrictPerformance'] as $avgPerformance)
+                            @if($districtParticipation->grade==$avgPerformance->grade)
+                            @php 
+                              $dataArr = json_decode($avgPerformance->data,true);
+                              if($avgPerformance->grade==3 || $avgPerformance->grade==5)
+                              {
+                                $fcol = 3;
+                                $lcol = 2;
+                              }
+                              if($avgPerformance->grade==8)
+                              {
+                                $fcol = 2;
+                                $lcol = 2;
+                              }
+                              if($avgPerformance->grade==10)
+                              {
+                                $fcol = 1;
+                                $lcol = 2;
+                              }
+                            @endphp
+                            <div class="col-md-{{$fcol}}"></div>
+                            @if($avgPerformance->grade==3 || $avgPerformance->grade==5 ||$avgPerformance->grade==8)
+                            <div class="col-md-{{$lcol}}">
+                              <div class="graph-wrap">
+                                <figure class="highcharts-figure">
+                                  <div id="language{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                  <div class="category text-center card-blue p-1">
+                                    <span class="text-white text-28">Language</span>
+                                  </div>
+                                </figure>
                               </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <!-- added -->
-                        <div class="col-md-2">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure">
-                              <div id="language-1"></div>
-                              <div class="category text-center card-blue p-1">
-                                <span class="text-white text-28">Language</span>
+                            </div>
+                            @endif
+                            @if($avgPerformance->grade==3 || $avgPerformance->grade==5 || $avgPerformance->grade==8 ||$avgPerformance->grade==10)
+                            <!-- added ended -->
+                            <div class="col-md-{{$lcol}}">
+                              <div class="graph-wrap">
+                                <figure class="highcharts-figure">
+                                  <div id="maths{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                  <div class="category text-center card-pink p-1">
+                                    <span class="text-white text-28">Mathematics</span>
+                                  </div>
+                                </figure>
                               </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure">
-                              <div id="language-2"></div>
-                              <div class="category text-center card-blue p-1">
-                                <span class="text-white text-28">Language</span>
+                            </div>
+                            @endif
+                            @if($avgPerformance->grade==3 || $avgPerformance->grade==5)
+                            <div class="col-md-{{$lcol}}">
+                              <div class="graph-wrap">
+                                <figure class="highcharts-figure">
+                                  <div id="evs{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                  <div class="category text-center card-yellow p-1">
+                                    <span class="text-white text-28">EVS</span>
+                                  </div>
+                                </figure>
                               </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <!-- added ended -->
-                        <div class="col-md-2">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure">
-                              <div id="maths"></div>
-                              <div class="category text-center card-pink p-1">
-                                <span class="text-white text-28">Mathematics</span>
+                            </div>
+                            @endif
+                            <!-- added -->
+                            @if($avgPerformance->grade==8 ||$avgPerformance->grade==10)
+                            <div class="col-md-{{$lcol}}">
+                              <div class="graph-wrap">
+                                <figure class="highcharts-figure">
+                                  <div id="science{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                  <div class="category text-center card-sagegreen p-1">
+                                    <span class="text-white text-28">Science</span>
+                                  </div>
+                                </figure>
                               </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure">
-                              <div id="evs"></div>
-                              <div class="category text-center card-yellow p-1">
-                                <span class="text-white text-28">EVS</span>
+                            </div>
+                            @endif
+                            @if($avgPerformance->grade==8 ||$avgPerformance->grade==10)
+                            <div class="col-md-{{$lcol}}">
+                              <div class="graph-wrap">
+                                <figure class="highcharts-figure">
+                                  <div id="socialscience{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                  <div class="category text-center card-green p-1">
+                                    <span class="text-white text-28">Social Science</span>
+                                  </div>
+                                </figure>
                               </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-1"></div>
+                            </div>
+                            @endif
+                            @if($avgPerformance->grade==10)
+                            <div class="col-md-{{$lcol}}">
+                              <div class="graph-wrap">
+                                <figure class="highcharts-figure">
+                                  <div id="mil{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                  <div class="category text-center card-red p-1">
+                                    <span class="text-white text-28">MIL</span>
+                                  </div>
+                                </figure>
+                              </div>
+                            </div>
+                            @endif
+                            @if($avgPerformance->grade==10)
+                            <div class="col-md-2">
+                              <div class="graph-wrap">
+                                <figure class="highcharts-figure">
+                                  <div id="english{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                  <div class="category text-center card-purple p-1">
+                                    <span class="text-white text-28">English</span>
+                                  </div>
+                                </figure>
+                              </div>
+                            </div>
+                            @endif
+                            <div class="col-md-{{$fcol}}"></div>
+                            @include('pdf.firstgraph')
+                            @endif
+                          @endforeach
+                        @endif
                       </div>
                     </div>
                     <!-- student percentage -->
@@ -381,36 +441,88 @@
                         Percentage of Students in Performance Level
                       </h3>
                       <div class="row mt-4">
-                        <!-- row1 -->
-                        <div class="col-md-4"></div>
-                        <div class="col-md-2 tile-dark-blue">Below Basic</div>
-                        <div class="col-md-2 tile-dark-blue">Basic</div>
-                        <div class="col-md-2 tile-dark-blue">Proficient</div>
-                        <div class="col-md-2 tile-dark-blue">Advanced</div>
-                        <!-- row 2 -->
-                        <div class="col-md-4 tile-left-light-blue card-blue">
-                          Language
-                        </div>
-                        <div class="col-md-2 tile-light-blue card-blue">2</div>
-                        <div class="col-md-2 tile-light-blue card-blue">18</div>
-                        <div class="col-md-2 tile-light-blue card-blue">48</div>
-                        <div class="col-md-2 tile-light-blue card-blue">32</div>
-                        <!-- row 3 -->
-                        <div class="col-md-4 tile-left-pink card-pink">
-                          Mathematics
-                        </div>
-                        <div class="col-md-2 tile-pink card-pink">2</div>
-                        <div class="col-md-2 tile-pink card-pink">18</div>
-                        <div class="col-md-2 tile-pink card-pink">48</div>
-                        <div class="col-md-2 tile-pink card-pink">32</div>
-                        <!-- row 4 -->
-                        <div class="col-md-4 tile-left-green card-yellow">
-                          EVS
-                        </div>
-                        <div class="col-md-2 tile-green card-yellow">2</div>
-                        <div class="col-md-2 tile-green card-yellow">18</div>
-                        <div class="col-md-2 tile-green card-yellow">48</div>
-                        <div class="col-md-2 tile-green card-yellow">32</div>
+                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                          @foreach($districtParticipation['DistrictPerformance'] as $avgPerformance)
+                            @if($districtParticipation->grade==$avgPerformance->grade)
+                            @php 
+                            $dataArr = json_decode($avgPerformance->data,true);
+                            @endphp
+                              <!-- row1 -->
+                              <div class="col-md-4"></div>
+                              <div class="col-md-2 tile-dark-blue">Below Basic</div>
+                              <div class="col-md-2 tile-dark-blue">Basic</div>
+                              <div class="col-md-2 tile-dark-blue">Proficient</div>
+                              <div class="col-md-2 tile-dark-blue">Advanced</div>
+                              <!-- row 2 -->
+                              @if($districtParticipation->grade==3 || $districtParticipation->grade==5 ||$districtParticipation->grade==8)
+                              <div class="col-md-4 tile-left-light-blue card-blue">
+                                Language
+                              </div>
+                              <div class="col-md-2 tile-light-blue card-blue">{{(int)$dataArr['language']['performance_level']['district']['below_basic']}}</div>
+                              <div class="col-md-2 tile-light-blue card-blue">{{(int)$dataArr['language']['performance_level']['district']['basic']}}</div>
+                              <div class="col-md-2 tile-light-blue card-blue">{{(int)$dataArr['language']['performance_level']['district']['proficient']}}</div>
+                              <div class="col-md-2 tile-light-blue card-blue">{{(int)$dataArr['language']['performance_level']['district']['advanced']}}</div>
+                              @endif
+                              @if($districtParticipation->grade==3 || $districtParticipation->grade==5 || $districtParticipation->grade==8 ||$districtParticipation->grade==10)
+                              <!-- row 3 -->
+                              <div class="col-md-4 tile-left-pink card-pink">
+                                Mathematics
+                              </div>
+                              <div class="col-md-2 tile-pink card-pink">{{(int)$dataArr['math']['performance_level']['district']['below_basic']}}</div>
+                              <div class="col-md-2 tile-pink card-pink">{{(int)$dataArr['math']['performance_level']['district']['basic']}}</div>
+                              <div class="col-md-2 tile-pink card-pink">{{(int)$dataArr['math']['performance_level']['district']['proficient']}}</div>
+                              <div class="col-md-2 tile-pink card-pink">{{(int)$dataArr['math']['performance_level']['district']['advanced']}}</div>
+                              @endif
+                              <!-- row 4 -->
+                              @if($districtParticipation->grade==3 || $districtParticipation->grade==5)
+                              <div class="col-md-4 tile-left-green card-yellow">
+                                EVS
+                              </div>
+                              <div class="col-md-2 tile-green card-yellow">{{(int)$dataArr['evs']['performance_level']['district']['below_basic']}}</div>
+                              <div class="col-md-2 tile-green card-yellow">{{(int)$dataArr['evs']['performance_level']['district']['basic']}}</div>
+                              <div class="col-md-2 tile-green card-yellow">{{(int)$dataArr['evs']['performance_level']['district']['proficient']}}</div>
+                              <div class="col-md-2 tile-green card-yellow">{{(int)$dataArr['evs']['performance_level']['district']['advanced']}}</div>
+                              @endif
+                              @if($districtParticipation->grade==8 ||$districtParticipation->grade==10)
+                              <div class="col-md-4 tile-left-green card-sagegreen">
+                                Science
+                              </div>
+                              <div class="col-md-2 tile-green card-sagegreen">{{(int)$dataArr['sci']['performance_level']['district']['below_basic']}}</div>
+                              <div class="col-md-2 tile-green card-sagegreen">{{(int)$dataArr['sci']['performance_level']['district']['basic']}}</div>
+                              <div class="col-md-2 tile-green card-sagegreen">{{(int)$dataArr['sci']['performance_level']['district']['proficient']}}</div>
+                              <div class="col-md-2 tile-green card-sagegreen">{{(int)$dataArr['sci']['performance_level']['district']['advanced']}}</div>
+                              @endif
+                              @if($districtParticipation->grade==8 ||$districtParticipation->grade==10)
+                              <div class="col-md-4 tile-left-green card-green">
+                                Social Science
+                              </div>
+                              <div class="col-md-2 tile-green card-green">{{(int)$dataArr['sst']['performance_level']['district']['below_basic']}}</div>
+                              <div class="col-md-2 tile-green card-green">{{(int)$dataArr['sst']['performance_level']['district']['basic']}}</div>
+                              <div class="col-md-2 tile-green card-green">{{(int)$dataArr['sst']['performance_level']['district']['proficient']}}</div>
+                              <div class="col-md-2 tile-green card-green">{{(int)$dataArr['sst']['performance_level']['district']['advanced']}}</div>
+                              @endif
+                              @if($districtParticipation->grade==10)
+                              <div class="col-md-4 tile-left-green card-red">
+                                MIL
+                              </div>
+                              <div class="col-md-2 tile-green card-red">{{(int)$dataArr['mil']['performance_level']['district']['below_basic']}}</div>
+                              <div class="col-md-2 tile-green card-red">{{(int)$dataArr['mil']['performance_level']['district']['basic']}}</div>
+                              <div class="col-md-2 tile-green card-red">{{(int)$dataArr['mil']['performance_level']['district']['proficient']}}</div>
+                              <div class="col-md-2 tile-green card-red">{{(int)$dataArr['mil']['performance_level']['district']['advanced']}}</div>
+                              @endif
+                              @if($districtParticipation->grade==10)
+                              <div class="col-md-4 tile-left-green card-purple">
+                                English
+                              </div>
+                              <div class="col-md-2 tile-green card-purple">{{(int)$dataArr['eng']['performance_level']['district']['below_basic']}}</div>
+                              <div class="col-md-2 tile-green card-purple">{{(int)$dataArr['eng']['performance_level']['district']['basic']}}</div>
+                              <div class="col-md-2 tile-green card-purple">{{(int)$dataArr['eng']['performance_level']['district']['proficient']}}</div>
+                              <div class="col-md-2 tile-green card-purple">{{(int)$dataArr['eng']['performance_level']['district']['advanced']}}</div>
+                              @endif  
+                            @endif
+                          @endforeach
+                        @endif
+
                       </div>
                     </div>
                   </div>
@@ -650,10 +762,10 @@
                         </div>
                         <div class="p-0" style="width:33.33%;">
                           <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
+                            <figure class="highcharts-figure graph-level4">
                               <div id="rc3-mathBarGraph3-3"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17">Mathematics</span>
+                              <div class="category text-center card-blue mx-4">
+                                <span class="text-white text-17">Language</span>
                               </div>
                             </figure>
                           </div>
@@ -685,8 +797,8 @@
                     <!-- Social -->
                     <div class="col-md-8 left mb-4">
                       <h4 class="">Performance by Social Group</h4>
-                      <div class="row mb-60" style="width:100%">
-                        <div class="col-md-4 p-0">
+                      <div class="d-flex flex-wrap mb-60">
+                        <div class="p-0" style="width: 33.33%">
                           <div class="graph-wrap">
                             <figure class="highcharts-figure graph-level1">
                               <div id="rc3-languageBarGraph4"></div>
@@ -696,17 +808,41 @@
                             </figure>
                           </div>
                         </div>
-                        <div class="col-md-4 p-0">
+                        <div class="p-0" style="width: 33.33%">
                           <div class="graph-wrap">
                             <figure class="highcharts-figure graph-level2">
                               <div id="rc3-mathBarGraph4"></div>
                               <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17">Mathematics</span>
+                                <span class="text-white text-17"
+                                  >Mathematics</span
+                                >
                               </div>
                             </figure>
                           </div>
                         </div>
-                        <div class="col-md-4 p-0">
+                        <div class="p-0" style="width: 33.33%">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level2">
+                              <div id="rc3-mathBarGraph4-2"></div>
+                              <div class="category text-center card-pink mx-4">
+                                <span class="text-white text-17"
+                                  >Mathematics</span
+                                >
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="p-0" style="width: 33.33%">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level4">
+                              <div id="rc3-languageBarGraph4-2"></div>
+                              <div class="category text-center card-blue mx-4">
+                                <span class="text-white text-17">Language</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="p-0" style="width: 33.33%">
                           <div class="graph-wrap">
                             <figure class="highcharts-figure graph-level3">
                               <div id="rc3-evsBarGraph4"></div>
@@ -1305,350 +1441,6 @@
           </div>
 
     <script>
-      // Create the language bar graph
-      Highcharts.chart("language", {
-        chart: {
-          type: "column",
-          height: "250",
-          width: "120",
-        },
-        title: {
-          text: "",
-        },
-        accessibility: {
-          announceNewData: {
-            enabled: true,
-          },
-        },
-        xAxis: {
-          type: "category",
-        },
-        yAxis: {
-          title: {
-            text: "",
-          },
-        },
-        legend: {
-          enabled: false,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 10,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-
-        tooltip: {
-          headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-          pointFormat:
-            '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b> of total<br/>',
-        },
-
-        series: [
-          {
-            name: "Students",
-            colorByPoint: true,
-            data: [
-              {
-                name: "District",
-                y: 77,
-                color: "#527698",
-              },
-              {
-                name: "State",
-                y: 72,
-                color: "#6997C3",
-              },
-              {
-                name: "National",
-                y: 24,
-                color: "#91B9E1",
-              },
-            ],
-          },
-        ],
-      });
-      // changes added
-      Highcharts.chart("language-1", {
-        chart: {
-          type: "column",
-          height: "250",
-          width: "120",
-        },
-        title: {
-          text: "",
-        },
-        accessibility: {
-          announceNewData: {
-            enabled: true,
-          },
-        },
-        xAxis: {
-          type: "category",
-        },
-        yAxis: {
-          title: {
-            text: "",
-          },
-        },
-        legend: {
-          enabled: false,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 10,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-
-        tooltip: {
-          headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-          pointFormat:
-            '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b> of total<br/>',
-        },
-
-        series: [
-          {
-            name: "Students",
-            colorByPoint: true,
-            data: [
-              {
-                name: "District",
-                y: 77,
-                color: "#527698",
-              },
-              {
-                name: "State",
-                y: 72,
-                color: "#6997C3",
-              },
-              {
-                name: "National",
-                y: 24,
-                color: "#91B9E1",
-              },
-            ],
-          },
-        ],
-      });
-      Highcharts.chart("language-2", {
-        chart: {
-          type: "column",
-          height: "250",
-          width: "120",
-        },
-        title: {
-          text: "",
-        },
-        accessibility: {
-          announceNewData: {
-            enabled: true,
-          },
-        },
-        xAxis: {
-          type: "category",
-        },
-        yAxis: {
-          title: {
-            text: "",
-          },
-        },
-        legend: {
-          enabled: false,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 10,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-
-        tooltip: {
-          headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-          pointFormat:
-            '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b> of total<br/>',
-        },
-
-        series: [
-          {
-            name: "Students",
-            colorByPoint: true,
-            data: [
-              {
-                name: "District",
-                y: 77,
-                color: "#527698",
-              },
-              {
-                name: "State",
-                y: 72,
-                color: "#6997C3",
-              },
-              {
-                name: "National",
-                y: 24,
-                color: "#91B9E1",
-              },
-            ],
-          },
-        ],
-      });
-      // Create the maths bar graph
-      Highcharts.chart("maths", {
-        chart: {
-          type: "column",
-          height: "250",
-          width: "120",
-        },
-        title: {
-          text: "",
-        },
-        accessibility: {
-          announceNewData: {
-            enabled: true,
-          },
-        },
-        xAxis: {
-          type: "category",
-        },
-        yAxis: {
-          title: {
-            text: "",
-          },
-        },
-        legend: {
-          enabled: false,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 10,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-
-        tooltip: {
-          headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-          pointFormat:
-            '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b> of total<br/>',
-        },
-
-        series: [
-          {
-            name: "Students",
-            colorByPoint: true,
-            data: [
-              {
-                name: "District",
-                y: 77,
-                color: "#A3536F",
-              },
-              {
-                name: "State",
-                y: 72,
-                color: "#D26A8E",
-              },
-              {
-                name: "National",
-                y: 24,
-                color: "#ED91B1",
-              },
-            ],
-          },
-        ],
-      });
-      // Create the evs bar graph
-      Highcharts.chart("evs", {
-        chart: {
-          type: "column",
-          height: "250",
-          width: "120",
-        },
-        title: {
-          text: "",
-        },
-        accessibility: {
-          announceNewData: {
-            enabled: true,
-          },
-        },
-        xAxis: {
-          type: "category",
-        },
-        yAxis: {
-          title: {
-            text: "",
-          },
-        },
-        legend: {
-          enabled: false,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 10,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-
-        tooltip: {
-          headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-          pointFormat:
-            '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b> of total<br/>',
-        },
-
-        series: [
-          {
-            name: "Students",
-            colorByPoint: true,
-            data: [
-              {
-                name: "District",
-                y: 77,
-                color: "#8D8A43",
-              },
-              {
-                name: "State",
-                y: 72,
-                color: "#B6B156",
-              },
-              {
-                name: "National",
-                y: 24,
-                color: "#D5D17F",
-              },
-            ],
-          },
-        ],
-      });
       // GENDER CHart
       // Reportcard-languageBarGraph1
       Highcharts.chart("rc3-languageBarGraph1", {
@@ -2324,7 +2116,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 2.5,
+            pointWidth: 5,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -2398,7 +2190,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 2.5,
+            pointWidth: 5,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -2470,7 +2262,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 2.5,
+            pointWidth: 5,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -2508,9 +2300,9 @@
       Highcharts.chart("rc3-mathBarGraph3-3", {
         chart: {
           height: 300,
-          width: 370,
+          width:370,
           type: "column",
-          margin: [40, 0, 60, 40],
+         margin: [40, 0, 60, 40],
         },
         title: {
           text: "",
@@ -2525,6 +2317,7 @@
             rotation: -90,
             y: 10,
           },
+          
         },
         yAxis: {
           min: 0,
@@ -2542,7 +2335,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 2.5,
+            pointWidth: 5,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -2557,22 +2350,22 @@
         series: [
           {
             name: "Govt.",
-            color: "#A3536F",
+            color: "#527698",
             data: [82, 78, 78],
           },
           {
             name: "Govt. Aided",
-            color: "#D26A8E",
+            color: "#6997C3",
             data: [88, 69, 69],
           },
           {
             name: "Private",
-            color: "#E9769F",
+            color: "#75A9D9",
             data: [82, 78, 78],
           },
           {
             name: "Central Govt",
-            color: "#F09FBB",
+            color: "#9EC2E4",
             data: [88, 69, 69],
           },
         ],
@@ -2616,7 +2409,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 2.5,
+            pointWidth: 5,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -2651,11 +2444,12 @@
           },
         ],
       });
-      // Social CHart
-      // Reportcard-languageBarGraph4
+      /*************** Social CHart ***************/
+      // chart 1
       Highcharts.chart("rc3-languageBarGraph4", {
         chart: {
           height: 300,
+          width: 370,
           type: "column",
           margin: [40, 0, 60, 40],
         },
@@ -2689,7 +2483,8 @@
         },
         plotOptions: {
           column: {
-            pointPadding: 0.1,
+            pointWidth: 5,
+            pointPadding: 0,
             borderWidth: 0,
           },
           series: {
@@ -2724,12 +2519,13 @@
         ],
       });
 
-      // Reportcard-mathBarGraph4
+      // chart 2
       Highcharts.chart("rc3-mathBarGraph4", {
         chart: {
           height: 300,
+          width: 370,
           type: "column",
-          margin: [40, 0, 60, 0],
+          margin: [40, 0, 60, 40],
         },
         title: {
           text: "",
@@ -2761,7 +2557,8 @@
         },
         plotOptions: {
           column: {
-            pointPadding: 0.1,
+            pointWidth: 5,
+            pointPadding: 0,
             borderWidth: 0,
           },
           series: {
@@ -2795,13 +2592,13 @@
           },
         ],
       });
-
-      // Reportcard-evsBarGraph4
-      Highcharts.chart("rc3-evsBarGraph4", {
+      // chart 3
+      Highcharts.chart("rc3-mathBarGraph4-2", {
         chart: {
           height: 300,
+          width: 370,
           type: "column",
-          margin: [40, 0, 60, 0],
+          margin: [40, 0, 60, 40],
         },
         title: {
           text: "",
@@ -2816,7 +2613,6 @@
             rotation: -90,
             y: 10,
           },
-          
         },
         yAxis: {
           min: 0,
@@ -2834,7 +2630,155 @@
         },
         plotOptions: {
           column: {
-            pointPadding: 0.1,
+            pointWidth: 5,
+            pointPadding: 0,
+            borderWidth: 0,
+          },
+          series: {
+            borderWidth: 0,
+            dataLabels: {
+              enabled: true,
+              format: "{point.y}",
+            },
+          },
+        },
+        series: [
+          {
+            name: "Govt.",
+            color: "#A3536F",
+            data: [82, 78, 78],
+          },
+          {
+            name: "Govt. Aided",
+            color: "#D26A8E",
+            data: [88, 69, 69],
+          },
+          {
+            name: "Private",
+            color: "#E9769F",
+            data: [82, 78, 78],
+          },
+          {
+            name: "Central Govt",
+            color: "#F09FBB",
+            data: [88, 69, 69],
+          },
+        ],
+      });
+      // chart 4
+      Highcharts.chart("rc3-languageBarGraph4-2", {
+        chart: {
+          height: 300,
+          width: 370,
+          type: "column",
+          margin: [40, 0, 60, 40],
+        },
+        title: {
+          text: "",
+        },
+        legend: {
+          enabled: false,
+        },
+        xAxis: {
+          categories: ["District", "State", "National"],
+          crosshair: true,
+          labels: {
+            rotation: -90,
+            y: 10,
+          },
+        },
+        yAxis: {
+          min: 0,
+          title: false,
+        },
+        tooltip: {
+          headerFormat:
+            '<span style="font-size:10px">{point.key}</span><table>',
+          pointFormat:
+            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
+          footerFormat: "</table>",
+          shared: true,
+          useHTML: true,
+        },
+        plotOptions: {
+          column: {
+            pointWidth: 5,
+            pointPadding: 0,
+            borderWidth: 0,
+          },
+          series: {
+            borderWidth: 0,
+            dataLabels: {
+              enabled: true,
+              format: "{point.y}",
+            },
+          },
+        },
+        series: [
+          {
+            name: "Govt.",
+            color: "#527698",
+            data: [82, 78, 78],
+          },
+          {
+            name: "Govt. Aided",
+            color: "#6997C3",
+            data: [88, 69, 69],
+          },
+          {
+            name: "Private",
+            color: "#75A9D9",
+            data: [82, 78, 78],
+          },
+          {
+            name: "Central Govt",
+            color: "#9EC2E4",
+            data: [88, 69, 69],
+          },
+        ],
+      });
+
+      // chart 5
+      Highcharts.chart("rc3-evsBarGraph4", {
+        chart: {
+          height: 300,
+          width: 370,
+          type: "column",
+          margin: [40, 0, 60, 40],
+        },
+        title: {
+          text: "",
+        },
+        legend: {
+          enabled: false,
+        },
+        xAxis: {
+          categories: ["District", "State", "National"],
+          crosshair: true,
+          labels: {
+            rotation: -90,
+            y: 10,
+          },
+        },
+        yAxis: {
+          min: 0,
+          title: false,
+        },
+        tooltip: {
+          headerFormat:
+            '<span style="font-size:10px">{point.key}</span><table>',
+          pointFormat:
+            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
+          footerFormat: "</table>",
+          shared: true,
+          useHTML: true,
+        },
+        plotOptions: {
+          column: {
+            pointWidth: 5,
+            pointPadding: 0,
             borderWidth: 0,
           },
           series: {
@@ -2868,6 +2812,7 @@
           },
         ],
       });
+
 
       // Donut Chart
       Highcharts.chart("dc3-managementPieGraph{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {

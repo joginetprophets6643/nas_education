@@ -12,4 +12,9 @@ class AllGradeParticipationTBL extends Model
     protected $fillable = ['*'];
     public $timestamps = true;
 
+    public function DistrictPerformance()
+    {
+        return $this->hasMany(PerformanceMaster::class,'district_id','district_id');
+    }    
+
 }
