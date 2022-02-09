@@ -9,6 +9,7 @@ use App\Http\Controllers\QuestionnaireController;
 use App\Http\Controllers\PerformanceController;
 use App\Http\Controllers\LearningOutcomeController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\PdfGenerateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,8 @@ use App\Http\Controllers\FeedbackController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
+Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
 
 Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);
 
@@ -40,6 +43,9 @@ Route::get('get_feedback_tq',[FeedbackController::class,'get_feedback_tq']);
 Route::get('generateFeedbackanswerkeyTq',[FeedbackController::class,'generateFeedbackanswerkeyTq']);
 Route::get('get_feedback_sq',[FeedbackController::class,'get_feedback_sq']);
 Route::get('generateFeedbackanswerkeySq',[FeedbackController::class,'generateFeedbackanswerkeySq']);
+
+Route::get('district-pdf', [PdfGenerateController::class, 'index']);
+Route::get('download-pdf', [PdfGenerateController::class, 'dwn'])->name('download');
 
 // Route::get('home', 'App\Http\Controllers\MainController@landing');
 // Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');

@@ -31,4 +31,9 @@ class District_Master extends Model
         'teacher_central_govt_schools',
         'teacher_private_unaided_reco_schools'
     ];
+
+    public function DistrictParticipation()
+    {
+        return $this->hasMany(AllGradeParticipationTBL::class,'district_id','udise_district_code');
+    }  
 }
