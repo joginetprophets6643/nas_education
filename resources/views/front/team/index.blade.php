@@ -28,27 +28,27 @@
                 <div class="card-white">
                 @foreach($members as $key =>$member)
                     <div class="nasteam-list mb-4">
+                    @if($key)
                     <div class="row">
-                        @if($key)
-                        <div class="col-md-12 nasteam-heading p-0">
+                        @if($key=="NAS-2021 National Steering Committee")
+                        <div class="col-md-12 p-0 nasteam-heading dark-blue">
 
-                            @if($key=="NAS-2021 National Steering Committee")
-                            <h2 class="heading-black-sm" style="background-color:#4F83B2;">
+                            <h2 class="heading-white">
                             {{$key}}
                             </h2>
-                            @else
-                            <h2 class="heading-black-sm" style="background-color:#BE4E76;">
-                            {{$key}}
-                            </h2>
-                            @endif
-                            
                         </div>
-                          
+                        @else
+                        <div class="col-md-12 p-0 nasteam-heading dark-pink">
+                        <h2 class="heading-white">
+                        {{$key}}
+                        </h2>
+                        </div>
+                        @endif
                     </div> 
                         <ul>
                             <li>
                             <div class="row">
-                                @foreach($member as $mem)
+                            @foreach($member as $mem)
                                 @if($key=="NAS-2021 National Steering Committee")
                                 <div class="col-md-4 nasteam-container team-blue">
                                     <div class="nasteam-content">
@@ -102,247 +102,13 @@
                                 @endif
                                 @endforeach
                             </div>
-</li>
-</ul>
-<br>
+                            </li>
+                    </ul>
                         @endif
-                        @endforeach
                         </div>
-                                <!-- <div class="col-md-4 nasteam-container team-blue">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Maneesh Garg
-                                        </h2>
-                                        <p class="title">
-                                            IAS, Jt. Secretary, DoSEL, Min. of Education 
-                                        </p>
-                                        <p class="number">
-                                            011-23386232
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-blue">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Prof. (Dr.) Sridhar Srivastava
-                                        </h2>
-                                        <p class="title">
-                                            Director NCERT 
-                                        </p>
-                                        <p class="number">
-                                            011-26519154, 011-26510105
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            </li>
-                            <li>
-                            <div class="row">
-                                <div class="col-md-4 nasteam-container team-blue">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Prem Singh
-                                        </h2>
-                                        <p class="title">
-                                            IAS, Advisor, NITI Aayog 
-                                        </p>
-                                        <p class="number">
-                                            011-23096677, 011-23096688
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-blue">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            P.K. Banerjee
-                                        </h2>
-                                        <p class="title">
-                                            DDG (Stats), DoSEL,Min. of Education 
-                                        </p>
-                                        <p class="number">
-                                            011-26712464
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-blue">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Prof. (Dr.) IndraniBhaduri
-                                        </h2>
-                                        <p class="title">
-                                            Head, ESD, NCERT 
-                                        </p>
-                                        <p class="number">
-                                            011-26592143
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            </li>
-                            <li>
-                            <div class="row">
-                                <div class="col-md-4 nasteam-container team-blue">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            J.P. Pandey
-                                        </h2>
-                                        <p class="title">
-                                            Director, DoSEL, Min. of Education 
-                                        </p>
-                                        <p class="number">
-                                            011-23383324
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-blue">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Manoj Kr. Srivastava
-                                        </h2>
-                                        <p class="title">
-                                            Director (PE) Head NAS Cell-CBSE 
-                                        </p>
-                                        <p class="number">
-                                            011-22059683
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-blue">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Saba Akhtar
-                                        </h2>
-                                        <p class="title">
-                                            Scientist F, NIC 
-                                        </p>
-                                        <p class="number">
-                                            011-23381570
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            </li>
-                        </ul>     
-                    </div>
+                        @endforeach
 
-                    <div class="nasteam-list">
-                    <div class="row">
-                        <div class="col-md-12 nasteam-heading">
-                            <h2 class="heading-black-sm">
-                                NAS Cell CBSE HQ
-                            </h2>
-                        </div>    
-                    </div> 
-                        <ul>
-                            <li>
-                            <div class="row">
-                                <div class="col-md-4 nasteam-container team-pink">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Manoj Kr. Srivastava
-                                        </h2>
-                                        <p class="title">
-                                            Head (NAS Cell) and Director 
-                                        </p>
-                                        <p class="number">
-                                            011-22059683
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-pink">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Raj Rani Sharma, Dy. Secretary
-                                        </h2>
-                                        <p class="title">
-                                            Admin & Conf 
-                                        </p>
-                                        <p class="number">
-                                            011-22421437
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-pink">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Shambhu Lal Prasad, Dy. Secretary
-                                        </h2>
-                                        <p class="title">
-                                            IT
-                                        </p>
-                                        <p class="number">
-                                            011-22054966
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            </li>
-                            <li>
-                            <div class="row">
-                                <div class="col-md-4 nasteam-container team-pink">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Shekhar Chandra, Dy. Secretary
-                                        </h2>
-                                        <p class="title">
-                                            Exam & A/c 
-                                        </p>
-                                        <p class="number">
-                                            011-22054966
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-pink">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Ajay Gupta, Asst. Secretary
-                                        </h2>
-                                        <p class="title">
-                                            Exam 
-                                        </p>
-                                        <p class="number">
-                                            011-22054966
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 nasteam-container team-pink">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Indu Kumar, Asst. Secretary
-                                        </h2>
-                                        <p class="title">
-                                            Coordination 
-                                        </p>
-                                        <p class="number">
-                                            011-22054966
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            </li>
-                            <li>
-                            <div class="row">
-                                <div class="col-md-4 nasteam-container team-pink">
-                                    <div class="nasteam-content">
-                                        <h2 class="name-blue">
-                                            Pradip Sagar, Accounts Officer
-                                        </h2>
-                                        <p class="title">
-                                            Payments/PFMS 
-                                        </p>
-                                        <p class="number">
-                                            011-22054966
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            </li>
-                        </ul>     
-                    </div> -->
-                <!-- </div>
-        </div>
-        </div>
-    </div> -->
+                                
 </section>
 
 @include('front.includes.footer')
