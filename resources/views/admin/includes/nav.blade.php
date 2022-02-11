@@ -4,7 +4,9 @@
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex align-items-center">
         <a class="navbar-brand brand-logo" href="{{url('/secure-admin/dashboard')}}">
-        <img src="{{asset('assets/admin/vendors/images/logo.png')}}" alt="logo"  />        </a>
+        <img src="{{asset('assets/admin/vendors/images/NAS_Icon.svg')}}" alt="logo"  />
+        <!-- <img src="{{asset('assets/front/images/logo.png')}}" alt="logo"  />         -->
+      </a>
         <!-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('assets/front/images/logo.png')}}" alt="logo" /></a> -->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
