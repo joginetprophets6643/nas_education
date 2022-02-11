@@ -280,9 +280,9 @@
     <script src="{{asset('assets/front/js//in-all-disputed.js')}}"></script>
 
     <script>
-      let api_url ='http://localhost:8055/items/'
-      let backend_api_url = 'http://localhost:8000/api/'
-      let base_url = 'http://localhost:8000/'
+      let api_url ='{{env("API_URL")}}'
+      let backend_api_url = '{{env("BACKEND_API_URL")}}'
+      let base_url = '{{env("BASE_URL")}}'+'/'
       AOS.init({
           duration: 1500,
           disable: 'tablet',

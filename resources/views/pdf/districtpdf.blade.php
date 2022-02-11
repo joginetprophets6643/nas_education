@@ -546,64 +546,119 @@
                     <!-- Gender -->
                     <div class="col-md-8 left mb-4">
                       <h4 class="">Performance by Gender</h4>
-                      <div class="row mb-60"  style="width:100%;">
+                      <div class="d-flex flex-wrap mb-60">
                         <!-- edited -->
-                        <div class="col-md-1"></div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-languageBarGraph1"></div>
-                              <div class="category text-center card-blue mx-4">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-languageBarGraph-2"></div>
-                              <div class="category text-center card-blue mx-4">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-languageBarGraph-3"></div>
-                              <div class="category text-center card-blue mx-4">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph1"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17"
-                                  >Mathematics</span
-                                >
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level3">
-                              <div id="rc3-evsBarGraph1"></div>
-                              <div
-                                class="category text-center card-yellow mx-4"
-                              >
-                                <span class="text-white text-17">EVS</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-1"></div>
+                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                          @foreach($districtParticipation['DistrictPerformance'] as $performanceByGender)
+                            @if($districtParticipation->grade==$performanceByGender->grade)
+                            @php 
+                              $dataGenderArr = json_decode($performanceByGender->data,true);
+                              if($performanceByGender->grade==3 || $performanceByGender->grade==5)
+                              {
+                                $fcol = 33.33;
+                              }
+                              if($performanceByGender->grade==8)
+                              {
+                                $fcol = 25;
+                              }
+                              if($performanceByGender->grade==10)
+                              {
+                                $fcol = 20;
+                              }
+                            @endphp
+                              @if($performanceByGender->grade==3 || $performanceByGender->grade==5 || $performanceByGender->grade==8 ||$performanceByGender->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level1">
+                                      <div id="rc3-mathBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-pink mx-4">
+                                        <span class="text-white text-17"
+                                          >Mathematics</span
+                                        >
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByGender->grade==3 || $performanceByGender->grade==5 ||$performanceByGender->grade==8)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-languageBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-blue mx-4">
+                                        <span class="text-white text-17">Language</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByGender->grade==3 || $performanceByGender->grade==5)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level3">
+                                      <div id="rc3-evsBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div
+                                        class="category text-center card-yellow mx-4"
+                                      >
+                                        <span class="text-white text-17">EVS</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByGender->grade==8 ||$performanceByGender->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level1">
+                                      <div id="rc3-scienceBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-sagegreen mx-4">
+                                        <span class="text-white text-17">Science</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByGender->grade==8 ||$performanceByGender->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level1">
+                                      <div id="rc3-socialscienceBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-green mx-4">
+                                        <span class="text-white text-17">Social Science</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByGender->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level1">
+                                      <div id="rc3-milBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-red mx-4">
+                                        <span class="text-white text-17">MIL</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByGender->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level1">
+                                      <div id="rc3-englishBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-purple mx-4">
+                                        <span class="text-white text-17">English</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @include('pdf.secondgraph')
+                            @endif
+                          @endforeach
+                        @endif
+
                         <!-- edited ends -->
                       </div>
                     </div>
@@ -611,118 +666,127 @@
                       <div class="cont-wrap mb-60">
                         <h4 class="mb-4">Participation by Gender</h4>
                         <!-- images changed -->
-                        <div class="graph-right-wrap">
-                          <div class="row dialog-sec px-5" style="width:100%">
-                            <div class="col-md-6">
-                              <img src="http://nas21.inroad.in/report-pdf/assets/images/boy-dialog.jpg" alt="dialog_box">
-                              <h5 class="mb-15 text-white">
-                                <span class="">{{isset($districtParticipation->male_gender  )?$districtParticipation->male_gender :'0'}}</span>
-                                <span class="">%</span>
-                              </h5>
-                            </div>
-                            <div class="col-md-6">
-                              <img src="http://nas21.inroad.in/report-pdf/assets/images/girl-dialog.jpg" alt="dialog_box">
-                              <h5 class="mb-15 text-white">
-                                <span class="">{{isset($districtParticipation->female_gender  )?$districtParticipation->female_gender :'0'}}</span>
-                                <span class="">%</span>
-                              </h5>
-                            </div>
-                          </div>
-                          <img src="http://nas21.inroad.in/report-pdf/assets/images/c3-gender.jpg" class="gender-img" alt="gender_image">
-                          <div class="row px-5" style="width:100%">
-                            <div class="col-md-6 ps-3">
-                              <p class="gender-txt">Boys</p>
-                            </div>
-                            <div class="col-md-6 pe-3">
-                              <p class="gender-txt">Girls</p>
-                            </div>
-                          </div>
-                        </div>
+                        @include('pdf.genderparticipation')
                       </div>
                     </div>
                     <!-- Location -->
                     <div class="col-md-8 left mb-4">
                       <h4 class="">Performance by Location</h4>
-                      <div class="row mb-60" style="width:100%">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-languageBarGraph2"></div>
-                              <div class="category text-center card-blue mx-4">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph2"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17">Mathematics</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph2-2"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17">Mathematics</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph2-3"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17">Mathematics</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-2 p-0">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level3">
-                              <div id="rc3-evsBarGraph2"></div>
-                              <div
-                                class="category text-center card-yellow mx-4"
-                              >
-                                <span class="text-white text-17">EVS</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="col-md-1"></div>
+                      <div class="d-flex flex-wrap mb-60">
+                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                          @foreach($districtParticipation['DistrictPerformance'] as $performanceByLocation)
+                            @if($districtParticipation->grade==$performanceByLocation->grade)
+                            @php 
+                              $dataLocationArr = json_decode($performanceByLocation->data,true);
+                              if($performanceByLocation->grade==3 || $performanceByLocation->grade==5)
+                              {
+                                $fcol = 33.33;
+                              }
+                              if($performanceByLocation->grade==8)
+                              {
+                                $fcol = 25;
+                              }
+                              if($performanceByLocation->grade==10)
+                              {
+                                $fcol = 20;
+                              }
+                            @endphp
+                              @if($performanceByLocation->grade==3 || $performanceByLocation->grade==5 || $performanceByLocation->grade==8 ||$performanceByLocation->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level1">
+                                      <div id="rc3-mathBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-pink mx-4">
+                                        <span class="text-white text-17">Mathematics</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByLocation->grade==3 || $performanceByLocation->grade==5 || $performanceByLocation->grade==8)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-languageBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-blue mx-4">
+                                        <span class="text-white text-17">Language</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByLocation->grade==3 || $performanceByLocation->grade==5)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level3">
+                                      <div id="rc3-evsBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div
+                                        class="category text-center card-yellow mx-4"
+                                      >
+                                        <span class="text-white text-17">EVS</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByLocation->grade==8 ||$performanceByLocation->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-scienceBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-sagegreen mx-4">
+                                        <span class="text-white text-17">Science</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByLocation->grade==8 ||$performanceByLocation->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-socialscienceBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-green mx-4">
+                                        <span class="text-white text-17">Social Science</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByLocation->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-milBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-red mx-4">
+                                        <span class="text-white text-17">MIL</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByLocation->grade==10)
+                                <div class="p-0" style="width: {{$fcol}}%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-englishBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-purple mx-4">
+                                        <span class="text-white text-17">English</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                            @include('pdf.thirdgraph')
+                            @endif
+                          @endforeach
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-4 text-center gender-right">
                       <div class="cont-wrap mb-60">
                         <h4 class="mb-5">Participation by Location</h4>
-                        <div class="img-wrap">
-                          <div class="row justify-content-between mb-4 px-4" style="width:100%">
-                            <div class="col-md-6">
-                              <h3 class="text-blue">{{isset($districtParticipation->rural_location  )?$districtParticipation->rural_location :'0'}}%</h3>
-                            </div>
-                            <div class="col-md-6">
-                              <h3 class="text-pink">{{isset($districtParticipation->urban_location  )?$districtParticipation->urban_location :'0'}}%</h3>
-                            </div>
-                          </div>
-                          <!-- images changed -->
-                          <img src="http://nas21.inroad.in/report-pdf/assets/images/c3-30-location.jpg" alt="loction_images" class="ml-3">
-                          <div class="row justify-content-between mt-2 px-4">
-                            <div class="col-md-6">
-                              <h5 class="">Rural</h5>
-                            </div>
-                            <div class="col-md-6">
-                              <h5 class="">Urban</h5>
-                            </div>
-                          </div>
-                        </div>
+                        @include('pdf.locationparticipation')
                       </div>
                     </div>
                     <!-- Management -->
@@ -730,143 +794,232 @@
                       
                       <h4 class="">Performance by Management</h4>
                       <div class="d-flex flex-wrap mb-60">
-                        <div class="p-0" style="width:33.33%;">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-languageBarGraph3"></div>
-                              <div class="category text-center card-blue mx-4">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="p-0" style="width:33.33%;">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph3"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17">Mathematics</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="p-0" style="width:33.33%;">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph3-2"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17">Mathematics</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="p-0" style="width:33.33%;">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level4">
-                              <div id="rc3-mathBarGraph3-3"></div>
-                              <div class="category text-center card-blue mx-4">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="p-0" style="width:33.33%;">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level3">
-                              <div id="rc3-evsBarGraph3"></div>
-                              <div
-                                class="category text-center card-yellow mx-4"
-                              >
-                                <span class="text-white text-17">EVS</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
+                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                          @foreach($districtParticipation['DistrictPerformance'] as $performanceByMgt)
+                            @if($districtParticipation->grade==$performanceByMgt->grade)
+                            @php 
+                              $dataMgtArr = json_decode($performanceByMgt->data,true);
+                            @endphp
+
+                              @if($performanceByMgt->grade==3 || $performanceByMgt->grade==5 || $performanceByMgt->grade==8 ||$performanceByMgt->grade==10)
+                                <div class="p-0" style="width:33.33%;">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level1">
+                                      <div id="rc3-mathBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-pink mx-4">
+                                        <span class="text-white text-17">Mathematics</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceByMgt->grade==3 || $performanceByMgt->grade==5 || $performanceByMgt->grade==8)
+                                <div class="p-0" style="width:33.33%;">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-languageBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-blue mx-4">
+                                        <span class="text-white text-17">Language</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                                @endif
+                                @if($performanceByMgt->grade==3 || $performanceByMgt->grade==5)
+                                <div class="p-0" style="width:33.33%;">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level3">
+                                      <div id="rc3-evsBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div
+                                        class="category text-center card-yellow mx-4"
+                                      >
+                                        <span class="text-white text-17">EVS</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                                @endif
+                                @if($performanceByMgt->grade==8 ||$performanceByMgt->grade==10)
+                                <div class="p-0" style="width:33.33%;">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level3">
+                                      <div id="rc3-scienceBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div
+                                        class="category text-center card-sagegreen mx-4"
+                                      >
+                                        <span class="text-white text-17">Science</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                                @endif
+                                @if($performanceByMgt->grade==10)
+                                <div class="p-0" style="width:33.33%;">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level3">
+                                      <div id="rc3-milBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-red mx-4">
+                                        <span class="text-white text-17">MIL</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                                @endif
+                                @if($performanceByMgt->grade==8 ||$performanceByMgt->grade==10)
+                                <div class="p-0" style="width:33.33%;">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level4">
+                                      <div id="rc3-socialscienceBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div
+                                        class="category text-center card-green mx-4"
+                                      >
+                                        <span class="text-white text-17">Social Science</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                                @endif
+                                @if($performanceByMgt->grade==10)
+                                <div class="p-0" style="width:33.33%;">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-englishBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-purple mx-4">
+                                        <span class="text-white text-17">English</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                                @endif
+                                @include('pdf.fourthgraph')
+                            @endif
+                          @endforeach
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-4 text-center gender-right">
                       <div class="cont-wrap mb-30" >
                         <h4 class="mb-3">Participation by Management</h4>
-                        <div class="graph-wrap graph-right-wrap p-2">
-                          <figure class="highcharts-figure">
-                            <div id="dc3-managementPieGraph{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
-                          </figure>
-                        </div>
+                        @include('pdf.managementparticipation')
                       </div>
                     </div>
                     <!-- Social -->
                     <div class="col-md-8 left mb-4">
                       <h4 class="">Performance by Social Group</h4>
                       <div class="d-flex flex-wrap mb-60">
-                        <div class="p-0" style="width: 33.33%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-languageBarGraph4"></div>
-                              <div class="category text-center card-blue mx-4">
-                                <span class="text-white text-17">Language</span>
+                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                          @foreach($districtParticipation['DistrictPerformance'] as $performanceBysclgrp)
+                            @if($districtParticipation->grade==$performanceBysclgrp->grade)
+                            @php 
+                              $datasclgrpArr = json_decode($performanceBysclgrp->data,true);
+                            @endphp
+
+                              @if($performanceBysclgrp->grade==3 || $performanceBysclgrp->grade==5 || $performanceBysclgrp->grade==8 ||$performanceBysclgrp->grade==10)
+                                <div class="p-0" style="width: 33.33%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level1">
+                                      <div id="rc3-mathBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-pink mx-4">
+                                        <span class="text-white text-17"
+                                          >Mathematics</span
+                                        >
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceBysclgrp->grade==3 || $performanceBysclgrp->grade==5 || $performanceBysclgrp->grade==8)
+                                <div class="p-0" style="width: 33.33%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-languageBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-blue mx-4">
+                                        <span class="text-white text-17">Language</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceBysclgrp->grade==3 || $performanceBysclgrp->grade==5)
+                                <div class="p-0" style="width: 33.33%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level3">
+                                      <div id="rc3-evsBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div
+                                        class="category text-center card-yellow mx-4"
+                                      >
+                                        <span class="text-white text-17">EVS</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceBysclgrp->grade==8 ||$performanceBysclgrp->grade==10)
+                                <div class="p-0" style="width: 33.33%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-scienceBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-sagegreen mx-4">
+                                        <span class="text-white text-17"
+                                          >Science</span
+                                        >
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceBysclgrp->grade==10)
+                                <div class="p-0" style="width: 33.33%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level2">
+                                      <div id="rc3-milBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-red mx-4">
+                                        <span class="text-white text-17">MIL</span>
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceBysclgrp->grade==8 ||$performanceBysclgrp->grade==10)
+                                <div class="p-0" style="width: 33.33%">
+                                  <div class="graph-wrap">
+                                    <figure class="highcharts-figure graph-level4">
+                                      <div id="rc3-socialscienceBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                      <div class="category text-center card-green mx-4">
+                                        <span class="text-white text-17"
+                                          >Social Science</span
+                                        >
+                                      </div>
+                                    </figure>
+                                  </div>
+                                </div>
+                              @endif
+                              @if($performanceBysclgrp->grade==10)
+                              <div class="p-0" style="width: 33.33%">
+                                <div class="graph-wrap">
+                                  <figure class="highcharts-figure graph-level2">
+                                    <div id="rc3-englishBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                    <div class="category text-center card-purple mx-4">
+                                      <span class="text-white text-17"
+                                        >English</span
+                                      >
+                                    </div>
+                                  </figure>
+                                </div>
                               </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="p-0" style="width: 33.33%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph4"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17"
-                                  >Mathematics</span
-                                >
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="p-0" style="width: 33.33%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph4-2"></div>
-                              <div class="category text-center card-pink mx-4">
-                                <span class="text-white text-17"
-                                  >Mathematics</span
-                                >
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="p-0" style="width: 33.33%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level4">
-                              <div id="rc3-languageBarGraph4-2"></div>
-                              <div class="category text-center card-blue mx-4">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        <div class="p-0" style="width: 33.33%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level3">
-                              <div id="rc3-evsBarGraph4"></div>
-                              <div
-                                class="category text-center card-yellow mx-4"
-                              >
-                                <span class="text-white text-17">EVS</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
+                              @endif
+
+                              @include('pdf.fifthgraph')
+                            @endif
+                          @endforeach
+                        @endif
+
                       </div>
                     </div>
                     <div class="col-md-4 text-center gender-right">
                       <div class="cont-wrap mb-60">
                         <h4 class="mb-5">Participation by Social Group</h4>
-                        <div class="social-right-wrap">
-                          <!-- images changed -->
-                          <img src="http://nas21.inroad.in/report-pdf/assets/images/c3-50-social.jpg" alt="social" class="social-group"> 
-                          <h3 class="text-1 heading-30 text-pink">{{isset($districtParticipation->sc_social_group  )?$districtParticipation->sc_social_group :'0'}}%</h3>
-                          <h3 class="text-2 heading-30 text-yellow">{{isset($districtParticipation->obc_social_group  )?$districtParticipation->obc_social_group :'0'}}%</h3>
-                          <h3 class="text-3 heading-30 text-dark-green">{{isset($districtParticipation->st_social_group  )?$districtParticipation->st_social_group :'0'}}%</h3>
-                          <h3 class="text-4 heading-30 text-blue">{{isset($districtParticipation->general_social_group  )?$districtParticipation->general_social_group :'0'}}%</h3>
-                        </div>
+                        @include('pdf.socialgroupparticipation')
                       </div>
                     </div>
                   </div>
@@ -1441,1379 +1594,6 @@
           </div>
 
     <script>
-      // GENDER CHart
-      // Reportcard-languageBarGraph1
-      Highcharts.chart("rc3-languageBarGraph1", {
-        chart: {
-          height: 300,
-          type: "column",
-          width: 200,
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 7,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Boys",
-            color: "#527698",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Girls",
-            color: "#75A9D9",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      Highcharts.chart("rc3-languageBarGraph-2", {
-        chart: {
-          height: 300,
-          width: 170,
-          type: "column",
-          margin: [40, 0, 60, 0],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 7,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Boys",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Girls",
-            color: "#E9769F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      Highcharts.chart("rc3-languageBarGraph-3", {
-        chart: {
-          height: 300,
-          width: 170,
-          type: "column",
-          margin: [40, 0, 60, 0],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 7,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Boys",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Girls",
-            color: "#E9769F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-
-      // Reportcard-mathBarGraph1
-      Highcharts.chart("rc3-mathBarGraph1", {
-        chart: {
-          height: 300,
-          width: 170,
-          type: "column",
-          margin: [40, 0, 60, 0],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 7,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Boys",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Girls",
-            color: "#E9769F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-      // Reportcard-evsBarGraph1
-      Highcharts.chart("rc3-evsBarGraph1", {
-        chart: {
-          height: 300,
-          width: 170,
-          type: "column",
-          margin: [40, 0, 60, 0],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 7,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Boys",
-            color: "#8D8A43",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Girls",
-            color: "#CAC55F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      // Location CHart
-      // Reportcard-languageBarGraph2
-      Highcharts.chart("rc3-languageBarGraph2", {
-        chart: {
-          height: 300,
-          width: 200,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Rural",
-            color: "#527698",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Urban",
-            color: "#75A9D9",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-      // Reportcard-mathBarGraph2
-      Highcharts.chart("rc3-mathBarGraph2", {
-        chart: {
-          height: 300,
-          width: 170,
-          type: "column",
-          margin: [40, 0, 60, 0],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Rural",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Urban",
-            color: "#E9769F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      Highcharts.chart("rc3-mathBarGraph2-2", {
-        chart: {
-          height: 300,
-          width: 170,
-          type: "column",
-          margin: [40, 0, 60, 0],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Rural",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Urban",
-            color: "#E9769F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      Highcharts.chart("rc3-mathBarGraph2-3", {
-        chart: {
-          height: 300,
-          width: 170,
-          type: "column",
-          margin: [40, 0, 60, 0],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Rural",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Urban",
-            color: "#E9769F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-
-      // Reportcard-evsBarGraph2
-      Highcharts.chart("rc3-evsBarGraph2", {
-        chart: {
-          height: 300,
-          width: 170,
-          type: "column",
-          margin: [40, 0, 60, 0],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Rural",
-            color: "#8D8A43",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Urban",
-            color: "#CAC55F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-      // Management CHart
-      // Reportcard-languageBarGraph3
-      Highcharts.chart("rc3-languageBarGraph3", {
-        chart: {
-          height: 300,
-          width:370,
-          type: "column",
-         margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-          
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#527698",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#6997C3",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#75A9D9",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#9EC2E4",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-      // Reportcard-mathBarGraph3
-      Highcharts.chart("rc3-mathBarGraph3", {
-        chart: {
-          height: 300,
-          width: 370,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#D26A8E",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#E9769F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#F09FBB",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      Highcharts.chart("rc3-mathBarGraph3-2", {
-        chart: {
-          height: 300,
-          width: 370,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#D26A8E",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#E9769F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#F09FBB",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      Highcharts.chart("rc3-mathBarGraph3-3", {
-        chart: {
-          height: 300,
-          width:370,
-          type: "column",
-         margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-          
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#527698",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#6997C3",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#75A9D9",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#9EC2E4",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-      // Reportcard-evsBarGraph3
-      Highcharts.chart("rc3-evsBarGraph3", {
-        chart: {
-          height: 300,
-          width: 370,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#8D8A43",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#B6B156",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#CAC55F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#DAD68F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      /*************** Social CHart ***************/
-      // chart 1
-      Highcharts.chart("rc3-languageBarGraph4", {
-        chart: {
-          height: 300,
-          width: 370,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#527698",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#6997C3",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#75A9D9",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#9EC2E4",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-      // chart 2
-      Highcharts.chart("rc3-mathBarGraph4", {
-        chart: {
-          height: 300,
-          width: 370,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#D26A8E",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#E9769F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#F09FBB",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      // chart 3
-      Highcharts.chart("rc3-mathBarGraph4-2", {
-        chart: {
-          height: 300,
-          width: 370,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#A3536F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#D26A8E",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#E9769F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#F09FBB",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-      // chart 4
-      Highcharts.chart("rc3-languageBarGraph4-2", {
-        chart: {
-          height: 300,
-          width: 370,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#527698",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#6997C3",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#75A9D9",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#9EC2E4",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-      // chart 5
-      Highcharts.chart("rc3-evsBarGraph4", {
-        chart: {
-          height: 300,
-          width: 370,
-          type: "column",
-          margin: [40, 0, 60, 40],
-        },
-        title: {
-          text: "",
-        },
-        legend: {
-          enabled: false,
-        },
-        xAxis: {
-          categories: ["District", "State", "National"],
-          crosshair: true,
-          labels: {
-            rotation: -90,
-            y: 10,
-          },
-        },
-        yAxis: {
-          min: 0,
-          title: false,
-        },
-        tooltip: {
-          headerFormat:
-            '<span style="font-size:10px">{point.key}</span><table>',
-          pointFormat:
-            '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y}%</b></td></tr>',
-          footerFormat: "</table>",
-          shared: true,
-          useHTML: true,
-        },
-        plotOptions: {
-          column: {
-            pointWidth: 5,
-            pointPadding: 0,
-            borderWidth: 0,
-          },
-          series: {
-            borderWidth: 0,
-            dataLabels: {
-              enabled: true,
-              format: "{point.y}",
-            },
-          },
-        },
-        series: [
-          {
-            name: "Govt.",
-            color: "#8D8A43",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Govt. Aided",
-            color: "#B6B156",
-            data: [88, 69, 69],
-          },
-          {
-            name: "Private",
-            color: "#CAC55F",
-            data: [82, 78, 78],
-          },
-          {
-            name: "Central Govt",
-            color: "#DAD68F",
-            data: [88, 69, 69],
-          },
-        ],
-      });
-
-
       // Donut Chart
       Highcharts.chart("dc3-managementPieGraph{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {

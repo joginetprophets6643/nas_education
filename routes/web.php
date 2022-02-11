@@ -247,3 +247,5 @@ Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
 Route::get('/visualization-new',function(){
     return view('front.visualization.visualization_new');
 });
+
+Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');

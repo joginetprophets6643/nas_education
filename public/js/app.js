@@ -2144,6 +2144,12 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
@@ -2155,6 +2161,8 @@ var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react
 var visualization_action_1 = __webpack_require__(/*! ../actions/visualization.action */ "./src/actions/visualization.action.tsx");
 
 __webpack_require__(/*! ../styles/_style.scss */ "./src/styles/_style.scss");
+
+var Main_1 = __importDefault(__webpack_require__(/*! ./Visualization/Main/Main */ "./src/components/Visualization/Main/Main.tsx"));
 
 var App = function App() {
   var dispatch = (0, react_redux_1.useDispatch)();
@@ -2173,14 +2181,485 @@ var App = function App() {
   (0, react_1.useEffect)(function () {
     setStates(stateList.data);
   }, [stateList]);
-  return react_1["default"].createElement("div", null, react_1["default"].createElement("h1", null, "State list"), react_1["default"].createElement("ul", null, states.map(function (state) {
-    return react_1["default"].createElement("li", {
-      key: state.state_id
-    }, "state is ", state.state_name);
-  })));
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Main_1["default"], null));
 };
 
 exports["default"] = App;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/AveragePerformance/AveragePerormance.tsx":
+/*!*******************************************************************************!*\
+  !*** ./src/components/Visualization/AveragePerformance/AveragePerormance.tsx ***!
+  \*******************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var globe_icon_svg_1 = __importDefault(__webpack_require__(/*! ../../../assets/images/globe-icon.svg */ "./src/assets/images/globe-icon.svg"));
+
+var GraphCard_1 = __importDefault(__webpack_require__(/*! ../GraphCard/GraphCard */ "./src/components/Visualization/GraphCard/GraphCard.tsx"));
+
+var AveragePerormance = function AveragePerormance() {
+  return react_1["default"].createElement("div", {
+    className: "average-performance-wrap card-blue mb-60"
+  }, react_1["default"].createElement("h2", {
+    className: "ap-top-heading"
+  }, react_1["default"].createElement("img", {
+    src: globe_icon_svg_1["default"],
+    alt: "img",
+    className: "img-fluid",
+    width: "30"
+  }), "Language Average Performance of Students"), react_1["default"].createElement("div", {
+    className: "averag-performance-content light-blue"
+  }, react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, react_1["default"].createElement(GraphCard_1["default"], null)), react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, react_1["default"].createElement(GraphCard_1["default"], null)))));
+};
+
+exports["default"] = AveragePerormance;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/GraphCard/GraphCard.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/Visualization/GraphCard/GraphCard.tsx ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var ap_people_svg_1 = __importDefault(__webpack_require__(/*! ../../../assets/images/ap-people.svg */ "./src/assets/images/ap-people.svg"));
+
+var GraphCard = function GraphCard() {
+  return react_1["default"].createElement("div", {
+    className: "apcard-white"
+  }, react_1["default"].createElement("div", {
+    className: "apcard-header"
+  }, react_1["default"].createElement("h3", {
+    className: "apcard-heading apcard-heading-red"
+  }, react_1["default"].createElement("img", {
+    src: ap_people_svg_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), " By Gender"), react_1["default"].createElement("div", {
+    className: "toggle-btn"
+  }, react_1["default"].createElement("button", {
+    className: "btn"
+  }, react_1["default"].createElement("span", {
+    className: "material-icons"
+  }, "menu")))), react_1["default"].createElement("div", {
+    className: "apcard-content"
+  }, react_1["default"].createElement("div", {
+    className: "apcard-graph-wrap"
+  }, react_1["default"].createElement("figure", {
+    className: "highcharts-figure"
+  }, react_1["default"].createElement("div", {
+    id: "c3-gender-langgraph"
+  })))));
+};
+
+exports["default"] = GraphCard;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/Main/Main.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/Visualization/Main/Main.tsx ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var TopBar_1 = __importDefault(__webpack_require__(/*! ../TopBar/TopBar */ "./src/components/Visualization/TopBar/TopBar.tsx"));
+
+var Tabs_1 = __importDefault(__webpack_require__(/*! ../Tabs/Tabs */ "./src/components/Visualization/Tabs/Tabs.tsx"));
+
+var TabContent_1 = __importDefault(__webpack_require__(/*! ../TabContent/TabContent */ "./src/components/Visualization/TabContent/TabContent.tsx"));
+
+var Main = function Main() {
+  return react_1["default"].createElement("section", {
+    className: "visualization-wrap bg-light-blue pb-60"
+  }, react_1["default"].createElement(TopBar_1["default"], null), react_1["default"].createElement("div", {
+    className: "visual-tabwrap"
+  }, react_1["default"].createElement(Tabs_1["default"], null), react_1["default"].createElement("div", {
+    className: "tab-content",
+    id: "visualtabContent"
+  }, react_1["default"].createElement("div", {
+    className: "tab-pane fade show active",
+    id: "class3",
+    role: "tabpanel",
+    "aria-labelledby": "class3-tab"
+  }, react_1["default"].createElement(TabContent_1["default"], null)))));
+};
+
+exports["default"] = Main;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/SubjectCard/SubjectCard.tsx":
+/*!******************************************************************!*\
+  !*** ./src/components/Visualization/SubjectCard/SubjectCard.tsx ***!
+  \******************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var globe_icon_svg_1 = __importDefault(__webpack_require__(/*! ../../../assets/images/globe-icon.svg */ "./src/assets/images/globe-icon.svg"));
+
+var SubjectCard = function SubjectCard() {
+  return react_1["default"].createElement("div", {
+    className: "visual-per-card per-card card-blue"
+  }, react_1["default"].createElement("h2", null, react_1["default"].createElement("img", {
+    src: globe_icon_svg_1["default"],
+    alt: "img",
+    className: "img-fluid",
+    width: "30"
+  }), " Language"), react_1["default"].createElement("div", {
+    className: "per-card-content dark-blue"
+  }, react_1["default"].createElement("div", {
+    className: "per-card-desc"
+  }, react_1["default"].createElement("span", {
+    className: "total-no"
+  }, "67"), react_1["default"].createElement("p", {
+    className: "title"
+  }, "Percent")), react_1["default"].createElement("div", {
+    className: "per-card-desc"
+  }, react_1["default"].createElement("p", {
+    className: "title text-start"
+  }, "Average Performance ", react_1["default"].createElement("br", null), "of Students"))));
+};
+
+exports["default"] = SubjectCard;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/TabContent/TabContent.tsx":
+/*!****************************************************************!*\
+  !*** ./src/components/Visualization/TabContent/TabContent.tsx ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var AveragePerormance_1 = __importDefault(__webpack_require__(/*! ../AveragePerformance/AveragePerormance */ "./src/components/Visualization/AveragePerformance/AveragePerormance.tsx"));
+
+var SubjectCard_1 = __importDefault(__webpack_require__(/*! ../SubjectCard/SubjectCard */ "./src/components/Visualization/SubjectCard/SubjectCard.tsx"));
+
+var WhiteCard_1 = __importDefault(__webpack_require__(/*! ../WhiteCard/WhiteCard */ "./src/components/Visualization/WhiteCard/WhiteCard.tsx"));
+
+var TabContent = function TabContent() {
+  return react_1["default"].createElement("div", {
+    className: "visual-tabcontent-wrap dark-grey-bg"
+  }, react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-4"
+  }, react_1["default"].createElement(WhiteCard_1["default"], null))), react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-4"
+  }, react_1["default"].createElement(SubjectCard_1["default"], null))), react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-12"
+  }, react_1["default"].createElement(AveragePerormance_1["default"], null))));
+};
+
+exports["default"] = TabContent;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/Tabs/Tabs.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/Visualization/Tabs/Tabs.tsx ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Tabs = function Tabs() {
+  return react_1["default"].createElement("ul", {
+    className: "nav nav-tabs",
+    id: "visualtab",
+    role: "tablist"
+  }, react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link active",
+    id: "class3-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#class3",
+    type: "button",
+    role: "tab",
+    "aria-controls": "class3",
+    "aria-selected": "true"
+  }, "class 3")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "class5-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#class5",
+    type: "button",
+    role: "tab",
+    "aria-controls": "class5",
+    "aria-selected": "false"
+  }, "class 5")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "class8-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#class8",
+    type: "button",
+    role: "tab",
+    "aria-controls": "class8",
+    "aria-selected": "false"
+  }, "class 8")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "class10-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#class10",
+    type: "button",
+    role: "tab",
+    "aria-controls": "class10",
+    "aria-selected": "false"
+  }, "class 10")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "maps-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#maps",
+    type: "button",
+    role: "tab",
+    "aria-controls": "maps",
+    "aria-selected": "false"
+  }, "MAPS")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "plot-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#plot",
+    type: "button",
+    role: "tab",
+    "aria-controls": "plot",
+    "aria-selected": "false"
+  }, "SCATTER PLOT")));
+};
+
+exports["default"] = Tabs;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/TopBar/TopBar.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/Visualization/TopBar/TopBar.tsx ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var TopBar = function TopBar() {
+  return react_1["default"].createElement("div", {
+    className: "top-content"
+  }, react_1["default"].createElement("div", {
+    className: "row justify-content-between"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-4"
+  }, react_1["default"].createElement("h2", {
+    className: "heading-black"
+  }, "Visualization"), react_1["default"].createElement("div", {
+    className: "breadcrum-wrap breadcrum-grey"
+  }, react_1["default"].createElement("nav", {
+    "aria-label": "breadcrumb"
+  }, react_1["default"].createElement("ol", {
+    className: "breadcrumb"
+  }, react_1["default"].createElement("li", {
+    className: "breadcrumb-item"
+  }, react_1["default"].createElement("a", {
+    href: "index.html"
+  }, "Home")), react_1["default"].createElement("li", {
+    className: "breadcrumb-item"
+  }, react_1["default"].createElement("a", {
+    href: "visualization-landing.html"
+  }, "Visualization")), react_1["default"].createElement("li", {
+    className: "breadcrumb-item active",
+    "aria-current": "page"
+  }, "National")))), react_1["default"].createElement("button", {
+    className: "navbar-toggler d-lg-none collapsed",
+    type: "button",
+    "data-bs-toggle": "collapse",
+    "data-bs-target": "#sideBar",
+    "aria-controls": "sideBar",
+    "aria-expanded": "false",
+    "aria-label": "Toggle navigation"
+  }, react_1["default"].createElement("span", {
+    className: "navbar-toggler-icon"
+  }), react_1["default"].createElement("span", {
+    className: "navbar-toggler-icon"
+  }), react_1["default"].createElement("span", {
+    className: "navbar-toggler-icon"
+  }))), react_1["default"].createElement("div", {
+    className: "col-md-4"
+  }, react_1["default"].createElement("div", {
+    className: "select-wrap"
+  }, react_1["default"].createElement("h3", {
+    className: "select-label"
+  }, "You can select any state/UT, District or block from here"), react_1["default"].createElement("select", {
+    className: "form-select"
+  }, react_1["default"].createElement("option", null, "India"), react_1["default"].createElement("option", null, "One"), react_1["default"].createElement("option", null, "Two"), react_1["default"].createElement("option", null, "Three"))))));
+};
+
+exports["default"] = TopBar;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/WhiteCard/WhiteCard.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/Visualization/WhiteCard/WhiteCard.tsx ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var building_svg_1 = __importDefault(__webpack_require__(/*! ../../../assets/images/building.svg */ "./src/assets/images/building.svg"));
+
+var WhiteCard = function WhiteCard() {
+  return react_1["default"].createElement("div", {
+    className: "visual-card-white text-center"
+  }, react_1["default"].createElement("h2", {
+    className: "total-no"
+  }, "41,059"), react_1["default"].createElement("p", {
+    className: "title-grey"
+  }, "Number of Schools Sampled"), react_1["default"].createElement("div", {
+    className: "visual-imgwrap"
+  }, react_1["default"].createElement("img", {
+    src: building_svg_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  })));
+};
+
+exports["default"] = WhiteCard;
 
 /***/ }),
 
@@ -2356,6 +2835,51 @@ var reducers_1 = __importDefault(__webpack_require__(/*! ./reducers */ "./src/re
 
 var store = (0, redux_1.createStore)(reducers_1["default"], (0, redux_1.applyMiddleware)(redux_promise_middleware_1["default"]));
 exports["default"] = store;
+
+/***/ }),
+
+/***/ "./src/assets/images/ap-people.svg":
+/*!*****************************************!*\
+  !*** ./src/assets/images/ap-people.svg ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/ap-people.svg?42c647fbeb4e29b040f703109247af14");
+
+/***/ }),
+
+/***/ "./src/assets/images/building.svg":
+/*!****************************************!*\
+  !*** ./src/assets/images/building.svg ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/building.svg?42ffa2b591fe660e31a9c1c0a6c1b411");
+
+/***/ }),
+
+/***/ "./src/assets/images/globe-icon.svg":
+/*!******************************************!*\
+  !*** ./src/assets/images/globe-icon.svg ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/globe-icon.svg?384549491840abe3aeb2310d3bf968f4");
 
 /***/ }),
 

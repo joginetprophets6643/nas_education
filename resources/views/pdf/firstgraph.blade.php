@@ -472,17 +472,17 @@
             data: [
               {
                 name: "District",
-                y: <?php echo (int)$dataArr['language']['cards']['district']; ?>,
+                y: <?php echo (int)$dataArr['eng']['cards']['district']; ?>,
                 color: "#527698",
               },
               {
                 name: "State",
-                y: <?php echo (int)$dataArr['language']['cards']['state']; ?>,
+                y: <?php echo (int)$dataArr['eng']['cards']['state']; ?>,
                 color: "#6997C3",
               },
               {
                 name: "National",
-                y: <?php echo (int)$dataArr['language']['cards']['national']; ?>,
+                y: <?php echo (int)$dataArr['eng']['cards']['national']; ?>,
                 color: "#91B9E1",
               },
             ],

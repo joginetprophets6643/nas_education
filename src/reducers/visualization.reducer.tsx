@@ -1,11 +1,12 @@
-import { STATE_FETCH_FULFILLED, STATE_FETCH_PENDING, STATE_FETCH_REJECTED } from "../constants/types";
+import { STATE_FETCH_FULFILLED, STATE_FETCH_PENDING, STATE_FETCH_REJECTED } from "@/constants/types";
+import { IntialStateModel } from "@/models/visualization";
 
 const initialStateList = {
     loading: false,
     loaded: false,
     error: false,
     data: []
-} as any
+} as IntialStateModel
 
 
 export const visualizationReducer = function (state = initialStateList,action: any) {

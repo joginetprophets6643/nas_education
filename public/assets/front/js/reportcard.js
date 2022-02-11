@@ -1808,215 +1808,221 @@ $(document).ready(()=>{
 
  function createGlimpsesScreen(data){
 
-    let graphs = []
-    
-    // sections for performance screen
-    const sections = ['Cards','Location','Gender','Management']
-    
-    // getting subjects for classes
-    if(classType === 'all'){
-      graphs = class_subjects['class_'+ classType]
-    }else{
-      graphs = class_subjects['class_'+classType]
-    }
-    const data_b = data[0]
-    const category_data = JSON.parse(data_b.data)
+  let graphs = []
 
-    const colorCode = {
-      language: ['#BAD4EC','#9EC2E4','#83B1DD','#6997C3'],
-      evs: ['#E5E2AF','#DAD68F','#CFCB6F','#B6B156'],
-      math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E'],
-      social:['#C7E1C0','#ABD3A1','#8FC481','#68A358'],
-      science:['#B1DEDF','#8ACDCE','#63BDBE','#369B9D'],
-      mil:['#F7C4C3','#F3A6A5','#EF8987','#D4605F'],
-      english:['#E8C7E6','#DCACD9','#D190CD','#B168AD'],
-    }
+  // sections for performance screen
+  const sections = ['Cards','Location','Gender','Management']
 
-    const section_legends = {
-      cards:["Substantially above national average", "Not substantially different from the national average" , "Substantially below national average"],
-      gender:["No significant difference between Boys and Girls","Boys peform significantly better than Girls","Girls peform significantly better than Boys"],
-      location:["No significant difference between Rural and Urban","Rural peform significantly better than Urban","Urban peform significantly better than Rural"],
-      management:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
-      socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
 
-    }
-    sections.forEach(section=>{
-      let where = ''
-      graphs.forEach(sub=>{
-        if(classType !== 'all'){
-           where = section+'National' + sub +'BarGraph_class' +classType  
-        }else{
-          if(section === 'Cards'){
-            where = section+'National' + sub   +'BarGraph_class'+classType
-          }else{
-            where = section+'National' + data[0].grade + sub   +'BarGraph_class'+classType
-          }
-        }
-        const section_data = category_data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()]
-        const required_colors = colorCode[sub.toLowerCase()]
-        generateGlimpsesMap(where,required_colors,section_data,section_legends[section.toLowerCase()])
+  const data_b = data[0]
 
-      })
-    })
- }
+  // getting subjects for classes
+  if(classType === 'all'){
+  graphs = class_subjects['class_'+data_b.grade]
+  }else{
+  graphs = class_subjects['class_'+classType]
+  }
+  const category_data = JSON.parse(data_b.data)
+
+  const colorCode = {
+  language: ['#BAD4EC','#9EC2E4','#83B1DD','#6997C3'],
+  evs: ['#E5E2AF','#DAD68F','#CFCB6F','#B6B156'],
+  math: ['#F4BBCF','#F09FBB','#EB84A8','#D26A8E'],
+  social:['#C7E1C0','#ABD3A1','#8FC481','#68A358'],
+  science:['#B1DEDF','#8ACDCE','#63BDBE','#369B9D'],
+  mil:['#F7C4C3','#F3A6A5','#EF8987','#D4605F'],
+  english:['#E8C7E6','#DCACD9','#D190CD','#B168AD'],
+  }
+
+  const section_legends = {
+  cards:["Substantially above national average", "Not substantially different from the national average" , "Substantially below national average"],
+  gender:["No significant difference between Boys and Girls","Boys peform significantly better than Girls","Girls peform significantly better than Boys"],
+  location:["No significant difference between Rural and Urban","Rural peform significantly better than Urban","Urban peform significantly better than Rural"],
+  management:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
+  socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
+
+  }
+  sections.forEach(section=>{
+  let where = ''
+  graphs.forEach(sub=>{
+      if(classType !== 'all'){
+      where = section+'National' + sub +'BarGraph_class' +classType  
+      }else{
+      if(section === 'Cards'){
+          where = section+'National' + sub   +'BarGraph_class'+classType
+      }else{
+          where = section+'National' + data[0].grade + sub   +'BarGraph_class'+classType
+      }
+      }
+      const section_data = category_data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()]
+      const required_colors = colorCode[sub.toLowerCase()]
+      generateGlimpsesMap(where,required_colors,section_data,section_legends[section.toLowerCase()])
+
+  })
+  })
+}
 
 // creating glimpses chart
- async function generateGlimpsesMap(where,req_colors,section_data,legends){
-
-  let states = await JSON.parse(sessionStorage.getItem('states'))
-  let category1 = []
-  let category2 = []
-  let category3 = []
-  await states.map((state,index) =>{
-    const type_of_state = getColourOfState(req_colors,state.state_id,section_data)
-    let required_data = []
-    if(state.state_name === 'Delhi'){
-     required_data = ['nct of delhi',state.state_id]
-    }else{
-      required_data = [ state.state_name.toLowerCase(),state.state_id]
-    }
-    if(type_of_state.category === 0){
-      category1.push(required_data)
-    }
-    if(type_of_state.category === 1){
-      category2.push(required_data)
-    }
-    if(type_of_state.category === 2){
-      category3.push(required_data)
-    }
-    return required_data
-  })
-
-
-  const states_chart = await Highcharts.mapChart(where, {
-    chart: {
-        map: 'countries/in/custom/in-all-disputed',
-        backgroundColor: 'transparent',
-    },
-    title: {
-        text: ''
-    },
-
-    subtitle: {
-        text: ''
-    },
-    legend: {
-      enabled: true
-    },
-  tooltip: { enabled: true },
-    navigation: {
-        buttonOptions: {
-            enabled: false
+    async function generateGlimpsesMap(where,req_colors,section_data,legends){
+        let states = await JSON.parse(sessionStorage.getItem('states'))
+        let category1 = []
+        let category2 = []
+        let category3 = []
+        await states.map((state,index) =>{
+        const type_of_state = getColourOfState(req_colors,state.state_id,section_data)
+        let required_data = []
+        if(state.state_name === 'Delhi'){
+        required_data = ['nct of delhi',state.state_id]
+        }else{
+        required_data = [ state.state_name.toLowerCase(),state.state_id]
         }
-    },
-    credits: {
-      enabled: false
-    },
-    plotOptions: {
-      series: {
-          events: {
-              click: function (e) {
-                const index = states.map(state_data=>{
-                    return state_data.state_id
-                }).indexOf(e.point.value)
-                sessionStorage.setItem('activeState',JSON.stringify(states[index]))
-                removeItem('activeDistrict')
-                location.href = base_url + 'report-card/nas-2021'
-              }
+        if(type_of_state.category === 0){
+        category1.push(required_data)
+        }
+        if(type_of_state.category === 1){
+        category2.push(required_data)
+        }
+        if(type_of_state.category === 2){
+        category3.push(required_data)
+        }
+        return required_data
+        })
 
-          }
-      }
-    },
-    series: [
-      {
-        name: legends[0],
-        data: category1,
-        allAreas: false,
-        allowPointSelect: true,
-        cursor: 'pointer',
-        color:req_colors[0],
-        borderColor: "#6e6f70",
-        states: {
-            hover: {
-                color:'#f7941c'
-            },
-            select: {
-              color: '#9ec2e4'
+        try{
+            const states_chart = await Highcharts.mapChart(where, {
+                chart: {
+                    map: 'countries/in/custom/in-all-disputed',
+                    backgroundColor: 'transparent',
+                },
+                title: {
+                    text: ''
+                },
+
+                subtitle: {
+                    text: ''
+                },
+                legend: {
+                enabled: true
+                },
+                tooltip: { enabled: true },
+                navigation: {
+                    buttonOptions: {
+                        enabled: false
+                    }
+                },
+                credits: {
+                enabled: false
+                },
+                plotOptions: {
+                  series: {
+                      events: {
+                          click: function (e) {
+                            const index = states.map(state_data=>{
+                                return state_data.state_id
+                            }).indexOf(e.point.value)
+                            sessionStorage.setItem('activeState',JSON.stringify(states[index]))
+                            removeItem('activeDistrict')
+                            location.href = base_url + 'report-card/nas-2021'
+                          }
+            
+                      }
+                  }
+                },
+                series: [
+                {
+                    name: legends[0],
+                    data: category1,
+                    allAreas: false,
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    color:req_colors[0],
+                    borderColor: "#6e6f70",
+                    states: {
+                        hover: {
+                            color:'#f7941c'
+                        },
+                        select: {
+                        color: '#9ec2e4'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false,
+                        format: '{point.name}'
+                    },
+                },
+                {
+                    data: category2,
+                    name: legends[1],
+                    color:req_colors[1],
+                    allowPointSelect: true,
+                    allAreas: false,
+                    cursor: 'pointer',
+                    borderColor: "#6e6f70",
+                    states: {
+                        hover: {
+                            color:'#f7941c'
+                        },
+                        select: {
+                        color: '#9ec2e4'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false,
+                        format: '{point.name}'
+                    },
+                },
+                {
+                    data: category3,
+                    name: legends[2],
+                    color:req_colors[2],
+
+                    allowPointSelect: true,
+                    allAreas: false,
+                    cursor: 'pointer',
+                    borderColor: "#6e6f70",
+                    states: {
+                        hover: {
+                            color:'#f7941c'
+                        },
+                        select: {
+                        color: '#9ec2e4'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false,
+                        format: '{point.name}'
+                    },
+                },
+                ]
+            });
+            if(Object.keys(states_chart).length !== 0){
+                states_chart.series.forEach(series=>{
+                series.data.forEach(el => {
+                const info = getColourOfState(req_colors,el['value'],section_data)
+                el.color = info.color
+                return el
+                })
+                })
+
+
+                states_chart.update({
+                series: [{
+                data: states_chart.series[0].data
+                },
+                {
+                data: states_chart.series[1].data
+                },
+                {
+                data: states_chart.series[2].data
+                }]
+                })
             }
-        },
-        dataLabels: {
-            enabled: false,
-            format: '{point.name}'
-        },
-      },
-      {
-        data: category2,
-        name: legends[1],
-        color:req_colors[1],
-        allowPointSelect: true,
-        allAreas: false,
-        cursor: 'pointer',
-        borderColor: "#6e6f70",
-        states: {
-            hover: {
-                color:'#f7941c'
-            },
-            select: {
-              color: '#9ec2e4'
-            }
-        },
-        dataLabels: {
-            enabled: false,
-            format: '{point.name}'
-        },
-      },
-      {
-        data: category3,
-        name: legends[2],
-        color:req_colors[2],
-
-        allowPointSelect: true,
-        allAreas: false,
-        cursor: 'pointer',
-        borderColor: "#6e6f70",
-        states: {
-            hover: {
-                color:'#f7941c'
-            },
-            select: {
-              color: '#9ec2e4'
-            }
-        },
-        dataLabels: {
-            enabled: false,
-            format: '{point.name}'
-        },
-      },
-    ]
-});
+        }catch(e){
+            console.log(e)
+        }
 
 
-  states_chart.series.forEach(series=>{
-    series.data.forEach(el => {
-      const info = getColourOfState(req_colors,el['value'],section_data)
-      el.color = info.color
-      return el
-    })
-  })
-
-
-  states_chart.update({
-    series: [{
-      data: states_chart.series[0].data
-    },
-    {
-      data: states_chart.series[1].data
-    },
-    {
-      data: states_chart.series[2].data
-    }]
-  })
- }
+    }
 
  function getColourOfState(req_colors,state_id,section_data){
    let color = ''
