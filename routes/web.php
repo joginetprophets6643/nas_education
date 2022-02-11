@@ -10,6 +10,7 @@ use App\Http\Controllers\PerformanceController;
 use App\Http\Controllers\LearningOutcomeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PdfGenerateController;
+use App\Http\Controllers\VisualizationCalculationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,7 @@ use App\Http\Controllers\PdfGenerateController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
 Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
 Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
 
