@@ -35,5 +35,11 @@ class District_Master extends Model
     public function DistrictParticipation()
     {
         return $this->hasMany(AllGradeParticipationTBL::class,'district_id','udise_district_code');
-    }  
+    } 
+    public function DistrictPerformance()
+    {
+        return $this->hasMany(PerformanceMaster::class,'district_id','udise_district_code');
+    }
+
+
 }

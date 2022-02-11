@@ -44,4 +44,17 @@ class ReportCardController extends Controller
     public function details(){
         return view('front.report_card.districtcontent');
     }
+
+    public function webView(Request $request){
+        $classes = ['3','5','8','10','all'];
+        if($request->has('class')){
+            if(!in_array($request->input("class"),$classes)){
+                return response(['status'=>404,'message'=>'Page not found']);
+            }else{
+                return view('front.report_card.glimpses-web-view',['class'=> $request->input("class")]);
+            }
+        }else{
+            return response(['status'=>404,'message'=>'Page not found']);
+        }
+    }
 }

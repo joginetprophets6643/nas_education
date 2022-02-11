@@ -19,6 +19,7 @@ class CreateVediosTable extends Migration
             $table->string('title');
             $table->string('vedio')->nullable();
             $table->string('url')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->integer('status');
             $table->timestamps();
         });

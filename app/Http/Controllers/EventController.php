@@ -210,6 +210,7 @@ class EventController extends Controller
             'vedio'=>'required_without_all:url|mimes:mp4,wep',
             'title'=>'required',
             'url'=>'required_without_all:vedio',
+            'thumbnail'=>'required_with:vedio|mimes:jpeg,jpg,png,JPEG,JPG,PNG',
         ]);
         $vedio=$request->file('vedio');
         if($request->status){
@@ -219,9 +220,12 @@ class EventController extends Controller
             $request->status=0;
         }
         $name=NULL;
+        $thumbnail=NULL;
         if($request->vedio){
             $name=hexdec(uniqid()).'.'.$vedio->getClientOriginalExtension();
             $vedio->move(public_path('assets/uploads/vedios'),$name);
+            $thumbnail=hexdec(uniqid()).'.'.$request->thumbnail->getClientOriginalExtension();
+            $request->thumbnail->move(public_path('assets/uploads/thumbnails'),$thumbnail);
         }
 
             
@@ -229,6 +233,7 @@ class EventController extends Controller
             $res->event_id=$id;
             $res->title=$request->title;
             $res->url=$request->url ? $request->url: NULL;
+            $res->thumbnail=$thumbnail;
             $res->vedio=$name;
             $res->status=$request->status;
             $res->save();
@@ -246,6 +251,7 @@ class EventController extends Controller
             if($request->type=="video"){   
                 if($vedio->vedio){
                     unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+                    unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
                     }
                 Vedios::where('id',$id)->update(['vedio'=>NULL]);
             }
@@ -259,6 +265,7 @@ class EventController extends Controller
             Vedios::find($id)->delete();
             if($vedio->vedio){
                 unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+                unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
                 }
         }
         

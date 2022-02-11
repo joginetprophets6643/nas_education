@@ -1,17 +1,18 @@
 import React from 'react';
-import Building from '@/assets/images/building.svg';
+import { WhiteCardProps } from '@/models/visualization';
 
-const WhiteCard = () => {
+const WhiteCard = (props:WhiteCardProps) => {
+  const {title, count, image} = props
   return (
     <div className="visual-card-white text-center">
         <h2 className="total-no">
-            41,059
+          {count}
         </h2>
         <p className="title-grey">
-            Number of Schools Sampled   
+          {title}
         </p>
         <div className="visual-imgwrap">
-            <img src={Building} alt="img" className="img-fluid" />
+            <img src={image} alt="img" className="img-fluid" />
         </div>
     </div>
   );
