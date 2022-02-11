@@ -36,10 +36,13 @@ class District_Master extends Model
     {
         return $this->hasMany(AllGradeParticipationTBL::class,'district_id','udise_district_code');
     } 
-    public function DistrictPerformance()
+    public function DistrictLO()
     {
-        return $this->hasMany(PerformanceMaster::class,'district_id','udise_district_code');
+        return $this->hasMany(DistrictGradeLevelLearningOutCome::class,'district_id','udise_district_code');
     }
-
+    public function DistrictFeedback()
+    {
+        return $this->hasMany(PQDistrictLevelFeedback::class,'district_id','udise_district_code');
+    }
 
 }

@@ -21,6 +21,12 @@ class PdfGenerateController extends Controller
                                 $participation->select('id','state_id','district_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
                                 $participation->with(['DistrictPerformance']);
                                 $participation->orderBy('grade','asc');
+                            },
+                            'DistrictLO'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'DistrictFeedback'=>function($feedback){
+                                $feedback->orderBy('grade','asc');
                             }])
                             ->whereIn('udise_district_code',['710'])
                             ->get();
@@ -30,7 +36,9 @@ class PdfGenerateController extends Controller
             foreach($districtData as $districtVal)
             {
                 $districtParticipationData = $districtVal['DistrictParticipation'];
-                return view('pdf.districtpdf',compact('districtVal','districtParticipationData'));
+                $districtLOData = $districtVal['DistrictLO'];
+                $districtFeedbackData = $districtVal['DistrictFeedback'];
+                return view('pdf.districtpdf',compact('districtVal','districtParticipationData','districtLOData','districtFeedbackData'));
             }
         }        
     }
@@ -47,6 +55,12 @@ class PdfGenerateController extends Controller
                                 $participation->select('id','state_id','district_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
                                 $participation->with(['DistrictPerformance']);
                                 $participation->orderBy('grade','asc');
+                            },
+                            'DistrictLO'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'DistrictFeedback'=>function($feedback){
+                                $feedback->orderBy('grade','asc');
                             }])
                             ->whereIn('udise_district_code',['710'])
                             ->get();
@@ -57,7 +71,9 @@ class PdfGenerateController extends Controller
             foreach($districtData as $districtVal)
             {
                 $districtParticipationData = $districtVal['DistrictParticipation'];
-                // dd($districtVal['DistrictParticipation'][0]['DistrictPerformance']);
+                $districtLOData = $districtVal['DistrictLO'];
+                $districtFeedbackData = $districtVal['DistrictFeedback'];
+                // dd($districtVal);
                 $folderPath = public_path('nas_pdf/national/'.$districtVal->udise_state_code.'/'.$districtVal->udise_district_code.'/');
 
                 if(File::isDirectory($folderPath)){
@@ -72,7 +88,7 @@ class PdfGenerateController extends Controller
                 $file_path = $folderPath.''.$fileName.'-report.pdf';
                 // if(File::exists($file_path)) File::delete($file_path);
                 
-                $render = view('pdf.districtpdf',compact('districtVal','districtParticipationData'))->render();
+                $render = view('pdf.districtpdf',compact('districtVal','districtParticipationData','districtLOData','districtFeedbackData'))->render();
                 $pdf = new Pdf;
                 $pdf->addPage($render);
                 $pdf->setOptions(['javascript-delay' => 5000,'page-size'=>'a2']);
