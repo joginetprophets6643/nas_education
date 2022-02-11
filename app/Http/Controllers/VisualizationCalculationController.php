@@ -151,7 +151,7 @@ class VisualizationCalculationController extends Controller
                 $msg = Visualization_Performance_Tbl::insert($performanceQueryForNationalLevel);
                 if($msg)
                 {
-                    echo 'Data Submitted Successfully';
+                    echo 'Data  Submitted Successfully';
                 }
                 else
                 {
