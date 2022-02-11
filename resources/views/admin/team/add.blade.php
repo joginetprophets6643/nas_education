@@ -42,7 +42,7 @@
 
             <div class="col-6">
               <label for="exampleInputEmail1" class="form-label">Mobile No.</label>
-              <input type="text" name="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" pattern="[0-9]{10}" value="{{old('mobile')}}">
+              <input type="text" name="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{old('mobile')}}">
               @error('mobile')
               <span class="text-danger">{{$message}}</span>
               @enderror
