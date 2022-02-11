@@ -54,9 +54,17 @@
                                         </div>
 
                                         <div class="form-group">
-                                        <!-- <label for="images" class="form-label">Event Images</label> -->
+                                        <label for="images" class="form-label">Video</label>
                                         <input type="file" name="vedio" class="form-control" id="video">
                                         @error('vedio')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group">
+                                        <label for="images" class="form-label">Thumbnail (if video uploaded)</label>
+                                        <input type="file" name="thumbnail" class="form-control" id="thumbnail">
+                                        @error('thumbnail')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                         </div>
