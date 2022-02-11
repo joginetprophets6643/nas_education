@@ -27,7 +27,7 @@ class TeamController extends Controller
             'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
-            'mobile'=>'numeric|nullable'
+            'mobile'=>'nullable'
         ]);
         $name='';
         if($request->image)
