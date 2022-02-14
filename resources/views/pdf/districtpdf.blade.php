@@ -1031,12 +1031,12 @@
             </div>
           </div>
           <!-- distict performance section  -->
-         <!--  <div class="col-md-12">
+          <div class="col-md-12">
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>Kadapa Report Card</h2>
-                  <span class="class">CLASS 3</span>
+                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}}  Report Card</h2>
+                  <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg">
                   <div class="row pb-100">
@@ -1054,7 +1054,7 @@
                             <tr class="dark-blue-bg text-white">
                               <th scope="col">LO Code</th>
                               <th scope="col" class="">
-                                Learning Outcomes for Class 3
+                                Learning Outcomes for Class {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}
                               </th>
                               <th scope="col">District Average Performance</th>
                               <th scope="col">State Average Performance</th>
@@ -1062,291 +1062,219 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="card-blue text-white">
-                              <td class="text" colspan="5">
-                                <img
-                                  src="http://nas21.inroad.in/report-pdf/assets/images/Icon-awesome-globe.svg"
-                                  alt=""
-                                />
-                                Language
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">L304</th>
-                              <td class="text-sm-start">
-                                Reads small texts with comprehension i.e.,
-                                identifies main ideas, details, sequence and
-                                draws conclusions
-                              </td>
-                              <td>82</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-blue">
-                              <th scope="row">L312</th>
-                              <td class="text-sm-start">
-                                Reads printed scripts on the classroom walls:
-                                poems, posters, charts etc
-                              </td>
-                              <td>83</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-pink text-white">
-                              <td class="text" colspan="5">
-                                <img
-                                  src="http://nas21.inroad.in/report-pdf/assets/images/operataion-icon.svg"
-                                  alt=""
-                                />
-                                Mathematics
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">M301</th>
-                              <td class="text-sm-start">
-                                Reads and writes numbers up to 999 using place
-                                value
-                              </td>
-                              <td>84</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-light-pink">
-                              <th scope="row">M302</th>
-                              <td class="text-sm-start">
-                                Compares numbers up to 999 based on their place
-                                values
-                              </td>
-                              <td>88</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">M303</th>
-                              <td class="text-sm-start">
-                                Solves simple daily life problems using addition
-                                and subtraction of three digit numbers with and
-                                without regrouping
-                              </td>
-                              <td>88</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-light-pink">
-                              <th scope="row">M304</th>
-                              <td class="text-sm-start">
-                                Constructs and uses the multiplication facts (up
-                                till 10) in daily life situations
-                              </td>
-                              <td>77</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">M305</th>
-                              <td class="text-sm-start">
-                                Analyses and applies an appropriate number
-                                operation in the situation/ context
-                              </td>
-                              <td>84</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-light-pink">
-                              <th scope="row">M306</th>
-                              <td class="text-sm-start">
-                                Explains the meaning of division facts by equal
-                                grouping/sharing and finds it by repeated
-                                subtraction
-                              </td>
-                              <td>88</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">M309</th>
-                              <td class="text-sm-start">
-                                Identifies and makes 2D-shapes by paper folding,
-                                paper cutting on the dot grid, using straight
-                                lines etc.
-                              </td>
-                              <td>88</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-light-pink">
-                              <th scope="row">M311</th>
-                              <td class="text-sm-start">
-                                Fills a given region leaving no gaps using a
-                                tile of a given shape
-                              </td>
-                              <td>77</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">M312</th>
-                              <td class="text-sm-start">
-                                Estimates and measures length and distance using
-                                standard units like centimetres or metres &
-                                identifies relationships
-                              </td>
-                              <td>49</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-light-pink">
-                              <th scope="row">M317</th>
-                              <td class="text-sm-start">
-                                Reads the time correctly to the hour using a
-                                clock/watch
-                              </td>
-                              <td>83</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">M318</th>
-                              <td class="text-sm-start">
-                                Extends patterns in simple shapes and numbers
-                              </td>
-                              <td>75</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-light-pink">
-                              <th scope="row">M319</th>
-                              <td class="text-sm-start">
-                                Records data using tally marks, represents
-                                pictorially and draws conclusions
-                              </td>
-                              <td>89</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="card-yellow text-white">
-                              <td class="text" colspan="5">
-                                <img
-                                  src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon-small.svg"
-                                  alt=""
-                                />
-                                EVS
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">E302</th>
-                              <td class="text-sm-start">
-                                Identifies simple features (e.g. movement, at
-                                places found/ kept, eating habits, sounds) of
-                                animals and birds in the immediate surroundings.
-                              </td>
-                              <td>70</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="light-yellow-bg">
-                              <th scope="row">E303</th>
-                              <td class="text-sm-start">
-                                Identifies relationships with and among family
-                                members
-                              </td>
-                              <td>80</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">E304</th>
-                              <td class="text-sm-start">
-                                Identifies objects, signs (vessels, stoves,
-                                transport, means of communication, transport,
-                                signboards), places (types of houses/shelters,
-                                bus stand, petrol pump) activities (works people
-                                do, cooking processes) at
-                                home/school/neighbourhood
-                              </td>
-                              <td>68</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="light-yellow-bg">
-                              <th scope="row">E305</th>
-                              <td class="text-sm-start">
-                                Describes need of food for people of different
-                                age groups, animals/birds, availability of food
-                                and water and use of water at home and
-                                surroundings
-                              </td>
-                              <td>80</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">E307</th>
-                              <td class="text-sm-start">
-                                Groups objects, birds, animals, features,
-                                activities according to differences/similarities
-                                using different senses. (e.g. appearance/place
-                                of living/ food/ movement/ likes-dislikes/ any
-                                other features)
-                              </td>
-                              <td>85</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="light-yellow-bg">
-                              <th scope="row">E309</th>
-                              <td class="text-sm-start">
-                                Identifies directions, location of
-                                objects/places in simple maps using
-                                signs/symbols/verbally
-                              </td>
-                              <td>80</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">E310</th>
-                              <td class="text-sm-start">
-                                Guesses properties, estimates quantities of
-                                materials/activities in daily life and verifies
-                                using symbols/ non-standard units.
-                              </td>
-                              <td>85</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="light-yellow-bg">
-                              <th scope="row">E311</th>
-                              <td class="text-sm-start">
-                                Records observations, experiences, information
-                                on objects/activities/places visited in
-                                different ways and predicts patterns etc.
-                              </td>
-                              <td>80</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="">
-                              <th scope="row">E313</th>
-                              <td class="text-sm-start">
-                                Observes rules in games (local. indoor, outdoor)
-                              </td>
-                              <td>80</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr class="light-yellow-bg">
-                              <th scope="row">E314</th>
-                              <td class="text-sm-start">
-                                Voices opinion on good/bad touch , stereotypes
-                                for tasks/play/food in family w.r.t gender,
-                                misuse/ wastage of food and water in family and
-                                school.
-                              </td>
-                              <td>80</td>
-                              <td></td>
-                              <td></td>
-                            </tr>
+                            @if(count($districtLOData)>0)
+                            @php $m=1;@endphp
+                              @foreach($districtLOData as $mathLO)
+                                @if($districtParticipation->grade==$mathLO->grade)
+                                  @if($mathLO->language=='math')
+                                  @if($m==1)
+                                    <tr class="card-pink text-white">
+                                      <td class="text" colspan="5">
+                                        <img
+                                          src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png"
+                                          alt=""
+                                        />
+                                        Mathematics
+                                      </td>
+                                    </tr>
+                                  @endif
+                                  <tr class={{(($m)%2==0)?'"card-light-pink"':''}}>
+                                    <th scope="row">{{isset($mathLO->subject_code)?$mathLO->subject_code:'-'}}</th>
+                                    <td class="text-sm-start">
+                                      {{($mathLO->question!=''&&$mathLO->question!=0)?$mathLO->question:'-'}}
+                                    </td>
+                                    <td>{{isset($mathLO->avg)?$mathLO->avg:'-'}}</td>
+                                    <td>{{isset($mathLO->state_avg)?$mathLO->state_avg:'-'}}</td>
+                                    <td>{{isset($mathLO->national_avg)?$mathLO->national_avg:'-'}}</td>
+                                  </tr>
+                                  @php $m++;@endphp
+                                  @endif
+                                @endif
+                              @endforeach
+                            @endif
+
+                            @if(count($districtLOData)>0)
+                            @php $l=1;@endphp
+                              @foreach($districtLOData as $languageLO)
+                                @if($districtParticipation->grade==$languageLO->grade)
+                                  @if($languageLO->language=='language')
+                                  @if($l==1)
+                                    <tr class="card-blue text-white">
+                                      <td class="text" colspan="5">
+                                        <img
+                                          src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png"
+                                          alt="" style="width: 35px;height: 30px;"
+                                        />
+                                        Language
+                                      </td>
+                                    </tr>
+                                  @endif
+                                  <tr class={{(($l)%2==0)?'"card-light-pink"':''}}>
+                                    <th scope="row">{{isset($languageLO->subject_code)?$languageLO->subject_code:'-'}}</th>
+                                    <td class="text-sm-start">
+                                      {{($languageLO->question!=''&&$languageLO->question!=0)?$languageLO->question:'-'}}
+                                    </td>
+                                    <td>{{isset($languageLO->avg)?$languageLO->avg:'-'}}</td>
+                                    <td>{{isset($languageLO->state_avg)?$languageLO->state_avg:'-'}}</td>
+                                    <td>{{isset($languageLO->national_avg)?$languageLO->national_avg:'-'}}</td>
+                                  </tr>
+                                  @php $l++;@endphp
+                                  @endif
+                                @endif
+                              @endforeach
+                            @endif
+
+                            @if(count($districtLOData)>0)
+                            @php $e=1;@endphp
+                              @foreach($districtLOData as $evsLO)
+                                @if($districtParticipation->grade==$evsLO->grade)
+                                  @if($evsLO->language=='evs')
+                                  @if($e==1)
+                                    <tr class="card-yellow text-white">
+                                      <td class="text" colspan="5">
+                                        <img
+                                          src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png"
+                                          alt=""
+                                        />
+                                        EVS
+                                      </td>
+                                    </tr>
+                                  @endif
+                                  <tr class={{(($e)%2==0)?'"light-yellow-bg"':''}}>
+                                    <th scope="row">{{isset($evsLO->subject_code)?$evsLO->subject_code:'-'}}</th>
+                                    <td class="text-sm-start">
+                                      {{($evsLO->question!=''&&$evsLO->question!=0)?$evsLO->question:'-'}}
+                                    </td>
+                                    <td>{{isset($evsLO->avg)?$evsLO->avg:'-'}}</td>
+                                    <td>{{isset($evsLO->state_avg)?$evsLO->state_avg:'-'}}</td>
+                                    <td>{{isset($evsLO->national_avg)?$evsLO->national_avg:'-'}}</td>
+                                  </tr>
+                                  @php $e++;@endphp
+                                  @endif
+                                @endif
+                              @endforeach
+                            @endif
+                            @if(count($districtLOData)>0)
+                            @php $s=1;@endphp
+                              @foreach($districtLOData as $sciLO)
+                                @if($districtParticipation->grade==$sciLO->grade)
+                                  @if($sciLO->language=='sci')
+                                  @if($s==1)
+                                    <tr class="card-sagegreen text-white">
+                                      <td class="text" colspan="5">
+                                        <img
+                                          src="http://nas21.inroad.in/report-pdf/assets/images/science-icon.png"
+                                          alt=""
+                                        />
+                                        Science
+                                      </td>
+                                    </tr>
+                                  @endif
+                                  <tr class={{(($s)%2==0)?'"light-yellow-bg"':''}}>
+                                    <th scope="row">{{isset($sciLO->subject_code)?$sciLO->subject_code:'-'}}</th>
+                                    <td class="text-sm-start">
+                                      {{($sciLO->question!=''&&$sciLO->question!=0)?$sciLO->question:'-'}}
+                                    </td>
+                                    <td>{{isset($sciLO->avg)?$sciLO->avg:'-'}}</td>
+                                    <td>{{isset($sciLO->state_avg)?$sciLO->state_avg:'-'}}</td>
+                                    <td>{{isset($sciLO->national_avg)?$sciLO->national_avg:'-'}}</td>
+                                  </tr>
+                                  @php $s++;@endphp
+                                  @endif
+                                @endif
+                              @endforeach
+                            @endif
+                            @if(count($districtLOData)>0)
+                            @php $sst=1;@endphp
+                              @foreach($districtLOData as $sstLO)
+                                @if($districtParticipation->grade==$sstLO->grade)
+                                  @if($sstLO->language=='sst')
+                                  @if($sst==1)
+                                    <tr class="card-green text-white">
+                                      <td class="text" colspan="5">
+                                        <img
+                                          src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png"
+                                          alt=""
+                                        />
+                                        Social Science
+                                      </td>
+                                    </tr>
+                                  @endif
+                                  <tr class={{(($sst)%2==0)?'"light-yellow-bg"':''}}>
+                                    <th scope="row">{{isset($sstLO->subject_code)?$sstLO->subject_code:'-'}}</th>
+                                    <td class="text-sm-start">
+                                      {{($sstLO->question!=''&&$sstLO->question!=0)?$sstLO->question:'-'}}
+                                    </td>
+                                    <td>{{isset($sstLO->avg)?$sstLO->avg:'-'}}</td>
+                                    <td>{{isset($sstLO->state_avg)?$sstLO->state_avg:'-'}}</td>
+                                    <td>{{isset($sstLO->national_avg)?$sstLO->national_avg:'-'}}</td>
+                                  </tr>
+                                  @php $sst++;@endphp
+                                  @endif
+                                @endif
+                              @endforeach
+                            @endif
+                            @if(count($districtLOData)>0)
+                            @php $mil=1;@endphp
+                              @foreach($districtLOData as $milLO)
+                                @if($districtParticipation->grade==$milLO->grade)
+                                  @if($milLO->language=='mil')
+                                  @if($mil==1)
+                                    <tr class="card-red text-white">
+                                      <td class="text" colspan="5">
+                                        <img
+                                          src="http://nas21.inroad.in/report-pdf/assets/images/mil-icon.png"
+                                          alt=""
+                                        />
+                                        MIL
+                                      </td>
+                                    </tr>
+                                  @endif
+                                  <tr class={{(($mil)%2==0)?'"light-yellow-bg"':''}}>
+                                    <th scope="row">{{isset($milLO->subject_code)?$milLO->subject_code:'-'}}</th>
+                                    <td class="text-sm-start">
+                                      {{($milLO->question!=''&&$milLO->question!=0)?$milLO->question:'-'}}
+                                    </td>
+                                    <td>{{isset($milLO->avg)?$milLO->avg:'-'}}</td>
+                                    <td>{{isset($milLO->state_avg)?$milLO->state_avg:'-'}}</td>
+                                    <td>{{isset($milLO->national_avg)?$milLO->national_avg:'-'}}</td>
+                                  </tr>
+                                  @php $mil++;@endphp
+                                  @endif
+                                @endif
+                              @endforeach
+                            @endif
+                            @if(count($districtLOData)>0)
+                            @php $eng=1;@endphp
+                              @foreach($districtLOData as $engLO)
+                                @if($districtParticipation->grade==$engLO->grade)
+                                  @if($engLO->language=='eng')
+                                  @if($eng==1)
+                                    <tr class="card-purple text-white">
+                                      <td class="text" colspan="5">
+                                        <img
+                                          src="http://nas21.inroad.in/report-pdf/assets/images/english-icon.png"
+                                          alt=""
+                                        />
+                                        English
+                                      </td>
+                                    </tr>
+                                  @endif
+                                  <tr class={{(($eng)%2==0)?'"light-yellow-bg"':''}}>
+                                    <th scope="row">{{isset($engLO->subject_code)?$engLO->subject_code:'-'}}</th>
+                                    <td class="text-sm-start">
+                                      {{($engLO->question!=''&&$engLO->question!=0)?$engLO->question:'-'}}
+                                    </td>
+                                    <td>{{isset($engLO->avg)?$engLO->avg:'-'}}</td>
+                                    <td>{{isset($engLO->state_avg)?$engLO->state_avg:'-'}}</td>
+                                    <td>{{isset($engLO->national_avg)?$engLO->national_avg:'-'}}</td>
+                                  </tr>
+                                  @php $eng++;@endphp
+                                  @endif
+                                @endif
+                              @endforeach
+                            @endif                            
+
                           </tbody>
                         </table>
                       </div>
@@ -1358,17 +1286,17 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
           <!-- children testimony -->
           <div class="col-md-12">
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>Kadapa Report Card</h2>
-                  <span class="class">CLASS 3</span>
+                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:0}}</span>
                 </div>
                 <div
-                  class="reportview-class-content light-pink children-testimony"
+                  class="reportview-class-content light-blue-bg children-testimony mt-1"
                 >
                   <div class="row pt-3 pb-30">
                     <div class="col-md-12">
@@ -1376,73 +1304,20 @@
                         What children say about schools?
                       </h4>
                     </div>
-                    <div class="col-md-3">
-                      <div class="infotab-content white-bg text-center">
-                        <h2 class="title pt-2">97%</h2>
-                        <p class="total-no">students like to go to school</p>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="infotab-content white-bg text-center">
-                        <h2 class="title pt-2">78%</h2>
-                        <p class="total-no">
-                          students use same language at home as medium of
-                          instruction in the class
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="infotab-content white-bg text-center">
-                        <h2 class="title pt-2">85%</h2>
-                        <p class="total-no">
-                          students could understand, what teachers teach in the
-                          class
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="infotab-content white-bg text-center">
-                        <h2 class="title pt-2">89%</h2>
-                        <p class="total-no">
-                          students go out and play during games period
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="infotab-content white-bg text-center">
-                        <h2 class="title pt-2">23%</h2>
-                        <p class="total-no">
-                          students have access to any digital device of class 3,
-                          5 and 8 avail computer in the school
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="infotab-content white-bg text-center">
-                        <h2 class="title pt-2">82%</h2>
-                        <p class="total-no">
-                          students of class 10 have laboratory facility in
-                          school
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="infotab-content white-bg text-center">
-                        <h2 class="title pt-2">60%</h2>
-                        <p class="total-no">
-                          students have internet connectivity at home
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="infotab-content white-bg text-center">
-                        <h2 class="title pt-2">20%</h2>
-                        <p class="total-no">
-                          children get parental support for their educational
-                          achievement
-                        </p>
-                      </div>
-                    </div>
+                    @if(count($districtFeedbackData)>0)
+                      @foreach($districtFeedbackData as $pqfeedback)
+                        @if($districtParticipation->grade==$pqfeedback->grade)
+                          @if($pqfeedback->level=='pq')
+                            <div class="col-md-3">
+                              <div class="infotab-content white-bg text-center">
+                                <h2 class="text-blue pt-2">{{isset($pqfeedback->avg)?$pqfeedback->avg:0}}%</h2>
+                                <p class="total-no">{{isset($pqfeedback->question_desc)?$pqfeedback->question_desc:'-'}}</p>
+                              </div>
+                            </div>
+                          @endif
+                        @endif
+                      @endforeach
+                    @endif
                   </div>
                 </div>
                 <div class="teacher-sec">
@@ -1452,19 +1327,69 @@
                       <h4 class="heading-black-bold heading-30 text-center p-4">
                         What teachers responded about school?
                       </h4>
-                      <div class="row justify-content-center pt-5">
-                        <div class="col-md-6">
-                          <div class='octagonWrap'>
-                            <div class="octagon-card o-color-white text-center"> <!-- .infotab-content ----class -->
-                              <h2 class="text-green">95%</h2>
-                              <p class="total-no">
-                                teachers have adequate instructional material and
-                                supplies.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+
+                      @if(count($districtFeedbackData)>0)
+                      @php $tq=1; $tqArr = array(); $tq3=1;@endphp
+                        @foreach($districtFeedbackData as $tqfeedback)
+                          @if($districtParticipation->grade==$tqfeedback->grade)
+                            @if($tqfeedback->level=='tq')
+                            @php
+                            if($tq%2==0)
+                            {
+                              $colorClass = 'o-color-green';
+                            }
+                            else
+                            {
+                              $colorClass = 'o-color-white';
+                            }
+                            @endphp
+                            @if(!in_array($tqfeedback->id,$tqArr))
+                              <div class="row justify-content-center pt-5">
+                                <div class="col-md-6">
+                                  <div class='octagonWrap'>
+                                    <div class="octagon-card {{$colorClass}} text-center"> <!-- .infotab-content ----class -->
+                                      <h2 class="text-green">{{isset($tqfeedback->avg)?$tqfeedback->avg:0}}%</h2>
+                                      <p class="total-no">
+                                        {{isset($tqfeedback->question_desc)?$tqfeedback->question_desc:'-'}}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              @php array_push($tqArr,$tqfeedback->id);@endphp
+                              <!--  Second Loop start here  -->
+                              @php $tq2=1;@endphp
+                              <div class="row row-margin">
+                                @foreach($districtFeedbackData as $tqfeedback2)
+                                  @if($districtParticipation->grade==$tqfeedback2->grade)
+                                    @if($tqfeedback2->level=='tq')
+                                      @if(!in_array($tqfeedback2->id,$tqArr))
+                                        <div class="col-md-6">
+                                          <div
+                                            class="octagon-card o-color-light-green text-white text-center"
+                                          >
+                                            <h2 class="title">{{isset($tqfeedback2->avg)?$tqfeedback2->avg:0}}%</h2>
+                                            <p class="total-no">
+                                              {{isset($tqfeedback2->question_desc)?$tqfeedback2->question_desc:'-'}}{{$tq3}}
+                                            </p>
+                                          </div>
+                                        </div>
+                                        @php $tq3++; array_push($tqArr,$tqfeedback2->id); if($tq2==2){break;}$tq2++; @endphp
+                                        @endif
+                                    @endif
+                                  @endif
+                                @endforeach
+                                </div>
+                                <!--  Second Loop end here  -->
+
+                              @endif
+                              @php $tq++;@endphp
+                            @endif
+                          @endif
+                        @endforeach
+                      @endif
+
+                    <!-- </br></br></br></br></br>
                       <div class="row row-margin">
                         <div class="col-md-6">
                           <div
@@ -1531,56 +1456,31 @@
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                     <!-- right sec -->
-                    <div class="col-md-4 light-blue-bg pt-3 teacher-right">
-                      <h4 class="heading-black-bold  heading-30 text-center p-4">
-                        What children say about schools?
+                    <div class="col-md-4 light-pink pt-3 teacher-right">
+                      <h4 class="heading-black-bold heading-30 text-center p-4">
+                        What head teachers responded about school?
                       </h4>
                       <div class="container">
                         <div class="row">
-                          <div class="col-md-12">
-                            <div class="infotab-content white-bg text-center">
-                              <h2 class="text-blue">64%</h2>
-                              <p class="total-no">
-                                of schools have adequate qualified teaching
-                                staff
-                              </p>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="infotab-content white-bg text-center">
-                              <h2 class="text-blue">54%</h2>
-                              <p class="total-no">
-                                of schools have adequate supporting staff.
-                              </p>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="infotab-content white-bg text-center">
-                              <h2 class="text-blue">40%</h2>
-                              <p class="total-no">
-                                of schools have adequate audio visual resources.
-                              </p>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="infotab-content white-bg text-center">
-                              <h2 class="text-blue">63%</h2>
-                              <p class="total-no">
-                                of schools have adequate library resources.
-                              </p>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="infotab-content white-bg text-center">
-                              <h2 class="text-blue">86%</h2>
-                              <p class="total-no">
-                                of schools participate in sports activities.
-                              </p>
-                            </div>
-                          </div>
+                          @if(count($districtFeedbackData)>0)
+                            @foreach($districtFeedbackData as $sqfeedback)
+                              @if($districtParticipation->grade==$sqfeedback->grade)
+                                @if($sqfeedback->level=='sq')
+                                  <div class="col-md-12">
+                                    <div class="infotab-content white-bg text-center">
+                                      <h2 class="text-pink">{{isset($sqfeedback->avg)?$sqfeedback->avg:0}}%</h2>
+                                      <p class="total-no">
+                                        {{isset($sqfeedback->question_desc)?$sqfeedback->question_desc:'-'}}
+                                      </p>
+                                    </div>
+                                  </div>
+                                @endif
+                              @endif
+                            @endforeach
+                          @endif
                         </div>
                       </div>
                     </div>
@@ -1593,76 +1493,76 @@
             </div>
           </div>
 
-    <script>
-      // Donut Chart
-      Highcharts.chart("dc3-managementPieGraph{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
-        chart: {
-          type: "pie",
-        },
-        title: {
-          text: "",
-        },
-        tooltip: {
-          headerFormat: "",
-          pointFormat:
-            '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-            "{point.y}%",
-        },
-        plotOptions: {
-          pie: {
-            innerSize: 100,
-            depth: 45,
-            allowPointSelect: true,
-            cursor: "pointer",
-            dataLabels: {
-              enabled: true,
-              format: "{point.percentage:.0f} %",
-              distance: -50,
-              filter: {
-                property: "percentage",
-                operator: ">",
-                value: 4,
+          <script>
+            // Donut Chart
+            Highcharts.chart("dc3-managementPieGraph{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
+              chart: {
+                type: "pie",
               },
-            },
-            showInLegend: true,
-          },
-        },
-        series: [
-          {
-            minPointSize: 10,
-            innerSize: "40%",
-            zMin: 0,
-            name: "Management",
-            data: [
-              {
-                name: "Central Govt.",
-                y: {{($districtParticipation->central_govt_school!=0)?round($districtParticipation->central_govt_school):0}},
-                z: 100,
-                color: "#75A9D9",
+              title: {
+                text: "",
               },
-              {
-                name: "Govt.",
-                y: {{($districtParticipation->govt_school!=0)?round($districtParticipation->govt_school):0}},
-                z: 100,
-                color: "#E9769F",
+              tooltip: {
+                headerFormat: "",
+                pointFormat:
+                  '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
+                  "{point.y}%",
               },
-              {
-                name: "Govt. Aided",
-                y: {{($districtParticipation->govt_aided_school!=0)?round($districtParticipation->govt_aided_school):0}},
-                z: 100,
-                color: "#CAC55F",
+              plotOptions: {
+                pie: {
+                  innerSize: 100,
+                  depth: 45,
+                  allowPointSelect: true,
+                  cursor: "pointer",
+                  dataLabels: {
+                    enabled: true,
+                    format: "{point.percentage:.0f} %",
+                    distance: -50,
+                    filter: {
+                      property: "percentage",
+                      operator: ">",
+                      value: 4,
+                    },
+                  },
+                  showInLegend: true,
+                },
               },
-              {
-                name: "Private",
-                y: {{($districtParticipation->private_school!=0)?round($districtParticipation->private_school):0}},
-                z: 100,
-                color: "#4CAF50",
-              },
-            ],
-          },
-        ],
-      });
-    </script>
+              series: [
+                {
+                  minPointSize: 10,
+                  innerSize: "40%",
+                  zMin: 0,
+                  name: "Management",
+                  data: [
+                    {
+                      name: "Central Govt.",
+                      y: {{($districtParticipation->central_govt_school!=0)?round($districtParticipation->central_govt_school):0}},
+                      z: 100,
+                      color: "#75A9D9",
+                    },
+                    {
+                      name: "Govt.",
+                      y: {{($districtParticipation->govt_school!=0)?round($districtParticipation->govt_school):0}},
+                      z: 100,
+                      color: "#E9769F",
+                    },
+                    {
+                      name: "Govt. Aided",
+                      y: {{($districtParticipation->govt_aided_school!=0)?round($districtParticipation->govt_aided_school):0}},
+                      z: 100,
+                      color: "#CAC55F",
+                    },
+                    {
+                      name: "Private",
+                      y: {{($districtParticipation->private_school!=0)?round($districtParticipation->private_school):0}},
+                      z: 100,
+                      color: "#4CAF50",
+                    },
+                  ],
+                },
+              ],
+            });
+          </script>
 
           @endforeach
           @endif

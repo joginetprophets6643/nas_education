@@ -19,10 +19,10 @@ class CreateVisualizationParticipationTblTable extends Migration
             $table->bigInteger('district_id')->default(0);
             $table->bigInteger('state_id')->default(0);
             $table->bigInteger('grade')->nullable();
-            $table->bigInteger('district_school_count')->default(0);
+            $table->bigInteger('district_schools_count')->default(0);
             $table->bigInteger('district_students_count')->default(0);
             $table->bigInteger('district_teachers_count')->default(0);
-            $table->bigInteger('state_shcools_count')->default(0);
+            $table->bigInteger('state_schools_count')->default(0);
             $table->bigInteger('state_teachers_count')->default(0);
             $table->bigInteger('state_students_count')->default(0);
             $table->bigInteger('national_schools_count')->default(0);
