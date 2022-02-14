@@ -17,11 +17,8 @@ import { useInView } from 'react-intersection-observer'
 
 const TabContent = () => {
 
-  const [ref, inView] = useInView({
-    threshold: 0,
-  })
 
-  const current_geography = "national"
+  // const current_geography = "national"
   const dispatch = useDispatch()
   const grade =  useSelector<StoreModel>(store=> store.grade.data)
   const [student_count, setStudentCount] = useState<number>(0)
@@ -30,30 +27,51 @@ const TabContent = () => {
   const [participation_cards,setParticipationCards] = useState<ParticipationCards>({} as ParticipationCards)
   const cards_data = useSelector<StoreModel>(store=> store.cards) as IntialStateModel
   const marker = useRef<Element>()
+  const current_geography =  useSelector<StoreModel>(store => store.current_geography.data) as string
+  const current_id = useSelector<StoreModel>(store=> store.current_id.data) as number
 
-  
+
   useEffect(()=>{
     let fields = ''
-    const filters = {
-      type:{_eq:current_geography},grade:{_eq:grade}
-    }
+    let filters = {
+      type:{_eq:current_geography},
+      grade:{_eq:grade}
+    } as any
+
     if(current_geography === 'national'){
       fields= 'national_schools_count,national_teachers_count,national_students_count'
     }
+    if(current_geography === 'state'){
+      filters = {...filters , state_id: current_id}
+      fields= 'state_shcools_count,state_teachers_count,state_students_count'
+    }
+    if(current_geography === 'district'){
+      filters = {...filters , district_id: current_id}
+      fields= 'district_school_count,district_teachers_count,district_students_count'
+    }
     dispatch(getCardsData(JSON.stringify(filters),fields))
 
-  },[grade])
+  },[grade,current_geography,current_id])
 
   useEffect(()=>{
     setParticipationCards(cards_data.data[0])
   },[cards_data])
 
   useEffect(()=>{
+    console.log(participation_cards)
     if(cards_data.loaded){
       if(current_geography === 'national'){
-        setStudentCount(participation_cards.national_students_count)
-        setScohoolCount(participation_cards.national_schools_count)
-        setTeachersCount(participation_cards.national_teachers_count)
+        setStudentCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.national_students_count: 0)
+        setScohoolCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.national_schools_count: 0)
+        setTeachersCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.national_teachers_count: 0)
+      }if(current_geography === 'state'){
+        setStudentCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.state_students_count: 0)
+        setScohoolCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.state_shcools_count: 0)
+        setTeachersCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.state_teachers_count: 0)
+      }if(current_geography === 'district'){
+        setStudentCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.district_students_count: 0)
+        setScohoolCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.district_school_count: 0)
+        setTeachersCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.district_teachers_count: 0)
       }
     }
   },[participation_cards])

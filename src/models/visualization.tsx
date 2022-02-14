@@ -1,6 +1,14 @@
 export interface States{
     state_name: string;
     state_id: number;
+    udise_state_code: number;
+}
+
+export interface District{
+    district_name: string;
+    district_id: number;
+    udise_district_code:number;
+    udise_state_id:number;
 }
 
 export interface WhiteCardProps{
@@ -24,8 +32,14 @@ export interface SubjectCardProp{
 }
 
 export interface StoreModel{
-    grade:IntialStateModel
-    cards:IntialStateModel
+    grade:IntialStateModel;
+    cards:IntialStateModel;
+    states:IntialStateModel;
+    districts:IntialStateModel;
+    current_geography:IntialStateModel;
+    current_id:IntialStateModel;
+    current_state:IntialStateModel;
+    current_district:IntialStateModel;
 }
 export interface ParticipationCards{
     id: number;	

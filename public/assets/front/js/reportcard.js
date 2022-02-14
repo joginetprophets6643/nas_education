@@ -1204,12 +1204,16 @@ $(document).ready(()=>{
             $('#feedback'+current_demography +'_pq1_class3').html(pq1)
           }
           if(fb.level === 'pq2'){
+            let pq2 = ''
             if(current_demography === '' || current_demography === 'state'){
-              const pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
-              $('#feedback'+current_demography +'_pq2_'+countPq2+'_class3').html(pq2)
-              countPq2+=1
+              pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
               pq2Average += percentage
+            }else{
+              pq2 ='<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'<br /> things</div>'
             }
+            $('#feedback'+current_demography +'_pq2_'+countPq2+'_class3').html(pq2)
+            countPq2+=1
+
           }
           if(fb.level === 'pq3'){
             if(current_demography === '' || current_demography === 'state'){
