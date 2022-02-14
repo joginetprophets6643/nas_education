@@ -107,7 +107,7 @@ class EventController extends Controller
         return view('admin.events.images.index',compact('images','id','name'));
         }
         $images=0;
-        return view('admin.events.images.index',compact('images','id'));
+        return view('admin.events.images.index',compact('images','id','name'));
     }
 
     public function addImages(Request $request,$id){
