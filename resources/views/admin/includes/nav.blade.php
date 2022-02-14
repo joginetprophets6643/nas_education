@@ -13,7 +13,7 @@
         <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome NAS Admin dashboard!</h5>
         <ul class="navbar-nav navbar-nav-right ml-auto">          
           
-          <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+          <li class="nav-item dropdown d-xl-inline-flex user-dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
             <span class="font-weight-normal"> {{Auth::user()->name}} </span></a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">

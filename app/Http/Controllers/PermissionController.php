@@ -24,7 +24,7 @@ class PermissionController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'email'=>'required',
+            'email'=>'unique:users|required',
             'password'=>'required',
             'role'=>'required',
         ]);
