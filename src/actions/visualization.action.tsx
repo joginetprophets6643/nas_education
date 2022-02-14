@@ -12,7 +12,7 @@ export const setClass = (grade: number)=>({
     payload: grade
 })
 
-export const  getCardsData =  (fitlters:any,fields: any)=>({
+export const  getCardsData =  (fitlters:any,fields: string)=>({
     type: constants.CARDS_FETCH,
     payload: http.get('visualization_participation_tbl?filter='+fitlters+'&fields='+fields)
 })
@@ -40,5 +40,10 @@ export const setState =  (state: States)=>({
 export const setDistrict =  (district: District)=>({
     type: constants.CURRENT_DISTRICT_FETCH_FULFILLED,
     payload: district
+})
+
+export const  getSubjectCards =  (fitlters:any)=>({
+    type: constants.SUBJECT_CARDS_FETCH,
+    payload: http.get('visualization_performance_tbl?filter='+fitlters)
 })
 

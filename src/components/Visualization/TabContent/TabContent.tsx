@@ -13,7 +13,7 @@ import { IntialStateModel, ParticipationCards } from '@/models/visualization';
 import { StoreModel } from '@/models/visualization';
 import { ClassSubjects } from '@/models/visualization';
 import { SubjectIcons } from '@/models/visualization';
-import { useInView } from 'react-intersection-observer'
+import { getSubjectCards } from '@/actions/visualization.action';
 
 const TabContent = () => {
 
@@ -24,32 +24,42 @@ const TabContent = () => {
   const [student_count, setStudentCount] = useState<number>(0)
   const [teachers_count, setTeachersCount] = useState<number>(0)
   const [school_count, setScohoolCount] = useState<number>(0)
+  const [subject_count, setSubjectCount] = useState<any>({})
   const [participation_cards,setParticipationCards] = useState<ParticipationCards>({} as ParticipationCards)
   const cards_data = useSelector<StoreModel>(store=> store.cards) as IntialStateModel
+  const subject_cards_data = useSelector<StoreModel>(store=> store.subject_cards) as IntialStateModel
   const marker = useRef<Element>()
   const current_geography =  useSelector<StoreModel>(store => store.current_geography.data) as string
   const current_id = useSelector<StoreModel>(store=> store.current_id.data) as number
 
-
   useEffect(()=>{
     let fields = ''
-    let filters = {
+    let reusable_filters = {
       type:{_eq:current_geography},
       grade:{_eq:grade}
     } as any
+    let participation_filter = {}
+    let performance_filter = {}
 
     if(current_geography === 'national'){
       fields= 'national_schools_count,national_teachers_count,national_students_count'
+      performance_filter = {...reusable_filters}
+      participation_filter = {...reusable_filters}
+
     }
     if(current_geography === 'state'){
-      filters = {...filters , state_id: current_id}
-      fields= 'state_shcools_count,state_teachers_count,state_students_count'
+      participation_filter = {...reusable_filters , state_id: {_eq:current_id}}
+      performance_filter ={...reusable_filters , state_id: {_eq: current_id}}
+      fields= 'state_teachers_count,state_students_count,state_schools_count'
     }
     if(current_geography === 'district'){
-      filters = {...filters , district_id: current_id}
-      fields= 'district_school_count,district_teachers_count,district_students_count'
+      participation_filter = {...reusable_filters , district_id: {_eq: current_id}}
+      performance_filter ={...reusable_filters , district_id: {_eq: current_id}}
+      fields= 'district_schools_count,district_teachers_count,district_students_count'
     }
-    dispatch(getCardsData(JSON.stringify(filters),fields))
+    dispatch(getCardsData(JSON.stringify(participation_filter),fields))
+    dispatch(getSubjectCards(JSON.stringify(performance_filter)))
+
 
   },[grade,current_geography,current_id])
 
@@ -58,7 +68,13 @@ const TabContent = () => {
   },[cards_data])
 
   useEffect(()=>{
-    console.log(participation_cards)
+    if(subject_cards_data.loaded){
+      console.log(subject_cards_data)
+      setSubjectCount(subject_cards_data.data.length !== 0 ? subject_cards_data.data[0] : {})
+    }
+  },[subject_cards_data])
+
+  useEffect(()=>{
     if(cards_data.loaded){
       if(current_geography === 'national'){
         setStudentCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.national_students_count: 0)
@@ -66,11 +82,11 @@ const TabContent = () => {
         setTeachersCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.national_teachers_count: 0)
       }if(current_geography === 'state'){
         setStudentCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.state_students_count: 0)
-        setScohoolCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.state_shcools_count: 0)
+        setScohoolCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.state_schools_count: 0)
         setTeachersCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ? participation_cards.state_teachers_count: 0)
       }if(current_geography === 'district'){
         setStudentCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.district_students_count: 0)
-        setScohoolCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.district_school_count: 0)
+        setScohoolCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.district_schools_count: 0)
         setTeachersCount(typeof(participation_cards) !=='undefined' && Object(participation_cards).length !== 0 ?  participation_cards.district_teachers_count: 0)
       }
     }
@@ -150,7 +166,9 @@ const TabContent = () => {
         <div className="row">
         {current_subjects.map((subject,index)=>(
             <div className="col-md-4" key={index}>
-              <SubjectCard name={subject} class_style={subject_styles[(subject.replace(/\s+/g, '')).toLowerCase()]} count={'10'} image={subject_icons[(subject.replace(/\s+/g, '')).toLowerCase()]}/>
+              <SubjectCard name={subject} class_style={subject_styles[(subject.replace(/\s+/g, '')).toLowerCase()]} 
+              count={Object.keys(subject_count).length !== 0 && typeof(subject_count) !== 'undefined'? subject_count[((subject.replace(/\s+/g, '_')).toLowerCase() +'_'+current_geography)]: 0}
+               image={subject_icons[(subject.replace(/\s+/g, '')).toLowerCase()]}/>
             </div>
         ))}
         </div>

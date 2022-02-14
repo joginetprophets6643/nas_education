@@ -4,10 +4,10 @@ import { cardsReducers } from '@/reducers/cards.reducer';
 import { combineReducers } from 'redux';
 import { districtReducer } from '@/reducers/district.reducer';
 import { geographyReducer } from '@/reducers/geography.reducer';
-import { identityReducer } from './identity.resolver';
-import { currentStateReducer } from './current_state.reducer';
-import { currentDistrictReducer } from './current_district.reducer';
-
+import { identityReducer } from '@/reducers/identity.resolver';
+import { currentStateReducer } from '@/reducers/current_state.reducer';
+import { currentDistrictReducer } from '@/reducers/current_district.reducer';
+import { subjectCards } from '@/reducers/subjectcards.reducer';
 const reducers =  combineReducers({
     states: visualizationReducer,
     grade: gradeReducer,
@@ -16,6 +16,7 @@ const reducers =  combineReducers({
     current_geography:geographyReducer,
     current_id:identityReducer,
     current_state:currentStateReducer,
-    current_district: currentDistrictReducer
+    current_district: currentDistrictReducer,
+    subject_cards: subjectCards,
 })
 export default reducers
