@@ -105,7 +105,9 @@ const Dropdown = () =>{
                             ))
                             : ""}
                         </ul>
+                        {searchedDistrictList.length === 0 ? 
                         <a href="#" className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside">India</a>
+                        :""}
                         <ul className="dropdown-menu menu-level-2 scrollbar-y-lightblue">
                             {states.map((state,index)=>(
                                 <li className="dropdown-list" key={state.state_id}>
