@@ -419,106 +419,106 @@
              e(".init-animation-1").addClass("fadeInDown").css("opacity", 1), e(".init-animation-2").addClass("fadeInUp").css("opacity", 1), e(".init-animation-3").addClass("fadeInRight").css("opacity", 1), e(".init-animation-4").addClass("fadeInLeft").css("opacity", 1), e(".init-animation-5").addClass("fadeIn").css("opacity", 1)
          };
      if (screen.width < 768) o(), i(), n(), s(), l(), p(), a(), t(), c(), C.hasClass("animsition") || f(), d(), u(), g();
-     else {
-         var A, B, F, G, U, Q = new WOW({
-                 boxClass: "wow",
-                 animateClass: "animated",
-                 offset: 0,
-                 mobile: !1,
-                 live: !0
-             }),
-             J = e(".ripple-group"),
-             K = e(".ripple-alone"),
-             N = function () {
-                 J.on("click", function (a) {
-                     parent = e(this).parents(".ripple-group-parent"), 0 === parent.find(".ink").length && parent.append("<span class='ink'></span>"), B = parent.find(".ink"), B.removeClass("animate"), B.height() || B.width() || (F = Math.max(parent.outerWidth(), parent.outerHeight()), B.css({
-                         height: F,
-                         width: F
-                     })), G = a.pageX - parent.offset().left - B.width() / 2, U = a.pageY - parent.offset().top - B.height() / 2, B.css({
-                         top: U + "px",
-                         left: G + "px"
-                     }).addClass("animate")
-                 }), K.on("click", function (a) {
-                     A = e(this), 0 === A.find(".ink").length && A.append("<span class='ink'></span>"), B = A.find(".ink"), B.removeClass("animate"), B.height() || B.width() || (F = Math.max(A.outerWidth(), A.outerHeight()), B.css({
-                         height: F,
-                         width: F
-                     })), G = a.pageX - A.offset().left - B.width() / 2, U = a.pageY - A.offset().top - B.height() / 2, B.css({
-                         top: U + "px",
-                         left: G + "px"
-                     }).addClass("animate")
-                 })
-             },
-             V = e("html, body"),
-             $ = e(".in-page-scroll").find("a[href*=#]"),
-             ea = function () {
-                 $.on("click", function (a) {
-                     V.animate({
-                         scrollTop: e(e.attr(this, "href")).offset().top
-                     }, 2e3, "easeInCubic"), a.preventDefault()
-                 })
-             },
-             aa = e("#scroll-progressbar").find("div"),
-             ta = function () {
-                 y.scroll(function () {
-                     var a = e(document).scrollTop(),
-                         t = e(document).height() - y.height();
-                     aa.width(a / t * 100 + "%")
-                 })
-             },
-             oa = e("#blur"),
-             ia = function () {
-                 if (oa.length) {
-                     var e = oa.height(),
-                         a = e + 1,
-                         t = oa.attr("data-blur"),
-                         o = {};
-                     o["data-top"] = "filter: blur(0px); translate3d(0px,0px,0px);", o["data--" + e + "-top"] = "filter: blur(" + t + " ); translate3d(0px,0px,0px);", o["data--" + a + "-top"] = "filter: blur(0px); translate3d(0px,0px,1px);", oa.attr(o)
-                 }
-             },
-             sa = e(".counter"),
-             la = function () {
-                 sa.length && sa.counterUp({
-                     delay: 10,
-                     time: 800
-                 })
-             },
+    //  else {
+    //      var A, B, F, G, U, Q = new WOW({
+    //              boxClass: "wow",
+    //              animateClass: "animated",
+    //              offset: 0,
+    //              mobile: !1,
+    //              live: !0
+    //          }),
+    //          J = e(".ripple-group"),
+    //          K = e(".ripple-alone"),
+    //          N = function () {
+    //              J.on("click", function (a) {
+    //                  parent = e(this).parents(".ripple-group-parent"), 0 === parent.find(".ink").length && parent.append("<span class='ink'></span>"), B = parent.find(".ink"), B.removeClass("animate"), B.height() || B.width() || (F = Math.max(parent.outerWidth(), parent.outerHeight()), B.css({
+    //                      height: F,
+    //                      width: F
+    //                  })), G = a.pageX - parent.offset().left - B.width() / 2, U = a.pageY - parent.offset().top - B.height() / 2, B.css({
+    //                      top: U + "px",
+    //                      left: G + "px"
+    //                  }).addClass("animate")
+    //              }), K.on("click", function (a) {
+    //                  A = e(this), 0 === A.find(".ink").length && A.append("<span class='ink'></span>"), B = A.find(".ink"), B.removeClass("animate"), B.height() || B.width() || (F = Math.max(A.outerWidth(), A.outerHeight()), B.css({
+    //                      height: F,
+    //                      width: F
+    //                  })), G = a.pageX - A.offset().left - B.width() / 2, U = a.pageY - A.offset().top - B.height() / 2, B.css({
+    //                      top: U + "px",
+    //                      left: G + "px"
+    //                  }).addClass("animate")
+    //              })
+    //          },
+    //          V = e("html, body"),
+    //          $ = e(".in-page-scroll").find("a[href*=#]"),
+    //          ea = function () {
+    //              $.on("click", function (a) {
+    //                  V.animate({
+    //                      scrollTop: e(e.attr(this, "href")).offset().top
+    //                  }, 2e3, "easeInCubic"), a.preventDefault()
+    //              })
+    //          },
+    //          aa = e("#scroll-progressbar").find("div"),
+    //          ta = function () {
+    //              y.scroll(function () {
+    //                  var a = e(document).scrollTop(),
+    //                      t = e(document).height() - y.height();
+    //                  aa.width(a / t * 100 + "%")
+    //              })
+    //          },
+    //          oa = e("#blur"),
+    //          ia = function () {
+    //              if (oa.length) {
+    //                  var e = oa.height(),
+    //                      a = e + 1,
+    //                      t = oa.attr("data-blur"),
+    //                      o = {};
+    //                  o["data-top"] = "filter: blur(0px); translate3d(0px,0px,0px);", o["data--" + e + "-top"] = "filter: blur(" + t + " ); translate3d(0px,0px,0px);", o["data--" + a + "-top"] = "filter: blur(0px); translate3d(0px,0px,1px);", oa.attr(o)
+    //              }
+    //          },
+    //          sa = e(".counter"),
+    //          la = function () {
+    //              sa.length && sa.counterUp({
+    //                  delay: 10,
+    //                  time: 800
+    //              })
+    //          },
 
-             pa = e("#go-top"),
-             ca = function () {
-                 y.scroll(function () {
-                     y.scrollTop() + y.height() > e(document).height() - 200 ? pa.addClass("go-top-out") : pa.removeClass("go-top-out")
-                 })
-             },
-             ua = function () {
-                 var a = e("#sidebar");
-                 if (a.length) {
-                     var t = a.offset().top - parseFloat(a.css("margin-top").replace(/auto/, 0)),
-                         o = a.height(),
-                         i = e(window).height(),
-                         n = e(window).width(),
-                         s = e(".container").width(),
-                         l = (n - s) / 2,
-                         r = e("#end-content").offset().top - parseFloat(e("#end-content").css("margin-top").replace(/auto/, 0)) - 180,
-                         d = 30;
-                     a.hasClass("col-sm-3") ? a.outerWidth(s / 4) : a.hasClass("col-sm-4") && a.outerWidth(s / 3), e(window).scroll(function () {
-                         var n = e(this).scrollTop();
-                         t + o + d > n + i || n + i > r ? n + i > r ? a.addClass("sidebarfixed").css({
-                             top: r - o - n - d + "px",
-                             right: l + 7.5
-                         }) : a.removeClass("sidebarfixed").css({
-                             top: "0px",
-                             right: 15
-                         }) : a.addClass("sidebarfixed").css({
-                             top: i - o - d + "px",
-                             right: l + 7.5
-                         })
-                     })
-                 }
-             };
-         if (ta(), N(), ca(), t(), o(), i(), n(), ua(), Q.init(), la(), s(), l(), p(), c(), d(), ea(), u(), ia(), g(), C.hasClass("animsition") || (f(), v())) {
-             var fa;
-         }
-     }
+    //          pa = e("#go-top"),
+    //          ca = function () {
+    //              y.scroll(function () {
+    //                  y.scrollTop() + y.height() > e(document).height() - 200 ? pa.addClass("go-top-out") : pa.removeClass("go-top-out")
+    //              })
+    //          },
+    //          ua = function () {
+    //              var a = e("#sidebar");
+    //              if (a.length) {
+    //                  var t = a.offset().top - parseFloat(a.css("margin-top").replace(/auto/, 0)),
+    //                      o = a.height(),
+    //                      i = e(window).height(),
+    //                      n = e(window).width(),
+    //                      s = e(".container").width(),
+    //                      l = (n - s) / 2,
+    //                      r = e("#end-content").offset().top - parseFloat(e("#end-content").css("margin-top").replace(/auto/, 0)) - 180,
+    //                      d = 30;
+    //                  a.hasClass("col-sm-3") ? a.outerWidth(s / 4) : a.hasClass("col-sm-4") && a.outerWidth(s / 3), e(window).scroll(function () {
+    //                      var n = e(this).scrollTop();
+    //                      t + o + d > n + i || n + i > r ? n + i > r ? a.addClass("sidebarfixed").css({
+    //                          top: r - o - n - d + "px",
+    //                          right: l + 7.5
+    //                      }) : a.removeClass("sidebarfixed").css({
+    //                          top: "0px",
+    //                          right: 15
+    //                      }) : a.addClass("sidebarfixed").css({
+    //                          top: i - o - d + "px",
+    //                          right: l + 7.5
+    //                      })
+    //                  })
+    //              }
+    //          };
+    //      if (ta(), N(), ca(), t(), o(), i(), n(), ua(), Q.init(), la(), s(), l(), p(), c(), d(), ea(), u(), ia(), g(), C.hasClass("animsition") || (f(), v())) {
+    //          var fa;
+    //      }
+    //  }
  }(jQuery);
 
  $(document).ready(function () {
