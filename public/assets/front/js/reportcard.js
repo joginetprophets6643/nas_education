@@ -1259,6 +1259,7 @@ $(document).ready(()=>{
       if(item === active){
         $('#'+item+'-tab').addClass('active')
         $('#'+item+'_geography').removeAttr('style')
+        $('#breadcrumb').html(format_string(item))
       }else{
         $('#'+item+'-tab').removeClass('active')
         $('#'+item+'_geography').attr('style','display:none')

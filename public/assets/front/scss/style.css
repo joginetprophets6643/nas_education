@@ -1846,7 +1846,8 @@ ul {
 }
 
 .top-content {
-  padding: 20px;
+  padding: 5px;
+  margin-left: 10px;
 }
 
 .dashboard-wrapper {

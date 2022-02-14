@@ -16,9 +16,9 @@ const Dropdown = () =>{
     const currentDistrict = useSelector<StoreModel>(store=> store.current_district) as IntialStateModel
     const current_geography =  useSelector<StoreModel>(store => store.current_geography.data) as string
     const [current_text,setCurrentText] = useState<string>('')
+    const [searchedDistrictList , setSearchedDistrictList] = useState<Array<District>>([])
 
     const getStateDistricts = (state: States)=>{
-        console.log(state)
         setStateId(state.udise_state_code)
         dispatch(setState(state))
         dispatch(changeDemography('state'))
@@ -51,11 +51,15 @@ const Dropdown = () =>{
 
 
     useEffect(()=>{
-        if(searched_district !== ''){
+        if(searched_district !== '' && searched_district.length >= 3){
             const filter = {
                 district_name : {_contains: searched_district}
             }
-            const data = http.get('district_masters?filter='+ JSON.stringify(filter))
+            http.get('district_masters?filter='+ JSON.stringify(filter)).then(response=>{
+                setSearchedDistrictList(response.data.data)
+            }) as any
+        }else{
+            setSearchedDistrictList([])
         }
     },[searched_district])
 
@@ -78,7 +82,7 @@ const Dropdown = () =>{
         if(current_geography === 'state'){
             setCurrentText(currentState.data.state_name)
         }
-    },[current_geography])
+    },[current_geography,currentDistrict,currentState])
 
 
 
@@ -89,20 +93,26 @@ const Dropdown = () =>{
             You can select any state/UT, District or block from here
             </h3>
             <div className="dropdown">
-                <a className="menu-level-main dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">{current_text}</a>
+                <a className="menu-level-main dropdown-toggle" href="" data-bs-toggle="dropdown" data-bs-auto-close="outside">{current_text}</a>
                 <div className="dropdown-menu menu-level-1">
                     <div className="inputSearch">
                         <input type="text" className="form-control" onChange={(e)=>{searchDistrict(e)}} />
                     </div>
-                    <div className="dropdown-list">
+                    <div className="dropdown-list search-list ">
+                        <ul className="scrollbar-y-lightblue">
+                            {searchedDistrictList.length !== 0 ? searchedDistrictList.map((result,index)=>(
+                                <li key={index} onClick={()=>{ChangeDistrict(result)}}> {result.district_name}</li>
+                            ))
+                            : ""}
+                        </ul>
                         <a href="#" className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside">India</a>
-                        <ul className="dropdown-menu menu-level-2">
+                        <ul className="dropdown-menu menu-level-2 scrollbar-y-lightblue">
                             {states.map((state,index)=>(
                                 <li className="dropdown-list" key={state.state_id}>
-                                    <a className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" onClick={()=>{getStateDistricts(state)}}>{state.state_name}</a>
+                                    <a className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="" onClick={()=>{getStateDistricts(state)}}>{state.state_name}</a>
                                     <ul className="dropdown-menu menu-level-3" key={index}>
                                         {districts.map(((district,index)=>(
-                                            <li className="dropdown-list" key={index}><a className="dropdown-item" href="#" onClick={()=>{ChangeDistrict(district)}}>{district.district_name}</a></li>
+                                            <li className="dropdown-list" key={index}><a className="dropdown-item" href="" onClick={()=>{ChangeDistrict(district)}}>{district.district_name}</a></li>
                                         )))}
                                     </ul>
                                 </li>
