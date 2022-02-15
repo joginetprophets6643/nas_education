@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Globe from "@/assets/images/globe-icon.svg";
 import { SubjectCardProp } from '@/models/visualization';
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import Dropdown from './Dropdown';
+import DropdownSelect from './DropdownSelect';
 
 const TopBar = () => {
   return (
@@ -23,19 +25,10 @@ const TopBar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div className="col-md-4">
-            <div className="select-wrap">
-                <h3 className="select-label">
-                You can select any state/UT, District or block from here
-                </h3>
-                <select className="form-select">
-                    <option>India</option>
-                    <option>One</option>
-                    <option>Two</option>
-                    <option>Three</option>
-                </select>
-            </div>
-            </div>
+            <Dropdown/>
+            {/* <div className="col-md-4">
+                <DropdownSelect />
+            </div> */}
         </div>
     </div>
   );
