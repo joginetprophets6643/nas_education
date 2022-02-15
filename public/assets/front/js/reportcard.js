@@ -1840,11 +1840,11 @@ $(document).ready(()=>{
   }
 
   const section_legends = {
-  cards:["Substantially above national average", "Not substantially different from the national average" , "Substantially below national average"],
-  gender:["No significant difference between Boys and Girls","Boys peform significantly better than Girls","Girls peform significantly better than Boys"],
-  location:["No significant difference between Rural and Urban","Rural peform significantly better than Urban","Urban peform significantly better than Rural"],
-  management:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
-  socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
+  cards:["Substantially above National average", "Not substantially different from the National average" , "Substantially below National average"],
+  gender:["No significant difference between Boys and Girls","Boys perform significantly better than Girls","Girls perform significantly better than Boys"],
+  location:["No significant difference between Rural and Urban","Rural perform significantly better than Urban","Urban perform significantly better than Rural"],
+  management:["No significant difference between Govt. and Govt. Aided","Govt. perform significantly better than Govt. Aided","Govt. Aided perform significantly better than Govt"],
+  socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. perform significantly better than Govt. Aided","Govt. Aided perform significantly better than Govt"],
 
   }
   sections.forEach(section=>{
