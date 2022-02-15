@@ -37,7 +37,7 @@
 CKEDITOR.replaceClass= 'textarea-ckeditor' ;
 </script>
 
-<script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
+<!-- <script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script> -->
 
 <script>
 let view=jQuery.parseJSON($('#view').val());
