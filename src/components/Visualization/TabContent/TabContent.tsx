@@ -32,6 +32,41 @@ const TabContent = () => {
   const current_geography =  useSelector<StoreModel>(store => store.current_geography.data) as string
   const current_id = useSelector<StoreModel>(store=> store.current_id.data) as number
 
+  const class_subjects = {
+    class_3:['Language','Evs','Math'],
+    class_5:['Language','Evs','Math'],
+    class_8:['Language','Science','Math','Social Science'],
+    class_10:['Mil','Social Science','English','Science','Math'],
+  } as ClassSubjects
+  
+  const subject_styles = {
+    language: 'blue',
+    evs:'yellow',
+    math:'pink',
+    socialscience:'green',
+    science:'sagegreen',
+    english:'purple',
+    mil:'red',
+  } as SubjectIcons
+
+  const subject_icons = {
+    language: Globe,
+    evs:Globe,
+    math:Globe,
+    socialscience:Globe,
+    science:Globe,
+    english:Globe,
+    mil:Globe,
+  } as SubjectIcons
+
+  const current_subjects = class_subjects['class_'+grade] as Array<string>
+  
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: [0, 1.0]
+  }
+
   useEffect(()=>{
     let fields = ''
     let reusable_filters = {
@@ -96,39 +131,6 @@ const TabContent = () => {
     contentObserver()
   },[])
   
-  const class_subjects = {
-    class_3:['Language','Evs','Math'],
-    class_5:['Language','Evs','Math'],
-    class_8:['Language','Science','Math','Social Science'],
-    class_10:['Mil','Social Science','English','Science','Math'],
-  } as ClassSubjects
-  
-  const subject_styles = {
-    language: 'blue',
-    evs:'yellow',
-    math:'pink',
-    socialscience:'green',
-    science:'sagegreen',
-    english:'purple',
-    mil:'red',
-  } as SubjectIcons
-
-  const subject_icons = {
-    language: Globe,
-    evs:Globe,
-    math:Globe,
-    socialscience:Globe,
-    science:Globe,
-    english:Globe,
-    mil:Globe,
-  } as SubjectIcons
-
-  const current_subjects = class_subjects['class_'+grade] as Array<string>
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: [0, 1.0]
-  }
 
   const observerChange = (changes: Array<IntersectionObserverEntry>) =>{
     console.log(changes[0].isIntersecting)
@@ -154,21 +156,37 @@ const TabContent = () => {
     <div className="visual-tabcontent-wrap dark-grey-bg">
         <div className="row">
             <div className="col-md-4">
-                <WhiteCard title="Number of Schools Sampled" count={school_count} image={Building}/>
+                <WhiteCard 
+                  title="Number of Schools Sampled" 
+                  count={school_count} 
+                  image={Building}
+                />
             </div>
             <div className="col-md-4">
-                <WhiteCard  title="Number of Teachers Sampled" count={teachers_count} image={Professor}/>
+                <WhiteCard  
+                  title="Number of Teachers Sampled" 
+                  count={teachers_count} 
+                  image={Professor}
+                />
             </div>
             <div className="col-md-4">
-                <WhiteCard title="Number of Students Sampled" count={student_count} image={Student} />
+                <WhiteCard 
+                  title="Number of Students Sampled" 
+                  count={student_count} 
+                  image={Student} 
+                />
             </div>
         </div>
         <div className="row">
         {current_subjects.map((subject,index)=>(
             <div className="col-md-4" key={index}>
-              <SubjectCard name={subject} class_style={subject_styles[(subject.replace(/\s+/g, '')).toLowerCase()]} 
-              count={Object.keys(subject_count).length !== 0 && typeof(subject_count) !== 'undefined'? subject_count[((subject.replace(/\s+/g, '_')).toLowerCase() +'_'+current_geography)]: 0}
-               image={subject_icons[(subject.replace(/\s+/g, '')).toLowerCase()]}/>
+              <SubjectCard 
+                name={subject} 
+                class_style={subject_styles[(subject.replace(/\s+/g, '')).toLowerCase()]} 
+                count={Object.keys(subject_count).length !== 0 && typeof(subject_count) !== 'undefined'
+                      ? subject_count[((subject.replace(/\s+/g, '_')).toLowerCase() +'_'+current_geography)]: 0}
+                image={subject_icons[(subject.replace(/\s+/g, '')).toLowerCase()]}
+              />
             </div>
         ))}
         </div>
