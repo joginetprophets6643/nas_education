@@ -67,10 +67,11 @@
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Event Name</label>
               <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            @error('name')
+              @error('name')
             <span class="text-danger">{{$message}}</span>
             @enderror
+            </div>
+            
             <button type="submit" class="btn btn-primary btn-sm Media_add">Add</button>
           </form>
           </div>
@@ -94,4 +95,9 @@
 </div>
 
 @include('admin.includes.footer')
-
+@if(count($errors)>0)
+<script>
+  $('#staticBackdrop').modal('show');
+  $("[data-dismiss=modal]").trigger({ type: "click" });
+</script>
+@endif
