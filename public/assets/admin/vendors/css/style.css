@@ -17392,6 +17392,13 @@ dl li {
         align-items: center;
         margin: 0;
     }
+    .dataTables_wrapper .dataTables_length{
+        padding: 15px 0px 5px 15px !important;
+        margin: 0 !important;
+    }
+    .dataTables_wrapper .dataTables_filter{
+        padding: 0px 0px 15px 15px !important;
+    }
 }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link i {
     font-size: 1.25rem;
