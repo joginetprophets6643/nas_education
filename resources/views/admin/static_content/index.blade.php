@@ -19,6 +19,7 @@
           <div class="card-header">All Contents
           <a href="{{route('add-content')}}" class="btn btn-primary float-right btn-sm Content_add">Add</a>
           </div>
+          <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
@@ -50,6 +51,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 

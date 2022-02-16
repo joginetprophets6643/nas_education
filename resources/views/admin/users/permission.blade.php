@@ -3,24 +3,24 @@
 
 <div class="main-panel">
   <div class="content-wrapper">
-    <div class="card">
+    <div class="card card-content">
         <div class="card-header">Give Permission</div>
         <div class="card-body">
         
                 <div class="row text-center">
-                <div class="col-3">
+                <div class="col-3 p-0">
                 <strong>Module</strong>
                 </div>
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <strong>View</strong>
                 </div>
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <strong>Add</strong>
                 </div>
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <strong>Edit</strong>
                 </div>
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <strong>Delete</strong>
                 </div>
                 </div>
@@ -33,45 +33,45 @@
                 @foreach($modules as $module)
                 <div class="row text-center">
             
-                <div class="col-3">
+                <div class="col-3 p-0">
                 <strong>{{$module}}</strong>
                 </div>
                 @if(in_array($module,$user->view))
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <input class="form-group" name="{{$module}}_view" type="checkbox" value='1' checked>
                 </div>
                 @else
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <input class="form-group" name="{{$module}}_view" type="checkbox" value='1'>
                 </div>
                 @endif
 
                 @if(in_array($module,$user->add))
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <input class="form-group" name="{{$module}}_add" type="checkbox" value='1' checked>
                 </div>
                 @else
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <input class="form-group" name="{{$module}}_add" type="checkbox" value='1'>
                 </div>
                 @endif
 
                 @if(in_array($module,$user->edit))
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <input class="form-group" name="{{$module}}_edit" type="checkbox" value='1' checked>
                 </div>
                 @else
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <input class="form-group" name="{{$module}}_edit" type="checkbox" value='1'>
                 </div>
                 @endif
 
                 @if(in_array($module,$user->delete))
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <input class="form-group" name="{{$module}}_delete" type="checkbox" value='1' checked>
                 </div>
                 @else
-                <div class="col-2">
+                <div class="col-2 p-0">
                 <input class="form-group" name="{{$module}}_delete" type="checkbox" value='1'>
                 </div>
                 @endif

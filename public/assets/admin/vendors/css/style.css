@@ -17365,6 +17365,33 @@ dl li {
         margin-left: 0.8rem;
         margin-right: 0.8rem;
     }
+    
+    .auth .auth-form-light
+    {
+        padding: 15px !important;
+    }
+    .form-group-sm {
+        margin-bottom: 15px !important;
+    }
+    .dataTables_wrapper .dataTables_paginate{
+        display: flex;
+        align-items: center;
+    }
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        min-width: unset !important;
+        padding: 5px 10px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    .dataTables_wrapper .dataTables_paginate span{
+        display: flex;
+    }
+    .dataTables_wrapper .dataTables_filter label{
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
 }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link i {
     font-size: 1.25rem;
@@ -17451,16 +17478,28 @@ dl li {
     margin: 0;
 }
 @media (max-width: 991px) {
+    .content-wrapper {
+        padding: 30px 15px !important;
+    }
+    .card-content strong{
+        font-size: 14px;
+    }
+    .card .card-body {
+        padding: 15px;
+    }
     .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown {
         position: static;
+    }
+    .navbar .navbar-menu-wrapper .navbar-nav .nav-item.user-dropdown .dropdown-menu .dropdown-header {
+        padding: 10px;
     }
     .navbar
         .navbar-menu-wrapper
         .navbar-nav
         .nav-item.dropdown
         .navbar-dropdown {
-        left: 20px;
-        right: 20px;
+        left: unset;
+        right: 0px;
         top: 70px;
         width: calc(100% - 40px);
     }
@@ -17473,7 +17512,7 @@ dl li {
     .navbar-nav
     .nav-item.user-dropdown
     .dropdown-menu {
-    min-width: 250px;
+    min-width: 200px;
     margin-top: 9px;
 }
 .navbar
@@ -17586,9 +17625,9 @@ dl li {
     .navbar .navbar-brand-wrapper {
         width: 75px;
     }
-    .navbar .navbar-brand-wrapper .navbar-brand.brand-logo {
+    /* .navbar .navbar-brand-wrapper .navbar-brand.brand-logo {
         display: none;
-    }
+    } */
     .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini {
         display: inline-block;
     }
@@ -18022,6 +18061,19 @@ dl li {
 @media screen and (max-width: 767px) {
     .quick-action-toolbar .card .quick-action-btns .btn-wrapper:first-child {
         border-bottom: 1px solid #e8ecf1;
+    }
+    .media-title{
+        font-size: 12px;
+    }
+    .video-wrap iframe , .video-wrap video{
+        width: 100%;
+    }
+    .imageslist li {
+        width: 100% !important;
+        padding: 10px 10px 20px !important;
+    }
+    .welcome-heading{
+        display: none;
     }
 }
 @media screen and (max-width: 576px) {
