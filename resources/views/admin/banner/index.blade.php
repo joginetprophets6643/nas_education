@@ -136,6 +136,12 @@
 </div>
 
 @include('admin.includes.footer')
+@if(count($errors)>0)
+<script>
+  $('#staticBackdrop').modal('show');
+  $("[data-dismiss=modal]").trigger({ type: "click" });
+</script>
+@endif
 </div>
 
 <script>
