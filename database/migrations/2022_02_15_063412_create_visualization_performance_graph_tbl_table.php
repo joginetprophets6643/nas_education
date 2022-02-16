@@ -14,6 +14,7 @@ class CreateVisualizationPerformanceGraphTblTable extends Migration
     public function up()
     {
         Schema::create('visualization_performance_graph_tbl', function (Blueprint $table) {
+            $table->id();
             $table->string('type')->nullable(); 
             $table->bigInteger('district_id')->default(0);
             $table->bigInteger('state_id')->default(0);
