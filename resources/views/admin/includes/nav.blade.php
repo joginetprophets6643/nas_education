@@ -10,7 +10,7 @@
         <!-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('assets/front/images/logo.png')}}" alt="logo" /></a> -->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
-        <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome NAS Admin dashboard!</h5>
+        <h5 class="welcome-heading mb-0 font-weight-medium d-lg-flex">Welcome NAS Admin dashboard!</h5>
         <ul class="navbar-nav navbar-nav-right ml-auto">          
           
           <li class="nav-item dropdown d-xl-inline-flex user-dropdown">

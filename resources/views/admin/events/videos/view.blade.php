@@ -16,7 +16,7 @@
                     </div>
                     @endif
                     <div class="card-header">
-                        <span>All Videos ({{$name->name}})</span>
+                        <span class="media-title">All Videos ({{$name->name}})</span>
                         <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
 
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

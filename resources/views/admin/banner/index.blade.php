@@ -19,6 +19,7 @@
           <div class="card-header">All Banner
           <a class="btn btn-primary float-right btn-sm Banner_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
+          <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
@@ -34,7 +35,7 @@
             <tr>
               <th scope="row">{{$i++}}</th>
               <td style="max-width:500px; overflow:hidden;">{{$banner->description}}</td>
-              <td><img src="{{asset('assets/uploads/banner/'.$banner->image)}}" alt=""></td>
+              <td class="text-center"><img src="{{asset('assets/uploads/banner/'.$banner->image)}}" alt=""></td>
               <td class="action Banner_action">
                 <?php $id=encode5t($banner->id)?>
                 <a href="{{url('secure-admin/edit/banner/'.$id)}}" class="btn btn-primary btn-sm Banner_edit">Edit</a>
@@ -44,6 +45,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 

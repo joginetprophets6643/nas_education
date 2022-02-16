@@ -17,6 +17,7 @@
           <div class="card-header">All RTI
           <a class="btn btn-primary float-right btn-sm RTI_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
+          <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
@@ -40,6 +41,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 

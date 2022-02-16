@@ -19,6 +19,7 @@
           <div class="card-header">All programs
           <a href="{{route('add-program')}}" class="btn btn-primary float-right btn-sm Program_add">Add</a>
           </div>
+          <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
@@ -50,6 +51,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 

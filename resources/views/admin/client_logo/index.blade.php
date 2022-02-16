@@ -19,6 +19,7 @@
           <div class="card-header">Client Logo List
           <a class="btn btn-primary float-right btn-sm Client-Logo_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
+          <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
@@ -36,7 +37,7 @@
               <th scope="row">{{$i++}}</th>
               <td>{{$value->title}}</td>
               <td>{{$value->url}}</td>
-              <td><img src="{{asset('assets/uploads/client_logo/'.$value->logo)}}" alt=""></td>
+              <td class="text-center"><img src="{{asset('assets/uploads/client_logo/'.$value->logo)}}" alt=""></td>
               
               <td class="action Client-Logo_action">
                  <?php $id=encode5t($value->id)?>
@@ -47,6 +48,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 
