@@ -17182,6 +17182,10 @@ dl li {
         padding-left: 15px;
         padding-right: 15px;
     }
+    .navbar .navbar-menu-wrapper .navbar-toggler:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
 }
 .navbar .navbar-brand-wrapper .navbar-brand {
     color: #27367f;
@@ -17274,6 +17278,12 @@ dl li {
         padding-left: 15px;
         padding-right: 11px;
         border-right: none;
+    }
+    .dropdown-header {
+        white-space: unset;
+    }
+    .email-text {
+        word-break: break-all;
     }
 }
 .navbar .navbar-menu-wrapper .search-form {

@@ -19,7 +19,7 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <p class="mb-1 mt-3">{{Auth::user()->name}}</p>
-                <p class="font-weight-light text-muted mb-0">{{Auth::user()->email}}</p>
+                <p class="email-text font-weight-light text-muted mb-0">{{Auth::user()->email}}</p>
               </div>
               <a href="{{url('/secure-admin/profile')}}" class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
               
