@@ -19,4 +19,17 @@ class State_Master extends Model
         'is_ut',
         'view_order',
     ];
+    public function StatePerformance()
+    {
+        return $this->hasMany(StateGradeLevelPerformance::class,'state_id','udise_state_code');
+    } 
+    public function StateFeedback()
+    {
+        return $this->hasMany(PQStateLevelFeedback::class,'state_id','udise_state_code');
+    }
+    public function StateLO()
+    {
+        return $this->hasMany(StateGradeLevelLearningOutCome::class,'state_id','udise_state_code');
+    }
+
 }

@@ -48,7 +48,10 @@ Route::get('generateFeedbackanswerkeySq',[FeedbackController::class,'generateFee
 
 Route::get('district-pdf', [PdfGenerateController::class, 'index']);
 Route::get('download-pdf', [PdfGenerateController::class, 'dwn'])->name('download');
-
+// State Pdf Generate start
+Route::get('state-pdf', [PdfGenerateController::class, 'StateIndex']);
+Route::get('state-download-pdf', [PdfGenerateController::class, 'Statedwn'])->name('statedownload');
+//  State Pdf Generate End
 // Route::get('home', 'App\Http\Controllers\MainController@landing');
 // Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
 // Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name('preloaddata');

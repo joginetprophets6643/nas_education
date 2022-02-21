@@ -16,7 +16,7 @@
                     </div>
                     @endif
                     <div class="card-header">
-                        <span>All Images ({{$name->name}})</span>
+                        <span class="media-title">All Images ({{$name->name}})</span>
                         <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
 
 

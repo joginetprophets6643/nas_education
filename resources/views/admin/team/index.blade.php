@@ -19,6 +19,7 @@
           <div class="card-header">All Members
           <a href="{{route('add-member')}}" class="btn btn-primary float-right btn-sm Team_add">Add</a>
           </div>
+          <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
@@ -46,6 +47,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 
