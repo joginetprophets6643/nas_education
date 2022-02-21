@@ -26,13 +26,13 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
       'Evs':'evs'
   } as any
 
-  useEffect(()=>{
-    console.log(props.eleme)
-  },[props.eleme])
+//   useEffect(()=>{
+//     console.log(props.eleme)
+//   },[props.eleme])
 
   useEffect(()=>{
     if(charts.loaded){
-        console.log(charts.data)
+        // console.log(charts.data)
         setGraphs(charts.data)
     }
   },[charts])
