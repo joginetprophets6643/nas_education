@@ -31,6 +31,14 @@ export interface SubjectCardProp{
     image:string;
 }
 
+export interface AveragePerformanceProps{
+    name:string;
+    class_style:string;
+    image:string;
+    load_charts:Boolean;
+    eleme:any;
+}
+
 export interface StoreModel{
     grade:IntialStateModel;
     cards:IntialStateModel;
@@ -41,6 +49,7 @@ export interface StoreModel{
     current_state:IntialStateModel;
     current_district:IntialStateModel;
     subject_cards:IntialStateModel;
+    charts:IntialStateModel;
 }
 export interface ParticipationCards{
     id: number;	

@@ -42,8 +42,12 @@ export const setDistrict =  (district: District)=>({
     payload: district
 })
 
-export const  getSubjectCards =  (fitlters:any)=>({
+export const  getSubjectCards =  (filters:any)=>({
     type: constants.SUBJECT_CARDS_FETCH,
-    payload: http.get('visualization_performance_tbl?filter='+fitlters)
+    payload: http.get('visualization_performance_tbl?filter='+filters)
 })
 
+export const getGraphs = (filters:any) =>({
+    type: constants.CHART_FETCH,
+    payload: http.get('visualization_performance_graph_tbl?filter='+filters)
+})

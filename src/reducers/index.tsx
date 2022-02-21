@@ -8,6 +8,8 @@ import { identityReducer } from '@/reducers/identity.resolver';
 import { currentStateReducer } from '@/reducers/current_state.reducer';
 import { currentDistrictReducer } from '@/reducers/current_district.reducer';
 import { subjectCards } from '@/reducers/subjectcards.reducer';
+import { chartReducer } from '@/reducers/chart.reducer';
+
 const reducers =  combineReducers({
     states: visualizationReducer,
     grade: gradeReducer,
@@ -18,5 +20,6 @@ const reducers =  combineReducers({
     current_state:currentStateReducer,
     current_district: currentDistrictReducer,
     subject_cards: subjectCards,
+    charts: chartReducer,
 })
 export default reducers
