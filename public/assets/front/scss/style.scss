@@ -1610,10 +1610,11 @@ ul{
 
 // report-card-css
 
-.top-content {
-    padding: 5px;
-    margin-left: 10px;
-}
+.report-card-wrap{
+    .top-content {
+        padding: 5px;
+    }
+} 
 
 .dashboard-wrapper{
     display: flex;
@@ -4494,17 +4495,35 @@ ul{
     /* Track */
     &::-webkit-scrollbar-track {
         border-radius: 10px;
-        background: #E6E6E6;
+        background: #75A9D9;
     }
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-        background:  #2A6AA9; 
+        background:  #e6e6e6; 
         border-radius: 10px;
     }
 }
 
+.scrollbar-y-darkblue{
+    overflow-y: auto;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
 
+    /* Track */
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #4F83B2;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background:  #e6e6e6; 
+        border-radius: 10px;
+    }
+}
 
 .sidebaroverlay{
     background: rgba(0, 0, 0, 0.8);
@@ -5923,9 +5942,9 @@ ul{
 
     .top-content {
         padding: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
         .navbar-toggler {
             padding: 0;
             &:focus{
