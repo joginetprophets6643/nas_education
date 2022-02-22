@@ -19,6 +19,7 @@
           <div class="card-header">All Event
           <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
           </div>
+          <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
@@ -42,6 +43,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 
@@ -67,10 +69,11 @@
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Event Name</label>
               <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            @error('name')
+              @error('name')
             <span class="text-danger">{{$message}}</span>
             @enderror
+            </div>
+            
             <button type="submit" class="btn btn-primary btn-sm Media_add">Add</button>
           </form>
           </div>
@@ -94,4 +97,18 @@
 </div>
 
 @include('admin.includes.footer')
+@if(count($errors)>0)
+<script>
+  $('#staticBackdrop').modal({
+    backdrop: 'static',
+    keyboard: false
+  });
+  
+  $('.btn-close').click(()=>{
+    $('#staticBackdrop').removeClass('show')
+    $('#staticBackdrop').css('display','none')
+    $('.modal-backdrop').remove()
+  })
 
+</script>
+@endif

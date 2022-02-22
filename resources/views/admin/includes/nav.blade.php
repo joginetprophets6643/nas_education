@@ -10,16 +10,16 @@
         <!-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('assets/front/images/logo.png')}}" alt="logo" /></a> -->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
-        <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome NAS Admin dashboard!</h5>
+        <h5 class="welcome-heading mb-0 font-weight-medium d-lg-flex">Welcome NAS Admin dashboard!</h5>
         <ul class="navbar-nav navbar-nav-right ml-auto">          
           
-          <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+          <li class="nav-item dropdown d-xl-inline-flex user-dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
             <span class="font-weight-normal"> {{Auth::user()->name}} </span></a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <p class="mb-1 mt-3">{{Auth::user()->name}}</p>
-                <p class="font-weight-light text-muted mb-0">{{Auth::user()->email}}</p>
+                <p class="email-text font-weight-light text-muted mb-0">{{Auth::user()->email}}</p>
               </div>
               <a href="{{url('/secure-admin/profile')}}" class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
               

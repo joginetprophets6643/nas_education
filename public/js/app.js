@@ -2619,6 +2619,36 @@ var TabContent = function TabContent() {
   var current_id = (0, react_redux_1.useSelector)(function (store) {
     return store.current_id.data;
   });
+  var class_subjects = {
+    class_3: ['Language', 'Evs', 'Math'],
+    class_5: ['Language', 'Evs', 'Math'],
+    class_8: ['Language', 'Science', 'Math', 'Social Science'],
+    class_10: ['Mil', 'Social Science', 'English', 'Science', 'Math']
+  };
+  var subject_styles = {
+    language: 'blue',
+    evs: 'yellow',
+    math: 'pink',
+    socialscience: 'green',
+    science: 'sagegreen',
+    english: 'purple',
+    mil: 'red'
+  };
+  var subject_icons = {
+    language: globe_icon_svg_1["default"],
+    evs: globe_icon_svg_1["default"],
+    math: globe_icon_svg_1["default"],
+    socialscience: globe_icon_svg_1["default"],
+    science: globe_icon_svg_1["default"],
+    english: globe_icon_svg_1["default"],
+    mil: globe_icon_svg_1["default"]
+  };
+  var current_subjects = class_subjects['class_' + grade];
+  var options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: [0, 1.0]
+  };
   (0, react_2.useEffect)(function () {
     var fields = '';
     var reusable_filters = {
@@ -2702,36 +2732,6 @@ var TabContent = function TabContent() {
   (0, react_2.useEffect)(function () {
     contentObserver();
   }, []);
-  var class_subjects = {
-    class_3: ['Language', 'Evs', 'Math'],
-    class_5: ['Language', 'Evs', 'Math'],
-    class_8: ['Language', 'Science', 'Math', 'Social Science'],
-    class_10: ['Mil', 'Social Science', 'English', 'Science', 'Math']
-  };
-  var subject_styles = {
-    language: 'blue',
-    evs: 'yellow',
-    math: 'pink',
-    socialscience: 'green',
-    science: 'sagegreen',
-    english: 'purple',
-    mil: 'red'
-  };
-  var subject_icons = {
-    language: globe_icon_svg_1["default"],
-    evs: globe_icon_svg_1["default"],
-    math: globe_icon_svg_1["default"],
-    socialscience: globe_icon_svg_1["default"],
-    science: globe_icon_svg_1["default"],
-    english: globe_icon_svg_1["default"],
-    mil: globe_icon_svg_1["default"]
-  };
-  var current_subjects = class_subjects['class_' + grade];
-  var options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: [0, 1.0]
-  };
 
   var observerChange = function observerChange(changes) {
     console.log(changes[0].isIntersecting);
@@ -3066,8 +3066,12 @@ var Dropdown = function Dropdown() {
       current_text = _ref10[0],
       setCurrentText = _ref10[1];
 
+  var _ref11 = (0, react_1.useState)([]),
+      _ref12 = _slicedToArray(_ref11, 2),
+      searchedDistrictList = _ref12[0],
+      setSearchedDistrictList = _ref12[1];
+
   var getStateDistricts = function getStateDistricts(state) {
-    console.log(state);
     setStateId(state.udise_state_code);
     dispatch((0, visualization_action_1.setState)(state));
     dispatch((0, visualization_action_1.changeDemography)('state'));
@@ -3096,13 +3100,17 @@ var Dropdown = function Dropdown() {
     setDistrictList(district_list.data);
   }, [district_list]);
   (0, react_1.useEffect)(function () {
-    if (searched_district !== '') {
+    if (searched_district !== '' && searched_district.length >= 3) {
       var filter = {
         district_name: {
           _contains: searched_district
         }
       };
-      var data = utility_1["default"].get('district_masters?filter=' + JSON.stringify(filter));
+      utility_1["default"].get('district_masters?filter=' + JSON.stringify(filter)).then(function (response) {
+        setSearchedDistrictList(response.data.data);
+      });
+    } else {
+      setSearchedDistrictList([]);
     }
   }, [searched_district]);
   (0, react_1.useEffect)(function () {
@@ -3125,7 +3133,7 @@ var Dropdown = function Dropdown() {
     if (current_geography === 'state') {
       setCurrentText(currentState.data.state_name);
     }
-  }, [current_geography]);
+  }, [current_geography, currentDistrict, currentState]);
   return react_1["default"].createElement("div", {
     className: "col-md-4"
   }, react_1["default"].createElement("div", {
@@ -3136,7 +3144,7 @@ var Dropdown = function Dropdown() {
     className: "dropdown"
   }, react_1["default"].createElement("a", {
     className: "menu-level-main dropdown-toggle",
-    href: "#",
+    href: "",
     "data-bs-toggle": "dropdown",
     "data-bs-auto-close": "outside"
   }, current_text), react_1["default"].createElement("div", {
@@ -3150,14 +3158,23 @@ var Dropdown = function Dropdown() {
       searchDistrict(e);
     }
   })), react_1["default"].createElement("div", {
-    className: "dropdown-list"
-  }, react_1["default"].createElement("a", {
+    className: "dropdown-list search-list "
+  }, react_1["default"].createElement("ul", {
+    className: "scrollbar-y-lightblue"
+  }, searchedDistrictList.length !== 0 ? searchedDistrictList.map(function (result, index) {
+    return react_1["default"].createElement("li", {
+      key: index,
+      onClick: function onClick() {
+        ChangeDistrict(result);
+      }
+    }, " ", result.district_name);
+  }) : ""), searchedDistrictList.length === 0 ? react_1["default"].createElement("a", {
     href: "#",
     className: "dropdown-item dropdown-toggle",
     "data-bs-toggle": "dropdown",
     "data-bs-auto-close": "outside"
-  }, "India"), react_1["default"].createElement("ul", {
-    className: "dropdown-menu menu-level-2"
+  }, "India") : "", react_1["default"].createElement("ul", {
+    className: "dropdown-menu menu-level-2 scrollbar-y-lightblue"
   }, states.map(function (state, index) {
     return react_1["default"].createElement("li", {
       className: "dropdown-list",
@@ -3166,7 +3183,7 @@ var Dropdown = function Dropdown() {
       className: "dropdown-item dropdown-toggle",
       "data-bs-toggle": "dropdown",
       "data-bs-auto-close": "outside",
-      href: "#",
+      href: "",
       onClick: function onClick() {
         getStateDistricts(state);
       }
@@ -3179,7 +3196,7 @@ var Dropdown = function Dropdown() {
         key: index
       }, react_1["default"].createElement("a", {
         className: "dropdown-item",
-        href: "#",
+        href: "",
         onClick: function onClick() {
           ChangeDistrict(district);
         }

@@ -11,7 +11,7 @@
 
 
         <div class="row">
-        <div class="col-4">
+        <div class="form-group-sm col-md-4">
             <label class="form-label">Density of Population</label>
             <input type="text" name="density_of_population" class="form-control" placeholder="Density of Population" value="{{ old('density_of_population') }}">
             @error('density_of_population')
@@ -19,7 +19,7 @@
             @enderror
         </div>
 
-        <div class="col-4">
+        <div class="form-group-sm col-md-4">
             <label class="form-label">Literacy Rate</label>
             <input type="text" name="literacy_rate" class="form-control" placeholder="Literacy Rate" value="{{ old('literacy_rate') }}">
             @error('literacy_rate')
@@ -27,7 +27,7 @@
             @enderror
         </div>
         
-        <div class="col-4">
+        <div class="form-group-sm col-md-4">
             <label class="form-label">Child Sex Ratio</label>
             <input type="text" name="child_sex_ratio" class="form-control" placeholder="Child Sex Ratio" value="{{ old('child_sex_ratio') }}">
             @error('child_sex_ratio')

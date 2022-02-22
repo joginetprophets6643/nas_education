@@ -220,8 +220,8 @@
                                                   <div class="pendamic-progressbar-card light-pink-bg">
                                                       <div class="pendamic-progressbar-list">
                                                           <div class="row align-items-center">
-                                                               <div class="col-md-6">
-                                                                  <div class="pendamic-progrssbar-content ptb-15">
+                                                               <div class="col-md-6" id="feedbacknational_pq3_1_class3">
+                                                                  <!-- <div class="pendamic-progrssbar-content ptb-15">
                                                                       <div class="progressbar-circle-sm progressbar-pink">
                                                                         <div class="progress" data-percentage="35">
                                                                           <span class="progress-left">
@@ -239,10 +239,10 @@
                                                                         Joyful,<br />
                                                                         was fun
                                                                       </p>
-                                                                  </div>
+                                                                  </div> -->
                                                                </div>
-                                                               <div class="col-md-6">
-                                                                  <div class="pendamic-progrssbar-content ptb-15">
+                                                               <div class="col-md-6" id="feedbacknational_pq3_2_class3">
+                                                                  <!-- <div class="pendamic-progrssbar-content ptb-15">
                                                                     <div class="progressbar-circle-sm progressbar-pink">
                                                                       <div class="progress" data-percentage="45">
                                                                         <span class="progress-left">
@@ -260,13 +260,13 @@
                                                                       Faced difficulty<br />
                                                                       in learning
                                                                     </p>
-                                                                  </div>
+                                                                  </div> -->
                                                                </div>
                                                                <hr />
                                                           </div>
                                                           <div class="row align-items-center">
-                                                            <div class="col-md-6">
-                                                              <div class="pendamic-progrssbar-content ptb-15">
+                                                            <div class="col-md-6" id="feedbacknational_pq3_3_class3">
+                                                              <!-- <div class="pendamic-progrssbar-content ptb-15">
                                                                 <div class="progressbar-circle-sm progressbar-pink">
                                                                   <div class="progress" data-percentage="50">
                                                                     <span class="progress-left">
@@ -284,10 +284,10 @@
                                                                   No difference same as in<br />
                                                                   school
                                                                 </p>
-                                                              </div>
+                                                              </div> -->
                                                            </div>
-                                                           <div class="col-md-6">
-                                                              <div class="pendamic-progrssbar-content ptb-15">
+                                                           <div class="col-md-6" id="feedbacknational_pq3_4_class3">
+                                                              <!-- <div class="pendamic-progrssbar-content ptb-15">
                                                                 <div class="progressbar-circle-sm progressbar-pink">
                                                                   <div class="progress" data-percentage="70">
                                                                     <span class="progress-left">
@@ -305,7 +305,7 @@
                                                                   Burden some lot of<br />
                                                                   assignments
                                                                 </p>
-                                                              </div>
+                                                              </div> -->
                                                            </div>
                                                           </div>
                                                       </div>

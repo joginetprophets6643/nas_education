@@ -74,7 +74,7 @@
                   <span id="name">NATIONAL</span> REPORT CARD
                 </h2>
                 <p class="title-grey-sm">
-                  Please select a State on the interactive map or search<br />
+                  Please select a State on the interactive map or search
                   for the name below to continue.
                 </p>
                 <div class="report-select-wrap col-md-12">
