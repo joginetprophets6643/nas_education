@@ -260,7 +260,7 @@
                                           <div class="row">
                                             <div class="col-md-12">
                                               <h2>
-                                                Certain Parameters of the Assam State
+                                                Certain Parameters of the <span class="information_state_name"></span> State
                                               </h2>
                                             </div>
                                             <div class="col-md-10">
