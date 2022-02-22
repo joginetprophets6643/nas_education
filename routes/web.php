@@ -52,6 +52,12 @@ Route::get('download-pdf', [PdfGenerateController::class, 'dwn'])->name('downloa
 Route::get('state-pdf', [PdfGenerateController::class, 'StateIndex']);
 Route::get('state-download-pdf', [PdfGenerateController::class, 'Statedwn'])->name('statedownload');
 //  State Pdf Generate End
+
+// National Pdf Generate start
+Route::get('national-pdf', [PdfGenerateController::class, 'NationalIndex']);
+Route::get('national-download-pdf', [PdfGenerateController::class, 'Nationaldwn'])->name('nationaldownload');
+//  National Pdf Generate End
+
 // Route::get('home', 'App\Http\Controllers\MainController@landing');
 // Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
 // Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name('preloaddata');
