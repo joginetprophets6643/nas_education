@@ -194,6 +194,201 @@
 </div>
 <div class="tab-pane fade" id="feedbacknational_class3" role="tabpanel" aria-labelledby="nc3-feedback-tab">
                                   <div class="nc3-feedback-wrap feedback-wrap">
+                                  <div class="feedback-wrap">
+                                      <div class="pendamic-wrap mtb-30">
+                                        <div class="virus-icon1">
+                                          <img src="{{asset('assets/front/images/virus.svg')}}" alt="virus" class="img-fluid" />
+                                        </div>
+                                        <div class="virus-icon2">
+                                          <img src="{{asset('assets/front/images/virus.svg')}}" alt="virus" class="img-fluid" />
+                                        </div>
+                                        <div class="virus-icon3">
+                                          <img src="{{asset('assets/front/images/virus.svg')}}" alt="virus" class="img-fluid" />
+                                        </div>
+                                        <div class="virus-icon4">
+                                          <img src="{{asset('assets/front/images/virus.svg')}}" alt="virus" class="img-fluid" />
+                                        </div>
+                                        <div class="virus-icon5">
+                                          <img src="{{asset('assets/front/images/virus.svg')}}" alt="virus" class="img-fluid" />
+                                        </div>
+                                        <h2 class="heading-grey text-center">
+                                          LEARNING AT HOME DURING THE PANDEMIC
+                                        </h2>
+                                        <div class="pendamic-progessbar-wrap mtb-30">
+                                            <div class="row">
+                                              <div class="col-md-6">
+                                                  <div class="pendamic-progressbar-card light-pink-bg">
+                                                      <div class="pendamic-progressbar-list">
+                                                          <div class="row align-items-center">
+                                                               <div class="col-md-6" id="feedbacknational_pq3_1_class3">
+                                                                  <!-- <div class="pendamic-progrssbar-content ptb-15">
+                                                                      <div class="progressbar-circle-sm progressbar-pink">
+                                                                        <div class="progress" data-percentage="35">
+                                                                          <span class="progress-left">
+                                                                            <span class="progress-bar"></span>
+                                                                          </span>
+                                                                          <span class="progress-right">
+                                                                            <span class="progress-bar"></span>
+                                                                          </span>
+                                                                          <div class="progress-value">
+                                                                              35%
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                      <p class="title">
+                                                                        Joyful,<br />
+                                                                        was fun
+                                                                      </p>
+                                                                  </div> -->
+                                                               </div>
+                                                               <div class="col-md-6" id="feedbacknational_pq3_2_class3">
+                                                                  <!-- <div class="pendamic-progrssbar-content ptb-15">
+                                                                    <div class="progressbar-circle-sm progressbar-pink">
+                                                                      <div class="progress" data-percentage="45">
+                                                                        <span class="progress-left">
+                                                                          <span class="progress-bar"></span>
+                                                                        </span>
+                                                                        <span class="progress-right">
+                                                                          <span class="progress-bar"></span>
+                                                                        </span>
+                                                                        <div class="progress-value">
+                                                                            45%
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                    <p class="title">
+                                                                      Faced difficulty<br />
+                                                                      in learning
+                                                                    </p>
+                                                                  </div> -->
+                                                               </div>
+                                                               <hr />
+                                                          </div>
+                                                          <div class="row align-items-center">
+                                                            <div class="col-md-6" id="feedbacknational_pq3_3_class3">
+                                                              <!-- <div class="pendamic-progrssbar-content ptb-15">
+                                                                <div class="progressbar-circle-sm progressbar-pink">
+                                                                  <div class="progress" data-percentage="50">
+                                                                    <span class="progress-left">
+                                                                      <span class="progress-bar"></span>
+                                                                    </span>
+                                                                    <span class="progress-right">
+                                                                      <span class="progress-bar"></span>
+                                                                    </span>
+                                                                    <div class="progress-value">
+                                                                        50%
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                                <p class="title">
+                                                                  No difference same as in<br />
+                                                                  school
+                                                                </p>
+                                                              </div> -->
+                                                           </div>
+                                                           <div class="col-md-6" id="feedbacknational_pq3_4_class3">
+                                                              <!-- <div class="pendamic-progrssbar-content ptb-15">
+                                                                <div class="progressbar-circle-sm progressbar-pink">
+                                                                  <div class="progress" data-percentage="70">
+                                                                    <span class="progress-left">
+                                                                      <span class="progress-bar"></span>
+                                                                    </span>
+                                                                    <span class="progress-right">
+                                                                      <span class="progress-bar"></span>
+                                                                    </span>
+                                                                    <div class="progress-value">
+                                                                        70%
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                                <p class="title">
+                                                                  Burden some lot of<br />
+                                                                  assignments
+                                                                </p>
+                                                              </div> -->
+                                                           </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                <div class="pendamic-progressbar-card light-blue-bg">
+                                                    <div class="pendamic-progressbar-list">
+                                                        <div class="row align-items-center">
+                                                              <div class="col-md-6" id="feedbacknational_pq2_1_class3">
+                                                                <!-- <div class="pendamic-progrssbar-content ptb-15">
+                                                                    <div class="progressbar-circle-sm progressbar-blue">
+                                                                      <div class="progress" data-percentage="85">
+                                                                        <span class="progress-left">
+                                                                          <span class="progress-bar"></span>
+                                                                        </span>
+                                                                        <span class="progress-right">
+                                                                          <span class="progress-bar"></span>
+                                                                        </span>
+                                                                        <div class="progress-value">
+                                                                            85%
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                    <p class="title">
+                                                                      No digital device at<br />
+                                                                      home
+                                                                    </p>
+                                                                </div> -->
+                                                              </div>
+                                                              <div class="col-md-6" id="feedbacknational_pq2_2_class3">
+                                                                <!-- <div class="pendamic-progrssbar-content ptb-15">
+                                                                  <div class="progressbar-circle-sm progressbar-blue">
+                                                                    <div class="progress" data-percentage="15">
+                                                                      <span class="progress-left">
+                                                                        <span class="progress-bar"></span>
+                                                                      </span>
+                                                                      <span class="progress-right">
+                                                                        <span class="progress-bar"></span>
+                                                                      </span>
+                                                                      <div class="progress-value">
+                                                                          15%
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                  <p class="title">
+                                                                    Lean better in school with peers<br />
+                                                                    help
+                                                                  </p>
+                                                                </div> -->
+                                                              </div>
+                                                              <hr />
+                                                        </div>
+                                                        <div class="row align-items-center">
+                                                          <div class="col-md-6" id="feedbacknational_pq2_3_class3">
+                                                            <!-- <div class="pendamic-progrssbar-content ptb-15">
+                                                              <div class="progressbar-circle-sm progressbar-blue">
+                                                                <div class="progress" data-percentage="22">
+                                                                  <span class="progress-left">
+                                                                    <span class="progress-bar"></span>
+                                                                  </span>
+                                                                  <span class="progress-right">
+                                                                    <span class="progress-bar"></span>
+                                                                  </span>
+                                                                  <div class="progress-value">
+                                                                      22%
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                              <p class="title">
+                                                                Lot of time to learn new<br />
+                                                                things
+                                                              </p>
+                                                            </div> -->
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                     <div class="teacher-fb-wrap mb-30"> 
                                       <div class="row">
                                         <div class="col-md-12">

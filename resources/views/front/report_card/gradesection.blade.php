@@ -31,8 +31,8 @@
                             </label>
                           </div> -->
                           <div class="btn-wrap">
-                            <a href="#" class="btn org-bdr-btn data-btn">Data View</a>
-                            <a href="{{asset('assets/front/images/drc.pdf')}}" target="/" class="btn org-btn report-btn">
+                            <!-- <a href="#" class="btn org-bdr-btn data-btn">Data View</a> -->
+                            <a href="{{url('/download-pdf')}}" target="_blank" class="btn org-btn report-btn">
                               Report View 
                               <span class="material-icons-round">
                                 file_download

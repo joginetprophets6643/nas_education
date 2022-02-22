@@ -44,6 +44,17 @@
   font-size: 16px;
 }
 
+.search-list ul {
+  padding: 10px 15px;
+  max-height: 140px;
+}
+.search-list ul li {
+  font-size: 14px;
+  color: #101010;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
 .average-performance-wrap {
   border-radius: 6px;
 }
@@ -203,4 +214,69 @@
 }
 .visual-card-white .visual-imgwrap {
   padding: 15px 0;
+}
+
+.dropdown-select-wrap .select-label {
+  letter-spacing: 0px;
+  color: #777777;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.dropdown-select-wrap .dropdown {
+  box-shadow: 0px 0px 5px #00000033;
+  border-radius: 21px;
+  background: #fff;
+  position: relative;
+  width: 100%;
+}
+.dropdown-select-wrap .dropdown .menu-level-main {
+  letter-spacing: 0px;
+  color: #101010;
+  font-size: 16px;
+  line-height: 42px;
+  position: relative;
+  display: block;
+  padding: 0 35px 0 20px;
+}
+.dropdown-select-wrap .dropdown .menu-level-main::after {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.dropdown-select-wrap .dropdown .inputSearch {
+  margin: 10px;
+}
+.dropdown-select-wrap .dropdown .inputSearch .form-control:focus {
+  box-shadow: none;
+}
+.dropdown-select-wrap .dropdown .dropdown-item:focus, .dropdown-select-wrap .dropdown .dropdown-item:hover, .dropdown-select-wrap .dropdown .dropdown-item:active {
+  color: #101010;
+  background-color: transparent;
+}
+.dropdown-select-wrap .dropdown .dropdown-menu {
+  border: none;
+}
+.dropdown-select-wrap .dropdown .dropdown-menu.show {
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 999;
+  border-bottom: 1px solid #e5e2e2;
+}
+.dropdown-select-wrap .dropdown .dropdown-menu.menu-level-1 .dropdown-item {
+  position: relative;
+  font-size: 14px;
+  padding-left: 40px;
+}
+.dropdown-select-wrap .dropdown .dropdown-menu.menu-level-1 .dropdown-item::after {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 20px;
+  margin-right: 15px;
+}
+.dropdown-select-wrap .dropdown .dropdown-menu .menu-level-2 {
+  height: 140px;
 }

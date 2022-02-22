@@ -19,6 +19,7 @@
           <div class="card-header">All States
           <a href="{{route('add-state')}}" class="btn btn-primary float-right btn-sm Master_add">Add</a>
           </div>
+          <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
@@ -46,6 +47,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 

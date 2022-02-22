@@ -366,7 +366,7 @@ $(document).ready(()=>{
 
   // sidebar states for report card
   async function createSidebarStates(data){
-    let state_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_filter' onkeyup='filterList(0,state)' placeholder='Search for state'></div><ul id='state_list_national'>"
+    let state_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_filter' onkeyup='filterList(0,state)' placeholder='Search for State'></div><ul id='state_list_national'>"
     let district_data = []
 
     await $.ajax({
@@ -410,7 +410,7 @@ $(document).ready(()=>{
 
 // sidebar districts for report card
   function createDistrictForStates(data,state_name,state_id){
-    let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_"+state_id+"' onkeyup='filterList("+state_id+",district)' placeholder='Search for district' title='Type in a name'></div>"
+    let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_"+state_id+"' onkeyup='filterList("+state_id+",district)' placeholder='Search for District' title='Type in a name'></div>"
     data.map(district=>{
       district_list +='<li class="state_'+state_id+'_districts"><a href="javascript:void(0)" class="districts" id="district_'+district.udise_district_code+'" onClick="setActiveStateDistrict('+ district.udise_state_code+','+district.udise_district_code+')">' +format_string(district.district_name) +'</a></li>'
     })
@@ -1147,6 +1147,7 @@ $(document).ready(()=>{
 
         let countPq2 =1
         let countPq3 =1
+        let countPq1 = 1
         let pq2Average = 0
         let pq3Average = 0
         data.forEach(fb=>{
@@ -1204,20 +1205,29 @@ $(document).ready(()=>{
             $('#feedback'+current_demography +'_pq1_class3').html(pq1)
           }
           if(fb.level === 'pq2'){
+            let pq2 = ''
             if(current_demography === '' || current_demography === 'state'){
-              const pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
-              $('#feedback'+current_demography +'_pq2_'+countPq2+'_class3').html(pq2)
-              countPq2+=1
+              pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
               pq2Average += percentage
+            }else{
+              pq2 ='<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'<br /> things</div>'
             }
+            $('#feedback'+current_demography +'_pq2_'+countPq2+'_class3').html(pq2)
+            countPq2+=1
+
           }
           if(fb.level === 'pq3'){
+            let pq3 =''
             if(current_demography === '' || current_demography === 'state'){
-              const pq3 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-green"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
+              pq3 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-green"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
               $('#feedback'+current_demography +'_pq3_'+countPq3+'_class3').html(pq3)
-              countPq3+=1
               pq3Average+=percentage
+            }else{
+              pq3 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="'+percentage+'"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">'+percentage+'%</div></div></div><p class="title">'+fb.question_desc+'</p></div>'
+              $('#feedback'+current_demography +'_pq3_'+countPq3+'_class3').html(pq3)
             }
+            countPq3+=1
+
           }
           if(fb.level === 'tqn'){
             let tqn = ''
@@ -1255,6 +1265,7 @@ $(document).ready(()=>{
       if(item === active){
         $('#'+item+'-tab').addClass('active')
         $('#'+item+'_geography').removeAttr('style')
+        $('#breadcrumb').html(format_string(item))
       }else{
         $('#'+item+'-tab').removeClass('active')
         $('#'+item+'_geography').attr('style','display:none')
@@ -1835,11 +1846,11 @@ $(document).ready(()=>{
   }
 
   const section_legends = {
-  cards:["Substantially above national average", "Not substantially different from the national average" , "Substantially below national average"],
-  gender:["No significant difference between Boys and Girls","Boys peform significantly better than Girls","Girls peform significantly better than Boys"],
-  location:["No significant difference between Rural and Urban","Rural peform significantly better than Urban","Urban peform significantly better than Rural"],
-  management:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
-  socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
+  cards:["Substantially above National average", "Not substantially different from the National average" , "Substantially below National average"],
+  gender:["No significant difference between Boys and Girls","Boys perform significantly better than Girls","Girls perform significantly better than Boys"],
+  location:["No significant difference between Rural and Urban","Rural perform significantly better than Urban","Urban perform significantly better than Rural"],
+  management:["No significant difference between Govt. and Govt. Aided","Govt. perform significantly better than Govt. Aided","Govt. Aided perform significantly better than Govt"],
+  socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. perform significantly better than Govt. Aided","Govt. Aided perform significantly better than Govt"],
 
   }
   sections.forEach(section=>{

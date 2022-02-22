@@ -117,7 +117,11 @@ class AdminController extends BaseController
     $link=url('/').'/token='.$email.'/'.$date.'/'.$time;
     $user=User::where('email',$request->email)->where('address')->first();
     if($user){
+        $data=User::where('email',$request->email)->update([
+            'remember_token'=>'true',
+        ]);
         Mail::to($request->email)->send(new ResetLinkMail($link));
+        
         return redirect()->back()->with('success','Reset Link sent to the given Email address');
     }
     else{
@@ -137,8 +141,14 @@ class AdminController extends BaseController
 
     if($date==$c_date && $min<=10){
         $user=User::where('email',$email)->where('address')->first();
+        
         if($user){
+            if($user->remember_token=='true'){
             return view('admin.reset-password',compact('email'));
+            }
+            else{
+                return redirect()->route('forget-password')->with('success','Reset Link Expired.Generate New Reset Link');
+            }
         }
         else{
             return redirect('secure-admin')->with('success','Unauthorized User');
@@ -155,8 +165,10 @@ class AdminController extends BaseController
         'password'=>'required|confirmed|min:5',
     ]);
     $email=decode5t($email);
+    
     User::where('email',$email)->update([
         'password'=>Hash::make($request->password),
+        'remember_token'=>'false'
     ]);
     return view('admin.successful');
    }

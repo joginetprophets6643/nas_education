@@ -107,19 +107,19 @@ class EventController extends Controller
         return view('admin.events.images.index',compact('images','id','name'));
         }
         $images=0;
-        return view('admin.events.images.index',compact('images','id'));
+        return view('admin.events.images.index',compact('images','id','name'));
     }
 
     public function addImages(Request $request,$id){
         $id=decode5t($id);
         $request->validate([
             'images'=>'required',
-            'images.*'=>'mimes:jpeg,jpg,png,JPEG,JPG,PNG',
+            // 'images.*'=>'mimes:jpeg,jpg,png,JPEG,JPG,PNG',
         ]);
         $images=$request->file('images');
         $img= [];
         $n_img= [];
-        $allowedfileExtension=['jpeg','jpg','png','JPEG','PNG','JPG'];
+        $allowedfileExtension=['jpeg','svg','jpg','png','JPEG','PNG','JPG','SVG'];
         
         foreach($images as $multi){
             $filename = $multi->getClientOriginalName();
@@ -210,7 +210,7 @@ class EventController extends Controller
             'vedio'=>'required_without_all:url|mimes:mp4,wep',
             'title'=>'required',
             'url'=>'required_without_all:vedio',
-            'thumbnail'=>'required_with:vedio|mimes:jpeg,jpg,png,JPEG,JPG,PNG',
+            'thumbnail'=>'required_with:vedio|mimes:jpeg,svg,jpg,png,JPEG,JPG,PNG,SVG',
         ]);
         $vedio=$request->file('vedio');
         if($request->status){

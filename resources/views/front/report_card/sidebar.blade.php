@@ -9,7 +9,7 @@
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
                       <li class="breadcrumb-item"><a href="{{url('/report-card')}}">{{ __('lang.Report Card') }}</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">{{ __('lang.NAS 2021') }}</li>
+                      <li class="breadcrumb-item active" aria-current="page">&nbsp;<span id="breadcrumb"></span></li>
                     </ol>
                 </nav>
             </div>
