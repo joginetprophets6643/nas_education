@@ -35,6 +35,7 @@ class FrontController extends Controller
         $report=Static_Content::where('language',$lang,)->where('page_title','Report Card')->first();
         $data=Static_Content::where('language',$lang,)->where('page_title','Data Share')->first();
         $visual=Static_Content::where('language',$lang,)->where('page_title','Visualization')->first();
+        $mobile=Static_Content::where('language',$lang)->where('page_title','Mobile App')->first();
         $client_logo = ClientLogo::all();
         $banners=Banner::all();
 
@@ -51,7 +52,7 @@ class FrontController extends Controller
         $states=State_Master::orderBy('state_name')->get();
 
         
-        return view('front.index',compact('content','events','image','videos','states','client_logo','banners','report','data','visual'));
+        return view('front.index',compact('content','events','image','videos','states','client_logo','banners','report','data','visual','mobile'));
     }
 
     public function team(){
