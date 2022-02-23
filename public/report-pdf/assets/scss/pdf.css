@@ -1,0 +1,1510 @@
+.bg-orange {
+  background-color: #F7941C !important;
+}
+
+.bg-grey {
+  background-color: #E7E7E8 !important;
+}
+
+.border-left {
+  border-left: 1px dashed #647781 !important;
+}
+
+.border-top {
+  border-top: 1px dashed #647781 !important;
+}
+
+.border-right {
+  border-right: 1px dashed #647781 !important;
+}
+
+.text-28 {
+  font-size: 28px;
+}
+
+.state-pdf .reportview-class-wrap .reportview-header {
+  padding: 12px 30px;
+}
+
+.state-pdf .reportview-class-wrap .reportview-header h2 {
+  font-size: 18px !important;
+}
+
+.state-pdf .reportview-class-wrap .reportview-class-content .gender-right h4 {
+  font-size: 20px;
+  margin-bottom: 1rem !important;
+}
+
+.state-pdf .reportview-class-wrap .reportview-class-content .gender-right .social-right-wrap .per-text-1 {
+  left: 78px !important;
+}
+
+.state-pdf .reportview-class-wrap .reportview-class-content .gender-right .social-right-wrap .per-text-3 {
+  left: 78px !important;
+}
+
+.state-pdf .reportview-class-wrap .reportview-class-content .gender-right .social-right-wrap .per-text-2 {
+  right: 20px !important;
+}
+
+.state-pdf .reportview-class-wrap .reportview-class-content .gender-right .social-right-wrap .per-text-4 {
+  right: 20px !important;
+}
+
+.state-pdf .reportview-class-wrap .reportview-class-content .gender-right figure {
+  padding-left: 0;
+}
+
+.state-pdf .reportview-class-wrap .reportview-class-content .state-managemnt {
+  margin-left: 0;
+}
+
+.state-pdf .reportview-class-wrap .children-testimony .infotab-content h2 {
+  font-size: 30px;
+}
+
+.state-pdf .reportview-class-wrap .children-testimony .infotab-content p {
+  font-size: 16px;
+}
+
+.state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon1, .state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon2, .state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon4, .state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon5 {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon2 {
+  left: 57px;
+}
+
+.state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon4 {
+  right: 70px;
+}
+
+.state-pdf .reportview-class-wrap .pendamic-progressbar-card .pendamic-progressbar-list {
+  padding: 20px;
+}
+
+.state-pdf .reportview-class-wrap .state-performance-table th {
+  vertical-align: middle;
+  font-weight: 400;
+}
+
+.state-pdf .reportview-class-wrap .ach-table .table tbody tr td {
+  padding: 6.5px 12px;
+}
+
+.state-pdf .pg3 {
+  position: absolute;
+  bottom: -3.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .pg3 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .pg3 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.state-pdf .pg4 {
+  position: absolute;
+  bottom: -58rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .pg4 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .pg4 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.state-pdf .pg6 {
+  position: absolute;
+  bottom: -8.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .pg6 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .pg6 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.state-pdf .pg8 {
+  position: absolute;
+  bottom: -3.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .pg8 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .pg8 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.state-heading {
+  position: relative;
+}
+
+.state-heading .heading-wrap {
+  position: absolute;
+  bottom: 31.5rem;
+  left: 4rem;
+}
+
+.state-heading .heading-wrap h2 {
+  font-size: 51px;
+}
+
+.state-heading .heading-wrap h1 {
+  font-size: 71px;
+}
+
+.state-heading .heading-img-wrap {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+}
+
+.highlights-container .reportview-class-content {
+  padding: 0 12px 50px;
+}
+
+.highlights-container .reportview-class-content h1 {
+  font-size: 2.8rem;
+}
+
+.highlights-container .reportview-class-content h2 {
+  font-size: 2.3rem;
+}
+
+.highlights-container .reportview-class-content .left-sec .wrap .img-wrapper {
+  margin-bottom: 2rem;
+}
+
+.highlights-container .reportview-class-content .left-sec .wrap .img-wrapper h5 span {
+  font-size: 2rem;
+}
+
+.highlights-container .reportview-class-content .left-sec .wrap .img-wrapper img {
+  margin-bottom: 0.5rem;
+}
+
+.highlights-container .reportview-class-content .pad-4 {
+  padding: 4rem;
+}
+
+.highlights-container .reportview-class-content .right-sec .report-card-head {
+  position: relative;
+  min-height: 180px;
+  margin-bottom: 2rem;
+}
+
+.highlights-container .reportview-class-content .right-sec .report-card-head .container {
+  min-height: 86px;
+  margin-top: -3px;
+}
+
+.highlights-container .reportview-class-content .right-sec .report-card-head .img-tile {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4rem;
+  right: 7.5rem;
+  border: 8px solid #F1F1F1;
+}
+
+.highlights-container .reportview-class-content .right-sec .report-card-head .img-tile .student-img,
+.highlights-container .reportview-class-content .right-sec .report-card-head .img-tile .school-img {
+  margin-top: 16px;
+}
+
+.highlights-container .reportview-class-content .right-sec .report-card-head .img-tile .teacher-img {
+  margin-top: 30px;
+}
+
+.text-15 {
+  font-size: 15px;
+}
+
+.performance-graph {
+  padding: 30px;
+}
+
+.performance-graph .container {
+  z-index: 2;
+}
+
+.performance-graph .container .legend-1 {
+  border: 7px solid #000;
+  height: 12px;
+  margin: 4px 4px 0 0;
+}
+
+.performance-graph .container .legend-2 {
+  border: 7px solid #919191;
+  height: 12px;
+  margin: 4px 4px 0 0;
+}
+
+.performance-graph .container .legend-3 {
+  border: 7px solid #B1B1B1;
+  height: 12px;
+  margin: 4px 4px 0 0;
+}
+
+.performance-graph .container .legend-4 {
+  border: 7px solid #D9D9D9;
+  height: 12px;
+  margin: 4px 4px 0 0;
+}
+
+.performance-graph .graph-mark .left-sec {
+  width: 30%;
+}
+
+.performance-graph .graph-mark .container {
+  z-index: 100;
+}
+
+.performance-graph .graph-mark .class-3-container {
+  padding: 0.6rem 0.2rem;
+  height: 8.5rem;
+  z-index: 25;
+  border: 1px solid #707070;
+}
+
+.performance-graph .graph-mark .class-3-container .inner-container {
+  width: 100px;
+  height: 7rem;
+  padding: 3rem 1rem;
+  position: relative;
+}
+
+.performance-graph .graph-mark .class-3-container .inner-container::before {
+  border-left: 33px solid #2a6aa9;
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -33px;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  display: block;
+  border-top: 56px solid transparent;
+  border-bottom: 56px solid transparent;
+}
+
+.performance-graph .graph-mark .class-5-container {
+  padding: 0.6rem 0.2rem;
+  height: 8.5rem;
+  z-index: 25;
+  border: 1px solid #707070;
+}
+
+.performance-graph .graph-mark .class-5-container .inner-container {
+  width: 100px;
+  height: 7rem;
+  padding: 3rem 1rem;
+  position: relative;
+}
+
+.performance-graph .graph-mark .class-5-container .inner-container::before {
+  border-left: 33px solid #2a6aa9;
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -33px;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  display: block;
+  border-top: 56px solid transparent;
+  border-bottom: 56px solid transparent;
+}
+
+.performance-graph .graph-mark .class-8-container {
+  padding: 0.6rem 0.2rem;
+  height: 10rem;
+  z-index: 25;
+  border: 1px solid #707070;
+}
+
+.performance-graph .graph-mark .class-8-container .inner-container {
+  width: 100px;
+  height: 8.7rem;
+  padding: 3.7rem 1rem;
+  position: relative;
+}
+
+.performance-graph .graph-mark .class-8-container .inner-container::before {
+  border-left: 33px solid #2a6aa9;
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -33px;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  display: block;
+  border-top: 69px solid transparent;
+  border-bottom: 69px solid transparent;
+}
+
+.performance-graph .graph-mark .class-10-container {
+  padding: 0.6rem 0.2rem;
+  height: 11rem;
+  z-index: 25;
+  border: 1px solid #707070;
+}
+
+.performance-graph .graph-mark .class-10-container .inner-container {
+  width: 100px;
+  height: 9.7rem;
+  padding: 4.3rem 1rem;
+  position: relative;
+}
+
+.performance-graph .graph-mark .class-10-container .inner-container::before {
+  border-left: 33px solid #2a6aa9;
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -33px;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  display: block;
+  border-top: 77px solid transparent;
+  border-bottom: 77px solid transparent;
+}
+
+.performance-graph .graph-mark .distribution-graph {
+  width: 70%;
+}
+
+.performance-graph .graph-mark .distribution-graph .highcharts-figure #c3-range-graph {
+  margin: -7px 0 0 0;
+}
+
+.performance-graph .graph-mark .distribution-graph .highcharts-figure #c5-range-graph {
+  margin: -10px 0 0 0;
+}
+
+.performance-graph .graph-mark .distribution-graph .highcharts-figure #c8-range-graph {
+  margin: -28px 0 0 0;
+}
+
+.performance-graph .graph-mark .distribution-graph .highcharts-figure #c10-range-graph {
+  margin: -20px 0 0 0;
+}
+
+.performance-graph .graph-mark .distribution-graph .highcharts-figure .highcharts-xaxis-labels {
+  display: none;
+}
+
+.table-data .left table {
+  font-size: 12px;
+}
+
+.table-data .left table td {
+  padding: 1.5px;
+}
+
+.table-data .left .management-table .head-rotate th {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  padding: 14px 1px;
+}
+
+.state-testimony .children-testimony .infotab-content {
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-height: 9rem;
+}
+
+.state-testimony .teacher-testimony .infotab-content h2 {
+  color: #7CB342;
+}
+
+.state-testimony .head-teacher-testimony .infotab-content h2 {
+  color: #75A9D9;
+}
+
+.state-table .ach-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 0;
+}
+
+.state-table .ach-table tbody tr th {
+  width: 9rem !important;
+}
+
+.state-table .ach-table tbody tr td {
+  min-width: 25rem;
+}
+
+.state-table .ach-table tbody tr td:nth-child(5) {
+  border-right: 2px solid #f1f1f1;
+}
+
+.state-table .ach-table tbody tr td.border-class {
+  border-bottom: 1px solid #b5b5b545;
+}
+
+.blue-progress-bar .progress-percent {
+  font-size: 8rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.blue-progress-bar .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.blue-progress-bar .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #75a9d9;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.blue-progress-bar .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #d6e5f4;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.blue-progress-bar .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 26px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.blue-progress-bar .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.blue-progress-bar .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.blue-progress-bar .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #75a9d9;
+  content: '';
+}
+
+.pink-progress-bar .progress-percent {
+  font-size: 8rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.pink-progress-bar .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.pink-progress-bar .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #e9769f;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.pink-progress-bar .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #fedbe7;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.pink-progress-bar .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 26px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.pink-progress-bar .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.pink-progress-bar .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.pink-progress-bar .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #e9769f;
+  content: '';
+}
+
+.green-progress-bar .progress-percent {
+  font-size: 8rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.green-progress-bar .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.green-progress-bar .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #7cb342;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.green-progress-bar .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #d8e8c6;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.green-progress-bar .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 26px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.green-progress-bar .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.green-progress-bar .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.green-progress-bar .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #7cb342;
+  content: '';
+}
+
+.blue-progress-bar-lg .progress-percent {
+  font-size: 14rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #eee;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: auto;
+}
+
+.blue-progress-bar-lg .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.blue-progress-bar-lg .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #75a9d9;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.blue-progress-bar-lg .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #d6e5f4;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.blue-progress-bar-lg .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 32px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.blue-progress-bar-lg .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.blue-progress-bar-lg .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.blue-progress-bar-lg .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #75a9d9;
+  content: '';
+}
+
+.pink-progress-bar-lg .progress-percent {
+  font-size: 14rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #eee;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: auto;
+}
+
+.pink-progress-bar-lg .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.pink-progress-bar-lg .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #e9769f;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.pink-progress-bar-lg .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #fedbe7;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.pink-progress-bar-lg .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 32px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.pink-progress-bar-lg .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.pink-progress-bar-lg .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.pink-progress-bar-lg .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #e9769f;
+  content: '';
+}
+
+.green-progress-bar-lg .progress-percent {
+  font-size: 14rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #eee;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: auto;
+}
+
+.green-progress-bar-lg .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.green-progress-bar-lg .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #7cb342;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.green-progress-bar-lg .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #d8e8c6;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.green-progress-bar-lg .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 32px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.green-progress-bar-lg .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.green-progress-bar-lg .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.green-progress-bar-lg .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #7cb342;
+  content: '';
+}
+
+.blue-progress-bar-sm .progress-percent {
+  font-size: 6.5rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.blue-progress-bar-sm .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.blue-progress-bar-sm .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #75a9d9;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.blue-progress-bar-sm .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #d6e5f4;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.blue-progress-bar-sm .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.blue-progress-bar-sm .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.blue-progress-bar-sm .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.blue-progress-bar-sm .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #75a9d9;
+  content: '';
+}
+
+.pink-progress-bar-sm .progress-percent {
+  font-size: 6.5rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.pink-progress-bar-sm .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.pink-progress-bar-sm .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #e9769f;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.pink-progress-bar-sm .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #fedbe7;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.pink-progress-bar-sm .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.pink-progress-bar-sm .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.pink-progress-bar-sm .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.pink-progress-bar-sm .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #e9769f;
+  content: '';
+}
+
+.green-progress-bar-sm .progress-percent {
+  font-size: 6.5rem;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.green-progress-bar-sm .progress-percent .progress-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  clip: rect(0 1em 1em 0.5em);
+}
+
+.green-progress-bar-sm .progress-percent .progress-inner .progress-round {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  background: #7cb342;
+  clip: rect(0 1em 1em 0.5em);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1.05s;
+  transition: 1.05s;
+}
+
+.green-progress-bar-sm .progress-percent .progress-inbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #d8e8c6;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+.green-progress-bar-sm .progress-percent .progress-inbox .percent_text {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.green-progress-bar-sm .progress-percent .progress-inbox .bottom-txt {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.green-progress-bar-sm .percent_more .progress-inner {
+  clip: rect(0 0.5em 1em 0em);
+}
+
+.green-progress-bar-sm .percent_more:after {
+  position: absolute;
+  left: .5em;
+  top: 0em;
+  right: 0;
+  bottom: 0;
+  background: #7cb342;
+  content: '';
+}
+
+.p-30-60 {
+  padding: 30px 60px;
+}
+
+.mtb-15 {
+  margin: 15px 0;
+}
+
+.mtb-60 {
+  margin: 60px 0;
+}
+
+.heading-black-main {
+  font-size: 35px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.title-black-main {
+  letter-spacing: 0px;
+  color: #101010;
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.national-heading {
+  position: relative;
+}
+
+.national-heading .heading-img-wrap {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.national-heading .heading-wrap {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+
+.national-heading .heading-wrap h2 {
+  letter-spacing: 0.35px;
+  color: #FFFFFF;
+  font-family: 'Roboto Slab', serif;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.national-heading .heading-wrap p {
+  letter-spacing: 0.2px;
+  color: #FFFFFF;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.ap-graph-container .graph-wrap {
+  position: relative;
+}
+
+.ap-graph-container .graph-wrap:after {
+  border-bottom: 1px solid #ccc;
+  content: '';
+  display: block;
+  bottom: 52px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.ap-graph-container .graph-wrap figure {
+  margin: 0;
+}
+
+.ap-graph-container .graph-wrap .highcharts-axis-line {
+  display: none;
+}
+
+.ap-graph-container .category {
+  margin: 0 15px;
+  border-radius: 23px;
+}
+
+.ap-graph-container .category .text-white {
+  padding: 5px 10px;
+  display: block;
+  font-size: 18px;
+}
+
+.sample-container .student-fbcard .title {
+  font-size: 18px;
+}
+
+.sample-container .progressbar-circle-lg .progress .progress-value p {
+  font-size: 18px;
+}
+
+.sample-container .progressbar-line p {
+  font-size: 18px;
+}
+
+.nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .col-md-3:nth-child(1), .nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .col-md-3:nth-child(2), .nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .col-md-3:nth-child(3) {
+  border-right: 1px dashed #647781;
+}
+
+.nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .progress {
+  width: 125px;
+  height: 125px;
+  line-height: 125px;
+}
+
+.nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .progress:after {
+  border: 14px solid #fff;
+}
+
+.nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .progress .progress-left .progress-bar {
+  border-top-right-radius: 125px;
+  border-bottom-right-radius: 125px;
+  border-width: 14px;
+}
+
+.nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .progress .progress-right .progress-bar {
+  border-top-left-radius: 125px;
+  border-bottom-left-radius: 125px;
+  border-width: 14px;
+}
+
+.nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .progress .progress-value {
+  font-size: 30px;
+}
+
+.nrc-pendamic-container .pendamic-progressbar-card .pendamic-progressbar-list .title {
+  font-size: 18px;
+}
+
+.subject-map-wrap .subject-map-title {
+  letter-spacing: 0px;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.subject-map-wrap .subject-map-iconname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 30px 0;
+}
+
+.subject-map-wrap .subject-map-iconname span {
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 8px;
+  border-radius: 23px;
+}
+
+.subject-map-wrap .subject-map-iconname span img {
+  height: 25px;
+  margin-right: 10px;
+}
+
+.virus-icon-top {
+  position: relative;
+}
+
+.virus-icon-top .virus-icon1 {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 50px;
+}
+
+.virus-icon-top .virus-icon2 {
+  position: absolute;
+  top: -15px;
+  left: 80px;
+  width: 80px;
+}
+
+.virus-icon-top .virus-icon3 {
+  position: absolute;
+  top: 0px;
+  right: 100px;
+  width: 50px;
+}
+
+.virus-icon-top .virus-icon4 {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  width: 80px;
+}
+
+.virus-icon-bottom {
+  position: relative;
+  min-height: 120px;
+}
+
+.virus-icon-bottom .virus-icon1 {
+  position: absolute;
+  top: -70px;
+  left: 20px;
+  width: 100px;
+}
+
+.virus-icon-bottom .virus-icon2 {
+  position: absolute;
+  left: 150px;
+  width: 50px;
+  top: -80px;
+}
+
+.virus-icon-bottom .virus-icon3 {
+  position: absolute;
+  left: 40%;
+  width: 100px;
+}
+
+.virus-icon-bottom .virus-icon4 {
+  position: absolute;
+  left: 48%;
+  width: 50px;
+  top: -60px;
+}
+
+.virus-icon-bottom .virus-icon5 {
+  position: absolute;
+  right: 30%;
+  width: 70px;
+}
+
+.virus-icon-bottom .virus-icon6 {
+  position: absolute;
+  right: 15%;
+  width: 100px;
+  top: -140px;
+}
+
+.virus-icon-bottom .virus-icon7 {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  top: -100px;
+}
+/*# sourceMappingURL=pdf.css.map */

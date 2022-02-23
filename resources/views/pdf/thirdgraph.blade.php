@@ -4,7 +4,7 @@
 	<?php if($districtParticipation->grade==3 || $districtParticipation->grade==5 ||$districtParticipation->grade==8 ||$districtParticipation->grade==10){?>
     Highcharts.chart("rc3-mathBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
-          height: 300,
+          height: {{($districtParticipation->grade==8 || $districtParticipation->grade==10)?'320':'425'}},
           width: 200,
           type: "column",
           margin: [40, 0, 60, 40],
@@ -39,7 +39,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 5,
+            pointWidth: 10,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -68,7 +68,7 @@
     <?php } if($districtParticipation->grade==3 || $districtParticipation->grade==5 || $districtParticipation->grade==8){?>
     Highcharts.chart("rc3-languageBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
-          height: 300,
+          height: {{($districtParticipation->grade==8)?'320':'425'}},
           width: 170,
           type: "column",
           margin: [40, 0, 60, 0],
@@ -103,7 +103,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 5,
+            pointWidth: 10,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -134,7 +134,7 @@
 	<?php } if($districtParticipation->grade==3 || $districtParticipation->grade==5){?>   
     Highcharts.chart("rc3-evsBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
-          height: 300,
+          height: 425,
           width: 170,
           type: "column",
           margin: [40, 0, 60, 0],
@@ -169,7 +169,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 5,
+            pointWidth: 10,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -198,7 +198,7 @@
 	<?php } if($districtParticipation->grade==8 ||$districtParticipation->grade==10){?>  
     Highcharts.chart("rc3-scienceBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
-          height: 300,
+          height: 320,
           width: 170,
           type: "column",
           margin: [40, 0, 60, 0],
@@ -233,7 +233,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 5,
+            pointWidth: 10,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -248,12 +248,12 @@
         series: [
           {
             name: "Rural",
-            color: "#A3536F",
+            color: "#369b9d",
             data: [<?php echo (int)$dataLocationArr['sci']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['sci']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['sci']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#E9769F",
+            color: "#63bdbe",
             data: [<?php echo (int)$dataLocationArr['sci']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['sci']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['sci']['location']['national']['urban']; ?>],
           },
         ],
@@ -262,7 +262,7 @@
 	<?php } if($districtParticipation->grade==8 ||$districtParticipation->grade==10){?>
     Highcharts.chart("rc3-socialscienceBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
-          height: 300,
+          height: 320,
           width: 170,
           type: "column",
           margin: [40, 0, 60, 0],
@@ -297,7 +297,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 5,
+            pointWidth: 10,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -312,12 +312,12 @@
         series: [
           {
             name: "Rural",
-            color: "#A3536F",
+            color: "#68a358",
             data: [<?php echo (int)$dataLocationArr['sst']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['sst']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['sst']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#E9769F",
+            color: "#8fc481",
             data: [<?php echo (int)$dataLocationArr['sst']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['sst']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['sst']['location']['national']['urban']; ?>],
           },
         ],
@@ -326,7 +326,7 @@
     <?php } if($districtParticipation->grade==10){?>
     Highcharts.chart("rc3-milBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
-          height: 300,
+          height: 320,
           width: 170,
           type: "column",
           margin: [40, 0, 60, 0],
@@ -361,7 +361,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 5,
+            pointWidth: 10,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -376,12 +376,12 @@
         series: [
           {
             name: "Rural",
-            color: "#A3536F",
+            color: "#d4605f",
             data: [<?php echo (int)$dataLocationArr['mil']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['mil']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['mil']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#E9769F",
+            color: "#ef8987",
             data: [<?php echo (int)$dataLocationArr['mil']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['mil']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['mil']['location']['national']['urban']; ?>],
           },
         ],
@@ -390,7 +390,7 @@
     <?php } if($districtParticipation->grade==10){?>
     Highcharts.chart("rc3-englishBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
-          height: 300,
+          height: 320,
           width: 170,
           type: "column",
           margin: [40, 0, 60, 0],
@@ -425,7 +425,7 @@
         },
         plotOptions: {
           column: {
-            pointWidth: 5,
+            pointWidth: 10,
             pointPadding: 0,
             borderWidth: 0,
           },
@@ -440,12 +440,12 @@
         series: [
           {
             name: "Rural",
-            color: "#A3536F",
+            color: "#b168ad",
             data: [<?php echo (int)$dataLocationArr['eng']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['eng']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['eng']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#E9769F",
+            color: "#d190cd",
             data: [<?php echo (int)$dataLocationArr['eng']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['eng']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['eng']['location']['national']['urban']; ?>],
           },
         ],

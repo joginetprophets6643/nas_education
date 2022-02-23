@@ -9,6 +9,7 @@ use App\Models\District_Master;
 use App\Models\State_Master;
 use App\Models\NationalStatistic;
 use DB;
+use App\Models\StateGradeLevelPerformance;
 
 class PdfGenerateController extends Controller
 {
@@ -31,7 +32,7 @@ class PdfGenerateController extends Controller
                             'DistrictFeedback'=>function($feedback){
                                 $feedback->orderBy('grade','asc');
                             }])
-                            ->whereIn('udise_district_code',['1015'])
+                            ->whereIn('udise_district_code',['710'])
                             ->get();
         // dd($districtData);
         if(count($districtData)>0)
@@ -263,7 +264,10 @@ class PdfGenerateController extends Controller
                             // }])
                             // ->whereIn('udise_state_code',['7'])
                             ->first();
-        // dd($nationalData);
+        $nationalPerformance = StateGradeLevelPerformance::distinct('grade')->orderBy('grade','asc')->get();
+        $resultGlimpsesJson = file_get_contents('http://nas21.inroad.in:8055/items/national_result_glimpses?limit-1');
+        $resultGlimpses = json_decode($resultGlimpsesJson,true);
+        // dd($nationalPerformance );
         // if(count($stateData)>0)
         // {
         //     foreach($stateData as $stateVal)
@@ -298,8 +302,8 @@ class PdfGenerateController extends Controller
                 // $whereConditionpq3 = "and level='pq3'";
                 // $stateFeedbackQuerypq3 = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditionpq3);
                 // $stateFeedbackDatapq3 = DB::select($stateFeedbackQuerypq3);
-
-                return view('nationalpdf.index',compact('nationalData'));
+                // sleep(20);
+                return view('nationalpdf.index',compact('nationalData','nationalPerformance','resultGlimpses'));
         //     }
         // } 
     }
@@ -312,6 +316,42 @@ class PdfGenerateController extends Controller
 
     public function Nationaldwn()
     {
+        $nationalData = NationalStatistic::select('id','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio')
+                            // ->with(['StatePerformance'=>function($lo){
+                            //     $lo->orderBy('grade','asc');
+                            // },
+                            // 'StateLO'=>function($lo){
+                            //     $lo->orderBy('grade','asc');
+                            // }])
+                            // ->whereIn('udise_state_code',['7'])
+                            ->first();
+        $nationalPerformance = StateGradeLevelPerformance::distinct('grade')->orderBy('grade','asc')->get();
+        $resultGlimpsesJson = file_get_contents('http://nas21.inroad.in:8055/items/national_result_glimpses?limit-1');
+        $resultGlimpses = json_decode($resultGlimpsesJson,true);
+
+        $folderPath = public_path('nas_pdf/national/');
+        $fileName='nas-national';
+        $file_path = $folderPath.''.$fileName.'-report.pdf';
+
+        if(File::isDirectory($folderPath)){
+            // File::deleteDirectory($folderPath);
+            if(File::exists($file_path))
+            {
+                File::delete($file_path);
+            }
+        }
+        if(!File::isDirectory($folderPath)){
+            File::makeDirectory($folderPath, 0777, true, true);
+        }
+       
+        $render = view('nationalpdf.index',compact('nationalData','nationalPerformance','resultGlimpses'))->render();
+
+        // sleep(40);
+        $pdf = new Pdf;
+        $pdf->addPage($render);
+        $pdf->setOptions(['javascript-delay' => 500,'page-size'=>'a4']);
+        $pdf->saveAs($file_path);
+        return response()->download($file_path);
 
     }
     public function StateParticipationGroupByQuery($state_id)
