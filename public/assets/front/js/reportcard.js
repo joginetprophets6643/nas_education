@@ -439,6 +439,7 @@ $(document).ready(()=>{
           setBreadCrumb('state',true)
         }
         $('#sidebar_active_state').html(activeState.state_name)
+        $('#navbar-highlighter').html('('+format_string(activeState.state_name)+')')
       }
       $('#state_'+ state_id +'').addClass("active");
       $('.national_state_list').removeClass('active')
@@ -529,11 +530,14 @@ $(document).ready(()=>{
           activeDistrict = ''
           $('#active_state').html(activeState.state_name)
           $('#sidebar_active_state').html(activeState.state_name)
+          $('#navbar-highlighter').html('('+format_string(activeState.state_name)+')')
           toggleActiveDistrict(activeDistrict.udise_district_code,false)
           removeItem('activeDistrict')
         // }
       }
       if(value === 'national'){
+        $('#navbar-highlighter').html('')
+
         toggleDistrictList(activeState.udise_state_code,false,'global_filter')
         removeItem('activeState')
         removeItem('activeDistrict')
@@ -550,6 +554,7 @@ $(document).ready(()=>{
           activeDistrict = lastActiveDistrict
           $('#active_state').html(activeState.state_name)
           $('#active_district').html(activeDistrict.district_name)
+          $('#navbar-highlighter').html('('+format_string(activeState.state_name) + ' > ' + format_string(activeDistrict.district_name)+')')
           toggleDistrictList(activeDistrict.udise_state_code,true)
           toggleActiveDistrict(activeDistrict.udise_district_code,true)
         }
@@ -787,6 +792,8 @@ $(document).ready(()=>{
 
     $('#active_state').html(activeState.state_name)
     $('#active_district').html(activeDistrict.district_name)
+    $('#navbar-highlighter').html('('+format_string(activeState.state_name)+')')
+    $('#navbar-highlighter').html('('+format_string(activeState.state_name) + ' > ' + format_string(activeDistrict.district_name)+')')
 
     toggleActiveDistrict(activeDistrict.udise_district_code,true)
     // setInformation()
