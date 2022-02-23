@@ -278,7 +278,7 @@
                         <div class="accordion-item">
                           <div class="accordion-header" id="accordionTwo">
                             <a href="javascript:void(0);">
-                                Category
+                                Filters
                             </a>
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                 <span class="material-icons-round minus">

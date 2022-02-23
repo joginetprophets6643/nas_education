@@ -34,7 +34,7 @@ return[
     'Screen Reader Access'=>'Screen Reader Access',
     'NAS Program'=>'NAS Program',
     'NAS Team'=>'NAS Team',
-    'NAS EXAM'=>'NAS EXAM',
+    'NAS EXAM'=>'NAS Admin',
     'MOBILE APP'=>'MOBILE APP',
     'Mobile App'=>'Mobile App',
     'Login'=>'Login',

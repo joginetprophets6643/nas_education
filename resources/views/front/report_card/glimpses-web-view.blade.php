@@ -1,4 +1,9 @@
 @include('front.includes.header')
+<style>
+    body{
+        padding-top: 0px !important;
+    }
+</style>
 <body>                  
 <div class="tab-content tablayerthree-content" id="screen-content">     
     <div class="tab-pane fade" id="glimpsesnational_class3" role="tabpanel" aria-labelledby="nc3-result-tab">
