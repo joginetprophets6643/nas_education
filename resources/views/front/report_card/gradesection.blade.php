@@ -15,7 +15,7 @@
                             <li class="nav-item" role="presentation">
                               <button class="nav-link" id="district-tab"  onClick="chageDataWithFilter('global_filter','district')">District</button>
                             </li>
-                            <li class="nav-item" role="presentation"><button class="nav-link"  onClick="javascript:void(0);" id="navbar-highlighter"></button></li>
+                            <li class="nav-item" role="presentation"><button class="nav-link"  onClick="javascript:void(0);" ><b><span id="navbar-highlighter" ></span></b></button></li>
                         </ul>
                         <div class="view-wrap">
                           <!-- <div class="form-check">
