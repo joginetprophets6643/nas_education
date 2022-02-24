@@ -119,6 +119,13 @@
             </a>
           </li>
 
+          <li class="nav-item" id="Query" style="display:none;">
+            <a class="nav-link" href="{{url('/secure-admin/query-button')}}">
+              <span class="menu-title">Query Buttons</span>
+              <i class="fas fa-database menu-icon"></i>            
+            </a>
+          </li>
+
 
           <li class="nav-item" id="Banner" style="display:none;">
             <a class="nav-link" href="{{url('/secure-admin/manage-banner')}}">

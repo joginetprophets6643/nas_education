@@ -81,6 +81,13 @@ Route::get('/secure-admin/upload-csv-files', function () {
 });
 Route::resource('upload',UploadController::class);
 
+// Manage Query Buttons
+Route::get('/secure-admin/query-button', function () {
+    return view('admin.query_button');
+});
+
+//Route::resource('update-query',UploadController::class);
+
 //Event Routes
 
 Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
