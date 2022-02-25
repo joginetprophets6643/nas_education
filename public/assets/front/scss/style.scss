@@ -103,6 +103,48 @@ $color_pink: #E9769F;
     }
 }
 
+.terms { 
+    li {
+        font-size: 14px;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.d-list {
+    display:none;
+}
+
+.file-section {
+    display: none;
+    #file-list {
+        li {
+            margin: auto 1rem;
+            border: 1px solid #c1c1c1;
+            display: flex;
+            border-radius: 4px;
+            div {
+                &:first-child {
+                    padding: 3px 17px 3px 6px;
+                    border-right: 1px solid #c1c1c1;
+                }
+                &:last-child {
+                    background: #c1c1c1;
+                    padding: 3px;
+                }
+            }
+        }
+    }
+    .card {
+        background: #f7941c36;
+    }
+    #description-list {
+        li {
+            display: flex;
+            
+        }
+    }
+}
+
 .light-blue{
     background-color: #E8F0F9;
 }

@@ -52,6 +52,12 @@ class Kernel extends HttpKernel
         ],
         'secure'=>[
             \App\Http\Middleware\Secure::class,
+        ],
+        'frontIsLogin'=>[
+            \App\Http\Middleware\FrontisLogin::class,
+        ],
+        'frontIsAuthenticated'=>[
+            \App\Http\Middleware\FrontisAuthenticated::class,
         ]        
     ];
 

@@ -58,6 +58,48 @@
   background: #9E5D9A;
 }
 
+.terms li {
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+
+.d-list {
+  display: none;
+}
+
+.file-section {
+  display: none;
+}
+
+.file-section #file-list li {
+  margin: auto 1rem;
+  border: 1px solid #c1c1c1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 4px;
+}
+
+.file-section #file-list li div:first-child {
+  padding: 3px 17px 3px 6px;
+  border-right: 1px solid #c1c1c1;
+}
+
+.file-section #file-list li div:last-child {
+  background: #c1c1c1;
+  padding: 3px;
+}
+
+.file-section .card {
+  background: #f7941c36;
+}
+
+.file-section #description-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .light-blue {
   background-color: #E8F0F9;
 }

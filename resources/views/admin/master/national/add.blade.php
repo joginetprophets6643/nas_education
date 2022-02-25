@@ -38,6 +38,33 @@
         <br>
 
         <div class="row">
+        <div class="form-group-sm col-md-4">
+            <label class="form-label">No. of Students</label>
+            <input type="text" name="no_of_students" class="form-control" placeholder="No. of Students" value="{{ old('no_of_students') }}">
+            @error('no_of_students')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+
+        <div class="form-group-sm col-md-4">
+            <label class="form-label">No. of Teachers</label>
+            <input type="text" name="no_of_teachers" class="form-control" placeholder="No. of Teachers" value="{{ old('no_of_teachers') }}">
+            @error('no_of_teachers')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+        
+        <div class="form-group-sm col-md-4">
+            <label class="form-label">No. of Schools</label>
+            <input type="text" name="no_of_schools" class="form-control" placeholder="No. of Schools" value="{{ old('no_of_schools') }}">
+            @error('no_of_schools')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+        </div>
+        <br>
+
+        <div class="row">
         <div class="col-6">
             <label class="form-label">Total District Area</label>
             <input type="text" name="total_district_area" class="form-control" placeholder="Total District Area" value="{{ old('total_district_area') }}">
