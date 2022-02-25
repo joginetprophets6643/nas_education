@@ -924,11 +924,11 @@
   
   function goToReportCard(){
     const activeState = JSON.parse(sessionStorage.getItem('activeState'))
-    console.log(activeState)
-    if(activeState !== null){
+    // console.log(activeState)
+    // if(activeState !== null){
       window.open(base_url + 'report-card/nas-2021', '_blank');
       // location.href = base_url + 'report-card/nas-2021'
-    }
+    // }
   }
 
   function removePreviousData(){

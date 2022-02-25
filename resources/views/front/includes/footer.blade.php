@@ -371,10 +371,14 @@ function changeFontSize(direction){
         var menu_btn = document.querySelector("#menu-btn");
         var sideBar = document.querySelector("#sideBar");
         var main_content = document.querySelector(".main-content-wrap");
-        menu_btn.addEventListener("click", () => {
-          sideBar.classList.toggle("active-sidebar");
-          main_content.classList.toggle("active-main-content");
-        });
+        // console.log(menu_btn)
+        if(menu_btn !== null){
+            menu_btn.addEventListener("click", () => {
+            sideBar.classList.toggle("active-sidebar");
+            main_content.classList.toggle("active-main-content");
+          });
+        }
+
     </script>
   </body>
 </html>

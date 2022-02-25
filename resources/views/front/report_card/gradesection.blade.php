@@ -1,4 +1,4 @@
-<main class="main-content-wrap">
+<main class="main-content-wrap active-main-content">
                 <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sideBar" aria-controls="sideBar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
