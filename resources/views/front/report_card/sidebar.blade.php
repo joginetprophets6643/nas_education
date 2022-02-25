@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="dashboard-wrapper">
-            <div class="sidebar-wrap d-md-block collapse" id="sideBar"> 
+            <div class="sidebar-wrap" id="sideBar"> 
                 <div class="ranking-wrap">
                     <ul id="district_geography" style="display:none;">
                         <li>

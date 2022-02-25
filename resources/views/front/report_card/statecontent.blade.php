@@ -310,8 +310,4 @@
       }]
     });
     </script>
-
-
-
-
 @include('front.includes.footer')

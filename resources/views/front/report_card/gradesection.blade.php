@@ -7,6 +7,13 @@
                      <div class="d-flex align-items-center justify-content-between">
                         <ul class="nav nav-tabs tablayerone" role="tablist">
                             <li class="nav-item" role="presentation">
+                              <button class="nav-link ham-icon" id="menu-btn">
+                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
                               <button class="nav-link" id="national-tab" onClick="chageDataWithFilter('global_filter','national')">National</button>
                             </li>
                             <li class="nav-item" role="presentation">
