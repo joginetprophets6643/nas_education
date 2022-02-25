@@ -420,7 +420,7 @@
                         <h3 class="text-center heading-black-main">
                           Profile of sampled students at the National level
                         </h3>
-                      </div>  
+                      </div>
                     </div>
                     <div class="row justify-content-center mb-60">
                       <div class="col-md-12 mtb-15">
@@ -428,86 +428,19 @@
                           Educational status of mother
                         </h2>
                       </div>
-                      <div class="col-md-3 mtb-15">
-                        <div class="headteacher-fbcard">
-                          <div class="progressbar-circle-lg progressbar-pink">
-                            <div class="progress" data-percentage="84">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">
-                                84%
-                                <p>
-                                  Can't read and write
-                                </p>
+                      @if(count($nationalFeedbackDatasq)>0)
+                        @foreach($nationalFeedbackDatasq as $nationalSQ)
+                          <div class="col-md-3 mtb-15">
+                            <div class="container pink-progress-bar-lg-txt">
+                              <div class="progress-percent progress-percent-text" data-percent="{{$nationalSQ->avg}}" data-txt="{{$nationalSQ->question_desc}}">
+                                <div class="progress-inner">
+                                  <div class="progress-round"></div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 mtb-15">
-                        <div class="headteacher-fbcard">
-                          <div class="progressbar-circle-lg progressbar-pink">
-                            <div class="progress" data-percentage="84">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">
-                                75%
-                                <p>
-                                  Literate without schooling
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 mtb-15">
-                        <div class="headteacher-fbcard">
-                          <div class="progressbar-circle-lg progressbar-pink">
-                            <div class="progress" data-percentage="84">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">
-                                55%
-                                <p>
-                                  Below Primary
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 mtb-15">
-                        <div class="headteacher-fbcard">
-                          <div class="progressbar-circle-lg progressbar-pink">
-                            <div class="progress" data-percentage="84">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">
-                                38%
-                                <p>
-                                  Primary and upper primary
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        @endforeach
+                      @endif
                     </div>
                     <div class="row justify-content-center mb-60">
                       <div class="col-md-12 mtb-15">
@@ -515,258 +448,45 @@
                           How students commute to school
                         </h2>
                       </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-pink-bg">
-                          <div class="progressbar-line progressbar-pink">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="max-width: 75%">
-                                <span class="title">75%</span>
+                      @if(count($nationalFeedbackDatasqn1)>0)
+                        @foreach($nationalFeedbackDatasqn1 as  $nationalsqn1)
+                          <div class="col-md-4 mtb-15">
+                            <div class="teacher-fbcard light-pink-bg">
+                              <div class="progressbar-line progressbar-pink">
+                                <!--  -->
+                                <div class="progress-container pink-progress-container">
+                                  <div
+                                    class="line-progress-bar"
+                                    data-width="{{$nationalsqn1->avg}}%"
+                                  ></div>
+                                </div>
+                                <!--  -->
+                                <p>{{$nationalsqn1->question_desc}}</p>
                               </div>
                             </div>
-                            <p>
-                              On foot
-                            </p>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-pink-bg">
-                          <div class="progressbar-line progressbar-pink">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="max-width: 25%">
-                                <span class="title">25%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Bicycle
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-pink-bg">
-                          <div class="progressbar-line progressbar-pink">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="max-width: 50%">
-                                <span class="title">50%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Public trasport
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-pink-bg">
-                          <div class="progressbar-line progressbar-pink">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="max-width: 30%">
-                                <span class="title">30%</span>
-                              </div>
-                            </div>
-                            <p>
-                              School transport
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-pink-bg">
-                          <div class="progressbar-line progressbar-pink">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="max-width: 60%">
-                                <span class="title">60%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Own transport 2 Wheeler
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-pink-bg">
-                          <div class="progressbar-line progressbar-pink">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="max-width: 80%">
-                                <span class="title">80%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Own transport 4 wheeler
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                          @endforeach
+                        @endif
                     </div>
+                    <!--  -->
                     <div class="row justify-content-center mb-60">
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-pink-bg">
-                          <div class="progressbar-circle-sm progressbar-pink">
-                            <div class="progress" data-percentage="80">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">80%</div>
+                      @if(count($nationalFeedbackDatasqn2)>0)
+                        @foreach($nationalFeedbackDatasqn2 as $nationalsqn2)
+                          <div class="col-lg-3 mtb-15">
+                            <div class="student-fbcard light-pink-bg">
+                              <div class="container text-center pink-progress-bar-sm">
+                                <div class="progress-percent" data-percent="{{$nationalsqn2->avg}}">
+                                  <div class="progress-inner">
+                                    <div class="progress-round"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <p class="title">{{$nationalsqn2->question_desc}}</p>
                             </div>
                           </div>
-                          <p class="title">
-                            students like to go to school.
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-pink-bg">
-                          <div class="progressbar-circle-sm progressbar-pink">
-                            <div class="progress" data-percentage="30">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">30%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students use same
-                            language at home as
-                            medium of instruction in
-                            the class.
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-pink-bg">
-                          <div class="progressbar-circle-sm progressbar-pink">
-                            <div class="progress" data-percentage="50">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">50%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students could
-                            understand, what teachers
-                            teach in the class.
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-pink-bg">
-                          <div class="progressbar-circle-sm progressbar-pink">
-                            <div class="progress" data-percentage="40">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">40%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students of class 3,5
-                            and 8 go out and
-                            play during games
-                            period
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-pink-bg">
-                          <div class="progressbar-circle-sm progressbar-pink">
-                            <div class="progress" data-percentage="70">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">70%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students avail library
-                            facility in the school.
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-pink-bg">
-                          <div class="progressbar-circle-sm progressbar-pink">
-                            <div class="progress" data-percentage="90">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">90%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students of class 3,5
-                            and 8 go avail
-                            computer in the school
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-pink-bg">
-                          <div class="progressbar-circle-sm progressbar-pink">
-                            <div class="progress" data-percentage="30">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">30%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students of class 10 have
-                            science laboratory facility
-                            in school
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-pink-bg">
-                          <div class="progressbar-circle-sm progressbar-pink">
-                            <div class="progress" data-percentage="40">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">40%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students of class 10 used
-                            internet for school project
-                            and assignment
-                          </p>
-                        </div>
-                      </div>
+                          @endforeach
+                        @endif
+
                     </div>
                   </div>
                   <div class="reportview-footer">
@@ -800,182 +520,52 @@
                         <h3 class="text-center heading-black-main">
                           Profile of sampled teachers at the National level
                         </h3>
-                      </div>  
+                      </div>
                     </div>
                     <div class="row justify-content-center mb-60">
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-green-bg">
-                          <div class="progressbar-line progressbar-green">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="max-width: 75%">
-                                <span class="title">75%</span>
+                      @if(count($nationalFeedbackDatatq)>0)
+                        @foreach($nationalFeedbackDatatq as  $nationaltq)
+                          <div class="col-md-4 mtb-15">
+                            <div class="teacher-fbcard light-green-bg">
+                              <div class="progressbar-line progressbar-green">
+                                <!--  -->
+                                <div class="progress-container green-progress-container">
+                                  <div
+                                    class="line-progress-bar"
+                                    data-width="{{$nationaltq->avg}}%"
+                                  ></div>
+                                </div>
+                                <!--  -->
+                                <p>{{$nationaltq->question_desc}}</p>
                               </div>
                             </div>
-                            <p>
-                              Teachers who participated in professional development programme
-                            </p>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-green-bg">
-                          <div class="progressbar-line progressbar-green">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="max-width: 25%">
-                                <span class="title">25%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Teachers who engaging in formal dialogue with colleagues 
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-green-bg">
-                          <div class="progressbar-line progressbar-green">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="max-width: 50%">
-                                <span class="title">50%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Teachers who engaging in formal dialogue with colleagues
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-green-bg">
-                          <div class="progressbar-line progressbar-green">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="max-width: 30%">
-                                <span class="title">30%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Teachers who participated in individual in individual or collaborative research
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-green-bg">
-                          <div class="progressbar-line progressbar-green">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="max-width: 60%">
-                                <span class="title">60%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Teachers who participate in discussion on national education policy-2020
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mtb-15">
-                        <div class="teacher-fbcard light-green-bg">
-                          <div class="progressbar-line progressbar-green">
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="max-width: 80%">
-                                <span class="title">80%</span>
-                              </div>
-                            </div>
-                            <p>
-                              Scope of professional development in school for teachers
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                          @endforeach
+                        @endif
                     </div>
                     <div class="row justify-content-center mb-60">
                       <div class="col-md-12 mtb-15">
                         <h2 class="title-black-main">
-                          Percentage of teacher doing the following activities in school
+                          Percentage of teacher doing the following activities
+                          in school
                         </h2>
                       </div>
-                      <div class="col-md-3 mtb-15">
-                        <div class="headteacher-fbcard">
-                          <div class="progressbar-circle-lg progressbar-green">
-                            <div class="progress" data-percentage="84">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">
-                                84%
-                                <p>
-                                  Student self assessment
-                                </p>
+                      @if(count($nationalFeedbackDatatqn)>0)
+                        @foreach($nationalFeedbackDatatqn as $nationalTQN)
+                          <div class="col-md-3 mtb-15">
+                            <div class="container text-center green-progress-bar-lg-txt">
+                                <div class="progress-percent progress-percent-text" data-percent="{{$nationalTQN->avg}}" data-txt="{{$nationalTQN->question_desc}}">
+                                  <div class="progress-inner">
+                                    <div class="progress-round"></div>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
+                            <!-- <p>Student self assessment</p> -->
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 mtb-15">
-                        <div class="headteacher-fbcard">
-                          <div class="progressbar-circle-lg progressbar-green">
-                            <div class="progress" data-percentage="84">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">
-                                75%
-                                <p>
-                                  Project work
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 mtb-15">
-                        <div class="headteacher-fbcard">
-                          <div class="progressbar-circle-lg progressbar-green">
-                            <div class="progress" data-percentage="84">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">
-                                55%
-                                <p>
-                                  Per assessment
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-3 mtb-15">
-                        <div class="headteacher-fbcard">
-                          <div class="progressbar-circle-lg progressbar-green">
-                            <div class="progress" data-percentage="84">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">
-                                38%
-                                <p>
-                                  Portfolio
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        @endforeach
+                      @endif
+
                     </div>
-                    
                   </div>
                   <div class="reportview-footer">
                     <span class="page-no">5</span>
@@ -1008,177 +598,29 @@
                         <h3 class="text-center heading-black-main">
                           Profile of sampled schools at the National level
                         </h3>
-                      </div>  
+                      </div>
                     </div>
                     <div class="row justify-content-center mb-60">
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-blue-bg">
-                          <div class="progressbar-circle-sm progressbar-blue">
-                            <div class="progress" data-percentage="80">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">80%</div>
+                    @if(count($nationalFeedbackDatapq)>0)
+                      @foreach($nationalFeedbackDatapq as $nationalPQ)
+                        <div class="col-lg-3 mtb-15">
+                          <div class="student-fbcard light-blue-bg">
+                            <div class="container text-center blue-progress-bar-sm">
+                              <div class="progress-percent" data-percent="{{$nationalPQ->avg}}">
+                                <div class="progress-inner">
+                                  <div class="progress-round"></div>
+                                </div>
+                              </div>
                             </div>
+                            <p class="title">
+                              {{$nationalPQ->question_desc}}
+                            </p>
                           </div>
-                          <p class="title">
-                            students like to go to<br>school.
-                          </p>
                         </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-blue-bg">
-                          <div class="progressbar-circle-sm progressbar-blue">
-                            <div class="progress" data-percentage="30">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">30%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students use same
-                            language at home as
-                            medium of instruction in
-                            the class.
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-blue-bg">
-                          <div class="progressbar-circle-sm progressbar-blue">
-                            <div class="progress" data-percentage="50">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">50%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students could
-                            understand, what teachers
-                            teach in the class.
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-blue-bg">
-                          <div class="progressbar-circle-sm progressbar-blue">
-                            <div class="progress" data-percentage="40">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">40%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students of class 3,5
-                            and 8 go out and
-                            play during games
-                            period
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-blue-bg">
-                          <div class="progressbar-circle-sm progressbar-blue">
-                            <div class="progress" data-percentage="70">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">70%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students avail library
-                            facility in the school.
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-blue-bg">
-                          <div class="progressbar-circle-sm progressbar-blue">
-                            <div class="progress" data-percentage="90">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">90%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students of class 3,5
-                            and 8 go avail
-                            computer in the school
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-blue-bg">
-                          <div class="progressbar-circle-sm progressbar-blue">
-                            <div class="progress" data-percentage="30">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">30%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students of class 10 have
-                            science laboratory facility
-                            in school
-                          </p>
-                        </div>
-                      </div>
-  
-                      <div class="col-lg-3 mtb-15">
-                        <div class="student-fbcard light-blue-bg">
-                          <div class="progressbar-circle-sm progressbar-blue">
-                            <div class="progress" data-percentage="40">
-                              <span class="progress-left">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <span class="progress-right">
-                                <span class="progress-bar"></span>
-                              </span>
-                              <div class="progress-value">40%</div>
-                            </div>
-                          </div>
-                          <p class="title">
-                            students of class 10 used
-                            internet for school project
-                            and assignment
-                          </p>
-                        </div>
-                      </div>
+                      @endforeach
+                    @endif
+
                     </div>
-                    
                   </div>
                   <div class="reportview-footer">
                     <span class="page-no">6</span>
@@ -1210,197 +652,134 @@
                       <div class="col-md-12 mtb-30">
                         <div class="virus-icon-top">
                           <div class="virus-icon1">
-                            <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                            <img
+                              src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                              alt="virus"
+                              class="img-fluid"
+                            />
                           </div>
                           <div class="virus-icon2">
-                            <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                            <img
+                              src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                              alt="virus"
+                              class="img-fluid"
+                            />
                           </div>
                           <div class="virus-icon3">
-                            <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                            <img
+                              src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                              alt="virus"
+                              class="img-fluid"
+                            />
                           </div>
                           <div class="virus-icon4">
-                            <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                            <img
+                              src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                              alt="virus"
+                              class="img-fluid"
+                            />
                           </div>
                         </div>
                         <h3 class="text-center heading-black-main">
                           Learning at home during the pandemic
                         </h3>
-                      </div>  
+                      </div>
                     </div>
                     <div class="pendamic-progessbar-wrap mtb-60">
                       <div class="row">
                         <div class="col-md-12">
-                          <div class="pendamic-progressbar-card light-pink-bg mtb-60">
+                          <div
+                            class="pendamic-progressbar-card light-pink-bg mtb-60"
+                          >
                             <div class="pendamic-progressbar-list">
                               <div class="row align-items-center mtb-60">
-                                <div class="col-md-3">
-                                  <div class="pendamic-progrssbar-content ptb-15">
-                                    <div class="progressbar-circle-sm progressbar-pink">
-                                      <div class="progress" data-percentage="35">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          35%
+                                <div class="col-md-6">
+                                  <div class="row align-items-center">
+                                    @if(count($nationalFeedbackDatapq2)>0)
+                                      @php
+                                        $firstCount = 1;
+                                      @endphp
+                                      @foreach($nationalFeedbackDatapq2 as $nationalpq2)
+                                        @php
+                                          if($firstCount==4)
+                                          {
+                                            $cls = "border-left";
+                                            $cls2 = "";
+                                          }
+                                          elseif($firstCount==3)
+                                          {
+                                            $cls = "";
+                                            $cls2 = "";
+                                          }
+                                          else
+                                          {
+                                            $cls = "";
+                                            $cls2 = "border-bottom";
+                                          }
+                                        @endphp
+
+                                        <div class="col-md-6 {{$cls}} {{$cls2}}">
+                                          <div class="pendamic-progrssbar-content ptb-15"
+                                          >
+                                            <div class="container text-center pink-progress-bar">
+                                              <div class="progress-percent" data-percent="{{$nationalpq2->avg}}">
+                                                <div class="progress-inner">
+                                                  <div class="progress-round"></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <p class="title">
+                                              {{$nationalpq2->question_desc}}
+                                            </p>
+                                          </div>
                                         </div>
-                                      </div>
-                                    </div>
-                                    <p class="title">
-                                      no digital device at<br>
-                                      home
-                                    </p>
+                                        @php $firstCount++; @endphp
+                                      @endforeach
+                                    @endif
                                   </div>
                                 </div>
-                                <div class="col-md-3">
-                                  <div class="pendamic-progrssbar-content ptb-15">
-                                    <div class="progressbar-circle-sm progressbar-pink">
-                                      <div class="progress" data-percentage="45">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          45%
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <p class="title">
-                                      follow the COVID-19<br>
-                                      hygiene protocols
-                                    </p>
-                                  </div>
-                                </div>
-                                <div class="col-md-3">
-                                  <div class="pendamic-progrssbar-content ptb-15">
-                                    <div class="progressbar-circle-sm progressbar-pink">
-                                      <div class="progress" data-percentage="50">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          50%
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <p class="title">
-                                      experienced worry anxiety<br>
-                                      and fear during pandemic
-                                    </p>
-                                  </div>
-                                </div>
-                                <div class="col-md-3">
-                                  <div class="pendamic-progrssbar-content ptb-15">
-                                    <div class="progressbar-circle-sm progressbar-pink">
-                                      <div class="progress" data-percentage="70">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          70%
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <p class="title">
-                                      happy to spend time at<br>
-                                      home with my own self
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row align-items-center mtb-60">
-                                <div class="col-md-3">
-                                  <div class="pendamic-progrssbar-content ptb-15">
-                                    <div class="progressbar-circle-sm progressbar-pink">
-                                      <div class="progress" data-percentage="35">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          35%
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <p class="title">
-                                      no digital device at<br>
-                                      home
-                                    </p>
-                                  </div>
-                                </div>
-                                <div class="col-md-3">
-                                  <div class="pendamic-progrssbar-content ptb-15">
-                                    <div class="progressbar-circle-sm progressbar-pink">
-                                      <div class="progress" data-percentage="45">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          45%
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <p class="title">
-                                      follow the COVID-19<br>
-                                      hygiene protocols
-                                    </p>
-                                  </div>
-                                </div>
-                                <div class="col-md-3">
-                                  <div class="pendamic-progrssbar-content ptb-15">
-                                    <div class="progressbar-circle-sm progressbar-pink">
-                                      <div class="progress" data-percentage="50">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          50%
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <p class="title">
-                                      experienced worry anxiety<br>
-                                      and fear during pandemic
-                                    </p>
-                                  </div>
-                                </div>
-                                <div class="col-md-3">
-                                  <div class="pendamic-progrssbar-content ptb-15">
-                                    <div class="progressbar-circle-sm progressbar-pink">
-                                      <div class="progress" data-percentage="70">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          70%
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <p class="title">
-                                      happy to spend time at<br>
-                                      home with my own self
-                                    </p>
+                                <div class="col-md-6">
+                                  <div class="row align-items-center">
+                                    @if(count($nationalFeedbackDatapq3)>0)
+                                      @php
+                                        $firstCount3 = 1;
+                                      @endphp
+                                      @foreach($nationalFeedbackDatapq3 as $nationalpq3)
+                                        @php
+                                          if($firstCount3==4)
+                                          {
+                                            $cls = "border-left";
+                                            $cls2 = "";
+                                          }
+                                          elseif($firstCount3==3)
+                                          {
+                                            $cls = "border-right";
+                                            $cls2 = "";
+                                          }
+                                          else
+                                          {
+                                            $cls = "";
+                                            $cls2 = "border-bottom";
+                                          }
+                                        @endphp
+                                          <div class="col-md-6  {{$cls}} {{$cls2}}">
+                                            <div class="pendamic-progrssbar-content ptb-15"
+                                            >
+                                              <div class="container text-center pink-progress-bar">
+                                                <div class="progress-percent" data-percent="{{$nationalpq3->avg}}">
+                                                  <div class="progress-inner">
+                                                    <div class="progress-round"></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <p class="title">
+                                                {{$nationalpq3->question_desc}}
+                                              </p>
+                                            </div>
+                                          </div>
+                                        @php $firstCount3++; @endphp
+                                      @endforeach
+                                    @endif
                                   </div>
                                 </div>
                               </div>
@@ -1411,25 +790,53 @@
                     </div>
                     <div class="virus-icon-bottom">
                       <div class="virus-icon1">
-                        <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                        <img
+                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          alt="virus"
+                          class="img-fluid"
+                        />
                       </div>
                       <div class="virus-icon2">
-                        <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                        <img
+                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          alt="virus"
+                          class="img-fluid"
+                        />
                       </div>
                       <div class="virus-icon3">
-                        <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                        <img
+                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          alt="virus"
+                          class="img-fluid"
+                        />
                       </div>
                       <div class="virus-icon4">
-                        <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                        <img
+                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          alt="virus"
+                          class="img-fluid"
+                        />
                       </div>
                       <div class="virus-icon5">
-                        <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                        <img
+                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          alt="virus"
+                          class="img-fluid"
+                        />
                       </div>
                       <div class="virus-icon6">
-                        <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                        <img
+                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          alt="virus"
+                          class="img-fluid"
+                        />
                       </div>
                       <div class="virus-icon7">
-                        <img src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png" alt="virus" class="img-fluid">
+                        <img
+                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          alt="virus"
+                          class="img-fluid"
+                        />
                       </div>
                     </div>
                   </div>
@@ -3690,7 +3097,7 @@
                       map: 'countries/in/custom/in-all-disputed',
                       backgroundColor: 'transparent',
                       height: "900",
-                      width: "550"
+                      // width: "550"
                   },
                   title: {
                       text: ''
@@ -3826,6 +3233,87 @@
        })
        return {color:color,category: parseInt(category)}
       }
+    </script>
+
+    <script type="text/javascript">
+      // progress bar
+      $(".progress-percent").each(function () {
+        var $this = $(this),
+          $dataV = $this.data("percent"),
+          $dataDeg = $dataV * 3.6,
+          $round = $this.find(".progress-round");
+        $round.css("transform", "rotate(" + parseInt($dataDeg + 180) + "deg)");
+        $this.append(
+          '<div class="progress-inbox"><span class="percent_text"></span></div>'
+        );
+        $this.prop("Counter", 0).animate(
+          { Counter: $dataV },
+          {
+            duration: 2000,
+            easing: "swing",
+            step: function (now) {
+              $this.find(".percent_text").text(Math.ceil(now) + "%");
+            },
+          }
+        );
+        if ($dataV >= 51) {
+          $round.css("transform", "rotate(" + 360 + "deg)");
+          setTimeout(function () {
+            $this.addClass("percent_more");
+          }, 1000);
+          setTimeout(function () {
+            $round.css(
+              "transform",
+              "rotate(" + parseInt($dataDeg + 180) + "deg)"
+            );
+          }, 1000);
+        }
+      });
+      
+      // progress bar with content
+      $(".progress-percent-text").each(function () {
+        var $this = $(this),
+          $dataV = $this.data("percent"),
+          $dataTxt = $this.data("txt"),
+          $dataDeg = $dataV * 3.6,
+          $round = $this.find(".progress-round");
+        $round.css("transform", "rotate(" + parseInt($dataDeg + 180) + "deg)");
+        $this.append(
+          '<div class="progress-inbox"><span class="percent_text"></span><span class="bottom-txt">'+$dataTxt+'</span></div>'
+        );
+        $this.prop("Counter", 0).animate(
+          { Counter: $dataV },
+          {
+            duration: 2000,
+            easing: "swing",
+            step: function (now) {
+              $this.find(".percent_text").text(Math.ceil(now) + "%");
+            },
+          }
+        );
+        if ($dataV >= 51) {
+          $round.css("transform", "rotate(" + 360 + "deg)");
+          setTimeout(function () {
+            $this.addClass("percent_more");
+          }, 1000);
+          setTimeout(function () {
+            $round.css(
+              "transform",
+              "rotate(" + parseInt($dataDeg + 180) + "deg)"
+            );
+          }, 1000);
+        }
+      });
+
+    </script>
+
+    <script type="text/javascript">
+      $(".progress-container > div").each(function () {
+        var width = $(this).data("width");
+        $(this).animate({ width: width }, 2500);
+        $(this).after('<span class="perc">' + width + "</span>");
+        // $('.perc').delay(3000).fadeIn(1000);
+      });
     </script>
   </body>
 </html>
