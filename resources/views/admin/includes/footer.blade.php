@@ -18,7 +18,7 @@
     <script src="{{ asset('assets/admin/vendors/chart.js/Chart.min.js')}}"></script>
     <script src="{{ asset('assets/admin/vendors/moment/moment.min.js')}}"></script>
     <script src="{{ asset('assets/admin/vendors/daterangepicker/daterangepicker.js')}}"></script>
-    <script src="{{ asset('assets/admin/vendors/chartist/chartist.min.js')}}"></script>
+    <!-- <script src="{{ asset('assets/admin/vendors/chartist/chartist.min.js')}}"></script> -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="{{ asset('assets/admin/vendors/js/off-canvas.js')}}"></script>
