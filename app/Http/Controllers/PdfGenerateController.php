@@ -265,47 +265,51 @@ class PdfGenerateController extends Controller
                             // ->whereIn('udise_state_code',['7'])
                             ->first();
         $nationalPerformance = StateGradeLevelPerformance::distinct('grade')->orderBy('grade','asc')->get();
-        $resultGlimpsesJson = file_get_contents('http://nas21.inroad.in:8055/items/national_result_glimpses?limit-1');
-        $resultGlimpses = json_decode($resultGlimpsesJson,true);
         // dd($nationalPerformance );
-        // if(count($stateData)>0)
-        // {
-        //     foreach($stateData as $stateVal)
-        //     {
-                // $performanceData = $stateVal['StatePerformance'];
-                // $stateParticipationQuery = $this->StateParticipationGroupByQuery($stateVal->udise_state_code);
-                // $stateParticipationData = DB::select($stateParticipationQuery);
-                // // dd($stateParticipationData[0]);
-                // $stateLOData = $stateVal['StateLO'];
 
-                // // PQ data
-                // $whereConditionpq = "and level='pq'";
-                // $stateFeedbackQuerypq = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditionpq);
-                // $stateFeedbackDatapq = DB::select($stateFeedbackQuerypq);
-                // // SQ Data
-                // $whereConditionsq = "and level='sq'";
-                // $stateFeedbackQuerysq = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditionsq);
-                // $stateFeedbackDatasq = DB::select($stateFeedbackQuerysq);
-                // // TQ Data
-                // $whereConditiontq = "and level='tq'";
-                // $stateFeedbackQuerytq = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditiontq);
-                // $stateFeedbackDatatq = DB::select($stateFeedbackQuerytq);
-                // // PQ1 Data
-                // $whereConditionpq1 = "and level='pq1'";
-                // $stateFeedbackQuerypq1 = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditionpq1);
-                // $stateFeedbackDatapq1 = DB::select($stateFeedbackQuerypq1);
-                // // PQ2 Data
-                // $whereConditionpq2 = "and level='pq2'";
-                // $stateFeedbackQuerypq2 = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditionpq2);
-                // $stateFeedbackDatapq2 = DB::select($stateFeedbackQuerypq2);
-                // // PQ3 Data
-                // $whereConditionpq3 = "and level='pq3'";
-                // $stateFeedbackQuerypq3 = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditionpq3);
-                // $stateFeedbackDatapq3 = DB::select($stateFeedbackQuerypq3);
-                // sleep(20);
-                return view('nationalpdf.index',compact('nationalData','nationalPerformance','resultGlimpses'));
-        //     }
-        // } 
+        // PQ data
+        $whereConditionpq = "where level='pq'";
+        $nationalFeedbackQuerypq = $this->NationalFeedbackGroupByQuery($whereConditionpq);
+        $nationalFeedbackDatapq = DB::select($nationalFeedbackQuerypq);
+
+        // SQ Data
+        $whereConditionsq = "where level='sq'";
+        $nationalFeedbackQuerysq = $this->NationalFeedbackGroupByQuery($whereConditionsq);
+        $nationalFeedbackDatasq = DB::select($nationalFeedbackQuerysq);
+
+        // SQN1 Data
+        $whereConditionsqn1 = "where level='sqn1'";
+        $nationalFeedbackQuerysqn1 = $this->NationalFeedbackGroupByQuery($whereConditionsqn1);
+        $nationalFeedbackDatasqn1 = DB::select($nationalFeedbackQuerysqn1);
+        // SQN2 Data
+        $whereConditionsqn2 = "where level='sqn2'";
+        $nationalFeedbackQuerysqn2 = $this->NationalFeedbackGroupByQuery($whereConditionsqn2);
+        $nationalFeedbackDatasqn2 = DB::select($nationalFeedbackQuerysqn2);
+
+        // TQ Data
+        $whereConditiontq = "where level='tq'";
+        $nationalFeedbackQuerytq = $this->NationalFeedbackGroupByQuery($whereConditiontq);
+        $nationalFeedbackDatatq = DB::select($nationalFeedbackQuerytq);
+
+        // TQN Data
+        $whereConditiontqn = "where level='tqn'";
+        $nationalFeedbackQuerytqn = $this->NationalFeedbackGroupByQuery($whereConditiontqn);
+        $nationalFeedbackDatatqn = DB::select($nationalFeedbackQuerytqn);
+
+        // // PQ1 Data
+        // $whereConditionpq1 = "and level='pq1'";
+        // $stateFeedbackQuerypq1 = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditionpq1);
+        // $stateFeedbackDatapq1 = DB::select($stateFeedbackQuerypq1);
+        // PQ2 Data
+        $whereConditionpq2 = "where level='pq2'";
+        $nationalFeedbackQuerypq2 = $this->NationalFeedbackGroupByQuery($whereConditionpq2);
+        $nationalFeedbackDatapq2 = DB::select($nationalFeedbackQuerypq2);
+        // PQ3 Data
+        $whereConditionpq3 = "where level='pq3'";
+        $nationalFeedbackQuerypq3 = $this->NationalFeedbackGroupByQuery($whereConditionpq3);
+        $nationalFeedbackDatapq3 = DB::select($nationalFeedbackQuerypq3);
+        // sleep(20);
+        return view('nationalpdf.index',compact('nationalData','nationalPerformance','nationalFeedbackDatapq','nationalFeedbackDatapq2','nationalFeedbackDatapq3','nationalFeedbackDatasq','nationalFeedbackDatasqn1','nationalFeedbackDatasqn2','nationalFeedbackDatatq','nationalFeedbackDatatqn'));
     }
 
     /*****************************************
@@ -317,17 +321,40 @@ class PdfGenerateController extends Controller
     public function Nationaldwn()
     {
         $nationalData = NationalStatistic::select('id','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio')
-                            // ->with(['StatePerformance'=>function($lo){
-                            //     $lo->orderBy('grade','asc');
-                            // },
-                            // 'StateLO'=>function($lo){
-                            //     $lo->orderBy('grade','asc');
-                            // }])
-                            // ->whereIn('udise_state_code',['7'])
                             ->first();
         $nationalPerformance = StateGradeLevelPerformance::distinct('grade')->orderBy('grade','asc')->get();
-        $resultGlimpsesJson = file_get_contents('http://nas21.inroad.in:8055/items/national_result_glimpses?limit-1');
-        $resultGlimpses = json_decode($resultGlimpsesJson,true);
+        // PQ data
+        $whereConditionpq = "where level='pq'";
+        $nationalFeedbackQuerypq = $this->NationalFeedbackGroupByQuery($whereConditionpq);
+        $nationalFeedbackDatapq = DB::select($nationalFeedbackQuerypq);
+        // PQ2 Data
+        $whereConditionpq2 = "where level='pq2'";
+        $nationalFeedbackQuerypq2 = $this->NationalFeedbackGroupByQuery($whereConditionpq2);
+        $nationalFeedbackDatapq2 = DB::select($nationalFeedbackQuerypq2);
+        // PQ3 Data
+        $whereConditionpq3 = "where level='pq3'";
+        $nationalFeedbackQuerypq3 = $this->NationalFeedbackGroupByQuery($whereConditionpq3);
+        $nationalFeedbackDatapq3 = DB::select($nationalFeedbackQuerypq3);
+        // SQ Data
+        $whereConditionsq = "where level='sq'";
+        $nationalFeedbackQuerysq = $this->NationalFeedbackGroupByQuery($whereConditionsq);
+        $nationalFeedbackDatasq = DB::select($nationalFeedbackQuerysq);
+        // SQN1 Data
+        $whereConditionsqn1 = "where level='sqn1'";
+        $nationalFeedbackQuerysqn1 = $this->NationalFeedbackGroupByQuery($whereConditionsqn1);
+        $nationalFeedbackDatasqn1 = DB::select($nationalFeedbackQuerysqn1);
+        // SQN2 Data
+        $whereConditionsqn2 = "where level='sqn2'";
+        $nationalFeedbackQuerysqn2 = $this->NationalFeedbackGroupByQuery($whereConditionsqn2);
+        $nationalFeedbackDatasqn2 = DB::select($nationalFeedbackQuerysqn2);
+        // TQ Data
+        $whereConditiontq = "where level='tq'";
+        $nationalFeedbackQuerytq = $this->NationalFeedbackGroupByQuery($whereConditiontq);
+        $nationalFeedbackDatatq = DB::select($nationalFeedbackQuerytq);
+        // TQN Data
+        $whereConditiontqn = "where level='tqn'";
+        $nationalFeedbackQuerytqn = $this->NationalFeedbackGroupByQuery($whereConditiontqn);
+        $nationalFeedbackDatatqn = DB::select($nationalFeedbackQuerytqn);
 
         $folderPath = public_path('nas_pdf/national/');
         $fileName='nas-national';
@@ -344,7 +371,7 @@ class PdfGenerateController extends Controller
             File::makeDirectory($folderPath, 0777, true, true);
         }
        
-        $render = view('nationalpdf.index',compact('nationalData','nationalPerformance','resultGlimpses'))->render();
+        $render = view('nationalpdf.index',compact('nationalData','nationalPerformance','nationalFeedbackDatapq','nationalFeedbackDatapq2','nationalFeedbackDatapq3','nationalFeedbackDatasq','nationalFeedbackDatasqn1','nationalFeedbackDatasqn2','nationalFeedbackDatatq','nationalFeedbackDatatqn'))->render();
 
         // sleep(40);
         $pdf = new Pdf;
@@ -383,6 +410,16 @@ class PdfGenerateController extends Controller
                 group by state_id,question_code,level,question_desc";
         return $query;
     }
+    public function NationalFeedbackGroupByQuery($whereCondition)
+    {
+        $query = "select  count(grade) AS all_grade,question_code,level,question_desc,
+                round(SUM(avg::float)/count(grade)) as avg
+                from pq_national_level_feedback
+                ".$whereCondition."
+                group by question_code,level,question_desc";
+        return $query;
+    }
+
 }
 
 
