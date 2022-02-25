@@ -310,7 +310,7 @@ $('#get_files').click(()=>{
         div1.innerText = item.file_title + ' ';
         
 
-        a.href= base_url + 'assets/uploads/rti/' + item.file_name
+        a.href= base_url + 'assets/uploads/data_share/' + item.file_name
         a.setAttribute('target','_blank')
         a.appendChild(i)
 
