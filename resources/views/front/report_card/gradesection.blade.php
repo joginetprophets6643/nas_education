@@ -1,4 +1,4 @@
-<main class="main-content-wrap">
+<main class="main-content-wrap active-main-content">
                 <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sideBar" aria-controls="sideBar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -6,6 +6,13 @@
                 <div class="tabs-layer-wrap">
                      <div class="d-flex align-items-center justify-content-between">
                         <ul class="nav nav-tabs tablayerone" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link ham-icon" id="menu-btn">
+                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                            </li>
                             <li class="nav-item" role="presentation">
                               <button class="nav-link" id="national-tab" onClick="chageDataWithFilter('global_filter','national')">National</button>
                             </li>
@@ -15,6 +22,7 @@
                             <li class="nav-item" role="presentation">
                               <button class="nav-link" id="district-tab"  onClick="chageDataWithFilter('global_filter','district')">District</button>
                             </li>
+                            <li class="nav-item" role="presentation"><button class="nav-link"  onClick="javascript:void(0);" ><b><span id="navbar-highlighter" ></span></b></button></li>
                         </ul>
                         <div class="view-wrap">
                           <!-- <div class="form-check">

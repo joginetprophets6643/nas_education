@@ -1,7 +1,6 @@
 @include('front.includes.header')
 @include('front.includes.nav')
 
-
 <div class="sidebaroverlay"></div>
 <div class="sidebarmenu" id="statesidebar">
   <a class="closesidebar">

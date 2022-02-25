@@ -1892,6 +1892,11 @@ ul {
   margin-left: 10px;
 }
 
+.report-card-container {
+  width: 100% !important;
+}
+
+/* changes */
 .dashboard-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1901,12 +1906,37 @@ ul {
 .dashboard-wrapper .sidebar-wrap {
   background-color: #2A6AA9;
   width: 250px;
+  margin-left: -250px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .dashboard-wrapper .main-content-wrap {
   background: #EBF3FB;
   padding: 15px;
   border: 1px solid #E4E4E4;
+  width: 100%;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.dashboard-wrapper .main-content-wrap .ham-icon {
+  margin-top: 3px;
+}
+
+.dashboard-wrapper .main-content-wrap .ham-icon .navbar-toggler-icon {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #2a6aa9;
+  margin-bottom: 4px;
+}
+
+.dashboard-wrapper .active-sidebar {
+  margin-left: 0;
+}
+
+.dashboard-wrapper .active-main-content {
   width: calc(100% - 250px);
 }
 

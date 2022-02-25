@@ -5,7 +5,7 @@
         chart: {
           type: "column",
           height: "350",
-          width: "205",
+          width: "215",
         },
         title: {
           text: "",
@@ -24,8 +24,13 @@
           },
         },
         yAxis: {
-          min: 0,
+          max: 100,
           title: false,
+          labels: {
+            enabled: false,
+          },
+          tickWidth: 0,
+          gridLineWidth: 0,
         },
         legend: {
           enabled: false,
@@ -102,7 +107,7 @@
         chart: {
           type: "column",
           height: "350",
-          width: "205",
+          width: "215",
         },
         title: {
           text: "",
@@ -121,8 +126,13 @@
           },
         },
         yAxis: {
-          min: 0,
+          max: 100,
           title: false,
+          labels: {
+            enabled: false,
+          },
+          tickWidth: 0,
+          gridLineWidth: 0,
         },
         legend: {
           enabled: false,
@@ -199,7 +209,7 @@
         chart: {
           type: "column",
           height: "350",
-          width: "240",
+          width: "250",
         },
         title: {
           text: "",
@@ -218,8 +228,13 @@
           },
         },
         yAxis: {
-          min: 0,
+          max: 100,
           title: false,
+          labels: {
+            enabled: false,
+          },
+          tickWidth: 0,
+          gridLineWidth: 0,
         },
         legend: {
           enabled: false,
@@ -306,7 +321,7 @@
         chart: {
           type: "column",
           height: "350",
-          width: "290",
+          width: "300",
         },
         title: {
           text: "",
@@ -331,8 +346,13 @@
           },
         },
         yAxis: {
-          min: 0,
+          max: 100,
           title: false,
+          labels: {
+            enabled: false,
+          },
+          tickWidth: 0,
+          gridLineWidth: 0,
         },
         legend: {
           enabled: false,

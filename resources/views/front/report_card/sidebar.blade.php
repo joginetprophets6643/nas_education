@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="dashboard-wrapper">
-            <div class="sidebar-wrap d-md-block collapse" id="sideBar"> 
+            <div class="sidebar-wrap active-sidebar" id="sideBar"> 
                 <div class="ranking-wrap">
                     <ul id="district_geography" style="display:none;">
                         <li>
@@ -278,7 +278,7 @@
                         <div class="accordion-item">
                           <div class="accordion-header" id="accordionTwo">
                             <a href="javascript:void(0);">
-                                Category
+                                Filters
                             </a>
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                 <span class="material-icons-round minus">

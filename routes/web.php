@@ -90,6 +90,13 @@ Route::get('/secure-admin/upload-csv-files', function () {
 });
 Route::resource('upload',UploadController::class);
 
+// Manage Query Buttons
+Route::get('/secure-admin/query-button', function () {
+    return view('admin.query_button');
+});
+
+//Route::resource('update-query',UploadController::class);
+
 //Event Routes
 
 Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
@@ -267,12 +274,13 @@ Route::group(["middleware" => ["language"]], function(){
     Route::get('/data-share','App\Http\Controllers\FrontController@data');
     Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
     Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
-    Route::get('/visualization/nas-2021','App\Http\Controllers\VisualizationController@details');
+    // Route::get('/visualization/nas-2021','App\Http\Controllers\VisualizationController@details');
+
     Route::get('/mobile-app','App\Http\Controllers\VisualizationController@mobile');
     
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
-Route::get('/visualization-new',function(){
+Route::get('/visualization/nas-2021',function(){
     return view('front.visualization.visualization_new');
 });
 
