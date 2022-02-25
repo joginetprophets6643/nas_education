@@ -22,6 +22,9 @@ class CreateNationalStaticTable extends Migration
             $table->string('density_of_population')->nullable();
             $table->string('literacy_rate')->nullable();
             $table->string('child_sex_ratio')->nullable();
+            $table->string('no_of_teachers')->nullable();
+            $table->string('no_of_students')->nullable();
+            $table->string('no_of_schools')->nullable();
             $table->timestamps();
         });
     }

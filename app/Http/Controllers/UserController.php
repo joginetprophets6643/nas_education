@@ -13,6 +13,8 @@ use Session;
 use Hash;
 use App\Models\User;
 use App\Models\State_Master;
+use App\Models\DataInfo;
+use App\Models\UserInfo;
 use App\Models\District_Master;
 
 class UserController extends BaseController
@@ -20,12 +22,12 @@ class UserController extends BaseController
     public function register()
     {
         $states=State_Master::orderBy('state_name')->get();
-        return view('front.registration',compact('states'));
+        return view('front.data-share.registration.registration',compact('states'));
     }
 
     public function viewLogin()
     {
-        return view('front.login');
+        return view('front.data-share.login.login');
     }
 
     public function registered(Request $request)
@@ -89,19 +91,52 @@ class UserController extends BaseController
         }
         $credentials = $request->only('mobile_no', 'password');
         if (Auth::attempt($credentials)) {
-            return view('front.successlogin');
+            return redirect()->route('successLogin');
         }
 
         return redirect()->back()->with('success','Login details are not valid');
     }
 
+    public function successLogin(){
+        $states=State_Master::orderBy('state_name')->get();
+        return view('front.data-share.login.successlogin',compact('states'));
+    }
+
     public function success(){
-        return view('front.successful');
+        return view('front.data-share.registration.successful');
     }
 
     public function logout(){
         Auth::logout();
         Session::flush();
         return redirect()->route('login')->with('success','Logout Sucessfully');
+    }
+
+    public function getData(Request $request){
+
+        $data='';
+
+        if($request->state==''){
+            $data=DataInfo::where('acc_year',$request->acc_year)->where('type','national')->get();
+        }
+        elseif($request->district==''){
+            $data=DataInfo::where('acc_year',$request->acc_year)->where('type','state')->where('type_id',$request->state)->get();
+        }
+        else{
+            $data=DataInfo::where('acc_year',$request->acc_year)->where('type','district')->where('type_id',$request->district)->get();
+        }
+        
+        $id=[];
+        foreach($data as $item){
+            $id[]=$item->id;
+        }
+
+        UserInfo::insert([
+            'user_id'=>Auth::user()->id,
+            'data_id'=>json_encode($id),
+            'purpose'=>$request->purpose,
+        ]);
+
+        return $data;
     }
 }
