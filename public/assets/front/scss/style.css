@@ -58,6 +58,10 @@
   background: #9E5D9A;
 }
 
+.terms {
+  margin-top: 10px;
+}
+
 .terms li {
   font-size: 14px;
   margin-bottom: 0.5rem;
@@ -65,6 +69,10 @@
 
 .d-list {
   display: none;
+}
+
+#n_btn, #y_btn {
+  padding: 5px 20px;
 }
 
 .file-section {
