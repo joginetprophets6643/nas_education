@@ -24,7 +24,7 @@ class Secure
             }
             else
             {
-                return redirect()->route('/');
+                return $next($request);
             }
         }
         else{
