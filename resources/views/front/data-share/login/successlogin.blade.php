@@ -53,9 +53,9 @@
                                     <div class="form-group col-md-4">
                                         <label class="form-label">State</label>
                                         <select class="form-select form-control" name="state" id="state">
-                                            <option value="">State</option>
+                                            <option value="" class="example">State</option>
                                             @foreach($states as $state)
-                                            <option value="{{$state->state_id}}">{{$state->state_name}}</option>
+                                            <option value="{{$state->state_id}}" class="example">{{$state->state_name}}</option>
                                             @endforeach
                                         </select>
                                         @error('state')
@@ -86,7 +86,8 @@
                                     </div>
 
                                     <div class="form-group mx-2">
-                                    <p> I have read and agreed to the Terms written below : </p>
+                                    <p class="m-0"> I have read and agreed to the Terms written below : </p>
+                                    <span id="terms_cons" class="text-danger"></span>
 
                                     <div class="mx-3 terms">
                                     <ul>
@@ -160,8 +161,8 @@
           <div class="card-body">
               <p>Want to go for a district data?</p> 
               <div class="d-flex">
-              <button type="button" class="btn btn-secondary p-1 btn-sm Banner_delete" data-bs-dismiss="modal" id="n_btn">No</button>
-              <button type="submit" class="btn org-btn p-1 btn-sm Banner_delete" data-bs-dismiss="modal" id="y_btn">Yes</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" id="n_btn">No</button>
+              <button type="submit" class="btn org-btn btn-sm" data-bs-dismiss="modal" id="y_btn">Yes</button>
               </div>
           </div>
           </div>
@@ -228,9 +229,17 @@ function doValidation(){
         flag3=true
     }
 
+    if(!$('#term-cons').is(":checked")){
+        $('#terms_cons').html("Please agreed to the terms given below.");
+    }
+    else{
+        $('#terms_cons').html("");
+    }
+
     return flag1 && flag2 && flag3
     
 }
+
 
 $('#state').change((e)=>{
 
@@ -269,10 +278,22 @@ $('#state').change((e)=>{
 
 
     }
-    
+
+    $('.file-section').css('display','none');
+    $('#file-list').empty()
+    $('#description-list').empty()
+    $('#get_files').prop('disabled', false)
     
 })
 
+$('#ajax_districts').change(()=>{
+    
+    $('.file-section').css('display','none');
+    $('#file-list').empty()
+    $('#description-list').empty()
+    $('#get_files').prop('disabled', false)
+
+})
 
 $('#get_files').click(()=>{
     let data=$('form').serializeArray();
@@ -284,58 +305,57 @@ $('#get_files').click(()=>{
 
     if($('#term-cons').is(":checked") && flag){
 
-    $.ajax({
-    type: "POST",
-    data: data,
-    headers: {'X-CSRF-TOKEN': "{{ csrf_token() }}"},
-    url: base_url + 'data-share/get-files',
-    success: function (data) {
+        $.ajax({
+        type: "POST",
+        data: data,
+        headers: {'X-CSRF-TOKEN': "{{ csrf_token() }}"},
+        url: base_url + 'data-share/get-files',
+        success: function (data) {
 
-        if(data.length){
-        let list = document.getElementById("file-list");
-        let desc_list=document.getElementById("description-list");
+            if(data.length){
+            let list = document.getElementById("file-list");
+            let desc_list=document.getElementById("description-list");
 
 
-        data.forEach((item)=>{
-        let li = document.createElement("li");
-        let desc_li = document.createElement("li");
-        const i = document.createElement('i');
-        const a = document.createElement('a');
-        const div1 = document.createElement('div');
-        const div2 = document.createElement('div');
-        const div3 = document.createElement('div');
-        const div4 = document.createElement('div');
-        i.className = "fa fa-download";
+            data.forEach((item)=>{
+            let li = document.createElement("li");
+            let desc_li = document.createElement("li");
+            const i = document.createElement('i');
+            const a = document.createElement('a');
+            const div1 = document.createElement('div');
+            const div2 = document.createElement('div');
+            const div3 = document.createElement('div');
+            const div4 = document.createElement('div');
+            i.className = "fa fa-download";
 
-        div1.innerText = item.file_title + ' ';
-        
+            div1.innerText = item.file_title + ' ';
+            
 
-        a.href= base_url + 'assets/uploads/data_share/' + item.file_name
-        a.setAttribute('target','_blank')
-        a.appendChild(i)
+            a.href= base_url + 'assets/uploads/data_share/' + item.file_name
+            a.setAttribute('target','_blank')
+            a.appendChild(i)
 
-        li.appendChild(div1);
-        div2.appendChild(a);
-        li.appendChild(div2);
-        list.appendChild(li);
+            li.appendChild(div1);
+            div2.appendChild(a);
+            li.appendChild(div2);
+            list.appendChild(li);
 
-        div3.innerText = item.file_title+' :'
-        div3.className="col-md-1"
-        div4.innerText=item.file_description
-        desc_li.appendChild(div3)
-        desc_li.appendChild(div4)
-        desc_list.appendChild(desc_li);
-        })
+            div3.innerText = item.file_title+' :'
+            div3.className="col-md-1"
+            div4.innerText=item.file_description
+            desc_li.appendChild(div3)
+            desc_li.appendChild(div4)
+            desc_list.appendChild(desc_li);
+            })
 
-        $('.file-section').css('display','block');
+            $('.file-section').css('display','block');
+
+            }
+            $('#get_files').prop('disabled', true);
 
         }
-        $('#get_files').prop('disabled', true);
 
-    }
-
-    })
-
+        })
 
     }
     
@@ -350,4 +370,5 @@ $(document).ready(()=> {
         districts=response.data;
     })
 })
+
 </script>

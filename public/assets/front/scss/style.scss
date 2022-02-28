@@ -104,6 +104,7 @@ $color_pink: #E9769F;
 }
 
 .terms { 
+    margin-top: 10px;
     li {
         font-size: 14px;
         margin-bottom: 0.5rem;
@@ -112,6 +113,9 @@ $color_pink: #E9769F;
 
 .d-list {
     display:none;
+}
+#n_btn, #y_btn{ 
+    padding: 5px 20px;
 }
 
 .file-section {
