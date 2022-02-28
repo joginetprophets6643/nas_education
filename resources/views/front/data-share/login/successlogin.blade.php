@@ -87,7 +87,6 @@
 
                                     <div class="form-group mx-2">
                                     <p class="m-0"> I have read and agreed to the Terms written below : </p>
-                                    <span id="terms_cons" class="text-danger"></span>
 
                                     <div class="mx-3 terms">
                                     <ul>
@@ -136,7 +135,7 @@
                                 </div>
 
                                 <div class="d-flex align-items-center justify-content-center">
-                                <button type="button" class="btn p-1 org-btn">Download Schema
+                                <button type="button" class="btn p-1 org-btn" id="downloadSchema">Download Schema
                                     <i class="fa fa-download ms-1" aria-hidden="true"></i></button>
                                 </div>
                             
@@ -148,6 +147,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 <div class="modal fade" id="stateChange" >
@@ -167,8 +168,6 @@
           </div>
           </div>
 
-
-      
       </div>
   </div>
   </div>
@@ -230,10 +229,8 @@ function doValidation(){
     }
 
     if(!$('#term-cons').is(":checked")){
-        $('#terms_cons').html("Please agreed to the terms given below.");
-    }
-    else{
-        $('#terms_cons').html("");
+        // $('#termsAlert').modal('show');
+        alert('Please agree to the terms given below.')
     }
 
     return flag1 && flag2 && flag3
@@ -282,7 +279,6 @@ $('#state').change((e)=>{
     $('.file-section').css('display','none');
     $('#file-list').empty()
     $('#description-list').empty()
-    $('#get_files').prop('disabled', false)
     
 })
 
@@ -291,7 +287,6 @@ $('#ajax_districts').change(()=>{
     $('.file-section').css('display','none');
     $('#file-list').empty()
     $('#description-list').empty()
-    $('#get_files').prop('disabled', false)
 
 })
 
@@ -299,6 +294,10 @@ $('#get_files').click(()=>{
     let data=$('form').serializeArray();
     let acc_year=''
     let purpose=''
+
+    $('.file-section').css('display','none');
+    $('#file-list').empty()
+    $('#description-list').empty()
 
 
     let flag=doValidation()
@@ -311,11 +310,11 @@ $('#get_files').click(()=>{
         headers: {'X-CSRF-TOKEN': "{{ csrf_token() }}"},
         url: base_url + 'data-share/get-files',
         success: function (data) {
-
-            if(data.length){
+            
             let list = document.getElementById("file-list");
             let desc_list=document.getElementById("description-list");
 
+            if(data.length){
 
             data.forEach((item)=>{
             let li = document.createElement("li");
@@ -349,9 +348,19 @@ $('#get_files').click(()=>{
             })
 
             $('.file-section').css('display','block');
-
+            $('#downloadSchema').css('display','block');
             }
-            $('#get_files').prop('disabled', true);
+            else{
+                let li = document.createElement("li");
+                let span = document.createElement("span");
+
+                li.className = "justify-content-center text-danger";
+                span.innerText="No files Found!"
+                li.appendChild(span);
+                desc_list.appendChild(li);
+                $('.file-section').css('display','block');
+                $('#downloadSchema').css('display','none');
+            }
 
         }
 
