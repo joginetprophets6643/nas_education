@@ -11,6 +11,8 @@ use App\Http\Controllers\LearningOutcomeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PdfGenerateController;
 use App\Http\Controllers\VisualizationCalculationController;
+use Illuminate\Support\Facades\Crypt;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +60,72 @@ Route::get('national-pdf', [PdfGenerateController::class, 'NationalIndex']);
 Route::get('national-download-pdf', [PdfGenerateController::class, 'Nationaldwn'])->name('nationaldownload');
 //  National Pdf Generate End
 
+// District: Pdf path for download start
+Route::get('/download-district-report/{state_id}/{district_id}', function($state_id,$district_id)
+{
+    $state_id = Crypt::decrypt($state_id);
+    $district_id = Crypt::decrypt($district_id);
+    // Check if file exists in app/public/file folder
+    $file_name = 'nas-district-report.pdf';
+    $file_path = public_path('nas_pdf/national/'.$state_id.'/'.$district_id.'/nas-district-report.pdf');
+    if (file_exists($file_path))
+    {
+        return Response::make(file_get_contents($file_path), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$file_name.'"'
+        ]);
+    }
+    else
+    {
+        // Error
+        exit('Requested file does not exist on our server!');
+    }
+
+});
+// District: Pdf path for download End
+// State: Pdf path for download start
+Route::get('/download-state-report/{state_id}', function($state_id)
+{
+    $state_id = Crypt::decrypt($state_id);
+    // Check if file exists in app/public/file folder
+    $file_name = 'nas-state-report.pdf';
+    $file_path = public_path('nas_pdf/national/'.$state_id.'/nas-state-report.pdf');
+    if (file_exists($file_path))
+    {
+        return Response::make(file_get_contents($file_path), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$file_name.'"'
+        ]);
+    }
+    else
+    {
+        // Error
+        exit('Requested file does not exist on our server!');
+    }
+
+});
+// State: Pdf path for download end
+// National: Pdf path for download start
+Route::get('/download-national-report', function()
+{
+    // Check if file exists in app/public/file folder
+    $file_name = 'nas-state-report.pdf';
+    $file_path = public_path('nas_pdf/national/nas-national-report.pdf');
+    if (file_exists($file_path))
+    {
+        return Response::make(file_get_contents($file_path), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$file_name.'"'
+        ]);
+    }
+    else
+    {
+        // Error
+        exit('Requested file does not exist on our server!');
+    }
+
+});
+// National: Pdf path for download end
 // Route::get('home', 'App\Http\Controllers\MainController@landing');
 // Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
 // Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name('preloaddata');
