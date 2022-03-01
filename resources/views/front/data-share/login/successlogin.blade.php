@@ -252,9 +252,6 @@ $('#state').change((e)=>{
         
         $('#stateChange').modal('show');
 
-        // $('.modal-open').css('padding-right','0');
-        // $('.fixed-top').css('padding-right','0');
-
 
         $('#y_btn').click(()=>{
             $('#districts').css('display','block')
@@ -263,6 +260,9 @@ $('#state').change((e)=>{
             let dis = districts.filter(function(districts){
                 return districts.state_id==id;
             })
+            $('#ajax_districts').empty();
+            $('#ajax_districts').append('<option value="">District</option>')
+
 
             dis=dis.sort((a, b) => a.district_name.localeCompare(b.district_name))
             dis.forEach((item)=>{
@@ -273,7 +273,6 @@ $('#state').change((e)=>{
         })
 
         $('#n_btn').click(()=>{
-            // $('.fixed-top').css('padding','0');
             $('#districts').css('display','none')
             $('#ajax_districts').prop('disabled',true)
         })
