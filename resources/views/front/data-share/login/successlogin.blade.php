@@ -252,6 +252,10 @@ $('#state').change((e)=>{
         
         $('#stateChange').modal('show');
 
+        // $('.modal-open').css('padding-right','0');
+        // $('.fixed-top').css('padding-right','0');
+
+
         $('#y_btn').click(()=>{
             $('#districts').css('display','block')
             $('#ajax_districts').prop('disabled',false)
@@ -269,6 +273,7 @@ $('#state').change((e)=>{
         })
 
         $('#n_btn').click(()=>{
+            // $('.fixed-top').css('padding','0');
             $('#districts').css('display','none')
             $('#ajax_districts').prop('disabled',true)
         })
@@ -277,16 +282,12 @@ $('#state').change((e)=>{
     }
 
     $('.file-section').css('display','none');
-    $('#file-list').empty()
-    $('#description-list').empty()
     
 })
 
 $('#ajax_districts').change(()=>{
     
     $('.file-section').css('display','none');
-    $('#file-list').empty()
-    $('#description-list').empty()
 
 })
 
@@ -353,9 +354,6 @@ $('#get_files').click(()=>{
             $('#downloadSchema').css('display','block');
             }
             else{
-
-                $('#file-list').empty()
-                $('#description-list').empty()
 
                 let li = document.createElement("li");
                 let span = document.createElement("span");
