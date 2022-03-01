@@ -296,8 +296,7 @@ $('#get_files').click(()=>{
     let purpose=''
 
     $('.file-section').css('display','none');
-    $('#file-list').empty()
-    $('#description-list').empty()
+    
 
 
     let flag=doValidation()
@@ -313,6 +312,9 @@ $('#get_files').click(()=>{
             
             let list = document.getElementById("file-list");
             let desc_list=document.getElementById("description-list");
+
+            $('#file-list').empty()
+            $('#description-list').empty()
 
             if(data.length){
 
@@ -351,6 +353,10 @@ $('#get_files').click(()=>{
             $('#downloadSchema').css('display','block');
             }
             else{
+
+                $('#file-list').empty()
+                $('#description-list').empty()
+
                 let li = document.createElement("li");
                 let span = document.createElement("span");
 
