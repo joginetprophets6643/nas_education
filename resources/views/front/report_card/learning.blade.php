@@ -4,7 +4,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
-                                              Performance of the District in Learning Outcomes (LOs)
+                                              Performance of in Learning Outcomes (LOs)
                                             </h2>
                                             <div class="learning-tabs mtb-30">
                                               <ul class="nav nav-tabs" id="learningTab" role="tablist">
@@ -164,7 +164,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
-                                              Performance of the District in Learning Outcomes (LOs)
+                                              Performance of in Learning Outcomes (LOs)
                                             </h2>
                                             <div class="learning-tabs mtb-30">
                                               <ul class="nav nav-tabs" id="learningTab" role="tablist">
@@ -324,7 +324,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
-                                              Performance of the District in Learning Outcomes (LOs)
+                                              Performance of in Learning Outcomes (LOs)
                                             </h2>
                                             <div class="learning-tabs mtb-30">
                                               <ul class="nav nav-tabs" id="learningTab" role="tablist">
@@ -533,7 +533,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
-                                              Performance of the District in Learning Outcomes (LOs)
+                                              Performance of in Learning Outcomes (LOs)
                                             </h2>
                                             <div class="learning-tabs mtb-30">
                                               <ul class="nav nav-tabs" id="learningTab" role="tablist">
@@ -785,7 +785,7 @@
                                     <div class="row">
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          Performance of the District in Learning Outcomes (LOs)
+                                          Performance of in Learning Outcomes (LOs)
                                         </h2>
                                         <div class="dac-lo-accordion-wrap mtb-20">
                                           <div class="accordion dac-lo-accordion" id="dac-loAccordion">
