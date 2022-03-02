@@ -5298,15 +5298,18 @@ ul{
                 margin: auto;
             }
             .category {
-                margin: 1rem 1rem 1rem 3rem;
+                // margin: 1rem 1rem 1rem 3rem;
+                margin: 1rem;
                 border-radius: 23px;
                 // margin: auto;
                 .text-28 {
                     font-size: 28px;
                     padding: 1.5rem;
+                    font-weight: 600;
                 }
                 .text-17 {
-                    font-size: 17px;
+                    font-size: 20px;
+                    font-weight: 900;
                 }
             }
         }
@@ -5400,6 +5403,10 @@ ul{
         .graph-right-wrap {
             margin-left: 2rem;
         }
+        .drc-pie-chart {
+            margin-left: 0;
+            padding: 0 !important;
+        }
         .social-right-wrap {
             margin-left: 1rem;
             .social-img-wrap {
@@ -5458,10 +5465,10 @@ ul{
                     top: 125px !important;   
                 }
                 .per-text-1, .per-text-3 {
-                 left: 180px !important;   
+                 left: 140px !important;   
                 }
                 .per-text-2, .per-text-4 {
-                    right: 120px !important;
+                    right: 60px !important;
                 }
             }
         }
@@ -5610,6 +5617,9 @@ ul{
 }
 .text-18 {
     font-size: 18px;
+}
+.text-22 {
+    font-size: 25px;
 }
 .text-20 {
     font-size: 20px;

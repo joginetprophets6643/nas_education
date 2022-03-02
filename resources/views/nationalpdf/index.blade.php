@@ -72,7 +72,7 @@
         <!-- Highcharts JS -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
   </head>
-  <body class="p-0">
+  <body class="p-0 state-pdf">
 
     <!------------------------ page 1 starts ------------------------>
     <div class="page">
@@ -80,7 +80,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <div class="reportview-container">
+              <div class="reportview-container mb-0">
                 <div class="reportview-content-wrap national-heading">
                   <img src="http://nas21.inroad.in/report-pdf/assets/images/national-header-img.png" alt="img" class="img-fluid" />
                   <div class="heading-img-wrap text-white fw-bold">
@@ -104,13 +104,14 @@
     </div>
     <!------------------------ page 1 ends ------------------------>
 
+
     <!------------------------ page 2 starts ------------------------>
     <div class="page">
       <section class="reportview-wrap">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <div class="reportview-container highlights-container">
+              <div class="reportview-container mb-0 highlights-container">
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
@@ -253,8 +254,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">2</span>
+                  <div class="report-footer-wrap nrc-pg2">
+                    <div class="reportview-footer">
+                      <span class="page-no">2</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -271,22 +274,22 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <div class="reportview-container ap-graph-container">
+              <div class="reportview-container mb-0 ap-graph-container">
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
                     <h2>National Report Card</h2>
                   </div>
                   <!-- content -->
-                  <div class="ptb-30 white-bg">
+                  <div class="mb-4 white-bg">
                     <div class="row">
-                      <div class="col-md-12 mtb-30">
+                      <div class="col-md-12 mt-2">
                         <h3 class="text-center heading-black-main">
                           Average Performance of Students
                         </h3>
                       </div>  
                     </div>
-                    <div class="row justify-content-center pb-60">
+                    <div class="row justify-content-center mb-4">
                     @if(count($nationalPerformance)>0)
                       @foreach($nationalPerformance as $avgPerformance)
                         @php 
@@ -389,8 +392,10 @@
                     @endif
                     </div>
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">3</span>
+                  <div class="report-footer-wrap mt-5 nrc-pg3">
+                    <div class="reportview-footer">
+                      <span class="page-no">3</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -414,7 +419,7 @@
                     <h2>National Report Card</h2>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 white-bg">
+                  <div class="p-3 white-bg">
                     <div class="row">
                       <div class="col-md-12 mtb-30">
                         <h3 class="text-center heading-black-main">
@@ -428,19 +433,21 @@
                           Educational status of mother
                         </h2>
                       </div>
-                      @if(count($nationalFeedbackDatasq)>0)
-                        @foreach($nationalFeedbackDatasq as $nationalSQ)
-                          <div class="col-md-3 mtb-15">
-                            <div class="container pink-progress-bar-lg-txt">
-                              <div class="progress-percent progress-percent-text" data-percent="{{$nationalSQ->avg}}" data-txt="{{$nationalSQ->question_desc}}">
-                                <div class="progress-inner">
-                                  <div class="progress-round"></div>
+                      <div class="row justify-content-center negative-margin">
+                        @if(count($nationalFeedbackDatasq)>0)
+                          @foreach($nationalFeedbackDatasq as $nationalSQ)
+                            <div class="col-md-3 mtb-15">
+                              <div class="container pink-progress-bar-lg-txt">
+                                <div class="progress-percent progress-percent-text" data-percent="{{$nationalSQ->avg}}" data-txt="{{$nationalSQ->question_desc}}">
+                                  <div class="progress-inner">
+                                    <div class="progress-round"></div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        @endforeach
-                      @endif
+                          @endforeach
+                        @endif
+                      </div>
                     </div>
                     <div class="row justify-content-center mb-60">
                       <div class="col-md-12 mtb-15">
@@ -472,7 +479,7 @@
                     <div class="row justify-content-center mb-60">
                       @if(count($nationalFeedbackDatasqn2)>0)
                         @foreach($nationalFeedbackDatasqn2 as $nationalsqn2)
-                          <div class="col-lg-3 mtb-15">
+                          <div class="col-md-3 mtb-15">
                             <div class="student-fbcard light-pink-bg">
                               <div class="container text-center pink-progress-bar-sm">
                                 <div class="progress-percent" data-percent="{{$nationalsqn2->avg}}">
@@ -489,8 +496,10 @@
 
                     </div>
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">4</span>
+                  <div class="report-footer-wrap nrc-pg2">
+                    <div class="reportview-footer">
+                      <span class="page-no">4</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -514,7 +523,7 @@
                     <h2>National Report Card</h2>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 white-bg">
+                  <div class="p-4 white-bg">
                     <div class="row">
                       <div class="col-md-12 mtb-30">
                         <h3 class="text-center heading-black-main">
@@ -550,25 +559,29 @@
                           in school
                         </h2>
                       </div>
-                      @if(count($nationalFeedbackDatatqn)>0)
-                        @foreach($nationalFeedbackDatatqn as $nationalTQN)
-                          <div class="col-md-3 mtb-15">
-                            <div class="container text-center green-progress-bar-lg-txt">
-                                <div class="progress-percent progress-percent-text" data-percent="{{$nationalTQN->avg}}" data-txt="{{$nationalTQN->question_desc}}">
-                                  <div class="progress-inner">
-                                    <div class="progress-round"></div>
+                      <div class="row justify-content-center negative-margin">
+                        @if(count($nationalFeedbackDatatqn)>0)
+                          @foreach($nationalFeedbackDatatqn as $nationalTQN)
+                            <div class="col-md-3 mtb-15">
+                              <div class="container text-center green-progress-bar-lg-txt">
+                                  <div class="progress-percent progress-percent-text" data-percent="{{$nationalTQN->avg}}" data-txt="{{$nationalTQN->question_desc}}">
+                                    <div class="progress-inner">
+                                      <div class="progress-round"></div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            <!-- <p>Student self assessment</p> -->
-                          </div>
-                        @endforeach
-                      @endif
+                              <!-- <p>Student self assessment</p> -->
+                            </div>
+                          @endforeach
+                        @endif
+                      </div>
 
                     </div>
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">5</span>
+                  <div class="report-footer-wrap nrc-pg2">
+                    <div class="reportview-footer">
+                      <span class="page-no">5</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -592,7 +605,7 @@
                     <h2>National Report Card</h2>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 white-bg">
+                  <div class="p-4 white-bg">
                     <div class="row">
                       <div class="col-md-12 mtb-30">
                         <h3 class="text-center heading-black-main">
@@ -603,8 +616,8 @@
                     <div class="row justify-content-center mb-60">
                     @if(count($nationalFeedbackDatapq)>0)
                       @foreach($nationalFeedbackDatapq as $nationalPQ)
-                        <div class="col-lg-3 mtb-15">
-                          <div class="student-fbcard light-blue-bg">
+                        <div class="col-md-3 mtb-15">
+                          <div class="student-fbcard student-fbcard-2 light-blue-bg">
                             <div class="container text-center blue-progress-bar-sm">
                               <div class="progress-percent" data-percent="{{$nationalPQ->avg}}">
                                 <div class="progress-inner">
@@ -622,8 +635,10 @@
 
                     </div>
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">6</span>
+                  <div class="report-footer-wrap nrc-pg2">
+                    <div class="reportview-footer">
+                      <span class="page-no">6</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -647,7 +662,7 @@
                     <h2>National Report Card</h2>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 white-bg">
+                  <div class="p-4 white-bg">
                     <div class="row">
                       <div class="col-md-12 mtb-30">
                         <div class="virus-icon-top">
@@ -840,8 +855,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">7</span>
+                  <div class="report-footer-wrap nrc-pg7">
+                    <div class="reportview-footer">
+                      <span class="page-no">7</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -858,7 +875,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <div class="reportview-container nrc-map-container">
+              <div class="reportview-container mb-0 nrc-map-container">
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
@@ -866,7 +883,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12 mtb-30">
                         <h3 class="text-center heading-black-main">
@@ -874,7 +891,7 @@
                         </h3>
                       </div>  
                     </div>
-                    <div class="row">
+                    <div class="row justify-content-center">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
                             <h2 class="subject-map-title">
@@ -895,8 +912,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg8">
+                    <div class="reportview-footer">
+                      <span class="page-no">8</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -921,7 +940,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-pink">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -943,8 +962,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">9</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">9</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -969,7 +990,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -989,8 +1010,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">10</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1017,7 +1040,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1039,8 +1062,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">11</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1065,7 +1090,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-pink">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1087,8 +1112,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">9</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">12</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1113,7 +1140,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1133,8 +1160,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">13</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1160,7 +1189,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1182,8 +1211,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">14</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1207,7 +1238,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1227,8 +1258,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">15</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1252,7 +1285,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1272,8 +1305,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">16</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1297,7 +1332,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1317,8 +1352,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">17</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1344,7 +1381,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1364,8 +1401,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">11</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">18</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1389,7 +1428,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1409,8 +1448,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">19</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1434,7 +1475,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1454,8 +1495,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">20</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1480,7 +1523,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1500,8 +1543,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">21</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1525,7 +1570,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1545,8 +1590,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">22</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1574,7 +1621,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1596,8 +1643,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">23</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1622,7 +1671,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-pink">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1644,8 +1693,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">9</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">24</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1670,7 +1721,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1690,8 +1741,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">25</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1718,7 +1771,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1740,8 +1793,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">26</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1766,7 +1821,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-pink">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1788,8 +1843,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">9</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">27</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1814,7 +1871,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1834,8 +1891,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">28</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1861,7 +1920,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1883,8 +1942,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">29</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1908,7 +1969,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1928,8 +1989,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">30</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1953,7 +2016,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1973,8 +2036,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">31</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1998,7 +2063,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2018,8 +2083,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">32</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2045,7 +2112,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2065,8 +2132,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">11</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">33</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2090,7 +2159,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2110,8 +2179,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">34</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2135,7 +2206,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2155,8 +2226,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">35</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2181,7 +2254,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2201,8 +2274,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">36</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2226,7 +2301,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2246,8 +2321,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">37</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2275,7 +2352,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2297,8 +2374,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">38</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2323,7 +2402,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-pink">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2345,8 +2424,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">9</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">39</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2371,7 +2452,7 @@
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2391,8 +2472,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">40</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2419,7 +2502,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2441,8 +2524,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">41</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2467,7 +2552,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-pink">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2489,8 +2574,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">9</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">42</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2515,7 +2602,7 @@
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2535,8 +2622,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">43</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2562,7 +2651,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-blue">
+                  <div class="p-4 light-blue">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2584,8 +2673,10 @@
   
                     
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">8</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">44</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2609,7 +2700,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2629,8 +2720,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">45</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2654,7 +2747,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2674,8 +2767,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">46</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2699,7 +2794,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2719,8 +2814,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">47</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2746,7 +2843,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2766,8 +2863,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">11</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">48</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2791,7 +2890,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2811,8 +2910,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">49</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2836,7 +2937,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2856,8 +2957,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">50</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2882,7 +2985,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2902,8 +3005,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">51</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2927,7 +3032,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-30-60 light-yellow">
+                  <div class="p-4 light-yellow">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2947,8 +3052,10 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="reportview-footer">
-                    <span class="page-no">10</span>
+                  <div class="report-footer-wrap nrc-pg9">
+                    <div class="reportview-footer">
+                      <span class="page-no">52</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3096,8 +3203,8 @@
                   chart: {
                       map: 'countries/in/custom/in-all-disputed',
                       backgroundColor: 'transparent',
-                      height: "900",
-                      // width: "550"
+                      height: "1000",
+                      width: "1000"
                   },
                   title: {
                       text: ''

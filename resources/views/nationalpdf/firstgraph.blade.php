@@ -4,8 +4,8 @@
 Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}-ap-language', {
     chart: {
         type: 'column',
-        width: 120,
-        height: 180
+       width: "160",
+        height: "180",
     },
     title: {
         text: ''
@@ -29,6 +29,7 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
         labels: {
             enabled: false
         },
+        max: 100,
         tickWidth: 0,
         gridLineWidth: 0,
     },
@@ -75,8 +76,8 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
 Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}-ap-math', {
     chart: {
         type: 'column',
-        width: 120,
-        height: 180
+        width: "160",
+        height: "180",
     },
     title: {
         text: ''
@@ -100,6 +101,7 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
         labels: {
             enabled: false
         },
+        max: 100,
         tickWidth: 0,
         gridLineWidth: 0,
     },
@@ -146,8 +148,8 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
 Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}-ap-evs', {
     chart: {
         type: 'column',
-        width: 120,
-        height: 180
+        width: "160",
+        height: "180",
     },
     title: {
         text: ''
@@ -165,6 +167,7 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
         },
     },
     yAxis: {
+        max: 100,
         title: {
           enabled: false
         },
@@ -217,8 +220,8 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
 Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}-ap-sci', {
     chart: {
         type: 'column',
-        width: 120,
-        height: 180
+        width: "160",
+        height: "180",
     },
     title: {
         text: ''
@@ -236,6 +239,7 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
         },
     },
     yAxis: {
+        max: 100,
         title: {
           enabled: false
         },
@@ -288,8 +292,8 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
 Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}-ap-socialsci', {
     chart: {
         type: 'column',
-        width: 120,
-        height: 180
+        width: "160",
+        height: "180",
     },
     title: {
         text: ''
@@ -307,6 +311,7 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
         },
     },
     yAxis: {
+        max: 100,
         title: {
           enabled: false
         },
@@ -360,8 +365,8 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
 Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}-ap-mil', {
     chart: {
         type: 'column',
-        width: 120,
-        height: 180
+        width: "160",
+        height: "180",
     },
     title: {
         text: ''
@@ -379,6 +384,7 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
         },
     },
     yAxis: {
+        max: 100,
         title: {
           enabled: false
         },
@@ -429,8 +435,8 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
 Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}-ap-english', {
     chart: {
         type: 'column',
-        width: 120,
-        height: 180
+        width: "160",
+        height: "180",
     },
     title: {
         text: ''
@@ -448,6 +454,7 @@ Highcharts.chart('nc{{isset($avgPerformance->grade)?$avgPerformance->grade:'0'}}
         },
     },
     yAxis: {
+        max: 100,
         title: {
           enabled: false
         },

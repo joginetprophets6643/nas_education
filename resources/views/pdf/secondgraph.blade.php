@@ -5,7 +5,7 @@
 	Highcharts.chart("rc3-mathBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: {{($districtParticipation->grade==8 || $districtParticipation->grade==10)?'320':'425'}},
-	      width: 200,
+	      width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "400";}elseif($districtParticipation->grade==8){ echo "330";}elseif($districtParticipation->grade==10){ echo "260";}?>,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
 	    },
@@ -24,7 +24,7 @@
 	      },
 	    },
 	    yAxis: {
-	      min: 0,
+	      max: 100,
 	      title: false,
 	    },
 	    tooltip: {
@@ -39,7 +39,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 10,
+	        pointWidth: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "24";}elseif($districtParticipation->grade==8){ echo "18";}elseif($districtParticipation->grade==10){ echo "15";}?>,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -72,7 +72,7 @@
 	    chart: {
 	      height: {{($districtParticipation->grade==8)?'320':'425'}},
 	      type: "column",
-	      width: 170,
+		  width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "370";}elseif($districtParticipation->grade==8){ echo "300";}?>,
 	      margin: [40, 0, 60, 0],
 	    },
 	    title: {
@@ -90,7 +90,7 @@
 	      },
 	    },
 	    yAxis: {
-	      min: 0,
+	      max: 100,
 	      title: false,
 	    },
 	    tooltip: {
@@ -105,7 +105,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 10,
+	        pointWidth: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "24";}elseif($districtParticipation->grade==8){ echo "18";}?>,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -135,7 +135,7 @@
 	Highcharts.chart("rc3-evsBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 425,
-	      width: 170,
+	      width: 370,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -154,7 +154,7 @@
 	      },
 	    },
 	    yAxis: {
-	      min: 0,
+	      max: 100,
 	      title: false,
 	    },
 	    tooltip: {
@@ -169,7 +169,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 10,
+	        pointWidth: 24,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -199,7 +199,7 @@
 	Highcharts.chart("rc3-scienceBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 320,
-	      width: 170,
+		  width: <?php if($districtParticipation->grade==8){ echo "300";}elseif($districtParticipation->grade==10){ echo "230";}?>,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -218,7 +218,7 @@
 	      },
 	    },
 	    yAxis: {
-	      min: 0,
+	      max: 100,
 	      title: false,
 	    },
 	    tooltip: {
@@ -233,7 +233,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 10,
+	        pointWidth: <?php if($districtParticipation->grade==8){ echo "18";}elseif($districtParticipation->grade==10){ echo "15";}?>,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -263,7 +263,8 @@
 	Highcharts.chart("rc3-socialscienceBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 320,
-	      width: 170,
+	    //   width: 370,
+		  width: <?php if($districtParticipation->grade==8){ echo "300";}elseif($districtParticipation->grade==10){ echo "230";}?>,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -282,7 +283,7 @@
 	      },
 	    },
 	    yAxis: {
-	      min: 0,
+	      max: 100,
 	      title: false,
 	    },
 	    tooltip: {
@@ -297,7 +298,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 10,
+	        pointWidth: <?php if($districtParticipation->grade==8){ echo "18";}elseif($districtParticipation->grade==10){ echo "15";}?>,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -330,7 +331,7 @@
 	Highcharts.chart("rc3-milBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 320,
-	      width: 170,
+	      width: 230,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -349,7 +350,7 @@
 	      },
 	    },
 	    yAxis: {
-	      min: 0,
+	      max: 100,
 	      title: false,
 	    },
 	    tooltip: {
@@ -364,7 +365,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 10,
+	        pointWidth: 15,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -394,7 +395,7 @@
 	Highcharts.chart("rc3-englishBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 320,
-	      width: 170,
+	      width: 230,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -413,7 +414,7 @@
 	      },
 	    },
 	    yAxis: {
-	      min: 0,
+	      max: 100,
 	      title: false,
 	    },
 	    tooltip: {
@@ -428,7 +429,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 10,
+	        pointWidth: 15,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
