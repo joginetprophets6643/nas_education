@@ -3096,12 +3096,17 @@
         sci:"Science",
         eng:"English"
       }
+      let api_url = '{{env("API_URL")}}'
+      let token = '{{env("API_TOKEN")}}'
 
       $(document).ready(()=>{
-        console.log('ok');
+        // console.log('ok');
           $.ajax({
             type: "GET",
-            url: 'http://nas21.inroad.in:8055/items/state_masters?limit-1&sort[]=state_name',
+            url: api_url +'state_masters?limit-1&sort[]=state_name',
+            headers: {
+              "Authorization": "Bearer " + token
+            }
           }).done((response)=>{
              // createSidebarStates(response.data)
              sessionStorage.setItem('states',JSON.stringify(response.data))
@@ -3109,7 +3114,7 @@
 
           $.ajax({
             type: "GET",
-            url: 'http://nas21.inroad.in:8055/items/national_result_glimpses?limit-1',
+            url: api_url + 'national_result_glimpses?limit-1',
           }).done((response)=>{
                 response.data.forEach(glimpse=>{
                   createGlimpsesScreen([glimpse])
