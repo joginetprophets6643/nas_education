@@ -71,6 +71,7 @@ const category_filter_screen = ['participation','performance','glimpses']
 let screens = ['information','participation','performance','learning','feedback','glimpses','achievement']
 
 let selected_geography = ''
+let global_filters = {}     // added for new change
 
 $(document).ready(()=>{
     $.ajax({
@@ -86,7 +87,6 @@ $(document).ready(()=>{
     setClass(classType)
     already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
     already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
-
   });
 
 // doghnut chart for performance only
@@ -138,7 +138,7 @@ $(document).ready(()=>{
   }
 
   // column chart for performance only
-  async function createColumnChart(where,data,type=''){
+  function createColumnChart(where,data,type=''){
     let config = {}
     if(type === ''){
       let categories = []
@@ -219,7 +219,7 @@ $(document).ready(()=>{
       },
       series: data
     }
-    await Highcharts.chart(where,config);
+    Highcharts.chart(where,config);
 
   }
 
@@ -483,9 +483,11 @@ $(document).ready(()=>{
       })
     })
     screenType = screen_type
-    if(load_data){
+    // removed for new change
+    // if(load_data){    
+      setFilters()
       await getData()
-    }
+    // }
     grades.forEach(grade=>{
         if(grade === classType){
           $('#'+screen_type+ current_demography +'_class'+grade+'').addClass('show active')
@@ -524,7 +526,7 @@ $(document).ready(()=>{
       changePageDataViaSideFilter('all')
     }
     if(filter_type === 'global_filter'){
-      setBreadCrumb(value)
+      // setBreadCrumb(value)
       if(value === 'state'){
         // activeDistrict = ''
         // if(typeof lastActiveState === 'undefined' || lastActiveState === null ){
@@ -565,6 +567,8 @@ $(document).ready(()=>{
           toggleActiveDistrict(activeDistrict.udise_district_code,true)
         }
       }
+      setBreadCrumb(value)
+
       // setInformation()
     }
   }
@@ -622,35 +626,46 @@ $(document).ready(()=>{
     }
   }
 
-// changing the screen with the data
-  async function setInformation(){
-    try{
-      let filters = {};
-      let data = []
-      if(activeState !== ''){
-        filters = {...filters , state: activeState.udise_state_code}
+  // added for new change
+  function setFilters(){
+    global_filters = {}
+    const state =  JSON.parse(sessionStorage.getItem('activeState'))
+    const district = JSON.parse(sessionStorage.getItem('activeDistrict'))
+    if(state === null && district === null && classType === 'all'){
+      global_filters ={}
+    }else{
+      if(state !== '' && state !== null){
+        global_filters = {...global_filters , state_id: {_eq: state.udise_state_code}}
       }
-      if(activeDistrict !== ''){
-        filters = {...filters ,district: activeDistrict.udise_district_code}
+      if(district !== '' && district !== null){
+        global_filters = {...global_filters ,district_id: { _eq: district.udise_district_code}}
       }
       if(classType !== ''){
         if(classType !== 'all'){
           if(screenType !== 'information'){
-            filters = {... filters,class: classType}
+            global_filters = {... global_filters,grade:{_eq: classType}}
           }
           if(screenType !== 'feedback'){
             if(selected_geography === 'state'){
-              filters = {...filters , class: classType}
+              global_filters = {...global_filters , grade:{_eq: classType}}
             }
           }
         }else{
           if(screenType === 'feedback'){
-            filters = {...filters , class: "11"}
+            global_filters = {...global_filters , grade:{_eq: "11"}}
+          }
+          else{
+            delete global_filters["grade"]
           }
         }
       }
+    }
+
+  }
   
-      console.log(filters)
+  // added for new change
+  async function setInformation(){
+    try{
       if(screenType === 'participation'){
         data = await JSON.parse(sessionStorage.getItem('participation_data'))
       }
@@ -669,46 +684,7 @@ $(document).ready(()=>{
       if(screenType === 'glimpses'){
         data = await JSON.parse(sessionStorage.getItem('glimpses_data'))
       }
-      const filteredData = await data.filter(par =>{
-        let count = 0
-        if (Object.keys(filters).length === 0) {
-          return true
-        }else{
-          for (const [key, val] of Object.entries(filters)) {
-            if(key === 'class'){
-              if(par.grade === val){
-                count +=1
-              }
-            }
-            if(key === 'state'){
-              if(screenType !== 'information'){
-                if(parseInt(par.state_id) === val){
-                  count +=1
-                }
-              }else{
-                if(parseInt(par.udise_state_code) === val){
-                  count +=1
-                }
-              }
-            }
-            if(key === 'district'){
-              if(screenType !== 'information'){
-                if(parseInt(par.district_id) === val){
-                  count +=1
-                }
-              }else{
-                if(parseInt(par.udise_district_code) === val){
-                  count +=1
-                }
-              }
-            }
-          }
-        }
-        if (count === Object.keys(filters).length) {
-          return true
-        }
-      })
-      await updateData(filteredData)
+      await updateData(data)
 
     }catch(exceptions){
       console.log(exceptions)
@@ -717,7 +693,104 @@ $(document).ready(()=>{
 
   }
 
-  // getting data for screens
+// changing the screen with the data
+// removed for new change
+
+  // async function setInformation_backup(){
+  //   try{
+  //     let filters = {};
+  //     let data = []
+  //     if(activeState !== ''){
+  //       filters = {...filters , state: activeState.udise_state_code}
+  //     }
+  //     if(activeDistrict !== ''){
+  //       filters = {...filters ,district: activeDistrict.udise_district_code}
+  //     }
+  //     if(classType !== ''){
+  //       if(classType !== 'all'){
+  //         if(screenType !== 'information'){
+  //           filters = {... filters,class: classType}
+  //         }
+  //         if(screenType !== 'feedback'){
+  //           if(selected_geography === 'state'){
+  //             filters = {...filters , class: classType}
+  //           }
+  //         }
+  //       }else{
+  //         if(screenType === 'feedback'){
+  //           filters = {...filters , class: "11"}
+  //         }
+  //       }
+  //     }
+  
+  //     console.log(filters)
+  //     if(screenType === 'participation'){
+  //       data = await JSON.parse(sessionStorage.getItem('participation_data'))
+  //     }
+  //     if(screenType === 'performance'){
+  //       data = await JSON.parse(sessionStorage.getItem('performance_data'))
+  //     }
+  //     if(screenType === 'learning'){
+  //       data = await JSON.parse(sessionStorage.getItem('learning_data'))
+  //     }
+  //     if(screenType === 'feedback'){
+  //       data = await JSON.parse(sessionStorage.getItem('feedback_data'))
+  //     }
+  //     if(screenType === 'information'){
+  //       data = await JSON.parse(sessionStorage.getItem('information_data'))
+  //     }
+  //     if(screenType === 'glimpses'){
+  //       data = await JSON.parse(sessionStorage.getItem('glimpses_data'))
+  //     }
+  //     const filteredData = await data.filter(par =>{
+  //       let count = 0
+  //       if (Object.keys(filters).length === 0) {
+  //         return true
+  //       }else{
+  //         for (const [key, val] of Object.entries(filters)) {
+  //           if(key === 'class'){
+  //             if(par.grade === val){
+  //               count +=1
+  //             }
+  //           }
+  //           if(key === 'state'){
+  //             if(screenType !== 'information'){
+  //               if(parseInt(par.state_id) === val){
+  //                 count +=1
+  //               }
+  //             }else{
+  //               if(parseInt(par.udise_state_code) === val){
+  //                 count +=1
+  //               }
+  //             }
+  //           }
+  //           if(key === 'district'){
+  //             if(screenType !== 'information'){
+  //               if(parseInt(par.district_id) === val){
+  //                 count +=1
+  //               }
+  //             }else{
+  //               if(parseInt(par.udise_district_code) === val){
+  //                 count +=1
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //       if (count === Object.keys(filters).length) {
+  //         return true
+  //       }
+  //     })
+  //     await updateData(filteredData)
+
+  //   }catch(exceptions){
+  //     console.log(exceptions)
+  //   }finally{
+  //   }
+
+  // }
+
+
   async function getData(){
     const screen_wise_table = {
 
@@ -762,9 +835,12 @@ $(document).ready(()=>{
     }else{
       table = screen_wise_table[screenType][selected_geography]
     }
+    if(screenType === 'information'){
+      global_filters = {}
+    }
     await $.ajax({
       type: "GET",
-      url: api_url + table + '?limit=-1',
+      url: api_url + table + '?limit=-1&filter='+ JSON.stringify(global_filters),
       headers: {
         "Authorization": "Bearer " + token
       }
@@ -791,13 +867,86 @@ $(document).ready(()=>{
     });
   }
 
+  // removed for new change
+  // getting data for screens
+  // async function getData_backup(){
+  //   const screen_wise_table = {
+
+  //     information :{
+  //       state: 'state_masters',
+  //       national: 'national_statistic',
+  //       district: 'district_masters',
+  //     },
+  //     performance :{
+  //       state: 'state_grade_level_performance',
+  //       national: 'performance_master',
+  //       district: 'performance_master',
+  //     },
+  //     learning :{
+  //       state: 'district_grade_level_learningoutcome',
+  //       national: 'district_grade_level_learningoutcome',
+  //       district: 'district_grade_level_learningoutcome',
+  //     },
+  //     feedback :{
+  //       state: 'pq_state_level_feedback',
+  //       national: 'pq_national_level_feedback',
+  //       district: 'pq_district_level_feedback',
+  //     },
+  //     participation :{
+  //       state: 'all_grade_participation_tbl',
+  //       national: 'all_grade_participation_tbl',
+  //       district: 'all_grade_participation_tbl',
+  //     },
+  //     glimpses :{
+  //       national: 'national_result_glimpses',
+  //     },
+  //     achievement :{
+  //       state: 'all_grade_participation_tbl',
+  //       national: 'all_grade_participation_tbl',
+  //       district: 'all_grade_participation_tbl',
+  //     }
+  //   }
+  //   let table = ''
+  //   if(typeof screenType === 'undefined'){
+  //      table = screen_wise_table['information'][selected_geography]
+
+  //   }else{
+  //     table = screen_wise_table[screenType][selected_geography]
+  //   }
+  //   await $.ajax({
+  //     type: "GET",
+  //     url: api_url + table + '?limit=-1',
+  //     headers: {
+  //       "Authorization": "Bearer " + token
+  //     }
+  //     }).done(res=>{
+  //     if(screenType === 'participation'){
+  //       sessionStorage.setItem('participation_data',JSON.stringify(res.data))
+  //     }
+  //     if(screenType === 'performance'){
+  //       sessionStorage.setItem('performance_data',JSON.stringify(res.data))
+  //     }
+  //     if(screenType === 'learning'){
+  //       sessionStorage.setItem('learning_data',JSON.stringify(res.data))
+  //     }
+  //     if(screenType === 'feedback'){
+  //       sessionStorage.setItem('feedback_data',JSON.stringify(res.data))
+  //     }
+  //     if(screenType === 'information'){
+  //       sessionStorage.setItem('information_data',JSON.stringify(res.data))
+  //     }
+  //     if(screenType === 'glimpses'){
+  //       sessionStorage.setItem('glimpses_data',JSON.stringify(res.data))
+  //     }
+  //     setInformation()
+  //   });
+  // }
+
 // setting state and district
   function setActiveStateDistrict(state_id,district_id){
-
-    setBreadCrumb('district',true)
     makeStateActive(state_id)
     makeDistrictActive(district_id)
-
+    setBreadCrumb('district',true)
     $('#active_state').html(activeState.state_name)
     $('#active_district').html(activeDistrict.district_name)
     $('#navbar-highlighter').html('('+format_string(activeState.state_name)+')')
