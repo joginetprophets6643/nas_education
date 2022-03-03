@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Static_Content;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\DataProcess;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\QuestionnaireController;
@@ -23,6 +24,16 @@ use Illuminate\Support\Facades\Crypt;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*********************************
+* District Level Data upload start
+**********************************/
+Route::get('/drc-final-data/district-master',[DataProcess::class,'index']);
+Route::get('/drc-final-data/performance',[DataProcess::class,'performance']);
+Route::get('/drc-final-data/participation',[DataProcess::class,'participation']);
+/*********************************
+* District Level Data upload end
+**********************************/
+
 Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
 Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
 Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
