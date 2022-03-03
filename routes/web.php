@@ -30,6 +30,9 @@ use Illuminate\Support\Facades\Crypt;
 Route::get('/drc-final-data/district-master',[DataProcess::class,'index']);
 Route::get('/drc-final-data/performance',[DataProcess::class,'performance']);
 Route::get('/drc-final-data/participation',[DataProcess::class,'participation']);
+Route::get('/drc-final-data/lo',[DataProcess::class,'DRCLO']);
+Route::get('/drc-final-data/feedback',[DataProcess::class,'DRCFEEDBACK']);
+
 /*********************************
 * District Level Data upload end
 **********************************/
