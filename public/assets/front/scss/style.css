@@ -8846,11 +8846,6 @@ ul {
 
 .scrollbar-y-darkblue::-webkit-scrollbar-thumb {
   background: #e6e6e6;
-  background: #e6e6e6;
-}
-
-.scrollbar-y-lightblue::-webkit-scrollbar-thumb {
-  background: #2a6aa9;
   border-radius: 10px;
 }
 

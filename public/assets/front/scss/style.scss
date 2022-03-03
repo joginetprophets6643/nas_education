@@ -4572,17 +4572,37 @@ ul {
     /* Track */
     &::-webkit-scrollbar-track {
         border-radius: 10px;
-        background: #e6e6e6;
+        background: #75A9D9;
     }
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-        background: #2a6aa9;
+        background:  #e6e6e6; 
         border-radius: 10px;
     }
 }
 
-.sidebaroverlay {
+.scrollbar-y-darkblue{
+    overflow-y: auto;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #4F83B2;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background:  #e6e6e6; 
+        border-radius: 10px;
+    }
+}
+
+.sidebaroverlay{
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
     top: 0;
@@ -5478,13 +5498,13 @@ ul {
         }
     }
     .terms-content {
-    margin: 10px 70px;
-     ul {
-         li {
-            font-size: 14px;
-            padding-bottom: 6px;
+        margin: 10px 70px;
+        ul {
+            li {
+                font-size: 14px;
+                padding-bottom: 6px;
+            }
         }
-     }
     }
 }
 
