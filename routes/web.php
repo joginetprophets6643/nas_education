@@ -346,7 +346,9 @@ Route::group(["middleware" => ["language"]], function(){
         Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
         Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
         Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
-    
+        Route::get('/data-share/reset-password','App\Http\Controllers\UserController@resetPassword')->name('reset-password');
+        Route::post('/data-share/change-password','App\Http\Controllers\UserController@changePassword');
+
     });
 
 
