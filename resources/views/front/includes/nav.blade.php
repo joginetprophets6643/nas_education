@@ -1,6 +1,6 @@
 <body>
     <div class="header-top">
-    <div class="container">
+    <div class="container{{isset($container_type) ? '-'.$container_type : ''}}">
         <div class="row">
           <div class="col-md-12">
             <div class="header-top-content">
@@ -61,7 +61,7 @@
     </div>
     </div>
     <header class="site-header fixed-top">
-    <div class="container">
+    <div class="container{{isset($container_type) ? '-'.$container_type : ''}}">
         <div class="row">
           <div class="col-md-12">
             <nav class="navbar navbar-expand-lg">

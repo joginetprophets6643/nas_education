@@ -1,43 +1,68 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel 8 HTML to PDF Example</title>
-    <!-- <link href="http://nas21.inroad.in/assets/front/scss/bootstrap.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <!-- Bootstrap CSS -->
+    <link href="assets/scss/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- Material Icons -->
-    <link rel="stylesheet" href="http://nas21.inroad.in/assets/front/scss/material-icons.css">
-    <link rel="stylesheet" href="http://nas21.inroad.in/assets/front/scss/style.css"> 
-</head>
+    <link rel="stylesheet" href="assets/scss/material-icons.css">
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <title>NAS</title>
+  </head>
+  <body class="p-0">
 
-<body class="antialiased container p-0">
 
-    
-    <section class="reportview-wrap">
+    <section class="reportview-wrap ptb-30 bg-grey">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="reportview-container">
-  <!--               <div class="btn-wrap justify-content-between ptb-15">
-                  <a href="#" class="btn back-btn">
-                    <span class="material-icons-round"> arrow_back_ios_new </span>
-                    Back
-                  </a>
-                  <a href="{{route('download')}}" class="btn btn-blue dl-btn">
-                    Download Report
-                    <span class="material-icons-round"> file_download </span>
-                  </a>
-                </div> -->
+              <div class="btn-wrap justify-content-between ptb-15">
+                <a href="#" class="btn back-btn">
+                  <span class="material-icons-round"> arrow_back_ios_new </span>
+                  Back
+                </a>
+                <a href="#" class="btn btn-blue dl-btn">
+                  Download Report
+                  <span class="material-icons-round"> file_download </span>
+                </a>
+              </div>
               <div class="reportview-content-wrap">
                 <div class="reportview-content dark-blue-bg">
-                  
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="imgwrap text-start">
+                        <img
+                          src="assets/images/ncert-view.svg"
+                          alt="img"
+                          class="img-fluid"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="imgwrap text-center">
+                        <img
+                          src="assets/images/ministry-view.svg"
+                          alt="img"
+                          class="img-fluid"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="imgwrap text-end">
+                        <img
+                          src="assets/images/cbse-view.svg"
+                          alt="img"
+                          class="img-fluid"
+                        />
+                      </div>
+                    </div>
+                  </div>
                   <h2 class="heading-white-xl text-center ptb-30">
                     District Report Card
                   </h2>
@@ -50,7 +75,6 @@
                           KADAPA
                           <small>(Andhra Pradesh)</small>
                         </h2>
-                        <img src="http://nas21.inroad.in/assets/uploads/program/1720459686885264.png" alt=""/>  
                         <div class="rv-ranking-wrap">
                           <h3 class="title-black-xl ptb-15">
                             District Ranking in NAS
@@ -65,7 +89,15 @@
                         </div>
                       </div>
                     </div>
-                    
+                    <div class="col-md-7">
+                      <div class="imgwrap text-center">
+                        <img
+                          src="assets/images/district-map.svg"
+                          alt="img"
+                          class="img-fluid white-bg"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="reportview-content dark-blue-bg">
@@ -198,9 +230,147 @@
               </div>
             </div>
           </div>
-          
+          <div class="col-md-12">
+            <div class="reportview-container">
+              <div class="reportview-class-wrap">
+                <div class="reportview-header">
+                  <h2>Kadapa Report Card</h2>
+                  <span class="class">CLASS 3</span>
+                </div>
+                <div class="reportview-class-content white-bg">
+                  <div class="row p-4">
+                    <div class="col-md-12 light-blue-bg report-card-head">
+                      <h2 class="heading-black-bold text-center p-4">
+                        TOTAL PARTICIPATION OF CLASS 3
+                      </h2>
+                      <div class="container white-bg"></div>
+                    </div>
+                    <div class="container report-card-body">
+                      <div class="row align-items-center text-center">
+                        <div class="col-md-4">
+                          <div class="img-tile dark-blue-bg mb-3">
+                            <img class="school-img" src="assets/images/School.svg" alt="school" />
+                          </div>
+                          <h4 class="heading-black-bold">Schools</h4>
+                          <span>59</span>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="img-tile dark-blue-bg mb-3">
+                            <img
+                              src="assets/images/teachers-draw.svg"
+                              class="teacher-img"
+                              alt="teacher"
+                            />
+                          </div>
+                          <h4 class="heading-black-bold">Teachers</h4>
+                          <span>183</span>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="img-tile dark-blue-bg mb-3">
+                            <img
+                              src="assets/images/students.svg"
+                              class="student-img"
+                              alt="students"
+                            />
+                          </div>
+                          <h4 class="heading-black-bold">Students</h4>
+                          <span>738</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- graph section -->
+                    <div class="col-md-12 mt-5">
+                      <h3 class="text-center heading-38 heading-black-bold mt-4">
+                        Average Performance of Students
+                      </h3>
+                      <div class="row graph-mark">
+                        <div class="col-md-4">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure">
+                              <div id="language"></div>
+                              <div class="category text-center card-blue p-1">
+                                <span class="text-white text-28">Language</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure">
+                              <div id="maths"></div>
+                              <div class="category text-center card-pink p-1">
+                                <span class="text-white text-28">Mathematics</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure">
+                              <div id="evs"></div>
+                              <div class="category text-center card-yellow p-1">
+                                <span class="text-white text-28">EVS</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- student percentage -->
+                    <div class="col-md-12 my-5">
+                      <h3 class="text-center heading-black-bold heading-30 mt-4">
+                        Percentage of Students in Performance Level
+                      </h3>
+                      <div class="row mt-4">
+                        <!-- row1 -->
+                        <div class="col-md-4"></div>
+                        <div class="col-md-2 tile-dark-blue">Below Basic</div>
+                        <div class="col-md-2 tile-dark-blue">Basic</div>
+                        <div class="col-md-2 tile-dark-blue">Proficient</div>
+                        <div class="col-md-2 tile-dark-blue">Advanced</div>
+                        <!-- row 2 -->
+                        <div class="col-md-4 tile-left-light-blue card-blue">
+                          Language
+                        </div>
+                        <div class="col-md-2 tile-light-blue card-blue">2</div>
+                        <div class="col-md-2 tile-light-blue card-blue">18</div>
+                        <div class="col-md-2 tile-light-blue card-blue">48</div>
+                        <div class="col-md-2 tile-light-blue card-blue">32</div>
+                        <!-- row 3 -->
+                        <div class="col-md-4 tile-left-pink card-pink">
+                          Mathematics
+                        </div>
+                        <div class="col-md-2 tile-pink card-pink">2</div>
+                        <div class="col-md-2 tile-pink card-pink">18</div>
+                        <div class="col-md-2 tile-pink card-pink">48</div>
+                        <div class="col-md-2 tile-pink card-pink">32</div>
+                        <!-- row 4 -->
+                        <div class="col-md-4 tile-left-green card-yellow">
+                          EVS
+                        </div>
+                        <div class="col-md-2 tile-green card-yellow">2</div>
+                        <div class="col-md-2 tile-green card-yellow">18</div>
+                        <div class="col-md-2 tile-green card-yellow">48</div>
+                        <div class="col-md-2 tile-green card-yellow">32</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="reportview-footer">
+                  <span class="page-no">2</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- section  -->
-          <div class="reportview-class-content white-bg p-4">
+          <div class="col-md-12">
+            <div class="reportview-container">
+              <div class="reportview-class-wrap">
+                <div class="reportview-header">
+                  <h2>Kadapa Report Card</h2>
+                  <span class="class">CLASS 3</span>
+                </div>
+                <div class="reportview-class-content white-bg p-4">
                   <div class="row mt-4">
                     <!-- Gender -->
                     <div class="col-md-8 left mb-4">
@@ -209,7 +379,7 @@
                         <div class="col-md-4 p-0">
                           <div class="graph-wrap">
                             <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-languageBarGraph1" data-highcharts-chart="3" style="overflow: hidden;"><div id="highcharts-2txeq39-18" style="position: relative; overflow: hidden; width: 242px; height: 300px; text-align: left; line-height: normal; z-index: 0; user-select: none; touch-action: manipulation; outline: currentcolor none medium; left: 0px; top: 0.616699px;" dir="ltr" class="highcharts-container "><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="242" height="300" viewBox="0 0 242 300"><desc>Created with Highcharts 9.3.3</desc><defs><clipPath id="highcharts-2txeq39-19-"><rect x="0" y="0" width="202" height="200" fill="none"></rect></clipPath><clipPath id="highcharts-2txeq39-23-"><rect x="0" y="0" width="202" height="200" fill="none"></rect></clipPath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="242" height="300" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="40" y="40" width="202" height="200"></rect><g class="highcharts-grid highcharts-xaxis-grid" data-z-index="1"><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 106.5 40 L 106.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 174.5 40 L 174.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 241.5 40 L 241.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 39.5 40 L 39.5 240" opacity="1"></path></g><g class="highcharts-grid highcharts-yaxis-grid" data-z-index="1"><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 40 240.5 L 242 240.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 40 190.5 L 242 190.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 40 140.5 L 242 140.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 40 90.5 L 242 90.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 40 39.5 L 242 39.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="40" y="40" width="202" height="200"></rect><g class="highcharts-axis highcharts-xaxis" data-z-index="2"><path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" data-z-index="7" d="M 40 240.5 L 242 240.5"></path></g><g class="highcharts-axis highcharts-yaxis" data-z-index="2"><path fill="none" class="highcharts-axis-line" data-z-index="7" d="M 40 40 L 40 240"></path></g><path fill="none" class="highcharts-crosshair highcharts-crosshair-category" data-z-index="2" stroke="rgba(204,214,235,0.25)" stroke-width="67.33333333333333" style="pointer-events:none;" visibility="hidden" d="M 140.5 40 L 140.5 240"></path><g class="highcharts-series-group" data-z-index="3"><g class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-tracker" data-z-index="0.1" opacity="1" transform="translate(40,40) scale(1 1)" clip-path="url(#highcharts-2txeq39-23-)"><rect x="15" y="37" width="17" height="164" fill="#527698" opacity="1" class="highcharts-point"></rect><rect x="83" y="45" width="17" height="156" fill="rgb(82,118,152)" opacity="1" class="highcharts-point"></rect><rect x="150" y="45" width="17" height="156" fill="rgb(82,118,152)" opacity="1" class="highcharts-point"></rect></g><g class="highcharts-markers highcharts-series-0 highcharts-column-series" data-z-index="0.1" opacity="1" transform="translate(40,40) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-series-1 highcharts-column-series highcharts-tracker" data-z-index="0.1" opacity="1" transform="translate(40,40) scale(1 1)" clip-path="url(#highcharts-2txeq39-23-)"><rect x="36" y="25" width="17" height="176" fill="#75A9D9" opacity="1" class="highcharts-point"></rect><rect x="103" y="63" width="17" height="138" fill="rgb(117,169,217)" opacity="1" class="highcharts-point"></rect><rect x="170" y="63" width="17" height="138" fill="rgb(117,169,217)" opacity="1" class="highcharts-point"></rect></g><g class="highcharts-markers highcharts-series-1 highcharts-column-series" data-z-index="0.1" opacity="1" transform="translate(40,40) scale(1 1)" clip-path="none"></g></g><text x="121" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="121" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="24"></text><text x="10" text-anchor="start" class="highcharts-caption" data-z-index="4" style="color:#666666;fill:#666666;" y="297"></text><g class="highcharts-data-labels highcharts-series-0 highcharts-column-series highcharts-tracker" data-z-index="6" opacity="1" transform="translate(40,40) scale(1 1)"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(12,14)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">82<tspan x="5" y="16">​</tspan></tspan>82</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(80,22)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">78<tspan x="5" y="16">​</tspan></tspan>78</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(147,22)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">78<tspan x="5" y="16">​</tspan></tspan>78</text></g></g><g class="highcharts-data-labels highcharts-series-1 highcharts-column-series highcharts-tracker" data-z-index="6" opacity="1" transform="translate(40,40) scale(1 1)"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(33,2)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">88<tspan x="5" y="16">​</tspan></tspan>88</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(100,40)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">69<tspan x="5" y="16">​</tspan></tspan>69</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(167,40)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">69<tspan x="5" y="16">​</tspan></tspan>69</text></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" data-z-index="7"><text x="77.33333333333002" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 77.33333333333002 250)" y="250" opacity="1">District</text><text x="144.66666666667" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 144.66666666667 250)" y="250" opacity="1">State</text><text x="212" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 212 250)" y="250" opacity="1">National</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" data-z-index="7"><text x="25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="245" opacity="1">0</text><text x="25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="195" opacity="1">25</text><text x="25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="145" opacity="1">50</text><text x="25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="95" opacity="1">75</text><text x="25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="45" opacity="1">100</text></g><text x="232" class="highcharts-credits" text-anchor="end" data-z-index="8" style="cursor:pointer;color:#999999;font-size:9px;fill:#999999;" y="295">Highcharts.com</text><g class="highcharts-label highcharts-tooltip highcharts-color-undefined" style="cursor:default;white-space:nowrap;pointer-events:none;" data-z-index="8" transform="translate(55,-9999)" opacity="0" visibility="hidden"><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(247,247,247,0.85)" class="highcharts-label-box highcharts-tooltip-box" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#527698" stroke-width="1"></path></g></svg><div class="highcharts-label highcharts-tooltip highcharts-color-undefined" style="position: absolute; left: 55px; top: -9999px; opacity: 0; cursor: default; pointer-events: none; visibility: hidden;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 12px; white-space: nowrap; color: rgb(51, 51, 51); margin-left: 0px; margin-top: 0px; left: 8px; top: 8px;" data-z-index="1"><span style="font-size:10px">State</span><table><tbody><tr><td style="color:#527698;padding:0">Boys: </td><td style="padding:0"><b>78%</b></td></tr><tr><td style="color:#75A9D9;padding:0">Girls: </td><td style="padding:0"><b>69%</b></td></tr></tbody></table></span></div></div></div>
+                              <div id="rc3-languageBarGraph1"></div>
                               <div class="category text-center card-blue mx-4">
                                 <span class="text-white text-17">Language</span>
                               </div>
@@ -219,7 +389,7 @@
                         <div class="col-md-4 p-0">
                           <div class="graph-wrap">
                             <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-mathBarGraph1" data-highcharts-chart="4" style="overflow: hidden;"><div id="highcharts-2txeq39-27" style="position: relative; overflow: hidden; width: 242px; height: 300px; text-align: left; line-height: normal; z-index: 0; user-select: none; touch-action: manipulation; outline: currentcolor none medium; left: 0.333313px; top: 0.616699px;" dir="ltr" class="highcharts-container "><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="242" height="300" viewBox="0 0 242 300"><desc>Created with Highcharts 9.3.3</desc><defs><clipPath id="highcharts-2txeq39-28-"><rect x="0" y="0" width="242" height="200" fill="none"></rect></clipPath><clipPath id="highcharts-2txeq39-32-"><rect x="0" y="0" width="242" height="200" fill="none"></rect></clipPath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="242" height="300" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="0" y="40" width="242" height="200"></rect><g class="highcharts-grid highcharts-xaxis-grid" data-z-index="1"><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 80.5 40 L 80.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 160.5 40 L 160.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 241.5 40 L 241.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M -0.5 40 L -0.5 240" opacity="1"></path></g><g class="highcharts-grid highcharts-yaxis-grid" data-z-index="1"><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 240.5 L 242 240.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 190.5 L 242 190.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 140.5 L 242 140.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 90.5 L 242 90.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 39.5 L 242 39.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="0" y="40" width="242" height="200"></rect><g class="highcharts-axis highcharts-xaxis" data-z-index="2"><path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" data-z-index="7" d="M 0 240.5 L 242 240.5"></path></g><g class="highcharts-axis highcharts-yaxis" data-z-index="2"><path fill="none" class="highcharts-axis-line" data-z-index="7" d="M 0 40 L 0 240"></path></g><path fill="none" class="highcharts-crosshair highcharts-crosshair-category" data-z-index="2" stroke="rgba(204,214,235,0.25)" stroke-width="80.66666666666667" style="pointer-events:none;" visibility="hidden" d="M 120.5 40 L 120.5 240"></path><g class="highcharts-series-group" data-z-index="3"><g class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-tracker" data-z-index="0.1" opacity="1" transform="translate(0,40) scale(1 1)" clip-path="url(#highcharts-2txeq39-32-)"><rect x="19" y="37" width="20" height="164" fill="#A3536F" opacity="1" class="highcharts-point"></rect><rect x="99" y="45" width="20" height="156" fill="#A3536F" opacity="1" class="highcharts-point"></rect><rect x="180" y="45" width="20" height="156" fill="#A3536F" opacity="1" class="highcharts-point"></rect></g><g class="highcharts-markers highcharts-series-0 highcharts-column-series" data-z-index="0.1" opacity="1" transform="translate(0,40) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-series-1 highcharts-column-series highcharts-tracker" data-z-index="0.1" opacity="1" transform="translate(0,40) scale(1 1)" clip-path="url(#highcharts-2txeq39-32-)"><rect x="43" y="25" width="20" height="176" fill="#E9769F" opacity="1" class="highcharts-point"></rect><rect x="123" y="63" width="20" height="138" fill="#E9769F" opacity="1" class="highcharts-point"></rect><rect x="204" y="63" width="20" height="138" fill="#E9769F" opacity="1" class="highcharts-point"></rect></g><g class="highcharts-markers highcharts-series-1 highcharts-column-series" data-z-index="0.1" opacity="1" transform="translate(0,40) scale(1 1)" clip-path="none"></g></g><text x="121" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="121" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="24"></text><text x="10" text-anchor="start" class="highcharts-caption" data-z-index="4" style="color:#666666;fill:#666666;" y="297"></text><g class="highcharts-data-labels highcharts-series-0 highcharts-column-series highcharts-tracker" data-z-index="6" opacity="1" transform="translate(0,40) scale(1 1)"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(18,14)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">82<tspan x="5" y="16">​</tspan></tspan>82</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(98,22)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">78<tspan x="5" y="16">​</tspan></tspan>78</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(179,22)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">78<tspan x="5" y="16">​</tspan></tspan>78</text></g></g><g class="highcharts-data-labels highcharts-series-1 highcharts-column-series highcharts-tracker" data-z-index="6" opacity="1" transform="translate(0,40) scale(1 1)"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(42,2)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">88<tspan x="5" y="16">​</tspan></tspan>88</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(122,40)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">69<tspan x="5" y="16">​</tspan></tspan>69</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(203,40)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">69<tspan x="5" y="16">​</tspan></tspan>69</text></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" data-z-index="7"><text x="44.000000000000334" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 44.000000000000334 250)" y="250" opacity="1">District</text><text x="124.6666666666633" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 124.6666666666633 250)" y="250" opacity="1">State</text><text x="205.33333333333331" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 205.33333333333331 250)" y="250" opacity="1">National</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" data-z-index="7"><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="251" opacity="1">0</text><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="201" opacity="1">25</text><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="151" opacity="1">50</text><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="101" opacity="1">75</text><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="51" opacity="1">100</text></g><text x="232" class="highcharts-credits" text-anchor="end" data-z-index="8" style="cursor:pointer;color:#999999;font-size:9px;fill:#999999;" y="295">Highcharts.com</text><g class="highcharts-label highcharts-tooltip highcharts-color-undefined" style="cursor:default;white-space:nowrap;pointer-events:none;" data-z-index="8" transform="translate(33,-9999)" opacity="0" visibility="hidden"><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(247,247,247,0.85)" class="highcharts-label-box highcharts-tooltip-box" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#A3536F" stroke-width="1"></path></g></svg><div class="highcharts-label highcharts-tooltip highcharts-color-undefined" style="position: absolute; left: 33px; top: -9999px; opacity: 0; cursor: default; pointer-events: none; visibility: hidden;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 12px; white-space: nowrap; color: rgb(51, 51, 51); margin-left: 0px; margin-top: 0px; left: 8px; top: 8px;" data-z-index="1"><span style="font-size:10px">State</span><table><tbody><tr><td style="color:#A3536F;padding:0">Boys: </td><td style="padding:0"><b>78%</b></td></tr><tr><td style="color:#E9769F;padding:0">Girls: </td><td style="padding:0"><b>69%</b></td></tr></tbody></table></span></div></div></div>
+                              <div id="rc3-mathBarGraph1"></div>
                               <div class="category text-center card-pink mx-4">
                                 <span class="text-white text-17">Mathematics</span>
                               </div>
@@ -229,8 +399,10 @@
                         <div class="col-md-4 p-0">
                           <div class="graph-wrap">
                             <figure class="highcharts-figure graph-level3">
-                              <div id="rc3-evsBarGraph1" data-highcharts-chart="5" style="overflow: hidden;"><div id="highcharts-2txeq39-36" style="position: relative; overflow: hidden; width: 242px; height: 300px; text-align: left; line-height: normal; z-index: 0; user-select: none; touch-action: manipulation; outline: currentcolor none medium; left: 0.666687px; top: 0.616699px;" dir="ltr" class="highcharts-container "><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="242" height="300" viewBox="0 0 242 300"><desc>Created with Highcharts 9.3.3</desc><defs><clipPath id="highcharts-2txeq39-37-"><rect x="0" y="0" width="242" height="200" fill="none"></rect></clipPath><clipPath id="highcharts-2txeq39-41-"><rect x="0" y="0" width="242" height="200" fill="none"></rect></clipPath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="242" height="300" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="0" y="40" width="242" height="200"></rect><g class="highcharts-grid highcharts-xaxis-grid" data-z-index="1"><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 80.5 40 L 80.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 160.5 40 L 160.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 241.5 40 L 241.5 240" opacity="1"></path><path fill="none" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M -0.5 40 L -0.5 240" opacity="1"></path></g><g class="highcharts-grid highcharts-yaxis-grid" data-z-index="1"><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 240.5 L 242 240.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 190.5 L 242 190.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 140.5 L 242 140.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 90.5 L 242 90.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="none" data-z-index="1" class="highcharts-grid-line" d="M 0 39.5 L 242 39.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="0" y="40" width="242" height="200"></rect><g class="highcharts-axis highcharts-xaxis" data-z-index="2"><path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" data-z-index="7" d="M 0 240.5 L 242 240.5"></path></g><g class="highcharts-axis highcharts-yaxis" data-z-index="2"><path fill="none" class="highcharts-axis-line" data-z-index="7" d="M 0 40 L 0 240"></path></g><path fill="none" class="highcharts-crosshair highcharts-crosshair-category" data-z-index="2" stroke="rgba(204,214,235,0.25)" stroke-width="80.66666666666667" style="pointer-events:none;" visibility="hidden" d="M 39.5 40 L 39.5 240"></path><g class="highcharts-series-group" data-z-index="3"><g class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-tracker" data-z-index="0.1" opacity="1" transform="translate(0,40) scale(1 1)" clip-path="url(#highcharts-2txeq39-41-)"><rect x="19" y="37" width="20" height="164" fill="#8D8A43" opacity="1" class="highcharts-point"></rect><rect x="99" y="45" width="20" height="156" fill="#8D8A43" opacity="1" class="highcharts-point"></rect><rect x="180" y="45" width="20" height="156" fill="#8D8A43" opacity="1" class="highcharts-point"></rect></g><g class="highcharts-markers highcharts-series-0 highcharts-column-series" data-z-index="0.1" opacity="1" transform="translate(0,40) scale(1 1)" clip-path="none"></g><g class="highcharts-series highcharts-series-1 highcharts-column-series highcharts-tracker" data-z-index="0.1" opacity="1" transform="translate(0,40) scale(1 1)" clip-path="url(#highcharts-2txeq39-41-)"><rect x="43" y="25" width="20" height="176" fill="#CAC55F" opacity="1" class="highcharts-point"></rect><rect x="123" y="63" width="20" height="138" fill="#CAC55F" opacity="1" class="highcharts-point"></rect><rect x="204" y="63" width="20" height="138" fill="#CAC55F" opacity="1" class="highcharts-point"></rect></g><g class="highcharts-markers highcharts-series-1 highcharts-column-series" data-z-index="0.1" opacity="1" transform="translate(0,40) scale(1 1)" clip-path="none"></g></g><text x="121" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="121" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="24"></text><text x="10" text-anchor="start" class="highcharts-caption" data-z-index="4" style="color:#666666;fill:#666666;" y="297"></text><g class="highcharts-data-labels highcharts-series-0 highcharts-column-series highcharts-tracker" data-z-index="6" opacity="1" transform="translate(0,40) scale(1 1)"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(18,14)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">82<tspan x="5" y="16">​</tspan></tspan>82</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(98,22)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">78<tspan x="5" y="16">​</tspan></tspan>78</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(179,22)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">78<tspan x="5" y="16">​</tspan></tspan>78</text></g></g><g class="highcharts-data-labels highcharts-series-1 highcharts-column-series highcharts-tracker" data-z-index="6" opacity="1" transform="translate(0,40) scale(1 1)"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(42,2)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">88<tspan x="5" y="16">​</tspan></tspan>88</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(122,40)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">69<tspan x="5" y="16">​</tspan></tspan>69</text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined" data-z-index="1" transform="translate(203,40)"><text x="5" data-z-index="1" y="16" style="color:#000000;font-size:11px;font-weight:bold;fill:#000000;"><tspan class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round">69<tspan x="5" y="16">​</tspan></tspan>69</text></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" data-z-index="7"><text x="44.000000000000334" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 44.000000000000334 250)" y="250" opacity="1">District</text><text x="124.6666666666633" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 124.6666666666633 250)" y="250" opacity="1">State</text><text x="205.33333333333331" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0) rotate(-90 205.33333333333331 250)" y="250" opacity="1">National</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" data-z-index="7"><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="251" opacity="1">0</text><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="201" opacity="1">25</text><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="151" opacity="1">50</text><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="101" opacity="1">75</text><text x="-15" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="51" opacity="1">100</text></g><text x="232" class="highcharts-credits" text-anchor="end" data-z-index="8" style="cursor:pointer;color:#999999;font-size:9px;fill:#999999;" y="295">Highcharts.com</text><g class="highcharts-label highcharts-tooltip highcharts-color-undefined" style="cursor:default;white-space:nowrap;pointer-events:none;" data-z-index="8" transform="translate(35,-9999)" opacity="0" visibility="hidden"><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" class="highcharts-label-box highcharts-tooltip-box highcharts-shadow" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(247,247,247,0.85)" class="highcharts-label-box highcharts-tooltip-box" d="M 3.5 0.5 L 67.5 0.5 C 70.5 0.5 70.5 0.5 70.5 3.5 L 70.5 55.5 C 70.5 58.5 70.5 58.5 67.5 58.5 L 3.5 58.5 C 0.5 58.5 0.5 58.5 0.5 55.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#8D8A43" stroke-width="1"></path></g></svg><div class="highcharts-label highcharts-tooltip highcharts-color-undefined" style="position: absolute; left: 35px; top: -9999px; opacity: 0; cursor: default; pointer-events: none; visibility: hidden;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 12px; white-space: nowrap; color: rgb(51, 51, 51); margin-left: 0px; margin-top: 0px; left: 8px; top: 8px;" data-z-index="1"><span style="font-size:10px">District</span><table><tbody><tr><td style="color:#8D8A43;padding:0">Boys: </td><td style="padding:0"><b>82%</b></td></tr><tr><td style="color:#CAC55F;padding:0">Girls: </td><td style="padding:0"><b>88%</b></td></tr></tbody></table></span></div></div></div>
-                              <div class="category text-center card-yellow mx-4">
+                              <div id="rc3-evsBarGraph1"></div>
+                              <div
+                                class="category text-center card-yellow mx-4"
+                              >
                                 <span class="text-white text-17">EVS</span>
                               </div>
                             </figure>
@@ -245,21 +417,21 @@
                         <div class="graph-right-wrap">
                           <div class="row dialog-sec px-5">
                             <div class="col-md-6">
-                              <img src="http://localhost:8000/assets/front/images/boy-dialog.jpg" alt="dialog_box">
+                              <img src="assets/images/boy-dialog.jpg" alt="dialog_box">
                               <h5 class="mb-15 text-white">
                                 <span class="">55</span>
                                 <span class="">%</span>
                               </h5>
                             </div>
                             <div class="col-md-6">
-                              <img src="http://localhost:8000/assets/front/images/girl-dialog.jpg" alt="dialog_box">
+                              <img src="assets/images/girl-dialog.jpg" alt="dialog_box">
                               <h5 class="mb-15 text-white">
                                 <span class="">45</span>
                                 <span class="">%</span>
                               </h5>
                             </div>
                           </div>
-                          <img src="http://localhost:8000/assets/front/images/c3-gender.jpg" class="gender-img" alt="gender_image">
+                          <img src="assets/images/c3-gender.jpg" class="gender-img" alt="gender_image">
                           <div class="row px-5">
                             <div class="col-md-6 ps-3">
                               <p class="gender-txt">Boys</p>
@@ -272,16 +444,176 @@
                       </div>
                     </div>
                     <!-- Location -->
-                  
+                    <div class="col-md-8 left mb-4">
+                      <h4 class="">Performance by Location</h4>
+                      <div class="row mb-60">
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level1">
+                              <div id="rc3-languageBarGraph2"></div>
+                              <div class="category text-center card-blue mx-4">
+                                <span class="text-white text-17">Language</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level2">
+                              <div id="rc3-mathBarGraph2"></div>
+                              <div class="category text-center card-pink mx-4">
+                                <span class="text-white text-17">Mathematics</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level3">
+                              <div id="rc3-evsBarGraph2"></div>
+                              <div
+                                class="category text-center card-yellow mx-4"
+                              >
+                                <span class="text-white text-17">EVS</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 text-center gender-right">
+                      <div class="cont-wrap mb-60">
+                        <h4 class="mb-5">Participation by Location</h4>
+                        <div class="img-wrap">
+                          <div class="row justify-content-between mb-4 px-4">
+                            <div class="col-md-6">
+                              <h3 class="text-blue">30%</h3>
+                            </div>
+                            <div class="col-md-6">
+                              <h3 class="text-pink">70%</h3>
+                            </div>
+                          </div>
+                          <!-- images changed -->
+                          <img src="assets/images/c3-30-location.jpg" alt="loction_images" class="ml-3">
+                          <div class="row justify-content-between mt-2 px-4">
+                            <div class="col-md-6">
+                              <h5 class="">Rural</h5>
+                            </div>
+                            <div class="col-md-6">
+                              <h5 class="">Urban</h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <!-- Management -->
-                    
+                    <div class="col-md-8 left mb-4">
+                      
+                      <h4 class="">Performance by Management</h4>
+                      <div class="row mb-60">
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level1">
+                              <div id="rc3-languageBarGraph3"></div>
+                              <div class="category text-center card-blue mx-4">
+                                <span class="text-white text-17">Language</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level2">
+                              <div id="rc3-mathBarGraph3"></div>
+                              <div class="category text-center card-pink mx-4">
+                                <span class="text-white text-17">Mathematics</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level3">
+                              <div id="rc3-evsBarGraph3"></div>
+                              <div
+                                class="category text-center card-yellow mx-4"
+                              >
+                                <span class="text-white text-17">EVS</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 text-center gender-right">
+                      <div class="cont-wrap mb-30">
+                        <h4 class="mb-3">Participation by Management</h4>
+                        <div class="graph-wrap graph-right-wrap p-2">
+                          <figure class="highcharts-figure">
+                            <div id="dc3-managementPieGraph"></div>
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
                     <!-- Social -->
-                    
-                    
+                    <div class="col-md-8 left mb-4">
+                      <h4 class="">Performance by Social Group</h4>
+                      <div class="row mb-60">
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level1">
+                              <div id="rc3-languageBarGraph4"></div>
+                              <div class="category text-center card-blue mx-4">
+                                <span class="text-white text-17">Language</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level2">
+                              <div id="rc3-mathBarGraph4"></div>
+                              <div class="category text-center card-pink mx-4">
+                                <span class="text-white text-17">Mathematics</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="col-md-4 p-0">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level3">
+                              <div id="rc3-evsBarGraph4"></div>
+                              <div
+                                class="category text-center card-yellow mx-4"
+                              >
+                                <span class="text-white text-17">EVS</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 text-center gender-right">
+                      <div class="cont-wrap mb-60">
+                        <h4 class="mb-5">Participation by Social Group</h4>
+                        <div class="social-right-wrap">
+                          <!-- images changed -->
+                          <img src="assets/images/c3-50-social.jpg" alt="social" class="social-group"> 
+                          <h3 class="text-1 heading-30 text-pink">50%</h3>
+                          <h3 class="text-2 heading-30 text-yellow">50%</h3>
+                          <h3 class="text-3 heading-30 text-dark-green">50%</h3>
+                          <h3 class="text-4 heading-30 text-blue">50%</h3>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-          
-          
+                <div class="reportview-footer">
+                  <span class="page-no">3</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- distict performance section  -->
           <div class="col-md-12">
             <div class="reportview-container">
@@ -314,7 +646,15 @@
                             </tr>
                           </thead>
                           <tbody>
-                            
+                            <tr class="card-blue text-white">
+                              <td class="text" colspan="5">
+                                <img
+                                  src="assets/images/Icon-awesome-globe.svg"
+                                  alt=""
+                                />
+                                Language
+                              </td>
+                            </tr>
                             <tr class="">
                               <th scope="row">L304</th>
                               <td class="text-sm-start">
@@ -336,7 +676,15 @@
                               <td></td>
                               <td></td>
                             </tr>
-                            
+                            <tr class="card-pink text-white">
+                              <td class="text" colspan="5">
+                                <img
+                                  src="assets/images/operataion-icon.svg"
+                                  alt=""
+                                />
+                                Mathematics
+                              </td>
+                            </tr>
                             <tr class="">
                               <th scope="row">M301</th>
                               <td class="text-sm-start">
@@ -460,7 +808,15 @@
                               <td></td>
                               <td></td>
                             </tr>
-                            
+                            <tr class="card-yellow text-white">
+                              <td class="text" colspan="5">
+                                <img
+                                  src="assets/images/evs-icon-small.svg"
+                                  alt=""
+                                />
+                                EVS
+                              </td>
+                            </tr>
                             <tr class="">
                               <th scope="row">E302</th>
                               <td class="text-sm-start">
@@ -822,14 +1178,17 @@
           </div>
         </div>
       </div>
-    </section>    
-    
-    
-<script src="http://nas21.inroad.in/assets/front/js/jquery-3.6.0.min.js"></script>
-<script src="http://nas21.inroad.in/assets/front/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
+    </section>
 
-<script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+     <!-- Highcharts JS -->
+     <script src="https://code.highcharts.com/highcharts.js"></script>
+     <script src="assets/js/custom.js"></script>
+
+    <script>
       // Create the language bar graph
       Highcharts.chart("language", {
         chart: {
@@ -1911,8 +2270,5 @@
         ],
       });
     </script>
-    
-
-
   </body>
 </html>

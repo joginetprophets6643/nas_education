@@ -297,7 +297,7 @@
     <script src="{{asset('assets/front/js/lightbox.min.js')}}"></script>
     <script src="{{asset('assets/front/js/scripts.js')}}"></script>
     <script src="{{asset('assets/front/js/select2.min.js')}}"></script>
-
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
     <script>
       let c_url=window.location.href;
@@ -366,6 +366,19 @@ function changeFontSize(direction){
         $('body').removeClass('overflow-hidden');
     })
     
+    </script>
+    <script>
+        var menu_btn = document.querySelector("#menu-btn");
+        var sideBar = document.querySelector("#sideBar");
+        var main_content = document.querySelector(".main-content-wrap");
+        // console.log(menu_btn)
+        if(menu_btn !== null){
+            menu_btn.addEventListener("click", () => {
+            sideBar.classList.toggle("active-sidebar");
+            main_content.classList.toggle("active-main-content");
+          });
+        }
+
     </script>
   </body>
 </html>

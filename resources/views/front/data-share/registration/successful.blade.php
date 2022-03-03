@@ -11,9 +11,9 @@
                 <div class="breadcrum-wrap">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{url('/data-share')}}">Data Share</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Registration</li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/data-share')}}">{{__('lang.Data Share')}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{__('lang.Registration')}}</li>
                         </ol>
                     </nav>
                 </div>

@@ -42,7 +42,7 @@ class ReportCardController extends Controller
         return view('front.report_card.index',compact('states','districts','content'));
     }
     public function details(){
-        return view('front.report_card.districtcontent');
+        return view('front.report_card.districtcontent')->with('container_type','fluid');
     }
 
     public function webView(Request $request){

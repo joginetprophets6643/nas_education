@@ -26,7 +26,10 @@ class NationalController extends Controller
             'urban_population'=>'required|numeric',
             'density_of_population'=>'required|numeric',
             'literacy_rate'=>'required|numeric',
-            'child_sex_ratio'=>'required|numeric'
+            'child_sex_ratio'=>'required|numeric',
+            'no_of_schools'=>'required|numeric',
+            'no_of_teachers'=>'required|numeric',
+            'no_of_students'=>'required|numeric'
         ]);
         
         $national=new NationalStatistic;
@@ -37,6 +40,9 @@ class NationalController extends Controller
         $national->density_of_population=$request->density_of_population;
         $national->literacy_rate=$request->literacy_rate;
         $national->child_sex_ratio=$request->child_sex_ratio;
+        $national->no_of_schools=$request->no_of_schools;
+        $national->no_of_teachers=$request->no_of_teachers;
+        $national->no_of_students=$request->no_of_students;
         $national->save();
 
         return Redirect()->route('national')->with('success','National Added Successfully');
@@ -59,17 +65,23 @@ class NationalController extends Controller
             'urban_population'=>'required|numeric',
             'density_of_population'=>'required|numeric',
             'literacy_rate'=>'required|numeric',
-            'child_sex_ratio'=>'required|numeric'
+            'child_sex_ratio'=>'required|numeric',
+            'no_of_schools'=>'required|numeric',
+            'no_of_teachers'=>'required|numeric',
+            'no_of_students'=>'required|numeric'
         ]);
         
-        NationalStatistic::find($id)->update([
+        NationalStatistic::where('id',$id)->update([
             'total_district_area'=>$request->total_district_area,
             'total_population'=>$request->total_population,
             'rural_population'=>$request->rural_population,
             'urban_population'=>$request->urban_population,
             'density_of_population'=>$request->density_of_population,
             'literacy_rate'=>$request->literacy_rate,
-            'child_sex_ratio'=>$request->child_sex_ratio
+            'child_sex_ratio'=>$request->child_sex_ratio,
+            'no_of_schools'=>$request->no_of_schools,
+            'no_of_teachers'=>$request->no_of_teachers,
+            'no_of_students'=>$request->no_of_students
         ]);
 
         return Redirect()->route('national')->with('success','National Updated Successfully');

@@ -4,7 +4,7 @@
 	<?php if($districtParticipation->grade==3 || $districtParticipation->grade==5 ||$districtParticipation->grade==8 ||$districtParticipation->grade==10){?>
 	Highcharts.chart("rc3-mathBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: {{($districtParticipation->grade==8 || $districtParticipation->grade==10)?'320':'425'}},
 	      width: 370,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
@@ -79,7 +79,7 @@
     // Performance by gender (Language Graph)
 	Highcharts.chart("rc3-languageBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: {{($districtParticipation->grade==8)?'320':'425'}},
 	      width: 370,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
@@ -155,7 +155,7 @@
 	// Performance by gender (EVS Graph)
 	Highcharts.chart("rc3-evsBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 425,
 	      width: 370,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
@@ -229,7 +229,7 @@
     // Performance by gender (Science Graph)
 	Highcharts.chart("rc3-scienceBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 320,
 	      width: 370,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
@@ -279,22 +279,22 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#A3536F",
+	        color: "#369b9d",
 	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['sc']; ?>],
 	      },
 	      {
 	        name: "OBC",
-	        color: "#D26A8E",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['obc']; ?>],
 	      },
 	      {
 	        name: "ST",
-	        color: "#E9769F",
+	        color: "#8acdce",
 	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
 	        name: "General",
-	        color: "#F09FBB",
+	        color: "#b1dedf",
 	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -304,7 +304,7 @@
 	// Performance by gender (MIL Graph)
 	Highcharts.chart("rc3-milBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 320,
 	      width: 370,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
@@ -354,22 +354,22 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#527698",
+	        color: "#d4605f",
 	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['sc']; ?>],
 	      },
 	      {
 	        name: "OBC",
-	        color: "#6997C3",
+	        color: "#ef8987",
 	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['obc']; ?>],
 	      },
 	      {
 	        name: "ST",
-	        color: "#75A9D9",
+	        color: "#f3a6a5",
 	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
 	        name: "General",
-	        color: "#9EC2E4",
+	        color: "#f7c4c3",
 	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -380,7 +380,7 @@
     // Performance by gender (Social Science Graph)
 	Highcharts.chart("rc3-socialscienceBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 320,
 	      width: 370,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
@@ -430,22 +430,22 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#A3536F",
+	        color: "#68a358",
 	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['sc']; ?>],
 	      },
 	      {
 	        name: "OBC",
-	        color: "#D26A8E",
+	        color: "#8fc481",
 	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['obc']; ?>],
 	      },
 	      {
 	        name: "ST",
-	        color: "#E9769F",
+	        color: "#abd3a1",
 	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
 	        name: "General",
-	        color: "#F09FBB",
+	        color: "#c7e1c0",
 	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -455,7 +455,7 @@
     // Performance by gender (English Graph)
 	Highcharts.chart("rc3-englishBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 320,
 	      width: 370,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
@@ -505,22 +505,22 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#A3536F",
+	        color: "#b168ad",
 	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['sc']; ?>],
 	      },
 	      {
 	        name: "OBC",
-	        color: "#D26A8E",
+	        color: "#d190cd",
 	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['obc']; ?>],
 	      },
 	      {
 	        name: "ST",
-	        color: "#E9769F",
+	        color: "#dcacd9",
 	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
 	        name: "General",
-	        color: "#F09FBB",
+	        color: "#e8c7e6",
 	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],

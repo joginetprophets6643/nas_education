@@ -27,6 +27,9 @@
   padding: 0;
 }
 
+.visualization-wrap .top-content {
+  padding: 20px;
+}
 .visualization-wrap .select-wrap .select-label {
   letter-spacing: 0px;
   color: #777777;
@@ -44,11 +47,11 @@
   font-size: 16px;
 }
 
-.search-list ul {
+.search-list .search-menu {
   padding: 10px 15px;
   max-height: 140px;
 }
-.search-list ul li {
+.search-list .search-menu li {
   font-size: 14px;
   color: #101010;
   padding: 5px 0;
@@ -233,7 +236,7 @@
 .dropdown-select-wrap .dropdown .menu-level-main {
   letter-spacing: 0px;
   color: #101010;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 42px;
   position: relative;
   display: block;
@@ -278,5 +281,22 @@
   margin-right: 15px;
 }
 .dropdown-select-wrap .dropdown .dropdown-menu .menu-level-2 {
-  height: 140px;
+  max-height: 200px;
+  text-indent: 20px;
+  border-bottom: none;
+  position: relative !important;
+  transform: unset !important;
+}
+.dropdown-select-wrap .dropdown .dropdown-menu .menu-level-2 .dropdown-list {
+  padding: 5px 0;
+}
+.dropdown-select-wrap .dropdown .dropdown-menu .menu-level-2 .dropdown-list .dropdown-item::after {
+  left: 40px;
+}
+.dropdown-select-wrap .dropdown .dropdown-menu .menu-level-3 {
+  padding: 0;
+  max-height: 140px;
+  border-bottom: none;
+  position: relative !important;
+  transform: unset !important;
 }

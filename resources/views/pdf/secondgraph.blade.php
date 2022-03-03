@@ -4,7 +4,7 @@
 	<?php if($districtParticipation->grade==3 || $districtParticipation->grade==5 ||$districtParticipation->grade==8 ||$districtParticipation->grade==10){?>
 	Highcharts.chart("rc3-mathBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: {{($districtParticipation->grade==8 || $districtParticipation->grade==10)?'320':'425'}},
 	      width: 200,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
@@ -39,7 +39,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 5,
+	        pointWidth: 10,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -70,7 +70,7 @@
 	<?php } if($districtParticipation->grade==3 || $districtParticipation->grade==5 || $districtParticipation->grade==8){?>
 	Highcharts.chart("rc3-languageBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: {{($districtParticipation->grade==8)?'320':'425'}},
 	      type: "column",
 	      width: 170,
 	      margin: [40, 0, 60, 0],
@@ -105,7 +105,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 5,
+	        pointWidth: 10,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -134,7 +134,7 @@
 	<?php } if($districtParticipation->grade==3 || $districtParticipation->grade==5){?>
 	Highcharts.chart("rc3-evsBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 425,
 	      width: 170,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
@@ -169,7 +169,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 5,
+	        pointWidth: 10,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -198,7 +198,7 @@
 	<?php } if($districtParticipation->grade==8 ||$districtParticipation->grade==10){?>
 	Highcharts.chart("rc3-scienceBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 320,
 	      width: 170,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
@@ -233,7 +233,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 5,
+	        pointWidth: 10,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -248,12 +248,12 @@
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#A3536F",
+	        color: "#369b9d",
 	        data: [<?php echo (int)$dataGenderArr['sci']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['national']['boys']; ?>],
 	      },
 	      {
 	        name: "Girls",
-	        color: "#E9769F",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$dataGenderArr['sci']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['national']['girls']; ?>],
 	      },
 	    ],
@@ -262,7 +262,7 @@
 	<?php } if($districtParticipation->grade==8 ||$districtParticipation->grade==10){?>
 	Highcharts.chart("rc3-socialscienceBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 320,
 	      width: 170,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
@@ -297,7 +297,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 5,
+	        pointWidth: 10,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -312,12 +312,12 @@
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#A3536F",
+	        color: "#68a358",
 	        data: [<?php echo (int)$dataGenderArr['sst']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['national']['boys']; ?>],
 	      },
 	      {
 	        name: "Girls",
-	        color: "#E9769F",
+	        color: "#8fc481",
 	        data: [<?php echo (int)$dataGenderArr['sst']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['national']['girls']; ?>],
 	      },
 	    ],
@@ -329,7 +329,7 @@
 	<?php } if($districtParticipation->grade==10){?>
 	Highcharts.chart("rc3-milBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 320,
 	      width: 170,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
@@ -364,7 +364,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 5,
+	        pointWidth: 10,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -379,12 +379,12 @@
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#A3536F",
+	        color: "#d4605f",
 	        data: [<?php echo (int)$dataGenderArr['mil']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['national']['boys']; ?>],
 	      },
 	      {
 	        name: "Girls",
-	        color: "#E9769F",
+	        color: "#ef8987",
 	        data: [<?php echo (int)$dataGenderArr['mil']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['national']['girls']; ?>],
 	      },
 	    ],
@@ -393,7 +393,7 @@
 	<?php } if($districtParticipation->grade==10){?>
 	Highcharts.chart("rc3-englishBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
-	      height: 300,
+	      height: 320,
 	      width: 170,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
@@ -428,7 +428,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 5,
+	        pointWidth: 10,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -443,12 +443,12 @@
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#A3536F",
+	        color: "#b168ad",
 	        data: [<?php echo (int)$dataGenderArr['eng']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['national']['boys']; ?>],
 	      },
 	      {
 	        name: "Girls",
-	        color: "#E9769F",
+	        color: "#d190cd",
 	        data: [<?php echo (int)$dataGenderArr['eng']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['national']['girls']; ?>],
 	      },
 	    ],

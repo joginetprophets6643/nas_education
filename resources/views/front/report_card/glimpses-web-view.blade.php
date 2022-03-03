@@ -1,4 +1,9 @@
 @include('front.includes.header')
+<style>
+    body{
+        padding-top: 0px !important;
+    }
+</style>
 <body>                  
 <div class="tab-content tablayerthree-content" id="screen-content">     
     <div class="tab-pane fade" id="glimpsesnational_class3" role="tabpanel" aria-labelledby="nc3-result-tab">
@@ -2319,10 +2324,10 @@ let subjects_full_names ={
 
         const section_legends = {
         cards:["Substantially above national average", "Not substantially different from the national average" , "Substantially below national average"],
-        gender:["No significant difference between Boys and Girls","Boys peform significantly better than Girls","Girls peform significantly better than Boys"],
-        location:["No significant difference between Rural and Urban","Rural peform significantly better than Urban","Urban peform significantly better than Rural"],
-        management:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
-        socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. peform significantly better than Govt. Aided","Govt. Aided peform significantly better than Govt"],
+        gender:["No significant difference between Boys and Girls","Boys perform significantly better than Girls","Girls perform significantly better than Boys"],
+        location:["No significant difference between Rural and Urban","Rural perform significantly better than Urban","Urban perform significantly better than Rural"],
+        management:["No significant difference between Govt. and Govt. Aided","Govt. perform significantly better than Govt. Aided","Govt. Aided perform significantly better than Govt."],
+        socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. perform significantly better than Govt. Aided","Govt. Aided perform significantly better than Govt."],
 
         }
         sections.forEach(section=>{
@@ -2418,7 +2423,7 @@ let subjects_full_names ={
                         }
                     },
                     dataLabels: {
-                        enabled: false,
+                        enabled: true,
                         format: '{point.name}'
                     },
                 },
@@ -2439,7 +2444,7 @@ let subjects_full_names ={
                         }
                     },
                     dataLabels: {
-                        enabled: false,
+                        enabled: true,
                         format: '{point.name}'
                     },
                 },
@@ -2461,7 +2466,7 @@ let subjects_full_names ={
                         }
                     },
                     dataLabels: {
-                        enabled: false,
+                        enabled: true,
                         format: '{point.name}'
                     },
                 },
