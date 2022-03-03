@@ -3115,6 +3115,9 @@
           $.ajax({
             type: "GET",
             url: api_url + 'national_result_glimpses?limit-1',
+            headers: {
+              "Authorization": "Bearer " + token
+            }
           }).done((response)=>{
                 response.data.forEach(glimpse=>{
                   createGlimpsesScreen([glimpse])
