@@ -115,6 +115,7 @@
      const map = Highcharts.mapChart('district-map-container',{
        chart: {
          width: "1000",
+         height: "600",
          backgroundColor: "#d6e5f4"
        },
         title:{
@@ -238,7 +239,7 @@
                       <div class="col-md-3">
                         <div class="infotab-content light-blue-bg">
                           <h3 class="title">Total District Area</h3>
-                          <p class="total-no">{{isset($districtVal->total_district_area)?$districtVal->total_district_area:'0'}} sq. km.</p>
+                          <p class="total-no">{{isset($districtVal->total_district_area)&&$districtVal->total_district_area!=''?$districtVal->total_district_area:'0'}} sq. km.</p>
                         </div>
                       </div>
                       <div class="col-md-3">
@@ -279,7 +280,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="infotab-content-wrap">
+                  <!-- <div class="infotab-content-wrap">
                     <div class="row">
                       <div class="col-md-12">
                         <h2>Total number of schools in Kadapa district.</h2>
@@ -317,8 +318,8 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="infotab-content-wrap">
+                  </div> -->
+                  <!-- <div class="infotab-content-wrap">
                     <div class="row">
                       <div class="col-md-12">
                         <h2>Total number of teachers in Kadapa district.</h2>
@@ -350,9 +351,9 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   
-                  <!-- <div class="infotab-content-wrap">
+                  <div class="infotab-content-wrap">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="col-md-12 mb-4">
@@ -361,25 +362,25 @@
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
                             <h3 class="title">No. of Schools</h3>
-                            <p class="total-no">15000</p>
+                            <p class="total-no">{{(isset($districtVal->no_of_schools)&&$districtVal->no_of_schools!='')?$districtVal->no_of_schools:'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
                             <h3 class="title">State Govt. Schools</h3>
-                            <p class="total-no">6000</p>
+                            <p class="total-no">{{(isset($districtVal->state_govt_schools)&&$districtVal->state_govt_schools!='')?$districtVal->state_govt_schools:'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
                             <h3 class="title">Govt. Aided Schools</h3>
-                            <p class="total-no">4000</p>
+                            <p class="total-no">{{(isset($districtVal->govt_aided_schools)&&$districtVal->govt_aided_schools!='')?$districtVal->govt_aided_schools:'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
                             <h3 class="title">Central Govt. Schools</h3>
-                            <p class="total-no">3500</p>
+                            <p class="total-no">{{(isset($districtVal->central_govt_schools)&&$districtVal->central_govt_schools!='')?$districtVal->central_govt_schools:'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
@@ -387,7 +388,7 @@
                             <h3 class="title">
                               Private Un-aided Recognized Schools
                             </h3>
-                            <p class="total-no">1500</p>
+                            <p class="total-no">{{(isset($districtVal->private_unaided_reco_schools)&&$districtVal->private_unaided_reco_schools!='')?$districtVal->private_unaided_reco_schools:'0'}}</p>
                           </div>
                         </div>
                       </div>
@@ -398,19 +399,19 @@
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
                             <h3 class="title">No. of Teachers</h3>
-                            <p class="total-no">1000</p>
+                            <p class="total-no">{{(isset($districtVal->teacher_state_govt_schools)&&($districtVal->teacher_state_govt_schools!='' || $districtVal->teacher_govt_aided_schools!='' || $districtVal->teacher_central_govt_schools!='' || $districtVal->teacher_private_unaided_reco_schools!=''))?$districtVal->teacher_state_govt_schools + $districtVal->teacher_govt_aided_schools +  $districtVal->teacher_central_govt_schools + $districtVal->teacher_private_unaided_reco_schools:'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
                             <h3 class="title">State Govt. Teachers</h3>
-                            <p class="total-no">450</p>
+                            <p class="total-no">{{(isset($districtVal->teacher_state_govt_schools)&&$districtVal->teacher_state_govt_schools!='')?$districtVal->teacher_state_govt_schools:'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
                             <h3 class="title">Govt. Aided Teachers</h3>
-                            <p class="total-no">250</p>
+                            <p class="total-no">{{(isset($districtVal->teacher_govt_aided_schools)&&$districtVal->teacher_govt_aided_schools!='')?$districtVal->teacher_govt_aided_schools:'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
@@ -418,7 +419,7 @@
                             <h3 class="title">
                               Central Govt. Teachers
                             </h3>
-                            <p class="total-no">300</p>
+                            <p class="total-no">{{(isset($districtVal->teacher_central_govt_schools)&&$districtVal->teacher_central_govt_schools!='')?$districtVal->teacher_central_govt_schools:'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
@@ -426,12 +427,12 @@
                             <h3 class="title">
                               Teachers In Private Un-aided Recognized Schools
                             </h3>
-                            <p class="total-no">300</p>
+                            <p class="total-no">{{(isset($districtVal->teacher_private_unaided_reco_schools)&&$districtVal->teacher_private_unaided_reco_schools!='')?$districtVal->teacher_private_unaided_reco_schools:'0'}}</p>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -725,10 +726,10 @@
                   <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
-                <div class="reportview-class-content white-bg p-4">
+                <div class="reportview-class-content white-bg px-4 py-3">
                   <div class="row mt-2">
                     <!-- Gender -->
-                    <div class="col-md-8 left mb-2">
+                    <div class="col-md-9 left mb-2">
                       <h4 class="">Performance by Gender</h4>
                       <div class="d-flex flex-wrap mb-60">
                         <!-- edited -->
@@ -842,15 +843,15 @@
                         <!-- edited ends -->
                       </div>
                     </div>
-                    <div class="col-md-4 text-center gender-right">
+                    <div class="col-md-3 text-center gender-right">
                       <div class="cont-wrap mb-60">
-                        <h4 class="">Participation by Gender</h4>
+                        <h4 class="ps-3">Participation by Gender</h4>
                         <!-- images changed -->
                         @include('pdf.genderparticipation')
                       </div>
                     </div>
                     <!-- Location -->
-                    <div class="col-md-8 left mb-2">
+                    <div class="col-md-9 left mb-2">
                       <h4 class="">Performance by Location</h4>
                       <div class="d-flex flex-wrap mb-60">
                         @if(count($districtParticipation['DistrictPerformance'])>0)
@@ -961,14 +962,14 @@
                         @endif
                       </div>
                     </div>
-                    <div class="col-md-4 text-center gender-right">
+                    <div class="col-md-3 text-center gender-right">
                       <div class="cont-wrap mb-60">
-                        <h4 class="">Participation by Location</h4>
+                        <h4 class="ps-3">Participation by Location</h4>
                         @include('pdf.locationparticipation')
                       </div>
                     </div>
                     <!-- Management -->
-                    <div class="col-md-8 left mb-2">
+                    <div class="col-md-9 left mb-2">
                       <h4 class="">Performance by Management</h4>
                       <div class="d-flex flex-wrap mb-60">
                         @if(count($districtParticipation['DistrictPerformance'])>0)
@@ -1068,14 +1069,14 @@
                         @endif
                       </div>
                     </div>
-                    <div class="col-md-4 text-center gender-right">
+                    <div class="col-md-3 text-center gender-right">
                       <div class="cont-wrap mb-30">
-                        <h4 class="mb-3">Participation by Management</h4>
+                        <h4 class="mb-1 ps-3">Participation by Management</h4>
                         @include('pdf.managementparticipation')
                       </div>
                     </div>
                     <!-- Social -->
-                    <div class="col-md-8 left">
+                    <div class="col-md-9 left">
                       <h4 class="">Performance by Social Group</h4>
                       <div class="d-flex flex-wrap mb-60">
                         @if(count($districtParticipation['DistrictPerformance'])>0)
@@ -1177,9 +1178,9 @@
 
                       </div>
                     </div>
-                    <div class="col-md-4 text-center gender-right">
+                    <div class="col-md-3 text-center gender-right">
                       <div class="cont-wrap mb-60">
-                        <h4 class="mb-5">Participation by Social Group</h4>
+                        <h4 class="mb-5 ps-4">Participation by Social Group</h4>
                         @include('pdf.socialgroupparticipation')
                       </div>
                     </div>

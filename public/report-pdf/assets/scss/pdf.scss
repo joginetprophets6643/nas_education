@@ -14,8 +14,14 @@
 .border-right{
     border-right: 1px dashed #647781 !important;
 }
+.border-bottom{
+    border-bottom: 1px dashed #647781 !important;
+}
 .text-28 {
     font-size: 28px;
+}
+.negative-margin {
+    margin-left: -4.5rem;
 }
 // footer
 @mixin footer-mark($bottom) {
@@ -49,6 +55,10 @@
             h2 {
                 font-size: 18px !important;
             }
+            .class {
+                font-size: 16px;
+                padding: 12px 30px;
+            }
         }
         .reportview-class-content {
             .gender-right {
@@ -79,6 +89,18 @@
             .state-managemnt {
                 margin-left: 0;
             }
+        }
+        .student-fbcard {
+            height: 18rem !important;
+            overflow-wrap: break-word;
+        }
+        .teacher-fbcard {
+            overflow-wrap: break-word;
+            height: 14rem !important;
+        }
+        .student-fbcard-2 {
+            overflow-wrap: break-word;
+            height: 21rem !important;
         }
         .children-testimony {
             .infotab-content {
@@ -127,6 +149,28 @@
     } 
     .pg2 {
         // @include footer-mark(-1.5rem);
+    }
+    .nrc-pg2 {
+        @include footer-mark(-1rem);
+    }
+    .nrc-pg3 {
+        // @include footer-mark(-1rem);
+        .reportview-footer {
+            padding: 16px;
+            .page-no {
+                padding: 5px 25px;
+                font-size: 16px;
+            }
+        }
+    }
+    .nrc-pg7 {
+        @include footer-mark(-13rem);
+    }
+    .nrc-pg8 {
+        @include footer-mark(-2rem);
+    }
+    .nrc-pg9 {
+        @include footer-mark(-9rem);
     }
     .pg3 {
         @include footer-mark(-3.5rem);
@@ -320,6 +364,7 @@
     .left {
         table {
             font-size: 12px;
+            font-weight: 600 !important;
             td {
                 padding: 1.5px;
             }
@@ -433,9 +478,12 @@
             }
             .bottom-txt {
                 position: absolute;
-                font-size: 12px;
+                font-size: 15px;
+                line-height: 16px;
+                margin-top: 15px;
+                text-align: center;
                 left: 50%;
-                top: 50%;
+                top: 55%;
                 transform: translate(-50%,-50%);
                 z-index: 3;
             }
@@ -469,8 +517,20 @@
 .pink-progress-bar-lg {
     @include custom-progress(14rem, #eee, auto, #e9769f, #fedbe7, 32px);
 }
+.pink-progress-bar-lg-txt {
+    @include custom-progress(14rem, #eee, auto, #e9769f, #fedbe7, 32px);
+    .percent_text {
+        top: 35% !important;
+    }
+}
 .green-progress-bar-lg {
     @include custom-progress(14rem, #eee, auto, #7cb342, #d8e8c6, 32px);
+}
+.green-progress-bar-lg-txt {
+    @include custom-progress(14rem, #eee, auto, #7cb342, #d8e8c6, 32px);
+    .percent_text {
+        top: 35% !important;
+    }
 }
 .blue-progress-bar-sm {
     @include custom-progress(6.5rem, #fff, 10px auto, #75a9d9, #d6e5f4, 20px);
@@ -480,6 +540,36 @@
 }
 .green-progress-bar-sm {
     @include custom-progress(6.5rem, #fff, 10px auto, #7cb342, #d8e8c6, 20px);
+}
+
+/* line progress bar */
+@mixin progress-bar($bg-color) {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 10px auto;
+    .line-progress-bar {
+        height: 100%;
+        width: 0;
+        background-color: $bg-color;
+        border-radius: 4px;
+    }
+    .perc {
+        position: absolute;
+        top: -30px;
+        right: 0;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 30px;
+    }
+}
+.green-progress-container {
+    @include progress-bar(#7cb342);
+}
+.pink-progress-container {
+    @include progress-bar(#E9769F);
 }
 
 // National PDF CSS
@@ -517,7 +607,7 @@
     .heading-wrap{
         position: absolute;
         top: 20%;
-        left: 10%;
+        left: 5%;
         h2 {
             letter-spacing: 0.35px;
             color: #FFFFFF;
@@ -540,7 +630,7 @@
             border-bottom: 1px solid #ccc;
             content: '';
             display: block;
-            bottom: 52px;
+            bottom: 49px;
             position: absolute;
             left: 0;
             right: 0;
@@ -559,7 +649,7 @@
         .text-white {
             padding: 5px 10px;
             display: block;
-            font-size: 18px;
+            font-size: 16px;
         }
     }
 }

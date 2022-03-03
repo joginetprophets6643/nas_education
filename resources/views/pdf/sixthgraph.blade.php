@@ -3,6 +3,8 @@
       Highcharts.chart("dc3-managementPieGraph{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
           type: "pie",
+          height: 350,
+          width: 300,
         },
         title: {
           text: "",
@@ -13,9 +15,16 @@
             '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
             "{point.y}%",
         },
+        legend: {
+            itemStyle: {
+                // color: 'white',
+                // fontWeight: 'bold',
+                fontSize: '18px'
+            }
+        },
         plotOptions: {
           pie: {
-            innerSize: 100,
+            innerSize: 80,
             depth: 45,
             allowPointSelect: true,
             cursor: "pointer",
