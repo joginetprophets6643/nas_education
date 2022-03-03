@@ -9927,6 +9927,10 @@ ul {
   padding-bottom: 6px;
 }
 
+.otp-dis {
+  display: none;
+}
+
 @media (min-width: 992px) {
   #bannerSlider .owl-dots {
     max-width: 960px;
