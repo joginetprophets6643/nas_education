@@ -1898,9 +1898,8 @@ ul {
   font-weight: 500;
 }
 
-.top-content {
+.report-card-wrap .top-content {
   padding: 5px;
-  margin-left: 10px;
 }
 
 .report-card-container {
@@ -8821,6 +8820,32 @@ ul {
 
 .scrollbar-y-lightblue::-webkit-scrollbar-track {
   border-radius: 10px;
+  background: #75A9D9;
+}
+
+.scrollbar-y-lightblue::-webkit-scrollbar-thumb {
+  background: #e6e6e6;
+  border-radius: 10px;
+}
+
+.scrollbar-y-darkblue {
+  overflow-y: auto;
+  /* width */
+  /* Track */
+  /* Handle */
+}
+
+.scrollbar-y-darkblue::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-y-darkblue::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #4F83B2;
+}
+
+.scrollbar-y-darkblue::-webkit-scrollbar-thumb {
+  background: #e6e6e6;
   background: #e6e6e6;
 }
 
@@ -10344,15 +10369,6 @@ ul {
   }
   .top-content {
     padding: 15px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
   }
   .top-content .navbar-toggler {
     padding: 0;

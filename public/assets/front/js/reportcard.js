@@ -76,6 +76,9 @@ $(document).ready(()=>{
     $.ajax({
       type: "GET",
       url: api_url + 'state_masters?limit-1&sort[]=state_name',
+      headers: {
+        "Authorization": "Bearer " + token
+      }
     }).done((response)=>{
        createSidebarStates(response.data)
        sessionStorage.setItem('states',JSON.stringify(response.data))
@@ -372,6 +375,9 @@ $(document).ready(()=>{
     await $.ajax({
       type: "GET",
       url: api_url + 'district_masters?limit=-1',
+      headers: {
+        "Authorization": "Bearer " + token
+      }
     }).done(response=>{
       district_data = response.data
       sessionStorage.setItem('districts',JSON.stringify(response.data))
@@ -756,10 +762,12 @@ $(document).ready(()=>{
     }else{
       table = screen_wise_table[screenType][selected_geography]
     }
-
     await $.ajax({
       type: "GET",
       url: api_url + table + '?limit=-1',
+      headers: {
+        "Authorization": "Bearer " + token
+      }
       }).done(res=>{
       if(screenType === 'participation'){
         sessionStorage.setItem('participation_data',JSON.stringify(res.data))

@@ -14,6 +14,7 @@ use App\Http\Controllers\PdfGenerateController;
 use App\Http\Controllers\VisualizationCalculationController;
 use Illuminate\Support\Facades\Crypt;
 
+use App\Http\Controllers\FinalCalculationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,10 +31,13 @@ use Illuminate\Support\Facades\Crypt;
 Route::get('/drc-final-data/district-master',[DataProcess::class,'index']);
 Route::get('/drc-final-data/performance',[DataProcess::class,'performance']);
 Route::get('/drc-final-data/participation',[DataProcess::class,'participation']);
+Route::get('/drc-final-data/lo',[DataProcess::class,'DRCLO']);
+Route::get('/drc-final-data/feedback',[DataProcess::class,'DRCFEEDBACK']);
+
 /*********************************
 * District Level Data upload end
 **********************************/
-
+Route::get('getDRCDataForGrade3',[FinalCalculationController::class,'getDRCDataForGrade3']);
 Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
 Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
 Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);

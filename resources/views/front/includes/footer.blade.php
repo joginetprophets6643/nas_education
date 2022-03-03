@@ -280,6 +280,7 @@
     <script src="{{asset('assets/front/js//in-all-disputed.js')}}"></script>
 
     <script>
+      let token = '{{env("API_TOKEN")}}'
       let api_url ='{{env("API_URL")}}'
       let backend_api_url = '{{env("BACKEND_API_URL")}}'
       let base_url = '{{env("BASE_URL")}}'+'/'

@@ -2106,7 +2106,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.getSubjectCards = exports.setDistrict = exports.setState = exports.changeId = exports.changeDemography = exports.getDistricts = exports.getCardsData = exports.setClass = exports.getStateList = void 0;
+exports.getGraphs = exports.getSubjectCards = exports.setDistrict = exports.setState = exports.changeId = exports.changeDemography = exports.getDistricts = exports.getCardsData = exports.setClass = exports.getStateList = void 0;
 
 var constants = __importStar(__webpack_require__(/*! @/constants/types */ "./src/constants/types.tsx"));
 
@@ -2184,14 +2184,23 @@ var setDistrict = function setDistrict(district) {
 
 exports.setDistrict = setDistrict;
 
-var getSubjectCards = function getSubjectCards(fitlters) {
+var getSubjectCards = function getSubjectCards(filters) {
   return {
     type: constants.SUBJECT_CARDS_FETCH,
-    payload: utility_1["default"].get('visualization_performance_tbl?filter=' + fitlters)
+    payload: utility_1["default"].get('visualization_performance_tbl?filter=' + filters)
   };
 };
 
 exports.getSubjectCards = getSubjectCards;
+
+var getGraphs = function getGraphs(filters) {
+  return {
+    type: constants.CHART_FETCH,
+    payload: utility_1["default"].get('visualization_performance_graph_tbl?filter=' + filters)
+  };
+};
+
+exports.getGraphs = getGraphs;
 
 /***/ }),
 
@@ -2237,6 +2246,52 @@ exports["default"] = App;
 "use strict";
 
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -2247,31 +2302,209 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var globe_icon_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/globe-icon.svg */ "./src/assets/images/globe-icon.svg"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var GraphCard_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/GraphCard/GraphCard */ "./src/components/Visualization/GraphCard/GraphCard.tsx"));
 
-var AveragePerormance = function AveragePerormance() {
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var AveragePerormance = function AveragePerormance(props) {
+  var charts = (0, react_redux_1.useSelector)(function (store) {
+    return store.charts;
+  });
+
+  var _ref = (0, react_1.useState)({}),
+      _ref2 = _slicedToArray(_ref, 2),
+      graphs = _ref2[0],
+      setGraphs = _ref2[1];
+
+  var current_geography = (0, react_redux_1.useSelector)(function (store) {
+    return store.current_geography.data;
+  });
+
+  var _ref3 = (0, react_1.useState)({}),
+      _ref4 = _slicedToArray(_ref3, 2),
+      gender_data = _ref4[0],
+      setGenderData = _ref4[1];
+
+  var _ref5 = (0, react_1.useState)({}),
+      _ref6 = _slicedToArray(_ref5, 2),
+      management_data = _ref6[0],
+      setManagementData = _ref6[1];
+
+  var _ref7 = (0, react_1.useState)({}),
+      _ref8 = _slicedToArray(_ref7, 2),
+      location_data = _ref8[0],
+      setLocationData = _ref8[1];
+
+  var _ref9 = (0, react_1.useState)({}),
+      _ref10 = _slicedToArray(_ref9, 2),
+      socialgroup_data = _ref10[0],
+      setSocialGroupData = _ref10[1];
+
+  var _ref11 = (0, react_1.useState)({}),
+      _ref12 = _slicedToArray(_ref11, 2),
+      learningoutcome_data = _ref12[0],
+      setLearningOutcomeData = _ref12[1];
+
+  var _ref13 = (0, react_1.useState)({}),
+      _ref14 = _slicedToArray(_ref13, 2),
+      performance_level_data = _ref14[0],
+      setPerformanceLevelData = _ref14[1];
+
+  var subjectShortCodes = {
+    "Language": 'language',
+    "Mil": 'mil',
+    'English': 'eng',
+    'Math': 'math',
+    'Social Science': 'sst',
+    'Science': 'sci',
+    'Evs': 'evs'
+  }; //   useEffect(()=>{
+  //     console.log(props.eleme)
+  //   },[props.eleme])
+
+  (0, react_1.useEffect)(function () {
+    if (charts.loaded) {
+      // console.log(charts.data)
+      setGraphs(charts.data);
+    }
+  }, [charts]);
+  var coloumnChartColor = {
+    gender: ["#F2744A", "#F2744A"],
+    location: ['#16A085', '#16A085'],
+    management: ['#9262E6', '#9262E6', '#9262E6', '#9262E6'],
+    socialgroup: ['#2196F3', '#2196F3', '#2196F3', '#2196F3'],
+    learning: ['#D13CEB'],
+    performance: ['#F6A5B5', '#F2849A', '#EC4A6A', '#BD3B55']
+  };
+
+  var makeSeries = function makeSeries(data, name, type) {
+    var chart_details = {
+      title: {
+        text: ''
+      },
+      xAxis: {
+        type: 'category'
+      },
+      yAxis: {
+        title: {
+          text: ''
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        column: {
+          pointWidth: 25
+        },
+        series: {
+          borderWidth: 0,
+          dataLabels: {
+            enabled: true,
+            format: '{point.y}'
+          }
+        }
+      },
+      tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>'
+      }
+    };
+    var series = {
+      name: name,
+      colorByPoint: true,
+      data: []
+    };
+    name = name.replace(/\s+/g, '').toLowerCase();
+    Object.keys(data).forEach(function (legend, index) {
+      series.data.push({
+        name: legend.toUpperCase(),
+        color: name === 'learning' ? coloumnChartColor[name][0] : coloumnChartColor[name][index],
+        y: Number(data[legend])
+      });
+    });
+    chart_details = Object.assign(Object.assign({}, chart_details), {
+      chart: {
+        type: type
+      },
+      series: [series]
+    });
+    return chart_details;
+  };
+
+  (0, react_1.useEffect)(function () {
+    if (Object.keys(graphs).length !== 0) {
+      setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'));
+      setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'));
+      setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'));
+      setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography], 'Location', 'column'));
+      setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'Learning', "column"));
+      setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie'));
+    } else {
+      setGenderData({});
+      setManagementData({});
+      setSocialGroupData({});
+      setLocationData({});
+      setLearningOutcomeData({});
+      setPerformanceLevelData({});
+    }
+  }, [graphs]);
   return react_1["default"].createElement("div", {
-    className: "average-performance-wrap card-blue mb-60"
+    className: "average-performance-wrap card-".concat(props.class_style, " mb-60")
   }, react_1["default"].createElement("h2", {
     className: "ap-top-heading"
   }, react_1["default"].createElement("img", {
-    src: globe_icon_svg_1["default"],
+    src: props.image,
     alt: "img",
     className: "img-fluid",
     width: "30"
-  }), "Language Average Performance of Students"), react_1["default"].createElement("div", {
-    className: "averag-performance-content light-blue"
+  }), props.name, " Average Performance of Students"), react_1["default"].createElement("div", {
+    className: "averag-performance-content light-".concat(props.class_style)
   }, react_1["default"].createElement("div", {
     className: "row"
   }, react_1["default"].createElement("div", {
     className: "col-md-6"
-  }, react_1["default"].createElement(GraphCard_1["default"], null)), react_1["default"].createElement("div", {
+  }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
+    type: "column",
+    title: "By Gender",
+    series: gender_data
+  }) : ""), react_1["default"].createElement("div", {
     className: "col-md-6"
-  }, react_1["default"].createElement(GraphCard_1["default"], null)))));
+  }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
+    type: "column",
+    title: "By Location",
+    series: location_data
+  }) : "")), react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
+    type: "column",
+    title: "By Management",
+    series: management_data
+  }) : ""), react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
+    type: "column",
+    title: "By Social Group",
+    series: socialgroup_data
+  }) : "")), react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
+    type: "pie",
+    title: "Range of Performance",
+    series: performance_level_data
+  }) : ""), react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
+    type: "map",
+    title: "By Learning Outcome",
+    series: learningoutcome_data
+  }) : ""))));
 };
 
 exports["default"] = AveragePerormance;
@@ -2305,57 +2538,7 @@ var highcharts_1 = __importDefault(__webpack_require__(/*! highcharts */ "./node
 
 var highcharts_react_official_1 = __importDefault(__webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js"));
 
-var options = {
-  chart: {
-    type: 'column',
-    height: '350'
-  },
-  title: {
-    text: ''
-  },
-  xAxis: {
-    type: 'category'
-  },
-  yAxis: {
-    title: {
-      text: ''
-    }
-  },
-  legend: {
-    enabled: false
-  },
-  plotOptions: {
-    column: {
-      pointWidth: 25
-    },
-    series: {
-      borderWidth: 0,
-      dataLabels: {
-        enabled: true,
-        format: '{point.y}'
-      }
-    }
-  },
-  tooltip: {
-    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>'
-  },
-  series: [{
-    name: "Gender",
-    colorByPoint: true,
-    data: [{
-      name: "Boys",
-      y: 70,
-      color: "#F2744A"
-    }, {
-      name: "Girls  ",
-      y: 90,
-      color: "#F2744A"
-    }]
-  }]
-};
-
-var GraphCard = function GraphCard() {
+var GraphCard = function GraphCard(props) {
   return react_1["default"].createElement("div", {
     className: "apcard-white"
   }, react_1["default"].createElement("div", {
@@ -2366,7 +2549,7 @@ var GraphCard = function GraphCard() {
     src: ap_people_svg_1["default"],
     alt: "img",
     className: "img-fluid"
-  }), " By Gender"), react_1["default"].createElement("div", {
+  }), " ", props.title), react_1["default"].createElement("div", {
     className: "toggle-btn"
   }, react_1["default"].createElement("button", {
     className: "btn"
@@ -2376,10 +2559,10 @@ var GraphCard = function GraphCard() {
     className: "apcard-content"
   }, react_1["default"].createElement("div", {
     className: "apcard-graph-wrap"
-  }, react_1["default"].createElement(highcharts_react_official_1["default"], {
+  }, Object.keys(props.series).length > 0 ? react_1["default"].createElement(highcharts_react_official_1["default"], {
     highcharts: highcharts_1["default"],
-    options: options
-  }))));
+    options: props.series
+  }) : "")));
 };
 
 exports["default"] = GraphCard;
@@ -2572,8 +2755,6 @@ var globe_icon_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/g
 
 var visualization_action_1 = __webpack_require__(/*! @/actions/visualization.action */ "./src/actions/visualization.action.tsx");
 
-var visualization_action_2 = __webpack_require__(/*! @/actions/visualization.action */ "./src/actions/visualization.action.tsx");
-
 var TabContent = function TabContent() {
   // const current_geography = "national"
   var dispatch = (0, react_redux_1.useDispatch)();
@@ -2612,19 +2793,32 @@ var TabContent = function TabContent() {
   var subject_cards_data = (0, react_redux_1.useSelector)(function (store) {
     return store.subject_cards;
   });
-  var marker = (0, react_1.useRef)();
   var current_geography = (0, react_redux_1.useSelector)(function (store) {
     return store.current_geography.data;
   });
   var current_id = (0, react_redux_1.useSelector)(function (store) {
     return store.current_id.data;
   });
+
+  var _ref11 = (0, react_1.useState)(''),
+      _ref12 = _slicedToArray(_ref11, 2),
+      current_subject = _ref12[0],
+      setCurremtSubject = _ref12[1];
+
+  var _ref13 = (0, react_1.useState)([]),
+      _ref14 = _slicedToArray(_ref13, 2),
+      encountered_subject = _ref14[0],
+      setEncounteredSubject = _ref14[1];
+
   var class_subjects = {
     class_3: ['Language', 'Evs', 'Math'],
     class_5: ['Language', 'Evs', 'Math'],
     class_8: ['Language', 'Science', 'Math', 'Social Science'],
     class_10: ['Mil', 'Social Science', 'English', 'Science', 'Math']
   };
+  var current_subjects = class_subjects['class_' + grade];
+  var marker = (0, react_1.useRef)([]);
+  marker.current = [];
   var subject_styles = {
     language: 'blue',
     evs: 'yellow',
@@ -2643,12 +2837,6 @@ var TabContent = function TabContent() {
     english: globe_icon_svg_1["default"],
     mil: globe_icon_svg_1["default"]
   };
-  var current_subjects = class_subjects['class_' + grade];
-  var options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: [0, 1.0]
-  };
   (0, react_2.useEffect)(function () {
     var fields = '';
     var reusable_filters = {
@@ -2663,48 +2851,40 @@ var TabContent = function TabContent() {
     var performance_filter = {};
 
     if (current_geography === 'national') {
-      fields = 'national_schools_count,national_teachers_count,national_students_count';
-      performance_filter = Object.assign({}, reusable_filters);
-      participation_filter = Object.assign({}, reusable_filters);
+      fields = 'national_schools_count,national_teachers_count,national_students_count'; // performance_filter = {...reusable_filters}
+      // participation_filter = {...reusable_filters}
     }
 
     if (current_geography === 'state') {
-      participation_filter = Object.assign(Object.assign({}, reusable_filters), {
+      reusable_filters = Object.assign(Object.assign({}, reusable_filters), {
         state_id: {
           _eq: current_id
         }
-      });
-      performance_filter = Object.assign(Object.assign({}, reusable_filters), {
-        state_id: {
-          _eq: current_id
-        }
-      });
+      }); // performance_filter ={...reusable_filters , state_id: {_eq: current_id}}
+
       fields = 'state_teachers_count,state_students_count,state_schools_count';
     }
 
     if (current_geography === 'district') {
-      participation_filter = Object.assign(Object.assign({}, reusable_filters), {
+      reusable_filters = Object.assign(Object.assign({}, reusable_filters), {
         district_id: {
           _eq: current_id
         }
-      });
-      performance_filter = Object.assign(Object.assign({}, reusable_filters), {
-        district_id: {
-          _eq: current_id
-        }
-      });
+      }); // performance_filter ={...reusable_filters , district_id: {_eq: current_id}}
+
       fields = 'district_schools_count,district_teachers_count,district_students_count';
     }
 
-    dispatch((0, visualization_action_1.getCardsData)(JSON.stringify(participation_filter), fields));
-    dispatch((0, visualization_action_2.getSubjectCards)(JSON.stringify(performance_filter)));
+    dispatch((0, visualization_action_1.getCardsData)(JSON.stringify(reusable_filters), fields));
+    dispatch((0, visualization_action_1.getSubjectCards)(JSON.stringify(reusable_filters)));
+    dispatch((0, visualization_action_1.getGraphs)(JSON.stringify(reusable_filters)));
+    setEncounteredSubject([]);
   }, [grade, current_geography, current_id]);
   (0, react_2.useEffect)(function () {
     setParticipationCards(cards_data.data[0]);
   }, [cards_data]);
   (0, react_2.useEffect)(function () {
     if (subject_cards_data.loaded) {
-      console.log(subject_cards_data);
       setSubjectCount(subject_cards_data.data.length !== 0 ? subject_cards_data.data[0] : {});
     }
   }, [subject_cards_data]);
@@ -2729,26 +2909,42 @@ var TabContent = function TabContent() {
       }
     }
   }, [participation_cards]);
-  (0, react_2.useEffect)(function () {
-    contentObserver();
-  }, []);
 
   var observerChange = function observerChange(changes) {
-    console.log(changes[0].isIntersecting);
-
-    if (changes[0].isIntersecting) {}
+    changes.forEach(function (marks) {
+      if (marks.isIntersecting) {
+        if (marks.target.id !== '') {
+          setCurremtSubject(marks.target.id);
+        }
+      }
+    });
   };
 
-  var contentObserver = function contentObserver() {
-    var options = {
+  (0, react_2.useEffect)(function () {
+    if (!encountered_subject.includes(current_subject) && current_subject !== '') {
+      setEncounteredSubject(encountered_subject.concat(current_subject));
+    }
+  }, [current_subject]);
+  (0, react_2.useEffect)(function () {
+    var current = marker.current;
+    var observer = new IntersectionObserver(observerChange, {
       root: null,
       rootMargin: '0px',
-      threshold: [0, 1.0]
+      threshold: [1.0]
+    });
+    current.forEach(function (entry) {
+      observer.observe(entry);
+    });
+    return function () {
+      current.forEach(function (entry) {
+        observer.unobserve(entry);
+      });
     };
+  }, [marker.current]);
 
-    if (marker) {
-      var observer = new IntersectionObserver(observerChange, options);
-      observer.observe(marker.current);
+  var createMarkers = function createMarkers(el) {
+    if (el && !marker.current.includes(el)) {
+      marker.current.push(el);
     }
   };
 
@@ -2786,12 +2982,22 @@ var TabContent = function TabContent() {
       count: Object.keys(subject_count).length !== 0 && typeof subject_count !== 'undefined' ? subject_count[subject.replace(/\s+/g, '_').toLowerCase() + '_' + current_geography] : 0,
       image: subject_icons[subject.replace(/\s+/g, '').toLowerCase()]
     }));
-  })), react_1["default"].createElement("div", {
-    className: "row",
-    ref: marker
-  }, react_1["default"].createElement("div", {
-    className: "col-md-12"
-  }, react_1["default"].createElement(AveragePerormance_1["default"], null))));
+  })), current_subjects.map(function (subject, index) {
+    return react_1["default"].createElement("div", {
+      className: "row",
+      key: index,
+      ref: createMarkers,
+      id: subject
+    }, react_1["default"].createElement("div", {
+      className: "col-md-12"
+    }, react_1["default"].createElement(AveragePerormance_1["default"], {
+      name: subject,
+      class_style: subject_styles[subject.replace(/\s+/g, '').toLowerCase()],
+      image: subject_icons[subject.replace(/\s+/g, '').toLowerCase()],
+      eleme: marker.current[index],
+      load_charts: encountered_subject.includes(subject) ? true : false
+    })));
+  }));
 };
 
 exports["default"] = TabContent;
@@ -3088,6 +3294,11 @@ var Dropdown = function Dropdown() {
     dispatch((0, visualization_action_1.setDistrict)(district));
   };
 
+  var setNational = function setNational() {
+    dispatch((0, visualization_action_1.changeDemography)('national'));
+    dispatch((0, visualization_action_1.changeId)(0));
+  };
+
   (0, react_1.useEffect)(function () {
     dispatch((0, visualization_action_1.getStateList)());
   }, []);
@@ -3135,7 +3346,7 @@ var Dropdown = function Dropdown() {
     }
   }, [current_geography, currentDistrict, currentState]);
   return react_1["default"].createElement("div", {
-    className: "col-md-4"
+    className: "col-md-5 col-lg-4"
   }, react_1["default"].createElement("div", {
     className: "dropdown-select-wrap"
   }, react_1["default"].createElement("h3", {
@@ -3158,9 +3369,9 @@ var Dropdown = function Dropdown() {
       searchDistrict(e);
     }
   })), react_1["default"].createElement("div", {
-    className: "dropdown-list search-list "
+    className: "dropdown-list search-list"
   }, react_1["default"].createElement("ul", {
-    className: "scrollbar-y-lightblue"
+    className: "search-menu scrollbar-y-lightblue"
   }, searchedDistrictList.length !== 0 ? searchedDistrictList.map(function (result, index) {
     return react_1["default"].createElement("li", {
       key: index,
@@ -3183,12 +3394,12 @@ var Dropdown = function Dropdown() {
       className: "dropdown-item dropdown-toggle",
       "data-bs-toggle": "dropdown",
       "data-bs-auto-close": "outside",
-      href: "",
+      href: "#",
       onClick: function onClick() {
         getStateDistricts(state);
       }
     }, state.state_name), react_1["default"].createElement("ul", {
-      className: "dropdown-menu menu-level-3",
+      className: "dropdown-menu menu-level-3 scrollbar-y-darkblue",
       key: index
     }, districts.map(function (district, index) {
       return react_1["default"].createElement("li", {
@@ -3196,7 +3407,7 @@ var Dropdown = function Dropdown() {
         key: index
       }, react_1["default"].createElement("a", {
         className: "dropdown-item",
-        href: "",
+        href: "#",
         onClick: function onClick() {
           ChangeDistrict(district);
         }
@@ -3335,7 +3546,7 @@ exports["default"] = WhiteCard;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.SUBJECT_CARDS_FETCH_REJECTED = exports.SUBJECT_CARDS_FETCH_FULFILLED = exports.SUBJECT_CARDS_FETCH_PENDING = exports.SUBJECT_CARDS_FETCH = exports.CURRENT_STATE_FETCH_REJECTED = exports.CURRENT_STATE_FETCH_FULFILLED = exports.CURRENT_STATE_FETCH_PENDING = exports.CURRENT_STATE_FETCH = exports.CURRENT_DISTRICT_FETCH_REJECTED = exports.CURRENT_DISTRICT_FETCH_FULFILLED = exports.CURRENT_DISTRICT_FETCH_PENDING = exports.CURRENT_DISTRICT_FETCH = exports.IDENTITY_FETCH_REJECTED = exports.IDENTITY_FETCH_FULFILLED = exports.IDENTITY_FETCH_PENDING = exports.IDENTITY_FETCH = exports.GEOGRAPHY_FETCH_REJECTED = exports.GEOGRAPHY_FETCH_FULFILLED = exports.GEOGRAPHY_FETCH_PENDING = exports.GEOGRAPHY_FETCH = exports.DISTRICT_FETCH_REJECTED = exports.DISTRICT_FETCH_FULFILLED = exports.DISTRICT_FETCH_PENDING = exports.DISTRICT_FETCH = exports.CARDS_FETCH_REJECTED = exports.CARDS_FETCH_FULFILLED = exports.CARDS_FETCH_PENDING = exports.CARDS_FETCH = exports.GRADE_FETCH_REJECTED = exports.GRADE_FETCH_FULFILLED = exports.GRADE_FETCH_PENDING = exports.GRADE_FETCH = exports.STATE_FETCH_REJECTED = exports.STATE_FETCH_FULFILLED = exports.STATE_FETCH_PENDING = exports.STATE_FETCH = void 0;
+exports.CHART_FETCH_REJECTED = exports.CHART_FETCH_FULFILLED = exports.CHART_FETCH_PENDING = exports.CHART_FETCH = exports.SUBJECT_CARDS_FETCH_REJECTED = exports.SUBJECT_CARDS_FETCH_FULFILLED = exports.SUBJECT_CARDS_FETCH_PENDING = exports.SUBJECT_CARDS_FETCH = exports.CURRENT_STATE_FETCH_REJECTED = exports.CURRENT_STATE_FETCH_FULFILLED = exports.CURRENT_STATE_FETCH_PENDING = exports.CURRENT_STATE_FETCH = exports.CURRENT_DISTRICT_FETCH_REJECTED = exports.CURRENT_DISTRICT_FETCH_FULFILLED = exports.CURRENT_DISTRICT_FETCH_PENDING = exports.CURRENT_DISTRICT_FETCH = exports.IDENTITY_FETCH_REJECTED = exports.IDENTITY_FETCH_FULFILLED = exports.IDENTITY_FETCH_PENDING = exports.IDENTITY_FETCH = exports.GEOGRAPHY_FETCH_REJECTED = exports.GEOGRAPHY_FETCH_FULFILLED = exports.GEOGRAPHY_FETCH_PENDING = exports.GEOGRAPHY_FETCH = exports.DISTRICT_FETCH_REJECTED = exports.DISTRICT_FETCH_FULFILLED = exports.DISTRICT_FETCH_PENDING = exports.DISTRICT_FETCH = exports.CARDS_FETCH_REJECTED = exports.CARDS_FETCH_FULFILLED = exports.CARDS_FETCH_PENDING = exports.CARDS_FETCH = exports.GRADE_FETCH_REJECTED = exports.GRADE_FETCH_FULFILLED = exports.GRADE_FETCH_PENDING = exports.GRADE_FETCH = exports.STATE_FETCH_REJECTED = exports.STATE_FETCH_FULFILLED = exports.STATE_FETCH_PENDING = exports.STATE_FETCH = void 0;
 exports.STATE_FETCH = "STATE_FETCH";
 exports.STATE_FETCH_PENDING = "STATE_FETCH_PENDING";
 exports.STATE_FETCH_FULFILLED = "STATE_FETCH_FULFILLED";
@@ -3372,6 +3583,10 @@ exports.SUBJECT_CARDS_FETCH = "SUBJECT_CARDS_FETCH";
 exports.SUBJECT_CARDS_FETCH_PENDING = "SUBJECT_CARDS_FETCH_PENDING";
 exports.SUBJECT_CARDS_FETCH_FULFILLED = "SUBJECT_CARDS_FETCH_FULFILLED";
 exports.SUBJECT_CARDS_FETCH_REJECTED = "SUBJECT_CARDS_FETCH_REJECTED";
+exports.CHART_FETCH = "CHART_FETCH";
+exports.CHART_FETCH_PENDING = "CHART_FETCH_PENDING";
+exports.CHART_FETCH_FULFILLED = "CHART_FETCH_FULFILLED";
+exports.CHART_FETCH_REJECTED = "CHART_FETCH_REJECTED";
 
 /***/ }),
 
@@ -3471,6 +3686,70 @@ var cardsReducers = function cardsReducers() {
 };
 
 exports.cardsReducers = cardsReducers;
+
+/***/ }),
+
+/***/ "./src/reducers/chart.reducer.tsx":
+/*!****************************************!*\
+  !*** ./src/reducers/chart.reducer.tsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.chartReducer = void 0;
+
+var types_1 = __webpack_require__(/*! @/constants/types */ "./src/constants/types.tsx");
+
+var initialStateList = {
+  loading: false,
+  loaded: false,
+  error: false,
+  data: []
+};
+
+var chartReducer = function chartReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialStateList;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var type = action.type,
+      payload = action.payload;
+
+  switch (type) {
+    case types_1.CHART_FETCH_PENDING:
+      {
+        return Object.assign(Object.assign({}, state), {
+          loading: true
+        });
+      }
+
+    case types_1.CHART_FETCH_FULFILLED:
+      {
+        return Object.assign(Object.assign({}, state), {
+          loading: false,
+          loaded: true,
+          data: payload.data.data.length > 0 ? JSON.parse(payload.data.data[0].data) : {}
+        });
+      }
+
+    case types_1.CHART_FETCH_REJECTED:
+      {
+        return Object.assign(Object.assign({}, state), {
+          loading: false,
+          loaded: false,
+          error: true
+        });
+      }
+
+    default:
+      return state;
+  }
+};
+
+exports.chartReducer = chartReducer;
 
 /***/ }),
 
@@ -3891,6 +4170,8 @@ var current_district_reducer_1 = __webpack_require__(/*! @/reducers/current_dist
 
 var subjectcards_reducer_1 = __webpack_require__(/*! @/reducers/subjectcards.reducer */ "./src/reducers/subjectcards.reducer.tsx");
 
+var chart_reducer_1 = __webpack_require__(/*! @/reducers/chart.reducer */ "./src/reducers/chart.reducer.tsx");
+
 var reducers = (0, redux_1.combineReducers)({
   states: visualization_reducer_1.visualizationReducer,
   grade: grade_reducer_1.gradeReducer,
@@ -3900,7 +4181,8 @@ var reducers = (0, redux_1.combineReducers)({
   current_id: identity_resolver_1.identityReducer,
   current_state: current_state_reducer_1.currentStateReducer,
   current_district: current_district_reducer_1.currentDistrictReducer,
-  subject_cards: subjectcards_reducer_1.subjectCards
+  subject_cards: subjectcards_reducer_1.subjectCards,
+  charts: chart_reducer_1.chartReducer
 });
 exports["default"] = reducers;
 
@@ -4058,7 +4340,8 @@ var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/a
 exports["default"] = axios_1["default"].create({
   baseURL: 'http://localhost:8055/items/',
   headers: {
-    'Content-type': 'application/json'
+    'Content-type': 'application/json',
+    "Authorization": "Bearer $2y$10$Y8lv.M9vBmgHTVTTSrNMHeeXHBE/onZ2en1d0.rjlpyLUPglgX4/2"
   }
 });
 
@@ -4107,7 +4390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/ap-people.svg?86291f13f18fd7ed0c2a3b497157807d");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/ap-people.svg?42c647fbeb4e29b040f703109247af14");
 
 /***/ }),
 
@@ -4122,7 +4405,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/brainstorming.svg?5169c7813fe2e7af5c1a72ea09e2c30b");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/brainstorming.svg?bc9433e4666de89f55fc61be254cfb20");
 
 /***/ }),
 
@@ -4137,7 +4420,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/building.svg?3020f18279a0784eb50801476d343c08");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/building.svg?42ffa2b591fe660e31a9c1c0a6c1b411");
 
 /***/ }),
 
@@ -4152,7 +4435,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/globe-icon.svg?51ac38cdaf2a05f38b7f149383a186be");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/globe-icon.svg?384549491840abe3aeb2310d3bf968f4");
 
 /***/ }),
 
@@ -4167,7 +4450,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/professor.svg?5823aeb995fc38618c80e7ad0ec5bd75");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/professor.svg?7562f2a5ab89655c4a2406728802ff4f");
 
 /***/ }),
 
