@@ -125,18 +125,20 @@
 @include('front.includes.footer')
 
 <script>
+
 $(document).ready(function() {
   captchaGenerate()
-  })
+})
+
 function captchaGenerate(){
-        var string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        var len = string.length;
-        let captcha=""
-        for (let i = 0; i < 6; i++ ) {
-            captcha += string[Math.floor(Math.random() * len)];
-        }
-        $('#html_captcha_code').html(captcha);
-        $('#captcha').val(captcha);
+  var string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var len = string.length;
+  let captcha=""
+  for (let i = 0; i < 6; i++ ) {
+      captcha += string[Math.floor(Math.random() * len)];
+  }
+  $('#html_captcha_code').html(captcha);
+  $('#captcha').val(captcha);
 }
 
 $("body").on('click', '.toggle-password', function() {
@@ -145,7 +147,7 @@ $("body").on('click', '.toggle-password', function() {
     input.attr("type", "text");
   } else {
     input.attr("type", "password");
-  }
+}
 
 });
 
