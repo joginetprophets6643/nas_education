@@ -1652,10 +1652,11 @@ ul {
 
 // report-card-css
 
-.top-content {
-    padding: 5px;
-    margin-left: 10px;
-}
+.report-card-wrap{
+    .top-content {
+        padding: 5px;
+    }
+} 
 
 .report-card-container {
     width: 100% !important;
@@ -6027,9 +6028,9 @@ ul {
 
     .top-content {
         padding: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
         .navbar-toggler {
             padding: 0;
             &:focus {
