@@ -4,7 +4,7 @@ const del = require('del')
 
 
 mix.ts("src/index.tsx", "public/js/app.js").react()
-.sass('src/styles/_style.scss', 'public/css')
+.sass('src/styles/_globalstyle.scss', 'public/css')
 
 mix.webpackConfig({
     resolve: {
