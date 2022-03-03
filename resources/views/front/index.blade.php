@@ -683,7 +683,7 @@
         legend: {
           enabled: false
         },
-      tooltip: { enabled: false },
+      tooltip: { enabled: true },
         navigation: {
             buttonOptions: {
                 enabled: false

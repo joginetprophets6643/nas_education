@@ -29,12 +29,12 @@
                     <div class="card-white">
                         <div class="registration-content">
 
-                            <div class=row>
-                                <h2 class="heading-blue col-md-10">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2 class="heading-blue">
                                 Download CSV Data
                                 </h2>
-                                <div class="col-md-2">
-                                <a href="{{url('data-share/logout')}}" class="btn org-btn">Logout</a>
+                                <div class="btn-wrap">
+                                <a href="{{url('data-share/logout')}}" class="btn org-btn p-5-10">Logout</a>
                                 </div>
                             </div>
 
@@ -77,48 +77,45 @@
                                     <textarea name="purpose" class="form-control w-100" id="purpose" rows="3" placeholder="Purpose of download data upto 50 characters..."></textarea>
                                     <span class="text-danger" id="valid_purpose"></span>
                                 </div>
+                                <div class="term-wrap">
+                                <div class="col-md-12">
 
-                                <div class="col-md-12 d-flex px-5 py-4">
-
-                                    <div class="form-group d-flex mx-3">
-                                    <input type="checkbox" id="term-cons" class="mt-1 form-check-input">
-                                    <span class="text-danger mx-2">*</span>
+                                    <div class="form-group checkbox-wrap">
+                                        <input type="checkbox" id="term-cons" class="mt-1 form-check-input">
+                                        <span class="text-danger mx-2">*</span>
+                                        <p class="term-text"> I have read and agreed to the Terms written below : </p>
                                     </div>
-
-                                    <div class="form-group mx-2">
-                                    <p class="m-0"> I have read and agreed to the Terms written below : </p>
-
-                                    <div class="mx-3 terms">
-                                    <ul>
-                                        <li>
-                                        1. The data user undertakes to have read and understood the Data Sharing Policy and agrees to abide by all its existing content and intent, as amended from time to time.
-                                        </li>
-                                        <li>
-                                        2. Data obtained herewith, will be solely used for the lawful purposes and the confidentiality and secrecy of the anonymised data will be maintained by the user.
-                                        </li>
-                                        <li>
-                                        3. The data would be used after understanding the concepts, purpose and applicability of data along with a proper appreciation of the limitations and nature of the data and for obtaining meaningful estimates and legitimate results.
-                                        </li>
-                                        <li>
-                                        4. The data obtained as above will not be passed on either wholly or partially with or without profit to any other data user or disseminator of data with or without commercial purpose.
-                                        </li>
-                                        <li>
-                                        5. The data user shall acknowledge the data source for all intents and purposes.
-                                        </li>
-                                        <li>
-                                        6. The data user shall not undertake re-identification or processing of de-identified/ anonymised personal data.
-                                        </li>
-                                    </ul>
-                                    </div>
-                                    
-                                    </div>
-
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="terms-content">
+                                        <ul>
+                                            <li>
+                                            1. The data user undertakes to have read and understood the Data Sharing Policy and agrees to abide by all its existing content and intent, as amended from time to time.
+                                            </li>
+                                            <li>
+                                            2. Data obtained herewith, will be solely used for the lawful purposes and the confidentiality and secrecy of the anonymised data will be maintained by the user.
+                                            </li>
+                                            <li>
+                                            3. The data would be used after understanding the concepts, purpose and applicability of data along with a proper appreciation of the limitations and nature of the data and for obtaining meaningful estimates and legitimate results.
+                                            </li>
+                                            <li>
+                                            4. The data obtained as above will not be passed on either wholly or partially with or without profit to any other data user or disseminator of data with or without commercial purpose.
+                                            </li>
+                                            <li>
+                                            5. The data user shall acknowledge the data source for all intents and purposes.
+                                            </li>
+                                            <li>
+                                            6. The data user shall not undertake re-identification or processing of de-identified/ anonymised personal data.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                </div>  
                                 
                             </form>
 
                             <div class="d-flex align-items-center justify-content-center">
-                            <button type="button" id="get_files" class="btn p-1 org-btn">Get Files</button>
+                            <button type="button" id="get_files" class="btn org-btn p-5-10">Get Files</button>
                             </div>
 
                             <div class="file-section mt-4">
@@ -135,7 +132,7 @@
                                 </div>
 
                                 <div class="d-flex align-items-center justify-content-center">
-                                <button type="button" class="btn p-1 org-btn" id="downloadSchema">Download Schema
+                                <button type="button" class="btn p-5-10 org-btn" id="downloadSchema">Download Schema
                                     <i class="fa fa-download ms-1" aria-hidden="true"></i></button>
                                 </div>
                             
@@ -252,6 +249,7 @@ $('#state').change((e)=>{
         
         $('#stateChange').modal('show');
 
+
         $('#y_btn').click(()=>{
             $('#districts').css('display','block')
             $('#ajax_districts').prop('disabled',false)
@@ -259,6 +257,9 @@ $('#state').change((e)=>{
             let dis = districts.filter(function(districts){
                 return districts.state_id==id;
             })
+            $('#ajax_districts').empty();
+            $('#ajax_districts').append('<option value="">District</option>')
+
 
             dis=dis.sort((a, b) => a.district_name.localeCompare(b.district_name))
             dis.forEach((item)=>{
@@ -277,16 +278,12 @@ $('#state').change((e)=>{
     }
 
     $('.file-section').css('display','none');
-    $('#file-list').empty()
-    $('#description-list').empty()
     
 })
 
 $('#ajax_districts').change(()=>{
     
     $('.file-section').css('display','none');
-    $('#file-list').empty()
-    $('#description-list').empty()
 
 })
 
@@ -296,8 +293,7 @@ $('#get_files').click(()=>{
     let purpose=''
 
     $('.file-section').css('display','none');
-    $('#file-list').empty()
-    $('#description-list').empty()
+    
 
 
     let flag=doValidation()
@@ -313,6 +309,9 @@ $('#get_files').click(()=>{
             
             let list = document.getElementById("file-list");
             let desc_list=document.getElementById("description-list");
+
+            $('#file-list').empty()
+            $('#description-list').empty()
 
             if(data.length){
 
@@ -351,6 +350,7 @@ $('#get_files').click(()=>{
             $('#downloadSchema').css('display','block');
             }
             else{
+
                 let li = document.createElement("li");
                 let span = document.createElement("span");
 

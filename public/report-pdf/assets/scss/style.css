@@ -9831,17 +9831,19 @@ ul {
 }
 
 .reportview-class-content .graph-wrap figure .category {
-  margin: 1rem 1rem 1rem 3rem;
+  margin: 1rem;
   border-radius: 23px;
 }
 
 .reportview-class-content .graph-wrap figure .category .text-28 {
   font-size: 28px;
   padding: 1.5rem;
+  font-weight: 600;
 }
 
 .reportview-class-content .graph-wrap figure .category .text-17 {
-  font-size: 17px;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 .reportview-class-content .tile-dark-blue {
@@ -9966,6 +9968,11 @@ ul {
   margin-left: 2rem;
 }
 
+.reportview-class-content .gender-right .drc-pie-chart {
+  margin-left: 0;
+  padding: 0 !important;
+}
+
 .reportview-class-content .gender-right .social-right-wrap {
   margin-left: 1rem;
 }
@@ -10036,11 +10043,11 @@ ul {
 }
 
 .reportview-class-content .gender-right .dist-social-img .social-img-wrap .per-text-1, .reportview-class-content .gender-right .dist-social-img .social-img-wrap .per-text-3 {
-  left: 180px !important;
+  left: 140px !important;
 }
 
 .reportview-class-content .gender-right .dist-social-img .social-img-wrap .per-text-2, .reportview-class-content .gender-right .dist-social-img .social-img-wrap .per-text-4 {
-  right: 120px !important;
+  right: 60px !important;
 }
 
 .reportview-class-content .gender-right .img-wrap {
@@ -10209,6 +10216,10 @@ ul {
 
 .text-18 {
   font-size: 18px;
+}
+
+.text-22 {
+  font-size: 25px;
 }
 
 .text-20 {

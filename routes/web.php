@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Static_Content;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\DataProcess;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\QuestionnaireController;
@@ -11,6 +12,9 @@ use App\Http\Controllers\LearningOutcomeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PdfGenerateController;
 use App\Http\Controllers\VisualizationCalculationController;
+use Illuminate\Support\Facades\Crypt;
+
+use App\Http\Controllers\FinalCalculationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +25,16 @@ use App\Http\Controllers\VisualizationCalculationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*********************************
+* District Level Data upload start
+**********************************/
+Route::get('/drc-final-data/district-master',[DataProcess::class,'index']);
+Route::get('/drc-final-data/performance',[DataProcess::class,'performance']);
+Route::get('/drc-final-data/participation',[DataProcess::class,'participation']);
+/*********************************
+* District Level Data upload end
+**********************************/
+Route::get('getDRCDataForGrade3',[FinalCalculationController::class,'getDRCDataForGrade3']);
 Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
 Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
 Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
@@ -58,6 +72,72 @@ Route::get('national-pdf', [PdfGenerateController::class, 'NationalIndex']);
 Route::get('national-download-pdf', [PdfGenerateController::class, 'Nationaldwn'])->name('nationaldownload');
 //  National Pdf Generate End
 
+// District: Pdf path for download start
+Route::get('/download-district-report/{state_id}/{district_id}', function($state_id,$district_id)
+{
+    $state_id = Crypt::decrypt($state_id);
+    $district_id = Crypt::decrypt($district_id);
+    // Check if file exists in app/public/file folder
+    $file_name = 'nas-district-report.pdf';
+    $file_path = public_path('nas_pdf/national/'.$state_id.'/'.$district_id.'/nas-district-report.pdf');
+    if (file_exists($file_path))
+    {
+        return Response::make(file_get_contents($file_path), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$file_name.'"'
+        ]);
+    }
+    else
+    {
+        // Error
+        exit('Requested file does not exist on our server!');
+    }
+
+});
+// District: Pdf path for download End
+// State: Pdf path for download start
+Route::get('/download-state-report/{state_id}', function($state_id)
+{
+    $state_id = Crypt::decrypt($state_id);
+    // Check if file exists in app/public/file folder
+    $file_name = 'nas-state-report.pdf';
+    $file_path = public_path('nas_pdf/national/'.$state_id.'/nas-state-report.pdf');
+    if (file_exists($file_path))
+    {
+        return Response::make(file_get_contents($file_path), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$file_name.'"'
+        ]);
+    }
+    else
+    {
+        // Error
+        exit('Requested file does not exist on our server!');
+    }
+
+});
+// State: Pdf path for download end
+// National: Pdf path for download start
+Route::get('/download-national-report', function()
+{
+    // Check if file exists in app/public/file folder
+    $file_name = 'nas-state-report.pdf';
+    $file_path = public_path('nas_pdf/national/nas-national-report.pdf');
+    if (file_exists($file_path))
+    {
+        return Response::make(file_get_contents($file_path), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$file_name.'"'
+        ]);
+    }
+    else
+    {
+        // Error
+        exit('Requested file does not exist on our server!');
+    }
+
+});
+// National: Pdf path for download end
 // Route::get('home', 'App\Http\Controllers\MainController@landing');
 // Route::post('post-search', 'App\Http\Controllers\MainController@search')->name('post-search');
 // Route::post('preloaddata', 'App\Http\Controllers\MainController@preload')->name('preloaddata');

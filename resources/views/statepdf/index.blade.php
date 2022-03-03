@@ -201,7 +201,7 @@
                                 width="58"
                               />
                               <h5 class="mb-0">
-                                <span>{{isset($stateVal->total_population)&&$stateVal->total_population=''?$stateVal->total_population:'0'}}</span>
+                                <span>{{isset($stateVal->total_population)&&$stateVal->total_population!=''?$stateVal->total_population:'0'}}</span>
                               </h5>
                               <p>Population</p>
                             </div>
@@ -529,35 +529,35 @@
                           <thead>
                             <tr class="dark-blue-bg">
                               <th
-                                class="align-middle bg-orange text-start fw-normal"
+                                class="align-middle bg-orange text-start"
                                 scope="col"
                                 colspan="2"
                                 rowspan="2"
                               >
                                 PERFORMANCE BY GENDER
                               </th>
-                              <th scope="col" colspan="2" class="fw-normal">
+                              <th scope="col" colspan="2" class="">
                                 Class 3
                               </th>
-                              <th scope="col" colspan="2" class="fw-normal">
+                              <th scope="col" colspan="2" class="">
                                 Class 5
                               </th>
-                              <th scope="col" colspan="2" class="fw-normal">
+                              <th scope="col" colspan="2" class="">
                                 Class 8
                               </th>
-                              <th scope="col" colspan="2" class="fw-normal">
+                              <th scope="col" colspan="2" class="">
                                 Class 10
                               </th>
                             </tr>
                             <tr class="dark-blue-bg">
-                              <th scope="col" class="fw-normal">Boys</th>
-                              <th scope="col" class="fw-normal">Girls</th>
-                              <th scope="col" class="fw-normal">Boys</th>
-                              <th scope="col" class="fw-normal">Girls</th>
-                              <th scope="col" class="fw-normal">Boys</th>
-                              <th scope="col" class="fw-normal">Girls</th>
-                              <th scope="col" class="fw-normal">Boys</th>
-                              <th scope="col" class="fw-normal">Girls</th>
+                              <th scope="col" class="">Boys</th>
+                              <th scope="col" class="">Girls</th>
+                              <th scope="col" class="">Boys</th>
+                              <th scope="col" class="">Girls</th>
+                              <th scope="col" class="">Boys</th>
+                              <th scope="col" class="">Girls</th>
+                              <th scope="col" class="">Boys</th>
+                              <th scope="col" class="">Girls</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -665,35 +665,35 @@
                           <thead>
                             <tr class="dark-blue-bg">
                               <th
-                                class="align-middle bg-orange text-start fw-normal"
+                                class="align-middle bg-orange text-start"
                                 scope="col"
                                 colspan="2"
                                 rowspan="2"
                               >
                                 PERFORMANCE BY LOCATION
                               </th>
-                              <th scope="col" colspan="2" class="fw-normal">
+                              <th scope="col" colspan="2" class="">
                                 Class 3
                               </th>
-                              <th scope="col" colspan="2" class="fw-normal">
+                              <th scope="col" colspan="2" class="">
                                 Class 5
                               </th>
-                              <th scope="col" colspan="2" class="fw-normal">
+                              <th scope="col" colspan="2" class="">
                                 Class 8
                               </th>
-                              <th scope="col" colspan="2" class="fw-normal">
+                              <th scope="col" colspan="2" class="">
                                 Class 10
                               </th>
                             </tr>
                             <tr class="dark-blue-bg">
-                              <th scope="col" class="fw-normal">Rural</th>
-                              <th scope="col" class="fw-normal">Urban</th>
-                              <th scope="col" class="fw-normal">Rural</th>
-                              <th scope="col" class="fw-normal">Urban</th>
-                              <th scope="col" class="fw-normal">Rural</th>
-                              <th scope="col" class="fw-normal">Urban</th>
-                              <th scope="col" class="fw-normal">Rural</th>
-                              <th scope="col" class="fw-normal">Urban</th>
+                              <th scope="col" class="">Rural</th>
+                              <th scope="col" class="">Urban</th>
+                              <th scope="col" class="">Rural</th>
+                              <th scope="col" class="">Urban</th>
+                              <th scope="col" class="">Rural</th>
+                              <th scope="col" class="">Urban</th>
+                              <th scope="col" class="">Rural</th>
+                              <th scope="col" class="">Urban</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -800,43 +800,43 @@
                           <thead>
                             <tr class="dark-blue-bg">
                               <th
-                                class="align-middle bg-orange text-start fw-normal"
+                                class="align-middle bg-orange text-start"
                                 scope="col"
                                 colspan="2"
                                 rowspan="2"
                               >
                                 PERFORMANCE BY MANAGEMENT
                               </th>
-                              <th scope="col" colspan="4" class="fw-normal">
+                              <th scope="col" colspan="4" class="">
                                 Class 3
                               </th>
-                              <th scope="col" colspan="4" class="fw-normal">
+                              <th scope="col" colspan="4" class="">
                                 Class 5
                               </th>
-                              <th scope="col" colspan="4" class="fw-normal">
+                              <th scope="col" colspan="4" class="">
                                 Class 8
                               </th>
-                              <th scope="col" colspan="4" class="fw-normal">
+                              <th scope="col" colspan="4" class="">
                                 Class 10
                               </th>
                             </tr>
                             <tr class="dark-blue-bg head-rotate">
-                              <th scope="col" class="fw-normal">Govt.</th>
-                              <th scope="col" class="fw-normal">Private</th>
-                              <th scope="col" class="fw-normal">Aided</th>
-                              <th scope="col" class="fw-normal">Central</th>
-                              <th scope="col" class="fw-normal">Govt.</th>
-                              <th scope="col" class="fw-normal">Private</th>
-                              <th scope="col" class="fw-normal">Aided</th>
-                              <th scope="col" class="fw-normal">Central</th>
-                              <th scope="col" class="fw-normal">Govt.</th>
-                              <th scope="col" class="fw-normal">Private</th>
-                              <th scope="col" class="fw-normal">Aided</th>
-                              <th scope="col" class="fw-normal">Central</th>
-                              <th scope="col" class="fw-normal">Govt.</th>
-                              <th scope="col" class="fw-normal">Private</th>
-                              <th scope="col" class="fw-normal">Aided</th>
-                              <th scope="col" class="fw-normal">Central</th>
+                              <th scope="col" class="">Govt.</th>
+                              <th scope="col" class="">Private</th>
+                              <th scope="col" class="">Aided</th>
+                              <th scope="col" class="">Central</th>
+                              <th scope="col" class="">Govt.</th>
+                              <th scope="col" class="">Private</th>
+                              <th scope="col" class="">Aided</th>
+                              <th scope="col" class="">Central</th>
+                              <th scope="col" class="">Govt.</th>
+                              <th scope="col" class="">Private</th>
+                              <th scope="col" class="">Aided</th>
+                              <th scope="col" class="">Central</th>
+                              <th scope="col" class="">Govt.</th>
+                              <th scope="col" class="">Private</th>
+                              <th scope="col" class="">Aided</th>
+                              <th scope="col" class="">Central</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -967,43 +967,43 @@
                           <thead>
                             <tr class="dark-blue-bg">
                               <th
-                                class="align-middle bg-orange text-start fw-normal"
+                                class="align-middle bg-orange text-start"
                                 scope="col"
                                 colspan="2"
                                 rowspan="2"
                               >
                                 PERFORMANCE BY SOCIAL GROUP
                               </th>
-                              <th scope="col" colspan="4" class="fw-normal">
+                              <th scope="col" colspan="4" class="">
                                 Class 3
                               </th>
-                              <th scope="col" colspan="4" class="fw-normal">
+                              <th scope="col" colspan="4" class="">
                                 Class 5
                               </th>
-                              <th scope="col" colspan="4" class="fw-normal">
+                              <th scope="col" colspan="4" class="">
                                 Class 8
                               </th>
-                              <th scope="col" colspan="4" class="fw-normal">
+                              <th scope="col" colspan="4" class="">
                                 Class 10
                               </th>
                             </tr>
                             <tr class="dark-blue-bg head-rotate">
-                              <th scope="col" class="fw-normal">SC</th>
-                              <th scope="col" class="fw-normal">ST</th>
-                              <th scope="col" class="fw-normal">OBC</th>
-                              <th scope="col" class="fw-normal">Gen.</th>
-                              <th scope="col" class="fw-normal">SC</th>
-                              <th scope="col" class="fw-normal">ST</th>
-                              <th scope="col" class="fw-normal">OBC</th>
-                              <th scope="col" class="fw-normal">Gen.</th>
-                              <th scope="col" class="fw-normal">SC</th>
-                              <th scope="col" class="fw-normal">ST</th>
-                              <th scope="col" class="fw-normal">OBC</th>
-                              <th scope="col" class="fw-normal">Gen.</th>
-                              <th scope="col" class="fw-normal">SC</th>
-                              <th scope="col" class="fw-normal">ST</th>
-                              <th scope="col" class="fw-normal">OBC</th>
-                              <th scope="col" class="fw-normal">Gen.</th>
+                              <th scope="col" class="">SC</th>
+                              <th scope="col" class="">ST</th>
+                              <th scope="col" class="">OBC</th>
+                              <th scope="col" class="">Gen.</th>
+                              <th scope="col" class="">SC</th>
+                              <th scope="col" class="">ST</th>
+                              <th scope="col" class="">OBC</th>
+                              <th scope="col" class="">Gen.</th>
+                              <th scope="col" class="">SC</th>
+                              <th scope="col" class="">ST</th>
+                              <th scope="col" class="">OBC</th>
+                              <th scope="col" class="">Gen.</th>
+                              <th scope="col" class="">SC</th>
+                              <th scope="col" class="">ST</th>
+                              <th scope="col" class="">OBC</th>
+                              <th scope="col" class="">Gen.</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1156,7 +1156,7 @@
                     <h2>{{isset($stateVal->state_name)?$stateVal->state_name:'-'}} Report Card</h2>
                   </div>
                   <!-- content -->
-                  <!-- children testimony -->
+                  <!-- head teacher testimony -->
                   <div
                     class="reportview-class-content light-pink children-testimony"
                   >
@@ -1204,14 +1204,14 @@
                       @endif
                     </div>
                   </div>
-                  <!-- head-teacher testimony -->
+                  <!-- children testimony -->
                   <div
                     class="reportview-class-content light-blue-bg children-testimony head-teacher-testimony mb-60"
                   >
                     <div class="row pb-3 justify-content-center">
                       <div class="col-md-12 pb-4">
                         <h4 class="text-28 fw-bold text-center">
-                          What children say about schools?
+                          What children say about schools ?
                         </h4>
                       </div>
                       @if(count($stateFeedbackDatapq)>0)
@@ -1258,13 +1258,6 @@
                     <div class="feedback-wrap">
                       <!-- pandemic activities -->
                       <div class="pendamic-wrap my-5">
-                        <!-- <div class="virus-icon1">
-                          <img
-                            src="http://nas21.inroad.in/report-pdf/assets/images/virus.png"
-                            alt="virus"
-                            class="img-fluid"
-                          />
-                        </div> -->
                         <div class="virus-icon2">
                           <img
                             src="http://nas21.inroad.in/report-pdf/assets/images/virus.png"
@@ -1278,13 +1271,6 @@
                             alt="virus"
                             class="img-fluid"
                           />
-                        </div>
-                        <div class="virus-icon5">
-                          <!-- <img
-                            src="http://nas21.inroad.in/report-pdf/assets/images/virus.png"
-                            alt="virus"
-                            class="img-fluid"
-                          /> -->
                         </div>
                         <h2 class="text-28 virus-text fw-bold text-center">
                           Learning at home during the pandemic
@@ -1343,20 +1329,6 @@
                             @if(count($stateFeedbackDatapq1)>0)
                               @foreach($stateFeedbackDatapq1 as $pq1feedback)
                               <div class="col-md-3 mb-4">
-                                <!-- <div
-                                  class="progressbar-circle-sm progressbar-blue py-5"
-                                >
-                                  <div class="progress" data-percentage="{{isset($pq1feedback->avg)?$pq1feedback->avg:0}}">
-                                    <span class="progress-left">
-                                      <span class="progress-bar"></span>
-                                    </span>
-                                    <span class="progress-right">
-                                      <span class="progress-bar"></span>
-                                    </span>
-                                      <div class="progress-value">{{isset($pq1feedback->avg)?$pq1feedback->avg:0}}%</div>
-                                  </div>
-                                </div> -->
-
                                 <div class="container blue-progress-bar py-5">
                                   <div class="progress-percent" data-percent="{{isset($pq1feedback->avg)?$pq1feedback->avg:0}}">
                                       <div class="progress-inner">
@@ -1773,292 +1745,6 @@
                                 @endif                            
 
                               </tbody>
-
-                            <!-- <tbody>
-                              <tr class="card-blue text-white">
-                                <td class="text" colspan="5">
-                                  <img
-                                    src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png"
-                                    height="30"
-                                    alt=""
-                                  />
-                                  Language
-                                </td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">L304</th>
-                                <td class="text-sm-start">
-                                  Reads small texts with comprehension i.e.,
-                                  identifies main ideas, details, sequence and
-                                  draws conclusions
-                                </td>
-                                <td>82</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-blue">
-                                <th scope="row">L312</th>
-                                <td class="text-sm-start">
-                                  Reads printed scripts on the classroom walls:
-                                  poems, posters, charts etc
-                                </td>
-                                <td>83</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-pink text-white">
-                                <td class="text" colspan="5">
-                                  <img
-                                    src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png"
-                                    alt=""
-                                  />
-                                  Mathematics
-                                </td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">M301</th>
-                                <td class="text-sm-start">
-                                  Reads and writes numbers up to 999 using place
-                                  value
-                                </td>
-                                <td>84</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-light-pink">
-                                <th scope="row">M302</th>
-                                <td class="text-sm-start">
-                                  Compares numbers up to 999 based on their place
-                                  values
-                                </td>
-                                <td>88</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">M303</th>
-                                <td class="text-sm-start">
-                                  Solves simple daily life problems using addition
-                                  and subtraction of three digit numbers with and
-                                  without regrouping
-                                </td>
-                                <td>88</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-light-pink">
-                                <th scope="row">M304</th>
-                                <td class="text-sm-start">
-                                  Constructs and uses the multiplication facts (up
-                                  till 10) in daily life situations
-                                </td>
-                                <td>77</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">M305</th>
-                                <td class="text-sm-start">
-                                  Analyses and applies an appropriate number
-                                  operation in the situation/ context
-                                </td>
-                                <td>84</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-light-pink">
-                                <th scope="row">M306</th>
-                                <td class="text-sm-start">
-                                  Explains the meaning of division facts by equal
-                                  grouping/sharing and finds it by repeated
-                                  subtraction
-                                </td>
-                                <td>88</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">M309</th>
-                                <td class="text-sm-start">
-                                  Identifies and makes 2D-shapes by paper folding,
-                                  paper cutting on the dot grid, using straight
-                                  lines etc.
-                                </td>
-                                <td>88</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-light-pink">
-                                <th scope="row">M311</th>
-                                <td class="text-sm-start">
-                                  Fills a given region leaving no gaps using a
-                                  tile of a given shape
-                                </td>
-                                <td>77</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">M312</th>
-                                <td class="text-sm-start">
-                                  Estimates and measures length and distance using
-                                  standard units like centimetres or metres &
-                                  identifies relationships
-                                </td>
-                                <td>49</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-light-pink">
-                                <th scope="row">M317</th>
-                                <td class="text-sm-start">
-                                  Reads the time correctly to the hour using a
-                                  clock/watch
-                                </td>
-                                <td>83</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">M318</th>
-                                <td class="text-sm-start">
-                                  Extends patterns in simple shapes and numbers
-                                </td>
-                                <td>75</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-light-pink">
-                                <th scope="row">M319</th>
-                                <td class="text-sm-start">
-                                  Records data using tally marks, represents
-                                  pictorially and draws conclusions
-                                </td>
-                                <td>89</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="card-yellow text-white">
-                                <td class="text" colspan="5">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="" />
-                                  EVS
-                                </td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">E302</th>
-                                <td class="text-sm-start">
-                                  Identifies simple features (e.g. movement, at
-                                  places found/ kept, eating habits, sounds) of
-                                  animals and birds in the immediate surroundings.
-                                </td>
-                                <td>70</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="light-yellow-bg">
-                                <th scope="row">E303</th>
-                                <td class="text-sm-start">
-                                  Identifies relationships with and among family
-                                  members
-                                </td>
-                                <td>80</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">E304</th>
-                                <td class="text-sm-start">
-                                  Identifies objects, signs (vessels, stoves,
-                                  transport, means of communication, transport,
-                                  signboards), places (types of houses/shelters,
-                                  bus stand, petrol pump) activities (works people
-                                  do, cooking processes) at
-                                  home/school/neighbourhood
-                                </td>
-                                <td>68</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="light-yellow-bg">
-                                <th scope="row">E305</th>
-                                <td class="text-sm-start">
-                                  Describes need of food for people of different
-                                  age groups, animals/birds, availability of food
-                                  and water and use of water at home and
-                                  surroundings
-                                </td>
-                                <td>80</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">E307</th>
-                                <td class="text-sm-start">
-                                  Groups objects, birds, animals, features,
-                                  activities according to differences/similarities
-                                  using different senses. (e.g. appearance/place
-                                  of living/ food/ movement/ likes-dislikes/ any
-                                  other features)
-                                </td>
-                                <td>85</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="light-yellow-bg">
-                                <th scope="row">E309</th>
-                                <td class="text-sm-start">
-                                  Identifies directions, location of
-                                  objects/places in simple maps using
-                                  signs/symbols/verbally
-                                </td>
-                                <td>80</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">E310</th>
-                                <td class="text-sm-start">
-                                  Guesses properties, estimates quantities of
-                                  materials/activities in daily life and verifies
-                                  using symbols/ non-standard units.
-                                </td>
-                                <td>85</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="light-yellow-bg">
-                                <th scope="row">E311</th>
-                                <td class="text-sm-start">
-                                  Records observations, experiences, information
-                                  on objects/activities/places visited in
-                                  different ways and predicts patterns etc.
-                                </td>
-                                <td>80</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="">
-                                <th scope="row">E313</th>
-                                <td class="text-sm-start">
-                                  Observes rules in games (local. indoor, outdoor)
-                                </td>
-                                <td>80</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="light-yellow-bg">
-                                <th scope="row">E314</th>
-                                <td class="text-sm-start">
-                                  Voices opinion on good/bad touch , stereotypes
-                                  for tasks/play/food in family w.r.t gender,
-                                  misuse/ wastage of food and water in family and
-                                  school.
-                                </td>
-                                <td>80</td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                            </tbody> -->
                           </table>
                         </div>
                         @endforeach
@@ -2813,25 +2499,25 @@
             data: [
               {
                 name: "Central Govt.",
-                y: {{($stateParticipationData[0]->central_govt_school!=0)?round($stateParticipationData[0]->central_govt_school):0}},
+                y: {{(count($stateParticipationData)>0 && ($stateParticipationData[0]['central_govt_school']!=0))?round($stateParticipationData[0]['central_govt_school']):0}},
                 z: 100,
                 color: "#75A9D9",
               },
               {
                 name: "Govt.",
-                y: {{($stateParticipationData[0]->govt_school!=0)?round($stateParticipationData[0]->govt_school):0}},
+                y: {{(count($stateParticipationData)>0 && ($stateParticipationData[0]['govt_school']!=0))?round($stateParticipationData[0]['govt_school']):0}},
                 z: 100,
                 color: "#E9769F",
               },
               {
                 name: "Govt. Aided",
-                y: {{($stateParticipationData[0]->govt_aided_school!=0)?round($stateParticipationData[0]->govt_aided_school):0}},
+                y: {{(count($stateParticipationData)>0 && ($stateParticipationData[0]['govt_aided_school']!=0))?round($stateParticipationData[0]['govt_aided_school']):0}},
                 z: 100,
                 color: "#CAC55F",
               },
               {
                 name: "Private",
-                y: {{($stateParticipationData[0]->private_school!=0)?round($stateParticipationData[0]->private_school):0}},
+                y: {{(count($stateParticipationData)>0 && ($stateParticipationData[0]['private_school']!=0))?round($stateParticipationData[0]['private_school']):0}},
                 z: 100,
                 color: "#4CAF50",
               },

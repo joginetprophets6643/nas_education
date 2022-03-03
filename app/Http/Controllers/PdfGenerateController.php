@@ -32,7 +32,7 @@ class PdfGenerateController extends Controller
                             'DistrictFeedback'=>function($feedback){
                                 $feedback->orderBy('grade','asc');
                             }])
-                            ->whereIn('udise_district_code',['710'])
+                            // ->whereIn('udise_district_code',['710'])
                             ->get();
         // dd($districtData);
         if(count($districtData)>0)
@@ -88,7 +88,7 @@ class PdfGenerateController extends Controller
                 }
 
                 // $t=time();
-                $fileName='district-'.$districtVal->udise_district_code.'-'.$districtVal->udise_state_code;
+                $fileName='nas-district';
                 $file_path = $folderPath.''.$fileName.'-report.pdf';
                 // if(File::exists($file_path)) File::delete($file_path);
                 
@@ -124,7 +124,6 @@ class PdfGenerateController extends Controller
                             }])
                             ->whereIn('udise_state_code',['7'])
                             ->get();
-        // dd($stateData);
         if(count($stateData)>0)
         {
             foreach($stateData as $stateVal)
@@ -132,7 +131,44 @@ class PdfGenerateController extends Controller
                 $performanceData = $stateVal['StatePerformance'];
                 $stateParticipationQuery = $this->StateParticipationGroupByQuery($stateVal->udise_state_code);
                 $stateParticipationData = DB::select($stateParticipationQuery);
-                // dd($stateParticipationData[0]);
+                $stateParticipationData = json_decode(json_encode($stateParticipationData), true);
+                if(count($stateParticipationData)>0)
+                {
+                  $sc_social_group = $stateParticipationData[0]['sc_social_group'];
+                }
+                else
+                {
+                  $sc_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $obc_social_group = $stateParticipationData[0]['obc_social_group'];
+                }
+                else
+                {
+                  $obc_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $st_social_group = $stateParticipationData[0]['st_social_group'];
+                }
+                else
+                {
+                  $st_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $general_social_group = $stateParticipationData[0]['general_social_group'];
+                }
+                else
+                {
+                  $general_social_group = 0;
+                }        
+                $scImg = $this->getImgName($sc_social_group,'pink');
+                $obcImg = $this->getImgName($obc_social_group,'yellow');
+                $stImg = $this->getImgName($st_social_group,'sagegreen');
+                $genImg = $this->getImgName($general_social_group,'blue');
+
                 $stateLOData = $stateVal['StateLO'];
 
                 // PQ data
@@ -160,7 +196,7 @@ class PdfGenerateController extends Controller
                 $stateFeedbackQuerypq3 = $this->StateFeedbackGroupByQuery($stateVal->udise_state_code,$whereConditionpq3);
                 $stateFeedbackDatapq3 = DB::select($stateFeedbackQuerypq3);
 
-                return view('statepdf.index',compact('stateVal','performanceData','stateParticipationData','stateFeedbackDatapq','stateFeedbackDatatq','stateFeedbackDatasq','stateFeedbackDatapq1','stateFeedbackDatapq2','stateFeedbackDatapq3','stateLOData'));
+                return view('statepdf.index',compact('stateVal','performanceData','stateParticipationData','stateFeedbackDatapq','stateFeedbackDatatq','stateFeedbackDatasq','stateFeedbackDatapq1','stateFeedbackDatapq2','stateFeedbackDatapq3','stateLOData','scImg','obcImg','stImg','genImg'));
             }
         }  
     }
@@ -181,7 +217,6 @@ class PdfGenerateController extends Controller
                             }])
                             ->whereIn('udise_state_code',['7'])
                             ->get();
-        // dd($stateData);
                             //,'721','715'
         if(count($stateData)>0)
         {
@@ -190,6 +225,64 @@ class PdfGenerateController extends Controller
                 $performanceData = $stateVal['StatePerformance'];
                 $stateParticipationQuery = $this->StateParticipationGroupByQuery($stateVal->udise_state_code);
                 $stateParticipationData = DB::select($stateParticipationQuery);
+                $stateParticipationData = json_decode(json_encode($stateParticipationData), true);
+                if(count($stateParticipationData)>0)
+                {
+                  $sc_social_group = $stateParticipationData[0]['sc_social_group'];
+                }
+                else
+                {
+                  $sc_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $obc_social_group = $stateParticipationData[0]['obc_social_group'];
+                }
+                else
+                {
+                  $obc_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $st_social_group = $stateParticipationData[0]['st_social_group'];
+                }
+                else
+                {
+                  $st_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $general_social_group = $stateParticipationData[0]['general_social_group'];
+                }
+                else
+                {
+                  $general_social_group = 0;
+                }        
+                $scImg = $this->getImgName($sc_social_group,'pink');
+                $obcImg = $this->getImgName($obc_social_group,'yellow');
+                $stImg = $this->getImgName($st_social_group,'sagegreen');
+                $genImg = $this->getImgName($general_social_group,'blue');
+
+                // if(count($stateParticipationData)>0)
+                // {
+                //     $stateParticipationData[0]=["rural_location"=> "0",
+                //                             "urban_location"=> "0",
+                //                             "govt_school"=> "0",
+                //                             "govt_aided_school"=> "0",
+                //                             "private_school"=> "0",
+                //                             "central_govt_school"=> "0",
+                //                             "sc_social_group"=> "0",
+                //                             "obc_social_group"=> "0",
+                //                             "st_social_group"=> "0",
+                //                             "general_social_group"=> "0",
+                //                             "male_gender"=> "0",
+                //                             "female_gender"=> "0"];
+                //     // dd($stateParticipationData);
+
+                //                             echo $stateParticipationData[0]['urban_location'];
+
+                // }
+
                 $stateLOData = $stateVal['StateLO'];
                 // PQ data
                 $whereConditionpq = "and level='pq'";
@@ -218,7 +311,7 @@ class PdfGenerateController extends Controller
                 // dd($districtVal);
                 $folderPath = public_path('nas_pdf/national/'.$stateVal->udise_state_code.'/');
 
-                $fileName='state-'.$stateVal->udise_state_code;
+                $fileName='nas-state';
                 $file_path = $folderPath.''.$fileName.'-report.pdf';
 
                 if(File::isDirectory($folderPath)){
@@ -232,7 +325,7 @@ class PdfGenerateController extends Controller
                     File::makeDirectory($folderPath, 0777, true, true);
                 }
                
-                $render = view('statepdf.index',compact('stateVal','performanceData','stateParticipationData','stateFeedbackDatapq','stateFeedbackDatatq','stateFeedbackDatasq','stateFeedbackDatapq1','stateFeedbackDatapq2','stateFeedbackDatapq3','stateLOData'))->render();
+                $render = view('statepdf.index',compact('stateVal','performanceData','stateParticipationData','stateFeedbackDatapq','stateFeedbackDatatq','stateFeedbackDatasq','stateFeedbackDatapq1','stateFeedbackDatapq2','stateFeedbackDatapq3','stateLOData','scImg','obcImg','stImg','genImg'))->render();
                 $pdf = new Pdf;
                 $pdf->addPage($render);
                 $pdf->setOptions(['javascript-delay' => 5000,'page-size'=>'a4']);
@@ -265,7 +358,6 @@ class PdfGenerateController extends Controller
                             // ->whereIn('udise_state_code',['7'])
                             ->first();
         $nationalPerformance = StateGradeLevelPerformance::distinct('grade')->orderBy('grade','asc')->get();
-        // dd($nationalPerformance );
 
         // PQ data
         $whereConditionpq = "where level='pq'";
@@ -308,7 +400,7 @@ class PdfGenerateController extends Controller
         $whereConditionpq3 = "where level='pq3'";
         $nationalFeedbackQuerypq3 = $this->NationalFeedbackGroupByQuery($whereConditionpq3);
         $nationalFeedbackDatapq3 = DB::select($nationalFeedbackQuerypq3);
-        // sleep(20);
+
         return view('nationalpdf.index',compact('nationalData','nationalPerformance','nationalFeedbackDatapq','nationalFeedbackDatapq2','nationalFeedbackDatapq3','nationalFeedbackDatasq','nationalFeedbackDatasqn1','nationalFeedbackDatasqn2','nationalFeedbackDatatq','nationalFeedbackDatatqn'));
     }
 
@@ -373,10 +465,9 @@ class PdfGenerateController extends Controller
        
         $render = view('nationalpdf.index',compact('nationalData','nationalPerformance','nationalFeedbackDatapq','nationalFeedbackDatapq2','nationalFeedbackDatapq3','nationalFeedbackDatasq','nationalFeedbackDatasqn1','nationalFeedbackDatasqn2','nationalFeedbackDatatq','nationalFeedbackDatatqn'))->render();
 
-        // sleep(40);
         $pdf = new Pdf;
         $pdf->addPage($render);
-        $pdf->setOptions(['javascript-delay' => 500,'page-size'=>'a4']);
+        $pdf->setOptions(['javascript-delay' => 5000,'page-size'=>'a4']);
         $pdf->saveAs($file_path);
         return response()->download($file_path);
 
@@ -420,6 +511,38 @@ class PdfGenerateController extends Controller
         return $query;
     }
 
+    public function getImgName($value,$color)
+    {
+      if($value==0)
+      {
+        return $scImg = 'sg-0.png';
+      }
+      elseif($value>=1 && $value<=25)
+      {
+        return $scImg = 'sg-'.$color.'-1.png';
+      }
+      elseif($value>=26 && $value<=49)
+      {
+        return $scImg = 'sg-'.$color.'-2.png';
+      }
+      elseif($value==50)
+      {
+        return $scImg = 'sg-'.$color.'-3.png';
+      }
+      elseif($value>=51 && $value<=75) 
+      {
+        return $scImg = 'sg-'.$color.'-4.png';
+      }
+      elseif($value>=76 && $value<=99)
+      {
+        return $scImg = 'sg-'.$color.'-5.png';
+      }
+
+      elseif($value==100)
+      {
+         return $scImg = 'sg-'.$color.'-6.png';
+      }
+    }
 }
 
 
