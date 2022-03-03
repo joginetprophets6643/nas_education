@@ -3346,7 +3346,7 @@ var Dropdown = function Dropdown() {
     }
   }, [current_geography, currentDistrict, currentState]);
   return react_1["default"].createElement("div", {
-    className: "col-md-4"
+    className: "col-md-5 col-lg-4"
   }, react_1["default"].createElement("div", {
     className: "dropdown-select-wrap"
   }, react_1["default"].createElement("h3", {
@@ -3369,9 +3369,9 @@ var Dropdown = function Dropdown() {
       searchDistrict(e);
     }
   })), react_1["default"].createElement("div", {
-    className: "dropdown-list search-list "
+    className: "dropdown-list search-list"
   }, react_1["default"].createElement("ul", {
-    className: "scrollbar-y-lightblue"
+    className: "search-menu scrollbar-y-lightblue"
   }, searchedDistrictList.length !== 0 ? searchedDistrictList.map(function (result, index) {
     return react_1["default"].createElement("li", {
       key: index,
@@ -3399,7 +3399,7 @@ var Dropdown = function Dropdown() {
         getStateDistricts(state);
       }
     }, state.state_name), react_1["default"].createElement("ul", {
-      className: "dropdown-menu menu-level-3",
+      className: "dropdown-menu menu-level-3 scrollbar-y-darkblue",
       key: index
     }, districts.map(function (district, index) {
       return react_1["default"].createElement("li", {
@@ -4390,7 +4390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/ap-people.svg?86291f13f18fd7ed0c2a3b497157807d");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/ap-people.svg?42c647fbeb4e29b040f703109247af14");
 
 /***/ }),
 
@@ -4405,7 +4405,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/brainstorming.svg?5169c7813fe2e7af5c1a72ea09e2c30b");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/brainstorming.svg?bc9433e4666de89f55fc61be254cfb20");
 
 /***/ }),
 
@@ -4420,7 +4420,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/building.svg?3020f18279a0784eb50801476d343c08");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/building.svg?42ffa2b591fe660e31a9c1c0a6c1b411");
 
 /***/ }),
 
@@ -4435,7 +4435,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/globe-icon.svg?51ac38cdaf2a05f38b7f149383a186be");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/globe-icon.svg?384549491840abe3aeb2310d3bf968f4");
 
 /***/ }),
 
@@ -4450,7 +4450,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/professor.svg?5823aeb995fc38618c80e7ad0ec5bd75");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/professor.svg?7562f2a5ab89655c4a2406728802ff4f");
 
 /***/ }),
 
