@@ -92,7 +92,7 @@ const Dropdown = () =>{
 
 
     return(
-        <div className="col-md-4">
+        <div className="col-md-5 col-lg-4">
         <div className="dropdown-select-wrap">
             <h3 className="select-label">
             You can select any state/UT, District or block from here
@@ -103,8 +103,8 @@ const Dropdown = () =>{
                     <div className="inputSearch">
                         <input type="text" className="form-control" onChange={(e)=>{searchDistrict(e)}} />
                     </div>
-                    <div className="dropdown-list search-list ">
-                        <ul className="scrollbar-y-lightblue">
+                    <div className="dropdown-list search-list">
+                        <ul className="search-menu scrollbar-y-lightblue">
                             {searchedDistrictList.length !== 0 ? searchedDistrictList.map((result,index)=>(
                                 <li key={index} onClick={()=>{ChangeDistrict(result)}}> {result.district_name}</li>
                             ))
@@ -117,7 +117,7 @@ const Dropdown = () =>{
                             {states.map((state,index)=>(
                                 <li className="dropdown-list" key={state.state_id}>
                                     <a className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" onClick={()=>{getStateDistricts(state)}}>{state.state_name}</a>
-                                    <ul className="dropdown-menu menu-level-3" key={index}>
+                                    <ul className="dropdown-menu menu-level-3 scrollbar-y-darkblue" key={index}>
                                         {districts.map(((district,index)=>(
                                             <li className="dropdown-list" key={index}><a className="dropdown-item" href="#" onClick={()=>{ChangeDistrict(district)}}>{district.district_name}</a></li>
                                         )))}
