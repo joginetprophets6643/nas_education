@@ -2,9 +2,9 @@ Highcharts.maps["countries/in/custom/in-all-disputed"] = {
     "title": "India with disputed territories",
     "version": "1.1.3",
     "type": "FeatureCollection",
-    "copyright": "Copyright (c) 2020 Highsoft AS, Based on http://projects.datameet.org/maps/states/",
+    // "copyright": "Copyright (c) 2020 Highsoft AS, Based on http://projects.datameet.org/maps/states/",
     "copyrightShort": "projects.datameet.org",
-    "copyrightUrl": "https://creativecommons.org/licenses/by/2.5/in/",
+    // "copyrightUrl": "https://creativecommons.org/licenses/by/2.5/in/",
     "crs": {
       "type": "name",
       "properties": {
