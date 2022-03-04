@@ -25,9 +25,9 @@
     <script src="{{ asset('assets/admin/vendors/js/misc.js')}}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="{{ asset('assets/admin/vendors/js/dashboard.js')}}"></script>
+    <!-- <script src="{{ asset('assets/admin/vendors/js/dashboard.js')}}"></script> -->
     <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/admin/vendors/js/bootstrap.bundle.min.js')}}"></script>
 <!-- <script src="{{ asset('assets/admin/vendors/js/tinymce.min.js')}}"></script>
 
 <script>tinymce.init({selector:'textarea'});</script> -->
@@ -40,10 +40,10 @@ CKEDITOR.replaceClass= 'textarea-ckeditor' ;
 <!-- <script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script> -->
 
 <script>
-let view=jQuery.parseJSON($('#view').val());
-let edit=jQuery.parseJSON($('#edit').val());
-let add=jQuery.parseJSON($('#add').val());
-let delet=jQuery.parseJSON($('#delete').val());
+let view=jQuery.parseJSON($('#view').val()?$('#view').val():'[]');
+let edit=jQuery.parseJSON($('#edit').val()?$('#edit').val():'[]');
+let add=jQuery.parseJSON($('#add').val()?$('#add').val():'[]');
+let delet=jQuery.parseJSON($('#delete').val()?$('#delete').val():'[]');
 let modules=['User','Media','Team','Content','Program','Master','Statistic','Data','Banner','Client-Logo','Registration','Setting'];
 // add=modules.filter(e=>!add.includes(e));
 // edit=modules.filter(e=>!edit.includes(e));
@@ -79,6 +79,6 @@ $('.extra').css('display',"inline-block");
 } );
 </script>
 <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
-<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="{{asset('assets/front/js/all.js')}}" data-auto-replace-svg="nest"></script>
   </body>
 </html>

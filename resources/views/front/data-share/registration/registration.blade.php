@@ -191,7 +191,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" placeholder="Mobile No" name="mobile_no" id="mobile" value="{{old('mobile_no')}}" autocomplete="off">
+                                    <input type="number" class="form-control" placeholder="Mobile No" name="mobile_no" id="mobile" value="{{old('mobile_no')}}" autocomplete="off">
                                     <label class="form-input-label">Mobile No</label>
                                     @error('mobile_no')
                                     <span class="text-danger">{{$message}}</span>

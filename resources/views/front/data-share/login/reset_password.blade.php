@@ -51,7 +51,7 @@
 
                                 <form id="reset-form">
                                     <div class="form-group">
-                                      <input type="text" class="form-control mobile" name="mobile_no" placeholder="Mobile No." autocomplete="off">
+                                      <input type="number" class="form-control mobile" name="mobile_no" placeholder="Mobile No." autocomplete="off">
                                       <label class="form-input-label">Mobile No.</label>
                                       <sapn class="input-icon">
                                         <img src="{{asset('assets/front/images/mobile-icon.svg')}}" alt="icon" />

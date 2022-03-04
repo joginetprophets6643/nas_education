@@ -69,7 +69,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                      <input type="text" class="form-control mobile" name="mobile_no" placeholder="Mobile No." autocomplete="off">
+                                      <input type="number" class="form-control mobile" name="mobile_no" placeholder="Mobile No." autocomplete="off">
                                       <label class="form-input-label">Mobile No.</label>
                                       <sapn class="input-icon">
                                         <img src="{{asset('assets/front/images/mobile-icon.svg')}}" alt="icon" />
@@ -85,7 +85,8 @@
                                       <input type="password" class="form-control" name="password" placeholder="Password" id="pass_log_id" autocomplete="off">
                                       <label class="form-input-label">Password</label>
                                       <sapn class="input-icon  toggle-password ">
-                                        <img src="{{asset('assets/front/images/eye-icon.svg')}}" alt="icon" />
+                                        <img class="otp-dis" src="{{asset('assets/front/images/eye-icon.svg')}}" alt="icon" id="open-eye" />
+                                        <img src="{{asset('assets/front/images/eye-close.svg')}}" alt="icon" id="close-eye"/>
                                       </sapn>
                                       @error('password')
                                       <span class="text-danger">{{$message}}</span>
@@ -192,8 +193,12 @@ $("body").on('click', '.toggle-password', function() {
   var input = $("#pass_log_id");
   if (input.attr("type") === "password") {
     input.attr("type", "text");
+    $('#close-eye').css('display','none')
+    $('#open-eye').css('display','flex')
   } else {
     input.attr("type", "password");
+    $('#open-eye').css('display','none')
+    $('#close-eye').css('display','flex')
   }
 
 });
