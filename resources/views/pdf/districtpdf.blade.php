@@ -229,13 +229,13 @@
                 <div class="reportview-content dark-blue-bg">
                   <div class="infotab-content-wrap">
                     <div class="row">
-                      <div class="col-md-12">
+                      <!-- <div class="col-md-12">
                         <h2>
                           Kadapa district is one of the thirteen districts in
                           the Indian state of AP. It is also one of the four
                           districts in the Rayalaseema region of the state.
                         </h2>
-                      </div>
+                      </div> -->
                       <div class="col-md-3">
                         <div class="infotab-content light-blue-bg">
                           <h3 class="title">Total District Area</h3>
@@ -357,7 +357,7 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="col-md-12 mb-4">
-                          <h2>Total number of schools in Kadapa district.</h2>
+                          <h2>Total number of schools in {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} district.</h2>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
@@ -394,7 +394,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="col-md-12 mb-4">
-                          <h2>Total number of teachers in Kadapa district.</h2>
+                          <h2>Total number of teachers in {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} district.</h2>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
@@ -456,7 +456,7 @@
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg">
@@ -723,7 +723,7 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg px-4 py-3">
@@ -1208,7 +1208,7 @@
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg">
@@ -1453,7 +1453,7 @@
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:0}}</span>
                 </div>
                 <div class="reportview-class-content light-blue-bg children-testimony mt-1">
@@ -1531,7 +1531,7 @@
                           <div class="octagon-card {{isset($octoganCardbgColor[$tq3])?$octoganCardbgColor[$tq3]:''}} {{isset($octoganCardbgColor[$tq3])&& $octoganCardbgColor[$tq3]!='o-color-white'?'text-white':''}} text-center">
                             <h2 class="title">{{isset($tqfeedback2->avg)?$tqfeedback2->avg:0}}%</h2>
                             <p class="total-no">
-                              {{isset($tqfeedback2->question_desc)?$tqfeedback2->question_desc:'-'}}{{$tq3}}
+                              {{isset($tqfeedback2->question_desc)?$tqfeedback2->question_desc:'-'}}
                             </p>
                           </div>
                         </div>

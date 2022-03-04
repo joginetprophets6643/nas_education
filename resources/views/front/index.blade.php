@@ -643,6 +643,9 @@
     
     await $.ajax({
       type: "GET",
+      headers: {
+        "Authorization": "Bearer " + token
+      },
       url: api_url + 'state_masters?limit=-1',
     }).done(response=>{
         state_all_info = response.data
@@ -909,6 +912,9 @@
     console.log('api hit ----')
     $.ajax({
       type: "GET",
+      headers: {
+        "Authorization": "Bearer " + token
+      },
       url: api_url + "national_statistic?limit=-1",
     }).done(response=>{
       const info = response.data
@@ -939,6 +945,9 @@
   async function setActiveDistrict(district_id){
     await $.ajax({
       type: "GET",
+      headers: {
+        "Authorization": "Bearer " + token
+      },
       url: api_url + 'district_masters?limit=-1&filter={"district_id":{"_eq":'+district_id+'}}',
     }).done(response=>{
       sessionStorage.setItem('activeDistrict',JSON.stringify(response.data.pop()))
