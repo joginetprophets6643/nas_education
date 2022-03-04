@@ -326,8 +326,8 @@ $(document).ready(()=>{
             cursor: 'pointer',
             dataLabels: {
               enabled: true,
-                format: '{point.percentage,.1f}',
-                distance: -50,
+              format: '{point.y}%',
+              distance: -50,
                 filter: {
                     property: 'percentage',
                     operator: '>',
