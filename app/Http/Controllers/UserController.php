@@ -25,6 +25,21 @@ class UserController extends BaseController
         return view('front.data-share.registration.registration',compact('states'));
     }
 
+    public function resetPassword()
+    {
+        return view('front.data-share.login.reset_password');
+    }
+    
+    public function changePassword(Request $request)
+    {
+
+        User::where('mobile_no',$request->user)->update([
+            'password'=>Hash::make($request->password),
+        ]);
+
+        return true;
+    }
+
     public function viewLogin()
     {
         return view('front.data-share.login.login');
@@ -82,7 +97,7 @@ class UserController extends BaseController
 
     public function login(Request $request){
         $request->validate([
-            'mobile_no' => 'required',
+            'mobile_no' => 'required|digits:10',
             'password' => 'required',
             'captcha_code' => 'required',
         ]);

@@ -94,7 +94,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="name" placeholder="Full Name" value="{{old('name')}}">
+                                    <input type="text" class="form-control" name="name" placeholder="Full Name" value="{{old('name')}}" autocomplete="off">
                                     <label class="form-input-label">Full Name</label>
                                     @error('name')
                                     <span class="text-danger">{{$message}}</span>
@@ -103,7 +103,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" name="address" placeholder="Address" value="{{old('address')}}">
+                                    <input type="text" class="form-control" name="address" placeholder="Address" value="{{old('address')}}" autocomplete="off">
                                     <label class="form-input-label">Address</label>
                                     @error('address')
                                     <span class="text-danger">{{$message}}</span>
@@ -146,14 +146,14 @@
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
                                     <label class="form-input-label">Password</label>
                                     @error('password')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
+                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" autocomplete="off">
                                     <label class="form-input-label">Confirm Password</label>
                                     @error('password_confirmation')
                                     <span class="text-danger">{{$message}}</span>
@@ -163,7 +163,7 @@
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="email" placeholder="Email ID" id="email" value="{{old('email')}}">
+                                    <input type="text" class="form-control" name="email" placeholder="Email ID" id="email" value="{{old('email')}}" autocomplete="off">
                                     <label class="form-input-label">Email ID</label>
                                     <span class="text-danger" id="valid-email"></span>
                                     @error('email')
@@ -191,7 +191,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" placeholder="Mobile No" name="mobile_no" id="mobile" value="{{old('mobile_no')}}">
+                                    <input type="number" class="form-control" placeholder="Mobile No" name="mobile_no" id="mobile" value="{{old('mobile_no')}}" autocomplete="off">
                                     <label class="form-input-label">Mobile No</label>
                                     @error('mobile_no')
                                     <span class="text-danger">{{$message}}</span>
