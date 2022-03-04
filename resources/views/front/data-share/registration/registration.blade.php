@@ -112,28 +112,26 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <select class="form-select form-control" name="country">
+                                    <select class="form-select form-control" name="country" id="country">
                                         <option value="">Country</option>
                                         <option value="India" {{ old('country') == "India" ? 'selected' : '' }}>India</option>
+                                        <option value="USA" {{ old('country') == "USA" ? 'selected' : '' }}>USA</option>
                                     </select>
                                     <label class="form-input-label">Country</label>
                                     @error('country')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 otp-dis" id="state-form">
                                     <select class="form-select form-control" name="state" id="state">
                                         <option value="">State</option>
-                                        @foreach($states as $state)
-                                        <option value="{{$state->state_id}}">{{$state->state_name}}</option>
-                                        @endforeach
                                     </select>
                                     <label class="form-input-label">State</label>
                                     @error('state')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 otp-dis" id="district-form">
                                     <select class="form-select form-control" name="district" id="ajax_districts">
                                        <option value="">District</option> 
                                     </select>
@@ -190,7 +188,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6" id="mobile-form">
                                     <input type="number" class="form-control" placeholder="Mobile No" name="mobile_no" id="mobile" value="{{old('mobile_no')}}" autocomplete="off">
                                     <label class="form-input-label">Mobile No</label>
                                     @error('mobile_no')
@@ -217,6 +215,28 @@
                                 </div>
                             </div>
 
+                            <div class="form-group d-flex justify-content-between">
+                                      <div class="captcha-wrap">
+                                          <p class="captcha-code" id="html_captcha_code"></p>
+                                          <a onclick="captchaGenerate()">
+                                            <img src="{{asset('assets/front/images/refresh-icon.svg')}}" alt="icon" />
+                                          </a>
+                                      </div>
+
+                                      <div class="captcha-input">
+                                        <input type="text" class="form-control" placeholder="Captcha" name="captcha_code" autocomplete="off">
+                                        @if(session('error'))
+                                          <span class="text-danger">{{session('captcha')}}</span>
+                                        @endif
+                                        @error('captcha_code')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                        <input type="hidden" name="captcha" id="captcha">
+                                        <label class="form-input-label">Captcha</label>
+                                      </div>
+
+                                    </div>
+
                             
                             <div class="row">
                                 <div class="form-group col-md-12 mb-0">
@@ -237,141 +257,201 @@
 @include('front.includes.footer')
 
 <script>
-    function emailValidation(){
-        // let email=document.getElementById('email').value;
-        let email = $('#email').val()
-        $('#email_otp').val('');
-        let OTP = '';
 
-        let valid = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        
-        if(email.toLowerCase().match(valid)){
-            OTP = otpCreation();
-            $.ajax({
-            type: "GET",
-            headers:{
-                'Access-Control-Allow-Origin':'*'
-            },
-            url: backend_api_url + 'send-email/' + email+ '/' + OTP,
-            })
-
-            $('#email-btn').attr('style','display:none');
-            $('#email-resend').attr('style','display:none');
-
-            // document.getElementById("email-btn").style.display = "none";
-            // document.getElementById("email-resend").style.display = "none";
-
-            setTimeout(otpReset, 600000,'email');
-            countdown( "ten-countdown_email", 10, 0 );
-        }
-        else{
-            $('#valid-email').html("Please enter valid email");
-        }
-        console.log(OTP)
-        $('#email_otp').val(OTP);
-    }
-
-    function otpReset(name){
-        if(name === 'email'){
-            $('#email_otp').val('');
-        }
-        if(name === 'mobile'){
-            $('#mobile_otp').val('');
-        }
-    }
-    function mobileValidation() {
-
-        $('#mobile_otp').val('');
-        // let mobile=document.getElementById('mobile').value;
-        let mobile = $('#mobile').val()
-        let OTP = '';
-        let valid = /^\d{10}$/;
-
-        if(mobile.match(valid)) {
-
-            OTP = otpCreation();
-            setTimeout(otpReset, 600000,'mobile');
-            countdown( "ten-countdown_mobile", 10, 0 );
-
-        }
-
-        $('#mobile_otp').val(OTP);
-        // console.log(OTP)
-    }
-
-    function otpCreation(){
-        let string = '0123456789';
-        let len = string.length;
-        let OTP = ""
-
-        for (let i = 0; i < 4; i++ ) {
-            OTP += string[Math.floor(Math.random() * len)];
-        }
-        return OTP;
-    }
+$(document).ready(function() {
+  captchaGenerate()
+})
 
 
-    function countdown( elementName, minutes, seconds )
-    {
-        let element, endTime, hours, mins, msLeft, time;
+function captchaGenerate(){
+  var string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var len = string.length;
+  let captcha=""
+  for (let i = 0; i < 6; i++ ) {
+      captcha += string[Math.floor(Math.random() * len)];
+  }
+  $('#html_captcha_code').html(captcha);
+  $('#captcha').val(captcha);
+}
 
-        function twoDigits( n )
-        {
-            return (n <= 9 ? "0" + n : n);
-        }
 
-        function updateTimer()
-        {
-            msLeft = endTime - (+new Date);
-            if ( msLeft < 1000 ) {
-                element.innerHTML="";
-                document.getElementById("email-resend").style.display = "block";
-                document.getElementById("resend_link").style.color = "blue";
-                document.getElementById("resend_link").style.cursor = "pointer";
-            } else {
-                time = new Date( msLeft );
-                hours = time.getUTCHours();
-                mins = time.getUTCMinutes();
-                element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
-                setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
-            }
-        }
+function emailValidation(){
+    // let email=document.getElementById('email').value;
+    let email = $('#email').val()
+    $('#email_otp').val('');
+    let OTP = '';
 
-        element = document.getElementById( elementName );
-        endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
-        updateTimer();
-    }
+    let valid = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
-    let districts = ''
+    if(email.toLowerCase().match(valid)){
+        OTP = otpCreation();
+        $.ajax({
+        type: "GET",
+        headers:{
+            'Access-Control-Allow-Origin':'*'
+        },
+        url: backend_api_url + 'send-email/' + email+ '/' + OTP,
+        })
 
-    $('#state').change((e)=>{
+        $('#email-btn').attr('style','display:none');
+        $('#email-resend').attr('style','display:none');
+
+        // document.getElementById("email-btn").style.display = "none";
+        // document.getElementById("email-resend").style.display = "none";
+
+        setTimeout(otpReset, 600000,'email');
+        countdown( "ten-countdown_email", 10, 0 );
+    }
+    else{
+        $('#valid-email').html("Please enter valid email");
+    }
+    console.log(OTP)
+    $('#email_otp').val(OTP);
+}
+
+function otpReset(name){
+    if(name === 'email'){
+        $('#email_otp').val('');
+    }
+    if(name === 'mobile'){
+        $('#mobile_otp').val('');
+    }
+}
+function mobileValidation() {
+
+    $('#mobile_otp').val('');
+    // let mobile=document.getElementById('mobile').value;
+    let mobile = $('#mobile').val()
+    let OTP = '';
+    let valid = /^\d{10}$/;
+
+    if(mobile.match(valid)) {
+
+        OTP = otpCreation();
+        setTimeout(otpReset, 600000,'mobile');
+        countdown( "ten-countdown_mobile", 10, 0 );
+
+    }
+
+    $('#mobile_otp').val(OTP);
+    // console.log(OTP)
+}
+
+function otpCreation(){
+    let string = '0123456789';
+    let len = string.length;
+    let OTP = ""
+
+    for (let i = 0; i < 4; i++ ) {
+        OTP += string[Math.floor(Math.random() * len)];
+    }
+    return OTP;
+}
+
+
+function countdown( elementName, minutes, seconds )
+{
+    let element, endTime, hours, mins, msLeft, time;
+
+    function twoDigits( n )
+    {
+        return (n <= 9 ? "0" + n : n);
+    }
+
+    function updateTimer()
+    {
+        msLeft = endTime - (+new Date);
+        if ( msLeft < 1000 ) {
+            element.innerHTML="";
+            document.getElementById("email-resend").style.display = "block";
+            document.getElementById("resend_link").style.color = "blue";
+            document.getElementById("resend_link").style.cursor = "pointer";
+        } else {
+            time = new Date( msLeft );
+            hours = time.getUTCHours();
+            mins = time.getUTCMinutes();
+            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+        }
+    }
+
+    element = document.getElementById( elementName );
+    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+    updateTimer();
+}
+
+let districts = ''
+let states = ''
+
+$('#state').change((e)=>{
+
+    $('#ajax_districts').empty();
+    $('#ajax_districts').append('<option value="">District</option>')
+    let id = e.target.value;
+
+    let dis = districts.filter(function(districts){
+        return districts.state_id==id;
+    })
+    dis=dis.sort((a, b) => a.district_name.localeCompare(b.district_name))
+    dis.forEach((item)=>{
+            $('#ajax_districts').append(`<option value="${item.district_id}">
+            ${item.district_name}
+        </option>`);
+    })
+    
+})
+
+$('#country').change((ev)=>{
+    let id = ev.target.value;
+
+    $('#state').empty();
+    $('#state').append('<option value="">State</option>')
+
+    if(id=="India"){
+
+        $('#mobile-form').css('display','block')
+        $('#state-form').css('display','block')
+        $('#district-form').css('display','block')
+        
+        states=states.sort((a, b) => a.state_name.localeCompare(b.state_name))
+        states.forEach((item)=>{
+                $('#state').append(`<option value="${item.state_id}">
+                ${item.state_name}
+            </option>`);
+        })
 
         $('#ajax_districts').empty();
         $('#ajax_districts').append('<option value="">District</option>')
-        let id = e.target.value;
+
+    }
+    else{
+
+        $('#mobile-form').css('display','none')
+        $('#state-form').css('display','none')
+        $('#district-form').css('display','none')
+
+    }
+
     
-        let dis = districts.filter(function(districts){
-            return districts.state_id==id;
-        })
-        dis=dis.sort((a, b) => a.district_name.localeCompare(b.district_name))
-        dis.forEach((item)=>{
-             $('#ajax_districts').append(`<option value="${item.district_id}">
-                ${item.district_name}
-            </option>`);
-        })
-        
+})
+
+
+
+
+$(document).ready(()=> {
+    $.ajax({
+    type: "GET",
+    url: api_url + 'district_masters?limit=-1',
+    }).done(response => {
+        districts=response.data;
     })
 
-
-
-
-    $(document).ready(()=> {
-        $.ajax({
-        type: "GET",
-        url: api_url + 'district_masters?limit=-1',
-        }).done(response => {
-            districts=response.data;
-        })
+    $.ajax({
+    type: "GET",
+    url: api_url + 'state_masters?limit=-1',
+    }).done(response => {
+        states=response.data;
     })
+})
 
 </script>
