@@ -84,7 +84,7 @@
                                     <div class="form-group">
                                       <input type="password" class="form-control" name="password" placeholder="Password" id="pass_log_id" autocomplete="off">
                                       <label class="form-input-label">Password</label>
-                                      <sapn class="input-icon toggle-password">
+                                      <sapn class="input-icon  toggle-password ">
                                         <img src="{{asset('assets/front/images/eye-icon.svg')}}" alt="icon" />
                                       </sapn>
                                       @error('password')
@@ -188,12 +188,13 @@ function captchaGenerate(){
 }
 
 $("body").on('click', '.toggle-password', function() {
+
   var input = $("#pass_log_id");
   if (input.attr("type") === "password") {
     input.attr("type", "text");
   } else {
     input.attr("type", "password");
-}
+  }
 
 });
 
@@ -214,9 +215,8 @@ $('#password-radio').click(()=>{
   $("form")[0].reset();
   $('#password-radio').prop('checked',true)
   $('.text-danger').html('')
-  // $('#ten-countdown_mobile').html('')
+  $('#success').html('')
   // $('#mobile-btn').css('display','flex')
-  otpReset('mobile')
 })
 
 
