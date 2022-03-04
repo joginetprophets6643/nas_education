@@ -7,8 +7,9 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{asset('assets/front/scss/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="{{asset('assets/front/scss/css2.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/front/scss/font-css2.css')}}" rel="stylesheet">
+    
     <!-- Material Icons -->
     <link rel="stylesheet" href="{{asset('assets/front/scss/material-icons.css')}}">
     <!-- AOS CSS -->

@@ -97,7 +97,7 @@ class UserController extends BaseController
 
     public function login(Request $request){
         $request->validate([
-            'mobile_no' => 'required',
+            'mobile_no' => 'required|digits:10',
             'password' => 'required',
             'captcha_code' => 'required',
         ]);
