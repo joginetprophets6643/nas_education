@@ -1898,8 +1898,9 @@ ul {
   font-weight: 500;
 }
 
-.report-card-wrap .top-content {
+.top-content {
   padding: 5px;
+  margin-left: 10px;
 }
 
 .report-card-container {
@@ -1916,9 +1917,6 @@ ul {
 .dashboard-wrapper .sidebar-wrap {
   background-color: #2a6aa9;
   width: 250px;
-  margin-left: -250px;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
 }
 
 .dashboard-wrapper .main-content-wrap {
@@ -1926,8 +1924,6 @@ ul {
   padding: 15px;
   border: 1px solid #e4e4e4;
   width: 100%;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
 }
 
 .dashboard-wrapper .main-content-wrap .ham-icon {
@@ -1940,14 +1936,6 @@ ul {
   height: 2px;
   background-color: #2a6aa9;
   margin-bottom: 4px;
-}
-
-.dashboard-wrapper .active-sidebar {
-  margin-left: 0;
-}
-
-.dashboard-wrapper .active-main-content {
-  width: calc(100% - 250px);
 }
 
 .ranking-wrap {
@@ -2345,6 +2333,7 @@ ul {
   text-transform: uppercase;
   border-radius: 30px;
   margin-right: 30px;
+  margin-bottom: 0;
   padding: 5px 30px;
   text-transform: uppercase;
 }
@@ -9930,10 +9919,6 @@ ul {
   padding-bottom: 6px;
 }
 
-.otp-dis {
-  display: none;
-}
-
 .common-select-wrap .select2-selection.select2-selection--single {
   border: none;
   border-bottom: 1px solid #5e5e5e;
@@ -10062,16 +10047,61 @@ ul {
     font-size: 12px;
     padding: 0 5px;
   }
-  .nas-latest-tabs-wrap .nav-tabs .nav-link {
-    font-size: 13px;
-    padding: 5px;
+}
+
+@media (min-width: 1025px) {
+  .dashboard-wrapper .sidebar-wrap {
+    margin-left: -250px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
-  .per-card .per-card-content .per-card-desc .total-no {
-    font-size: 20px;
+  .dashboard-wrapper .sidebar-wrap .close1-btn {
+    display: none;
+  }
+  .dashboard-wrapper .main-content-wrap {
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .dashboard-wrapper .active-sidebar {
+    margin-left: 0;
+  }
+  .dashboard-wrapper .active-main-content {
+    width: calc(100% - 250px);
   }
 }
 
 @media (max-width: 1024px) {
+  .dashboard-wrapper {
+    position: relative;
+  }
+  .dashboard-wrapper .sidebar-wrap {
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .dashboard-wrapper .sidebar-wrap .close1-btn {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    cursor: pointer;
+  }
+  .dashboard-wrapper .sidebar-wrap .close1-btn span {
+    padding: 10px;
+    color: #fff;
+  }
+  .dashboard-wrapper .active-sidebar {
+    margin-left: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+  }
   .heading-white-md,
   .heading-blue,
   .heading-yellow {
@@ -10373,21 +10403,8 @@ ul {
   .nas-latest-tabs-wrap .latest-content-list ul li .latest-desc .date {
     font-size: 13px;
   }
-  .dashboard-wrapper .sidebar-wrap {
-    background-color: #2a6aa9;
-    width: 250px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 152px;
-    bottom: 0;
-    z-index: 999;
-  }
   .dashboard-wrapper .main-content-wrap {
     width: 100%;
-  }
-  .top-content {
-    padding: 15px;
   }
   .top-content .navbar-toggler {
     padding: 0;
@@ -10419,9 +10436,6 @@ ul {
   }
   .tablayerthree-content {
     padding: 15px;
-  }
-  .tabs-layer-wrap > div {
-    display: block !important;
   }
   .date {
     margin-bottom: 10px;

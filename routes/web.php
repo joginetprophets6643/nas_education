@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Static_Content;
 use Illuminate\Support\Facades\Session;
-use App\Http\Controllers\DataProcess;
+use App\Http\Controllers\DataProcessController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\QuestionnaireController;
@@ -28,11 +28,11 @@ use App\Http\Controllers\FinalCalculationController;
 /*********************************
 * District Level Data upload start
 **********************************/
-Route::get('/drc-final-data/district-master',[DataProcess::class,'index']);
-Route::get('/drc-final-data/performance',[DataProcess::class,'performance']);
-Route::get('/drc-final-data/participation',[DataProcess::class,'participation']);
-Route::get('/drc-final-data/lo',[DataProcess::class,'DRCLO']);
-Route::get('/drc-final-data/feedback',[DataProcess::class,'DRCFEEDBACK']);
+Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
+Route::get('/drc-final-data/performance',[DataProcessController::class,'performance']);
+Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
+Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);
+Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK']);
 
 /*********************************
 * District Level Data upload end

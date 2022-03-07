@@ -248,6 +248,7 @@ function sendOtp(){
             if(user.length>0){
                 $('#user_mobile').val(user[0].mobile_no)
                 OTP = otpCreation(); 
+                console.log(OTP)
                 $('#common_otp').val(OTP);             
 
                 $.ajax({

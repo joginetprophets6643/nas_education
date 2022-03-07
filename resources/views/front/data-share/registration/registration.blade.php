@@ -112,8 +112,8 @@
                                 <div class="form-group col-md-4 common-select-wrap">
                                     <select class="form-select form-control" name="country" id="country">
                                         <option value="">Country</option>
-                                        <option class="options" value="India" {{ old('country') == "India" ? 'selected' : '' }}>India</option>
-                                        <option value="USA" {{ old('country') == "USA" ? 'selected' : '' }}>USA</option>
+                                        <option class="options" value="India">India</option>
+                                        <option value="USA">USA</option>
                                     </select>
                                     <label class="form-input-label">Country</label>
                                     @error('country')
@@ -182,9 +182,9 @@
                                     <span class="text-danger" id="valid_otp"></span>
                                 </div>
                                 <div class="form-group col-md-6" id="mobile-form">
-                                    <input type="number" class="form-control" placeholder="Mobile No." name="mobile_number" id="mobile" value="{{old('mobile_no')}}" autocomplete="off" disabled>
+                                    <input type="number" class="form-control" placeholder="Mobile No." name="mobile_no" id="mobile" value="{{old('mobile_no')}}" autocomplete="off" disabled>
                                     <label class="form-input-label">Mobile No.</label>
-                                    @error('mobile_number')
+                                    @error('mobile_no')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                     <input type="hidden" name="mobile_otp" id="mobile_otp">
@@ -314,7 +314,6 @@ function otpReset(name){
 function mobileValidation() {
 
     $('#mobile_otp').val('');
-    // let mobile=document.getElementById('mobile').value;
     let mobile = $('#mobile').val()
     let OTP = '';
     let valid = /^\d{10}$/;
@@ -425,7 +424,7 @@ $('#country').change((ev)=>{
 
     }
     else{
-
+        $('#mobile').val('')
         $('#mobile').prop('disabled',true)
         $('input[name="mobile_otp1"]').prop('disabled',true)
         $('input[name="mobile_otp2"]').prop('disabled',true)
@@ -485,13 +484,13 @@ function identifyOptions(name){
 
 }
 
-$("#Individual").is(":checked",()=>{
+if($("#Individual").is(":checked")){
     identifyOptions('Individual')
-})
+}
 
-$("#Organization").is(":checked",()=>{
+if($("#Organization").is(":checked")){
     identifyOptions('Organization')
-})
+}
 
 $("#Individual").click(()=>{
     identifyOptions('Individual')

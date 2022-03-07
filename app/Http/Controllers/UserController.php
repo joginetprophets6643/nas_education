@@ -47,6 +47,7 @@ class UserController extends BaseController
 
     public function registered(Request $request)
     {
+       
         $ip=$request->ip();
         if($request->country=='India')
         {
@@ -60,7 +61,7 @@ class UserController extends BaseController
                 'state' => 'required',
                 'country' => 'required',
                 'district' => 'required',
-                'mobile_number' => 'required|unique:users|digits:10',
+                'mobile_no' => 'required|unique:users|digits:10',
                 'password'=>'required|confirmed|min:5',
                 'captcha_code' => 'required',
                 
@@ -72,7 +73,11 @@ class UserController extends BaseController
                 // 'mobile_otp2' => 'required',
                 // 'mobile_otp3' => 'required',
                 // 'mobile_otp4' => 'required',
-            ]);
+            ],
+            [
+            'mobile_no.required' => 'The mobile number field is required.',
+            ]
+        );
 
             if($request->captcha_code!==$request->captcha){
                 return redirect()->back()->with('captcha','Captcha is not correct');
@@ -89,7 +94,7 @@ class UserController extends BaseController
             $user->user_type=$request->user_type;
             $user->identity_yourself=$request->identify_yourself;
             $user->state_id=$request->state;
-            $user->mobile_no=$request->mobile_number;
+            $user->mobile_no=$request->mobile_no;
             $user->country=$request->country;
             $user->district_id=$request->district;
             $user->password=Hash::make($request->password);
@@ -134,7 +139,7 @@ class UserController extends BaseController
             $user->user_type=$request->user_type;
             $user->identity_yourself=$request->identify_yourself;
             $user->state_id=$request->state;
-            $user->mobile_no=$request->mobile_number;
+            $user->mobile_no=$request->mobile_no;
             $user->country=$request->country;
             $user->district_id=$request->district;
             $user->password=Hash::make($request->password);
