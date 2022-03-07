@@ -498,7 +498,7 @@
                         Average Performance of Students
                       </h3>
                       <div class="d-flex flex-wrap justify-content-center graph-mark">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $avgPerformance)
                         @if($districtParticipation->grade==$avgPerformance->grade)
                         @php
@@ -615,7 +615,7 @@
                         Percentage of Students in Performance Level
                       </h3>
                       <div class="row mt-5">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $avgPerformance)
                         @if($districtParticipation->grade==$avgPerformance->grade)
                         @php
@@ -733,7 +733,7 @@
                       <h4 class="">Performance by Gender</h4>
                       <div class="d-flex flex-wrap mb-60">
                         <!-- edited -->
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $performanceByGender)
                         @if($districtParticipation->grade==$performanceByGender->grade)
                         @php
@@ -854,7 +854,7 @@
                     <div class="col-md-9 left mb-2">
                       <h4 class="">Performance by Location</h4>
                       <div class="d-flex flex-wrap mb-60">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $performanceByLocation)
                         @if($districtParticipation->grade==$performanceByLocation->grade)
                         @php
@@ -972,7 +972,7 @@
                     <div class="col-md-9 left mb-2">
                       <h4 class="">Performance by Management</h4>
                       <div class="d-flex flex-wrap mb-60">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $performanceByMgt)
                         @if($districtParticipation->grade==$performanceByMgt->grade)
                         @php
@@ -1079,7 +1079,7 @@
                     <div class="col-md-9 left">
                       <h4 class="">Performance by Social Group</h4>
                       <div class="d-flex flex-wrap mb-60">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $performanceBysclgrp)
                         @if($districtParticipation->grade==$performanceBysclgrp->grade)
                         @php
@@ -1595,40 +1595,6 @@
 
   @endforeach
   @endif
-  @php
-    function getImgName($value,$color)
-    {
-      if($value==0)
-      {
-        return $scImg = 'sg-0.png';
-      }
-      elseif($value>=1 && $value<=25)
-      {
-        return $scImg = 'sg-'.$color.'-1.png';
-      }
-      elseif($value>=26 && $value<=49)
-      {
-        return $scImg = 'sg-'.$color.'-2.png';
-      }
-      elseif($value==50)
-      {
-        return $scImg = 'sg-'.$color.'-3.png';
-      }
-      elseif($value>=51 && $value<=75) 
-      {
-        return $scImg = 'sg-'.$color.'-4.png';
-      }
-      elseif($value>=76 && $value<=99)
-      {
-        return $scImg = 'sg-'.$color.'-5.png';
-      }
-
-      elseif($value==100)
-      {
-         return $scImg = 'sg-'.$color.'-6.png';
-      }
-    }
-  @endphp
 </body>
 
 </html>

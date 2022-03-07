@@ -113,6 +113,11 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+        'naspdf' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/naspdfdetails.log'),
+            'level' => 'info',
+        ]
     ],
 
 ];
