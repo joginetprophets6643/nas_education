@@ -284,7 +284,7 @@
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
                                 <h3 class="title">
-                                  Child sex ration (0-6 age)
+                                  Child sex ratio (0-6 age)
                                 </h3>
                                 <p class="total-no" >
                                 <span id="sex_ratio"> 963 girls per 1000 boys</span>
@@ -853,7 +853,7 @@
     // populating demographics
 
     $('.type_of_chart').html(display_name)
-    $('#literacy_rate').html(info.literacy_rate ? info.literacy_rate : 0 )
+    $('#literacy_rate').html(info.literacy_rate ? info.literacy_rate+'%' : 0+'%' )
     $('#total_area').html(info.total_district_area ? info.total_district_area : 0)
     $('#total_population').html(info.total_population ? info.total_population : 0)
     $('#population_density').html(info.density_of_population ? info.density_of_population : 0)

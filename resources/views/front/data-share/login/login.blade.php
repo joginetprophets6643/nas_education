@@ -135,7 +135,7 @@
                                           </a>
                                       </div>
 
-                                      <div class="captcha-input">
+                                      <div class="captcha-input w-100">
                                         <input type="text" class="form-control" placeholder="Captcha" name="captcha_code" autocomplete="off">
                                         @if(session('error'))
                                           <span class="text-danger">{{session('error')}}</span>
@@ -364,6 +364,7 @@ $('.otp-input').keyup(()=>{
   if(common_otp.length==4){
       if(common_otp!=$('#common_otp').val()){
         $('#valid_otp').html('OTP is not valid')
+        $('.lg-btn').prop('disabled',true);
       }
       else{
         $('.lg-btn').prop('disabled',false);
@@ -372,6 +373,7 @@ $('.otp-input').keyup(()=>{
   }
   else{
     $('#valid_otp').html('The OTP field is required')
+    $('.lg-btn').prop('disabled',true);
   }
 
 })

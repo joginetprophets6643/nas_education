@@ -3466,7 +3466,7 @@ ul {
 .common-form {
     .form-group {
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
     .form-control {
@@ -3497,7 +3497,7 @@ ul {
     .form-input-label,
     .form-control:focus ~ label {
         position: absolute;
-        top: -10px;
+        top: -15px;
         display: block;
         transition: 0.2s;
         font-size: 12px;
@@ -3556,6 +3556,9 @@ ul {
             color: #5e5e5e;
             font-size: 15px;
         }
+    }
+    .captcha-input {
+        margin-left: 15px;
     }
     .org-btn {
         width: 100%;
@@ -5492,6 +5495,47 @@ ul {
     display: none;
 }
 
+
+.common-select-wrap{
+    .select2-selection.select2-selection--single {
+        border: none;
+        border-bottom: 1px solid #5e5e5e;
+        border-radius: 0;
+        font-size: 14px;
+        color: #101010;
+        font-weight: 500;
+    }
+    .select2-container--default{
+        .select2-selection--single{
+            height: 40px;
+            .select2-selection__rendered {
+                line-height: 40px;
+                padding: 0;
+            }
+            .select2-selection__arrow{
+                height: 40px;
+            }
+        }
+    }
+    
+}
+
+.select2-dropdown {
+    z-index: 1 !important;
+
+    .select2-results__option{
+        font-size: 13px;
+    }
+
+    .select2-search--dropdown .select2-search__field {
+        line-height: 1;
+        border-radius: 2px;
+        &:focus-visible{
+            box-shadow: none;
+            outline: none;
+        } 
+    }
+}
 
 
 
