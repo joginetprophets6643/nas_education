@@ -66,21 +66,27 @@
     const district =JSON.parse(sessionStorage.getItem('activeDistrict'))
     let link = ''
     if(state !== null){
-      const encrpt_state_id = "{{Crypt::encrypt("state.state_id")}}"
+      console.log(state)
+      const state_id = state.udise_state_code
+      // const encrpt_state_id = "{{Crypt::encrypt((".state_id."))}}"
+      // console.log(state.udise_state_code)
       if(district !== null){
-        console.log('district report')
-        const encrpt_district_id = "{{Crypt::encrypt("district.district_id")}}"
+        const district_id = district.udise_district_code
 
-        link = '/download-district-report/'+encrpt_state_id+'/'+encrpt_district_id
+        console.log('district report')
+        // const encrpt_district_id = "{{Crypt::encrypt((".district_id."))}}"
+
+        link = '/download-district-report/'+state_id+'/'+district_id
       }else{
         console.log('state report')
 
-        link = '/download-state-report/'+encrpt_state_id
+        link = '/download-state-report/'+state_id
       }
     }else{
       console.log('national report')
       link = '/download-national-report'
     }
+    console.log(link)
     $('#report-link').attr('href',link)
 }
 </script>
