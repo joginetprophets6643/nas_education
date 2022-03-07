@@ -741,7 +741,7 @@ class DataProcessController extends Controller
                 'data'=>json_encode($grade_1),
             ]);
 
-        }
+        } 
 
         return "Performance Table Created";
 
