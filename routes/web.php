@@ -15,6 +15,8 @@ use App\Http\Controllers\VisualizationCalculationController;
 use Illuminate\Support\Facades\Crypt;
 
 use App\Http\Controllers\FinalCalculationController;
+use App\Http\Controllers\Data2017Controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,16 @@ use App\Http\Controllers\FinalCalculationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*********************************
+* 2017 Data upload start
+**********************************/
+Route::get('/data-2017/state-master',[Data2017Controller::class,'state']);
+Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
+
+/*********************************
+* 2017 Data upload end
+**********************************/
+
 /*********************************
 * District Level Data upload start
 **********************************/
