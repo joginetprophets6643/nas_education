@@ -36,6 +36,14 @@
                                 </li>
                               </ul>
                             <div class="tab-content tablayerthree-content" id="screen-content">
+                                <div class="container text-center m-auto" id="screen-loader">
+                                  <div class="content-loader">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                  </div>
+                                </div>
                                 @yield('information')
                                 @yield('participation')
                                 @yield('performance')

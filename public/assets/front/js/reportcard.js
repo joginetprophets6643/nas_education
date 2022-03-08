@@ -792,6 +792,7 @@ $(document).ready(()=>{
 
 
   async function getData(){
+    let limit = -1
     const screen_wise_table = {
 
       information :{
@@ -834,16 +835,23 @@ $(document).ready(()=>{
 
     }else{
       table = screen_wise_table[screenType][selected_geography]
+      if(screenType === 'performance' && selected_geography === 'national'){
+        limit = 1
+      }
     }
     if(screenType === 'information'){
       global_filters = {}
     }
     await $.ajax({
       type: "GET",
-      url: api_url + table + '?limit=-1&filter='+ JSON.stringify(global_filters),
+      url: api_url + table + '?limit='+limit+'&filter='+ JSON.stringify(global_filters),
       headers: {
         "Authorization": "Bearer " + token
-      }
+      },
+      beforeSend: ()=>{
+        $('#screen-loader').show()
+        $('tab-pane fade').hide()
+      },
       }).done(res=>{
       if(screenType === 'participation'){
         sessionStorage.setItem('participation_data',JSON.stringify(res.data))
@@ -864,6 +872,9 @@ $(document).ready(()=>{
         sessionStorage.setItem('glimpses_data',JSON.stringify(res.data))
       }
       setInformation()
+      $('#screen-loader').hide()
+      $('tab-pane fade').show()
+
     });
   }
 
