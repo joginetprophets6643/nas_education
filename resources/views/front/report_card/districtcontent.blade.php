@@ -61,7 +61,6 @@
 @include('front.includes.footer')
 <script>
   function updateReportCardLink(){
-
     const state =JSON.parse(sessionStorage.getItem('activeState'))
     const district =JSON.parse(sessionStorage.getItem('activeDistrict'))
     let link = ''
@@ -69,18 +68,21 @@
       console.log(state)
       const state_id = state.udise_state_code
       // const encrpt_state_id = "{{Crypt::encrypt((".state_id."))}}"
+      const encrpt_state_id = btoa(state_id)
+
       // console.log(state.udise_state_code)
       if(district !== null){
         const district_id = district.udise_district_code
+        const encrpt_district_id = btoa(district_id)
 
         console.log('district report')
         // const encrpt_district_id = "{{Crypt::encrypt((".district_id."))}}"
 
-        link = '/download-district-report/'+state_id+'/'+district_id
+        link = '/download-district-report/'+encrpt_state_id+'/'+encrpt_district_id
       }else{
         console.log('state report')
 
-        link = '/download-state-report/'+state_id
+        link = '/download-state-report/'+encrpt_state_id
       }
     }else{
       console.log('national report')
