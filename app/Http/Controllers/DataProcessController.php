@@ -57,32 +57,32 @@ class DataProcessController extends Controller
                 'state_id'=>$data->udise_state_code,
                 'district_id'=>$data->udise_district_code,
                 'grade'=>3,
-                'total_school'=>$data->drc_gr5_nsch_tot,
-                'total_student'=>$data->drc_gr5_nstu_tot,
-                'total_teacher'=>$data->drc_gr5_ntrs_tot,
-                'rural_location'=>$data->drc_gr5_ps_ru,
+                'total_school'=>$data->drc_gr3_nsch_tot,
+                'total_student'=>$data->drc_gr3_nstu_tot,
+                'total_teacher'=>$data->drc_gr3_ntrs_tot,
+                'rural_location'=>$data->drc_gr3_ps_ru,
                 'rural_location_count'=>'0',
-                'urban_location'=>$data->drc_gr5_ps_ur,
+                'urban_location'=>$data->drc_gr3_ps_ur,
                 'urban_location_count'=>'0',
-                'govt_school'=>$data->drc_gr5_ps_go,
+                'govt_school'=>$data->drc_gr3_ps_go,
                 'govt_school_count'=>'0',
-                'govt_aided_school'=>$data->drc_gr5_ps_ga,
+                'govt_aided_school'=>$data->drc_gr3_ps_ga,
                 'govt_aided_school_count'=>'0',
-                'private_school'=>$data->drc_gr5_ps_priv,
+                'private_school'=>$data->drc_gr3_ps_priv,
                 'private_school_count'=>'0',
-                'central_govt_school'=>$data->drc_gr5_ps_cg,
+                'central_govt_school'=>$data->drc_gr3_ps_cg,
                 'central_govt_school_count'=>'0',
-                'sc_social_group'=>$data->drc_gr5_ps_sc,
+                'sc_social_group'=>$data->drc_gr3_ps_sc,
                 'sc_social_group_count'=>'0',
-                'obc_social_group'=>$data->drc_gr5_ps_obc,
+                'obc_social_group'=>$data->drc_gr3_ps_obc,
                 'obc_social_group_count'=>'0',
-                'st_social_group'=>$data->drc_gr5_ps_st,
+                'st_social_group'=>$data->drc_gr3_ps_st,
                 'st_social_group_count'=>'0',
-                'general_social_group'=>$data->drc_gr5_ps_gen,
+                'general_social_group'=>$data->drc_gr3_ps_gen,
                 'general_social_group_count'=>'0',
-                'male_gender'=>$data->drc_gr5_ps_boys,
+                'male_gender'=>$data->drc_gr3_ps_boys,
                 'male_gender_count'=>'0',
-                'female_gender'=>$data->drc_gr5_ps_girls,
+                'female_gender'=>$data->drc_gr3_ps_girls,
                 'female_gender_count'=>'0',
 
             ]);
@@ -519,7 +519,7 @@ class DataProcessController extends Controller
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr8_persc_bba)?$data->drc_gr8_persc_bba:'0',"basic"=>isset($data->drc_gr8_persc_bas)?$data->drc_gr8_persc_bas:'0',"proficient"=>isset($data->drc_gr8_persc_pro)?$data->drc_gr8_persc_pro:'0',"advanced"=>isset($data->drc_gr8_persc_adv)?$data->drc_gr8_persc_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr8_persc_bba)?$data->drc_gr8_persc_bba:'0',"basic"=>isset($data->drc_gr8_persc_bas)?$data->drc_gr8_persc_bas:'0',"proficient"=>isset($data->gr8_persc_pro)?$data->gr8_persc_pro:'0',"advanced"=>isset($data->gr8_persc_adv)?$data->gr8_persc_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -552,7 +552,7 @@ class DataProcessController extends Controller
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr8_persst_bba)?$data->drc_gr8_persst_bba:'0',"basic"=>isset($data->drc_gr8_persst_bas)?$data->drc_gr8_persst_bas:'0',"proficient"=>isset($data->drc_gr8_persst_pro)?$data->drc_gr8_persst_pro:'0',"advanced"=>isset($data->drc_gr8_persst_adv)?$data->drc_gr8_persst_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->gr8_persst_bba)?$data->gr8_persst_bba:'0',"basic"=>isset($data->gr8_persst_bas)?$data->gr8_persst_bas:'0',"proficient"=>isset($data->gr8_persst_pro)?$data->gr8_persst_pro:'0',"advanced"=>isset($data->gr8_persst_adv)?$data->gr8_persst_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -741,7 +741,7 @@ class DataProcessController extends Controller
                 'data'=>json_encode($grade_1),
             ]);
 
-        }
+        } 
 
         return "Performance Table Created";
 

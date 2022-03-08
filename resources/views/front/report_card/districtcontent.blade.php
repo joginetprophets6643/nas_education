@@ -12,7 +12,7 @@
 @include('front.report_card.achievement')
 <div class="tab-content tablayertwo-content">
                             <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
-                              <ul class="nav nav-tabs tablayerthree" role="tablist" >
+                              <ul class="nav nav-tabs tablayerthree pb-2" role="tablist" >
                                 <li class="nav-item" role="presentation">
                                   <button class="nav-link" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" type="button" role="tab" aria-controls="information" aria-selected="true" onClick="setScreen('information')">Highlight</button>
                                 </li>
@@ -67,5 +67,37 @@
 
     </section>
 @include('front.includes.footer')
-<script src="{{asset('assets/front/js/reportcard.js')}}"></script>
+<script>
+  function updateReportCardLink(){
+    const state =JSON.parse(sessionStorage.getItem('activeState'))
+    const district =JSON.parse(sessionStorage.getItem('activeDistrict'))
+    let link = ''
+    if(state !== null){
+      console.log(state)
+      const state_id = state.udise_state_code
+      // const encrpt_state_id = "{{Crypt::encrypt((".state_id."))}}"
+      const encrpt_state_id = btoa(state_id)
 
+      // console.log(state.udise_state_code)
+      if(district !== null){
+        const district_id = district.udise_district_code
+        const encrpt_district_id = btoa(district_id)
+
+        console.log('district report')
+        // const encrpt_district_id = "{{Crypt::encrypt((".district_id."))}}"
+
+        link = '/download-district-report/'+encrpt_state_id+'/'+encrpt_district_id
+      }else{
+        console.log('state report')
+
+        link = '/download-state-report/'+encrpt_state_id
+      }
+    }else{
+      console.log('national report')
+      link = '/download-national-report'
+    }
+    console.log(link)
+    $('#report-link').attr('href',link)
+}
+</script>
+<script src="{{asset('assets/front/js/reportcard.js')}}"></script>

@@ -326,8 +326,8 @@ $(document).ready(()=>{
             cursor: 'pointer',
             dataLabels: {
               enabled: true,
-                format: '{point.percentage,.1f}',
-                distance: -50,
+              format: '{point.y}%',
+              distance: -50,
                 filter: {
                     property: 'percentage',
                     operator: '>',
@@ -876,6 +876,7 @@ $(document).ready(()=>{
       $('tab-pane fade').show()
 
     });
+    updateReportCardLink()
   }
 
   // removed for new change
@@ -1027,8 +1028,8 @@ $(document).ready(()=>{
         $('#participation_students_class'+classType).html(total_student.toFixed(0))
         $('#paricipation_gender_male_class'+classType).html(total_male.toFixed(0) + '%')
         $('#paricipation_gender_female_class'+classType).html(total_female.toFixed(0) + '%')
-        $('#participation_rural_class'+classType).html(total_urban.toFixed(0) + '%')
-        $('#participation_urban_class'+classType).html(total_rural.toFixed(0) + '%')
+        $('#participation_rural_class'+classType).html(total_rural.toFixed(0) + '%')
+        $('#participation_urban_class'+classType).html(total_urban.toFixed(0) + '%')
 
         const doughnutChart = {
           gov: parserInt(gov.toFixed(0)),

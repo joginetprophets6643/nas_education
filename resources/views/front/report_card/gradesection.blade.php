@@ -40,7 +40,12 @@
                           </div> -->
                           <div class="btn-wrap">
                             <!-- <a href="#" class="btn org-bdr-btn data-btn">Data View</a> -->
-                            <a href="{{url('/download-pdf')}}" target="_blank" class="btn org-btn report-btn">
+                            <a href="javascript:void(0);" class="btn org-bdr-btn data-btn d-none">Report View (2017)
+                              &nbsp;<span class="material-icons-round">
+                                file_download
+                              </span></a>
+
+                            <a href="{{url('/download-pdf')}}" target="_blank" id="report-link" class="btn org-btn report-btn">
                               Report View 
                               <span class="material-icons-round">
                                 file_download
@@ -53,7 +58,7 @@
                         <div class="tab-pane fade" id="national" role="tabpanel" aria-labelledby="national-tab">...</div>
                         <div class="tab-pane fade" id="state" role="tabpanel" aria-labelledby="state-tab">...</div>
                         <div class="tab-pane fade show active" id="district" role="tabpanel" aria-labelledby="district-tab">
-                          <ul class="nav nav-tabs tablayertwo mtb-20" role="tablist">
+                          <ul class="nav nav-tabs tablayertwo pb-2 mtb-20" role="tablist">
                             <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','3')">
                               <button class="nav-link active" id="class3-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class3" aria-selected="true">class 3</button>
                             </li>
