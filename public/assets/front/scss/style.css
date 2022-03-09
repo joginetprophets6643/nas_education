@@ -10620,4 +10620,20 @@ ul {
             transform: translate(24px, 0);
   }
 }
+
+.line-card-shadow {
+  -webkit-box-shadow: 0px 3px 12px #00000029;
+          box-shadow: 0px 3px 12px #00000029;
+  border-radius: 6px;
+}
+
+.line-card-shadow .line-cardbtn {
+  font-size: 16px !important;
+  padding: 5px 10px !important;
+  border-radius: 5px !important;
+}
+
+.line-card-shadow .line-cardbtn:hover {
+  color: #f7941c;
+}
 /*# sourceMappingURL=style.css.map */

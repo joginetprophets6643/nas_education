@@ -65,55 +65,91 @@
 
 <section class="visualization-wrap bg-grey ptb-60">
     <div class="container">
-        <div class="row">
+      <div class="row">
         <div class="col-md-12">
-                <div class="card-white">
-                <div class="row justify-content-center text-center">
-                    <div class="col-md-12">
-                    <div class="desc-black">
-                    @if(!empty($content->page_meta_title))
-                        {!!$content->inner_page_content!!}
-                    @endif
-                    <!-- Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to promptly understand complex analytics through visual representations. The data visualisation tool facilitates the development of an interface to interact between multiple indicators and form a pattern. This also addresses the bottlenecks that could be identified and targeted for effective planning, implementation, monitoring of the progress of key input, output, and outcome level indicators. Data Visualisation is a useful tool for policymakers, senior government officials, academia and researchers and other stakeholders for its easy interactive features and actionable directions. -->
-                    </div>
-                    </div>
-                <!-- <div class="col-md-4">
-                    <div class="line-card line-card-pink">
-                    <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/national-v.png')}}" alt="national" class="img-fluid" />
-                    </div>
-                    <div class="btn-wrap">
-                        <a href="javascript:void(0);" onClick="goToNationalV();" class="line-cardbtn w-100 btn-pink">National Visualization</a>
-                    </div>
-                    </div>
-                </div> -->
-                <div class="col-md-4">
-                    <div class="line-card line-card-green">
-                    <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/state-v.png')}}" alt="state" class="img-fluid" />
-                    </div>
-                    <div class="btn-wrap">
-                        <a class="line-cardbtn w-100 btn-green" href="{{url('visualization/nas-2021')}}">View Visualization</a>
-                    </div>
-                    </div>
+          <div class="card-white">
+            <div class="row justify-content-center">
+              <div class="col-md-12 mb-4">
+                <h2 class="heading-blue">VISUALIZATION</h2>
+              </div>
+              <div class="col-md-12">
+                <p class="fw-bold">Dashboard</p>
+                <p class="desc-black">
+                  The NAS dashboard has been divided into three clusters – Class-3, Class-5 and Class-8. Subject wise
+                  information on following indicators and subgroups has been provided.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <div class="line-card line-card-shadow">
+                  <div class="line-cardimg">
+                    <img src="{{asset('assets/front/images/visualization_2017.png')}}" alt="visualization" class="img-fluid" />
+                  </div>
+                  <div class="btn-wrap justify-content-center pt-2 pb-4">
+                    <a href="#" class="line-cardbtn org-btn">Access Dashboard 2017</a>
+                  </div>
                 </div>
-                <!-- <div class="col-md-4">
-                    <div class="line-card line-card-blue">
-                    <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/district-v.png')}}" alt="district" class="img-fluid" />
-                    </div>
-                    <div class="btn-wrap">
-                        <a class="line-cardbtn w-100 btn-blue districtopen" href="javascript:void(0);">District Visualization</a>
-                    </div>
-                    </div>
-                </div> -->
+              </div>
+              <div class="col-md-6">
+                <div class="line-card line-card-shadow">
+                  <div class="line-cardimg">
+                    <img src="{{asset('assets/front/images/visualization_2021.png')}}" alt="state" class="img-fluid" />
+                  </div>
+                  <div class="btn-wrap justify-content-center pt-2 pb-4">
+                    <a href="#" class="line-cardbtn org-btn">Access Dashboard 2021</a>
+                  </div>
                 </div>
+              </div>
+              <div class="col-md-12">
+                <div class="mt-4">
+                  <div class="row align-items-center">
+                   <div class="col-md-6">
+                     <div class="mobileapp-img-wrap">
+                         <img src="{{asset('assets/front/images/mobileapp.png')}}" alt="img" class="img-fluid" />
+                     </div>
+                   </div>
+                   <div class="col-md-6">
+                     <div class="mobileapp-content">
+                         <h2 class="heading-blue">
+                             MOBILE APP
+                         </h2>
+                         <p class="desc-black">
+                             This mobile application provides a quick and an easy access to information on learning outcome. Disaggregated and details learning achievement by management of schools, gender, social groups and location till district level in classes 3, 5 and 8 and detailed achievement by learning outcomes in classes 3, 5 and 8 are provided in the mobile app. After the selection of indicator and subgroup user can visualize information in charts and maps as per his/her choice and easily share through email or social media to any other user.
+                         </p>
+                         <div class="app-wrap">
+                             <h3 class="text-black">
+                                 Download the <span class="text-red">FREE</span> App Today!
+                             </h3>
+                             <div class="btn-wrap">
+                                 <a href="#" class="btn app-btn">
+                                     <img src="{{asset('assets/front/images/google_play.png')}}" alt="gp" class="img-fluid" />
+                                 </a>
+                                 <a href="#" class="btn app-btn">
+                                     <img src="{{asset('assets/front/images/app_store.png')}}" alt="as" class="img-fluid" />
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                   </div>
+                  </div>
                 </div>
-        </div>   
+           </div> 
+              <!-- <div class="col-md-4">
+                      <div class="line-card line-card-blue">
+                        <div class="line-cardimg">
+                          <img src="assets/images/district-v.png" alt="district" class="img-fluid" />
+                        </div>
+                        <div class="btn-wrap">
+                          <a href="visualization-district.html" class="line-cardbtn w-100 btn-blue">District Visualization</a>
+                        </div>
+                      </div>
+                    </div> -->
+            </div>
+          </div>
         </div>
+        
+      </div>
     </div>
-</section>
-
+  </section>
 
 @include('front.includes.footer')
 <script>
