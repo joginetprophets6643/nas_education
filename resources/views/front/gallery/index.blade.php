@@ -86,48 +86,51 @@
         await $.ajax({
             type: "GET",
             url: api_url + "events?limit=-1",
+            headers: {
+            "Authorization": "Bearer " + token
+            }
         }).done(response => {
             const events=response.data
-
-            events.forEach((item)=>{
-
+             events.forEach((item)=>{
                 if(Object.keys(img_data)!=item.state){
-
                     img_data[item.state]={
                         id:item.state,
                         count:count
                     }
-                    const filters={
-                        "state_id":{
-                            "_eq": item.state
-                        }
-                    }
-                    $.ajax({
-                        type: "GET",
-                        url: api_url + "state_masters?filter="+ JSON.stringify(filters),
-                    }).done(response=>{
-                        const data=response.data.pop()
-                        
-                        img_data[item.state].thumbnail=data.thumbnail
-                        img_data[item.state].name=data.state_name
-
-
-                    })
-                
                 }
                 else{
                     img_data[item.state].count=img_data[item.state].count+1
-                }  
-                
+                }     
             })
-            Object.keys(img_data).forEach(function(key) {
-                console.log(Object.keys(img_data[key]).length)
-            });
+
+            Object.keys(img_data).forEach(key=>{
+                getEventImages(key, img_data[key].count)
+            })
         })
     })
 
-    const createTiles = ()=>{
-        $('.photos').append('<div class="col-md-3 item"><div class="gallery-card"><div class="gallery-img-wrap"><a class="gallery-anchor" href=""><span id="state">'+img_data[key]['name']+'</span><br><span id="count">'+img_data[key]['count']+'</span></a></div></div></div>')
+
+    const getEventImages = (id,count)=>{
+        const filters={
+                        "state_id":{
+                            "_eq": id
+                        }
+                    }
+         $.ajax({
+                type: "GET",
+                url: api_url + "state_masters?filter="+ JSON.stringify(filters),
+                headers: {
+                "Authorization": "Bearer " + token
+                }
+            }).done(response=>{
+                const data=response.data
+                createTiles(data[0].thumbnail,data[0].state_name,count)
+            })
+    }
+
+    
+    const createTiles = (image,name,count)=>{
+        $('.photos').append('<div class="col-md-3 item"><div class="gallery-card"><div class="gallery-img-wrap"><a class="gallery-anchor" href=""><span id="state">'+name+'</span><br><span id="count">'+count+'</span></a></div></div></div>')
 
     }
     
