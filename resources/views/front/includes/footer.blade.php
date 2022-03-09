@@ -293,12 +293,12 @@
     <script src="{{asset('assets/front/js/district_maps.js')}}"></script>
     <script src="{{asset('assets/front/js/states_static.js')}}"></script>
     <!-- High Charts -->
-    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{asset('assets/front/js/variable-pie.js')}}"></script>
+    <script src="{{asset('assets/front/js/axios.min.js')}}"></script>
     <script src="{{asset('assets/front/js/lightbox.min.js')}}"></script>
     <script src="{{asset('assets/front/js/scripts.js')}}"></script>
     <script src="{{asset('assets/front/js/select2.min.js')}}"></script>
-    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="{{asset('assets/front/js/all.js')}}" data-auto-replace-svg="nest"></script>
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
     <script>
       let c_url=window.location.href;

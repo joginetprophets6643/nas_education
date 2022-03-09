@@ -78,9 +78,9 @@
                                                 Performance by Gender
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne">
+                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne" data-bs-parent="#perAccordion">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -97,7 +97,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
@@ -114,7 +114,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -141,9 +141,9 @@
                                                 Performance by Location
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo">
+                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -161,7 +161,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
@@ -178,7 +178,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -205,9 +205,9 @@
                                                 Performance by Management
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree">
+                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -225,7 +225,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
@@ -242,7 +242,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -269,9 +269,9 @@
                                                 Performance by Social Group
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour">
+                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour" data-bs-parent="#perAccordion">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -289,7 +289,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
@@ -306,7 +306,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -457,7 +457,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -474,7 +474,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
@@ -491,7 +491,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -520,7 +520,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -538,7 +538,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
@@ -555,7 +555,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -584,7 +584,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -602,7 +602,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
@@ -619,7 +619,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -648,7 +648,7 @@
                                             </h2>
                                             <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -666,7 +666,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
@@ -683,7 +683,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -855,7 +855,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -873,7 +873,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
@@ -890,7 +890,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -908,7 +908,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
@@ -936,7 +936,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -954,7 +954,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
@@ -971,7 +971,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -989,7 +989,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
@@ -1017,7 +1017,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -1035,7 +1035,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
@@ -1052,7 +1052,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -1070,7 +1070,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
@@ -1098,7 +1098,7 @@
                                             </h2>
                                             <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-blue indigate-right">
                                                       <div class="percategory-content">
@@ -1116,7 +1116,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
@@ -1133,7 +1133,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -1151,7 +1151,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
@@ -1349,7 +1349,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-red indigate-right">
                                                       <div class="percategory-content">
@@ -1366,7 +1366,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
@@ -1383,7 +1383,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-purple indigate-right">
                                                       <div class="percategory-content">
@@ -1401,7 +1401,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
@@ -1418,7 +1418,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -1448,7 +1448,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-red indigate-right">
                                                       <div class="percategory-content">
@@ -1466,7 +1466,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
@@ -1483,7 +1483,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-purple indigate-right">
                                                       <div class="percategory-content">
@@ -1501,7 +1501,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
@@ -1518,7 +1518,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -1548,7 +1548,7 @@
                                             </h2>
                                             <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-red indigate-right">
                                                       <div class="percategory-content">
@@ -1566,7 +1566,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
@@ -1583,7 +1583,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-purple indigate-right">
                                                       <div class="percategory-content">
@@ -1601,7 +1601,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
@@ -1618,7 +1618,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
@@ -1648,7 +1648,7 @@
                                             </h2>
                                             <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour">
                                               <div class="accordion-body">
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-red indigate-right">
                                                       <div class="percategory-content">
@@ -1666,7 +1666,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
@@ -1683,7 +1683,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-purple indigate-right">
                                                       <div class="percategory-content">
@@ -1701,7 +1701,7 @@
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-8 p-0">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
@@ -1718,7 +1718,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                                <div class="d-flex">
+                                                <div class="row">
                                                   <div class="col-md-4 p-0">
                                                     <div class="percategory-wrap card-pink indigate-right">
                                                       <div class="percategory-content">
