@@ -74,10 +74,19 @@
               </div>
               <div class="col-md-12">
                 <p class="fw-bold">Dashboard</p>
-                <p class="desc-black">
-                  The NAS dashboard has been divided into three clusters – Class-3, Class-5 and Class-8. Subject wise
-                  information on following indicators and subgroups has been provided.
-                </p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p class="desc-black">
+                      The NAS dashboard has been divided into three clusters – Class-3, Class-5 and Class-8. Subject wise information on following indicators and subgroups has been provided.
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <p class="desc-black">
+                      The NAS dashboard has been divided into three clusters – Class-3, Class-5 and Class-8. Subject wise information on following indicators and subgroups has been provided.
+                    </p>
+                  </div>
+                </div>
+                
               </div>
               <div class="col-md-6">
                 <div class="line-card line-card-shadow">
@@ -85,7 +94,7 @@
                     <img src="{{asset('assets/front/images/visualization_2017.png')}}" alt="visualization" class="img-fluid" />
                   </div>
                   <div class="btn-wrap justify-content-center pt-2 pb-4">
-                    <a href="#" class="line-cardbtn org-btn">Access Dashboard 2017</a>
+                    <a href="http://nas.schooleduinfo.in/dashboard/nas_ncert#/" class="line-cardbtn org-btn" target="_blank">Access Dashboard 2017</a>
                   </div>
                 </div>
               </div>
@@ -95,7 +104,7 @@
                     <img src="{{asset('assets/front/images/visualization_2021.png')}}" alt="state" class="img-fluid" />
                   </div>
                   <div class="btn-wrap justify-content-center pt-2 pb-4">
-                    <a href="#" class="line-cardbtn org-btn">Access Dashboard 2021</a>
+                    <a href="#" class="line-cardbtn org-btn" target="_blank">Access Dashboard 2021</a>
                   </div>
                 </div>
               </div>
