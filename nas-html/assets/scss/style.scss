@@ -6138,3 +6138,16 @@ ul{
         }
     }
 }
+
+.line-card-shadow {
+    box-shadow: 0px 3px 12px #00000029;
+    border-radius: 6px;
+    .line-cardbtn {
+        font-size: 16px !important;
+        padding: 5px 10px !important;
+        border-radius: 5px !important;
+        &:hover {
+            color: $color_orange;
+        }
+    }
+}

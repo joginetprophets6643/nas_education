@@ -11,8 +11,8 @@
 @include('front.report_card.resultglimpses')
 @include('front.report_card.achievement')
 <div class="tab-content tablayertwo-content">
-                            <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
-                              <ul class="nav nav-tabs tablayerthree pb-2" role="tablist" >
+  <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
+                              <ul class="nav nav-tabs tablayerthree" role="tablist" >
                                 <li class="nav-item" role="presentation">
                                   <button class="nav-link" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" type="button" role="tab" aria-controls="information" aria-selected="true" onClick="setScreen('information')">Highlight</button>
                                 </li>
@@ -35,22 +35,22 @@
                                   <button class="nav-link" id="feedback-tab" data-bs-toggle="tab" data-bs-target="#feedback" type="button" role="tab" aria-controls="feedback" aria-selected="false"onClick="setScreen('feedback')">Feedback</button>
                                 </li>
                               </ul>
-                            <div class="tab-content tablayerthree-content" id="screen-content">
-                                @yield('information')
-                                @yield('participation')
-                                @yield('performance')
-                                @yield('learning')
-                                @yield('feedback')
-                                @yield('result-glimpses')
-                                @yield('achievement')
-                            </div>
-                            </div>
-                            <!-- <div class="tab-pane fade" id="class5" role="tabpanel" aria-labelledby="class5-tab">...</div>
-                            <div class="tab-pane fade" id="class8" role="tabpanel" aria-labelledby="class8-tab">...</div>
-                            <div class="tab-pane fade" id="class10" role="tabpanel" aria-labelledby="class10-tab">...</div>
-                            <div class="tab-pane fade" id="allclasses" role="tabpanel" aria-labelledby="allclasses-tab">...</div> -->
-                          </div>
-                        </div>
+                              <div class="tab-content tablayerthree-content" id="screen-content">
+                                  @yield('information')
+                                  @yield('participation')
+                                  @yield('performance')
+                                  @yield('learning')
+                                  @yield('feedback')
+                                  @yield('result-glimpses')
+                                  @yield('achievement')
+                              </div>
+  </div>
+  <!-- <div class="tab-pane fade" id="class5" role="tabpanel" aria-labelledby="class5-tab">...</div>
+  <div class="tab-pane fade" id="class8" role="tabpanel" aria-labelledby="class8-tab">...</div>
+  <div class="tab-pane fade" id="class10" role="tabpanel" aria-labelledby="class10-tab">...</div>
+  <div class="tab-pane fade" id="allclasses" role="tabpanel" aria-labelledby="allclasses-tab">...</div> -->
+</div>
+</div>
                       </div>
                 </div>
 
