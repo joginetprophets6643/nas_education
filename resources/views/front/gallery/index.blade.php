@@ -30,6 +30,7 @@
                     <h2 class="heading-blue mb-4">
                         {{ __('lang.Photo Gallery') }}
                     </h2>
+                    <input type="text" name="state" id="state" placeholder="Search">
                     <div class="row photos">
                         
                     </div>
@@ -38,33 +39,10 @@
                     <h2 class="heading-blue mb-4">
                         {{__('lang.Video Gallery')}}
                     </h2>
-                    @if(count($v_count)>0)
-                        <div class="row">                       
-                        @foreach($v_count as $key=>$value)
-                        <div class="col-md-3 item">
-                            <div class="gallery-card">
-                            <div class="gallery-img-wrap">
-                            <?php $id=encode5t($key)?>
-                            <a class="gallery-anchor" href="{{url('/gallery/video-gallery/state/'.$id)}}">
-                            <!-- <img src="" alt="img" class="img-fluid">                         -->
-                            <!-- <button class="gallery-zoom-icon">
-                            <span class="material-icons-round">
-                            zoom_in
-                            </span>
-                            </button> -->
-                            <img src="{{asset('assets/uploads/state-thumbnail/'.$value['image'])}}" alt="img" class="img-fluid">
-                            <span id="state">{{$value['state']}}</span>
-                            <span id="count">{{$value['count']}}</span>
-                            
-                            </a>
-                            </div>
-                            </div>
+                        <div class="row videos">                       
+                        
                         </div>
-                        @endforeach
-                        </div>
-                    @else
-                    <p class="text-center">No Video Uploaded Yet!<p>
-                    @endif
+                    
                         
                         
                         
@@ -80,6 +58,9 @@
 
 <script>
     var img_data={}
+    var temp_img_data={}
+    var ved_data={}
+    var temp_ved_data={}
     let count=1
 
     $(document).ready(async function() {
@@ -90,8 +71,8 @@
             "Authorization": "Bearer " + token
             }
         }).done(response => {
-            const events=response.data
-             events.forEach((item)=>{
+            const i_events=response.data
+             i_events.forEach((item)=>{
                 if(Object.keys(img_data)!=item.state){
                     img_data[item.state]={
                         id:item.state,
@@ -104,13 +85,39 @@
             })
 
             Object.keys(img_data).forEach(key=>{
-                getEventImages(key, img_data[key].count)
+                getStateImages(key, img_data[key].count,'photos')
+            })
+        })
+
+        await $.ajax({
+            type: "GET",
+            url: api_url + "video_events?limit=-1",
+            headers: {
+            "Authorization": "Bearer " + token
+            }
+        }).done(response => {
+            const v_events=response.data
+             v_events.forEach((item)=>{
+                if(Object.keys(ved_data)!=item.state){
+                    ved_data[item.state]={
+                        id:item.state,
+                        count:count,
+                        name:'',
+                        thumbnail:''
+                    }
+                }
+                else{
+                    ved_data[item.state].count=ved_data[item.state].count+1
+                }     
+            })
+
+            Object.keys(ved_data).forEach(key=>{
+                getStateImages(key, ved_data[key].count,'videos')
             })
         })
     })
 
-
-    const getEventImages = (id,count)=>{
+    const getStateImages = (id,count,type)=>{
         const filters={
                         "state_id":{
                             "_eq": id
@@ -124,16 +131,64 @@
                 }
             }).done(response=>{
                 const data=response.data
-                createTiles(data[0].thumbnail,data[0].state_name,count)
+
+                if(type=='videos'){
+                    ved_data[id].name=data[0].state_name
+                    ved_data[id].thumbnail=data[0].thumbnail
+                }
+                if(type=='photos'){
+                    img_data[id].name=data[0].state_name
+                    img_data[id].thumbnail=data[0].thumbnail
+                }
+                
+ 
+
+                createTiles(id,data[0].thumbnail?data[0].thumbnail:'broken-1.png',data[0].state_name,count,type)
             })
     }
 
     
-    const createTiles = (image,name,count)=>{
-        $('.photos').append('<div class="col-md-3 item"><div class="gallery-card"><div class="gallery-img-wrap"><a class="gallery-anchor" href=""><span id="state">'+name+'</span><br><span id="count">'+count+'</span></a></div></div></div>')
-
+    const createTiles = (id,image,name,count,type)=>{
+        if(type=='photos'){
+        
+        $('.photos').append('<div class="col-md-3 item"><div class="gallery-card"><div class="gallery-img-wrap"><a class="gallery-anchor" href="{{url('/gallery/image-gallery/state/name')}}"><img src="assets/uploads/state-thumbnail/'+image +'"alt="img" class="img-fluid"><span id="state">'+name+'</span><br><span id="count">'+count+'</span></a></div></div></div>')
+        }
+        if(type=='videos'){
+        
+        $('.videos').append('<div class="col-md-3 item"><div class="gallery-card"><div class="gallery-img-wrap"><a class="gallery-anchor" href=""><img src="assets/uploads/state-thumbnail/'+image +'"alt="img" class="img-fluid"><span id="state">'+name+'</span><br><span id="count">'+count+'</span></a></div></div></div>')
+        }
     }
     
+    $('#state').keyup(()=>{
+        var state=$('#state').val()
+        
+        temp_ved_data={}
+        temp_img_data={}
+        Object.keys(ved_data).forEach(key=>{          
+            if(ved_data[key].name.includes(state)){
+            temp_ved_data[key]= ved_data[key]
+            }
+        })
 
+        Object.keys(img_data).forEach(key=>{          
+            if(img_data[key].name.includes(state)){
+            temp_img_data[key]= img_data[key]
+            }
+        })
+        $('.photos').empty()
+        $('.videos').empty()
+        
+        Object.keys(temp_ved_data).forEach(key=>{
+            // console.log('here')
+            createTiles(key,temp_ved_data[key].thumbnail?temp_ved_data[key].thumbnail:'broken-1.png',temp_ved_data[key].name, temp_ved_data[key].count,'videos')
+        })
+
+        Object.keys(temp_img_data).forEach(key=>{
+            // console.log('there')
+            createTiles(key,temp_img_data[key].thumbnail?temp_img_data[key].thumbnail:'broken-1.png',temp_img_data[key].name, temp_img_data[key].count,'photos')
+        })
+        
+
+    })
     
 </script>

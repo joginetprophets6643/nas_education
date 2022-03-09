@@ -98,35 +98,35 @@ class FrontController extends Controller
     }
 
     public function gallery(){
-        $events=Event::get()->groupBy('state');
-        // dd($events);
+        // $events=Event::get()->groupBy('state');
+        // // dd($events);
         
-        $count=[];
-        foreach($events as $key=>$value){
-            $state=State_Master::where('state_id',$key)->first();
-            $count[$key]=array(
-                'state'=>$state->state_name, 
-                'count'=> count($value),
-                'image'=>$state->thumbnail?$state->thumbnail:'broken-1.png'
-            );
-        }
+        // $count=[];
+        // foreach($events as $key=>$value){
+        //     $state=State_Master::where('state_id',$key)->first();
+        //     $count[$key]=array(
+        //         'state'=>$state->state_name, 
+        //         'count'=> count($value),
+        //         'image'=>$state->thumbnail?$state->thumbnail:'broken-1.png'
+        //     );
+        // }
 
-        // dd($count);
+        // // dd($count);
 
 
         
-        $v_events=Video_Events::get()->groupBy('state');
-        $v_count=[];
-        foreach($v_events as $key=>$value){
-            $state=State_Master::where('state_id',$key)->first();
-            $v_count[$key]=array(
-                'state'=>$state->state_name, 
-                'count'=> count($value),
-                'image'=>$state->thumbnail?$state->thumbnail:'broken-1.png'
-            );
-        }
+        // $v_events=Video_Events::get()->groupBy('state');
+        // $v_count=[];
+        // foreach($v_events as $key=>$value){
+        //     $state=State_Master::where('state_id',$key)->first();
+        //     $v_count[$key]=array(
+        //         'state'=>$state->state_name, 
+        //         'count'=> count($value),
+        //         'image'=>$state->thumbnail?$state->thumbnail:'broken-1.png'
+        //     );
+        // }
         
-        return view('front.gallery.index',compact('v_count','count'));
+        return view('front.gallery.index');
     }
 
     public function rti(){
