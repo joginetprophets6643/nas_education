@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import People from '@/assets/images/ap-people.svg';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { useSelector } from 'react-redux';
 import { IntialStateModel, States, StoreModel } from '@/models/visualization';
+import HC_exporting from 'highcharts/modules/exporting'
+HC_exporting(Highcharts)
+
 
 
 const GraphCard = (props: any) => {
@@ -13,13 +16,13 @@ const GraphCard = (props: any) => {
             <h3 className="apcard-heading apcard-heading-red">
                 <img src={People} alt="img" className="img-fluid" /> {props.title}
             </h3>
-            <div className="toggle-btn">
+            {/* <div className="toggle-btn">
                 <button className="btn">
                     <span className="material-icons">
                         menu
                     </span>
                 </button>
-            </div>
+            </div> */}
         </div> 
         <div className="apcard-content">
             <div className="apcard-graph-wrap">

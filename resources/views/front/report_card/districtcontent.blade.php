@@ -11,8 +11,8 @@
 @include('front.report_card.resultglimpses')
 @include('front.report_card.achievement')
 <div class="tab-content tablayertwo-content">
-                            <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
-                              <ul class="nav nav-tabs tablayerthree pb-2" role="tablist" >
+  <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
+                              <ul class="nav nav-tabs tablayerthree" role="tablist" >
                                 <li class="nav-item" role="presentation">
                                   <button class="nav-link" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" type="button" role="tab" aria-controls="information" aria-selected="true" onClick="setScreen('information')">Highlight</button>
                                 </li>
@@ -36,6 +36,14 @@
                                 </li>
                               </ul>
                             <div class="tab-content tablayerthree-content" id="screen-content">
+                                <div class="container text-center m-auto" id="screen-loader">
+                                  <div class="content-loader">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                  </div>
+                                </div>
                                 @yield('information')
                                 @yield('participation')
                                 @yield('performance')
@@ -61,7 +69,6 @@
 @include('front.includes.footer')
 <script>
   function updateReportCardLink(){
-
     const state =JSON.parse(sessionStorage.getItem('activeState'))
     const district =JSON.parse(sessionStorage.getItem('activeDistrict'))
     let link = ''
@@ -69,18 +76,21 @@
       console.log(state)
       const state_id = state.udise_state_code
       // const encrpt_state_id = "{{Crypt::encrypt((".state_id."))}}"
+      const encrpt_state_id = btoa(state_id)
+
       // console.log(state.udise_state_code)
       if(district !== null){
         const district_id = district.udise_district_code
+        const encrpt_district_id = btoa(district_id)
 
         console.log('district report')
         // const encrpt_district_id = "{{Crypt::encrypt((".district_id."))}}"
 
-        link = '/download-district-report/'+state_id+'/'+district_id
+        link = '/download-district-report/'+encrpt_state_id+'/'+encrpt_district_id
       }else{
         console.log('state report')
 
-        link = '/download-state-report/'+state_id
+        link = '/download-state-report/'+encrpt_state_id
       }
     }else{
       console.log('national report')

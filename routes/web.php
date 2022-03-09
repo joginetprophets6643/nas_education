@@ -15,6 +15,8 @@ use App\Http\Controllers\VisualizationCalculationController;
 use Illuminate\Support\Facades\Crypt;
 
 use App\Http\Controllers\FinalCalculationController;
+use App\Http\Controllers\Data2017Controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,16 @@ use App\Http\Controllers\FinalCalculationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*********************************
+* 2017 Data upload start
+**********************************/
+Route::get('/data-2017/state-master',[Data2017Controller::class,'state']);
+Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
+
+/*********************************
+* 2017 Data upload end
+**********************************/
+
 /*********************************
 * District Level Data upload start
 **********************************/
@@ -78,8 +90,8 @@ Route::get('national-download-pdf', [PdfGenerateController::class, 'Nationaldwn'
 // District: Pdf path for download start
 Route::get('/download-district-report/{state_id}/{district_id}', function($state_id,$district_id)
 {
-    $state_id = Crypt::decrypt($state_id);
-    $district_id = Crypt::decrypt($district_id);
+    $state_id = base64_decode($state_id);
+    $district_id = base64_decode($district_id);
     // Check if file exists in app/public/file folder
     $file_name = 'nas-district-report.pdf';
     $file_path = public_path('nas_pdf/national/'.$state_id.'/'.$district_id.'/nas-district-report.pdf');
@@ -101,7 +113,7 @@ Route::get('/download-district-report/{state_id}/{district_id}', function($state
 // State: Pdf path for download start
 Route::get('/download-state-report/{state_id}', function($state_id)
 {
-    $state_id = Crypt::decrypt($state_id);
+    $state_id = base64_decode($state_id);
     // Check if file exists in app/public/file folder
     $file_name = 'nas-state-report.pdf';
     $file_path = public_path('nas_pdf/national/'.$state_id.'/nas-state-report.pdf');

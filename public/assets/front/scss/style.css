@@ -10558,4 +10558,131 @@ ul {
     min-width: 18px;
   }
 }
+
+.content-loader {
+  display: inline-block;
+  position: relative;
+  height: 50vh;
+}
+
+.content-loader div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  /*   background: #c1c1c1; */
+  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+          animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.content-loader div:nth-child(1) {
+  left: 8px;
+  background: #466582;
+  -webkit-animation: content-loader1 0.6s infinite;
+          animation: content-loader1 0.6s infinite;
+}
+
+.content-loader div:nth-child(2) {
+  left: 8px;
+  background: #527698;
+  -webkit-animation: content-loader2 0.6s infinite;
+          animation: content-loader2 0.6s infinite;
+}
+
+.content-loader div:nth-child(3) {
+  left: 32px;
+  background: #5b86ae;
+  -webkit-animation: content-loader2 0.6s infinite;
+          animation: content-loader2 0.6s infinite;
+}
+
+.content-loader div:nth-child(4) {
+  left: 56px;
+  background: #3b546d;
+  -webkit-animation: content-loader3 0.6s infinite;
+          animation: content-loader3 0.6s infinite;
+}
+
+@-webkit-keyframes content-loader1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes content-loader1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes content-loader3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes content-loader3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@-webkit-keyframes content-loader2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(24px, 0);
+            transform: translate(24px, 0);
+  }
+}
+
+@keyframes content-loader2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(24px, 0);
+            transform: translate(24px, 0);
+  }
+}
+
+.line-card-shadow {
+  -webkit-box-shadow: 0px 3px 12px #00000029;
+          box-shadow: 0px 3px 12px #00000029;
+  border-radius: 6px;
+}
+
+.line-card-shadow .line-cardbtn {
+  font-size: 16px !important;
+  padding: 5px 10px !important;
+  border-radius: 5px !important;
+}
+
+.line-card-shadow .line-cardbtn:hover {
+  color: #f7941c;
+}
 /*# sourceMappingURL=style.css.map */
