@@ -31,70 +31,60 @@
                         {{ __('lang.Photo Gallery') }}
                     </h2>
                     <div class="row photos">
-                        @foreach($events as $event)
+                        @foreach($count as $key=>$value)
                         <div class="col-md-3 item">
                             <div class="gallery-card">
                             <div class="gallery-img-wrap">
-                            <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
-                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid">                        
-                            <button class="gallery-zoom-icon">
-                        <span class="material-icons-round">
-                        zoom_in
-                        </span>
-                        </button>
-                        </a>
-                        </div>
+                            <?php $id=encode5t($key)?>
+                            <a class="gallery-anchor" href="{{url('/gallery/image-gallery/state/'.$id)}}">
+                            <!-- <img src="" alt="img" class="img-fluid">                         -->
+                            <!-- <button class="gallery-zoom-icon">
+                            <span class="material-icons-round">
+                            zoom_in
+                            </span>
+                            </button> -->
+                            <img src="{{asset('assets/uploads/state-thumbnail/'.$value['image'])}}" alt="img" class="img-fluid">
+                            <span id="state">{{$value['state']}}</span>
+                            <span id="count">{{$value['count']}}</span>
+                            
+                            </a>
+                            </div>
                             </div>
                         </div>
                         @endforeach
-                        
-                        <div class="col-md-12">
-                            <a href="{{url('/gallery/image-gallery')}}" class="org-link">
-                                {{ __('lang.VIEW ALL') }}  
-                                <span class="material-icons-round">
-                                    east
-                                </span>
-                            </a>
-                        </div>
                     </div>
                     </div>
                     <div class="videogallery-content">
                     <h2 class="heading-blue mb-4">
                         {{__('lang.Video Gallery')}}
                     </h2>
-                    @if(!$videos->isEmpty())
+                    @if(count($v_count)>0)
                         <div class="row">                       
-                        @foreach($videos as $video)
-                        @if($video->vedio)
-                        <div class="col-md-3">
-                            <div class="video-wrap">
-                            <video width="246" height="136" style="border-radius:6px;" controls>
-                                <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            </div>
-                        </div>
-                        @else
-                        <div class="col-md-3">
-                            <div class="video-wrap">
-                            <iframe width="246" height="136" style="border-radius:6px;" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        @endif
-                        
-                        @endforeach
-                        <div class="col-md-12">
-                            <a href="{{url('/gallery/video-gallery')}}" class="org-link">
-                                {{ __('lang.VIEW ALL') }} 
-                                <span class="material-icons-round">
-                                    east
-                                </span>
+                        @foreach($v_count as $key=>$value)
+                        <div class="col-md-3 item">
+                            <div class="gallery-card">
+                            <div class="gallery-img-wrap">
+                            <?php $id=encode5t($key)?>
+                            <a class="gallery-anchor" href="{{url('/gallery/video-gallery/state/'.$id)}}">
+                            <!-- <img src="" alt="img" class="img-fluid">                         -->
+                            <!-- <button class="gallery-zoom-icon">
+                            <span class="material-icons-round">
+                            zoom_in
+                            </span>
+                            </button> -->
+                            <img src="{{asset('assets/uploads/state-thumbnail/'.$value['image'])}}" alt="img" class="img-fluid">
+                            <span id="state">{{$value['state']}}</span>
+                            <span id="count">{{$value['count']}}</span>
+                            
                             </a>
+                            </div>
+                            </div>
                         </div>
+                        @endforeach
                         </div>
-                        @else
-                        <p class="text-center">No Video Uploaded Yet!<p>
-                        @endif
+                    @else
+                    <p class="text-center">No Video Uploaded Yet!<p>
+                    @endif
                         
                         
                         
@@ -107,3 +97,50 @@
 </section>
 
 @include('front.includes.footer')
+
+<script>
+
+
+        let encounter_check=[]
+        let required_data = []
+    $(document).ready( function() {
+
+         $.ajax({
+                type: "GET",
+                url: api_url + "events?limit=-1",
+            }).done(response => {
+
+            const events=response.data
+            events.forEach(async (item)=>{
+                if(encounter_check.indexOf(item.state) < 0){
+                    encounter_check.push(item.state)
+                    const filters={
+                        "state_id":{
+                            "_eq": item.state
+                        }
+                    }
+                    await getEvents(filters)
+                }
+                else{                    
+                    console.log('NO DATA')
+                }
+            })
+        })
+        const getEvents = async (filters)=>{
+                await $.ajax({
+                        type: "GET",
+                        url: api_url + "state_masters?filter="+ JSON.stringify(filters),
+                    }).done(response=>{
+                        data=response.data.pop()
+                        required_data.push(data)
+                }) 
+        }
+        console.log(required_data.length)
+        required_data.forEach(i=>{
+            console.log(i)
+        })
+    })
+    
+
+    
+</script>

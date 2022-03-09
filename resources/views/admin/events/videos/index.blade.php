@@ -66,6 +66,20 @@
           <div class="card-body">
           <form action="{{route('store-video-event')}}" method="POST">
               @csrf
+
+            <div class="mb-3">
+              <label class="form-label">State Name</label>
+              <select name="state_name" class="form-control">
+                <option selected disabled>Select State</option>
+                @foreach ($states as $key=>$value)
+                <option value="{{$value->state_id}}" {{ old('state_id') == $value->state_id ? 'selected' : '' }}>{{$value->state_name}}</option>
+                @endforeach
+              </select>
+              @error('state_name')
+              <span class="text-danger">{{$message}}</span>
+              @enderror
+            </div>
+            
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Event Name</label>
               <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

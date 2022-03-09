@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
-    public function index(){
-        $events=Event::join('event_images','events.id','=','event_images.event_id')->get();
+    public function index($id){
+        $id=decode5t($id);
+        
+        $events=Event::join('event_images','events.id','=','event_images.event_id')->where('state',$id)->get();
         $count=[];
         $image=[];
         foreach($events as $event){
@@ -20,8 +22,10 @@ class GalleryController extends Controller
         }
         return view('front.gallery.images.index',compact('events','count','image'));
     }
-    public function video(){
-        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->distinct('vedios.event_id')->select('vedios.*','video_events.name')->get();
+    public function video($id){
+        $id=decode5t($id);
+
+        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->where('state',$id)->distinct('vedios.event_id')->select('vedios.*','video_events.name')->get();
         foreach($videos as $key){
             $total_video = DB::table('vedios')->where('event_id',$key->event_id)->whereNotNull('vedio')->where('status',1)->count();
             $total_url = DB::table('vedios')->where('event_id',$key->event_id)->whereNotNull('url')->where('status',1)->count();

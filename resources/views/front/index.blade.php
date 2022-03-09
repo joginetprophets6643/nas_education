@@ -671,7 +671,8 @@
   });
 
   function generateNationalMap(data){
-    Highcharts.mapChart('map-container', {
+
+    const chart = Highcharts.mapChart('map-container', {
         chart: {
             map: 'countries/in/custom/in-all-disputed'
         },
@@ -686,7 +687,10 @@
         legend: {
           enabled: false
         },
-      tooltip: { enabled: true },
+      tooltip: { 
+        enabled: true,
+        pointFormat: '{point.name}'
+      },
         navigation: {
             buttonOptions: {
                 enabled: false
@@ -704,8 +708,7 @@
                               const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
                               triggerDistrictChart(selectedMapData)                 
                               populateDemographicInfo(e.point.value)
-                            }
-
+                            },
                       }
                   }
               },
@@ -719,19 +722,20 @@
 
         series: [{
             data: data,
-            name: 'Random data',
+            name: 'State',
             allowPointSelect: true,
             cursor: 'pointer',
             color: "#9ec2e4",
             borderColor: "#6e6f70",
             states: {
-                hover: {
-                    // color: '#006BB6'
-                    color:'#f7941c'
-                },
-                select: {
-                  color: '#9ec2e4'
-                }
+              select: {
+                  color: '#9ec2e4',
+              },
+              hover: {
+                  // color: '#006BB6'
+                  color:'#f7941c',
+              }
+                
             },
             dataLabels: {
                 enabled: false,
@@ -739,6 +743,9 @@
             }
         }]
     });
+    console.log(chart.series[0])
+    // chart.series[0].states.select.color = '#9ec2e4'
+    //     chart.series[0].states.hover.color = '#9ec2e4'
   }
 
   AOS.init({
@@ -750,10 +757,11 @@
   function BackToNational(){
     $('#states').val('');
     populateDemographicInfo('','')
-      $('#name').html('NATIONAL');
-      document.getElementById("map-container").style.display = "";
-      document.getElementById("district-map-container").style.display = "none";
-      $('#BackToN').css('display','none');
+    generateNationalMap(fetchedStateData)
+    $('#name').html('NATIONAL');
+    document.getElementById("map-container").style.display = "";
+    document.getElementById("district-map-container").style.display = "none";
+    $('#BackToN').css('display','none');
   }
 
   function triggerDistrictChart(data){
@@ -785,7 +793,8 @@
       },
       series:data.data,
       tooltip: { 
-        enabled: true 
+        enabled: true,
+        pointFormat: '{point.name}'
       },
       navigation: {
           buttonOptions: {
@@ -795,6 +804,7 @@
       
       plotOptions: {
         series:{
+          name: 'District',
           allowPointSelect: true,
           states: {
             select: {

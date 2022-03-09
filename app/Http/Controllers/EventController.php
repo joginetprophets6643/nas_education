@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Vedios;
 use App\Models\Video_Events;
 use App\Models\Event_Images;
+use App\Models\State_Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use DB;
@@ -15,8 +16,9 @@ class EventController extends Controller
     //Events
     public function index()
     {
+        $states=State_Master::get();
         $events=Event::latest()->get();
-        return view('admin.events.index',compact('events'));
+        return view('admin.events.index',compact('events','states'));
     }
 
     
@@ -24,10 +26,12 @@ class EventController extends Controller
     {
         $validatedData=$request->validate([
             'name'=>'required|unique:events',
+            'state_name'=>'required',
         ]);
 
         $event= new Event;
         $event->name=$request->name;
+        $event->state=$request->state_name;
         $event->save();
         return Redirect()->back()->with('success','Event Added Successfully');
     }
@@ -58,7 +62,8 @@ class EventController extends Controller
     public function video_event_index()
     {
         $events=Video_Events::latest()->get();
-        return view('admin.events.videos.index',compact('events'));
+        $states=State_Master::get();
+        return view('admin.events.videos.index',compact('events','states'));
     }
 
     
@@ -66,10 +71,13 @@ class EventController extends Controller
     {
         $validatedData=$request->validate([
             'name'=>'required|unique:video_events',
+            'state_name'=>'required',
         ]);
 
         $event= new Video_Events;
         $event->name=$request->name;
+        $event->state=$request->state_name;
+        
         $event->save();
         return Redirect()->back()->with('success','Event Added Successfully');
     }
