@@ -167,6 +167,7 @@
     }
     .apcard-content {
         padding: 30px;
+        position: relative;
         figure{
             margin: 0;
         }
@@ -328,4 +329,66 @@
     }
 }
 
+// charttype-CSS
+.charttype-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background: #fff;
+    border-radius: 6px;
+    display: flex;
+    #chatytypeTab {
+        padding: 10px;
+        border-bottom: 0;
+        border-right: 1px solid #ccc;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        .nav-item {
+            width: 100%;
+            .nav-link {
+                font-size: 14px;
+                margin: 0;
+                text-align: center;
+                width: 100%;
+                border: 1px solid #2a6aa9;
+                border-radius: 2px;
+                padding: 10px;
+                color: #2a6aa9;
+                font-weight: 500;
+                &.active{
+                    background-color: #2a6aa9;
+                    color: #fff;
+                }
+                &:hover{
+                    background-color: #2a6aa9;
+                    color: #fff;
+                }
+            }
+        }
+    }
 
+    #chatytypeContent {
+        width: 100%;
+        padding: 10px;
+    }
+    .charttype-content-list{
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-flow: wrap;
+            li {
+                border: 2px solid #c3c3c3;
+                margin: 10px;
+                width: 150px;
+                text-align: center;
+                position: relative;
+                padding: 5px;
+            }
+        }
+    }
+}
