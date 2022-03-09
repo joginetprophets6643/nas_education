@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useRef} from 'react';
 import Globe from '@/assets/images/globe-icon.svg';
 import GraphCard from '@/components/Visualization/GraphCard/GraphCard';
 import { useSelector } from 'react-redux';
@@ -46,6 +46,27 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
       performance:['#F6A5B5','#F2849A','#EC4A6A','#BD3B55']
   } as any
 
+
+  const chartClickEvent = (data:any,name: string,type:string)=>{
+      if(name === 'management'){
+          setManagementData(makeSeries(data,name,type))
+      }
+      if(name === 'gender'){
+        setGenderData(makeSeries(data,name,type))
+      }
+      if(name === 'socialgroup'){
+        setSocialGroupData(makeSeries(data,name,type))
+      }
+      if(name === 'location'){
+        setLocationData(makeSeries(data,name,type))
+      }
+      if(name === 'performance'){
+        setPerformanceLevelData(makeSeries(data,name,type))
+      }
+      if(name === 'learning'){
+        setLearningOutcomeData(makeSeries(data,name,type))
+      }
+  }
   const makeSeries = (data: any, name:string, type: string)=>{
     let chart_details = {
         title: {
@@ -72,6 +93,38 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
                 dataLabels: {
                     enabled: true,
                     format: '{point.y}'
+                }
+            }
+        },
+        exporting: {
+            menuItemDefinitions: {
+                // Custom definition
+                changechart: {
+                    text: 'Change Chart Type'
+                },
+                pie:{
+                    onclick:  ()=> {
+                        chartClickEvent(data,name,'pie')
+                    },
+                    text: 'Pie Chart'
+                },
+                column:{
+                    onclick:  ()=> {
+                        chartClickEvent(data,name,'column')
+                    },
+                    text: 'Column Chart'
+                },
+                line:{
+                    onclick:  ()=> {
+                        chartClickEvent(data,name,'line')
+                    },
+                    text: 'Line Chart'
+                },
+
+            },
+            buttons: {
+                contextButton: {
+                    menuItems: ['changechart','separator','pie','column','line']
                 }
             }
         },
@@ -164,7 +217,7 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
                 </div>
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard type="map" title="By Learning Outcome" series={learningoutcome_data}/>
+                    <GraphCard type="column" title="By Learning Outcome" series={learningoutcome_data}/>
                     :
                     ""}
                 </div>
