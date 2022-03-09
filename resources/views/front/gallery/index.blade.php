@@ -31,27 +31,7 @@
                         {{ __('lang.Photo Gallery') }}
                     </h2>
                     <div class="row photos">
-                        @foreach($count as $key=>$value)
-                        <div class="col-md-3 item">
-                            <div class="gallery-card">
-                            <div class="gallery-img-wrap">
-                            <?php $id=encode5t($key)?>
-                            <a class="gallery-anchor" href="{{url('/gallery/image-gallery/state/'.$id)}}">
-                            <!-- <img src="" alt="img" class="img-fluid">                         -->
-                            <!-- <button class="gallery-zoom-icon">
-                            <span class="material-icons-round">
-                            zoom_in
-                            </span>
-                            </button> -->
-                            <img src="{{asset('assets/uploads/state-thumbnail/'.$value['image'])}}" alt="img" class="img-fluid">
-                            <span id="state">{{$value['state']}}</span>
-                            <span id="count">{{$value['count']}}</span>
-                            
-                            </a>
-                            </div>
-                            </div>
-                        </div>
-                        @endforeach
+                        
                     </div>
                     </div>
                     <div class="videogallery-content">
@@ -99,47 +79,57 @@
 @include('front.includes.footer')
 
 <script>
+    var img_data={}
+    let count=1
 
-
-        let encounter_check=[]
-        let required_data = []
-    $(document).ready( function() {
-
-         $.ajax({
-                type: "GET",
-                url: api_url + "events?limit=-1",
-            }).done(response => {
-
+    $(document).ready(async function() {
+        await $.ajax({
+            type: "GET",
+            url: api_url + "events?limit=-1",
+        }).done(response => {
             const events=response.data
-            events.forEach(async (item)=>{
-                if(encounter_check.indexOf(item.state) < 0){
-                    encounter_check.push(item.state)
+
+            events.forEach((item)=>{
+
+                if(Object.keys(img_data)!=item.state){
+
+                    img_data[item.state]={
+                        id:item.state,
+                        count:count
+                    }
                     const filters={
                         "state_id":{
                             "_eq": item.state
                         }
                     }
-                    await getEvents(filters)
-                }
-                else{                    
-                    console.log('NO DATA')
-                }
-            })
-        })
-        const getEvents = async (filters)=>{
-                await $.ajax({
+                    $.ajax({
                         type: "GET",
                         url: api_url + "state_masters?filter="+ JSON.stringify(filters),
                     }).done(response=>{
-                        data=response.data.pop()
-                        required_data.push(data)
-                }) 
-        }
-        console.log(required_data.length)
-        required_data.forEach(i=>{
-            console.log(i)
+                        const data=response.data.pop()
+                        
+                        img_data[item.state].thumbnail=data.thumbnail
+                        img_data[item.state].name=data.state_name
+
+
+                    })
+                
+                }
+                else{
+                    img_data[item.state].count=img_data[item.state].count+1
+                }  
+                
+            })
+            Object.keys(img_data).forEach(function(key) {
+                console.log(Object.keys(img_data[key]).length)
+            });
         })
     })
+
+    const createTiles = ()=>{
+        $('.photos').append('<div class="col-md-3 item"><div class="gallery-card"><div class="gallery-img-wrap"><a class="gallery-anchor" href=""><span id="state">'+img_data[key]['name']+'</span><br><span id="count">'+img_data[key]['count']+'</span></a></div></div></div>')
+
+    }
     
 
     
