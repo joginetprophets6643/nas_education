@@ -31,6 +31,9 @@ use App\Http\Controllers\FinalCalculationController;
 Route::get('/drc-final-data/district-master',[DataProcess::class,'index']);
 Route::get('/drc-final-data/performance',[DataProcess::class,'performance']);
 Route::get('/drc-final-data/participation',[DataProcess::class,'participation']);
+Route::get('/drc-final-data/lo',[DataProcess::class,'DRCLO']);
+Route::get('/drc-final-data/feedback',[DataProcess::class,'DRCFEEDBACK']);
+
 /*********************************
 * District Level Data upload end
 **********************************/
@@ -343,7 +346,9 @@ Route::group(["middleware" => ["language"]], function(){
         Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
         Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
         Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
-    
+        Route::get('/data-share/reset-password','App\Http\Controllers\UserController@resetPassword')->name('reset-password');
+        Route::post('/data-share/change-password','App\Http\Controllers\UserController@changePassword');
+
     });
 
 
