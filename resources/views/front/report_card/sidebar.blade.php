@@ -15,7 +15,14 @@
             </div>
         </div>
         <div class="dashboard-wrapper">
+            <div class="sidebar-overlay"></div>
+
             <div class="sidebar-wrap active-sidebar" id="sideBar"> 
+                <div class="close1-btn">
+                <span class="material-icons-round">
+                  close
+                </span>
+                </div>
                 <div class="ranking-wrap">
                     <ul id="district_geography" style="display:none;">
                         <li>

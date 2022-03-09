@@ -280,7 +280,7 @@
     <script src="{{asset('assets/front/js//in-all-disputed.js')}}"></script>
 
     <script>
-      let token = '{{env("API_TOKEN")}}'
+      let token = '{{env("API_TOKEN")}}'  
       let api_url ='{{env("API_URL")}}'
       let backend_api_url = '{{env("BACKEND_API_URL")}}'
       let base_url = '{{env("BASE_URL")}}'+'/'
@@ -372,13 +372,32 @@ function changeFontSize(direction){
         var menu_btn = document.querySelector("#menu-btn");
         var sideBar = document.querySelector("#sideBar");
         var main_content = document.querySelector(".main-content-wrap");
+        var close_btn = document.querySelector(".close1-btn");
         // console.log(menu_btn)
-        if(menu_btn !== null){
+        if(window.innerWidth > 1024) {
+          if(menu_btn !== null){
             menu_btn.addEventListener("click", () => {
-            sideBar.classList.toggle("active-sidebar");
-            main_content.classList.toggle("active-main-content");
-          });
+              sideBar.classList.toggle("active-sidebar");
+              main_content.classList.toggle("active-main-content");
+            });
+          }
         }
+        
+        if(window.innerWidth < 1024) {
+          if(close_btn !== null){
+          sideBar.style.marginLeft = "-250px";
+          close_btn.addEventListener("click", () => {
+            sideBar.style.marginLeft = "-250px";
+            // main_content.classList.toggle("active-main-content");
+          })
+          menu_btn.addEventListener("click", () => {
+            sideBar.style.marginLeft = "0";
+            // main_content.classList.toggle("active-main-content");
+          })
+
+          }
+        }
+        
 
     </script>
   </body>

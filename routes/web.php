@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Static_Content;
 use Illuminate\Support\Facades\Session;
-use App\Http\Controllers\DataProcess;
+use App\Http\Controllers\DataProcessController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\QuestionnaireController;
@@ -15,6 +15,8 @@ use App\Http\Controllers\VisualizationCalculationController;
 use Illuminate\Support\Facades\Crypt;
 
 use App\Http\Controllers\FinalCalculationController;
+use App\Http\Controllers\Data2017Controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,13 +28,23 @@ use App\Http\Controllers\FinalCalculationController;
 |
 */
 /*********************************
+* 2017 Data upload start
+**********************************/
+Route::get('/data-2017/state-master',[Data2017Controller::class,'state']);
+Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
+
+/*********************************
+* 2017 Data upload end
+**********************************/
+
+/*********************************
 * District Level Data upload start
 **********************************/
-Route::get('/drc-final-data/district-master',[DataProcess::class,'index']);
-Route::get('/drc-final-data/performance',[DataProcess::class,'performance']);
-Route::get('/drc-final-data/participation',[DataProcess::class,'participation']);
-Route::get('/drc-final-data/lo',[DataProcess::class,'DRCLO']);
-Route::get('/drc-final-data/feedback',[DataProcess::class,'DRCFEEDBACK']);
+Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
+Route::get('/drc-final-data/performance',[DataProcessController::class,'performance']);
+Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
+Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);
+Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK']);
 
 /*********************************
 * District Level Data upload end
@@ -78,8 +90,8 @@ Route::get('national-download-pdf', [PdfGenerateController::class, 'Nationaldwn'
 // District: Pdf path for download start
 Route::get('/download-district-report/{state_id}/{district_id}', function($state_id,$district_id)
 {
-    $state_id = Crypt::decrypt($state_id);
-    $district_id = Crypt::decrypt($district_id);
+    $state_id = base64_decode($state_id);
+    $district_id = base64_decode($district_id);
     // Check if file exists in app/public/file folder
     $file_name = 'nas-district-report.pdf';
     $file_path = public_path('nas_pdf/national/'.$state_id.'/'.$district_id.'/nas-district-report.pdf');
@@ -101,7 +113,7 @@ Route::get('/download-district-report/{state_id}/{district_id}', function($state
 // State: Pdf path for download start
 Route::get('/download-state-report/{state_id}', function($state_id)
 {
-    $state_id = Crypt::decrypt($state_id);
+    $state_id = base64_decode($state_id);
     // Check if file exists in app/public/file folder
     $file_name = 'nas-state-report.pdf';
     $file_path = public_path('nas_pdf/national/'.$state_id.'/nas-state-report.pdf');

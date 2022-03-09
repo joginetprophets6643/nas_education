@@ -1678,7 +1678,7 @@
                                                     <div class="percategory-wrap card-green indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
-                                                        <p class="title">Science</p>
+                                                        <p class="title">Social Science</p>
                                                       </div>
                                                     </div> 
                                                   </div>
@@ -1769,7 +1769,7 @@
                                               </tr>
                                               <tr>
                                                 <th scope="row">BASIC</th>
-                                                <td class="red-level-3"  id="peformance_Mil_basic_table_class5">0</td>
+                                                <td class="red-level-3"  id="peformance_Mil_basic_table_class10">0</td>
                                                 <td class="green-level-3" id="peformance_Social_basic_table_class10">0</td>
                                                 <td class="purple-level-3" id="peformance_English_basic_table_class10">0</td>
                                                 <td class="sagegreen-level-3" id="peformance_Science_basic_table_class10">0</td>
@@ -3054,7 +3054,7 @@
                                               </tr>
                                               <tr>
                                                 <th scope="row">BASIC</th>
-                                                <td class="red-level-3" id="peformance_Mil_asic_table_classall">0</td>
+                                                <td class="red-level-3" id="peformance_Mil_basic_table_classall">0</td>
                                                 <td class="green-level-3"  id="peformance_Social_basic_table_classall">0</td>
                                                 <td class="yellow-level-3" id="peformance_Evs_basic_table_classall">0</td>
                                                 <td class="purple-level-3" id="peformance_English_basic_table_classall">0</td>

@@ -229,13 +229,13 @@
                 <div class="reportview-content dark-blue-bg">
                   <div class="infotab-content-wrap">
                     <div class="row">
-                      <div class="col-md-12">
+                      <!-- <div class="col-md-12">
                         <h2>
                           Kadapa district is one of the thirteen districts in
                           the Indian state of AP. It is also one of the four
                           districts in the Rayalaseema region of the state.
                         </h2>
-                      </div>
+                      </div> -->
                       <div class="col-md-3">
                         <div class="infotab-content light-blue-bg">
                           <h3 class="title">Total District Area</h3>
@@ -357,7 +357,7 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="col-md-12 mb-4">
-                          <h2>Total number of schools in Kadapa district.</h2>
+                          <h2>Total number of schools in {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} district.</h2>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
@@ -394,7 +394,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="col-md-12 mb-4">
-                          <h2>Total number of teachers in Kadapa district.</h2>
+                          <h2>Total number of teachers in {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} district.</h2>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content light-blue-bg">
@@ -456,7 +456,7 @@
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg">
@@ -498,7 +498,7 @@
                         Average Performance of Students
                       </h3>
                       <div class="d-flex flex-wrap justify-content-center graph-mark">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $avgPerformance)
                         @if($districtParticipation->grade==$avgPerformance->grade)
                         @php
@@ -615,7 +615,7 @@
                         Percentage of Students in Performance Level
                       </h3>
                       <div class="row mt-5">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $avgPerformance)
                         @if($districtParticipation->grade==$avgPerformance->grade)
                         @php
@@ -723,7 +723,7 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg px-4 py-3">
@@ -733,7 +733,7 @@
                       <h4 class="">Performance by Gender</h4>
                       <div class="d-flex flex-wrap mb-60">
                         <!-- edited -->
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $performanceByGender)
                         @if($districtParticipation->grade==$performanceByGender->grade)
                         @php
@@ -854,7 +854,7 @@
                     <div class="col-md-9 left mb-2">
                       <h4 class="">Performance by Location</h4>
                       <div class="d-flex flex-wrap mb-60">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $performanceByLocation)
                         @if($districtParticipation->grade==$performanceByLocation->grade)
                         @php
@@ -972,7 +972,7 @@
                     <div class="col-md-9 left mb-2">
                       <h4 class="">Performance by Management</h4>
                       <div class="d-flex flex-wrap mb-60">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $performanceByMgt)
                         @if($districtParticipation->grade==$performanceByMgt->grade)
                         @php
@@ -1079,7 +1079,7 @@
                     <div class="col-md-9 left">
                       <h4 class="">Performance by Social Group</h4>
                       <div class="d-flex flex-wrap mb-60">
-                        @if(count($districtParticipation['DistrictPerformance'])>0)
+                        @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $performanceBysclgrp)
                         @if($districtParticipation->grade==$performanceBysclgrp->grade)
                         @php
@@ -1208,7 +1208,7 @@
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg">
@@ -1453,7 +1453,7 @@
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>{{isset($districtVal->district_name)?$districtVal->district_name:'-'}} Report Card</h2>
+                  <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:0}}</span>
                 </div>
                 <div class="reportview-class-content light-blue-bg children-testimony mt-1">
@@ -1531,7 +1531,7 @@
                           <div class="octagon-card {{isset($octoganCardbgColor[$tq3])?$octoganCardbgColor[$tq3]:''}} {{isset($octoganCardbgColor[$tq3])&& $octoganCardbgColor[$tq3]!='o-color-white'?'text-white':''}} text-center">
                             <h2 class="title">{{isset($tqfeedback2->avg)?$tqfeedback2->avg:0}}%</h2>
                             <p class="total-no">
-                              {{isset($tqfeedback2->question_desc)?$tqfeedback2->question_desc:'-'}}{{$tq3}}
+                              {{isset($tqfeedback2->question_desc)?$tqfeedback2->question_desc:'-'}}
                             </p>
                           </div>
                         </div>
@@ -1595,40 +1595,6 @@
 
   @endforeach
   @endif
-  @php
-    function getImgName($value,$color)
-    {
-      if($value==0)
-      {
-        return $scImg = 'sg-0.png';
-      }
-      elseif($value>=1 && $value<=25)
-      {
-        return $scImg = 'sg-'.$color.'-1.png';
-      }
-      elseif($value>=26 && $value<=49)
-      {
-        return $scImg = 'sg-'.$color.'-2.png';
-      }
-      elseif($value==50)
-      {
-        return $scImg = 'sg-'.$color.'-3.png';
-      }
-      elseif($value>=51 && $value<=75) 
-      {
-        return $scImg = 'sg-'.$color.'-4.png';
-      }
-      elseif($value>=76 && $value<=99)
-      {
-        return $scImg = 'sg-'.$color.'-5.png';
-      }
-
-      elseif($value==100)
-      {
-         return $scImg = 'sg-'.$color.'-6.png';
-      }
-    }
-  @endphp
 </body>
 
 </html>
