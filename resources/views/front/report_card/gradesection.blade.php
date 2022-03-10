@@ -1,8 +1,4 @@
 <main class="main-content-wrap active-main-content">
-                <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sideBar" aria-controls="sideBar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
                 <div class="tabs-layer-wrap">
                      <div class="d-flex align-items-center justify-content-between">
                         <ul class="nav nav-tabs tablayerone" role="tablist">
@@ -45,12 +41,14 @@
                           </div> -->
                           <div class="btn-wrap">
                             <!-- <a href="#" class="btn org-bdr-btn data-btn">Data View</a> -->
-                            <a href="javascript:void(0);" class="btn org-bdr-btn data-btn d-none">Report View (2017)
+                            <a href="javascript:void(0);" class="btn org-bdr-btn data-btn d-none">
+                              <span class="btn-text">Report View (2017)</span>
                               &nbsp;<span class="material-icons-round">
                                 file_download
                               </span></a>
 
                             <a href="{{url('/download-pdf')}}" target="_blank" id="report-link" class="btn org-btn report-btn">
+                            <!-- <span class="btn-text">Report View (2017)</span> -->
                               Report View 
                               <span class="material-icons-round">
                                 file_download
@@ -63,7 +61,7 @@
                         <div class="tab-pane fade" id="national" role="tabpanel" aria-labelledby="national-tab">...</div>
                         <div class="tab-pane fade" id="state" role="tabpanel" aria-labelledby="state-tab">...</div>
                         <div class="tab-pane fade show active" id="district" role="tabpanel" aria-labelledby="district-tab">
-                          <ul class="nav nav-tabs tablayertwo pb-2 mtb-20" role="tablist">
+                          <ul class="nav nav-tabs tablayertwo mtb-15 sticky-nav scroll-top" id="scrollTab" role="tablist">
                             <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','3')">
                               <button class="nav-link active" id="class3-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class3" aria-selected="true">class 3</button>
                             </li>

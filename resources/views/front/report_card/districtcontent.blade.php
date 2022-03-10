@@ -12,9 +12,9 @@
 @include('front.report_card.achievement')
 <div class="tab-content tablayertwo-content">
   <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
-                              <ul class="nav nav-tabs tablayerthree" role="tablist" >
+                              <ul class="nav nav-tabs sticky-nav scroll-top tablayerthree"  id="scrollTab2"  role="tablist" >
                                 <li class="nav-item" role="presentation">
-                                  <button class="nav-link" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" type="button" role="tab" aria-controls="information" aria-selected="true" onClick="setScreen('information')">Highlight</button>
+                                  <button class="nav-link" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" type="button" role="tab" aria-controls="information" aria-selected="true" onClick="setScreen('information')">Highlights</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                   <button class="nav-link" id="participation-tab" data-bs-toggle="tab" data-bs-target="#participation" type="button" role="tab" aria-controls="participation" aria-selected="false" onClick="setScreen('participation')">Participation</button>

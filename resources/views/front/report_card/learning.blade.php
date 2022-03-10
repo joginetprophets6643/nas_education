@@ -12,7 +12,7 @@
                                                   <button class="nav-link active" id="all-lo-tab" data-bs-toggle="tab" data-bs-target="#all_lo " type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                  <button class="nav-link" id="language-lo-tab" data-bs-toggle="tab" data-bs-target="#language_lo" type="button" role="tab" aria-controls="language" aria-selected="false">language</button>
+                                                  <button class="nav-link" id="language-lo-tab" data-bs-toggle="tab" data-bs-target="#language_lo" type="button" role="tab" aria-controls="language" aria-selected="false">Language</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
                                                   <button class="nav-link" id="math-lo-tab" data-bs-toggle="tab" data-bs-target="#math_lo" type="button" role="tab" aria-controls="math" aria-selected="false">Mathematics</button>
@@ -27,7 +27,7 @@
                                                     <h2 class="table-title card-blue">
                                                         <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-blue">
                                                           <tr>
@@ -48,7 +48,7 @@
                                                     <h2 class="table-title card-pink">
                                                         <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -68,7 +68,7 @@
                                                     <h2 class="table-title card-yellow">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid" /> EVS
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-yellow">
                                                           <tr>
@@ -90,7 +90,7 @@
                                                     <h2 class="table-title card-blue">
                                                         <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-blue">
                                                           <tr>
@@ -113,7 +113,7 @@
                                                     <h2 class="table-title card-pink">
                                                         <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -135,7 +135,7 @@
                                                     <h2 class="table-title card-yellow">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid" /> EVS
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-yellow">
                                                           <tr>
@@ -172,7 +172,7 @@
                                                   <button class="nav-link active" id="all-lo-tab" data-bs-toggle="tab" data-bs-target="#all-class5 " type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                  <button class="nav-link" id="language-lo-tab" data-bs-toggle="tab" data-bs-target="#language-class5" type="button" role="tab" aria-controls="language" aria-selected="false">language</button>
+                                                  <button class="nav-link" id="language-lo-tab" data-bs-toggle="tab" data-bs-target="#language-class5" type="button" role="tab" aria-controls="language" aria-selected="false">Language</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
                                                   <button class="nav-link" id="math-lo-tab" data-bs-toggle="tab" data-bs-target="#math-class5" type="button" role="tab" aria-controls="math" aria-selected="false">Mathematics</button>
@@ -187,7 +187,7 @@
                                                     <h2 class="table-title card-blue">
                                                         <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-blue">
                                                           <tr>
@@ -208,7 +208,7 @@
                                                     <h2 class="table-title card-pink">
                                                         <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -228,7 +228,7 @@
                                                     <h2 class="table-title card-yellow">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid" /> EVS
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-yellow">
                                                           <tr>
@@ -250,7 +250,7 @@
                                                     <h2 class="table-title card-blue">
                                                         <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-blue">
                                                           <tr>
@@ -273,7 +273,7 @@
                                                     <h2 class="table-title card-pink">
                                                         <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -295,7 +295,7 @@
                                                     <h2 class="table-title card-yellow">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid" /> EVS
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-yellow">
                                                           <tr>
@@ -332,7 +332,7 @@
                                                   <button class="nav-link active" id="c8-all-tab" data-bs-toggle="tab" data-bs-target="#c8-all" type="button" role="tab" aria-controls="c8-all" aria-selected="true">All</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                  <button class="nav-link" id="c8-language-tab" data-bs-toggle="tab" data-bs-target="#c8-language" type="button" role="tab" aria-controls="language" aria-selected="false">language</button>
+                                                  <button class="nav-link" id="c8-language-tab" data-bs-toggle="tab" data-bs-target="#c8-language" type="button" role="tab" aria-controls="language" aria-selected="false">Language</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
                                                   <button class="nav-link" id="c8-science-tab" data-bs-toggle="tab" data-bs-target="#c8-science" type="button" role="tab" aria-controls="c8-science" aria-selected="false">Science</button>
@@ -352,7 +352,7 @@
                                                       <h2 class="table-title card-blue">
                                                           <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
                                                       </h2>
-                                                      <div class="learning-table">
+                                                      <div class="learning-table table-responsive">
                                                         <table class="table">
                                                           <thead class="thead-blue">
                                                             <tr>
@@ -374,7 +374,7 @@
                                                     <h2 class="table-title card-sagegreen">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-sagegreen">
                                                           <tr>
@@ -394,7 +394,7 @@
                                                     <h2 class="table-title card-pink">
                                                         <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -415,7 +415,7 @@
                                                     <h2 class="table-title card-green">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-green">
                                                           <tr>
@@ -437,7 +437,7 @@
                                                     <h2 class="table-title card-green">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-green">
                                                           <tr>
@@ -459,7 +459,7 @@
                                                     <h2 class="table-title card-sagegreen">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-sagegreen">
                                                           <tr>
@@ -481,7 +481,7 @@
                                                     <h2 class="table-title card-pink">
                                                         <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -503,7 +503,7 @@
                                                     <h2 class="table-title card-blue">
                                                         <img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid" /> Language
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-blue">
                                                           <tr>
@@ -564,7 +564,7 @@
                                                       <h2 class="table-title card-red">
                                                           <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL
                                                       </h2>
-                                                      <div class="learning-table">
+                                                      <div class="learning-table table-responsive">
                                                         <table class="table">
                                                           <thead class="thead-red">
                                                             <tr>
@@ -585,7 +585,7 @@
                                                     <h2 class="table-title card-green">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-green">
                                                           <tr>
@@ -605,7 +605,7 @@
                                                     <h2 class="table-title card-purple">
                                                         <img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-purple">
                                                           <tr>
@@ -625,7 +625,7 @@
                                                     <h2 class="table-title card-sagegreen">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-sagegreen">
                                                           <tr>
@@ -645,7 +645,7 @@
                                                     <h2 class="table-title card-pink">
                                                         <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -667,7 +667,7 @@
                                                     <h2 class="table-title card-red">
                                                         <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid" /> MIL
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-red">
                                                           <tr>
@@ -690,7 +690,7 @@
                                                     <h2 class="table-title card-green">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid" /> Social Science
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-green">
                                                           <tr>
@@ -712,7 +712,7 @@
                                                     <h2 class="table-title card-purple">
                                                         <img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid" /> English
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-purple">
                                                           <tr>
@@ -734,7 +734,7 @@
                                                     <h2 class="table-title card-sagegreen">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid" /> Science
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-sagegreen">
                                                           <tr>
@@ -756,7 +756,7 @@
                                                     <h2 class="table-title card-pink">
                                                         <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" /> Mathematics
                                                     </h2>
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -807,7 +807,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-blue">
                                                           <tr>
@@ -831,7 +831,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-blue">
                                                           <tr>
@@ -855,7 +855,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-blue">
                                                           <tr>
@@ -892,7 +892,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -916,7 +916,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -940,7 +940,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -964,7 +964,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-pink">
                                                           <tr>
@@ -1001,7 +1001,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-yellow">
                                                           <tr>
@@ -1025,7 +1025,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-yellow">
                                                           <tr>
@@ -1062,7 +1062,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-red">
                                                           <tr>
@@ -1099,7 +1099,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-green">
                                                           <tr>
@@ -1123,7 +1123,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-green">
                                                           <tr>
@@ -1161,7 +1161,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-purple">
                                                           <tr>
@@ -1198,7 +1198,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-sagegreen">
                                                           <tr>
@@ -1222,7 +1222,7 @@
                                                       </h2>
                                                     </div>
                                                     
-                                                    <div class="learning-table">
+                                                    <div class="learning-table table-responsive">
                                                       <table class="table">
                                                         <thead class="thead-sagegreen">
                                                           <tr>
