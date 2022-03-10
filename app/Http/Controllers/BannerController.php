@@ -75,7 +75,7 @@ class BannerController extends Controller
     public function destroy($image,$id){
         $id=decode5t($id);
         Banner::where('id',$id)->delete();
-        unlink(public_path("assets/uploads/banner/".$image));
+        // unlink(public_path("assets/uploads/banner/".$image));
         return Redirect()->route('manage-banner')->with('success','Banner Deleted Successfully');
     }
 }

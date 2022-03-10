@@ -75,7 +75,7 @@ class TeamController extends Controller
         $image=$request->file('image');
         $member=Team::where('id',$id)->first();
         if($member->image){
-        unlink(public_path("assets/uploads/team/".$member->image));
+        // unlink(public_path("assets/uploads/team/".$member->image));
         }
         $name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         $image->move(public_path('assets/uploads/team'),$name);
@@ -100,7 +100,7 @@ class TeamController extends Controller
         $id=decode5t($id);
         $team=Team::where('id',$id)->first();
         if($team->image){
-        unlink(public_path("assets/uploads/team/".$image));
+        // unlink(public_path("assets/uploads/team/".$image));
         }
         Team::where('id',$id)->delete();
         return Redirect()->route('team')->with('success','Member Deleted Successfully');
