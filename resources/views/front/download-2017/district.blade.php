@@ -75,20 +75,20 @@
                                         <input type="hidden" id="evs3" value="{{$district->file_name}} Class - 3 (EVS)  Report Card"/>
                                         <input type="hidden" id="lang3" value="{{$district->file_name}} Class - 3 (Language)  Report Card"/>
                                         <input type="hidden" id="math3" value="{{$district->file_name}} Class - 3 (Mathematics)  Report Card"/>
-                                        <a href="javascript:;" class="btn btn-primary mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('evs3').value">EVS</a>
-                                        <a href="javascript:;" class="btn btn-dark mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('lang3').value">Language</a>
-                                        <a href="javascript:;" class="btn btn-secondary mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('math3').value">Math</a>
-                                        <a href="javascript:;" class="btn btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all3').value + '/' + document.getElementById('evs3').value + '/' + document.getElementById('lang3').value + '/' + document.getElementById('math3').value">All</a>
+                                        <a href="javascript:;" class="btn text-white card-yellow  mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('evs3').value">EVS</a>
+                                        <a href="javascript:;" class="btn text-white card-blue mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('lang3').value">Language</a>
+                                        <a href="javascript:;" class="btn text-white card-pink mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('math3').value">Math</a>
+                                        <a href="javascript:;" class="btn text-white btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all3').value + '/' + document.getElementById('evs3').value + '/' + document.getElementById('lang3').value + '/' + document.getElementById('math3').value">All</a>
                                     </td>
 
                                     <td>
                                         <input type="hidden" id="evs5" value="{{$district->file_name}} Class - 5 (EVS)  Report Card"/>
                                         <input type="hidden" id="lang5" value="{{$district->file_name}} Class - 5 (Language)  Report Card"/>
                                         <input type="hidden" id="math5" value="{{$district->file_name}} Class - 5 (Mathematics)  Report Card"/>
-                                        <a href="javascript:;" class="btn btn-primary mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('evs5').value">EVS</a>
-                                        <a href="javascript:;" class="btn btn-dark mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('lang5').value">Language</a>
-                                        <a href="javascript:;" class="btn btn-secondary mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('math5').value">Math</a>
-                                        <a href="javascript:;" class="btn btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all5').value + '/' + document.getElementById('evs5').value + '/' + document.getElementById('lang5').value + '/' + document.getElementById('math5').value">All</a>
+                                        <a href="javascript:;" class="btn card-yellow text-white mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('evs5').value">EVS</a>
+                                        <a href="javascript:;" class="btn text-white card-blue mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('lang5').value">Language</a>
+                                        <a href="javascript:;" class="btn text-white card-pink mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('math5').value">Math</a>
+                                        <a href="javascript:;" class="btn text-white btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all5').value + '/' + document.getElementById('evs5').value + '/' + document.getElementById('lang5').value + '/' + document.getElementById('math5').value">All</a>
 
                                     </td>
 
@@ -97,11 +97,11 @@
                                         <input type="hidden" id="math8" value="{{$district->file_name}} Class - 8 (Mathematics)  Report Card"/>
                                         <input type="hidden" id="science8" value="{{$district->file_name}} Class - 8 (Science)  Report Card"/>
                                         <input type="hidden" id="sst8" value="{{$district->file_name}} Class - 8 (SST)  Report Card"/>
-                                        <a href="javascript:;" class="btn btn-primary mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('lang8').value">Language</a>
-                                        <a href="javascript:;" class="btn btn-dark mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('math8').value">Math</a>
-                                        <a href="javascript:;" class="btn btn-secondary mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('science8').value">Science</a>
-                                        <a href="javascript:;" class="btn btn-info mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('sst8').value">SST</a>
-                                        <a href="javascript:;" class="btn btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all8').value + '/' + document.getElementById('lang8').value + '/' + document.getElementById('math8').value + '/' + document.getElementById('science8').value + '/' + document.getElementById('sst8').value">All</a>
+                                        <a href="javascript:;" class="btn text-white card-blue mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('lang8').value">Language</a>
+                                        <a href="javascript:;" class="btn text-white card-pink mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('math8').value">Math</a>
+                                        <a href="javascript:;" class="btn text-white card-sagegreen mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('science8').value">Science</a>
+                                        <a href="javascript:;" class="btn text-white card-green mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('sst8').value">SST</a>
+                                        <a href="javascript:;" class="btn text-white btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all8').value + '/' + document.getElementById('lang8').value + '/' + document.getElementById('math8').value + '/' + document.getElementById('science8').value + '/' + document.getElementById('sst8').value">All</a>
 
                                     </td>
 
@@ -117,7 +117,7 @@
                                 @endforeach
                                
                             </tbody>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <tr>
                                     <th>S.NO.</th>
                                     <th>State/UTs</th>
@@ -127,7 +127,7 @@
                                     <th>Grade-10</th>
                                     <th>All<th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> -->
                         </table>
                         </div>
                     </div>
@@ -140,10 +140,11 @@
         </div>
     </section>
 @include('front.includes.footer')
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable({
+        "pageLength": 10,
     });
+    });
+
 </script>

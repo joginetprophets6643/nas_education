@@ -45,7 +45,7 @@
                                                   Performance of States by Gender
                                                 </button>
                                               </h2>
-                                              <div id="nc3-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc3-perAccordionOne">
+                                              <div id="nc3-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc3-perAccordionOne" data-bs-parent="#nc3-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -89,7 +89,7 @@
                                                   Performance of States by Location
                                                 </button>
                                               </h2>
-                                              <div id="nc3-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionTwo">
+                                              <div id="nc3-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionTwo" data-bs-parent="#nc3-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -133,7 +133,7 @@
                                                   Performance of States by School Management
                                                 </button>
                                               </h2>
-                                              <div id="nc3-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionThree">
+                                              <div id="nc3-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionThree" data-bs-parent="#nc3-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -266,7 +266,7 @@
                                                 Performance of States by Gender
                                                 </button>
                                               </h2>
-                                              <div id="nc5-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc5-perAccordionOne">
+                                              <div id="nc5-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc5-perAccordionOne" data-bs-parent="#nc5-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -310,7 +310,7 @@
                                                 Performance of States by Location
                                                 </button>
                                               </h2>
-                                              <div id="nc5-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionTwo">
+                                              <div id="nc5-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionTwo" data-bs-parent="#nc5-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -354,7 +354,7 @@
                                                 Performance of States by School Management
                                                 </button>
                                               </h2>
-                                              <div id="nc5-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionThree">
+                                              <div id="nc5-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionThree" data-bs-parent="#nc5-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -503,7 +503,7 @@
                                                   Performance of States by Gender
                                                   </button>
                                                 </h2>
-                                                <div id="nc8-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc8-perAccordionOne">
+                                                <div id="nc8-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc8-perAccordionOne" data-bs-parent="#nc8-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -557,7 +557,7 @@
                                                   Performance of States by Location
                                                   </button>
                                                 </h2>
-                                                <div id="nc8-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionTwo">
+                                                <div id="nc8-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionTwo" data-bs-parent="#nc8-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -611,7 +611,7 @@
                                                   Performance of States by School Management
                                                   </button>
                                                 </h2>
-                                                <div id="nc8-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionThree">
+                                                <div id="nc8-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionThree" data-bs-parent="#nc8-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -781,7 +781,7 @@
 
                                                 </button>
                                               </h2>
-                                              <div id="nc10-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc10-perAccordionOne">
+                                              <div id="nc10-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc10-perAccordionOne" data-bs-parent="#nc10-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -845,7 +845,7 @@
                                                 Performance of States by Location
                                                 </button>
                                               </h2>
-                                              <div id="nc10-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionTwo">
+                                              <div id="nc10-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionTwo" data-bs-parent="#nc10-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -909,7 +909,7 @@
                                                 Performance of States by School Management
                                                 </button>
                                               </h2>
-                                              <div id="nc10-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionThree">
+                                              <div id="nc10-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionThree" data-bs-parent="#nc10-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -1119,7 +1119,7 @@
                                                 Performance of States by Gender
                                                 </button>
                                               </h2>
-                                              <div id="sac-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sac-perAccordionOne">
+                                              <div id="sac-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sac-perAccordionOne" data-bs-parent="#sac-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">
@@ -1395,7 +1395,7 @@
                                                 Performance of States by Location
                                                 </button>
                                               </h2>
-                                              <div id="sac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionTwo">
+                                              <div id="sac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionTwo" data-bs-parent="#sac-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">
@@ -1674,7 +1674,7 @@
                                                 Performance of States by School Management
                                                 </button>
                                               </h2>
-                                              <div id="sac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionThree">
+                                              <div id="sac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionThree" data-bs-parent="#sac-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">

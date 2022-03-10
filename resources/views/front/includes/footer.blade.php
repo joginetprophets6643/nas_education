@@ -299,6 +299,8 @@
     <script src="{{asset('assets/front/js/scripts.js')}}"></script>
     <script src="{{asset('assets/front/js/select2.min.js')}}"></script>
     <script src="{{asset('assets/front/js/all.js')}}" data-auto-replace-svg="nest"></script>
+    <script src="{{ asset('assets/admin/vendors/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/front/js/dataTable-bootstrap.js')}}"></script>
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
     <script>
       let c_url=window.location.href;
@@ -404,14 +406,14 @@ function changeFontSize(direction){
       if(window.innerWidth > 1024) {
         $(window).scroll(function(){
           if ($(this).scrollTop() > 15) {
-            $('#scrollTab').css({"top":"7.9em", "padding-top": "0.5rem"});
+            $('#scrollTab').css({"top":"7.9em", "padding": "0.5rem 0"});
           } else {
             $('#scrollTab').css({"top":"70px"});
           }
         });
         $(window).scroll(function(){
           if ($(this).scrollTop() > 15) {
-            $('#scrollTab2').css({"top":"10.7em", "padding": "0.5rem 0"});
+            $('#scrollTab2').css({"top":"10.8em", "padding": "0.5rem 0"});
           } else {
             $('#scrollTab2').css({"top":"70px", "padding": "0"});
           }

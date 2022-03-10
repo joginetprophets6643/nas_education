@@ -10620,6 +10620,18 @@ ul {
   .categorypart-card-wrap .col-md-6:nth-child(1) {
     border: none;
   }
+  .range-wrap .col-md-6:nth-child(1) {
+    border: none;
+  }
+  .range-wrap hr {
+    display: none;
+  }
+  .pendamic-progressbar-card .col-md-6:nth-child(1) {
+    border: none;
+  }
+  .pendamic-progressbar-card hr {
+    display: none;
+  }
   .infotab-content-wrap .mobile-margin {
     margin-top: 1rem;
   }
@@ -10661,6 +10673,9 @@ ul {
   }
   .heading-grey {
     font-size: 15px;
+  }
+  .feedback-wrap .virus-icon1, .feedback-wrap .virus-icon2, .feedback-wrap .virus-icon3, .feedback-wrap .virus-icon4, .feedback-wrap .virus-icon5 {
+    display: none;
   }
 }
 
@@ -10818,4 +10833,48 @@ ul {
   z-index: 900;
   background: #ebf3fb;
 }
+
+#example_filter label input {
+  border: 1px solid #f7941c;
+}
+
+#example_filter label input:active {
+  border: 1px solid #f7941c;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search .searchTerm {
+  width: 100%;
+  border: 1px solid #f7941c;
+  border-right: none;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #000000;
+}
+
+.search .searchTerm:focus {
+  color: #000000;
+}
+
+.search .searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #f7941c;
+  background: #f7941c;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
 /*# sourceMappingURL=style.css.map */

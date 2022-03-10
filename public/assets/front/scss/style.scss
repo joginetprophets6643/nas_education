@@ -6335,6 +6335,26 @@ ul {
             }
         }
     } 
+    .range-wrap {
+        .col-md-6 {
+            &:nth-child(1) {
+                border: none;
+            }
+        }
+        hr {
+            display: none;
+        }
+    }
+    .pendamic-progressbar-card {
+        .col-md-6 {
+            &:nth-child(1) {
+                border: none;
+            }
+        }
+        hr {
+            display: none;
+        }
+    }  
     .infotab-content-wrap  {
         .mobile-margin {
             margin-top: 1rem;
@@ -6387,6 +6407,11 @@ ul {
     }
     .heading-grey {
         font-size: 15px;
+    }
+    .feedback-wrap {
+        .virus-icon1, .virus-icon2, .virus-icon3, .virus-icon4, .virus-icon5 {
+            display: none;
+        }
     }
 }
         
@@ -6503,3 +6528,54 @@ ul {
     z-index: 900;
     background: #ebf3fb;
 }
+
+#example_filter {
+    label {
+        input {
+            border: 1px solid #f7941c;
+            &:active {
+                border: 1px solid #f7941c;  
+            }
+        }
+    }
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    .searchTerm {
+      width: 100%;
+      border: 1px solid #f7941c;
+      border-right: none;
+      padding: 5px;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      color: #000000;
+      &:focus {
+        color: #000000;
+      }
+    }
+    .searchButton {
+      width: 40px;
+      height: 36px;
+      border: 1px solid #f7941c;
+      background: #f7941c;
+      text-align: center;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  }
+  
+  
+  
+  /*Resize the wrap to see the search bar change!*/
+//   .gallery-search-wrap{
+//     width: 30%;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }

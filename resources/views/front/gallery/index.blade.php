@@ -37,9 +37,15 @@
                     <h2 class="heading-blue">
                         {{ __('lang.Photo Gallery') }}
                     </h2>
-                    <div class="gallery-search-wrap">
-                        <label id="search">Search:</label>
-                        <input type="text" name="state" id="state">
+                    <div class="gallery-wrap">
+                        <div class="search">
+                            <input type="text" class="searchTerm" placeholder="Search Here" name="state" id="state">
+                            <button type="submit" class="searchButton">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <!-- <label id="search">Search:</label> -->
+                        <!-- <input type="text" name="state" id="state"> -->
                     </div>
                     </div> 
                     <div class="row photos">
@@ -189,7 +195,7 @@
         })
 
         if(Object.keys(temp_ved_data).length===0){
-            $('#v_found').html('No such State found!')
+            $('#v_found').html('No Such State Found!')
         }
         else{
             $('#v_found').html('')
@@ -203,7 +209,7 @@
         })
 
         if(Object.keys(temp_img_data).length===0){
-            $('#i_found').html('No such State found!')
+            $('#i_found').html('No Such State Found!')
         }
         else{
             $('#i_found').html('')

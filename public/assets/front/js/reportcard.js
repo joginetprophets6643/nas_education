@@ -468,6 +468,7 @@ function changePageDataViaSideFilter(value) {
 
 //  setting screens for geographies
 async function setScreen(screen_type = 'information', load_data = true) {
+  window.scrollTo(0, 0)
   const exceptions = ['participation', 'learning']
   const current_demography = (selected_geography === 'district' || exceptions.includes(screen_type) ? '' : selected_geography)
   const demographics = ['', 'state', 'national']
