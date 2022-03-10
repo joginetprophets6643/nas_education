@@ -17,6 +17,7 @@ class CreateDistrictData2017Table extends Migration
             $table->id();
             $table->bigInteger('district_id');
             $table->string('district_name')->nullable();
+            $table->string('state_name')->nullable();
             $table->string('year')->nullable();
             $table->string('file_name')->nullable();
             $table->timestamps();
