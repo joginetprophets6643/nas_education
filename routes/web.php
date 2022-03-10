@@ -374,7 +374,19 @@ Route::group(["middleware" => ["language"]], function(){
     // Route::get('/visualization/nas-2021','App\Http\Controllers\VisualizationController@details');
 
     Route::get('/mobile-app','App\Http\Controllers\VisualizationController@mobile');
+
+    //Download Data 2017
+    Route::get('/report-card/2017','App\Http\Controllers\Data2017Controller@index');
+    //Download Data State Wise 2017
+    Route::get('/download-data-state-wise-2017','App\Http\Controllers\Data2017Controller@stateDownloadView');
+    Route::get('/download-data-file/{id}','App\Http\Controllers\Data2017Controller@getDownload');
+    Route::get('/download-data-file/hi/{id}','App\Http\Controllers\Data2017Controller@getDownloadhi');
+    Route::get('/download-data-file/10/{id}','App\Http\Controllers\Data2017Controller@getDownload10');
     
+    //Download Data District Wise 2017
+    Route::get('/download-data-district-wise-2017','App\Http\Controllers\Data2017Controller@districtDownloadView');
+    Route::get('/download-data-district/{district}','App\Http\Controllers\Data2017Controller@districtDownload');
+
 });
 Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
 Route::get('/visualization/nas-2021',function(){
