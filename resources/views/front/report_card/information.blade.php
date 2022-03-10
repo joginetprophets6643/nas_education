@@ -339,7 +339,7 @@
                                                   <div class="d-flex align-items-center justify-content-between">
                                                     <div class="content">
                                                       <h3 class="title">
-                                                        Child sex ration (0-6 age)
+                                                        Child sex ratio (0-6 age)
                                                       </h3>
                                                       <p class="total-no" >
                                                       <span id="information_state_sex_ratio_class3">0</span> girls per 1000 boys 
@@ -453,7 +453,7 @@
                                                   <div class="d-flex align-items-center justify-content-between">
                                                     <div class="content">
                                                       <h3 class="title">
-                                                        Child sex ration (0-6 age)
+                                                        Child sex ratio (0-6 age)
                                                       </h3>
                                                       <p class="total-no" >
                                                       <span id="information_national_sex_ratio_class3">0</span> girls per 1000 boys 

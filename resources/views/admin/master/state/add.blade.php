@@ -3,7 +3,7 @@
 
 <div class="main-panel">
   <div class="content-wrapper">
-      <form action="{{route('store-state')}}" method="POST">
+      <form action="{{route('store-state')}}" method="POST" enctype="multipart/form-data">
             @csrf
     <div class="card">
         <div class="card-header">Add State</div>
@@ -96,7 +96,20 @@
         </div>
         </div>
         <br>
-        
+
+        <div class="row">
+
+        <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label">Thumbnail</label>
+            <input type="file" name="thumbnail" class="form-control">
+            @error('thumbnail')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+
+        </div>
+        <br>
+
         <div class="form-group" style="line-height:0;">
         <!-- <label for="images" class="form-label">Event Images</label> -->
         <input type="checkbox" name="status" value=1>

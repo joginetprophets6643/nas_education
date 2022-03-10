@@ -98,18 +98,35 @@ class FrontController extends Controller
     }
 
     public function gallery(){
-        $events=Event::join('event_images','events.id','=','event_images.event_id')->take(4)->get();
+        // $events=Event::get()->groupBy('state');
+        // // dd($events);
         
-        $count=[];
-        $image=[];
-        foreach($events as $event){
-            $count[$event->id]=count(json_decode($event->images));
-            $image[$event->id]=json_decode($event->images)[0];
-        }
+        // $count=[];
+        // foreach($events as $key=>$value){
+        //     $state=State_Master::where('state_id',$key)->first();
+        //     $count[$key]=array(
+        //         'state'=>$state->state_name, 
+        //         'count'=> count($value),
+        //         'image'=>$state->thumbnail?$state->thumbnail:'broken-1.png'
+        //     );
+        // }
+
+        // // dd($count);
+
+
         
-        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->distinct('video_events.id')->take(4)->get();
+        // $v_events=Video_Events::get()->groupBy('state');
+        // $v_count=[];
+        // foreach($v_events as $key=>$value){
+        //     $state=State_Master::where('state_id',$key)->first();
+        //     $v_count[$key]=array(
+        //         'state'=>$state->state_name, 
+        //         'count'=> count($value),
+        //         'image'=>$state->thumbnail?$state->thumbnail:'broken-1.png'
+        //     );
+        // }
         
-        return view('front.gallery.index',compact('videos','events','image'));
+        return view('front.gallery.index');
     }
 
     public function rti(){

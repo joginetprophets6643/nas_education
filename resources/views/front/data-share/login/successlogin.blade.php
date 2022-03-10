@@ -374,6 +374,9 @@ $('#get_files').click(()=>{
 $(document).ready(()=> {
     $.ajax({
     type: "GET",
+    headers: {
+            "Authorization": "Bearer " + token
+    },
     url: api_url + 'district_masters?limit=-1',
     }).done(response => {
         districts=response.data;

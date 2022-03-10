@@ -10,24 +10,41 @@ use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
-    public function index(){
-        $events=Event::join('event_images','events.id','=','event_images.event_id')->get();
+    public function index($id){
+        $id=base64_decode($id);
+        
+        $events=Event::join('event_images','events.id','=','event_images.event_id')->where('state',$id)->get();
         $count=[];
         $image=[];
         foreach($events as $event){
             $count[$event->id]=count(json_decode($event->images));
             $image[$event->id]=json_decode($event->images)[0];
         }
-        return view('front.gallery.images.index',compact('events','count','image'));
+        if(empty($count)){
+            return redirect()->back()->with('success','No Image available in this State event');        
+        }
+        else{
+            return view('front.gallery.images.index',compact('events','count','image'));        
+        }        
     }
-    public function video(){
-        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->distinct('vedios.event_id')->select('vedios.*','video_events.name')->get();
+    public function video($id){
+        $id=base64_decode($id);
+        $count=[];
+        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->where('state',$id)->distinct('vedios.event_id')->select('vedios.*','video_events.name')->get();
         foreach($videos as $key){
             $total_video = DB::table('vedios')->where('event_id',$key->event_id)->whereNotNull('vedio')->where('status',1)->count();
             $total_url = DB::table('vedios')->where('event_id',$key->event_id)->whereNotNull('url')->where('status',1)->count();
             $key->total_videos = ($total_video + $total_url);
+            $count[$key->id]=$key->total_videos;
         }
-        return view('front.gallery.vedios.index',compact('videos'));
+
+        if(empty($count)){
+            return redirect()->back()->with('success','No Video available in this State event');        
+        }
+        else{
+            return view('front.gallery.vedios.index',compact('videos'));        
+        }   
+        
     }
     public function view($id){
         $id=decode5t($id);
