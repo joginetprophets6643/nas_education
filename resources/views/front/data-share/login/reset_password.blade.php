@@ -161,7 +161,7 @@ function sendOtp(){
                     headers:{
                         'Access-Control-Allow-Origin':'*'
                     },
-                    url: backend_api_url + 'send-email/' + user[0].email+ '/' + OTP,
+                    url: backend_api_url + 'send-email/' + btoa(user[0].email)+ '/' + btoa(OTP),
                 })
                 $('#error').html('')
                 $('#success').html('OTP is sent to registered mobile number & email')

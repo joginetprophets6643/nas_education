@@ -284,7 +284,7 @@ function emailValidation(){
         headers:{
             'Access-Control-Allow-Origin':'*'
         },
-        url: backend_api_url + 'send-email/' + email+ '/' + OTP,
+        url: backend_api_url + 'send-email/' + btoa(email)+ '/' + btoa(OTP),
         })
 
         $('#email-btn').attr('style','display:none');

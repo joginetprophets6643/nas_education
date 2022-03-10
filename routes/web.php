@@ -327,8 +327,8 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
 
 Route::group(["middleware" => ["language"]], function(){
     Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
-    Route::get('/gallery/image-gallery/state/{id}','App\Http\Controllers\GalleryController@index');
-    Route::get('/gallery/video-gallery/state/{id}','App\Http\Controllers\GalleryController@video');
+    Route::get('/gallery/image-gallery/state/{id}','App\Http\Controllers\GalleryController@index')->name('image-gallery');
+    Route::get('/gallery/video-gallery/state/{id}','App\Http\Controllers\GalleryController@video')->name('video-gallery');
     Route::get('/gallery/video-gallery/{id}','App\Http\Controllers\GalleryController@viewvideos');
     Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
     Route::get('/about-nas','App\Http\Controllers\AboutController@index');

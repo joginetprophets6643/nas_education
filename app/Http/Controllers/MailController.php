@@ -8,6 +8,9 @@ use App\Mail\OtpMail;
 class MailController extends Controller
 {
     public function index($email,$otp){
+        $otp=base64_decode($otp);
+        $email=base64_decode($email);
+        
         Mail::to($email)->send(new OtpMail($otp));
 
         if(Mail::failures($email)){

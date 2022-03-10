@@ -27,13 +27,25 @@
         <div class="col-md-12">
                 <div class="card-white">
                     <div class="photogallery-content">
-                    <h2 class="heading-blue mb-4">
+                        @if(session('success'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{{session('success')}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
+                    <div class="justify-content-between d-flex align-items-center mb-4">  
+                    <h2 class="heading-blue">
                         {{ __('lang.Photo Gallery') }}
                     </h2>
-                    <input type="text" name="state" id="state" placeholder="Search">
+                    <div class="gallery-search-wrap">
+                        <label id="search">Search:</label>
+                        <input type="text" name="state" id="state">
+                    </div>
+                    </div> 
                     <div class="row photos">
                         
                     </div>
+                    <span id="i_found"></span>
                     </div>
                     <div class="videogallery-content">
                     <h2 class="heading-blue mb-4">
@@ -42,7 +54,7 @@
                         <div class="row videos">                       
                         
                         </div>
-                    
+                        <span id="v_found"></span>
                         
                         
                         
@@ -149,14 +161,20 @@
 
     
     const createTiles = (id,image,name,count,type)=>{
+        id=btoa(id)
         if(type=='photos'){
-        
-        $('.photos').append('<div class="col-md-3 item"><div class="gallery-card"><div class="gallery-img-wrap"><a class="gallery-anchor" href="{{url('/gallery/image-gallery/state/name')}}"><img src="assets/uploads/state-thumbnail/'+image +'"alt="img" class="img-fluid"><span id="state">'+name+'</span><br><span id="count">'+count+'</span></a></div></div></div>')
+            
+            var url = '{{ route("image-gallery", ":id") }}';
+            url = url.replace(':id', id);
+            $('.photos').append('<div class="col-md-3"><a href="'+url+'"><div class="gallery-card"><div class="gallery-img-wrap"><img src="assets/uploads/state-thumbnail/'+image +'" alt="img" class="img-fluid"></div><div class="gallery-content"><div class="d-flex justify-content-between align-items-center"><span class="total-img"><img src="{{asset('assets/front/images/gallery.svg')}}" alt="img" class="img-fluid" /> '+count+'</span><p class="gallery-title">'+name+'</p></div></div></div></a></div>')
         }
+
         if(type=='videos'){
-        
-        $('.videos').append('<div class="col-md-3 item"><div class="gallery-card"><div class="gallery-img-wrap"><a class="gallery-anchor" href=""><img src="assets/uploads/state-thumbnail/'+image +'"alt="img" class="img-fluid"><span id="state">'+name+'</span><br><span id="count">'+count+'</span></a></div></div></div>')
+            var url = '{{ route("video-gallery", ":id") }}';
+            url = url.replace(':id', id);
+            $('.videos').append('<div class="col-md-3"><a href="'+url+'"><div class="gallery-card"><div class="gallery-img-wrap"><img src="assets/uploads/state-thumbnail/'+image +'" alt="img" class="img-fluid"></div><div class="gallery-content"><div class="d-flex justify-content-between align-items-center"><span class="total-img"><img src="{{asset('assets/front/images/gallery.svg')}}" alt="img" class="img-fluid" /> '+count+'</span><p class="gallery-title">'+name+'</p></div></div></div></a></div>')
         }
+
     }
     
     $('#state').keyup(()=>{
@@ -170,11 +188,27 @@
             }
         })
 
+        if(Object.keys(temp_ved_data).length===0){
+            $('#v_found').html('No such State found!')
+        }
+        else{
+            $('#v_found').html('')
+        }
+
+
         Object.keys(img_data).forEach(key=>{          
             if(img_data[key].name.includes(state)){
             temp_img_data[key]= img_data[key]
             }
         })
+
+        if(Object.keys(temp_img_data).length===0){
+            $('#i_found').html('No such State found!')
+        }
+        else{
+            $('#i_found').html('')
+        }
+
         $('.photos').empty()
         $('.videos').empty()
         

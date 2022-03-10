@@ -77,7 +77,6 @@ class EventController extends Controller
         $event= new Video_Events;
         $event->name=$request->name;
         $event->state=$request->state_name;
-        
         $event->save();
         return Redirect()->back()->with('success','Event Added Successfully');
     }

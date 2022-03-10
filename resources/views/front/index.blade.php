@@ -461,7 +461,7 @@
                         @endforeach
                       </div>
                       <div class="btn-wrap">
-                        <a href="{{url('/gallery/image-gallery')}}" class="org-link">
+                        <a href="{{url('/gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
                             east
@@ -500,7 +500,7 @@
                         @endforeach
                       </div>
                       <div class="slider-viewbtn btn-wrap">
-                        <a href="{{url('/gallery/video-gallery')}}" class="org-link">
+                        <a href="{{url('/gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
                             east
