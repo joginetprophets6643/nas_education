@@ -103,6 +103,15 @@ class Data2017Controller extends Controller
         $data = explode('/', $request->name);
         $state_name = $data[0];
         $file_name = $data[1];
+
+        if(count($data) == 3){
+            if($data[2] == 10){
+                $filename = $file_name.".pdf";
+                $file = public_path(). "/assets/front/district2017/".$state_name."/".$file_name.".pdf";
+            
+                return Response::download($file, $filename);
+            }
+        }
         
         if($file_name == "all3"){
             
@@ -148,7 +157,7 @@ class Data2017Controller extends Controller
             $file3 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[4].".pdf";
             $file4 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[5].".pdf";
             
-            $files = array($file1, $file2, $file3, $file5);
+            $files = array($file1, $file2, $file3, $file4);
             $zipname = $district."_grade-8".".zip";
             $zip = new ZipArchive;
             $zip->open($zipname, ZipArchive::CREATE);
@@ -187,7 +196,7 @@ class Data2017Controller extends Controller
             $filename = $file_name.".pdf";
             $file= public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$file_name.".pdf";
         
-            return Response::download($file, $filename)->deleteFileAfterSend(true);
+            return Response::download($file, $filename);
         }
         
     }

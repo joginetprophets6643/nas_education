@@ -107,7 +107,8 @@
 
                                     <td>
                                         <input type="hidden" id="all10" value="{{$district->file_name}}({{$district->district_id}}) Class X Cycle-2  DRC"/>
-                                        <a href="javascript:;" class="btn btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all10').value">Download</a>
+                                        <input type="hidden" id="grade10" value="10"/>
+                                        <a href="javascript:;" class="btn btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all10').value + '/' + document.getElementById('grade10').value">Download</a>
                                     </td>
                                     <td>
                                         <a href="javascript:;" class="btn btn-success mx-2 my-2" onclick = "this.href='{{url('download-data-district/'.$district->file_name)}}?name=' + document.getElementById('state').value + '/' + document.getElementById('all').value">Download</a>
