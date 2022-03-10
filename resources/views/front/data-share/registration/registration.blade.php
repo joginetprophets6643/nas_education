@@ -142,14 +142,19 @@
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
-                                    <label class="form-input-label">Password</label>
-                                    @error('password')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
+                                      <input type="password" class="form-control pass_log_id" name="password" id="passw" placeholder="Password" autocomplete="off">
+                                      <label class="form-input-label">Password</label>
+                                      <sapn class="input-icon  toggle-password ">
+                                        <img class="otp-dis open-eye" src="{{asset('assets/front/images/eye-icon.svg')}}" alt="icon" />
+                                        <img class="close-eye" src="{{asset('assets/front/images/eye-close.svg')}}" alt="icon" />
+                                      </sapn>
+                                      @error('password')
+                                      <span class="text-danger">{{$message}}</span>
+                                      @enderror
                                 </div>
+                            
                                 <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" autocomplete="off">
+                                    <input type="password" class="form-control" name="password_confirmation" id="conf_passw" placeholder="Confirm Password" autocomplete="off">
                                     <label class="form-input-label">Confirm Password</label>
                                     @error('password_confirmation')
                                     <span class="text-danger">{{$message}}</span>
@@ -522,6 +527,28 @@ $(document).ready(()=> {
     $('#ajax_districts').select2();
 
     captchaGenerate()
+})
+
+$("body").on('click', '.toggle-password', function() {
+
+  var input = $(".pass_log_id");
+  if (input.attr("type") === "password") {
+    input.attr("type", "text");
+    $('.close-eye').css('display','none')
+    $('.open-eye').css('display','flex')
+  } else {
+    input.attr("type", "password");
+    $('.open-eye').css('display','none')
+    $('.close-eye').css('display','flex')
+  }
+
+});
+
+$('#passw').keyup(()=>{
+  $('#passw').val($('#passw').val().replace(/\s+/g, " ").trim())
+})
+$('#conf_passw').keyup(()=>{
+  $('#conf_passw').val($('#conf_passw').val().replace(/\s+/g, " ").trim())
 })
 
 </script>

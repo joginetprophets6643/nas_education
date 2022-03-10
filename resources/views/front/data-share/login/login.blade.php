@@ -379,4 +379,8 @@ $('.otp-input').keyup(()=>{
 
 })
 
+$('#pass_log_id').keyup(()=>{
+  $('#pass_log_id').val($('#pass_log_id').val().replace(/\s+/g, " ").trim())
+})
+
 </script>
