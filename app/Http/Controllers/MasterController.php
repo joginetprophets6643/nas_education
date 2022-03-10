@@ -345,7 +345,7 @@ class MasterController extends Controller
         else{
             $request->status=1;
         }
-
+        $data=State_Master::where('id',$id)->first();
         
         if($request->file('thumbnail'))
         {
@@ -357,7 +357,7 @@ class MasterController extends Controller
             $image->move(public_path('assets/uploads/state-thumbnail'),$name);
         }
         else{
-            $name='';
+            $name=$data->thumbnail;
         }
         
         State_Master::where('id',$id)->update([
