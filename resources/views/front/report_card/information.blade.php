@@ -36,7 +36,7 @@
                                       <div class="infotab-content-wrap">
                                           <div class="row">
                                             <div class="col-md-12">
-                                              <h2>
+                                              <h2 class="mobile-margin">
                                                 Total number of schools in <span class="information_district_name"></span> district.
                                               </h2>
                                             </div>

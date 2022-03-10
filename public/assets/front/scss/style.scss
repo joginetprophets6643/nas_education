@@ -731,6 +731,9 @@ ul {
 .mtb-30 {
     margin: 30px 0;
 }
+.mtb-15 {
+    margin: 15px 0;
+}
 .mb-60 {
     margin-bottom: 60px;
 }
@@ -1678,7 +1681,7 @@ ul {
     }
     .main-content-wrap {
         background: #ebf3fb;
-        padding: 15px;
+        padding: 10px 15px;
         border: 1px solid #e4e4e4;
         width: 100%;
         // transition: 0.4s;
@@ -1693,13 +1696,6 @@ ul {
             }
         }
     }
-    // .active-sidebar {
-    //     margin-left: 0;
-    // }
-    // .active-main-content {
-    //     width: calc(100% - 250px);
-    //     // margin-left: 250px;
-    // }
 }
 .ranking-wrap {
     padding: 20px 0;
@@ -2787,7 +2783,7 @@ ul {
 
         .title {
             position: absolute;
-            right: 0;
+            right: -14px;
             top: -30px;
             letter-spacing: 0px;
             color: #101010;
@@ -5718,7 +5714,6 @@ ul {
         }
         .active-main-content {
             width: calc(100% - 250px);
-            // margin-left: 250px;
         }
     }
 } 
@@ -5726,7 +5721,6 @@ ul {
     .dashboard-wrapper{
         position: relative;
         .sidebar-wrap {
-            // margin-left: -250px;
             transition: 0.4s;
             .close1-btn {
                 display: flex !important;
@@ -5746,10 +5740,7 @@ ul {
             left: 0;
             bottom: 0;
             top: 0;
-            z-index: 1;
-        }
-        .active-main-content {
-            // width: 100%;
+            z-index: 10000;
         }
     }
 
@@ -6179,6 +6170,31 @@ ul {
     .date {
         font-size: 16px;
     }
+    .view-wrap {
+        .btn-wrap {
+            .report-btn {
+                font-size: 0 !important;
+                span {
+                    margin-left: 0 !important;
+                }
+            }
+        }
+    }
+    .tablayertwo {
+        .nav-link {
+            font-size: 13px;
+            margin-right: 15px;
+        }
+    } 
+    .per-card {
+        .per-card-content {
+            .per-card-desc {
+                min-width: 4.5rem;
+            }
+
+        }
+
+    }
 }
 @media (max-width: 767px) {
     .term-wrap{
@@ -6275,12 +6291,110 @@ ul {
             height: 300px !important;
         }
     }
+    .percategory-wrap {
+        .percategory-content {
+            min-height: 2em;
+            flex-direction: row;
+            img {
+                width: 2em;
+                margin-right: 1em;
+            }
+            .title {
+                font-size: 1.5em;
+            }
+        }
+        &.indigate-right {
+            &::before{
+                display: none;
+
+            }
+        }
+        &.indigate-left {
+            &::before{
+                content: none;
+
+            }
+        }
+    } 
+    .graph-linecard-container {
+        .graph-card-content {
+            .col-md-6 {
+                &:nth-child(1) {
+                    border: none;
+                }
+            }
+            hr {
+                display: none;
+            }
+        } 
+    }
+    .categorypart-card-wrap {
+        .col-md-6 {
+            &:nth-child(1) {
+                border: none;
+            }
+        }
+    } 
+    .infotab-content-wrap  {
+        .mobile-margin {
+            margin-top: 1rem;
+        }
+    }
+    .per-table {
+        .table {
+            th {
+                padding: 10px;
+                font-size: 15px;
+                min-width: 7em;
+                &[scope="row"] {
+                    font-size: 14px;
+                }
+            }
+            td {
+                padding: 10px;
+                font-size: 15px; 
+            }
+        }
+    } 
+    .learning-tabs {
+        #learningTab {
+            padding: 0;
+            .nav-item {
+                margin-right: 0;
+                .nav-link {
+                    font-size: 15px;
+                }
+            } 
+        }
+        .nav {
+            flex-wrap: nowrap;
+            overflow-y: hidden;
+            overflow-x: auto;
+        }
+        .learning-table-wrap {
+            table {
+                thead {
+                    vertical-align: middle;
+                }
+            }
+            .table-title {
+                font-size: 17px;
+                img {
+                    height: 25px;
+                }
+            }
+        } 
+    }
+    .heading-grey {
+        font-size: 15px;
+    }
 }
+        
 
 @media (max-width: 475px) {
-    // body {
-    //     padding-top: 9.5rem;
-    // }
+    .sticky-nav {
+        padding-bottom: 0.5rem;
+    }
     .site-header {
         .logo-wrap {
             height: 116px;
@@ -6290,6 +6404,9 @@ ul {
                 }
             }
         }
+    }
+    .tablayerone .nav-link {
+        margin-right: 0 !important;
     }
 }
 
@@ -6380,4 +6497,9 @@ ul {
         }
     }
 }
-  
+
+.sticky-nav {
+    position: sticky;
+    z-index: 900;
+    background: #ebf3fb;
+}

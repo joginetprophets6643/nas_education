@@ -400,5 +400,24 @@ function changeFontSize(direction){
         
 
     </script>
+    <script>
+      if(window.innerWidth > 1024) {
+        $(window).scroll(function(){
+          if ($(this).scrollTop() > 15) {
+            $('#scrollTab').css({"top":"7.9em", "padding-top": "0.5rem"});
+          } else {
+            $('#scrollTab').css({"top":"70px"});
+          }
+        });
+        $(window).scroll(function(){
+          if ($(this).scrollTop() > 15) {
+            $('#scrollTab2').css({"top":"10.7em", "padding": "0.5rem 0"});
+          } else {
+            $('#scrollTab2').css({"top":"70px", "padding": "0"});
+          }
+        });
+      }
+
+    </script>
   </body>
 </html>
