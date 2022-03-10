@@ -67,16 +67,19 @@
 
     <section class="report-card-wrap ptb-60">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-5">
-              <div class="report-card-content" data-aos="fade-right">
-                <h2 class="heading-blue">
+        <div class="row align-items-center p-3 line-card-shadow">
+          <div class="col-md-12">
+            <h2 class="heading-blue">
                   <span id="name">NATIONAL</span> REPORT CARD
                 </h2>
                 <p class="title-grey-sm">
                   Please select a State on the interactive map or search
                   for the name below to continue.
                 </p>
+          </div>
+          <div class="col-md-5">
+              <div class="report-card-content" data-aos="fade-right">
+                
                 <div class="report-select-wrap col-md-12">
                   <label>State</label>
                   <select class="form-select" id="states">
@@ -189,7 +192,7 @@
                 <div class="info-wrap">
                   <div class="infotab-content-wrap">
                     <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                           <div class="infotab-content light-blue-bg">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="content">
@@ -207,7 +210,7 @@
                             </div>
                           </div>
                       </div>
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                           <div class="infotab-content light-pink-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -225,7 +228,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                           <div class="infotab-content light-green-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -244,7 +247,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                           <div class="infotab-content light-yellow-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -262,7 +265,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                         <div class="infotab-content light-purple-bg">
                           <div class="d-flex align-items-center justify-content-between">
                             <div class="content">
@@ -279,7 +282,7 @@
                           </div>
                         </div>
                     </div>
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                           <div class="infotab-content light-sagegreen-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -725,17 +728,16 @@
             name: 'State',
             allowPointSelect: true,
             cursor: 'pointer',
-            color: "#9ec2e4",
-            borderColor: "#6e6f70",
+            color: "#f7941c",
+            borderColor: "#fff",
             states: {
-              select: {
-                  color: '#9ec2e4',
-              },
-              hover: {
-                  // color: '#006BB6'
-                  color:'#f7941c',
-              }
-                
+                hover: {
+                    // color: '#006BB6'
+                    color:'#006bb6'
+                },
+                select: {
+                  color: '#006bb6'
+                }
             },
             dataLabels: {
                 enabled: false,
@@ -808,7 +810,8 @@
           allowPointSelect: true,
           states: {
             select: {
-              color: '#f7941c'
+              // color: '#f7941c'
+              color: '#006bb6'
             }
           },
           events:{
