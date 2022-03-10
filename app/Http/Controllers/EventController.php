@@ -185,7 +185,7 @@ class EventController extends Controller
 
         if(!$images){
             DB::table('event_images')->where('event_id',$id)->delete();
-            unlink(public_path("assets/uploads/".$image));
+            // unlink(public_path("assets/uploads/".$image));
             $id=encode5t($id);
             return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
         }
@@ -194,7 +194,7 @@ class EventController extends Controller
         DB::table('event_images')->where('event_id',$id)->update([
                 'images'=>$images
         ]);
-        unlink("assets/uploads/".$image);
+        // unlink("assets/uploads/".$image);
         $id=encode5t($id);
         return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
 
@@ -257,8 +257,8 @@ class EventController extends Controller
         if($vedio->vedio && $vedio->url){
             if($request->type=="video"){   
                 if($vedio->vedio){
-                    unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
-                    unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
+                    // unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+                    // unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
                     }
                 Vedios::where('id',$id)->update(['vedio'=>NULL]);
             }
@@ -271,8 +271,8 @@ class EventController extends Controller
         else{
             Vedios::find($id)->delete();
             if($vedio->vedio){
-                unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
-                unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
+                // unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+                // unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
                 }
         }
         

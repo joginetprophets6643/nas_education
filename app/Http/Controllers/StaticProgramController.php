@@ -63,7 +63,7 @@ class StaticProgramController extends Controller
             $image=$request->file('image');
         
         $program=Program::where('id',$id)->first();
-        unlink(public_path("assets/uploads/program/".$program->image));
+        // unlink(public_path("assets/uploads/program/".$program->image));
         $name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         $image->move(public_path('assets/uploads/team'),$name);
         Program::where('id',$id)->update([

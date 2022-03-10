@@ -76,7 +76,7 @@ class ClientLogoController extends Controller
     public function destroy($id){
         $id=decode5t($id);
         $client_logo = ClientLogo::where('id',$id)->first();
-        unlink("assets/uploads/client_logo/".$client_logo->logo);
+        // unlink("assets/uploads/client_logo/".$client_logo->logo);
         ClientLogo::where('id',$id)->delete();
 
         return Redirect()->route('client-logo')->with('success','Client Logo Deleted Successfully');

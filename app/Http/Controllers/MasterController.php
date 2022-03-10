@@ -353,7 +353,6 @@ class MasterController extends Controller
             $filename = $image->getClientOriginalName();
             $extension=$image->getClientOriginalExtension();
             $name=hexdec(uniqid()).'.'.$extension;
-            unlink(public_path("assets/uploads/state-thumbnail/".$data->thumbnail));
             
             $image->move(public_path('assets/uploads/state-thumbnail'),$name);
         }
