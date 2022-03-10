@@ -509,6 +509,9 @@ $("#Organization").click(()=>{
 $(document).ready(()=> {
     $.ajax({
     type: "GET",
+    headers: {
+            "Authorization": "Bearer " + token
+    },
     url: api_url + 'district_masters?limit=-1',
     }).done(response => {
         districts=response.data;
@@ -516,6 +519,9 @@ $(document).ready(()=> {
 
     $.ajax({
     type: "GET",
+    headers: {
+            "Authorization": "Bearer " + token
+    },
     url: api_url + 'state_masters?limit=-1',
     }).done(response => {
         states=response.data;

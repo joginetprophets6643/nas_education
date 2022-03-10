@@ -241,6 +241,9 @@ function sendOtp(){
 
         $.ajax({
             type: "GET",
+            headers: {
+            "Authorization": "Bearer " + token
+            },
             url: api_url + "users?filter="+ JSON.stringify(filters),
         }).done(response => {
             user=response.data;
