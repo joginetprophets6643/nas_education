@@ -527,10 +527,18 @@ $(document).ready(()=> {
         states=response.data;
     })
 
-    $('#state').select2();
-    $('#identify_yourself').select2();
-    $('#country').select2();
-    $('#ajax_districts').select2();
+    $('#state').select2({
+     dropdownCssClass: "data-share"
+    });
+    $('#identify_yourself').select2({
+     dropdownCssClass: "data-share"
+    });
+    $('#country').select2({
+     dropdownCssClass: "data-share"
+    });
+    $('#ajax_districts').select2({
+     dropdownCssClass: "data-share"
+    });
 
     captchaGenerate()
 })
