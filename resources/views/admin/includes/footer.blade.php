@@ -27,6 +27,7 @@
     <!-- Custom js for this page -->
     <!-- <script src="{{ asset('assets/admin/vendors/js/dashboard.js')}}"></script> -->
     <!-- JavaScript Bundle with Popper -->
+    
 <script src="{{ asset('assets/admin/vendors/js/bootstrap.bundle.min.js')}}"></script>
 <!-- <script src="{{ asset('assets/admin/vendors/js/tinymce.min.js')}}"></script>
 

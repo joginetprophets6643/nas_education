@@ -98,16 +98,16 @@
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('nas-program') ? 'active' : '' }}" href="{{url('/nas-program')}}">{{__('lang.NAS PROGRAM')}}</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="{{url('/report-card')}}" target="_blank">{{__('lang.REPORT CARD')}}</a>
-                  </li>
-                  <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('lang.REPORT CARD')}}</a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="report-card.html">{{__('lang.NAS 2017')}}</a></li>
-                      <li><a class="dropdown-item" href="report-card.html">{{__('lang.NAS 2021')}}</a></li>
-                    </ul>
                   </li> -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('lang.REPORT CARD')}}</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{url('/report-card/2017')}}">{{__('lang.NAS 2017')}}</a></li>
+                      <li><a class="dropdown-item" href="{{url('/report-card')}}">{{__('lang.NAS 2021')}}</a></li>
+                    </ul>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('data-share') || Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}" target="_blank">{{__('lang.DATA SHARE')}}</a>
                   </li>
@@ -136,6 +136,9 @@
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('mobile-app') ? 'active' : '' }}" href="{{url('mobile-app')}}">{{__('lang.MOBILE APP')}}</a>
                   </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link {{ Request::is('download-data-state-wise') ? 'active' : '' }}" href="{{url('download-data-state-wise')}}">{{__('lang.Download')}}</a>
+                  </li> -->
                 </ul>
                 <!-- <div class="btn-wrap">
                   <a href="#" class="btn btn_sm org-btn">Login</a>

@@ -203,37 +203,37 @@ class DataProcessController extends Controller
 
         DB::table('performance_master')->truncate();
         $final_data=DB::table('drc_final_data')->get();
-
+        
         foreach($final_data as $data){
 
             $grade_3['language'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr3_pclang_tot)?$data->drc_gr3_pclang_tot:'0',
+                    'district'=>isset($data->drc_gr3_pclang_tot)?(string)$data->drc_gr3_pclang_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr3_pclang_boys)?$data->drc_gr3_pclang_boys:'0',"girls"=>isset($data->drc_gr3_pclang_girls)?$data->drc_gr3_pclang_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr3_pclang_boys)?(string)$data->drc_gr3_pclang_boys:'0',"girls"=>isset($data->drc_gr3_pclang_girls)?(string)$data->drc_gr3_pclang_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr3_pclang_ur)?$data->drc_gr3_pclang_ur:'0',"rural"=>isset($data->drc_gr3_pclang_ru)?$data->drc_gr3_pclang_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr3_pclang_ur)?(string)$data->drc_gr3_pclang_ur:'0',"rural"=>isset($data->drc_gr3_pclang_ru)?(string)$data->drc_gr3_pclang_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr3_pclang_go)?$data->drc_gr3_pclang_go:'0',"govt_aided"=>isset($data->drc_gr3_pclang_ga)?$data->drc_gr3_pclang_ga:'0',"private"=>isset($data->drc_gr3_pclang_priv)?$data->drc_gr3_pclang_priv:'0',"central_govt"=>isset($data->drc_gr3_pclang_cg)?$data->drc_gr3_pclang_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr3_pclang_go)?(string)$data->drc_gr3_pclang_go:'0',"govt_aided"=>isset($data->drc_gr3_pclang_ga)?(string)$data->drc_gr3_pclang_ga:'0',"private"=>isset($data->drc_gr3_pclang_priv)?(string)$data->drc_gr3_pclang_priv:'0',"central_govt"=>isset($data->drc_gr3_pclang_cg)?(string)$data->drc_gr3_pclang_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr3_pclang_sc)?$data->drc_gr3_pclang_sc:'0',"obc"=>isset($data->drc_gr3_pclang_obc)?$data->drc_gr3_pclang_obc:'0',"st"=>isset($data->drc_gr3_pclang_st)?$data->drc_gr3_pclang_st:'0',"general"=>isset($data->drc_gr3_pclang_gen)?$data->drc_gr3_pclang_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr3_pclang_sc)?(string)$data->drc_gr3_pclang_sc:'0',"obc"=>isset($data->drc_gr3_pclang_obc)?(string)$data->drc_gr3_pclang_obc:'0',"st"=>isset($data->drc_gr3_pclang_st)?(string)$data->drc_gr3_pclang_st:'0',"general"=>isset($data->drc_gr3_pclang_gen)?(string)$data->drc_gr3_pclang_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr3_perlang_bba)?$data->drc_gr3_perlang_bba:'0',"basic"=>isset($data->drc_gr3_perlang_bas)?$data->drc_gr3_perlang_bas:'0',"proficient"=>isset($data->drc_gr3_perlang_pro)?$data->drc_gr3_perlang_pro:'0',"advanced"=>isset($data->drc_gr3_perlang_adv)?$data->drc_gr3_perlang_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr3_perlang_bba)?(string)$data->drc_gr3_perlang_bba:'0',"basic"=>isset($data->drc_gr3_perlang_bas)?(string)$data->drc_gr3_perlang_bas:'0',"proficient"=>isset($data->drc_gr3_perlang_pro)?(string)$data->drc_gr3_perlang_pro:'0',"advanced"=>isset($data->drc_gr3_perlang_adv)?(string)$data->drc_gr3_perlang_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -241,32 +241,32 @@ class DataProcessController extends Controller
 
             $grade_3['math'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr3_pcmath_tot)?$data->drc_gr3_pcmath_tot:'0',
+                    'district'=>isset($data->drc_gr3_pcmath_tot)?(string)$data->drc_gr3_pcmath_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr3_pcmath_boys)?$data->drc_gr3_pcmath_boys:'0',"girls"=>isset($data->drc_gr3_pcmath_girls)?$data->drc_gr3_pcmath_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr3_pcmath_boys)?(string)$data->drc_gr3_pcmath_boys:'0',"girls"=>isset($data->drc_gr3_pcmath_girls)?(string)$data->drc_gr3_pcmath_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr3_pcmath_ur)?$data->drc_gr3_pcmath_ur:'0',"rural"=>isset($data->drc_gr3_pcmath_ru)?$data->drc_gr3_pcmath_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr3_pcmath_ur)?(string)$data->drc_gr3_pcmath_ur:'0',"rural"=>isset($data->drc_gr3_pcmath_ru)?(string)$data->drc_gr3_pcmath_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr3_pcmath_go)?$data->drc_gr3_pcmath_go:'0',"govt_aided"=>isset($data->drc_gr3_pcmath_ga)?$data->drc_gr3_pcmath_ga:'0',"private"=>isset($data->drc_gr3_pcmath_priv)?$data->drc_gr3_pcmath_priv:'0',"central_govt"=>isset($data->drc_gr3_pcmath_cg)?$data->drc_gr3_pcmath_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr3_pcmath_go)?(string)$data->drc_gr3_pcmath_go:'0',"govt_aided"=>isset($data->drc_gr3_pcmath_ga)?(string)$data->drc_gr3_pcmath_ga:'0',"private"=>isset($data->drc_gr3_pcmath_priv)?(string)$data->drc_gr3_pcmath_priv:'0',"central_govt"=>isset($data->drc_gr3_pcmath_cg)?(string)$data->drc_gr3_pcmath_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr3_pcmath_sc)?$data->drc_gr3_pcmath_sc:'0',"obc"=>isset($data->drc_gr3_pcmath_obc)?$data->drc_gr3_pcmath_obc:'0',"st"=>isset($data->drc_gr3_pcmath_st)?$data->drc_gr3_pcmath_st:'0',"general"=>isset($data->drc_gr3_pcmath_gen)?$data->drc_gr3_pcmath_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr3_pcmath_sc)?(string)$data->drc_gr3_pcmath_sc:'0',"obc"=>isset($data->drc_gr3_pcmath_obc)?(string)$data->drc_gr3_pcmath_obc:'0',"st"=>isset($data->drc_gr3_pcmath_st)?(string)$data->drc_gr3_pcmath_st:'0',"general"=>isset($data->drc_gr3_pcmath_gen)?(string)$data->drc_gr3_pcmath_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr3_permath_bba)?$data->drc_gr3_permath_bba:'0',"basic"=>isset($data->drc_gr3_permath_bas)?$data->drc_gr3_permath_bas:'0',"proficient"=>isset($data->drc_gr3_permath_pro)?$data->drc_gr3_permath_pro:'0',"advanced"=>isset($data->drc_gr3_permath_adv)?$data->drc_gr3_permath_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr3_permath_bba)?(string)$data->drc_gr3_permath_bba:'0',"basic"=>isset($data->drc_gr3_permath_bas)?(string)$data->drc_gr3_permath_bas:'0',"proficient"=>isset($data->drc_gr3_permath_pro)?(string)$data->drc_gr3_permath_pro:'0',"advanced"=>isset($data->drc_gr3_permath_adv)?(string)$data->drc_gr3_permath_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -274,37 +274,37 @@ class DataProcessController extends Controller
 
             $grade_3['evs'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr3_pcevs_tot)?$data->drc_gr3_pcevs_tot:'0',
+                    'district'=>isset($data->drc_gr3_pcevs_tot)?(string)$data->drc_gr3_pcevs_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr3_pcevs_boys)?$data->drc_gr3_pcevs_boys:'0',"girls"=>isset($data->drc_gr3_pcevs_girls)?$data->drc_gr3_pcevs_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr3_pcevs_boys)?(string)$data->drc_gr3_pcevs_boys:'0',"girls"=>isset($data->drc_gr3_pcevs_girls)?(string)$data->drc_gr3_pcevs_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr3_pcevs_ur)?$data->drc_gr3_pcevs_ur:'0',"rural"=>isset($data->drc_gr3_pcevs_ru)?$data->drc_gr3_pcevs_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr3_pcevs_ur)?(string)$data->drc_gr3_pcevs_ur:'0',"rural"=>isset($data->drc_gr3_pcevs_ru)?(string)$data->drc_gr3_pcevs_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr3_pcevs_go)?$data->drc_gr3_pcevs_go:'0',"govt_aided"=>isset($data->drc_gr3_pcevs_ga)?$data->drc_gr3_pcevs_ga:'0',"private"=>isset($data->drc_gr3_pcevs_priv)?$data->drc_gr3_pcevs_priv:'0',"central_govt"=>isset($data->drc_gr3_pcevs_cg)?$data->drc_gr3_pcevs_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr3_pcevs_go)?(string)$data->drc_gr3_pcevs_go:'0',"govt_aided"=>isset($data->drc_gr3_pcevs_ga)?(string)$data->drc_gr3_pcevs_ga:'0',"private"=>isset($data->drc_gr3_pcevs_priv)?(string)$data->drc_gr3_pcevs_priv:'0',"central_govt"=>isset($data->drc_gr3_pcevs_cg)?(string)$data->drc_gr3_pcevs_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr3_pcevs_sc)?$data->drc_gr3_pcevs_sc:'0',"obc"=>isset($data->drc_gr3_pcevs_obc)?$data->drc_gr3_pcevs_obc:'0',"st"=>isset($data->drc_gr3_pcevs_st)?$data->drc_gr3_pcevs_st:'0',"general"=>isset($data->drc_gr3_pcevs_gen)?$data->drc_gr3_pcevs_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr3_pcevs_sc)?(string)$data->drc_gr3_pcevs_sc:'0',"obc"=>isset($data->drc_gr3_pcevs_obc)?(string)$data->drc_gr3_pcevs_obc:'0',"st"=>isset($data->drc_gr3_pcevs_st)?(string)$data->drc_gr3_pcevs_st:'0',"general"=>isset($data->drc_gr3_pcevs_gen)?(string)$data->drc_gr3_pcevs_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr3_perevs_bba)?$data->drc_gr3_perevs_bba:'0',"basic"=>isset($data->drc_gr3_perevs_bas)?$data->drc_gr3_perevs_bas:'0',"proficient"=>isset($data->drc_gr3_perevs_pro)?$data->drc_gr3_perevs_pro:'0',"advanced"=>isset($data->drc_gr3_perevs_adv)?$data->drc_gr3_perevs_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr3_perevs_bba)?(string)$data->drc_gr3_perevs_bba:'0',"basic"=>isset($data->drc_gr3_perevs_bas)?(string)$data->drc_gr3_perevs_bas:'0',"proficient"=>isset($data->drc_gr3_perevs_pro)?(string)$data->drc_gr3_perevs_pro:'0',"advanced"=>isset($data->drc_gr3_perevs_adv)?(string)$data->drc_gr3_perevs_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
             );
-
+            
             PerformanceMaster::insert([
                 'state_id'=>$data->udise_state_code,
                 'district_id'=>$data->udise_district_code,
@@ -318,32 +318,32 @@ class DataProcessController extends Controller
 
             $grade_5['language'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr5_pclang_tot)?$data->drc_gr5_pclang_tot:'0',
+                    'district'=>isset($data->drc_gr5_pclang_tot)?(string)$data->drc_gr5_pclang_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr5_pclang_boys)?$data->drc_gr5_pclang_boys:'0',"girls"=>isset($data->drc_gr5_pclang_girls)?$data->drc_gr5_pclang_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr5_pclang_boys)?(string)$data->drc_gr5_pclang_boys:'0',"girls"=>isset($data->drc_gr5_pclang_girls)?(string)$data->drc_gr5_pclang_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr5_pclang_ur)?$data->drc_gr5_pclang_ur:'0',"rural"=>isset($data->drc_gr5_pclang_ru)?$data->drc_gr5_pclang_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr5_pclang_ur)?(string)$data->drc_gr5_pclang_ur:'0',"rural"=>isset($data->drc_gr5_pclang_ru)?(string)$data->drc_gr5_pclang_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr5_pclang_go)?$data->drc_gr5_pclang_go:'0',"govt_aided"=>isset($data->drc_gr5_pclang_ga)?$data->drc_gr5_pclang_ga:'0',"private"=>isset($data->drc_gr5_pclang_priv)?$data->drc_gr5_pclang_priv:'0',"central_govt"=>isset($data->drc_gr5_pclang_cg)?$data->drc_gr5_pclang_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr5_pclang_go)?(string)$data->drc_gr5_pclang_go:'0',"govt_aided"=>isset($data->drc_gr5_pclang_ga)?(string)$data->drc_gr5_pclang_ga:'0',"private"=>isset($data->drc_gr5_pclang_priv)?(string)$data->drc_gr5_pclang_priv:'0',"central_govt"=>isset($data->drc_gr5_pclang_cg)?(string)$data->drc_gr5_pclang_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr5_pclang_sc)?$data->drc_gr5_pclang_sc:'0',"obc"=>isset($data->drc_gr5_pclang_obc)?$data->drc_gr5_pclang_obc:'0',"st"=>isset($data->drc_gr5_pclang_st)?$data->drc_gr5_pclang_st:'0',"general"=>isset($data->drc_gr5_pclang_gen)?$data->drc_gr5_pclang_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr5_pclang_sc)?(string)$data->drc_gr5_pclang_sc:'0',"obc"=>isset($data->drc_gr5_pclang_obc)?(string)$data->drc_gr5_pclang_obc:'0',"st"=>isset($data->drc_gr5_pclang_st)?(string)$data->drc_gr5_pclang_st:'0',"general"=>isset($data->drc_gr5_pclang_gen)?(string)$data->drc_gr5_pclang_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr5_perlang_bba)?$data->drc_gr5_perlang_bba:'0',"basic"=>isset($data->drc_gr5_perlang_bas)?$data->drc_gr5_perlang_bas:'0',"proficient"=>isset($data->drc_gr5_perlang_pro)?$data->drc_gr5_perlang_pro:'0',"advanced"=>isset($data->drc_gr5_perlang_adv)?$data->drc_gr5_perlang_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr5_perlang_bba)?(string)$data->drc_gr5_perlang_bba:'0',"basic"=>isset($data->drc_gr5_perlang_bas)?(string)$data->drc_gr5_perlang_bas:'0',"proficient"=>isset($data->drc_gr5_perlang_pro)?(string)$data->drc_gr5_perlang_pro:'0',"advanced"=>isset($data->drc_gr5_perlang_adv)?(string)$data->drc_gr5_perlang_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -351,32 +351,32 @@ class DataProcessController extends Controller
 
             $grade_5['math'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr5_pcmath_tot)?$data->drc_gr5_pcmath_tot:'0',
+                    'district'=>isset($data->drc_gr5_pcmath_tot)?(string)$data->drc_gr5_pcmath_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr5_pcmath_boys)?$data->drc_gr5_pcmath_boys:'0',"girls"=>isset($data->drc_gr5_pcmath_girls)?$data->drc_gr5_pcmath_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr5_pcmath_boys)?(string)$data->drc_gr5_pcmath_boys:'0',"girls"=>isset($data->drc_gr5_pcmath_girls)?(string)$data->drc_gr5_pcmath_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr5_pcmath_ur)?$data->drc_gr5_pcmath_ur:'0',"rural"=>isset($data->drc_gr5_pcmath_ru)?$data->drc_gr5_pcmath_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr5_pcmath_ur)?(string)$data->drc_gr5_pcmath_ur:'0',"rural"=>isset($data->drc_gr5_pcmath_ru)?(string)$data->drc_gr5_pcmath_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr5_pcmath_go)?$data->drc_gr5_pcmath_go:'0',"govt_aided"=>isset($data->drc_gr5_pcmath_ga)?$data->drc_gr5_pcmath_ga:'0',"private"=>isset($data->drc_gr5_pcmath_priv)?$data->drc_gr5_pcmath_priv:'0',"central_govt"=>isset($data->drc_gr5_pcmath_cg)?$data->drc_gr5_pcmath_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr5_pcmath_go)?(string)$data->drc_gr5_pcmath_go:'0',"govt_aided"=>isset($data->drc_gr5_pcmath_ga)?(string)$data->drc_gr5_pcmath_ga:'0',"private"=>isset($data->drc_gr5_pcmath_priv)?(string)$data->drc_gr5_pcmath_priv:'0',"central_govt"=>isset($data->drc_gr5_pcmath_cg)?(string)$data->drc_gr5_pcmath_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr5_pcmath_sc)?$data->drc_gr5_pcmath_sc:'0',"obc"=>isset($data->drc_gr5_pcmath_obc)?$data->drc_gr5_pcmath_obc:'0',"st"=>isset($data->drc_gr5_pcmath_st)?$data->drc_gr5_pcmath_st:'0',"general"=>isset($data->drc_gr5_pcmath_gen)?$data->drc_gr5_pcmath_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr5_pcmath_sc)?(string)$data->drc_gr5_pcmath_sc:'0',"obc"=>isset($data->drc_gr5_pcmath_obc)?(string)$data->drc_gr5_pcmath_obc:'0',"st"=>isset($data->drc_gr5_pcmath_st)?(string)$data->drc_gr5_pcmath_st:'0',"general"=>isset($data->drc_gr5_pcmath_gen)?(string)$data->drc_gr5_pcmath_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr5_permath_bba)?$data->drc_gr5_permath_bba:'0',"basic"=>isset($data->drc_gr5_permath_bas)?$data->drc_gr5_permath_bas:'0',"proficient"=>isset($data->drc_gr5_permath_pro)?$data->drc_gr5_permath_pro:'0',"advanced"=>isset($data->drc_gr5_permath_adv)?$data->drc_gr5_permath_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr5_permath_bba)?(string)$data->drc_gr5_permath_bba:'0',"basic"=>isset($data->drc_gr5_permath_bas)?(string)$data->drc_gr5_permath_bas:'0',"proficient"=>isset($data->drc_gr5_permath_pro)?(string)$data->drc_gr5_permath_pro:'0',"advanced"=>isset($data->drc_gr5_permath_adv)?(string)$data->drc_gr5_permath_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -384,32 +384,32 @@ class DataProcessController extends Controller
 
             $grade_5['evs'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr5_pcevs_tot)?$data->drc_gr5_pcevs_tot:'0',
+                    'district'=>isset($data->drc_gr5_pcevs_tot)?(string)$data->drc_gr5_pcevs_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr5_pcevs_boys)?$data->drc_gr5_pcevs_boys:'0',"girls"=>isset($data->drc_gr5_pcevs_girls)?$data->drc_gr5_pcevs_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr5_pcevs_boys)?(string)$data->drc_gr5_pcevs_boys:'0',"girls"=>isset($data->drc_gr5_pcevs_girls)?(string)$data->drc_gr5_pcevs_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr5_pcevs_ur)?$data->drc_gr5_pcevs_ur:'0',"rural"=>isset($data->drc_gr5_pcevs_ru)?$data->drc_gr5_pcevs_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr5_pcevs_ur)?(string)$data->drc_gr5_pcevs_ur:'0',"rural"=>isset($data->drc_gr5_pcevs_ru)?(string)$data->drc_gr5_pcevs_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr5_pcevs_go)?$data->drc_gr5_pcevs_go:'0',"govt_aided"=>isset($data->drc_gr5_pcevs_ga)?$data->drc_gr5_pcevs_ga:'0',"private"=>isset($data->drc_gr5_pcevs_priv)?$data->drc_gr5_pcevs_priv:'0',"central_govt"=>isset($data->drc_gr5_pcevs_cg)?$data->drc_gr5_pcevs_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr5_pcevs_go)?(string)$data->drc_gr5_pcevs_go:'0',"govt_aided"=>isset($data->drc_gr5_pcevs_ga)?(string)$data->drc_gr5_pcevs_ga:'0',"private"=>isset($data->drc_gr5_pcevs_priv)?(string)$data->drc_gr5_pcevs_priv:'0',"central_govt"=>isset($data->drc_gr5_pcevs_cg)?(string)$data->drc_gr5_pcevs_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr5_pcevs_sc)?$data->drc_gr5_pcevs_sc:'0',"obc"=>isset($data->drc_gr5_pcevs_obc)?$data->drc_gr5_pcevs_obc:'0',"st"=>isset($data->drc_gr5_pcevs_st)?$data->drc_gr5_pcevs_st:'0',"general"=>isset($data->drc_gr5_pcevs_gen)?$data->drc_gr5_pcevs_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr5_pcevs_sc)?(string)$data->drc_gr5_pcevs_sc:'0',"obc"=>isset($data->drc_gr5_pcevs_obc)?(string)$data->drc_gr5_pcevs_obc:'0',"st"=>isset($data->drc_gr5_pcevs_st)?(string)$data->drc_gr5_pcevs_st:'0',"general"=>isset($data->drc_gr5_pcevs_gen)?(string)$data->drc_gr5_pcevs_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr5_perevs_bba)?$data->drc_gr5_perevs_bba:'0',"basic"=>isset($data->drc_gr5_perevs_bas)?$data->drc_gr5_perevs_bas:'0',"proficient"=>isset($data->drc_gr5_perevs_pro)?$data->drc_gr5_perevs_pro:'0',"advanced"=>isset($data->drc_gr5_perevs_adv)?$data->drc_gr5_perevs_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr5_perevs_bba)?(string)$data->drc_gr5_perevs_bba:'0',"basic"=>isset($data->drc_gr5_perevs_bas)?(string)$data->drc_gr5_perevs_bas:'0',"proficient"=>isset($data->drc_gr5_perevs_pro)?(string)$data->drc_gr5_perevs_pro:'0',"advanced"=>isset($data->drc_gr5_perevs_adv)?(string)$data->drc_gr5_perevs_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -428,32 +428,32 @@ class DataProcessController extends Controller
 
             $grade_8['language'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr8_pclang_tot)?$data->drc_gr8_pclang_tot:'0',
+                    'district'=>isset($data->drc_gr8_pclang_tot)?(string)$data->drc_gr8_pclang_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr8_pclang_boys)?$data->drc_gr8_pclang_boys:'0',"girls"=>isset($data->drc_gr8_pclang_girls)?$data->drc_gr8_pclang_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr8_pclang_boys)?(string)$data->drc_gr8_pclang_boys:'0',"girls"=>isset($data->drc_gr8_pclang_girls)?(string)$data->drc_gr8_pclang_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr8_pclang_ur)?$data->drc_gr8_pclang_ur:'0',"rural"=>isset($data->drc_gr8_pclang_ru)?$data->drc_gr8_pclang_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr8_pclang_ur)?(string)$data->drc_gr8_pclang_ur:'0',"rural"=>isset($data->drc_gr8_pclang_ru)?(string)$data->drc_gr8_pclang_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr8_pclang_go)?$data->drc_gr8_pclang_go:'0',"govt_aided"=>isset($data->drc_gr8_pclang_ga)?$data->drc_gr8_pclang_ga:'0',"private"=>isset($data->drc_gr8_pclang_priv)?$data->drc_gr8_pclang_priv:'0',"central_govt"=>isset($data->drc_gr8_pclang_cg)?$data->drc_gr8_pclang_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr8_pclang_go)?(string)$data->drc_gr8_pclang_go:'0',"govt_aided"=>isset($data->drc_gr8_pclang_ga)?(string)$data->drc_gr8_pclang_ga:'0',"private"=>isset($data->drc_gr8_pclang_priv)?(string)$data->drc_gr8_pclang_priv:'0',"central_govt"=>isset($data->drc_gr8_pclang_cg)?(string)$data->drc_gr8_pclang_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr8_pclang_sc)?$data->drc_gr8_pclang_sc:'0',"obc"=>isset($data->drc_gr8_pclang_obc)?$data->drc_gr8_pclang_obc:'0',"st"=>isset($data->drc_gr8_pclang_st)?$data->drc_gr8_pclang_st:'0',"general"=>isset($data->drc_gr8_pclang_gen)?$data->drc_gr8_pclang_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr8_pclang_sc)?(string)$data->drc_gr8_pclang_sc:'0',"obc"=>isset($data->drc_gr8_pclang_obc)?(string)$data->drc_gr8_pclang_obc:'0',"st"=>isset($data->drc_gr8_pclang_st)?(string)$data->drc_gr8_pclang_st:'0',"general"=>isset($data->drc_gr8_pclang_gen)?(string)$data->drc_gr8_pclang_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr8_perlang_bba)?$data->drc_gr8_perlang_bba:'0',"basic"=>isset($data->drc_gr8_perlang_bas)?$data->drc_gr8_perlang_bas:'0',"proficient"=>isset($data->drc_gr8_perlang_pro)?$data->drc_gr8_perlang_pro:'0',"advanced"=>isset($data->drc_gr8_perlang_adv)?$data->drc_gr8_perlang_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr8_perlang_bba)?(string)$data->drc_gr8_perlang_bba:'0',"basic"=>isset($data->drc_gr8_perlang_bas)?(string)$data->drc_gr8_perlang_bas:'0',"proficient"=>isset($data->drc_gr8_perlang_pro)?(string)$data->drc_gr8_perlang_pro:'0',"advanced"=>isset($data->drc_gr8_perlang_adv)?(string)$data->drc_gr8_perlang_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -461,32 +461,32 @@ class DataProcessController extends Controller
 
             $grade_8['math'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr8_pcmath_tot)?$data->drc_gr8_pcmath_tot:'0',
+                    'district'=>isset($data->drc_gr8_pcmath_tot)?(string)$data->drc_gr8_pcmath_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr8_pcmath_boys)?$data->drc_gr8_pcmath_boys:'0',"girls"=>isset($data->drc_gr8_pcmath_girls)?$data->drc_gr8_pcmath_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr8_pcmath_boys)?(string)$data->drc_gr8_pcmath_boys:'0',"girls"=>isset($data->drc_gr8_pcmath_girls)?(string)$data->drc_gr8_pcmath_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr8_pcmath_ur)?$data->drc_gr8_pcmath_ur:'0',"rural"=>isset($data->drc_gr8_pcmath_ru)?$data->drc_gr8_pcmath_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr8_pcmath_ur)?(string)$data->drc_gr8_pcmath_ur:'0',"rural"=>isset($data->drc_gr8_pcmath_ru)?(string)$data->drc_gr8_pcmath_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr8_pcmath_go)?$data->drc_gr8_pcmath_go:'0',"govt_aided"=>isset($data->drc_gr8_pcmath_ga)?$data->drc_gr8_pcmath_ga:'0',"private"=>isset($data->drc_gr8_pcmath_priv)?$data->drc_gr8_pcmath_priv:'0',"central_govt"=>isset($data->drc_gr8_pcmath_cg)?$data->drc_gr8_pcmath_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr8_pcmath_go)?(string)$data->drc_gr8_pcmath_go:'0',"govt_aided"=>isset($data->drc_gr8_pcmath_ga)?(string)$data->drc_gr8_pcmath_ga:'0',"private"=>isset($data->drc_gr8_pcmath_priv)?(string)$data->drc_gr8_pcmath_priv:'0',"central_govt"=>isset($data->drc_gr8_pcmath_cg)?(string)$data->drc_gr8_pcmath_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr8_pcmath_sc)?$data->drc_gr8_pcmath_sc:'0',"obc"=>isset($data->drc_gr8_pcmath_obc)?$data->drc_gr8_pcmath_obc:'0',"st"=>isset($data->drc_gr8_pcmath_st)?$data->drc_gr8_pcmath_st:'0',"general"=>isset($data->drc_gr8_pcmath_gen)?$data->drc_gr8_pcmath_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr8_pcmath_sc)?(string)$data->drc_gr8_pcmath_sc:'0',"obc"=>isset($data->drc_gr8_pcmath_obc)?(string)$data->drc_gr8_pcmath_obc:'0',"st"=>isset($data->drc_gr8_pcmath_st)?(string)$data->drc_gr8_pcmath_st:'0',"general"=>isset($data->drc_gr8_pcmath_gen)?(string)$data->drc_gr8_pcmath_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr8_permath_bba)?$data->drc_gr8_permath_bba:'0',"basic"=>isset($data->drc_gr8_permath_bas)?$data->drc_gr8_permath_bas:'0',"proficient"=>isset($data->drc_gr8_permath_pro)?$data->drc_gr8_permath_pro:'0',"advanced"=>isset($data->drc_gr8_permath_adv)?$data->drc_gr8_permath_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr8_permath_bba)?(string)$data->drc_gr8_permath_bba:'0',"basic"=>isset($data->drc_gr8_permath_bas)?(string)$data->drc_gr8_permath_bas:'0',"proficient"=>isset($data->drc_gr8_permath_pro)?(string)$data->drc_gr8_permath_pro:'0',"advanced"=>isset($data->drc_gr8_permath_adv)?(string)$data->drc_gr8_permath_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -494,32 +494,32 @@ class DataProcessController extends Controller
 
             $grade_8['sci'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr8_pcsc_tot)?$data->drc_gr8_pcsc_tot:'0',
+                    'district'=>isset($data->drc_gr8_pcsc_tot)?(string)$data->drc_gr8_pcsc_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr8_pcsc_boys)?$data->drc_gr8_pcsc_boys:'0',"girls"=>isset($data->drc_gr8_pcsc_girls)?$data->drc_gr8_pcsc_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr8_pcsc_boys)?(string)$data->drc_gr8_pcsc_boys:'0',"girls"=>isset($data->drc_gr8_pcsc_girls)?(string)$data->drc_gr8_pcsc_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr8_pcsc_ur)?$data->drc_gr8_pcsc_ur:'0',"rural"=>isset($data->drc_gr8_pcsc_ru)?$data->drc_gr8_pcsc_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr8_pcsc_ur)?(string)$data->drc_gr8_pcsc_ur:'0',"rural"=>isset($data->drc_gr8_pcsc_ru)?(string)$data->drc_gr8_pcsc_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr8_pcsc_go)?$data->drc_gr8_pcsc_go:'0',"govt_aided"=>isset($data->drc_gr8_pcsc_ga)?$data->drc_gr8_pcsc_ga:'0',"private"=>isset($data->drc_gr8_pcsc_priv)?$data->drc_gr8_pcsc_priv:'0',"central_govt"=>isset($data->drc_gr8_pcsc_cg)?$data->drc_gr8_pcsc_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr8_pcsc_go)?(string)$data->drc_gr8_pcsc_go:'0',"govt_aided"=>isset($data->drc_gr8_pcsc_ga)?(string)$data->drc_gr8_pcsc_ga:'0',"private"=>isset($data->drc_gr8_pcsc_priv)?(string)$data->drc_gr8_pcsc_priv:'0',"central_govt"=>isset($data->drc_gr8_pcsc_cg)?(string)$data->drc_gr8_pcsc_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr8_pcsc_sc)?$data->drc_gr8_pcsc_sc:'0',"obc"=>isset($data->drc_gr8_pcsc_obc)?$data->drc_gr8_pcsc_obc:'0',"st"=>isset($data->drc_gr8_pcsc_st)?$data->drc_gr8_pcsc_st:'0',"general"=>isset($data->drc_gr8_pcsc_gen)?$data->drc_gr8_pcsc_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr8_pcsc_sc)?(string)$data->drc_gr8_pcsc_sc:'0',"obc"=>isset($data->drc_gr8_pcsc_obc)?(string)$data->drc_gr8_pcsc_obc:'0',"st"=>isset($data->drc_gr8_pcsc_st)?(string)$data->drc_gr8_pcsc_st:'0',"general"=>isset($data->drc_gr8_pcsc_gen)?(string)$data->drc_gr8_pcsc_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr8_persc_bba)?$data->drc_gr8_persc_bba:'0',"basic"=>isset($data->drc_gr8_persc_bas)?$data->drc_gr8_persc_bas:'0',"proficient"=>isset($data->gr8_persc_pro)?$data->gr8_persc_pro:'0',"advanced"=>isset($data->gr8_persc_adv)?$data->gr8_persc_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr8_persc_bba)?(string)$data->drc_gr8_persc_bba:'0',"basic"=>isset($data->drc_gr8_persc_bas)?(string)$data->drc_gr8_persc_bas:'0',"proficient"=>isset($data->gr8_persc_pro)?(string)$data->gr8_persc_pro:'0',"advanced"=>isset($data->gr8_persc_adv)?(string)$data->gr8_persc_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -527,32 +527,32 @@ class DataProcessController extends Controller
 
             $grade_8['sst'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr8_pcsst_tot)?$data->drc_gr8_pcsst_tot:'0',
+                    'district'=>isset($data->drc_gr8_pcsst_tot)?(string)$data->drc_gr8_pcsst_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr8_pcsst_boys)?$data->drc_gr8_pcsst_boys:'0',"girls"=>isset($data->drc_gr8_pcsst_girls)?$data->drc_gr8_pcsst_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr8_pcsst_boys)?(string)$data->drc_gr8_pcsst_boys:'0',"girls"=>isset($data->drc_gr8_pcsst_girls)?(string)$data->drc_gr8_pcsst_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr8_pcsst_ur)?$data->drc_gr8_pcsst_ur:'0',"rural"=>isset($data->drc_gr8_pcsst_ru)?$data->drc_gr8_pcsst_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr8_pcsst_ur)?(string)$data->drc_gr8_pcsst_ur:'0',"rural"=>isset($data->drc_gr8_pcsst_ru)?(string)$data->drc_gr8_pcsst_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr8_pcsst_go)?$data->drc_gr8_pcsst_go:'0',"govt_aided"=>isset($data->drc_gr8_pcsst_ga)?$data->drc_gr8_pcsst_ga:'0',"private"=>isset($data->drc_gr8_pcsst_priv)?$data->drc_gr8_pcsst_priv:'0',"central_govt"=>isset($data->drc_gr8_pcsst_cg)?$data->drc_gr8_pcsst_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr8_pcsst_go)?(string)$data->drc_gr8_pcsst_go:'0',"govt_aided"=>isset($data->drc_gr8_pcsst_ga)?(string)$data->drc_gr8_pcsst_ga:'0',"private"=>isset($data->drc_gr8_pcsst_priv)?(string)$data->drc_gr8_pcsst_priv:'0',"central_govt"=>isset($data->drc_gr8_pcsst_cg)?(string)$data->drc_gr8_pcsst_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr8_pcsst_sc)?$data->drc_gr8_pcsst_sc:'0',"obc"=>isset($data->drc_gr8_pcsst_obc)?$data->drc_gr8_pcsst_obc:'0',"st"=>isset($data->drc_gr8_pcsst_st)?$data->drc_gr8_pcsst_st:'0',"general"=>isset($data->drc_gr8_pcsst_gen)?$data->drc_gr8_pcsst_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr8_pcsst_sc)?(string)$data->drc_gr8_pcsst_sc:'0',"obc"=>isset($data->drc_gr8_pcsst_obc)?(string)$data->drc_gr8_pcsst_obc:'0',"st"=>isset($data->drc_gr8_pcsst_st)?(string)$data->drc_gr8_pcsst_st:'0',"general"=>isset($data->drc_gr8_pcsst_gen)?(string)$data->drc_gr8_pcsst_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->gr8_persst_bba)?$data->gr8_persst_bba:'0',"basic"=>isset($data->gr8_persst_bas)?$data->gr8_persst_bas:'0',"proficient"=>isset($data->gr8_persst_pro)?$data->gr8_persst_pro:'0',"advanced"=>isset($data->gr8_persst_adv)?$data->gr8_persst_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->gr8_persst_bba)?(string)$data->gr8_persst_bba:'0',"basic"=>isset($data->gr8_persst_bas)?(string)$data->gr8_persst_bas:'0',"proficient"=>isset($data->gr8_persst_pro)?(string)$data->gr8_persst_pro:'0',"advanced"=>isset($data->gr8_persst_adv)?(string)$data->gr8_persst_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -571,32 +571,32 @@ class DataProcessController extends Controller
 
             $grade_1['mil'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr1_pcmil_tot)?$data->drc_gr1_pcmil_tot:'0',
+                    'district'=>isset($data->drc_gr1_pcmil_tot)?(string)$data->drc_gr1_pcmil_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr1_pcmil_boys)?$data->drc_gr1_pcmil_boys:'0',"girls"=>isset($data->drc_gr1_pcmil_girls)?$data->drc_gr1_pcmil_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr1_pcmil_boys)?(string)$data->drc_gr1_pcmil_boys:'0',"girls"=>isset($data->drc_gr1_pcmil_girls)?(string)$data->drc_gr1_pcmil_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr1_pcmil_ur)?$data->drc_gr1_pcmil_ur:'0',"rural"=>isset($data->drc_gr1_pcmil_ru)?$data->drc_gr1_pcmil_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr1_pcmil_ur)?(string)$data->drc_gr1_pcmil_ur:'0',"rural"=>isset($data->drc_gr1_pcmil_ru)?(string)$data->drc_gr1_pcmil_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr1_pcmil_go)?$data->drc_gr1_pcmil_go:'0',"govt_aided"=>isset($data->drc_gr1_pcmil_ga)?$data->drc_gr1_pcmil_ga:'0',"private"=>isset($data->drc_gr1_pcmil_priv)?$data->drc_gr1_pcmil_priv:'0',"central_govt"=>isset($data->drc_gr1_pcmil_cg)?$data->drc_gr1_pcmil_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr1_pcmil_go)?(string)$data->drc_gr1_pcmil_go:'0',"govt_aided"=>isset($data->drc_gr1_pcmil_ga)?(string)$data->drc_gr1_pcmil_ga:'0',"private"=>isset($data->drc_gr1_pcmil_priv)?(string)$data->drc_gr1_pcmil_priv:'0',"central_govt"=>isset($data->drc_gr1_pcmil_cg)?(string)$data->drc_gr1_pcmil_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr1_pcmil_sc)?$data->drc_gr1_pcmil_sc:'0',"obc"=>isset($data->drc_gr1_pcmil_obc)?$data->drc_gr1_pcmil_obc:'0',"st"=>isset($data->drc_gr1_pcmil_st)?$data->drc_gr1_pcmil_st:'0',"general"=>isset($data->drc_gr1_pcmil_gen)?$data->drc_gr1_pcmil_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr1_pcmil_sc)?(string)$data->drc_gr1_pcmil_sc:'0',"obc"=>isset($data->drc_gr1_pcmil_obc)?(string)$data->drc_gr1_pcmil_obc:'0',"st"=>isset($data->drc_gr1_pcmil_st)?(string)$data->drc_gr1_pcmil_st:'0',"general"=>isset($data->drc_gr1_pcmil_gen)?(string)$data->drc_gr1_pcmil_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr1_permil_bba)?$data->drc_gr1_permil_bba:'0',"basic"=>isset($data->drc_gr1_permil_bas)?$data->drc_gr1_permil_bas:'0',"proficient"=>isset($data->drc_gr1_permil_pro)?$data->drc_gr1_permil_pro:'0',"advanced"=>isset($data->drc_gr1_permil_adv)?$data->drc_gr1_permil_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr1_permil_bba)?(string)$data->drc_gr1_permil_bba:'0',"basic"=>isset($data->drc_gr1_permil_bas)?(string)$data->drc_gr1_permil_bas:'0',"proficient"=>isset($data->drc_gr1_permil_pro)?(string)$data->drc_gr1_permil_pro:'0',"advanced"=>isset($data->drc_gr1_permil_adv)?(string)$data->drc_gr1_permil_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -604,32 +604,32 @@ class DataProcessController extends Controller
 
             $grade_1['math'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr1_pcmath_tot)?$data->drc_gr1_pcmath_tot:'0',
+                    'district'=>isset($data->drc_gr1_pcmath_tot)?(string)$data->drc_gr1_pcmath_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr1_pcmath_boys)?$data->drc_gr1_pcmath_boys:'0',"girls"=>isset($data->drc_gr1_pcmath_girls)?$data->drc_gr1_pcmath_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr1_pcmath_boys)?(string)$data->drc_gr1_pcmath_boys:'0',"girls"=>isset($data->drc_gr1_pcmath_girls)?(string)$data->drc_gr1_pcmath_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr1_pcmath_ur)?$data->drc_gr1_pcmath_ur:'0',"rural"=>isset($data->drc_gr1_pcmath_ru)?$data->drc_gr1_pcmath_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr1_pcmath_ur)?(string)$data->drc_gr1_pcmath_ur:'0',"rural"=>isset($data->drc_gr1_pcmath_ru)?(string)$data->drc_gr1_pcmath_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr1_pcmath_go)?$data->drc_gr1_pcmath_go:'0',"govt_aided"=>isset($data->drc_gr1_pcmath_ga)?$data->drc_gr1_pcmath_ga:'0',"private"=>isset($data->drc_gr1_pcmath_priv)?$data->drc_gr1_pcmath_priv:'0',"central_govt"=>isset($data->drc_gr1_pcmath_cg)?$data->drc_gr1_pcmath_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr1_pcmath_go)?(string)$data->drc_gr1_pcmath_go:'0',"govt_aided"=>isset($data->drc_gr1_pcmath_ga)?(string)$data->drc_gr1_pcmath_ga:'0',"private"=>isset($data->drc_gr1_pcmath_priv)?(string)$data->drc_gr1_pcmath_priv:'0',"central_govt"=>isset($data->drc_gr1_pcmath_cg)?(string)$data->drc_gr1_pcmath_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr1_pcmath_sc)?$data->drc_gr1_pcmath_sc:'0',"obc"=>isset($data->drc_gr1_pcmath_obc)?$data->drc_gr1_pcmath_obc:'0',"st"=>isset($data->drc_gr1_pcmath_st)?$data->drc_gr1_pcmath_st:'0',"general"=>isset($data->drc_gr1_pcmath_gen)?$data->drc_gr1_pcmath_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr1_pcmath_sc)?(string)$data->drc_gr1_pcmath_sc:'0',"obc"=>isset($data->drc_gr1_pcmath_obc)?(string)$data->drc_gr1_pcmath_obc:'0',"st"=>isset($data->drc_gr1_pcmath_st)?(string)$data->drc_gr1_pcmath_st:'0',"general"=>isset($data->drc_gr1_pcmath_gen)?(string)$data->drc_gr1_pcmath_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr1_permath_bba)?$data->drc_gr1_permath_bba:'0',"basic"=>isset($data->drc_gr1_permath_bas)?$data->drc_gr1_permath_bas:'0',"proficient"=>isset($data->drc_gr1_permath_pro)?$data->drc_gr1_permath_pro:'0',"advanced"=>isset($data->drc_gr1_permath_adv)?$data->drc_gr1_permath_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr1_permath_bba)?(string)$data->drc_gr1_permath_bba:'0',"basic"=>isset($data->drc_gr1_permath_bas)?(string)$data->drc_gr1_permath_bas:'0',"proficient"=>isset($data->drc_gr1_permath_pro)?(string)$data->drc_gr1_permath_pro:'0',"advanced"=>isset($data->drc_gr1_permath_adv)?(string)$data->drc_gr1_permath_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -637,32 +637,32 @@ class DataProcessController extends Controller
 
             $grade_1['sci'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr1_pcsc_tot)?$data->drc_gr1_pcsc_tot:'0',
+                    'district'=>isset($data->drc_gr1_pcsc_tot)?(string)$data->drc_gr1_pcsc_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr1_pcsc_boys)?$data->drc_gr1_pcsc_boys:'0',"girls"=>isset($data->drc_gr1_pcsc_girls)?$data->drc_gr1_pcsc_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr1_pcsc_boys)?(string)$data->drc_gr1_pcsc_boys:'0',"girls"=>isset($data->drc_gr1_pcsc_girls)?(string)$data->drc_gr1_pcsc_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr1_pcsc_ur)?$data->drc_gr1_pcsc_ur:'0',"rural"=>isset($data->drc_gr1_pcsc_ru)?$data->drc_gr1_pcsc_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr1_pcsc_ur)?(string)$data->drc_gr1_pcsc_ur:'0',"rural"=>isset($data->drc_gr1_pcsc_ru)?(string)$data->drc_gr1_pcsc_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr1_pcsc_go)?$data->drc_gr1_pcsc_go:'0',"govt_aided"=>isset($data->drc_gr1_pcsc_ga)?$data->drc_gr1_pcsc_ga:'0',"private"=>isset($data->drc_gr1_pcsc_priv)?$data->drc_gr1_pcsc_priv:'0',"central_govt"=>isset($data->drc_gr1_pcsc_cg)?$data->drc_gr1_pcsc_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr1_pcsc_go)?(string)$data->drc_gr1_pcsc_go:'0',"govt_aided"=>isset($data->drc_gr1_pcsc_ga)?(string)$data->drc_gr1_pcsc_ga:'0',"private"=>isset($data->drc_gr1_pcsc_priv)?(string)$data->drc_gr1_pcsc_priv:'0',"central_govt"=>isset($data->drc_gr1_pcsc_cg)?(string)$data->drc_gr1_pcsc_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr1_pcsc_sc)?$data->drc_gr1_pcsc_sc:'0',"obc"=>isset($data->drc_gr1_pcsc_obc)?$data->drc_gr1_pcsc_obc:'0',"st"=>isset($data->drc_gr1_pcsc_st)?$data->drc_gr1_pcsc_st:'0',"general"=>isset($data->drc_gr1_pcsc_gen)?$data->drc_gr1_pcsc_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr1_pcsc_sc)?(string)$data->drc_gr1_pcsc_sc:'0',"obc"=>isset($data->drc_gr1_pcsc_obc)?(string)$data->drc_gr1_pcsc_obc:'0',"st"=>isset($data->drc_gr1_pcsc_st)?(string)$data->drc_gr1_pcsc_st:'0',"general"=>isset($data->drc_gr1_pcsc_gen)?(string)$data->drc_gr1_pcsc_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr1_persc_bba)?$data->drc_gr1_persc_bba:'0',"basic"=>isset($data->drc_gr1_persc_bas)?$data->drc_gr1_persc_bas:'0',"proficient"=>isset($data->drc_gr1_persc_pro)?$data->drc_gr1_persc_pro:'0',"advanced"=>isset($data->drc_gr1_persc_adv)?$data->drc_gr1_persc_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr1_persc_bba)?(string)$data->drc_gr1_persc_bba:'0',"basic"=>isset($data->drc_gr1_persc_bas)?(string)$data->drc_gr1_persc_bas:'0',"proficient"=>isset($data->drc_gr1_persc_pro)?(string)$data->drc_gr1_persc_pro:'0',"advanced"=>isset($data->drc_gr1_persc_adv)?(string)$data->drc_gr1_persc_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -670,32 +670,32 @@ class DataProcessController extends Controller
 
             $grade_1['sst'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr1_pcsst_tot)?$data->drc_gr1_pcsst_tot:'0',
+                    'district'=>isset($data->drc_gr1_pcsst_tot)?(string)$data->drc_gr1_pcsst_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr1_pcsst_boys)?$data->drc_gr1_pcsst_boys:'0',"girls"=>isset($data->drc_gr1_pcsst_girls)?$data->drc_gr1_pcsst_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr1_pcsst_boys)?(string)$data->drc_gr1_pcsst_boys:'0',"girls"=>isset($data->drc_gr1_pcsst_girls)?(string)$data->drc_gr1_pcsst_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr1_pcsst_ur)?$data->drc_gr1_pcsst_ur:'0',"rural"=>isset($data->drc_gr1_pcsst_ru)?$data->drc_gr1_pcsst_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr1_pcsst_ur)?(string)$data->drc_gr1_pcsst_ur:'0',"rural"=>isset($data->drc_gr1_pcsst_ru)?(string)$data->drc_gr1_pcsst_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr1_pcsst_go)?$data->drc_gr1_pcsst_go:'0',"govt_aided"=>isset($data->drc_gr1_pcsst_ga)?$data->drc_gr1_pcsst_ga:'0',"private"=>isset($data->drc_gr1_pcsst_priv)?$data->drc_gr1_pcsst_priv:'0',"central_govt"=>isset($data->drc_gr1_pcsst_cg)?$data->drc_gr1_pcsst_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr1_pcsst_go)?(string)$data->drc_gr1_pcsst_go:'0',"govt_aided"=>isset($data->drc_gr1_pcsst_ga)?(string)$data->drc_gr1_pcsst_ga:'0',"private"=>isset($data->drc_gr1_pcsst_priv)?(string)$data->drc_gr1_pcsst_priv:'0',"central_govt"=>isset($data->drc_gr1_pcsst_cg)?(string)$data->drc_gr1_pcsst_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr1_pcsst_sc)?$data->drc_gr1_pcsst_sc:'0',"obc"=>isset($data->drc_gr1_pcsst_obc)?$data->drc_gr1_pcsst_obc:'0',"st"=>isset($data->drc_gr1_pcsst_st)?$data->drc_gr1_pcsst_st:'0',"general"=>isset($data->drc_gr1_pcsst_gen)?$data->drc_gr1_pcsst_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr1_pcsst_sc)?(string)$data->drc_gr1_pcsst_sc:'0',"obc"=>isset($data->drc_gr1_pcsst_obc)?(string)$data->drc_gr1_pcsst_obc:'0',"st"=>isset($data->drc_gr1_pcsst_st)?(string)$data->drc_gr1_pcsst_st:'0',"general"=>isset($data->drc_gr1_pcsst_gen)?(string)$data->drc_gr1_pcsst_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr1_persst_bba)?$data->drc_gr1_persst_bba:'0',"basic"=>isset($data->drc_gr1_persst_bas)?$data->drc_gr1_persst_bas:'0',"proficient"=>isset($data->drc_gr1_persst_pro)?$data->drc_gr1_persst_pro:'0',"advanced"=>isset($data->drc_gr1_persst_adv)?$data->drc_gr1_persst_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr1_persst_bba)?(string)$data->drc_gr1_persst_bba:'0',"basic"=>isset($data->drc_gr1_persst_bas)?(string)$data->drc_gr1_persst_bas:'0',"proficient"=>isset($data->drc_gr1_persst_pro)?(string)$data->drc_gr1_persst_pro:'0',"advanced"=>isset($data->drc_gr1_persst_adv)?(string)$data->drc_gr1_persst_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )
@@ -703,32 +703,32 @@ class DataProcessController extends Controller
 
             $grade_1['eng'] =array(
                 'cards'=>array(
-                    'district'=>isset($data->drc_gr1_pceng_tot)?$data->drc_gr1_pceng_tot:'0',
+                    'district'=>isset($data->drc_gr1_pceng_tot)?(string)$data->drc_gr1_pceng_tot:'0',
                     'state'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0',
                     'national'=>isset($nationalLevel->avg_l_marks)?$nationalLevel->avg_l_marks:'0'
                 ),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($data->drc_gr1_pceng_boys)?$data->drc_gr1_pceng_boys:'0',"girls"=>isset($data->drc_gr1_pceng_girls)?$data->drc_gr1_pceng_girls:'0'),
+                    'district'=>array("boys"=>isset($data->drc_gr1_pceng_boys)?(string)$data->drc_gr1_pceng_boys:'0',"girls"=>isset($data->drc_gr1_pceng_girls)?(string)$data->drc_gr1_pceng_girls:'0'),
                     'state'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0'),
                     'national'=>array("boys"=>isset($nationalLevel->l_male_gender)?$nationalLevel->l_male_gender:'0',"girls"=>isset($nationalLevel->l_female_gender)?$nationalLevel->l_female_gender:'0')
                 ),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($data->drc_gr1_pceng_ur)?$data->drc_gr1_pceng_ur:'0',"rural"=>isset($data->drc_gr1_pceng_ru)?$data->drc_gr1_pceng_ru:'0'),
+                    'district'=>array("urban"=>isset($data->drc_gr1_pceng_ur)?(string)$data->drc_gr1_pceng_ur:'0',"rural"=>isset($data->drc_gr1_pceng_ru)?(string)$data->drc_gr1_pceng_ru:'0'),
                     'state'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0'),
                     'national'=>array("urban"=>isset($nationalLevel->l_urban_location)?$nationalLevel->l_urban_location:'0',"rural"=>isset($nationalLevel->l_rural_location)?$nationalLevel->l_rural_location:'0')
                 ),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($data->drc_gr1_pceng_go)?$data->drc_gr1_pceng_go:'0',"govt_aided"=>isset($data->drc_gr1_pceng_ga)?$data->drc_gr1_pceng_ga:'0',"private"=>isset($data->drc_gr1_pceng_priv)?$data->drc_gr1_pceng_priv:'0',"central_govt"=>isset($data->drc_gr1_pceng_cg)?$data->drc_gr1_pceng_cg:'0'),
+                    'district'=>array("govt"=>isset($data->drc_gr1_pceng_go)?(string)$data->drc_gr1_pceng_go:'0',"govt_aided"=>isset($data->drc_gr1_pceng_ga)?(string)$data->drc_gr1_pceng_ga:'0',"private"=>isset($data->drc_gr1_pceng_priv)?(string)$data->drc_gr1_pceng_priv:'0',"central_govt"=>isset($data->drc_gr1_pceng_cg)?(string)$data->drc_gr1_pceng_cg:'0'),
                     'state'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0'),
                     'national'=>array("govt"=>isset($nationalLevel->l_govt_management)?$nationalLevel->l_govt_management:'0',"govt_aided"=>isset($nationalLevel->l_govt_aided_management)?$nationalLevel->l_govt_aided_management:'0',"private"=>isset($nationalLevel->l_private_management)?$nationalLevel->l_private_management:'0',"central_govt"=>isset($nationalLevel->l_central_govt_management)?$nationalLevel->l_central_govt_management:'0')
                 ),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($data->drc_gr1_pceng_sc)?$data->drc_gr1_pceng_sc:'0',"obc"=>isset($data->drc_gr1_pceng_obc)?$data->drc_gr1_pceng_obc:'0',"st"=>isset($data->drc_gr1_pceng_st)?$data->drc_gr1_pceng_st:'0',"general"=>isset($data->drc_gr1_pceng_gen)?$data->drc_gr1_pceng_gen:'0'),
+                    'district'=>array("sc"=>isset($data->drc_gr1_pceng_sc)?(string)$data->drc_gr1_pceng_sc:'0',"obc"=>isset($data->drc_gr1_pceng_obc)?(string)$data->drc_gr1_pceng_obc:'0',"st"=>isset($data->drc_gr1_pceng_st)?(string)$data->drc_gr1_pceng_st:'0',"general"=>isset($data->drc_gr1_pceng_gen)?(string)$data->drc_gr1_pceng_gen:'0'),
                     'state'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0'),
                     'national'=>array("sc"=>isset($nationalLevel->l_sc_social_group)?$nationalLevel->l_sc_social_group:'0',"obc"=>isset($nationalLevel->l_obc_social_group)?$nationalLevel->l_obc_social_group:'0',"st"=>isset($nationalLevel->l_st_social_group)?$nationalLevel->l_st_social_group:'0',"general"=>isset($nationalLevel->l_general_social_group)?$nationalLevel->l_general_social_group:'0')
                 ),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($data->drc_gr1_pereng_bba)?$data->drc_gr1_pereng_bba:'0',"basic"=>isset($data->drc_gr1_pereng_bas)?$data->drc_gr1_pereng_bas:'0',"proficient"=>isset($data->drc_gr1_pereng_pro)?$data->drc_gr1_pereng_pro:'0',"advanced"=>isset($data->drc_gr1_pereng_adv)?$data->drc_gr1_pereng_adv:'0'),
+                    'district'=>array("below_basic"=>isset($data->drc_gr1_pereng_bba)?(string)$data->drc_gr1_pereng_bba:'0',"basic"=>isset($data->drc_gr1_pereng_bas)?(string)$data->drc_gr1_pereng_bas:'0',"proficient"=>isset($data->drc_gr1_pereng_pro)?(string)$data->drc_gr1_pereng_pro:'0',"advanced"=>isset($data->drc_gr1_pereng_adv)?(string)$data->drc_gr1_pereng_adv:'0'),
                     'state'=>array("below_basic"=>isset($statePerLevel[0]->l_avg_below_basic)?$statePerLevel[0]->l_avg_below_basic:'0',"basic"=>isset($statePerLevel[0]->l_avg_basic)?$statePerLevel[0]->l_avg_basic:'0',"proficient"=>isset($statePerLevel[0]->l_avg_proficient)?$statePerLevel[0]->l_avg_proficient:'0',"advanced"=>isset($statePerLevel[0]->l_avg_advanced)?$statePerLevel[0]->l_avg_advanced:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0')
                 )

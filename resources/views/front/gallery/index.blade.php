@@ -27,74 +27,34 @@
         <div class="col-md-12">
                 <div class="card-white">
                     <div class="photogallery-content">
-                    <h2 class="heading-blue mb-4">
+                        @if(session('success'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{{session('success')}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
+                    <div class="justify-content-between d-flex align-items-center mb-4">  
+                    <h2 class="heading-blue">
                         {{ __('lang.Photo Gallery') }}
                     </h2>
-                    <div class="row photos">
-                        @foreach($events as $event)
-                        <div class="col-md-3 item">
-                            <div class="gallery-card">
-                            <div class="gallery-img-wrap">
-                            <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
-                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid">                        
-                            <button class="gallery-zoom-icon">
-                        <span class="material-icons-round">
-                        zoom_in
-                        </span>
-                        </button>
-                        </a>
-                        </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        
-                        <div class="col-md-12">
-                            <a href="{{url('/gallery/image-gallery')}}" class="org-link">
-                                {{ __('lang.VIEW ALL') }}  
-                                <span class="material-icons-round">
-                                    east
-                                </span>
-                            </a>
-                        </div>
+                    <div class="gallery-search-wrap">
+                        <label id="search">Search:</label>
+                        <input type="text" name="state" id="state">
                     </div>
+                    </div> 
+                    <div class="row photos">
+                        
+                    </div>
+                    <span id="i_found"></span>
                     </div>
                     <div class="videogallery-content">
                     <h2 class="heading-blue mb-4">
                         {{__('lang.Video Gallery')}}
                     </h2>
-                    @if(!$videos->isEmpty())
-                        <div class="row">                       
-                        @foreach($videos as $video)
-                        @if($video->vedio)
-                        <div class="col-md-3">
-                            <div class="video-wrap">
-                            <video width="246" height="136" style="border-radius:6px;" controls>
-                                <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            </div>
-                        </div>
-                        @else
-                        <div class="col-md-3">
-                            <div class="video-wrap">
-                            <iframe width="246" height="136" style="border-radius:6px;" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        @endif
+                        <div class="row videos">                       
                         
-                        @endforeach
-                        <div class="col-md-12">
-                            <a href="{{url('/gallery/video-gallery')}}" class="org-link">
-                                {{ __('lang.VIEW ALL') }} 
-                                <span class="material-icons-round">
-                                    east
-                                </span>
-                            </a>
                         </div>
-                        </div>
-                        @else
-                        <p class="text-center">No Video Uploaded Yet!<p>
-                        @endif
+                        <span id="v_found"></span>
                         
                         
                         
@@ -107,3 +67,162 @@
 </section>
 
 @include('front.includes.footer')
+
+<script>
+    var img_data={}
+    var temp_img_data={}
+    var ved_data={}
+    var temp_ved_data={}
+    let count=1
+
+    $(document).ready(async function() {
+        await $.ajax({
+            type: "GET",
+            url: api_url + "events?limit=-1",
+            headers: {
+            "Authorization": "Bearer " + token
+            }
+        }).done(response => {
+            const i_events=response.data
+             i_events.forEach((item)=>{
+                if(Object.keys(img_data)!=item.state){
+                    img_data[item.state]={
+                        id:item.state,
+                        count:count
+                    }
+                }
+                else{
+                    img_data[item.state].count=img_data[item.state].count+1
+                }     
+            })
+
+            Object.keys(img_data).forEach(key=>{
+                getStateImages(key, img_data[key].count,'photos')
+            })
+        })
+
+        await $.ajax({
+            type: "GET",
+            url: api_url + "video_events?limit=-1",
+            headers: {
+            "Authorization": "Bearer " + token
+            }
+        }).done(response => {
+            const v_events=response.data
+             v_events.forEach((item)=>{
+                if(Object.keys(ved_data)!=item.state){
+                    ved_data[item.state]={
+                        id:item.state,
+                        count:count,
+                        name:'',
+                        thumbnail:''
+                    }
+                }
+                else{
+                    ved_data[item.state].count=ved_data[item.state].count+1
+                }     
+            })
+
+            Object.keys(ved_data).forEach(key=>{
+                getStateImages(key, ved_data[key].count,'videos')
+            })
+        })
+    })
+
+    const getStateImages = (id,count,type)=>{
+        const filters={
+                        "state_id":{
+                            "_eq": id
+                        }
+                    }
+         $.ajax({
+                type: "GET",
+                url: api_url + "state_masters?filter="+ JSON.stringify(filters),
+                headers: {
+                "Authorization": "Bearer " + token
+                }
+            }).done(response=>{
+                const data=response.data
+
+                if(type=='videos'){
+                    ved_data[id].name=data[0].state_name
+                    ved_data[id].thumbnail=data[0].thumbnail
+                }
+                if(type=='photos'){
+                    img_data[id].name=data[0].state_name
+                    img_data[id].thumbnail=data[0].thumbnail
+                }
+                
+ 
+
+                createTiles(id,data[0].thumbnail?data[0].thumbnail:'broken-1.png',data[0].state_name,count,type)
+            })
+    }
+
+    
+    const createTiles = (id,image,name,count,type)=>{
+        id=btoa(id)
+        if(type=='photos'){
+            
+            var url = '{{ route("image-gallery", ":id") }}';
+            url = url.replace(':id', id);
+            $('.photos').append('<div class="col-md-3"><a href="'+url+'"><div class="gallery-card"><div class="gallery-img-wrap"><img src="assets/uploads/state-thumbnail/'+image +'" alt="img" class="img-fluid"></div><div class="gallery-content"><div class="d-flex justify-content-between align-items-center"><span class="total-img"><img src="{{asset('assets/front/images/gallery.svg')}}" alt="img" class="img-fluid" /> '+count+'</span><p class="gallery-title">'+name+'</p></div></div></div></a></div>')
+        }
+
+        if(type=='videos'){
+            var url = '{{ route("video-gallery", ":id") }}';
+            url = url.replace(':id', id);
+            $('.videos').append('<div class="col-md-3"><a href="'+url+'"><div class="gallery-card"><div class="gallery-img-wrap"><img src="assets/uploads/state-thumbnail/'+image +'" alt="img" class="img-fluid"></div><div class="gallery-content"><div class="d-flex justify-content-between align-items-center"><span class="total-img"><img src="{{asset('assets/front/images/gallery.svg')}}" alt="img" class="img-fluid" /> '+count+'</span><p class="gallery-title">'+name+'</p></div></div></div></a></div>')
+        }
+
+    }
+    
+    $('#state').keyup(()=>{
+        var state=$('#state').val()
+        
+        temp_ved_data={}
+        temp_img_data={}
+        Object.keys(ved_data).forEach(key=>{          
+            if(ved_data[key].name.includes(state)){
+            temp_ved_data[key]= ved_data[key]
+            }
+        })
+
+        if(Object.keys(temp_ved_data).length===0){
+            $('#v_found').html('No such State found!')
+        }
+        else{
+            $('#v_found').html('')
+        }
+
+
+        Object.keys(img_data).forEach(key=>{          
+            if(img_data[key].name.includes(state)){
+            temp_img_data[key]= img_data[key]
+            }
+        })
+
+        if(Object.keys(temp_img_data).length===0){
+            $('#i_found').html('No such State found!')
+        }
+        else{
+            $('#i_found').html('')
+        }
+
+        $('.photos').empty()
+        $('.videos').empty()
+        
+        Object.keys(temp_ved_data).forEach(key=>{
+            // console.log('here')
+            createTiles(key,temp_ved_data[key].thumbnail?temp_ved_data[key].thumbnail:'broken-1.png',temp_ved_data[key].name, temp_ved_data[key].count,'videos')
+        })
+
+        Object.keys(temp_img_data).forEach(key=>{
+            // console.log('there')
+            createTiles(key,temp_img_data[key].thumbnail?temp_img_data[key].thumbnail:'broken-1.png',temp_img_data[key].name, temp_img_data[key].count,'photos')
+        })
+        
+
+    })
+    
+</script>

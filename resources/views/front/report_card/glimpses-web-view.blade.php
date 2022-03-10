@@ -2277,6 +2277,9 @@ let subjects_full_names ={
         $('#glimpsesnational_class'+'{{$class}}').addClass('active show')
         await $.ajax({
         type: "GET",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
         url: api_url + 'state_masters?limit-1&sort[]=state_name',
         }).done((response)=>{
         sessionStorage.setItem('states',JSON.stringify(response.data))
@@ -2284,6 +2287,9 @@ let subjects_full_names ={
 
         await $.ajax({
         type: "GET",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
         url: api_url + 'national_result_glimpses',
         }).done((response)=>{
             const data =  response.data
