@@ -43,7 +43,7 @@
                       
                     </div>
                     <div class="col-md-12">
-                      <div class="desc-black" data-aos="fade-up">
+                      <div class="desc-black table-responsive" data-aos="fade-up">
                       <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>

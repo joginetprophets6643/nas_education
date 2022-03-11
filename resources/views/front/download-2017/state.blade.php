@@ -43,10 +43,10 @@
                       
                     </div>
                     <div class="col-md-12">
-                      <div class="desc-black" data-aos="fade-up">
+                      <div class="desc-black table-responsive" data-aos="fade-up">
                       <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                     <th>S.NO.</th>
                                     <th>State/UTs</th>
                                     <th>Download Grade(3-5-8)</th>
@@ -62,12 +62,21 @@
                                     <td>{{$i++}}.</td>
                                     <td>{{$state->state_name}}</td>
                                     <td>
-                                        <a class="btn btn-primary mx-2 my-2" href="{{url('download-data-file/'.$state->file_name)}}">English</a>
-                                        <a class="btn btn-secondary mx-2 my-2" href="{{url('download-data-file/hi/'.$state->file_name)}}">Hindi</a>
-
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a class="btn btn-primary my-2" href="{{url('download-data-file/'.$state->file_name)}}">English</a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a class="btn btn-secondary my-2" href="{{url('download-data-file/hi/'.$state->file_name)}}">Hindi</a>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
-                                        <a class="btn btn-success mx-2 my-2" href="{{url('download-data-file/10/'.$state->file_name)}}">Download</a>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-6">
+                                                <a class="btn btn-success my-2" href="{{url('download-data-file/10/'.$state->file_name)}}">Download</a>
+                                            </div>
+                                        </div>
                                     </td>
                                     
                                 </tr>
@@ -75,7 +84,7 @@
                                
                             </tbody>
                             <tfoot>
-                                <tr>
+                                <tr class="text-center">
                                     <th>S.NO.</th>
                                     <th>State/UTs</th>
                                     <th>Download Grade(3-5-8)</th>
