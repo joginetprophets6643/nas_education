@@ -94,17 +94,18 @@
                     <img src="{{asset('assets/front/images/visualization_2017.png')}}" alt="visualization" class="img-fluid" />
                   </div>
                   <div class="btn-wrap justify-content-center pt-2 pb-4">
-                    <a href="http://nas.schooleduinfo.in/dashboard/nas_ncert#/" class="line-cardbtn org-btn" target="_blank">Access Dashboard 2017</a>
+                    <a href="{{ env('NAS2017URL') }}" class="line-cardbtn org-btn" target="_blank">Access Dashboard 2017</a>
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="line-card line-card-shadow">
                   <div class="line-cardimg">
+                  
                     <img src="{{asset('assets/front/images/visualization_2021.png')}}" alt="state" class="img-fluid" />
                   </div>
                   <div class="btn-wrap justify-content-center pt-2 pb-4">
-                    <a href="http://nas21.inroad.in/visualization/nas-2021" class="line-cardbtn org-btn" target="_blank">Access Dashboard 2021</a>
+                    <a href="{{url('visualization/nas-2021')}}" class="line-cardbtn org-btn" target="_blank">Access Dashboard 2021</a>
                   </div>
                 </div>
               </div>

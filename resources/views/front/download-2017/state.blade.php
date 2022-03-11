@@ -14,9 +14,8 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
-                              @if(!empty($content->page_meta_title))
-                              <li class="breadcrumb-item active" aria-current="page">{{$content->page_meta_title}}</li>
-                              @endif
+                              <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Report Card') }}</li>
+                              
                             </ol>
                           </nav>
                     </div>
@@ -63,12 +62,12 @@
                                     <td>{{$i++}}.</td>
                                     <td>{{$state->state_name}}</td>
                                     <td>
-                                        <a href="{{url('download-data-file/'.$state->file_name)}}">English</a>
-                                        <a href="{{url('download-data-file/hi/'.$state->file_name)}}">Hindi</a>
+                                        <a class="btn btn-primary mx-2 my-2" href="{{url('download-data-file/'.$state->file_name)}}">English</a>
+                                        <a class="btn btn-secondary mx-2 my-2" href="{{url('download-data-file/hi/'.$state->file_name)}}">Hindi</a>
 
                                     </td>
                                     <td>
-                                        <a href="{{url('download-data-file/10/'.$state->file_name)}}">Download</a>
+                                        <a class="btn btn-success mx-2 my-2" href="{{url('download-data-file/10/'.$state->file_name)}}">Download</a>
                                     </td>
                                     
                                 </tr>

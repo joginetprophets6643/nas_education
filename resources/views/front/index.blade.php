@@ -736,7 +736,7 @@
                     color:'#006bb6'
                 },
                 select: {
-                  color: '#006bb6'
+                  color: '#006bb6',
                 }
             },
             dataLabels: {
@@ -745,7 +745,12 @@
             }
         }]
     });
-    console.log(chart.series[0])
+    
+    chart.series.forEach(s => {
+      s.data.forEach((point) => {
+        point.select(false);
+      });
+    });
     // chart.series[0].states.select.color = '#9ec2e4'
     //     chart.series[0].states.hover.color = '#9ec2e4'
   }
@@ -778,12 +783,12 @@
 
     // console.log(data.data)
     data.data[0].data.forEach((item)=>{
-        item.color="#9ec2e4";
-        item.borderColor="#6e6f70";
-        item.states.hover.color="#f7941c";
+        item.color="#f7941c";
+        item.borderColor="#fff";
+        item.states.hover.color="#006bb6";
     })
 
-    Highcharts.mapChart('district-map-container',{
+    const chart1 = Highcharts.mapChart('district-map-container',{
       title: {
           text: data.name
       },
@@ -824,6 +829,12 @@
         }  
       },
 
+    });
+
+    chart1.series.forEach(s => {
+      s.data.forEach((point) => {
+        point.select(false);
+      });
     });
     
     document.getElementById("district-map-container").style.display = "";
