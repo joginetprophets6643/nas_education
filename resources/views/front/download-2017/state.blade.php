@@ -93,7 +93,43 @@
             </div>
         </div>
     </section>
+
+
+<!-- Modal Start -->
+<div class="modal" id="not-found">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="color:red;">File Not Exist!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <!-- <div class="modal-body">
+            <h4>File Not Found!</h4>
+        </div> -->
+        
+      </div>
+    </div>
+  </div>
+<!-- Modal End -->
 @include('front.includes.footer')
+@if(session('not-found'))
+<script>
+    $('#not-found').show()
+    $('#not-found').css({
+            'display': 'flex',
+            'justify-content': 'center',
+            'align-items': 'center'
+        })
+    $('.close').click(()=>{
+    $('#not-found').hide()
+    
+  })
+</script>       
+@endif
 <script>
     $(document).ready(function() {
     $('#example').DataTable();

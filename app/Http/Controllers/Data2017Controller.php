@@ -67,9 +67,15 @@ class Data2017Controller extends Controller
 
     public function getDownload($id)
     {   
-        $file= public_path(). "/assets/front/state2017/all-grade/".$id;
+        $file= public_path(). "/assets/front/state2017/all grade state/".$id;
 
+        if(file_exists($file)){
         return Response::download($file, $id);
+        }
+
+        else{
+        return redirect()->back()->with('not-found','not-found');
+        }
     }
 
     public function getDownloadhi($id)
@@ -77,16 +83,28 @@ class Data2017Controller extends Controller
         $id = preg_replace('/\\.[^.\\s]{3,4}$/', '', $id);
         $file_name = $id."-hi.pdf";
         
-        $file= public_path(). "/assets/front/state2017/all-grade/".$file_name;
-        
-        return Response::download($file, $file_name);
+        $file= public_path(). "/assets/front/state2017/all grade state/".$file_name;
+
+        if(file_exists($file)){
+         return Response::download($file, $file_name);
+        }
+
+        else{
+        return redirect()->back()->with('not-found','not-found');
+        }
     }
 
     public function getDownload10($id)
     {   
         $file= public_path(). "/assets/front/state2017/src-grade-10/".$id;
 
+        if(file_exists($file)){
         return Response::download($file, $id);
+        }
+
+        else{
+        return redirect()->back()->with('not-found','not-found');
+        }
     }
     //end state wise data 2017
 
@@ -108,8 +126,14 @@ class Data2017Controller extends Controller
             if($data[2] == 10){
                 $filename = $file_name.".pdf";
                 $file = public_path(). "/assets/front/district2017/".$state_name."/".$file_name.".pdf";
-            
+                dd($file);
+                if(file_exists($file)){
                 return Response::download($file, $filename);
+                }
+        
+                else{
+                return redirect()->back()->with('not-found','not-found');
+                }
             }
         }
         
@@ -130,7 +154,6 @@ class Data2017Controller extends Controller
             $zip->close();
 
             return response()->download(public_path($zipname))->deleteFileAfterSend(true);
-
         }
 
         if($file_name == "all5"){
@@ -196,7 +219,13 @@ class Data2017Controller extends Controller
             $filename = $file_name.".pdf";
             $file= public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$file_name.".pdf";
         
+            if(file_exists($file)){
             return Response::download($file, $filename);
+            }
+    
+            else{
+            return redirect()->back()->with('not-found','not-found');
+            }
         }
         
     }
