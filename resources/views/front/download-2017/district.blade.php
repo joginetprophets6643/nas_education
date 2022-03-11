@@ -14,9 +14,8 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
-                              @if(!empty($content->page_meta_title))
-                              <li class="breadcrumb-item active" aria-current="page">{{$content->page_meta_title}}</li>
-                              @endif
+                              <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Report Card') }}</li>
+                              
                             </ol>
                           </nav>
                     </div>

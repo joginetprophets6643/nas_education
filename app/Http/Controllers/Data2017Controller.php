@@ -84,7 +84,7 @@ class Data2017Controller extends Controller
 
     public function getDownload10($id)
     {   
-        $file= public_path(). "/assets/front/state2017/grade-10/".$id;
+        $file= public_path(). "/assets/front/state2017/src-grade-10/".$id;
 
         return Response::download($file, $id);
     }
