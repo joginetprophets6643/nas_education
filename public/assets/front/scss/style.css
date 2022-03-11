@@ -10504,6 +10504,9 @@ ul {
   .site-header .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
     display: block;
   }
+  #screen-loader {
+    margin-left: -3rem;
+  }
 }
 
 @media (max-width: 767px) {
@@ -10688,6 +10691,9 @@ ul {
   .dataTables_wrapper .btn {
     padding: 0.1rem 0.5rem;
     font-size: 0.8rem;
+  }
+  #screen-loader {
+    margin-left: -2rem;
   }
 }
 
