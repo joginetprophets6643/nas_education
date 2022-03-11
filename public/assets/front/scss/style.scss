@@ -820,7 +820,7 @@ ul {
             &.dropdown {
                 &:hover {
                     .dropdown-menu {
-                        display: block;
+                        // display: block;
                     }
                 }
             }
@@ -6196,6 +6196,24 @@ ul {
 
     }
 }
+@media (min-width: 768px) {
+    .site-header {
+        .navbar-nav {
+            .nav-item{
+                &.dropdown{
+                    .icon-hide{
+                        display: none;
+                    }
+                    &:hover {
+                        .dropdown-menu {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
 @media (max-width: 767px) {
     .term-wrap{
         padding: 15px;
@@ -6413,6 +6431,7 @@ ul {
             display: none;
         }
     }
+    
 }
         
 

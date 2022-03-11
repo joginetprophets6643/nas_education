@@ -833,10 +833,6 @@ ul {
   display: none;
 }
 
-.site-header .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
 .site-header .navbar-nav .nav-item .dropdown-menu {
   margin: 0;
   padding: 0;
@@ -10498,6 +10494,15 @@ ul {
   }
   .per-card .per-card-content .per-card-desc {
     min-width: 4.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-header .navbar-nav .nav-item.dropdown .icon-hide {
+    display: none;
+  }
+  .site-header .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
   }
 }
 
