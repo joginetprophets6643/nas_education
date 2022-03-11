@@ -189,7 +189,7 @@
         temp_ved_data={}
         temp_img_data={}
         Object.keys(ved_data).forEach(key=>{          
-            if(ved_data[key].name.includes(state)){
+            if(ved_data[key].name.toLowerCase().includes(state.toLowerCase())){
             temp_ved_data[key]= ved_data[key]
             }
         })
@@ -203,7 +203,7 @@
 
 
         Object.keys(img_data).forEach(key=>{          
-            if(img_data[key].name.includes(state)){
+            if(img_data[key].name.toLowerCase().includes(state.toLowerCase())){
             temp_img_data[key]= img_data[key]
             }
         })

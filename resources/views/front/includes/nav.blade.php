@@ -102,8 +102,12 @@
                     <a class="nav-link {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="{{url('/report-card')}}" target="_blank">{{__('lang.REPORT CARD')}}</a>
                   </li> -->
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('lang.REPORT CARD')}}</a>
-                    <ul class="dropdown-menu">
+                    <a class="nav-link dropdown-toggle {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdown">{{__('lang.REPORT CARD')}}
+                    <span class="material-icons-round icon-hide">
+                      arrow_drop_down
+                    </span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{{url('/report-card/2017')}}">{{__('lang.NAS 2017')}}</a></li>
                       <li><a class="dropdown-item" href="{{url('/report-card')}}">{{__('lang.NAS 2021')}}</a></li>
                     </ul>
