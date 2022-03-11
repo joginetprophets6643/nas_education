@@ -146,6 +146,9 @@ function sendOtp(){
 
         $.ajax({
             type: "GET",
+            headers: {
+            "Authorization": "Bearer " + token
+            },
             url: api_url + "users?filter="+ JSON.stringify(filters),
         }).done(response => {
             user=response.data;
@@ -153,6 +156,7 @@ function sendOtp(){
             if(user.length>0){
                 $('#user_mobile').val(user[0].mobile_no)
                 OTP = otpCreation(); 
+                console.log(OTP)
                 $('#common_otp').val(OTP);             
 
                 $.ajax({
@@ -160,7 +164,7 @@ function sendOtp(){
                     headers:{
                         'Access-Control-Allow-Origin':'*'
                     },
-                    url: backend_api_url + 'send-email/' + user[0].email+ '/' + OTP,
+                    url: backend_api_url + 'send-email/' + btoa(user[0].email)+ '/' + btoa(OTP),
                 })
                 $('#error').html('')
                 $('#success').html('OTP is sent to registered mobile number & email')

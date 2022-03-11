@@ -7,7 +7,7 @@
         <div class="card-header">Edit State</div>
         <div class="card-body">
             <?php $id=encode5t($state->id)?>
-        <form action="{{route('update-state',$id)}}" method="POST">
+        <form action="{{route('update-state',$id)}}" method="POST" enctype="multipart/form-data">
             @csrf
 
         <div class="row">
@@ -92,6 +92,19 @@
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
+        </div>
+        <br>
+
+        <div class="row">
+
+        <div class="col-6">
+            <label for="exampleInputEmail1" class="form-label">Thumbnail</label>
+            <input type="file" name="thumbnail" class="form-control">
+            @error('thumbnail')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+
         </div>
         <br>
 

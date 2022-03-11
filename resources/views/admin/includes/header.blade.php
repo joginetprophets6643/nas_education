@@ -20,7 +20,9 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link href="{{ asset('assets/admin/vendors/css/bootstrap.min.css')}}">
+    <!-- <link href="{{ asset('assets/admin/vendors/css/bootstrap.min.css')}}"> -->
+    <link href="{{asset('assets/front/scss/bootstrap.min.css')}}" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('assets/admin/vendors/css/style.css')}}"> <!-- End layout styles -->
     <link rel="icon" type="image/svg+xml" href="{{asset('assets/admin/vendors/images/NAS_Icon.svg')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/vendors/css/jquery.dataTables.min.css')}}" >

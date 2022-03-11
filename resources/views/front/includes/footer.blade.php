@@ -83,13 +83,13 @@
               </h2>
               <ul>
                 <li>
-                  <a href="{{url('/gallery/image-gallery')}}">
+                  <a href="{{url('/gallery')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Photo Gallery')}}
                   </a>
                 </li>
                 <li>
-                  <a href="{{url('/gallery/video-gallery')}}">
+                  <a href="{{url('/gallery')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Video Gallery')}}
                   </a>
@@ -299,6 +299,8 @@
     <script src="{{asset('assets/front/js/scripts.js')}}"></script>
     <script src="{{asset('assets/front/js/select2.min.js')}}"></script>
     <script src="{{asset('assets/front/js/all.js')}}" data-auto-replace-svg="nest"></script>
+    <script src="{{ asset('assets/admin/vendors/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/front/js/dataTable-bootstrap.js')}}"></script>
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
     <script>
       let c_url=window.location.href;
@@ -398,6 +400,25 @@ function changeFontSize(direction){
           }
         }
         
+
+    </script>
+    <script>
+      if(window.innerWidth > 1024) {
+        $(window).scroll(function(){
+          if ($(this).scrollTop() > 15) {
+            $('#scrollTab').css({"top":"7.9em", "padding": "0.5rem 0"});
+          } else {
+            $('#scrollTab').css({"top":"70px"});
+          }
+        });
+        $(window).scroll(function(){
+          if ($(this).scrollTop() > 15) {
+            $('#scrollTab2').css({"top":"10.8em", "padding": "0.5rem 0"});
+          } else {
+            $('#scrollTab2').css({"top":"70px", "padding": "0"});
+          }
+        });
+      }
 
     </script>
   </body>

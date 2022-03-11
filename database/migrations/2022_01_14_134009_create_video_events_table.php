@@ -16,6 +16,7 @@ class CreateVideoEventsTable extends Migration
         Schema::create('video_events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('state');
             $table->timestamps();
         });
     }

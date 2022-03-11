@@ -71,14 +71,14 @@
                                         </div>
                                       </div>
                                       <div class="col-md-12">
-                                        <div class="accordion commonAccordion" id="perAccordion">
+                                        <div class="accordion commonAccordion" id="perAccordion5">
                                           <div class="accordion-item mtb-30" id="gender_section_performance_class3" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionOne">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                                                 Performance by Gender
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne" data-bs-parent="#perAccordion">
+                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne" data-bs-parent="#perAccordion5">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -98,14 +98,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
                                                           <div id="GenderEvsBarGraph_class3"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-yellow indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-gluid" />
@@ -141,7 +141,7 @@
                                                 Performance by Location
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion">
+                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion5">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -162,14 +162,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
                                                           <div id="LocationEvsBarGraph_class3"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-yellow indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-gluid" />
@@ -205,7 +205,7 @@
                                                 Performance by Management
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion">
+                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion5">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -226,14 +226,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
                                                           <div id="ManagementEvsBarGraph_class3"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-yellow indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-gluid" />
@@ -269,7 +269,7 @@
                                                 Performance by Social Group
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour" data-bs-parent="#perAccordion">
+                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour" data-bs-parent="#perAccordion5">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -290,14 +290,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
                                                           <div id="SocialGroupEvsBarGraph_class3"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-yellow indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-gluid" />
@@ -455,7 +455,7 @@
                                                 Performance by Gender
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne">
+                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne" data-bs-parent="#perAccordion">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -475,14 +475,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
                                                           <div id="GenderEvsBarGraph_class5"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-yellow indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-gluid" />
@@ -518,7 +518,7 @@
                                                 Performance by Location
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo">
+                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -539,14 +539,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
                                                           <div id="LocationEvsBarGraph_class5"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-yellow indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-gluid" />
@@ -582,7 +582,7 @@
                                                 Performance by Management
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree">
+                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -603,14 +603,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
                                                           <div id="ManagementEvsBarGraph_class5"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-yellow indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-gluid" />
@@ -646,7 +646,7 @@
                                                 Performance by Social Group
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour">
+                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour" data-bs-parent="#perAccordion">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -667,14 +667,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-yellow">
                                                         <figure class="highcharts-figure">
                                                           <div id="SocialGroupEvsBarGraph_class5"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-yellow indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-gluid" />
@@ -846,14 +846,14 @@
                                         </div>
                                       </div>
                                       <div class="col-md-12">
-                                        <div class="accordion commonAccordion" id="perAccordion">
+                                        <div class="accordion commonAccordion" id="perAccordion8">
                                           <div class="accordion-item mtb-30" id="gender_section_performance_class8" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionOne">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                                                 Performance by Gender
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne">
+                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne" data-bs-parent="#perAccordion8">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -874,14 +874,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
                                                           <div id="GenderScienceBarGraph_class8"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-sagegreen indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -909,14 +909,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
                                                           <div id="GenderSocialBarGraph_class8"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-green indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-gluid" />
@@ -934,7 +934,7 @@
                                                 Performance by Location
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo">
+                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion8">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -955,14 +955,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
                                                           <div id="LocationScienceBarGraph_class8"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-sagegreen indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -990,14 +990,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
                                                           <div id="LocationSocialBarGraph_class8"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-green indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-gluid" />
@@ -1015,7 +1015,7 @@
                                                 Performance by Management
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree">
+                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion8">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -1036,14 +1036,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
                                                           <div id="ManagementScienceBarGraph_class8"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-sagegreen indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -1071,14 +1071,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
                                                           <div id="ManagementSocialBarGraph_class8"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-green indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-gluid" />
@@ -1096,7 +1096,7 @@
                                                 Performance by Social Group
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour">
+                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour" data-bs-parent="#perAccordion8">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -1117,14 +1117,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
                                                           <div id="SocialGroupScienceBarGraph_class8"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-sagegreen indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -1143,7 +1143,7 @@
                                                       
                                                     </div> 
                                                   </div>
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-pink">
                                                         <figure class="highcharts-figure">
                                                           <div id="SocialGroupMathBarGraph_class8"></div>
@@ -1152,7 +1152,7 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-1 order-md-2">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
                                                           <div id="SocialGroupSocialBarGraph_class8"></div>
@@ -1340,14 +1340,14 @@
                                       </div>
                                       
                                       <div class="col-md-12">
-                                        <div class="accordion commonAccordion" id="perAccordion">
+                                        <div class="accordion commonAccordion" id="perAccordion10">
                                           <div class="accordion-item mtb-30" id="gender_section_performance_class10" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionOne">
                                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                                                 Performance by Gender
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne">
+                                            <div id="perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="perAccordionOne" data-bs-parent="#perAccordion10">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -1367,14 +1367,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
                                                           <div id="GenderSocialBarGraph_class10"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-green indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-gluid" />
@@ -1402,14 +1402,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
                                                           <div id="GenderScienceBarGraph_class10"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-sagegreen indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -1446,7 +1446,7 @@
                                                 Performance by Location
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo">
+                                            <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion10">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -1467,14 +1467,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
                                                           <div id="LocationSocialBarGraph_class10"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-green indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-gluid" />
@@ -1502,14 +1502,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
                                                           <div id="LocationScienceBarGraph_class10"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-sagegreen indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -1546,7 +1546,7 @@
                                                 Performance by Management
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree">
+                                            <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion10">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -1567,14 +1567,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
                                                           <div id="ManagementSocialBarGraph_class10"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-green indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-gluid" />
@@ -1602,14 +1602,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
                                                           <div id="ManagementScienceBarGraph_class10"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-sagegreen indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -1646,7 +1646,7 @@
                                                 Performance by Social Group
                                               </button>
                                             </h2>
-                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour">
+                                            <div id="perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="perAccordionfour" data-bs-parent="#perAccordion10">
                                               <div class="accordion-body">
                                                 <div class="row">
                                                   <div class="col-md-4 p-0">
@@ -1667,14 +1667,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-green">
                                                         <figure class="highcharts-figure">
                                                           <div id="SocialGroupSocialBarGraph_class10"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-green indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -1702,14 +1702,14 @@
                                                   </div>
                                                 </div>
                                                 <div class="row">
-                                                  <div class="col-md-8 p-0">
+                                                  <div class="col-md-8 p-0 order-2 order-md-1">
                                                       <div class="per-graph-wrap light-sagegreen">
                                                         <figure class="highcharts-figure">
                                                           <div id="SocialGroupScienceBarGraph_class10"></div>
                                                         </figure>
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-4 p-0">
+                                                  <div class="col-md-4 p-0 order-1 order-md-2">
                                                     <div class="percategory-wrap card-sagegreen indigate-left">
                                                       <div class="percategory-content">
                                                         <img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-gluid" />
@@ -1966,7 +1966,7 @@
                                                 Performance by Gender
                                               </button>
                                             </h2>
-                                            <div id="dac-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="dac-perAccordionOne">
+                                            <div id="dac-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="dac-perAccordionOne" data-bs-parent="#dac-perAccordion">
                                               <div class="accordion-body">
                                                 
                                                 <div class="graph-card-container graph-linecard-container">
@@ -2232,7 +2232,7 @@
                                               </button>
                                               
                                             </h2>
-                                            <div id="dac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionTwo">
+                                            <div id="dac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionTwo" data-bs-parent="#dac-perAccordion">
                                             <div class="accordion-body">
                                                 
                                                 <div class="graph-card-container graph-linecard-container">
@@ -2497,7 +2497,7 @@
                                                 Performance by Management
                                               </button>
                                             </h2>
-                                            <div id="dac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionThree">
+                                            <div id="dac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionThree" data-bs-parent="#dac-perAccordion">
                                               <div class="accordion-body">
                                               <div class="graph-card-container graph-linecard-container">
                                                   <div class="row">
@@ -2761,7 +2761,7 @@
                                                 Performance by Social Group
                                               </button>
                                             </h2>
-                                            <div id="dac-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionfour">
+                                            <div id="dac-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionfour" data-bs-parent="#dac-perAccordion">
                                               <div class="accordion-body">
                                                 <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">
@@ -3185,7 +3185,7 @@
                                                     Performance by Gender
                                                   </button>
                                                 </h2>
-                                                <div id="sc3-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc3-perAccordionOne">
+                                                <div id="sc3-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc3-perAccordionOne" data-bs-parent="#sc3-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -3228,7 +3228,7 @@
                                                     Performance by Location
                                                   </button>
                                                 </h2>
-                                                <div id="sc3-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc3-perAccordionTwo">
+                                                <div id="sc3-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc3-perAccordionTwo" data-bs-parent="#sc3-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -3272,7 +3272,7 @@
                                                     Performance by Managment
                                                   </button>
                                                 </h2>
-                                                <div id="sc3-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc3-perAccordionThree">
+                                                <div id="sc3-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc3-perAccordionThree" data-bs-parent="#sc3-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -3315,7 +3315,7 @@
                                                     Performance by Social Group
                                                   </button>
                                                 </h2>
-                                                <div id="sc3-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sc3-perAccordionfour">
+                                                <div id="sc3-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sc3-perAccordionfour" data-bs-parent="#sc3-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -3359,7 +3359,7 @@
                                             <h2 class="heading-grey text-center">
                                               AVERAGE PERFORMANCE OF THE DISTRICTS
                                             </h2>
-                                            <div class="district-table mtb-30">
+                                            <div class="district-table table-responsive mtb-30">
                                               <table class="table">
                                                 <thead>
                                                   <tr>
@@ -3491,7 +3491,7 @@
                                                     Performance by Gender
                                                   </button>
                                                 </h2>
-                                                <div id="sc5-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc5-perAccordionOne">
+                                                <div id="sc5-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc5-perAccordionOne" data-bs-parent="#sc5-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -3534,7 +3534,7 @@
                                                     Performance by Location
                                                   </button>
                                                 </h2>
-                                                <div id="sc5-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc5-perAccordionTwo">
+                                                <div id="sc5-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc5-perAccordionTwo" data-bs-parent="#sc5-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -3578,7 +3578,7 @@
                                                     Performance by Managment
                                                   </button>
                                                 </h2>
-                                                <div id="sc5-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc5-perAccordionThree">
+                                                <div id="sc5-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc5-perAccordionThree" data-bs-parent="#sc5-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -3621,7 +3621,7 @@
                                                     Performance by Social Group
                                                   </button>
                                                 </h2>
-                                                <div id="sc5-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sc5-perAccordionfour">
+                                                <div id="sc5-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sc5-perAccordionfour" data-bs-parent="#sc5-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -3665,7 +3665,7 @@
                                             <h2 class="heading-grey text-center">
                                               AVERAGE PERFORMANCE OF THE DISTRICTS
                                             </h2>
-                                            <div class="district-table mtb-30">
+                                            <div class="district-table table-responsive mtb-30">
                                               <table class="table">
                                                 <thead>
                                                   <tr>
@@ -3807,7 +3807,7 @@
                                                   Performance by Gender
                                                 </button>
                                               </h2>
-                                              <div id="sc8-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc8-perAccordionOne">
+                                              <div id="sc8-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc8-perAccordionOne" data-bs-parent="#sc8-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -3860,7 +3860,7 @@
                                                   Performance by Location
                                                 </button>
                                               </h2>
-                                              <div id="sc8-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc8-perAccordionTwo">
+                                              <div id="sc8-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc8-perAccordionTwo" data-bs-parent="#sc8-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -3913,7 +3913,7 @@
                                                   Performance by Managment
                                                 </button>
                                               </h2>
-                                              <div id="sc8-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc8-perAccordionThree">
+                                              <div id="sc8-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc8-perAccordionThree" data-bs-parent="#sc8-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -3966,7 +3966,7 @@
                                                   Performance by Social Group
                                                 </button>
                                               </h2>
-                                              <div id="sc8-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sc8-perAccordionfour">
+                                              <div id="sc8-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sc8-perAccordionfour" data-bs-parent="#sc8-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -4019,7 +4019,7 @@
                                           <h2 class="heading-grey text-center">
                                             AVERAGE PERFORMANCE OF THE DISTRICTS
                                           </h2>
-                                          <div class="district-table mtb-30">
+                                          <div class="district-table table-responsive mtb-30">
                                             <table class="table">
                                               <thead>
                                                 <tr>
@@ -4171,7 +4171,7 @@
                                                                                     Performance by Gender
                                                                                   </button>
                                                                                 </h2>
-                                                                                <div id="sc10-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc10-perAccordionOne">
+                                                                                <div id="sc10-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sc10-perAccordionOne" data-bs-parent="#sc10-perAccordion">
                                                                                   <div class="accordion-body">
                                                                                     <div class="row">
                                                                                       <div class="col-md-6">
@@ -4234,7 +4234,7 @@
                                                                                     Performance by Location
                                                                                   </button>
                                                                                 </h2>
-                                                                                <div id="sc10-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc10-perAccordionTwo">
+                                                                                <div id="sc10-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc10-perAccordionTwo" data-bs-parent="#sc10-perAccordion">
                                                                                   <div class="accordion-body">
                                                                                     <div class="row">
                                                                                       <div class="col-md-6">
@@ -4298,7 +4298,7 @@
                                                                                     Performance by Management
                                                                                   </button>
                                                                                 </h2>
-                                                                                <div id="sc10-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc10-perAccordionThree">
+                                                                                <div id="sc10-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc10-perAccordionThree" data-bs-parent="#sc10-perAccordion">
                                                                                   <div class="accordion-body">
                                                                                     <div class="row">
                                                                                       <div class="col-md-6">
@@ -4361,7 +4361,7 @@
                                                                                     Performance by Social Group
                                                                                   </button>
                                                                                 </h2>
-                                                                                <div id="sc10-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sc10-perAccordionfour">
+                                                                                <div id="sc10-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sc10-perAccordionfour" data-bs-parent="#sc10-perAccordion">
                                                                                   <div class="accordion-body">
                                                                                     <div class="row">
                                                                                       <div class="col-md-6">
@@ -4424,7 +4424,7 @@
                                                                             <h2 class="heading-grey text-center">
                                                                               AVERAGE PERFORMANCE OF THE DISTRICTS
                                                                             </h2>
-                                                                            <div class="district-table mtb-30">
+                                                                            <div class="district-table table-responsive mtb-30">
                                                                               <table class="table">
                                                                                 <thead>
                                                                                   <tr>
@@ -4556,7 +4556,7 @@
                                                   Class 3
                                                 </button>
                                               </h2>
-                                              <div id="sac-rg-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sac-rg-perAccordionOne">
+                                              <div id="sac-rg-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sac-rg-perAccordionOne" data-bs-parent="#sac-rg-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="range-wrap">
                                                     <div class="row">
@@ -4602,7 +4602,7 @@
                                                   Class 5
                                                 </button>
                                               </h2>
-                                              <div id="sac-rg-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionTwo">
+                                              <div id="sac-rg-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionTwo" data-bs-parent="#sac-rg-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="range-wrap">
                                                     <div class="row">
@@ -4648,7 +4648,7 @@
                                                   Class 8
                                                 </button>
                                               </h2>
-                                              <div id="sac-rg-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionThree">
+                                              <div id="sac-rg-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionThree" data-bs-parent="#sac-rg-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="range-wrap">
                                                     <div class="row">
@@ -4694,7 +4694,7 @@
                                                   Class 10
                                                 </button>
                                               </h2>
-                                              <div id="sac-rg-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionfour">
+                                              <div id="sac-rg-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sac-rg-perAccordionfour" data-bs-parent="#sac-rg-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="range-wrap">
                                                     <div class="row">
@@ -4747,7 +4747,7 @@
                                                   Performance by Gender
                                                 </button>
                                               </h2>
-                                              <div id="sac-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sac-perAccordionOne">
+                                              <div id="sac-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="sac-perAccordionOne" data-bs-parent="#sac-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">
@@ -5011,7 +5011,7 @@
                                                   Performance by Location
                                                 </button>
                                               </h2>
-                                              <div id="sac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionTwo">
+                                              <div id="sac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionTwo" data-bs-parent="#sac-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">
@@ -5275,7 +5275,7 @@
                                                   Performance by Managment
                                                 </button>
                                               </h2>
-                                              <div id="sac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionThree">
+                                              <div id="sac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionThree" data-bs-parent="#sac-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">
@@ -5539,7 +5539,7 @@
                                                   Performance by Social Group
                                                 </button>
                                               </h2>
-                                              <div id="sac-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionfour">
+                                              <div id="sac-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionfour" data-bs-parent="#sac-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="graph-card-container graph-linecard-container">
                                                     <div class="row">
@@ -5810,7 +5810,7 @@
                                                 CLASS 3
                                               </h3>
                                             </div>
-                                            <div class="district-table">  
+                                            <div class="district-table table-responsive table-responsive">  
                                               <table class="table">
                                                 <thead>
                                                   <tr>
@@ -5853,7 +5853,7 @@
                                                 CLASS 5
                                               </h3>
                                             </div>
-                                            <div class="district-table">  
+                                            <div class="district-table table-responsive">  
                                               <table class="table">
                                                 <thead>
                                                   <tr>
@@ -5896,7 +5896,7 @@
                                                 CLASS 8
                                               </h3>
                                             </div>
-                                            <div class="district-table">  
+                                            <div class="district-table table-responsive">  
                                               <table class="table">
                                                 <thead>
                                                   <tr>
@@ -5940,7 +5940,7 @@
                                               CLASS 10
                                             </h3>
                                           </div>
-                                          <div class="district-table">
+                                          <div class="district-table table-responsive">
                                             <table class="table">
                                               <thead>
                                                 <tr>

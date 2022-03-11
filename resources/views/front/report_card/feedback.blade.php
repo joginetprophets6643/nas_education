@@ -112,7 +112,7 @@
                                       </div>
                                       <div class="pendamic-progessbar-wrap mtb-30">
                                           <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 mb-3">
                                                 <div class="pendamic-progressbar-card light-pink-bg">
                                                     <h3 class="heading card-pink">
                                                         <span id="feedbackstate_pq2_average_class3">0%</span> Learning from pandemic
@@ -216,7 +216,7 @@
                                         </h2>
                                         <div class="pendamic-progessbar-wrap mtb-30">
                                             <div class="row">
-                                              <div class="col-md-6">
+                                              <div class="col-md-6 mb-3">
                                                   <div class="pendamic-progressbar-card light-pink-bg">
                                                       <div class="pendamic-progressbar-list">
                                                           <div class="row align-items-center">

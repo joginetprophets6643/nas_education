@@ -26,6 +26,7 @@ class CreateStateMastersTable extends Migration
             $table->integer('view_order');
             $table->integer('map_id')->nullable();
             $table->integer('rank')->nullable();
+            $table->string('thumbnail')->nullable();
             
             $table->string('total_district_area')->nullable();
             $table->string('total_population')->nullable();

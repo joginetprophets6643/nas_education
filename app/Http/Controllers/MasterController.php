@@ -25,10 +25,10 @@ class MasterController extends Controller
     public function storeDistrict(Request $request)
     {
         $request->validate([
-            'district_id'=>'required',
+            'district_id'=>'required|unique:district_masters',
             'state_id'=>'required',
-            'district_name'=>'required',
-            'district_code'=>'required',
+            'district_name'=>'required|unique:district_masters',
+            'district_code'=>'required|unique:district_masters',
             'state_code'=>'required',
             'year'=>'required',
             'lgd_district_id'=>'required',
@@ -214,9 +214,9 @@ class MasterController extends Controller
     {
         
         $request->validate([
-            'state_id'=>'required',
-            'state_name'=>'required',
-            'state_code'=>'required',
+            'state_id'=>'required|unique:state_masters',
+            'state_name'=>'required|unique:state_masters',
+            'state_code'=>'required|unique:state_masters',
             'ut'=>'required',
             'lgd_state_id'=>'required',
             'view_order'=>'required',
@@ -247,6 +247,20 @@ class MasterController extends Controller
         else{
             $request->status=1;
         }
+
+        
+        if($request->file('thumbnail'))
+        {
+            $image=$request->file('thumbnail');
+            $filename = $image->getClientOriginalName();
+            $extension=$image->getClientOriginalExtension();
+            $name=hexdec(uniqid()).'.'.$extension;
+            
+            $image->move(public_path('assets/uploads/state-thumbnail'),$name);
+        }
+        else{
+            $name='';
+        }
         
         $state=new State_Master;
         $state->state_id=$request->state_id;
@@ -256,6 +270,7 @@ class MasterController extends Controller
         $state->is_ut=$request->ut;
         $state->status=$request->status;
         $state->rank=$request->rank;
+        $state->thumbnail=$name;
 
         $state->lgd_state_id=$request->lgd_state_id;
         $state->is_active=$request->status;
@@ -293,6 +308,7 @@ class MasterController extends Controller
 
     public function updateState(Request $request,$id)
     {
+        
         $id=decode5t($id);
         $request->validate([
             'state_id'=>'required',
@@ -322,11 +338,26 @@ class MasterController extends Controller
             
         ]);
         
+        
         if($request->status){
             $request->status=2;
         }
         else{
             $request->status=1;
+        }
+        $data=State_Master::where('id',$id)->first();
+        
+        if($request->file('thumbnail'))
+        {
+            $image=$request->file('thumbnail');
+            $filename = $image->getClientOriginalName();
+            $extension=$image->getClientOriginalExtension();
+            $name=hexdec(uniqid()).'.'.$extension;
+            
+            $image->move(public_path('assets/uploads/state-thumbnail'),$name);
+        }
+        else{
+            $name=$data->thumbnail;
         }
         
         State_Master::where('id',$id)->update([
@@ -340,6 +371,7 @@ class MasterController extends Controller
             'view_order'=>$request->view_order,
             'status'=>$request->status,
             'rank'=>$request->rank,
+            'thumbnail'=>$name,
 
             'total_district_area'=>$request->total_district_area,
             'total_population'=>$request->total_population,
