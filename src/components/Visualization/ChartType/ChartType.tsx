@@ -2,12 +2,29 @@ import React from 'react';
 import line from '@/assets/images/line.png';
 import spline from '@/assets/images/spline.png';
 import polarline from '@/assets/images/polarline.png';
-import spiderweb from '@/assets/images/spiderweb.png';
+import spiderweb from '@/assets/images/spiderweb.png';   
+import basic from '@/assets/images/basic.png';
+import stacked from '@/assets/images/stacked.png';
+import stackedpercent from '@/assets/images/stackedpercent.png';
+import groupedcolumn from '@/assets/images/groupedcolumn.png';
+import stackedX from '@/assets/images/stackedX.png';
+import stackedpercentX from '@/assets/images/stackedpercentX.png';
+import basicbar from '@/assets/images/basicbar.png';
+import stackedbar from '@/assets/images/stackedbar.png';
+import stackedpercentbar from '@/assets/images/stackedpercentbar.png';
+import agepyramid from '@/assets/images/agepyramid.png';
+import scatter from '@/assets/images/scatter.png';
+import pie from '@/assets/images/pie.png';
+import donut from '@/assets/images/donut.png';
+import semidonut from '@/assets/images/semidonut.png';
+import dotmatrix from '@/assets/images/dfaDotMatrix.png';
+import percentage from '@/assets/images/100minus.png';
+
 
 const ChartType = () => {
   return (
     <div className="charttype-wrap">
-       <ul className="nav nav-tabs" id="chatytypeTab" role="tablist">
+        <ul className="nav nav-tabs" id="charttypeTab" role="tablist">
             <li className="nav-item" role="presentation">
                 <button className="nav-link active" id="line-tab" data-bs-toggle="tab" data-bs-target="#line" type="button" role="tab" aria-controls="line" aria-selected="true">Line</button>
             </li>
@@ -30,42 +47,218 @@ const ChartType = () => {
                 <button className="nav-link" id="percentage-tab" data-bs-toggle="tab" data-bs-target="#percentage" type="button" role="tab" aria-controls="percentage" aria-selected="false">Percentage</button>
             </li>    
         </ul>
-        <div className="tab-content" id="chatytypeContent">
+        <div className="tab-content" id="charttypeContent">
+            
+            <div className="close-charttype">
+                <a href="#">
+                    <span className="material-icons-round">
+                        close
+                    </span>
+                </a>
+            </div>
+            
             <div className="tab-pane fade show active" id="line" role="tabpanel" aria-labelledby="line-tab">
                 <div className="charttype-content-list">
-                    <ul>
+                    <ul className="scrollbar-y-lightblue">
                        <li>
                             <a href="#" className="charttype-img">
                                <img src={line} alt="img" className="img-fluid" /> 
-                               {/* <p className="charttype-title">
+                               <p className="charttype-title">
                                    Line Chart
-                               </p> */}
+                               </p>
                             </a>    
                        </li>
                        <li>
                             <a href="#" className="charttype-img">
                                <img src={spline} alt="img" className="img-fluid" /> 
+                               <p className="charttype-title">
+                                   Spline Chart
+                               </p>
                             </a>    
                        </li> 
                        <li>
                             <a href="#" className="charttype-img">
-                               <img src={polarline} alt="img" className="img-fluid" /> 
+                               <img src={polarline} alt="img" className="img-fluid" />
+                               <p className="charttype-title">
+                                    Polarline Chart
+                               </p> 
                             </a>    
                        </li> 
                        <li>
                             <a href="#" className="charttype-img">
                                <img src={spiderweb} alt="img" className="img-fluid" /> 
+                               <p className="charttype-title">
+                                    Spiderweb Chart
+                               </p>
                             </a>    
                        </li>     
                     </ul>   
                 </div>
             </div>
-            <div className="tab-pane fade" id="area" role="tabpanel" aria-labelledby="area-tab">...</div>
-            <div className="tab-pane fade" id="bar" role="tabpanel" aria-labelledby="bar-tab">...</div>
-            <div className="tab-pane fade" id="pyramid" role="tabpanel" aria-labelledby="pyramid-tab">...</div>
-            <div className="tab-pane fade" id="scatter" role="tabpanel" aria-labelledby="scatter-tab">...</div>
-            <div className="tab-pane fade" id="pie" role="tabpanel" aria-labelledby="pie-tab">...</div>
-            <div className="tab-pane fade" id="Percentage" role="tabpanel" aria-labelledby="Percentage-tab">...</div>
+            <div className="tab-pane fade" id="area" role="tabpanel" aria-labelledby="area-tab">
+                <div className="charttype-content-list">
+                    <ul className="scrollbar-y-lightblue">
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={basic} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Basic
+                                </p>
+                            </a>    
+                        </li>
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={stacked} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                        Stacked
+                                </p>
+                            </a>    
+                        </li> 
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={stackedpercent} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                        Stacked Percent
+                                </p>
+                            </a>    
+                        </li>     
+                    </ul>   
+                </div>
+            </div>
+            <div className="tab-pane fade" id="bar" role="tabpanel" aria-labelledby="bar-tab">
+                <div className="charttype-content-list">
+                    <ul className="scrollbar-y-lightblue">
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={groupedcolumn} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Grouped column
+                                </p>
+                            </a>    
+                        </li>
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={stackedX} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Stacked
+                                </p>
+                            </a>    
+                        </li> 
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={stackedpercentX} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Stacked percent
+                                </p>
+                            </a>    
+                        </li> 
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={basicbar} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Basic bar
+                                </p>
+                            </a>    
+                        </li> 
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={stackedbar} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Stacked bar
+                                </p>
+                            </a>    
+                        </li> 
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={stackedpercentbar} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Stacked percent bar
+                                </p>
+                            </a>    
+                        </li>     
+                    </ul>   
+                </div>
+            </div>
+            <div className="tab-pane fade" id="pyramid" role="tabpanel" aria-labelledby="pyramid-tab">
+                <div className="charttype-content-list">
+                    <ul className="scrollbar-y-lightblue">
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={agepyramid} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Age Pyramid
+                                </p>
+                            </a>    
+                        </li>     
+                    </ul>   
+                </div>
+            </div>
+            <div className="tab-pane fade" id="scatter" role="tabpanel" aria-labelledby="scatter-tab">
+                <div className="charttype-content-list">
+                    <ul className="scrollbar-y-lightblue">
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={scatter} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Scatter
+                                </p>
+                            </a>    
+                        </li>     
+                    </ul>   
+                </div>    
+            </div>
+            <div className="tab-pane fade" id="pie" role="tabpanel" aria-labelledby="pie-tab">
+                <div className="charttype-content-list">
+                    <ul className="scrollbar-y-lightblue">
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={pie} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Pie Chart
+                                </p>
+                            </a>    
+                        </li>  
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={donut} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Donut Chart
+                                </p>
+                            </a>    
+                        </li>  
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={semidonut} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Semidonut Chart
+                                </p>
+                            </a>    
+                        </li>     
+                    </ul>   
+                </div>
+            </div>
+            <div className="tab-pane fade" id="percentage" role="tabpanel" aria-labelledby="percentage-tab">
+                <div className="charttype-content-list">
+                    <ul className="scrollbar-y-lightblue">
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={dotmatrix} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    Pie Chart
+                                </p>
+                            </a>    
+                        </li>  
+                        <li>
+                            <a href="#" className="charttype-img">
+                                <img src={percentage} alt="img" className="img-fluid" /> 
+                                <p className="charttype-title">
+                                    100 Minus
+                                </p>
+                            </a>    
+                        </li>       
+                    </ul>   
+                </div>
+            </div>
         </div>
     </div>
   )

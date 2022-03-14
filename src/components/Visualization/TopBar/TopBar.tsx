@@ -19,11 +19,6 @@ const TopBar = () => {
                         </ol>
                     </nav>
                 </div>
-                <button className="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sideBar" aria-controls="sideBar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    <span className="navbar-toggler-icon"></span>
-                    <span className="navbar-toggler-icon"></span>
-                </button>
             </div>
             <Dropdown/>
             {/* <div className="col-md-4">

@@ -33,6 +33,7 @@
 .visualization-wrap{
     .top-content {
         padding: 20px;
+        margin: 0;
     }
     .select-wrap{
         .select-label {
@@ -175,6 +176,7 @@
 }
 
 .apcard-graph-wrap{
+    min-height: 25rem;
     .select-wrap {
         margin-bottom: 30px;
     }
@@ -340,15 +342,15 @@
     background: #fff;
     border-radius: 6px;
     display: flex;
-    #chatytypeTab {
+    #charttypeTab {
         padding: 10px;
         border-bottom: 0;
         border-right: 1px solid #ccc;
         align-items: center;
         flex-direction: column;
-        justify-content: space-between;
         .nav-item {
             width: 100%;
+            margin-bottom: 15px;
             .nav-link {
                 font-size: 14px;
                 margin: 0;
@@ -371,7 +373,7 @@
         }
     }
 
-    #chatytypeContent {
+    #charttypeContent {
         width: 100%;
         padding: 10px;
     }
@@ -381,6 +383,8 @@
             align-items: center;
             justify-content: flex-start;
             flex-flow: wrap;
+            max-height: 400px;
+            margin-right: 8px;
             li {
                 border: 2px solid #c3c3c3;
                 margin: 10px;
@@ -388,6 +392,130 @@
                 text-align: center;
                 position: relative;
                 padding: 5px;
+                overflow: hidden;
+                &:hover{
+                    .charttype-title {
+                        top: 0;
+                    }
+                }
+                .charttype-title {
+                    top: 100%;
+                    background: rgba(0,0,0,.7);
+                    width: 100%;
+                    position: absolute;
+                    height: 100%;
+                    left: 0;
+                    color: #fff;
+                    transition: all .3s ease-in-out;
+                    -webkit-transition: all .3s ease-in-out;
+                    -moz-transition: all .3s ease-in-out;
+                    -ms-transition: all .3s ease-in-out;
+                    line-height: 100px;
+                    font-size: 14px;
+                    margin: 0;
+                }
+
+            }
+        }
+    }
+
+    .close-charttype {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #101010;
+        }
+    }
+    
+}
+
+
+@media(max-width: 991px){
+    .visualization-wrap{
+        .top-content {
+            padding: 15px;
+        }
+    }
+    #visualtab {
+        overflow-x: auto;
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+        .nav-link {
+            font-size: 14px;
+            padding: 10px 15px;
+            min-width: 140px;
+        }
+    }
+    .visual-tabcontent-wrap {
+        padding: 15px;
+        .visual-per-card{
+            margin: 15px 0;
+        }
+    }
+    .visual-card-white{
+        margin-bottom: 15px;    
+        .total-no {
+            font-size: 18px;
+        }
+        .title-grey {
+            font-size: 14px;
+        }
+    }
+    .average-performance-wrap{
+        .averag-performance-content {
+            padding: 15px;
+        } 
+        .ap-top-heading {
+            font-size: 14px;
+        } 
+    } 
+    .apcard-white{
+        .apcard-header{
+            .apcard-heading {
+                font-size: 14px;
+            }
+        }
+    }
+    .charttype-wrap {
+        #charttypeContent {
+            padding: 5px;
+        }
+        .charttype-content-list {
+            ul {
+                li {
+                    width: 120px;
+                    margin: 5px;
+                    .charttype-title {
+                        line-height: 80px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+        #charttypeTab {
+            .nav-item{
+                .nav-link {
+                    font-size: 13px;
+                    padding: 8px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    .per-card{
+        h2{
+            font-size: 18px;
+        }
+        .per-card-content{
+            .per-card-desc{
+                min-width: 70px;
+                .total-no {     
+                    font-size: 20px;
+                }
             }
         }
     }
