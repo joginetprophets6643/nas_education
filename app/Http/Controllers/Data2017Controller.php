@@ -81,8 +81,8 @@ class Data2017Controller extends Controller
     public function getDownloadhi($id)
     {   
         $id = preg_replace('/\\.[^.\\s]{3,4}$/', '', $id);
-        $file_name = $id."-hi.pdf";
-        
+        $file_name = $id."-h.pdf";
+
         $file= public_path(). "/assets/front/state2017/all grade state/".$file_name;
 
         if(file_exists($file)){
