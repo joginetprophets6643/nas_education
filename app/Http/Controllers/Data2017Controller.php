@@ -61,7 +61,7 @@ class Data2017Controller extends Controller
     //start State Wise Data 2017
     public function stateDownloadView()
     {   
-        $state_data = DB::table('state_data_2017')->get();
+        $state_data = DB::table('state_data_2017')->orderBy('state_name','ASC')->get();
         return view('front.download-2017.state',compact('state_data'));
     }
 
@@ -81,8 +81,8 @@ class Data2017Controller extends Controller
     public function getDownloadhi($id)
     {   
         $id = preg_replace('/\\.[^.\\s]{3,4}$/', '', $id);
-        $file_name = $id."-hi.pdf";
-        
+        $file_name = $id."-h.pdf";
+
         $file= public_path(). "/assets/front/state2017/all grade state/".$file_name;
 
         if(file_exists($file)){
@@ -112,7 +112,7 @@ class Data2017Controller extends Controller
 
     public function districtDownloadView()
     {   
-        $district_data = DB::table('district_data_2017')->get();
+        $district_data = DB::table('district_data_2017')->orderBy('district_name','ASC')->get();
         return view('front.download-2017.district',compact('district_data'));
     }
 
@@ -125,8 +125,8 @@ class Data2017Controller extends Controller
         if(count($data) == 3){
             if($data[2] == 10){
                 $filename = $file_name.".pdf";
-                $file = public_path(). "/assets/front/district2017/".$state_name."/".$file_name.".pdf";
-                dd($file);
+                $file = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$file_name.".pdf";
+                //dd($file);
                 if(file_exists($file)){
                 return Response::download($file, $filename);
                 }
