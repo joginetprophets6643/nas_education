@@ -61,7 +61,7 @@ class Data2017Controller extends Controller
     //start State Wise Data 2017
     public function stateDownloadView()
     {   
-        $state_data = DB::table('state_data_2017')->get();
+        $state_data = DB::table('state_data_2017')->orderBy('state_name','ASC')->get();
         return view('front.download-2017.state',compact('state_data'));
     }
 
@@ -112,7 +112,7 @@ class Data2017Controller extends Controller
 
     public function districtDownloadView()
     {   
-        $district_data = DB::table('district_data_2017')->get();
+        $district_data = DB::table('district_data_2017')->orderBy('district_name','ASC')->get();
         return view('front.download-2017.district',compact('district_data'));
     }
 
