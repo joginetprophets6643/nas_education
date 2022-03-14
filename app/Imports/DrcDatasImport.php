@@ -22,7 +22,7 @@ class DrcDatasImport implements ToModel,WithStartRow
     public function model(array $row)
     {
         
-      
+    
         return new DrcDatas([
             'udise_state_code'=>$row[0],
             'state_name'=>$row[1],

@@ -14,9 +14,8 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
-                              @if(!empty($content->page_meta_title))
-                              <li class="breadcrumb-item active" aria-current="page">{{$content->page_meta_title}}</li>
-                              @endif
+                              <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Report Card') }}</li>
+                              
                             </ol>
                           </nav>
                     </div>
@@ -44,10 +43,10 @@
                       
                     </div>
                     <div class="col-md-12">
-                      <div class="desc-black" data-aos="fade-up">
+                      <div class="desc-black table-responsive" data-aos="fade-up">
                       <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                     <th>S.NO.</th>
                                     <th>State/UTs</th>
                                     <th>Download Grade(3-5-8)</th>
@@ -63,12 +62,21 @@
                                     <td>{{$i++}}.</td>
                                     <td>{{$state->state_name}}</td>
                                     <td>
-                                        <a href="{{url('download-data-file/'.$state->file_name)}}">English</a>
-                                        <a href="{{url('download-data-file/hi/'.$state->file_name)}}">Hindi</a>
-
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a class="btn btn-primary my-2" href="{{url('download-data-file/'.$state->file_name)}}">English</a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a class="btn btn-secondary my-2" href="{{url('download-data-file/hi/'.$state->file_name)}}">Hindi</a>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
-                                        <a href="{{url('download-data-file/10/'.$state->file_name)}}">Download</a>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-6">
+                                                <a class="btn btn-success my-2" href="{{url('download-data-file/10/'.$state->file_name)}}">Download</a>
+                                            </div>
+                                        </div>
                                     </td>
                                     
                                 </tr>
@@ -76,7 +84,7 @@
                                
                             </tbody>
                             <tfoot>
-                                <tr>
+                                <tr class="text-center">
                                     <th>S.NO.</th>
                                     <th>State/UTs</th>
                                     <th>Download Grade(3-5-8)</th>
@@ -94,7 +102,43 @@
             </div>
         </div>
     </section>
+
+
+<!-- Modal Start -->
+<div class="modal" id="not-found">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="color:red;">File Not Exist!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <!-- <div class="modal-body">
+            <h4>File Not Found!</h4>
+        </div> -->
+        
+      </div>
+    </div>
+  </div>
+<!-- Modal End -->
 @include('front.includes.footer')
+@if(session('not-found'))
+<script>
+    $('#not-found').show()
+    $('#not-found').css({
+            'display': 'flex',
+            'justify-content': 'center',
+            'align-items': 'center'
+        })
+    $('.close').click(()=>{
+    $('#not-found').hide()
+    
+  })
+</script>       
+@endif
 <script>
     $(document).ready(function() {
     $('#example').DataTable();

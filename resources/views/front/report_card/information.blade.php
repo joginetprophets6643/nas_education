@@ -259,7 +259,7 @@
                                         <div class="infotab-content-wrap">
                                           <div class="row">
                                             <div class="col-md-12">
-                                              <h2>
+                                              <h2 class="mobile-margin">
                                                 Certain Parameters of the <span class="information_state_name"></span> State
                                               </h2>
                                             </div>
@@ -373,7 +373,7 @@
                                         <div class="infotab-content-wrap">
                                           <div class="row">
                                             <div class="col-md-12">
-                                              <h2>
+                                              <h2 class="mobile-margin">
                                                 Certain Parameters of the Nation
                                               </h2>
                                             </div>
