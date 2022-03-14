@@ -15,6 +15,7 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
   const [learningoutcome_data, setLearningOutcomeData] = useState<any>({})
   const [performance_level_data, setPerformanceLevelData] = useState<any>({})
   const [chartType, setchartType] = useState<boolean>()
+  const [currentSection, setCurrentSection] = useState<string>()
 
   let subjectShortCodes = {
       "Language": 'language',
@@ -48,24 +49,25 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
 
 
   const chartClickEvent = (data:any,name: string,type:string)=>{
-      if(name === 'management'){
-          setManagementData(makeSeries(data,name,type))
-      }
-      if(name === 'gender'){
-        setGenderData(makeSeries(data,name,type))
-      }
-      if(name === 'socialgroup'){
-        setSocialGroupData(makeSeries(data,name,type))
-      }
-      if(name === 'location'){
-        setLocationData(makeSeries(data,name,type))
-      }
-      if(name === 'performance'){
-        setPerformanceLevelData(makeSeries(data,name,type))
-      }
-      if(name === 'learning'){
-        setLearningOutcomeData(makeSeries(data,name,type))
-      }
+      setCurrentSection(name)
+    //   if(name === 'management'){
+    //       setManagementData(makeSeries(data,name,type))
+    //   }
+    //   if(name === 'gender'){
+    //     setGenderData(makeSeries(data,name,type))
+    //   }
+    //   if(name === 'socialgroup'){
+    //     setSocialGroupData(makeSeries(data,name,type))
+    //   }
+    //   if(name === 'location'){
+    //     setLocationData(makeSeries(data,name,type))
+    //   }
+    //   if(name === 'performance'){
+    //     setPerformanceLevelData(makeSeries(data,name,type))
+    //   }
+    //   if(name === 'learning'){
+    //     setLearningOutcomeData(makeSeries(data,name,type))
+    //   }
   }
   const makeSeries = (data: any, name:string, type: string)=>{
     let chart_details = {
@@ -100,8 +102,10 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
             menuItemDefinitions: {
                 // Custom definition
                 changechart: {
-                    text: 'Change Chart Type' ,
-                    onclick : () => setchartType(true)
+                    text:"Change Chart Type",
+                    onclick:  ()=> {
+                        chartClickEvent(data,name,'pie')
+                    },
                 },
                 // pie:{
                 //     onclick:  ()=> {
@@ -184,14 +188,14 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
         <div className={`averag-performance-content light-${props.class_style}`}>
             <div className="row">
                 <div className="col-md-6">
-                    { props.load_charts ? 
-                    <GraphCard  type="column" title="By Gender" chartType={chartType}  series={gender_data}/>
+                    { props.load_charts  ? 
+                    <GraphCard  type="column" title="By Gender" chartType={currentSection ==='gender' ? true : false}  series={gender_data}/>
                     :
                     ""}
                 </div>
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard  type="column" title="By Location" series={location_data} />
+                    <GraphCard  type="column" title="By Location" chartType={currentSection ==='location' ? true : false} series={location_data} />
                     :
                     ""}
                 </div>
@@ -199,13 +203,13 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
             <div className="row">
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard  type="column" title="By Management" series={management_data} />
+                    <GraphCard  type="column" title="By Management" chartType={currentSection ==='management' ? true : false} series={management_data} />
                     :
                     ""}
                 </div>
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard  type="column" title="By Social Group" series={socialgroup_data}  />
+                    <GraphCard  type="column" title="By Social Group" chartType={currentSection ==='socialgroup' ? true : false} series={socialgroup_data}  />
                     :
                     ""}
                 </div>
@@ -213,13 +217,13 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
             <div className="row">
                 <div className="col-md-6">
                     { props.load_charts ? 
-                    <GraphCard  type="pie" title="Range of Performance" series={performance_level_data} />
+                    <GraphCard  type="pie" title="Range of Performance" chartType={currentSection ==='performance' ? true : false} series={performance_level_data} />
                     :
                     ""}
                 </div>
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard type="column" title="By Learning Outcome" series={learningoutcome_data}/>
+                    <GraphCard type="column" title="By Learning Outcome"  chartType={currentSection ==='learning' ? true : false} series={learningoutcome_data}/>
                     :
                     ""}
                 </div>

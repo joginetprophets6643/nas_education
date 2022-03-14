@@ -12,7 +12,7 @@ HC_exporting(Highcharts)
 
 
 const GraphCard = (props: any) => {
-    console.log(props)
+    // console.log(props)
   return (
     <div className="apcard-white">
         <div className="apcard-header">
