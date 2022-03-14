@@ -125,8 +125,8 @@ class Data2017Controller extends Controller
         if(count($data) == 3){
             if($data[2] == 10){
                 $filename = $file_name.".pdf";
-                $file = public_path(). "/assets/front/district2017/".$state_name."/".$file_name.".pdf";
-                dd($file);
+                $file = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$file_name.".pdf";
+                //dd($file);
                 if(file_exists($file)){
                 return Response::download($file, $filename);
                 }
