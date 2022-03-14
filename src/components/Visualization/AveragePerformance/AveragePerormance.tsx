@@ -14,7 +14,7 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
   const [socialgroup_data, setSocialGroupData] = useState<any>({})
   const [learningoutcome_data, setLearningOutcomeData] = useState<any>({})
   const [performance_level_data, setPerformanceLevelData] = useState<any>({})
-
+  const [chartType, setchartType] = useState<boolean>()
 
   let subjectShortCodes = {
       "Language": 'language',
@@ -100,31 +100,33 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
             menuItemDefinitions: {
                 // Custom definition
                 changechart: {
-                    text: 'Change Chart Type'
+                    text: 'Change Chart Type' ,
+                    onclick : () => setchartType(true)
                 },
-                pie:{
-                    onclick:  ()=> {
-                        chartClickEvent(data,name,'pie')
-                    },
-                    text: 'Pie Chart'
-                },
-                column:{
-                    onclick:  ()=> {
-                        chartClickEvent(data,name,'column')
-                    },
-                    text: 'Column Chart'
-                },
-                line:{
-                    onclick:  ()=> {
-                        chartClickEvent(data,name,'line')
-                    },
-                    text: 'Line Chart'
-                },
+                // pie:{
+                //     onclick:  ()=> {
+                //         chartClickEvent(data,name,'pie')
+                //     },
+                //     text: 'Pie Chart'
+                // },
+                // column:{
+                //     onclick:  ()=> {
+                //         chartClickEvent(data,name,'column')
+                //     },
+                //     text: 'Column Chart'
+                // },
+                // line:{
+                //     onclick:  ()=> {
+                //         chartClickEvent(data,name,'line')
+                //     },
+                //     text: 'Line Chart'
+                // },
 
             },
             buttons: {
                 contextButton: {
-                    menuItems: ['changechart','separator','pie','column','line']
+                    // menuItems: ['changechart','separator','pie','column','line']
+                    menuItems: ['changechart']
                 }
             }
         },
@@ -183,7 +185,7 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
             <div className="row">
                 <div className="col-md-6">
                     { props.load_charts ? 
-                    <GraphCard  type="column" title="By Gender"  series={gender_data}/>
+                    <GraphCard  type="column" title="By Gender" chartType={chartType}  series={gender_data}/>
                     :
                     ""}
                 </div>

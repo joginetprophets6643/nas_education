@@ -5,11 +5,14 @@ import HighchartsReact from 'highcharts-react-official';
 import { useSelector } from 'react-redux';
 import { IntialStateModel, States, StoreModel } from '@/models/visualization';
 import HC_exporting from 'highcharts/modules/exporting'
+import ChartType from '@/components/Visualization/ChartType/ChartType';
+import Map from '@/components/Visualization/Map/Map';
 HC_exporting(Highcharts)
 
 
 
 const GraphCard = (props: any) => {
+    console.log(props)
   return (
     <div className="apcard-white">
         <div className="apcard-header">
@@ -26,12 +29,13 @@ const GraphCard = (props: any) => {
         </div> 
         <div className="apcard-content">
             <div className="apcard-graph-wrap">
-            {Object.keys(props.series).length > 0 ?
+            {Object.keys(props.series).length > 0 && !props.chartType ?
             <HighchartsReact
                 highcharts={Highcharts}
                 options={props.series}
+                
             />
-            :""}
+            : <ChartType />}
             </div>  
         </div>    
     </div>
