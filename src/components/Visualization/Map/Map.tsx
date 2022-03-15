@@ -9,54 +9,54 @@ highchartsMap(Highcharts);
 
 
 const Map = () => {
-  const [mapJson,setMapJson] = useState({})
-  useEffect(()=>{
-
-    const topology = fetch(
-      'https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.topo.json'
-    ).then(response => response.json())
-    setMapJson(topology)
-
-  },[])
-
   
 const mapOptions = {
-    chart: {
-      map: 'countries/in/custom/in-all-disputed'
-    },
-    title: {
-      text: ''
-    },
-    credits: {
-        enabled: false
-    },
-    mapNavigation: {
+  chart: {
+    map: 'countries/in/custom/in-all-disputed'
+  },
+
+  title: {
+    text: ''
+  },
+
+  subtitle: {
+    text: ''
+  },
+  legend: {
+    enabled: false
+  },
+  tooltip: { enabled: true },
+  navigation: {
+    buttonOptions: {
       enabled: false
-    },
-    tooltip: {
-      headerFormat: '',
-      pointFormat: '<b>{point.freq}</b><br><b>{point.keyword}</b><br>lat: {point.lat}, lon: {point.lon}'
-    },
+    }
+  },
+  credits: {
+    enabled: false
+  },
     series: [{
-      // Use the gb-all map with no data as a basemap
-      name: 'Basemap',
       mapData: mapDataIE,
-      borderColor: '#A0A0A0',
-      nullColor: '#FFC87B',
-      showInLegend: false
-    }, {
-      // Specify points using lat/lon
-      type: 'mapbubble',
-      name: 'Cities',
-      color: '#4169E1',
-      data: [{ z: 10, keyword: "Galway", lat: 53.27, lon: -9.25 }, 
-            { z: 4, keyword: "Dublin", lat: 53.27, lon: -6.25 }],
+      name: 'Random data',
+      allowPointSelect: true,
       cursor: 'pointer',
+      color: "#9ec2e4",
+      borderColor: "#6e6f70",
+      states: {
+        hover: {
+          color: '#f7941c'
+        },
+        select: {
+          color: '#9ec2e4'
+        }
+      },
+      dataLabels: {
+        // enabled: true,
+        format: '{point.name}'
+      }
     }]
 }
   return (
     <div className="apcard-graph-wrap">
-        <MapDropdown />
         <div className="map-content">
         <HighchartsReact
           constructorType ={'mapChart'}

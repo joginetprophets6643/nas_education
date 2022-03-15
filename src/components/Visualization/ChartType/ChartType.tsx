@@ -21,7 +21,14 @@ import dotmatrix from '@/assets/images/dfaDotMatrix.png';
 import percentage from '@/assets/images/100minus.png';
 
 
-const ChartType = () => {
+const ChartType = (props:any) => {
+
+  const closeMenu = ()=>{
+      props.menuToggler(false)
+  }
+  const changeType =( type: string)=>{
+      console.log(type)
+  }
   return (
     <div className="charttype-wrap">
         <ul className="nav nav-tabs" id="charttypeTab" role="tablist">
@@ -50,7 +57,8 @@ const ChartType = () => {
         <div className="tab-content" id="charttypeContent">
             
             <div className="close-charttype">
-                <a href="#">
+                <a href="#" onClick={(e)=>{ e.preventDefault()
+                     closeMenu()}}>
                     <span className="material-icons-round">
                         close
                     </span>
@@ -61,7 +69,8 @@ const ChartType = () => {
                 <div className="charttype-content-list">
                     <ul className="scrollbar-y-lightblue">
                        <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('line')}}>
                                <img src={line} alt="img" className="img-fluid" /> 
                                <p className="charttype-title">
                                    Line Chart
@@ -69,7 +78,8 @@ const ChartType = () => {
                             </a>    
                        </li>
                        <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('spline')}}>
                                <img src={spline} alt="img" className="img-fluid" /> 
                                <p className="charttype-title">
                                    Spline Chart
@@ -77,7 +87,8 @@ const ChartType = () => {
                             </a>    
                        </li> 
                        <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('polarline')}}>
                                <img src={polarline} alt="img" className="img-fluid" />
                                <p className="charttype-title">
                                     Polarline Chart
@@ -85,7 +96,8 @@ const ChartType = () => {
                             </a>    
                        </li> 
                        <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('spiderweb')}}>
                                <img src={spiderweb} alt="img" className="img-fluid" /> 
                                <p className="charttype-title">
                                     Spiderweb Chart
@@ -99,7 +111,8 @@ const ChartType = () => {
                 <div className="charttype-content-list">
                     <ul className="scrollbar-y-lightblue">
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('basic')}}>
                                 <img src={basic} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Basic
@@ -107,7 +120,8 @@ const ChartType = () => {
                             </a>    
                         </li>
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault();
+                                 changeType('stacked')}}>
                                 <img src={stacked} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                         Stacked
@@ -115,7 +129,8 @@ const ChartType = () => {
                             </a>    
                         </li> 
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('stackedpercent')}}>
                                 <img src={stackedpercent} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                         Stacked Percent
@@ -129,7 +144,8 @@ const ChartType = () => {
                 <div className="charttype-content-list">
                     <ul className="scrollbar-y-lightblue">
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('column')}}>
                                 <img src={groupedcolumn} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Grouped column
@@ -137,7 +153,8 @@ const ChartType = () => {
                             </a>    
                         </li>
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('stacked')}}>
                                 <img src={stackedX} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Stacked
@@ -145,7 +162,8 @@ const ChartType = () => {
                             </a>    
                         </li> 
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('stckedpercent')}}>
                                 <img src={stackedpercentX} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Stacked percent
@@ -153,7 +171,8 @@ const ChartType = () => {
                             </a>    
                         </li> 
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('bar')}}>
                                 <img src={basicbar} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Basic bar
@@ -161,7 +180,8 @@ const ChartType = () => {
                             </a>    
                         </li> 
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('stackedbar')}}>
                                 <img src={stackedbar} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Stacked bar
@@ -169,7 +189,8 @@ const ChartType = () => {
                             </a>    
                         </li> 
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('stackedpercentbar')}}>
                                 <img src={stackedpercentbar} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Stacked percent bar
@@ -183,7 +204,8 @@ const ChartType = () => {
                 <div className="charttype-content-list">
                     <ul className="scrollbar-y-lightblue">
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('pyramid')}}>
                                 <img src={agepyramid} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Age Pyramid
@@ -197,7 +219,8 @@ const ChartType = () => {
                 <div className="charttype-content-list">
                     <ul className="scrollbar-y-lightblue">
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('scatter')}}>
                                 <img src={scatter} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Scatter
@@ -211,7 +234,8 @@ const ChartType = () => {
                 <div className="charttype-content-list">
                     <ul className="scrollbar-y-lightblue">
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('pie')}}>
                                 <img src={pie} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Pie Chart
@@ -219,7 +243,8 @@ const ChartType = () => {
                             </a>    
                         </li>  
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('variablepie')}}>
                                 <img src={donut} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Donut Chart
@@ -227,7 +252,8 @@ const ChartType = () => {
                             </a>    
                         </li>  
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('semidoghnut')}}>
                                 <img src={semidonut} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Semidonut Chart
@@ -241,7 +267,8 @@ const ChartType = () => {
                 <div className="charttype-content-list">
                     <ul className="scrollbar-y-lightblue">
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('pie')}}>
                                 <img src={dotmatrix} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     Pie Chart
@@ -249,7 +276,8 @@ const ChartType = () => {
                             </a>    
                         </li>  
                         <li>
-                            <a href="#" className="charttype-img">
+                            <a href="#" className="charttype-img" onClick={(e)=>{ e.preventDefault()
+                                 changeType('100minus')}}>
                                 <img src={percentage} alt="img" className="img-fluid" /> 
                                 <p className="charttype-title">
                                     100 Minus

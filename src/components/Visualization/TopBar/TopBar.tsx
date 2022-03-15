@@ -13,8 +13,8 @@ const TopBar = () => {
                 <div className="breadcrum-wrap breadcrum-grey">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li className="breadcrumb-item"><a href="visualization-landing.html">Visualization</a></li>
+                            <li className="breadcrumb-item"><a href="/">Home</a></li>
+                            <li className="breadcrumb-item"><a href="/visualization/nas-2021">Visualization</a></li>
                             <li className="breadcrumb-item active" aria-current="page">National</li>
                         </ol>
                     </nav>

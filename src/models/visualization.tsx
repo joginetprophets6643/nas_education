@@ -37,6 +37,7 @@ export interface AveragePerformanceProps{
     image:string;
     load_charts:Boolean;
     eleme:any;
+    grade:number;
 }
 
 export interface StoreModel{

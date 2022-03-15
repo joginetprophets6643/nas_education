@@ -520,3 +520,66 @@
         }
     }
 }
+
+.scrollbar-y {
+    overflow-y: auto;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #dbe3ee;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #1f3f60;
+        border-radius: 10px;
+    }
+}
+
+.scrollbar-y-lightblue {
+    overflow-y: auto;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #75A9D9;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background:  #e6e6e6; 
+        border-radius: 10px;
+    }
+}
+
+.scrollbar-y-darkblue{
+    overflow-y: auto;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #4F83B2;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background:  #e6e6e6; 
+        border-radius: 10px;
+    }
+}
+.no-data {
+    height: 50vh;
+}

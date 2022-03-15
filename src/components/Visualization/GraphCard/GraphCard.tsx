@@ -2,17 +2,17 @@ import React, { useEffect, useState, useRef } from 'react';
 import People from '@/assets/images/ap-people.svg';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import { useSelector } from 'react-redux';
-import { IntialStateModel, States, StoreModel } from '@/models/visualization';
+import MapDropdown from '@/components/Visualization/Map/MapDropdown';
 import HC_exporting from 'highcharts/modules/exporting'
 import ChartType from '@/components/Visualization/ChartType/ChartType';
 import Map from '@/components/Visualization/Map/Map';
+import Nodata from "@/assets/images/no-data-icon.svg";
 HC_exporting(Highcharts)
 
 
 
 const GraphCard = (props: any) => {
-    console.log(props)
+    console.log(props.series)
   return (
     <div className="apcard-white">
         <div className="apcard-header">
@@ -29,13 +29,42 @@ const GraphCard = (props: any) => {
         </div> 
         <div className="apcard-content">
             <div className="apcard-graph-wrap">
-            {Object.keys(props.series).length > 0 && !props.chartType ?
-            <HighchartsReact
-                highcharts={Highcharts}
-                options={props.series}
-                
-            />
-            : <ChartType />}
+                {Object.keys(props.series).length > 0 ?
+                props.type !== 'map' ?
+                (
+                 !props.chartType ?
+                    <>
+                    { props.useDropdown?
+                    <MapDropdown />
+
+                    :""}
+                    <HighchartsReact
+                    highcharts={Highcharts}
+                    options={props.series}
+                    
+                />
+                    </>
+                    :
+                <ChartType menuToggler={props.chartMenu} />
+                )
+                    : 
+                (!props.chartType ?
+                    <>
+                    { props.useDropdown?
+                        <MapDropdown />
+
+                    :""}
+                        <Map/>
+
+                    </>
+                : <ChartType menuToggler={props.chartMenu} />
+                ) : 
+                <div className='row  align-items-center no-data'>
+                    <div className='col-md-12 text-center'>
+                        <img src={Nodata} />
+                    </div>
+                </div>
+                }
             </div>  
         </div>    
     </div>

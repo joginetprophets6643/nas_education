@@ -19,7 +19,7 @@ const TabContent = () => {
 
   // const current_geography = "national"
   const dispatch = useDispatch()
-  const grade =  useSelector<StoreModel>(store=> store.grade.data)
+  const grade =  useSelector<StoreModel>(store=> store.grade.data) as number
   const [student_count, setStudentCount] = useState<number>(0)
   const [teachers_count, setTeachersCount] = useState<number>(0)
   const [school_count, setScohoolCount] = useState<number>(0)
@@ -214,6 +214,7 @@ const TabContent = () => {
                 class_style={subject_styles[(subject.replace(/\s+/g, '')).toLowerCase()]} 
                 image={subject_icons[(subject.replace(/\s+/g, '')).toLowerCase()]}
                 eleme={marker.current[index]}
+                grade={grade}
                 load_charts={encountered_subject.includes(subject) ? true : false}
               />
             </div>
