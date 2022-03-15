@@ -1,5 +1,4 @@
 import React, { useEffect, useState ,useRef} from 'react';
-import Globe from '@/assets/images/globe-icon.svg';
 import GraphCard from '@/components/Visualization/GraphCard/GraphCard';
 import { useSelector } from 'react-redux';
 import { AveragePerformanceProps, IntialStateModel, StoreModel } from '@/models/visualization';
@@ -13,9 +12,11 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
   const [location_data, setLocationData] = useState<any>({})
   const [socialgroup_data, setSocialGroupData] = useState<any>({})
   const [learningoutcome_data, setLearningOutcomeData] = useState<any>({})
+  const [performanceColumn_data, setPerformanceColumnData] = useState<any>({})
+  const [performanceColumn_data2, setPerformanceColumnData2] = useState<any>({})
+
   const [performance_level_data, setPerformanceLevelData] = useState<any>({})
-  const [chartType, setchartType] = useState<boolean>()
-  const [currentSection, setCurrentSection] = useState<string>()
+  const [currentSection, setCurrentSection] = useState<string>('')
 
   let subjectShortCodes = {
       "Language": 'language',
@@ -27,14 +28,11 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
       'Evs':'evs'
   } as any
 
-//   useEffect(()=>{
-//     console.log(props.eleme)
-//   },[props.eleme])
 
   useEffect(()=>{
     if(charts.loaded){
-        // console.log(charts.data)
         setGraphs(charts.data)
+        setCurrentSection('')
     }
   },[charts])
 
@@ -44,9 +42,16 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
       management:['#9262E6','#9262E6','#9262E6','#9262E6'],
       socialgroup:['#2196F3','#2196F3','#2196F3','#2196F3'],
       learning:['#D13CEB'],
+      avgperformancecolumn:['#D13CEB'],
+      avgperformancecolumn2:['#D13CEB'],
       performance:['#F6A5B5','#F2849A','#EC4A6A','#BD3B55']
   } as any
 
+  const toggleChartMenu = (value: boolean)=>{
+      if(!value){
+        setCurrentSection('')  
+      }
+  }
 
   const chartClickEvent = (data:any,name: string,type:string)=>{
       setCurrentSection(name)
@@ -107,29 +112,10 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
                         chartClickEvent(data,name,'pie')
                     },
                 },
-                // pie:{
-                //     onclick:  ()=> {
-                //         chartClickEvent(data,name,'pie')
-                //     },
-                //     text: 'Pie Chart'
-                // },
-                // column:{
-                //     onclick:  ()=> {
-                //         chartClickEvent(data,name,'column')
-                //     },
-                //     text: 'Column Chart'
-                // },
-                // line:{
-                //     onclick:  ()=> {
-                //         chartClickEvent(data,name,'line')
-                //     },
-                //     text: 'Line Chart'
-                // },
 
             },
             buttons: {
                 contextButton: {
-                    // menuItems: ['changechart','separator','pie','column','line']
                     menuItems: ['changechart']
                 }
             }
@@ -150,7 +136,7 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
     Object.keys(data).forEach((legend,index) => {
         series.data.push({
             name: legend.toUpperCase(),
-            color: (name === 'learning' ? coloumnChartColor[name][0]: coloumnChartColor[name][index] ),
+            color: ((name === 'learning' || name === 'avgperformancecolumn' || name === 'avgperformancecolumn2')? coloumnChartColor[name][0]: coloumnChartColor[name][index] ),
             y: Number(data[legend])
         })
     });
@@ -167,14 +153,19 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
         setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography],'Location','column'))
         setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'],'Learning',"column"))
         setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography],'Performance','pie'))
-
-      }else{
+        setPerformanceColumnData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'],'avgPerformanceColumn',"column"))
+        setPerformanceColumnData2(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'],'avgPerformanceColumn2',"column"))
+  
+    }else{
         setGenderData({})
         setManagementData({})
         setSocialGroupData({})
         setLocationData({})
         setLearningOutcomeData({})
-        setPerformanceLevelData({}) 
+        setPerformanceLevelData({})
+        setPerformanceColumnData({}) 
+        setPerformanceColumnData2({}) 
+
       }
   },[graphs])
 
@@ -189,13 +180,13 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
             <div className="row">
                 <div className="col-md-6">
                     { props.load_charts  ? 
-                    <GraphCard  type="column" title="By Gender" chartType={currentSection ==='gender' ? true : false}  series={gender_data}/>
+                    <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Gender" chartType={currentSection ==='gender' ? true : false}  series={gender_data}/>
                     :
                     ""}
                 </div>
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard  type="column" title="By Location" chartType={currentSection ==='location' ? true : false} series={location_data} />
+                    <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Location" chartType={currentSection ==='location' ? true : false} series={location_data} />
                     :
                     ""}
                 </div>
@@ -203,13 +194,13 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
             <div className="row">
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard  type="column" title="By Management" chartType={currentSection ==='management' ? true : false} series={management_data} />
+                    <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Management" chartType={currentSection ==='management' ? true : false} series={management_data} />
                     :
                     ""}
                 </div>
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard  type="column" title="By Social Group" chartType={currentSection ==='socialgroup' ? true : false} series={socialgroup_data}  />
+                    <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Social Group" chartType={currentSection ==='socialgroup' ? true : false} series={socialgroup_data}  />
                     :
                     ""}
                 </div>
@@ -217,13 +208,38 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
             <div className="row">
                 <div className="col-md-6">
                     { props.load_charts ? 
-                    <GraphCard  type="pie" title="Range of Performance" chartType={currentSection ==='performance' ? true : false} series={performance_level_data} />
+                    <GraphCard  type="pie" chartMenu={toggleChartMenu} useDropdown={false} title="Range of Performance" chartType={currentSection ==='performance' ? true : false} series={performance_level_data} />
                     :
                     ""}
                 </div>
                 <div className="col-md-6">
                 { props.load_charts ? 
-                    <GraphCard type="column" title="By Learning Outcome"  chartType={currentSection ==='learning' ? true : false} series={learningoutcome_data}/>
+                    <GraphCard type="column" chartMenu={toggleChartMenu} useDropdown={false} title="By Learning Outcome"  chartType={currentSection ==='learning' ? true : false} series={learningoutcome_data}/>
+                    :
+                    ""}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-6">
+                    { props.load_charts ? 
+                    <GraphCard  type="map" chartMenu={toggleChartMenu} useDropdown={true} title={`Average Performance of Students In ${props.name} In class ${props.grade}`} series={socialgroup_data} />
+                    :
+                    ""}
+                </div>
+                <div className="col-md-6">
+                    {props.load_charts ? 
+                    <>
+                        <GraphCard chartMenu={toggleChartMenu} useDropdown={true} type="column" title={`Average Performance of Students In ${props.name} In class ${props.grade}`}  chartType={currentSection ==='avgperformancecolumn' ? true : false} series={performanceColumn_data} />
+                    </>
+
+
+                : ""}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-12">
+                    { props.load_charts ? 
+                        <GraphCard chartMenu={toggleChartMenu} type="column" title={`Average Performance of Students In ${props.name} In class ${props.grade}`} chartType={currentSection ==='avgperformancecolumn2' ? true : false} series={performanceColumn_data2} />
                     :
                     ""}
                 </div>
