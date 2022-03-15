@@ -109,7 +109,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-12">
+              <!-- <div class="col-md-12">
                 <div class="mt-4">
                   <div class="row align-items-center">
                    <div class="col-md-6">
@@ -142,7 +142,7 @@
                    </div>
                   </div>
                 </div>
-           </div> 
+           </div>  -->
               <!-- <div class="col-md-4">
                       <div class="line-card line-card-blue">
                         <div class="line-cardimg">

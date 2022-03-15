@@ -53,7 +53,7 @@
                                     <th>Grade-5</th>
                                     <th>Grade-8</th>
                                     <th>Grade-10</th>
-                                    <th>All</th>
+                                    <th>All Grade</th>
                                 </tr>
                             </thead>
                             <tbody>

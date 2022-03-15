@@ -12,7 +12,10 @@ HC_exporting(Highcharts)
 
 
 const GraphCard = (props: any) => {
-    console.log(props.series)
+    // console.log(props.series)
+    useEffect(()=>{
+        console.log(props.series.series)
+    },[props])
   return (
     <div className="apcard-white">
         <div className="apcard-header">
@@ -41,6 +44,7 @@ const GraphCard = (props: any) => {
                     <HighchartsReact
                     highcharts={Highcharts}
                     options={props.series}
+                    allowChartUpdate = {true}
                     
                 />
                     </>
