@@ -312,7 +312,8 @@
       $("#title").html(title[3].toUpperCase());
       }
 
-
+      var click1=0;
+      var click2=0;
       var $affectedElements = $("p,span,h1,h2,h3,h4,h5,h6,a"); // Can be extended, ex. $("div, p, span.someClass")
 
       // Storing the original size in a data attribute so size can be reset
@@ -322,14 +323,24 @@
       });
 
       $("#btn-increase").click(function(){
+        if(click2<1){
         changeFontSize(+2);
+        click1=3
+        }
+        click2++
       })
 
       $("#btn-decrease").click(function(){
+        if(click1<2){
         changeFontSize(+1);
+        click2=3
+        }
+        click1++
       })
 
       $("#btn-orig").click(function(){
+        click1=0;
+        click2=0;
         $affectedElements.each( function(){
               var $this = $(this);
               $this.css( "font-size" , $this.data("orig-size") );
