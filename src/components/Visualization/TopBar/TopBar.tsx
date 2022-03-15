@@ -13,17 +13,12 @@ const TopBar = () => {
                 <div className="breadcrum-wrap breadcrum-grey">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li className="breadcrumb-item"><a href="visualization-landing.html">Visualization</a></li>
+                            <li className="breadcrumb-item"><a href="/">Home</a></li>
+                            <li className="breadcrumb-item"><a href="/visualization/nas-2021">Visualization</a></li>
                             <li className="breadcrumb-item active" aria-current="page">National</li>
                         </ol>
                     </nav>
                 </div>
-                <button className="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sideBar" aria-controls="sideBar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    <span className="navbar-toggler-icon"></span>
-                    <span className="navbar-toggler-icon"></span>
-                </button>
             </div>
             <Dropdown/>
             {/* <div className="col-md-4">

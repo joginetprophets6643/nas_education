@@ -64,10 +64,10 @@
                                     <td>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <a class="btn btn-primary my-2" href="{{url('download-data-file/'.$state->file_name)}}">English</a>
+                                                <a class="btn card-purple text-white my-2" href="{{url('download-data-file/'.$state->file_name)}}">English</a>
                                             </div>
                                             <div class="col-md-6">
-                                                <a class="btn btn-secondary my-2" href="{{url('download-data-file/hi/'.$state->file_name)}}">Hindi</a>
+                                                <a class="btn text-white card-green my-2" href="{{url('download-data-file/hi/'.$state->file_name)}}">Hindi</a>
                                             </div>
                                         </div>
                                     </td>

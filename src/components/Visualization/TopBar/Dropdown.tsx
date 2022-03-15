@@ -111,15 +111,19 @@ const Dropdown = () =>{
                             : ""}
                         </ul>
                         {searchedDistrictList.length === 0 ? 
-                        <a href="#" className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside">India</a>
+                        <a href="#" onClick={(e)=>{e.preventDefault()}} className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside">India</a>
                         :""}
                         <ul className="dropdown-menu menu-level-2 scrollbar-y-lightblue">
                             {states.map((state,index)=>(
                                 <li className="dropdown-list" key={state.state_id}>
-                                    <a className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" onClick={()=>{getStateDistricts(state)}}>{state.state_name}</a>
+                                    <a className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#" onClick={(e)=>{
+                                        e.preventDefault()
+                                        getStateDistricts(state)}}>{state.state_name}</a>
                                     <ul className="dropdown-menu menu-level-3 scrollbar-y-darkblue" key={index}>
                                         {districts.map(((district,index)=>(
-                                            <li className="dropdown-list" key={index}><a className="dropdown-item" href="#" onClick={()=>{ChangeDistrict(district)}}>{district.district_name}</a></li>
+                                            <li className="dropdown-list" key={index}><a className="dropdown-item" href="#" onClick={(e)=>{
+                                                e.preventDefault()
+                                                ChangeDistrict(district)}}>{district.district_name}</a></li>
                                         )))}
                                     </ul>
                                 </li>

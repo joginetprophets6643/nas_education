@@ -2352,6 +2352,11 @@ var AveragePerormance = function AveragePerormance(props) {
       performance_level_data = _ref14[0],
       setPerformanceLevelData = _ref14[1];
 
+  var _ref15 = (0, react_1.useState)(),
+      _ref16 = _slicedToArray(_ref15, 2),
+      chartType = _ref16[0],
+      setchartType = _ref16[1];
+
   var subjectShortCodes = {
     "Language": 'language',
     "Mil": 'mil',
@@ -2437,30 +2442,34 @@ var AveragePerormance = function AveragePerormance(props) {
         menuItemDefinitions: {
           // Custom definition
           changechart: {
-            text: 'Change Chart Type'
-          },
-          pie: {
+            text: 'Change Chart Type',
             onclick: function onclick() {
-              chartClickEvent(data, name, 'pie');
-            },
-            text: 'Pie Chart'
-          },
-          column: {
-            onclick: function onclick() {
-              chartClickEvent(data, name, 'column');
-            },
-            text: 'Column Chart'
-          },
-          line: {
-            onclick: function onclick() {
-              chartClickEvent(data, name, 'line');
-            },
-            text: 'Line Chart'
-          }
+              return setchartType(true);
+            }
+          } // pie:{
+          //     onclick:  ()=> {
+          //         chartClickEvent(data,name,'pie')
+          //     },
+          //     text: 'Pie Chart'
+          // },
+          // column:{
+          //     onclick:  ()=> {
+          //         chartClickEvent(data,name,'column')
+          //     },
+          //     text: 'Column Chart'
+          // },
+          // line:{
+          //     onclick:  ()=> {
+          //         chartClickEvent(data,name,'line')
+          //     },
+          //     text: 'Line Chart'
+          // },
+
         },
         buttons: {
           contextButton: {
-            menuItems: ['changechart', 'separator', 'pie', 'column', 'line']
+            // menuItems: ['changechart','separator','pie','column','line']
+            menuItems: ['changechart']
           }
         }
       },
@@ -2526,6 +2535,7 @@ var AveragePerormance = function AveragePerormance(props) {
   }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
     type: "column",
     title: "By Gender",
+    chartType: chartType,
     series: gender_data
   }) : ""), react_1["default"].createElement("div", {
     className: "col-md-6"
@@ -2568,6 +2578,417 @@ exports["default"] = AveragePerormance;
 
 /***/ }),
 
+/***/ "./src/components/Visualization/ChartType/ChartType.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/Visualization/ChartType/ChartType.tsx ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var line_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/line.png */ "./src/assets/images/line.png"));
+
+var spline_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/spline.png */ "./src/assets/images/spline.png"));
+
+var polarline_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/polarline.png */ "./src/assets/images/polarline.png"));
+
+var spiderweb_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/spiderweb.png */ "./src/assets/images/spiderweb.png"));
+
+var basic_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/basic.png */ "./src/assets/images/basic.png"));
+
+var stacked_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/stacked.png */ "./src/assets/images/stacked.png"));
+
+var stackedpercent_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/stackedpercent.png */ "./src/assets/images/stackedpercent.png"));
+
+var groupedcolumn_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/groupedcolumn.png */ "./src/assets/images/groupedcolumn.png"));
+
+var stackedX_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/stackedX.png */ "./src/assets/images/stackedX.png"));
+
+var stackedpercentX_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/stackedpercentX.png */ "./src/assets/images/stackedpercentX.png"));
+
+var basicbar_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/basicbar.png */ "./src/assets/images/basicbar.png"));
+
+var stackedbar_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/stackedbar.png */ "./src/assets/images/stackedbar.png"));
+
+var stackedpercentbar_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/stackedpercentbar.png */ "./src/assets/images/stackedpercentbar.png"));
+
+var agepyramid_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/agepyramid.png */ "./src/assets/images/agepyramid.png"));
+
+var scatter_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/scatter.png */ "./src/assets/images/scatter.png"));
+
+var pie_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/pie.png */ "./src/assets/images/pie.png"));
+
+var donut_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/donut.png */ "./src/assets/images/donut.png"));
+
+var semidonut_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/semidonut.png */ "./src/assets/images/semidonut.png"));
+
+var dfaDotMatrix_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/dfaDotMatrix.png */ "./src/assets/images/dfaDotMatrix.png"));
+
+var _100minus_png_1 = __importDefault(__webpack_require__(/*! @/assets/images/100minus.png */ "./src/assets/images/100minus.png"));
+
+var ChartType = function ChartType() {
+  return react_1["default"].createElement("div", {
+    className: "charttype-wrap"
+  }, react_1["default"].createElement("ul", {
+    className: "nav nav-tabs",
+    id: "charttypeTab",
+    role: "tablist"
+  }, react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link active",
+    id: "line-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#line",
+    type: "button",
+    role: "tab",
+    "aria-controls": "line",
+    "aria-selected": "true"
+  }, "Line")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "area-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#area",
+    type: "button",
+    role: "tab",
+    "aria-controls": "area",
+    "aria-selected": "false"
+  }, "Area")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "bar-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#bar",
+    type: "button",
+    role: "tab",
+    "aria-controls": "bar",
+    "aria-selected": "false"
+  }, "Col/Bar")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "pyramid-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#pyramid",
+    type: "button",
+    role: "tab",
+    "aria-controls": "pyramid",
+    "aria-selected": "false"
+  }, "Pyramid")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "scatter-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#scatter",
+    type: "button",
+    role: "tab",
+    "aria-controls": "scatter",
+    "aria-selected": "false"
+  }, "Scatter")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "pie-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#pie",
+    type: "button",
+    role: "tab",
+    "aria-controls": "pie",
+    "aria-selected": "false"
+  }, "Pie")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "percentage-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#percentage",
+    type: "button",
+    role: "tab",
+    "aria-controls": "percentage",
+    "aria-selected": "false"
+  }, "Percentage"))), react_1["default"].createElement("div", {
+    className: "tab-content",
+    id: "charttypeContent"
+  }, react_1["default"].createElement("div", {
+    className: "close-charttype"
+  }, react_1["default"].createElement("a", {
+    href: "#"
+  }, react_1["default"].createElement("span", {
+    className: "material-icons-round"
+  }, "close"))), react_1["default"].createElement("div", {
+    className: "tab-pane fade show active",
+    id: "line",
+    role: "tabpanel",
+    "aria-labelledby": "line-tab"
+  }, react_1["default"].createElement("div", {
+    className: "charttype-content-list"
+  }, react_1["default"].createElement("ul", {
+    className: "scrollbar-y-lightblue"
+  }, react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: line_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Line Chart"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: spline_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Spline Chart"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: polarline_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Polarline Chart"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: spiderweb_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Spiderweb Chart")))))), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "area",
+    role: "tabpanel",
+    "aria-labelledby": "area-tab"
+  }, react_1["default"].createElement("div", {
+    className: "charttype-content-list"
+  }, react_1["default"].createElement("ul", {
+    className: "scrollbar-y-lightblue"
+  }, react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: basic_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Basic"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: stacked_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Stacked"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: stackedpercent_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Stacked Percent")))))), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "bar",
+    role: "tabpanel",
+    "aria-labelledby": "bar-tab"
+  }, react_1["default"].createElement("div", {
+    className: "charttype-content-list"
+  }, react_1["default"].createElement("ul", {
+    className: "scrollbar-y-lightblue"
+  }, react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: groupedcolumn_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Grouped column"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: stackedX_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Stacked"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: stackedpercentX_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Stacked percent"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: basicbar_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Basic bar"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: stackedbar_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Stacked bar"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: stackedpercentbar_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Stacked percent bar")))))), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "pyramid",
+    role: "tabpanel",
+    "aria-labelledby": "pyramid-tab"
+  }, react_1["default"].createElement("div", {
+    className: "charttype-content-list"
+  }, react_1["default"].createElement("ul", {
+    className: "scrollbar-y-lightblue"
+  }, react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: agepyramid_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Age Pyramid")))))), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "scatter",
+    role: "tabpanel",
+    "aria-labelledby": "scatter-tab"
+  }, react_1["default"].createElement("div", {
+    className: "charttype-content-list"
+  }, react_1["default"].createElement("ul", {
+    className: "scrollbar-y-lightblue"
+  }, react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: scatter_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Scatter")))))), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "pie",
+    role: "tabpanel",
+    "aria-labelledby": "pie-tab"
+  }, react_1["default"].createElement("div", {
+    className: "charttype-content-list"
+  }, react_1["default"].createElement("ul", {
+    className: "scrollbar-y-lightblue"
+  }, react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: pie_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Pie Chart"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: donut_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Donut Chart"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: semidonut_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Semidonut Chart")))))), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "percentage",
+    role: "tabpanel",
+    "aria-labelledby": "percentage-tab"
+  }, react_1["default"].createElement("div", {
+    className: "charttype-content-list"
+  }, react_1["default"].createElement("ul", {
+    className: "scrollbar-y-lightblue"
+  }, react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: dfaDotMatrix_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "Pie Chart"))), react_1["default"].createElement("li", null, react_1["default"].createElement("a", {
+    href: "#",
+    className: "charttype-img"
+  }, react_1["default"].createElement("img", {
+    src: _100minus_png_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), react_1["default"].createElement("p", {
+    className: "charttype-title"
+  }, "100 Minus"))))))));
+};
+
+exports["default"] = ChartType;
+
+/***/ }),
+
 /***/ "./src/components/Visualization/GraphCard/GraphCard.tsx":
 /*!**************************************************************!*\
   !*** ./src/components/Visualization/GraphCard/GraphCard.tsx ***!
@@ -2597,9 +3018,12 @@ var highcharts_react_official_1 = __importDefault(__webpack_require__(/*! highch
 
 var exporting_1 = __importDefault(__webpack_require__(/*! highcharts/modules/exporting */ "./node_modules/highcharts/modules/exporting.js"));
 
+var ChartType_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/ChartType/ChartType */ "./src/components/Visualization/ChartType/ChartType.tsx"));
+
 (0, exporting_1["default"])(highcharts_1["default"]);
 
 var GraphCard = function GraphCard(props) {
+  console.log(props);
   return react_1["default"].createElement("div", {
     className: "apcard-white"
   }, react_1["default"].createElement("div", {
@@ -2614,10 +3038,10 @@ var GraphCard = function GraphCard(props) {
     className: "apcard-content"
   }, react_1["default"].createElement("div", {
     className: "apcard-graph-wrap"
-  }, Object.keys(props.series).length > 0 ? react_1["default"].createElement(highcharts_react_official_1["default"], {
+  }, Object.keys(props.series).length > 0 && !props.chartType ? react_1["default"].createElement(highcharts_react_official_1["default"], {
     highcharts: highcharts_1["default"],
     options: props.series
-  }) : "")));
+  }) : react_1["default"].createElement(ChartType_1["default"], null))));
 };
 
 exports["default"] = GraphCard;
@@ -3524,21 +3948,7 @@ var TopBar = function TopBar() {
   }, "Visualization")), react_1["default"].createElement("li", {
     className: "breadcrumb-item active",
     "aria-current": "page"
-  }, "National")))), react_1["default"].createElement("button", {
-    className: "navbar-toggler d-lg-none collapsed",
-    type: "button",
-    "data-bs-toggle": "collapse",
-    "data-bs-target": "#sideBar",
-    "aria-controls": "sideBar",
-    "aria-expanded": "false",
-    "aria-label": "Toggle navigation"
-  }, react_1["default"].createElement("span", {
-    className: "navbar-toggler-icon"
-  }), react_1["default"].createElement("span", {
-    className: "navbar-toggler-icon"
-  }), react_1["default"].createElement("span", {
-    className: "navbar-toggler-icon"
-  }))), react_1["default"].createElement(Dropdown_1["default"], null)));
+  }, "National"))))), react_1["default"].createElement(Dropdown_1["default"], null)));
 };
 
 exports["default"] = TopBar;
@@ -4434,6 +4844,36 @@ exports["default"] = store;
 
 /***/ }),
 
+/***/ "./src/assets/images/100minus.png":
+/*!****************************************!*\
+  !*** ./src/assets/images/100minus.png ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/100minus.png?939b8465649a7357fa3cce0ecf199eef");
+
+/***/ }),
+
+/***/ "./src/assets/images/agepyramid.png":
+/*!******************************************!*\
+  !*** ./src/assets/images/agepyramid.png ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/agepyramid.png?ef1643647690823823c2a1af0b69167f");
+
+/***/ }),
+
 /***/ "./src/assets/images/ap-people.svg":
 /*!*****************************************!*\
   !*** ./src/assets/images/ap-people.svg ***!
@@ -4446,6 +4886,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/ap-people.svg?86291f13f18fd7ed0c2a3b497157807d");
+
+/***/ }),
+
+/***/ "./src/assets/images/basic.png":
+/*!*************************************!*\
+  !*** ./src/assets/images/basic.png ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/basic.png?a62eb813b7405843077f04920e122005");
+
+/***/ }),
+
+/***/ "./src/assets/images/basicbar.png":
+/*!****************************************!*\
+  !*** ./src/assets/images/basicbar.png ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/basicbar.png?e9bf49102d220cd1dbfcb3c9e8ea3d10");
 
 /***/ }),
 
@@ -4479,6 +4949,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/assets/images/dfaDotMatrix.png":
+/*!********************************************!*\
+  !*** ./src/assets/images/dfaDotMatrix.png ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/dfaDotMatrix.png?51158625f59f92d7c9d4e9f25f8a0016");
+
+/***/ }),
+
+/***/ "./src/assets/images/donut.png":
+/*!*************************************!*\
+  !*** ./src/assets/images/donut.png ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/donut.png?3f10bbc993811347833a751151035364");
+
+/***/ }),
+
 /***/ "./src/assets/images/globe-icon.svg":
 /*!******************************************!*\
   !*** ./src/assets/images/globe-icon.svg ***!
@@ -4494,6 +4994,66 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/assets/images/groupedcolumn.png":
+/*!*********************************************!*\
+  !*** ./src/assets/images/groupedcolumn.png ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/groupedcolumn.png?157bc7f32f85932f56302af9d56355fc");
+
+/***/ }),
+
+/***/ "./src/assets/images/line.png":
+/*!************************************!*\
+  !*** ./src/assets/images/line.png ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/line.png?893cd962f6ae4132acf7cb5c6036d7f9");
+
+/***/ }),
+
+/***/ "./src/assets/images/pie.png":
+/*!***********************************!*\
+  !*** ./src/assets/images/pie.png ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/pie.png?7f81c0e161f543375fe8f59ee8d81839");
+
+/***/ }),
+
+/***/ "./src/assets/images/polarline.png":
+/*!*****************************************!*\
+  !*** ./src/assets/images/polarline.png ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/polarline.png?bcd5bae3cb85370f83a8faafe2bcb147");
+
+/***/ }),
+
 /***/ "./src/assets/images/professor.svg":
 /*!*****************************************!*\
   !*** ./src/assets/images/professor.svg ***!
@@ -4506,6 +5066,156 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/professor.svg?5823aeb995fc38618c80e7ad0ec5bd75");
+
+/***/ }),
+
+/***/ "./src/assets/images/scatter.png":
+/*!***************************************!*\
+  !*** ./src/assets/images/scatter.png ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/scatter.png?b6b8e5fbfa77022e3a685a7f1a01fde7");
+
+/***/ }),
+
+/***/ "./src/assets/images/semidonut.png":
+/*!*****************************************!*\
+  !*** ./src/assets/images/semidonut.png ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/semidonut.png?1cafcf7462e9867412616886c38f1c5b");
+
+/***/ }),
+
+/***/ "./src/assets/images/spiderweb.png":
+/*!*****************************************!*\
+  !*** ./src/assets/images/spiderweb.png ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/spiderweb.png?fae478b48ea07c2e3eda831ec91d857d");
+
+/***/ }),
+
+/***/ "./src/assets/images/spline.png":
+/*!**************************************!*\
+  !*** ./src/assets/images/spline.png ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/spline.png?ecf2707319544edb65dcbf734abdcbbc");
+
+/***/ }),
+
+/***/ "./src/assets/images/stacked.png":
+/*!***************************************!*\
+  !*** ./src/assets/images/stacked.png ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/stacked.png?0f7b5cc0dff752bea7d417bc06e7089e");
+
+/***/ }),
+
+/***/ "./src/assets/images/stackedX.png":
+/*!****************************************!*\
+  !*** ./src/assets/images/stackedX.png ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/stackedX.png?6282482ec2f2b02e0c48deaf2e2d7148");
+
+/***/ }),
+
+/***/ "./src/assets/images/stackedbar.png":
+/*!******************************************!*\
+  !*** ./src/assets/images/stackedbar.png ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/stackedbar.png?251bdb83495e607c9b7d0617990d7268");
+
+/***/ }),
+
+/***/ "./src/assets/images/stackedpercent.png":
+/*!**********************************************!*\
+  !*** ./src/assets/images/stackedpercent.png ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/stackedpercent.png?e2cfeb95a022dba371b53a645ef89cc5");
+
+/***/ }),
+
+/***/ "./src/assets/images/stackedpercentX.png":
+/*!***********************************************!*\
+  !*** ./src/assets/images/stackedpercentX.png ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/stackedpercentX.png?b8018879560eaf6a89f78d22ecb49230");
+
+/***/ }),
+
+/***/ "./src/assets/images/stackedpercentbar.png":
+/*!*************************************************!*\
+  !*** ./src/assets/images/stackedpercentbar.png ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/stackedpercentbar.png?216268b56fe800e03baa11a6b1d5f646");
 
 /***/ }),
 

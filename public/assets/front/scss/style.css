@@ -8813,11 +8813,32 @@ ul {
 
 .scrollbar-y-lightblue::-webkit-scrollbar-track {
   border-radius: 10px;
-  background: #e6e6e6;
+  background: #75A9D9;
 }
 
 .scrollbar-y-lightblue::-webkit-scrollbar-thumb {
-  background: #2a6aa9;
+  background: #e6e6e6;
+  border-radius: 10px;
+}
+
+.scrollbar-y-darkblue {
+  overflow-y: auto;
+  /* width */
+  /* Track */
+  /* Handle */
+}
+
+.scrollbar-y-darkblue::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-y-darkblue::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #4F83B2;
+}
+
+.scrollbar-y-darkblue::-webkit-scrollbar-thumb {
+  background: #e6e6e6;
   border-radius: 10px;
 }
 
