@@ -13,9 +13,9 @@ HC_exporting(Highcharts)
 
 const GraphCard = (props: any) => {
     // console.log(props.series)
-    useEffect(()=>{
-        console.log(props.series.series)
-    },[props])
+    // useEffect(()=>{
+    //     console.log(props.series.series)
+    // },[props])
   return (
     <div className="apcard-white">
         <div className="apcard-header">
