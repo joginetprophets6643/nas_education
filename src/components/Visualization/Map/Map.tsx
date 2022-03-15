@@ -51,8 +51,9 @@ const mapOptions = {
       },
       dataLabels: {
         // enabled: true,
-        format: '{point.name}'
-      }
+        // format: '{point.name}'
+      },
+      
     }]
 }
   return (
@@ -62,6 +63,8 @@ const mapOptions = {
           constructorType ={'mapChart'}
           highcharts={Highcharts}
           options={mapOptions}
+          allowChartUpdate={false}
+
         /> 
         </div>
     </div>
