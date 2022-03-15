@@ -74,7 +74,7 @@ class Data2017Controller extends Controller
         }
 
         else{
-        return redirect()->back()->with('not-found','not-found');
+            return redirect()->route('download-state-2017-pdf')->with('not-found','not-found');
         }
     }
 
@@ -90,7 +90,7 @@ class Data2017Controller extends Controller
         }
 
         else{
-        return redirect()->back()->with('not-found','not-found');
+            return redirect()->route('download-state-2017-pdf')->with('not-found','not-found');
         }
     }
 
@@ -103,7 +103,7 @@ class Data2017Controller extends Controller
         }
 
         else{
-        return redirect()->back()->with('not-found','not-found');
+            return redirect()->route('download-state-2017-pdf')->with('not-found','not-found');
         }
     }
     //end state wise data 2017
@@ -132,28 +132,50 @@ class Data2017Controller extends Controller
                 }
         
                 else{
-                return redirect()->back()->with('not-found','not-found');
+                    
+                return redirect()->route('download-district-2017-pdf')->with('not-found','not-found');
                 }
             }
         }
         
         if($file_name == "all3"){
-            
             $file1 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[2].".pdf";
             $file2 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[3].".pdf";
             $file3 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[4].".pdf";
 
-            $files = array($file1, $file2, $file3);
-            $zipname = $district."_grade-3".".zip";
-            $zip = new ZipArchive;
-            $zip->open($zipname, ZipArchive::CREATE);
-            foreach ($files as $file => $value) {
-            $relativeNameInZipFile = basename($value);
-            $zip->addFile($value, $relativeNameInZipFile);
-            }
-            $zip->close();
+            $files = [];
 
-            return response()->download(public_path($zipname))->deleteFileAfterSend(true);
+            if(file_exists($file1))
+            {
+                $abc = array_push($files, ($file1));
+            }
+
+            if(file_exists($file2))
+            {
+                $abc = array_push($files, ($file2));
+            }
+
+            if(file_exists($file3))
+            {
+                $abc = array_push($files, ($file3));
+            }
+
+            if(empty($files)){
+                return redirect()->route('download-district-2017-pdf')->with('not-found','not-found');
+            }
+
+            else{
+                $zipname = $district."_grade-3".".zip";
+                $zip = new ZipArchive;
+                $zip->open($zipname, ZipArchive::CREATE);
+                foreach ($files as $file => $value) {
+                $relativeNameInZipFile = basename($value);
+                $zip->addFile($value, $relativeNameInZipFile);
+                }
+                $zip->close();
+
+                return response()->download(public_path($zipname))->deleteFileAfterSend(true);
+            }
         }
 
         if($file_name == "all5"){
@@ -161,17 +183,39 @@ class Data2017Controller extends Controller
             $file2 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[3].".pdf";
             $file3 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[4].".pdf";
 
-            $files = array($file1, $file2, $file3);
-            $zipname = $district."_grade-5".".zip";
-            $zip = new ZipArchive;
-            $zip->open($zipname, ZipArchive::CREATE);
-            foreach ($files as $file => $value) {
-            $relativeNameInZipFile = basename($value);
-            $zip->addFile($value, $relativeNameInZipFile);
-            }
-            $zip->close();
+            $files = [];
 
-            return response()->download(public_path($zipname))->deleteFileAfterSend(true);
+            if(file_exists($file1))
+            {
+                $abc = array_push($files, ($file1));
+            }
+
+            if(file_exists($file2))
+            {
+                $abc = array_push($files, ($file2));
+            }
+
+            if(file_exists($file3))
+            {
+                $abc = array_push($files, ($file3));
+            }
+
+            if(empty($files)){
+                return redirect()->route('download-district-2017-pdf')->with('not-found','not-found');
+            }
+
+            else{
+                $zipname = $district."_grade-5".".zip";
+                $zip = new ZipArchive;
+                $zip->open($zipname, ZipArchive::CREATE);
+                foreach ($files as $file => $value) {
+                $relativeNameInZipFile = basename($value);
+                $zip->addFile($value, $relativeNameInZipFile);
+                }
+                $zip->close();
+
+                return response()->download(public_path($zipname))->deleteFileAfterSend(true);
+            }
         }
 
         if($file_name == "all8"){
@@ -179,18 +223,45 @@ class Data2017Controller extends Controller
             $file2 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[3].".pdf";
             $file3 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[4].".pdf";
             $file4 = public_path(). "/assets/front/district2017/".$state_name."/".$district."/".$data[5].".pdf";
-            
-            $files = array($file1, $file2, $file3, $file4);
-            $zipname = $district."_grade-8".".zip";
-            $zip = new ZipArchive;
-            $zip->open($zipname, ZipArchive::CREATE);
-            foreach ($files as $file => $value) {
-            $relativeNameInZipFile = basename($value);
-            $zip->addFile($value, $relativeNameInZipFile);
-            }
-            $zip->close();
 
-            return response()->download(public_path($zipname))->deleteFileAfterSend(true);
+            $files = [];
+
+            if(file_exists($file1))
+            {
+                $abc = array_push($files, ($file1));
+            }
+
+            if(file_exists($file2))
+            {
+                $abc = array_push($files, ($file2));
+            }
+
+            if(file_exists($file3))
+            {
+                $abc = array_push($files, ($file3));
+            }
+
+            if(file_exists($file4))
+            {
+                $abc = array_push($files, ($file4));
+            }
+
+            if(empty($files)){
+                return redirect()->route('download-district-2017-pdf')->with('not-found','not-found');
+            }
+
+            else{
+                $zipname = $district."_grade-8".".zip";
+                $zip = new ZipArchive;
+                $zip->open($zipname, ZipArchive::CREATE);
+                foreach ($files as $file => $value) {
+                $relativeNameInZipFile = basename($value);
+                $zip->addFile($value, $relativeNameInZipFile);
+                }
+                $zip->close();
+
+                return response()->download(public_path($zipname))->deleteFileAfterSend(true);
+            }
 
         }
 
@@ -224,7 +295,7 @@ class Data2017Controller extends Controller
             }
     
             else{
-            return redirect()->back()->with('not-found','not-found');
+                return redirect()->route('download-district-2017-pdf')->with('not-found','not-found');
             }
         }
         
