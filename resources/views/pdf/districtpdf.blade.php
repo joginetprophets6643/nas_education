@@ -1205,22 +1205,22 @@
         <div class="row">
           <!-- distict performance section  -->
           <div class="col-md-12">
-            <div class="reportview-container">
+            <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
                   <h2>Report Card ( {{isset($districtVal->state_name)?$districtVal->state_name:'-'}} - {{isset($districtVal->district_name)?$districtVal->district_name:'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
-                <div class="reportview-class-content white-bg">
+                <div class="reportview-class-content white-bg pb-0">
                   <div class="row pb-100">
                     <div class="col-md-12">
                       <h4 class="performance-heading heading-black-bold text-center p-4">
                         Performance of the District in Learning Outcomes (LOs)
                       </h4>
                     </div>
-                    <div class="col-md-12 mb-3 mt-4">
+                    <div class="col-md-12 mt-4">
                       <div class="table-responsive">
-                        <table class="table table-bordered align-middle text-center performance-table">
+                        <table class="table table-bordered align-middle text-center performance-table mb-0">
                           <thead>
                             <tr class="dark-blue-bg text-white">
                               <th scope="col">LO Code</th>
@@ -1330,46 +1330,20 @@
                             </tr>
                             @endif
                             <tr class={{(($s)%2==0)?'"light-yellow-bg"':''}}>
-                              <th scope="row">{{isset($sciLO->subject_code)?$sciLO->subject_code:'-'}}</th>
-                              <td class="text-sm-start">
-                                {{($sciLO->question!=''&&$sciLO->question!=0)?$sciLO->question:'-'}}
-                              </td>
-                              <td>{{isset($sciLO->avg)?$sciLO->avg:'-'}}</td>
-                              <td>{{isset($sciLO->state_avg)?$sciLO->state_avg:'-'}}</td>
-                              <td>{{isset($sciLO->national_avg)?$sciLO->national_avg:'-'}}</td>
+                                <th scope="row">{{isset($sciLO->subject_code)?$sciLO->subject_code:'-'}}</th>
+                                <td class="text-sm-start">
+                                  {{($sciLO->question!=''&&$sciLO->question!=0)?$sciLO->question:'-'}}
+                                </td>
+                                <td>{{isset($sciLO->avg)?$sciLO->avg:'-'}}</td>
+                                <td>{{isset($sciLO->state_avg)?$sciLO->state_avg:'-'}}</td>
+                                <td>{{isset($sciLO->national_avg)?$sciLO->national_avg:'-'}}</td>
                             </tr>
                             @php $s++;@endphp
                             @endif
                             @endif
                             @endforeach
                             @endif
-                            @if(count($districtLOData)>0)
-                            @php $sst=1;@endphp
-                            @foreach($districtLOData as $sstLO)
-                            @if($districtParticipation->grade==$sstLO->grade)
-                            @if($sstLO->language=='sst')
-                            @if($sst==1)
-                            <tr class="card-green text-white">
-                              <td class="text" colspan="5">
-                                <img src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="" />
-                                Social Science
-                              </td>
-                            </tr>
-                            @endif
-                            <tr class={{(($sst)%2==0)?'"light-yellow-bg"':''}}>
-                              <th scope="row">{{isset($sstLO->subject_code)?$sstLO->subject_code:'-'}}</th>
-                              <td class="text-sm-start">
-                                {{($sstLO->question!=''&&$sstLO->question!=0)?$sstLO->question:'-'}}
-                              </td>
-                              <td>{{isset($sstLO->avg)?$sstLO->avg:'-'}}</td>
-                              <td>{{isset($sstLO->state_avg)?$sstLO->state_avg:'-'}}</td>
-                              <td>{{isset($sstLO->national_avg)?$sstLO->national_avg:'-'}}</td>
-                            </tr>
-                            @php $sst++;@endphp
-                            @endif
-                            @endif
-                            @endforeach
-                            @endif
+
                             @if(count($districtLOData)>0)
                             @php $mil=1;@endphp
                             @foreach($districtLOData as $milLO)
@@ -1424,14 +1398,58 @@
                             @endif
                             @endforeach
                             @endif
-
                           </tbody>
                         </table>
+                        @if($districtParticipation->grade==8 || $districtParticipation->grade==10)
+                        <!-- <div class="page-mid-break"></div> -->
+                        <table class="table table-bordered align-middle text-center drc-table-cls-{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}} performance-table mb-0">
+                          <thead>
+                            <tr class="dark-blue-bg text-white">
+                              <th scope="col">LO Code</th>
+                              <th scope="col" class="">
+                                Learning Outcomes for Class {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}
+                              </th>
+                              <th scope="col">District Average Performance</th>
+                              <th scope="col">State Average Performance</th>
+                              <th scope="col">National Average Performance</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @if(count($districtLOData)>0)
+                            @php $sst=1;@endphp
+                            @foreach($districtLOData as $sstLO)
+                            @if($districtParticipation->grade==$sstLO->grade)
+                            @if($sstLO->language=='sst')
+                            @if($sst==1)
+                            <tr class="card-green text-white">
+                              <td class="text" colspan="5">
+                                <img src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="" />
+                                Social Science
+                              </td>
+                            </tr>
+                            @endif
+                            <tr class={{(($sst)%2==0)?'"light-yellow-bg"':''}}>
+                              <th scope="row">{{isset($sstLO->subject_code)?$sstLO->subject_code:'-'}}</th>
+                              <td class="text-sm-start">
+                                {{($sstLO->question!=''&&$sstLO->question!=0)?$sstLO->question:'-'}}
+                              </td>
+                              <td>{{isset($sstLO->avg)?$sstLO->avg:'-'}}</td>
+                              <td>{{isset($sstLO->state_avg)?$sstLO->state_avg:'-'}}</td>
+                              <td>{{isset($sstLO->national_avg)?$sstLO->national_avg:'-'}}</td>
+                            </tr>
+                            @php $sst++;@endphp
+                            @endif
+                            @endif
+                            @endforeach
+                            @endif
+                          </tbody>
+                        </table>
+                        @endif
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="report-footer-wrap">
+                <div class="report-footer-wrap pg4-cls-{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}">
                   <div class="reportview-footer">
                     <span class="page-no">@php $pageNo = $pageNo+1; echo $pageNo; @endphp</span>
                   </div>
@@ -1578,7 +1596,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="report-footer-wrap">
+                <div class="report-footer-wrap pg5-cls-{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}">
                   <div class="reportview-footer">
                     <span class="page-no">@php $pageNo = $pageNo+1; echo $pageNo; @endphp</span>
                   </div>

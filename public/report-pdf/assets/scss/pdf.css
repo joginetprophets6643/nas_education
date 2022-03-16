@@ -158,6 +158,90 @@
   font-size: 16px;
 }
 
+.state-pdf .nrc-pg4 {
+  position: absolute;
+  bottom: -24rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .nrc-pg4 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .nrc-pg4 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.state-pdf .nrc-pg5 {
+  position: absolute;
+  bottom: -40.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .nrc-pg5 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .nrc-pg5 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.state-pdf .nrc-pg6 {
+  position: absolute;
+  bottom: -26.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .nrc-pg6 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .nrc-pg6 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .state-pdf .nrc-pg7 {
   position: absolute;
   bottom: -13rem;
@@ -298,6 +382,34 @@
   font-weight: 500;
 }
 
+.state-pdf .pg5 {
+  position: absolute;
+  bottom: -43.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .pg5 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .pg5 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .state-pdf .pg6 {
   position: absolute;
   bottom: -8.5rem;
@@ -326,6 +438,34 @@
   font-weight: 500;
 }
 
+.state-pdf .pg7 {
+  position: absolute;
+  bottom: -5.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .pg7 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .pg7 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .state-pdf .pg8 {
   position: absolute;
   bottom: -3.5rem;
@@ -341,6 +481,34 @@
 }
 
 .state-pdf .pg8 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 25px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.state-pdf .pg9 {
+  position: absolute;
+  bottom: -60rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.state-pdf .pg9 .reportview-footer {
+  padding: 16px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.state-pdf .pg9 .reportview-footer .page-no {
   position: absolute;
   left: 50%;
   top: 0px;

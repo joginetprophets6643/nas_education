@@ -4833,6 +4833,32 @@ ul{
 .pg3-cls-10 {
     @include footer-mark(1rem);
 }
+// page 4
+.pg4-cls-3 {
+    @include footer-mark(-41rem);
+}
+.pg4-cls-5 {
+    @include footer-mark(-16rem);
+}
+.pg4-cls-8 {
+    @include footer-mark(-74.5rem);    
+}
+.pg4-cls-10 {
+    @include footer-mark(-144rem);
+}
+// page 5
+.pg5-cls-3 {
+    @include footer-mark(-24rem);
+}
+.pg5-cls-5 {
+    @include footer-mark(-24rem);
+}
+.pg5-cls-8 {
+    @include footer-mark(-24rem);
+}
+.pg5-cls-10 {
+    @include footer-mark(-25rem);
+}
 // to be edited or deleted
 .reportview-footer {
     padding: 20px;
@@ -6287,10 +6313,19 @@ ul{
         }
     }
 }
+.drc-table-cls-8 {
+    margin-top: 14rem;
+}
+.drc-table-cls-10 {
+    margin-top: 53rem;
+}
 // page break
 .page {
     page-break-after: always;
     position: relative;
+}
+.page-mid-break {
+    page-break-after: always;
 }
 @page {
     margin: 20mm;

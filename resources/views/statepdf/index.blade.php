@@ -1182,7 +1182,7 @@
                   </div>
                   <!-- teacher testimony -->
                   <div
-                    class="reportview-class-content light-green-bg children-testimony teacher-testimony"
+                    class="reportview-class-content page-mid-break light-green-bg children-testimony teacher-testimony"
                   >
                     <div class="row pb-3 justify-content-center">
                       <div class="col-md-12 pb-4">
