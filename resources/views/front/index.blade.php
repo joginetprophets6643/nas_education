@@ -72,7 +72,7 @@
             <h2 class="heading-blue">
                   <span id="name">NATIONAL</span> REPORT CARD
                 </h2>
-                <p class="title-grey-sm">
+                <p class="title-grey-sm" id="select-info">
                   Please select a State on the interactive map or search
                   for the name below to continue.
                 </p>
@@ -196,7 +196,7 @@
                           <div class="infotab-content light-blue-bg">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="content">
-                                  <h3 class="title">
+                                  <h3 class="title" id="area-title">
                                     Area of the Nation
                                   </h3>
                                   <p class="total-no">
@@ -269,7 +269,7 @@
                         <div class="infotab-content light-purple-bg">
                           <div class="d-flex align-items-center justify-content-between">
                             <div class="content">
-                              <h3 class="title">
+                              <h3 class="title" id="teacher-title">
                                 Teachers in Nation
                               </h3>
                               <p class="total-no" id="total_teachers">
@@ -708,6 +708,10 @@
                           click: function (e) {
                               $('#name').html(e.point.name.toUpperCase());
                               $('#states').val(e.point.value);
+                              $('#area-title').html('Area of the State');
+                              $('#teacher-title').html('Teachers in state');
+                              $('#select-info').html('Please select a District on the interactive map or search for the name below to continue.');
+
                               const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
                               triggerDistrictChart(selectedMapData)                 
                               populateDemographicInfo(e.point.value)
@@ -766,6 +770,9 @@
     populateDemographicInfo('','')
     generateNationalMap(fetchedStateData)
     $('#name').html('NATIONAL');
+    $('#area-title').html('Area of the Nation');
+    $('#teacher-title').html('Teachers in Nation');
+    $('#select-info').html('Please select a State on the interactive map or search for the name below to continue.');
     document.getElementById("map-container").style.display = "";
     document.getElementById("district-map-container").style.display = "none";
     $('#BackToN').css('display','none');
@@ -821,6 +828,9 @@
           },
           events:{
             click: (e)=>{
+              $('#area-title').html('Area of the District');
+              $('#teacher-title').html('Teachers in District');
+              $('#select-info').html('Please proceed to READ MORE.');
               setActiveDistrict(e.point.id);
               // e.point.color = '#f7941c';
             }
@@ -868,7 +878,13 @@
       total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
                           + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
       display_name = info.state_name
-      }else{
+      }
+    else if(type === 'district'){
+      total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
+                          + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
+      display_name = info.district_name
+    }
+    else{
       total_teachers = 0
       display_name = 'National'
     }
