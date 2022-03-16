@@ -314,7 +314,7 @@
 
       var click1=0;
       var click2=0;
-      var $affectedElements = $("p,span,h1,h2,h3,h4,h5,h6,a"); // Can be extended, ex. $("div, p, span.someClass")
+      var $affectedElements = $("p,span,h1,h2,h3,h4,h5,h6"); // Can be extended, ex. $("div, p, span.someClass")
 
       // Storing the original size in a data attribute so size can be reset
       $affectedElements.each( function(){
@@ -323,19 +323,25 @@
       });
 
       $("#btn-increase").click(function(){
-        if(click2<1){
-        changeFontSize(+2);
-        click1=3
-        }
+        
+        if(click2<2){
+        changeFontSize(+1);
+        click1++
         click2++
+        console.log(click1,click2)
+        }
+        
       })
 
       $("#btn-decrease").click(function(){
-        if(click1<2){
+        
+        if(click1<1){
         changeFontSize(+1);
-        click2=3
-        }
+        click2++
         click1++
+        console.log(click1,click2)
+        }
+        
       })
 
       $("#btn-orig").click(function(){
@@ -350,6 +356,7 @@
 function changeFontSize(direction){
     $affectedElements.each( function(){
         var $this = $(this);
+        console.log(parseInt($this.css("font-size")))
         $this.css( "font-size" , parseInt($this.css("font-size"))+direction );
     });
 }
