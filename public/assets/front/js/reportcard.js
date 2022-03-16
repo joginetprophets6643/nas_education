@@ -370,7 +370,7 @@ function createManagementPieChart(chart, colors) {
 
 // sidebar states for report card
 async function createSidebarStates(data) {
-  let state_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_filter' onkeyup='filterList(0,state)' placeholder='Search for State'></div><ul id='state_list_national'>"
+  let state_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_filter' onkeyup='filterList(0,state)' onkeypress='preventSymbols(event)' placeholder='Search for State'></div><ul id='state_list_national'>"
   let district_data = []
 
   await $.ajax({
@@ -417,7 +417,7 @@ async function createSidebarStates(data) {
 
 // sidebar districts for report card
 function createDistrictForStates(data, state_name, state_id) {
-  let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_" + state_id + "' onkeyup='filterList(" + state_id + ",district)' placeholder='Search for District' title='Type in a name'></div>"
+  let district_list = "<div class='mb-3' style='margin-right:20px;'><input type='text' class='form-control' id='input_state_" + state_id + "' onkeyup='filterList(" + state_id + ",district)' onkeypress='preventSymbols(event)' placeholder='Search for District' title='Type in a name'></div>"
   data.map(district => {
     district_list += '<li class="state_' + state_id + '_districts"><a href="javascript:void(0)" class="districts" id="district_' + district.udise_district_code + '" onClick="setActiveStateDistrict(' + district.udise_state_code + ',' + district.udise_district_code + ')">' + format_string(district.district_name) + '</a></li>'
   })
@@ -1802,11 +1802,19 @@ async function createChart(where, data, district_id) {
     },
     series: data.data,
     tooltip: {
-      enabled: true
+      enabled: true,
+      pointFormat: '{point.name}'
+
     },
     navigation: {
       buttonOptions: {
         enabled: false
+      }
+    },
+    plotOptions: {
+      series: {
+        name: 'District',
+        allowPointSelect: true,
       }
     }
 
@@ -1893,7 +1901,10 @@ async function generateNationalMap(where, data) {
     legend: {
       enabled: false
     },
-    tooltip: { enabled: false },
+    tooltip: {
+      enabled: true,
+      pointFormat: '{point.name}'
+    },
     navigation: {
       buttonOptions: {
         enabled: false
@@ -1905,7 +1916,7 @@ async function generateNationalMap(where, data) {
 
     series: [{
       data: data,
-      name: 'Random data',
+      name: 'State',
       allowPointSelect: true,
       cursor: 'pointer',
       color: "#9ec2e4",
@@ -2338,4 +2349,15 @@ function createCumulativeCardsForPerformance(data) {
     }
 
   })
+}
+
+function preventSymbols(e) {
+  var key = e.keyCode;
+  var regex = /^[A-Za-z]+$/;
+
+  //Validate TextBox value against the Regex.
+  var isValid = regex.test(String.fromCharCode(key))
+  if (!isValid) {
+    e.preventDefault();
+  }
 }
