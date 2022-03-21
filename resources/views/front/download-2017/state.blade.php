@@ -15,7 +15,7 @@
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
                               <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Report Card') }}</li>
-                              
+                              <li class="breadcrumb-item active" aria-current="page">NAS-2017</li>
                             </ol>
                           </nav>
                     </div>
@@ -34,15 +34,20 @@
                       {{-- <div class="col-md-12 col-lg-6 aboutpage-img-wrap">
                         <img src="{{asset('assets/front/images/about.png')}}" alt="img" class="img-fluid" />
                       </div> --}}
-                      <div class="col-md-12 col-lg-6 aboutpage-content">
+                      <div class="col-md-12 aboutpage-content d-flex justify-content-between">
                         <h2 class="heading-blue">
                           State Wise Data List
                         </h2>
-                        
+                        <div class="">
+                            <a class="btn btn-sm org-btn p-1" href="{{url('/report-card/2017')}}">
+                                <i class="fa fa-arrow-left px-1"></i>
+                                <span class="px-1">Back</span>
+                            </a>
+                        </div>
                       </div>
                       
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-3">
                       <div class="desc-black table-responsive" data-aos="fade-up">
                       <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
