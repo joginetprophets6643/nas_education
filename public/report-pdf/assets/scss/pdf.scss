@@ -153,6 +153,7 @@
     .nrc-pg2 {
         @include footer-mark(-1rem);
     }
+    
     .nrc-pg3 {
         // @include footer-mark(-1rem);
         .reportview-footer {
@@ -162,6 +163,15 @@
                 font-size: 16px;
             }
         }
+    }
+    .nrc-pg4 {
+        @include footer-mark(-24rem);
+    }
+    .nrc-pg5 {
+        @include footer-mark(-40.5rem);
+    }
+    .nrc-pg6 {
+        @include footer-mark(-26.5rem);
     }
     .nrc-pg7 {
         @include footer-mark(-13rem);
@@ -179,19 +189,19 @@
         @include footer-mark(-58rem);
     }
     .pg5 {
-        // @include footer-mark(1rem);
+        @include footer-mark(-43.5rem);
     }
     .pg6 {
         @include footer-mark(-8.5rem);
     }
     .pg7 {
-        // @include footer-mark(0);
+        @include footer-mark(-5.5rem);
     }
     .pg8 {
         @include footer-mark(-3.5rem);
     }
     .pg9 {
-        // @include footer-mark(0);
+        @include footer-mark(-60rem);
     }
 
 }

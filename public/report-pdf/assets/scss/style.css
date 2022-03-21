@@ -9297,6 +9297,230 @@ ul {
   font-weight: 500;
 }
 
+.pg4-cls-3 {
+  position: absolute;
+  bottom: -41rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.pg4-cls-3 .reportview-footer {
+  padding: 20px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.pg4-cls-3 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 30px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.pg4-cls-5 {
+  position: absolute;
+  bottom: -16rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.pg4-cls-5 .reportview-footer {
+  padding: 20px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.pg4-cls-5 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 30px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.pg4-cls-8 {
+  position: absolute;
+  bottom: -74.5rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.pg4-cls-8 .reportview-footer {
+  padding: 20px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.pg4-cls-8 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 30px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.pg4-cls-10 {
+  position: absolute;
+  bottom: -144rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.pg4-cls-10 .reportview-footer {
+  padding: 20px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.pg4-cls-10 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 30px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.pg5-cls-3 {
+  position: absolute;
+  bottom: -24rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.pg5-cls-3 .reportview-footer {
+  padding: 20px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.pg5-cls-3 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 30px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.pg5-cls-5 {
+  position: absolute;
+  bottom: -24rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.pg5-cls-5 .reportview-footer {
+  padding: 20px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.pg5-cls-5 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 30px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.pg5-cls-8 {
+  position: absolute;
+  bottom: -24rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.pg5-cls-8 .reportview-footer {
+  padding: 20px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.pg5-cls-8 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 30px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.pg5-cls-10 {
+  position: absolute;
+  bottom: -25rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.pg5-cls-10 .reportview-footer {
+  padding: 20px;
+  background: #D6E5F4;
+  position: relative;
+}
+
+.pg5-cls-10 .reportview-footer .page-no {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #2a6aa9;
+  padding: 5px 30px;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 500;
+}
+
 .reportview-footer {
   padding: 20px;
   background: #D6E5F4;
@@ -10763,9 +10987,21 @@ ul {
   }
 }
 
+.drc-table-cls-8 {
+  margin-top: 14rem;
+}
+
+.drc-table-cls-10 {
+  margin-top: 53rem;
+}
+
 .page {
   page-break-after: always;
   position: relative;
+}
+
+.page-mid-break {
+  page-break-after: always;
 }
 
 @page {

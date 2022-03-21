@@ -496,7 +496,7 @@
 
                     </div>
                   </div>
-                  <div class="report-footer-wrap nrc-pg2">
+                  <div class="report-footer-wrap nrc-pg4">
                     <div class="reportview-footer">
                       <span class="page-no">4</span>
                     </div>
@@ -531,7 +531,7 @@
                         </h3>
                       </div>
                     </div>
-                    <div class="row justify-content-center mb-60">
+                    <div class="row justify-content-center page-mid-break mb-60">
                       @if(count($nationalFeedbackDatatq)>0)
                         @foreach($nationalFeedbackDatatq as  $nationaltq)
                           <div class="col-md-4 mtb-15">
@@ -553,11 +553,11 @@
                         @endif
                     </div>
                     <div class="row justify-content-center mb-60">
-                      <div class="col-md-12 mtb-15">
-                        <h2 class="title-black-main">
+                      <div class="col-md-12 mtb-30">
+                        <h3 class="text-center heading-black-main">
                           Percentage of teacher doing the following activities
                           in school
-                        </h2>
+                        </h3>
                       </div>
                       <div class="row justify-content-center negative-margin">
                         @if(count($nationalFeedbackDatatqn)>0)
@@ -578,7 +578,7 @@
 
                     </div>
                   </div>
-                  <div class="report-footer-wrap nrc-pg2">
+                  <div class="report-footer-wrap nrc-pg5">
                     <div class="reportview-footer">
                       <span class="page-no">5</span>
                     </div>
@@ -635,7 +635,7 @@
 
                     </div>
                   </div>
-                  <div class="report-footer-wrap nrc-pg2">
+                  <div class="report-footer-wrap nrc-pg6">
                     <div class="reportview-footer">
                       <span class="page-no">6</span>
                     </div>
@@ -1238,7 +1238,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-green">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1285,7 +1285,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-sagegreen">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1332,7 +1332,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1381,7 +1381,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-red">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1428,7 +1428,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-green">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1475,7 +1475,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-sagegreen">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1523,7 +1523,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-purple">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1570,7 +1570,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -1969,7 +1969,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-green">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2016,7 +2016,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-green">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2063,7 +2063,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2112,7 +2112,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-red">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2159,7 +2159,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-green">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2206,7 +2206,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-sagegreen">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2254,7 +2254,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-purple">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2301,7 +2301,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2700,7 +2700,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-green">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2747,7 +2747,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-sagegreen">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2794,7 +2794,7 @@
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2843,7 +2843,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-red">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2890,7 +2890,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-green">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2937,7 +2937,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-sagegreen">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -2985,7 +2985,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-purple">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
@@ -3032,7 +3032,7 @@
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
-                  <div class="p-4 light-yellow">
+                  <div class="p-4 light-pink">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="subject-map-wrap">
