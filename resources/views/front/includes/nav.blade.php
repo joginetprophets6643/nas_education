@@ -7,10 +7,10 @@
               <div class="skip-wrap nic-skip-wrap">
                 <ul>
                     <li>
-                    <a class="white-text">{{ __('lang.Government of India') }}</a>
+                    <a class="white-text" target="_blank" href="https://www.india.gov.in/">{{ __('lang.Government of India') }}</a>
                     </li>
                     <li>
-                    <a class="white-text">{{ __('lang.Ministry of Education') }}</a>
+                    <a class="white-text" target="_blank" href="https://www.education.gov.in/en">{{ __('lang.Ministry of Education') }}</a>
                     </li>
                 </ul>
               </div>
