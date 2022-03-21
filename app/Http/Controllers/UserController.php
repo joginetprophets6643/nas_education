@@ -16,6 +16,7 @@ use App\Models\State_Master;
 use App\Models\DataInfo;
 use App\Models\UserInfo;
 use App\Models\District_Master;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends BaseController
 {
@@ -150,23 +151,44 @@ class UserController extends BaseController
             
         }
     }
-
     public function login(Request $request){
-        $request->validate([
-            'mobile_no' => 'required|digits:10',
-            'password' => 'required',
-            'captcha_code' => 'required',
-        ]);
+
+         $validator = Validator::make($request->all(),[
+                    'mobile_no' => 'required|digits:10',
+                    'password' => 'required',
+                    'captcha_code' => 'required',
+                ]);
+        if ($validator->fails()) {
+            return redirect()->route('login')
+                    ->withErrors($validator)
+                    ->withInput();
+        }        
+        
         if($request->captcha_code!==$request->captcha){
-            return redirect()->back()->with('error','Captcha is not correct');
+            return redirect()->route('login')->with('error','Captcha is not correct');
         }
         $credentials = $request->only('mobile_no', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->route('successLogin');
         }
-
-        return redirect()->back()->with('success','Login details are not valid');
+        return redirect()->route('login')->with('success','Login details are not valid');
     }
+    // public function login(Request $request){
+    //     $request->validate([
+    //         'mobile_no' => 'required|digits:10',
+    //         'password' => 'required',
+    //         'captcha_code' => 'required',
+    //     ]);
+    //     if($request->captcha_code!==$request->captcha){
+    //         return redirect()->back()->with('error','Captcha is not correct');
+    //     }
+    //     $credentials = $request->only('mobile_no', 'password');
+    //     if (Auth::attempt($credentials)) {
+    //         return redirect()->route('successLogin');
+    //     }
+
+    //     return redirect()->back()->with('success','Login details are not valid');
+    // }
 
     public function successLogin(){
         $states=State_Master::orderBy('state_name')->get();
