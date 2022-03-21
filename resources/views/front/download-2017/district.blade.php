@@ -36,7 +36,7 @@
                       </div> --}}
                       <div class="col-md-12 aboutpage-content d-flex justify-content-between">
                         <h2 class="heading-blue">
-                          District Wise Data List
+                          District Wise Data List of NAS-2017
                         </h2>
                         <div class="">
                             <a class="btn btn-sm org-btn p-1" href="{{url('/report-card/2017')}}">
