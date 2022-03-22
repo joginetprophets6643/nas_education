@@ -77,7 +77,7 @@
                 <div class="card-white">
                     <div class="row justify-content-center text-center">
                     <div class="col-md-12">
-                    <div class="desc-black">
+                    <div class="desc-black para-justify">
                     @if(!empty($content->page_meta_title))
                        {!!$content->inner_page_content!!}
                     @endif

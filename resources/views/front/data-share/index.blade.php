@@ -29,7 +29,7 @@
                 <div class="card-white">
                 <div class="row justify-content-center text-center">
                     <div class="col-md-12">
-                    <div class="desc-black">
+                    <div class="desc-black para-justify">
                     @if(!empty($content->page_meta_title))
                         <!-- This mobile application provides a quick and an easy access to information on learning outcome. Disaggregated and details learning achievement by management of schools, gender, social groups and location till district level in classes 3, 5 and 8 and detailed achievement by learning outcomes in classes 3, 5 and 8 are provided in the mobile app. After the selection of indicator and subgroup user can visualize information in charts and maps as per his/her choice and easily share through email or social media to any other user. -->
                         {!!$content->inner_page_content!!}
