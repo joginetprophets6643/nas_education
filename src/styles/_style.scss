@@ -131,6 +131,9 @@
             font-weight: 500;
             margin: 0;
             padding: 15px;
+            @media (max-width: 1440px) {
+                font-size: 15px;
+            }
             img{
                 margin-right: 5px;
             }
@@ -260,6 +263,9 @@
             position: relative;
             display: block;
             padding: 0 35px 0 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             &::after{
                 position: absolute;
                 top: 50%;
@@ -582,4 +588,12 @@
 }
 .no-data {
     height: 50vh;
+}
+
+.maptab-select-wrap, 
+.scatterplot-select-wrap {
+    margin: 30px 0;
+    @media (max-width: 991px) {
+        margin: 15px 0; 
+    }
 }

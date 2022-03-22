@@ -1318,6 +1318,10 @@ ul {
 #videoSlider {
     .gallery-img-wrap {
         position: relative;
+        iframe {
+            width: 100%;
+            border-radius: 6px;
+        }
         &:hover {
             .gallery-play-icon {
                 background-color: rgba(42, 106, 169, 0.8);
@@ -1346,12 +1350,14 @@ ul {
             }
         }
     }
+
 }
 
 #photoSlider {
     .gallery-img-wrap {
         img {
-            border-radius: 6px;
+            border-radius: 6px; 
+            object-fit: cover;
         }
         .gallery-zoom-icon {
             opacity: 0;
@@ -1378,6 +1384,7 @@ ul {
                 transition: 0.2s ease-in;
                 opacity: 1;
                 visibility: visible;
+                border: none;
             }
         }
         .gallery-anchor {
@@ -5760,7 +5767,7 @@ ul {
             left: 0;
             bottom: 0;
             top: 0;
-            z-index: 10000;
+            z-index: 999;
         }
     }
 
@@ -6214,6 +6221,13 @@ ul {
 
         }
 
+    }
+
+    .nrc-home-wrap{
+        margin: 15px;
+        .line-card-shadow {
+            padding: 15px 0px !important;
+        }
     }
 }
 @media (min-width: 768px) {

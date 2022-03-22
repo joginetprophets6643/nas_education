@@ -65,7 +65,7 @@
       </div>
     </section>
 
-    <section class="report-card-wrap ptb-60">
+    <section class="report-card-wrap nrc-home-wrap ptb-60">
       <div class="container">
         <div class="row align-items-center p-3 line-card-shadow">
           <div class="col-md-12">
