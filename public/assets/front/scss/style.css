@@ -10025,6 +10025,10 @@ ul {
   text-align: center;
 }
 
+.para-justify p {
+  text-align: justify;
+}
+
 @media (min-width: 992px) {
   #bannerSlider .owl-dots {
     max-width: 960px;

@@ -5599,7 +5599,9 @@ ul {
     }
 }
 
-
+.para-justify p {
+    text-align: justify;
+}
 
 // media-query
 @media (min-width: 992px) {
