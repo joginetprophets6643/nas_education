@@ -28,27 +28,81 @@ class Authenticated
                 $permission=permissions(Auth::user()->id);
                 $view=json_decode($permission->view);
                 $view=array_map('strtolower',$view);
-                foreach($url as $item){
-                if($item=='district' || $item=='state'){
-                    $item="master";
+                $add=json_decode($permission->add);
+                $add=array_map('strtolower',$add);
+                $edit=json_decode($permission->edit);
+                $edit=array_map('strtolower',$edit);
+                if(in_array('add',$url)){
+                    foreach($url as $item){
+                        if($item=='district' || $item=='state'){
+                            $item="master";
+                        }
+                        if($item=='events' || $item=='videos' || $item=='event' || $item=='image' || $item=='images' || $item=='video' || $item=='video_event'){
+                            $item="media";
+                        }
+                        if($item=='member'){
+                            $item="team";
+                        }
+                        if($item=='national'){
+                            $item="statistic";
+                        }
+                        if($item=='upload'){
+                            $item="data";
+                        }
+                        if(in_array($item,$add))
+                        {
+                            return $next($request);
+                        }
+                    }
                 }
-                if($item=='events' || $item=='videos' || $item=='event' || $item=='image' || $item=='images' || $item=='video' || $item=='video_event'){
-                    $item="media";
+                else if(in_array('edit',$url)){
+                    foreach($url as $item){
+                        if($item=='district' || $item=='state'){
+                            $item="master";
+                        }
+                        if($item=='events' || $item=='videos' || $item=='event' || $item=='image' || $item=='images' || $item=='video' || $item=='video_event'){
+                            $item="media";
+                        }
+                        if($item=='member'){
+                            $item="team";
+                        }
+                        if($item=='national'){
+                            $item="statistic";
+                        }
+                        if($item=='upload'){
+                            $item="data";
+                        }
+                        if(in_array($item,$edit))
+                        {
+                            return $next($request);
+                        }
+                    }
                 }
-                if($item=='member'){
-                    $item="team";
+                else{
+                    foreach($url as $item){
+                        if($item=='district' || $item=='state'){
+                            $item="master";
+                        }
+                        if($item=='events' || $item=='videos' || $item=='event' || $item=='image' || $item=='images' || $item=='video' || $item=='video_event'){
+                            $item="media";
+                        }
+                        if($item=='member'){
+                            $item="team";
+                        }
+                        if($item=='national'){
+                            $item="statistic";
+                        }
+                        if($item=='upload'){
+                            $item="data";
+                        }
+                        if(in_array($item,$view))
+                        {
+                            return $next($request);
+                        }
+                    }
                 }
-                if($item=='national'){
-                    $item="statistic";
-                }
-                if($item=='upload'){
-                    $item="data";
-                }
-                if(in_array($item,$view))
-                {
-                    return $next($request);
-                }
-                }
+
+                
                 // dd($url);
                 return redirect()->back();
             }
