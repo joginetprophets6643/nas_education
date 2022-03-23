@@ -15,6 +15,7 @@ use App\Models\Team;
 use App\Models\Program;
 use App\Models\ClientLogo;
 use DB;
+use Hash;
 
 class FrontController extends Controller
 {
@@ -132,5 +133,37 @@ class FrontController extends Controller
     public function rti(){
         $links=RTI::all();
         return view('front.content.rti',compact('links'));
+    }
+
+    public function login(){
+        return view('front.auth.login');
+    }
+
+    public function checkCredentials(Request $request){
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        
+        $email=$request->email;
+        $password=$request->password;
+        $user=DB::table('auth')->where('email',$email)->first();
+        if($user){
+            if(password_verify($password, $user->password)){
+                Session::put('auth-user',$email);
+                return redirect()->route('/')->with('success','Logged In');        
+            }
+            else{
+                return redirect()->route('user-login')->with('success','Login details are not valid');        
+            }
+        }
+        else{
+            return redirect()->route('user-login')->with('success','Login details are not valid');        
+        }      
+    }
+
+    public function logout(){
+        Session::flush();
+        return redirect()->route('user-login');
     }
 }

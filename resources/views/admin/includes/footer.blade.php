@@ -41,6 +41,8 @@ CKEDITOR.replaceClass= 'textarea-ckeditor' ;
 <!-- <script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script> -->
 
 <script>
+
+  $('#admin-title').html('NAS Admin')
 let view=jQuery.parseJSON($('#view').val()?$('#view').val():'[]');
 let edit=jQuery.parseJSON($('#edit').val()?$('#edit').val():'[]');
 let add=jQuery.parseJSON($('#add').val()?$('#add').val():'[]');

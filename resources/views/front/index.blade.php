@@ -699,6 +699,9 @@
                 enabled: false
             }
         },
+        mapNavigation: {
+            enabled: true
+        },
         credits: {
           enabled: false
         },
