@@ -20,7 +20,7 @@
                 @if(session('success'))
                   <span class="text-danger">{{session('success')}}</span>
                 @endif
-                <form class="pt-3" action="{{url('/login-post')}}" method="POST">
+                <form class="pt-3" action="{{route('credentials')}}" method="POST">
                     @csrf
                     <input type="hidden" name="address">
                   <div class="form-group">
@@ -38,13 +38,13 @@
                   <div class="mt-3">
                       <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="display:block;" value="Login"/>  
                   </div>
-                  <div class="my-2 d-flex justify-content-between align-items-center">
+                  <!-- <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
                         <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                     </div>
                     <a href="{{url('/secure-admin/forget-password')}}" class="auth-link text-black" style="display:block">Forgot password?</a>
-                  </div>
+                  </div> -->
 
                 </form>
               </div>
@@ -58,4 +58,8 @@
     <!-- container-scroller -->
     @include('admin.includes.footer')
   </body>
+
+  <script>
+      $('#admin-title').html('NAS')
+  </script>
 </html>
