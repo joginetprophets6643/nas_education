@@ -17,20 +17,17 @@
                 </div>
                 </div>
                 </div>
-                @if(session('success'))
-                  <span class="text-danger">{{session('success')}}</span>
-                @endif
-                <form class="pt-3" action="{{route('credentials')}}" method="POST">
-                    @csrf
+                  <span class="text-danger" id="failed"></span>
+                <form class="pt-3" method="post">
                     <input type="hidden" name="address">
                   <div class="form-group">
-                    <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" autocomplete="off">
+                    <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" autocomplete="off" required>
                     @error('email')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" autocomplete="off">
+                    <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" autocomplete="off" required>
                     @error('password')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -61,5 +58,37 @@
 
   <script>
       $('#admin-title').html('NAS')
+      $(function () {
+
+        $('form').on('submit', function (e) {
+
+          e.preventDefault();
+
+          data={
+            'email':btoa($('input[name=email]').val()),
+            'password':btoa($('input[name=password]').val())
+          }
+          data = {...data ,"_token": "{{ csrf_token() }}"}
+          var url = '{{ route("credentials")}}';
+          $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data:JSON.stringify(data),
+            url: url,
+          }).done((response)=>{
+            if(response=='success'){
+              window.location='{{route("/")}}'
+            }
+            else{
+              $('#failed').html('Login details are invalid')
+            }
+
+          })
+
+        });
+
+      });
+      
   </script>
 </html>

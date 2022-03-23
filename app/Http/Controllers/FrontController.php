@@ -140,25 +140,20 @@ class FrontController extends Controller
     }
 
     public function checkCredentials(Request $request){
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-        
-        $email=$request->email;
-        $password=$request->password;
+        $email=base64_decode($request->email);
+        $password=base64_decode($request->password);
         $user=DB::table('auth')->where('email',$email)->first();
         if($user){
             if(password_verify($password, $user->password)){
                 Session::put('auth-user',$email);
-                return redirect()->route('/')->with('success','Logged In');        
+                return json_encode('success');        
             }
             else{
-                return redirect()->route('user-login')->with('success','Login details are not valid');        
+                return json_encode('failed');        
             }
         }
         else{
-            return redirect()->route('user-login')->with('success','Login details are not valid');        
+            return json_encode('failed');        
         }      
     }
 
