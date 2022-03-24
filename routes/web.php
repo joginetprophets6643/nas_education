@@ -53,7 +53,7 @@ Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK
 * State Level Data upload start
 **********************************/
 // Route::get('/src-final-data/district-master',[FinalParticipationStateController::class,'index']);
-// Route::get('/src-final-data/performance',[FinalParticipationStateController::class,'performance']);
+Route::get('/src-final-data/performance',[FinalParticipationStateController::class,'allstatePerformancedata']);
 Route::get('/src-final-data/participation',[FinalParticipationStateController::class,'allStateParticipationData']);
 // Route::get('/src-final-data/lo',[FinalParticipationStateController::class,'DRCLO']);
 // Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'DRCFEEDBACK']);
