@@ -44,6 +44,8 @@ class CreateAllGradeStateParticipationTbl extends Migration
             $table->string('male_gender_count')->nullable();
             $table->string('female_gender')->nullable();
             $table->string('female_gender_count')->nullable();
+            $table->string('trans_gender')->nullable();
+            $table->string('trans_gender_count')->nullable();
             $table->timestamps();
         });
     }
