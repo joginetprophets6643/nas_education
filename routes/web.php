@@ -13,9 +13,9 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PdfGenerateController;
 use App\Http\Controllers\VisualizationCalculationController;
 use Illuminate\Support\Facades\Crypt;
-
 use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
+use App\Http\Controllers\FinalParticipationStateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,18 @@ Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK
 
 /*********************************
 * District Level Data upload end
+**********************************/
+/*********************************
+* State Level Data upload start
+**********************************/
+// Route::get('/src-final-data/district-master',[FinalParticipationStateController::class,'index']);
+// Route::get('/src-final-data/performance',[FinalParticipationStateController::class,'performance']);
+Route::get('/src-final-data/participation',[FinalParticipationStateController::class,'allStateParticipationData']);
+// Route::get('/src-final-data/lo',[FinalParticipationStateController::class,'DRCLO']);
+// Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'DRCFEEDBACK']);
+
+/*********************************
+* State Level Data upload end
 **********************************/
 Route::get('getDRCDataForGrade3',[FinalCalculationController::class,'getDRCDataForGrade3']);
 Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
