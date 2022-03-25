@@ -64,14 +64,12 @@
 
   $('form').on('submit', function (e) {
     e.preventDefault();
-     form = $('#frm'); //$("#frm")
-
-      $.each(form.elements, function (i, el) {
-        console.log(el)
-          el.value = btoa($('input[name=email]').val());
-      });
-
-      // form.submit();
+     $.each(this, function (i, element) {
+    console.log("element name " + element.name + ", element val: " + element.value);
+    if(element.name=="password"){
+      element.value = btoa(element.value);
+    }
+    })
     e.currentTarget.submit();
   })
 </script>
