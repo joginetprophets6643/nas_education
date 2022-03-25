@@ -52,8 +52,12 @@ class AdminController extends BaseController
             'email' => 'required',
             'password' => 'required',
         ]);
-        
         $credentials = $request->only('email', 'password','address');
+        foreach($credentials as $key=>$item){
+            if($key=="password"){
+                $credentials[$key]=base64_decode($item);
+            }
+        }
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/secure-admin/dashboard')->with('success','Signed in');
         }
