@@ -19,7 +19,7 @@ class CreateStateGradeLevelLearningoutcome extends Migration
             $table->bigInteger('grade');
             $table->string('subject_code')->nullable();
             $table->string('language')->nullable();
-            $table->string('question')->nullable();
+            $table->text('question')->nullable();
             $table->string('total_student')->nullable();
             // $table->string('avg')->nullable();
             $table->string('state_avg')->nullable();  

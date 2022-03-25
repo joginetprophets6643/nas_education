@@ -201,7 +201,6 @@ class UserController extends BaseController
 
     public function logout(){
         Auth::logout();
-        Session::flush();
         return redirect()->route('login')->with('success','Logout Sucessfully');
     }
 

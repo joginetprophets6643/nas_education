@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\FrameHeadersMiddleware::class,
     ];
 
     /**
@@ -55,6 +56,12 @@ class Kernel extends HttpKernel
         ],
         'frontIsLogin'=>[
             \App\Http\Middleware\FrontisLogin::class,
+        ],
+        'authCheck'=>[
+            \App\Http\Middleware\authCheck::class,
+        ],
+        'loggedCheck'=>[
+            \App\Http\Middleware\LoggedCheck::class,
         ],
         'frontIsAuthenticated'=>[
             \App\Http\Middleware\FrontisAuthenticated::class,

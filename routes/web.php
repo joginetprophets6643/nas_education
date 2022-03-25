@@ -13,9 +13,9 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PdfGenerateController;
 use App\Http\Controllers\VisualizationCalculationController;
 use Illuminate\Support\Facades\Crypt;
-
 use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
+use App\Http\Controllers\FinalParticipationStateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,19 @@ Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK
 
 /*********************************
 * District Level Data upload end
+**********************************/
+/*********************************
+* State Level Data upload start
+**********************************/
+// Route::get('/src-final-data/district-master',[FinalParticipationStateController::class,'index']);
+Route::get('/src-final-data/performance',[FinalParticipationStateController::class,'allstatePerformancedata']);
+Route::get('/src-final-data/participation',[FinalParticipationStateController::class,'allStateParticipationData']);
+// Route::get('/src-final-data/lo',[FinalParticipationStateController::class,'DRCLO']);
+// Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'DRCFEEDBACK']);
+Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'StateFeedback']);
+Route::get('/src-final-data/state-data-lo',[FinalParticipationStateController::class,'StateWiseLO']);
+/*********************************
+* State Level Data upload end
 **********************************/
 Route::get('getDRCDataForGrade3',[FinalCalculationController::class,'getDRCDataForGrade3']);
 Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
@@ -324,73 +337,84 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
 
 
 //Front Routes
+Route::group(["middleware" => ["authCheck"]], function(){
 
-Route::group(["middleware" => ["language"]], function(){
-    Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
-    Route::get('/gallery/image-gallery/state/{id}','App\Http\Controllers\GalleryController@index')->name('image-gallery');
-    Route::get('/gallery/video-gallery/state/{id}','App\Http\Controllers\GalleryController@video')->name('video-gallery');
-    Route::get('/gallery/video-gallery/{id}','App\Http\Controllers\GalleryController@viewvideos');
-    Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
-    Route::get('/about-nas','App\Http\Controllers\AboutController@index');
-    Route::get('/terms-conditions','App\Http\Controllers\ContentPagesController@index')->name('terms');
-    Route::get('/privacy-policy','App\Http\Controllers\ContentPagesController@index')->name('privacy');
-    Route::get('/copyright-policy','App\Http\Controllers\ContentPagesController@index')->name('copyright');
-    Route::get('/hyper-linking-policy','App\Http\Controllers\ContentPagesController@index')->name('hyperlink');
-    Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
-    Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
-    Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
-    Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
-    Route::get('/report-card/nas-2021','App\Http\Controllers\ReportCardController@details');
+    Route::group(["middleware" => ["language"]], function(){
+        Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
+        Route::get('/gallery/image-gallery/state/{id}','App\Http\Controllers\GalleryController@index')->name('image-gallery');
+        Route::get('/gallery/video-gallery/state/{id}','App\Http\Controllers\GalleryController@video')->name('video-gallery');
+        Route::get('/gallery/video-gallery/{id}','App\Http\Controllers\GalleryController@viewvideos');
+        Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
+        Route::get('/about-nas','App\Http\Controllers\AboutController@index');
+        Route::get('/terms-conditions','App\Http\Controllers\ContentPagesController@index')->name('terms');
+        Route::get('/privacy-policy','App\Http\Controllers\ContentPagesController@index')->name('privacy');
+        Route::get('/copyright-policy','App\Http\Controllers\ContentPagesController@index')->name('copyright');
+        Route::get('/hyper-linking-policy','App\Http\Controllers\ContentPagesController@index')->name('hyperlink');
+        Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
+        Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
+        Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
+        Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
+        Route::get('/report-card/nas-2021','App\Http\Controllers\ReportCardController@details');
 
-    Route::group(["middleware" => ["frontIsLogin"]], function(){
+        Route::group(["middleware" => ["frontIsLogin"]], function(){
 
-        Route::get('/data-share/logout','App\Http\Controllers\UserController@logout');
-        Route::post('/data-share/get-files','App\Http\Controllers\UserController@getData');
-        Route::get('/data-share/download-data','App\Http\Controllers\UserController@successLogin')->name('successLogin');
+            Route::get('/data-share/logout','App\Http\Controllers\UserController@logout');
+            Route::post('/data-share/get-files','App\Http\Controllers\UserController@getData');
+            Route::get('/data-share/download-data','App\Http\Controllers\UserController@successLogin')->name('successLogin');
+            
+        });
+
+
+        Route::group(["middleware" => ["frontIsAuthenticated"]], function(){
+            
+            Route::post('/data-share/check','App\Http\Controllers\UserController@login')->name('check');
+            Route::get('/data-share/registration','App\Http\Controllers\UserController@register')->name('registration');
+            Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
+            Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
+            Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
+            Route::get('/data-share/reset-password','App\Http\Controllers\UserController@resetPassword')->name('reset-password');
+            Route::post('/data-share/change-password','App\Http\Controllers\UserController@changePassword');
+
+        });
+
+
+
+            
+        Route::get('/nas-program','App\Http\Controllers\FrontController@program');
+        Route::get('/nas-team','App\Http\Controllers\FrontController@team');
+        Route::get('/data-share','App\Http\Controllers\FrontController@data');
+        Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
+        Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
+        // Route::get('/visualization/nas-2021','App\Http\Controllers\VisualizationController@details');
+
+        Route::get('/mobile-app','App\Http\Controllers\VisualizationController@mobile');
+
+        //Download Data 2017
+        Route::get('/report-card/2017','App\Http\Controllers\Data2017Controller@index');
+        //Download Data State Wise 2017
+        Route::get('/download-data-state-wise-2017','App\Http\Controllers\Data2017Controller@stateDownloadView')->name('download-state-2017-pdf');
+        Route::get('/download-data-file/{id}','App\Http\Controllers\Data2017Controller@getDownload');
+        Route::get('/download-data-file/hi/{id}','App\Http\Controllers\Data2017Controller@getDownloadhi');
+        Route::get('/download-data-file/10/{id}','App\Http\Controllers\Data2017Controller@getDownload10');
         
+        //Download Data District Wise 2017
+        Route::get('/download-data-district-wise-2017','App\Http\Controllers\Data2017Controller@districtDownloadView')->name('download-district-2017-pdf');
+        Route::get('/download-data-district/{district}','App\Http\Controllers\Data2017Controller@districtDownload');
+
+    });
+    Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
+    Route::get('/visualization/nas-2021',function(){
+        return view('front.visualization.visualization_new');
     });
 
-
-    Route::group(["middleware" => ["frontIsAuthenticated"]], function(){
-        
-        Route::post('/data-share/check','App\Http\Controllers\UserController@login')->name('check');
-        Route::get('/data-share/registration','App\Http\Controllers\UserController@register')->name('registration');
-        Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
-        Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
-        Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
-        Route::get('/data-share/reset-password','App\Http\Controllers\UserController@resetPassword')->name('reset-password');
-        Route::post('/data-share/change-password','App\Http\Controllers\UserController@changePassword');
-
-    });
-
-
-
-        
-    Route::get('/nas-program','App\Http\Controllers\FrontController@program');
-    Route::get('/nas-team','App\Http\Controllers\FrontController@team');
-    Route::get('/data-share','App\Http\Controllers\FrontController@data');
-    Route::get('/gallery','App\Http\Controllers\FrontController@gallery');
-    Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
-    // Route::get('/visualization/nas-2021','App\Http\Controllers\VisualizationController@details');
-
-    Route::get('/mobile-app','App\Http\Controllers\VisualizationController@mobile');
-
-    //Download Data 2017
-    Route::get('/report-card/2017','App\Http\Controllers\Data2017Controller@index');
-    //Download Data State Wise 2017
-    Route::get('/download-data-state-wise-2017','App\Http\Controllers\Data2017Controller@stateDownloadView')->name('download-state-2017-pdf');
-    Route::get('/download-data-file/{id}','App\Http\Controllers\Data2017Controller@getDownload');
-    Route::get('/download-data-file/hi/{id}','App\Http\Controllers\Data2017Controller@getDownloadhi');
-    Route::get('/download-data-file/10/{id}','App\Http\Controllers\Data2017Controller@getDownload10');
-    
-    //Download Data District Wise 2017
-    Route::get('/download-data-district-wise-2017','App\Http\Controllers\Data2017Controller@districtDownloadView')->name('download-district-2017-pdf');
-    Route::get('/download-data-district/{district}','App\Http\Controllers\Data2017Controller@districtDownload');
+    Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
+    Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
 
 });
-Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
-Route::get('/visualization/nas-2021',function(){
-    return view('front.visualization.visualization_new');
-});
 
-Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
+Route::group(["middleware" => ["loggedCheck"]], function(){
+
+    Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
+    Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
+
+});
