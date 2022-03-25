@@ -20,7 +20,6 @@ class Src3DataImport implements ToModel
     */
     public function model(array $row)
     {
-      \Log::info($row[0]);
         return new Src3Datas([
             'class' =>$row['0'],
             'state_code' =>$row['1'],

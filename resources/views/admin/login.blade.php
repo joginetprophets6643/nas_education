@@ -20,7 +20,7 @@
                 @if(session('success'))
                   <span class="text-danger">{{session('success')}}</span>
                 @endif
-                <form class="pt-3" action="{{url('/login-post')}}" method="POST">
+                <form class="pt-3" action="{{url('/login-post')}}" method="POST" id="frm">
                     @csrf
                     <input type="hidden" name="address">
                   <div class="form-group">
@@ -59,3 +59,19 @@
     @include('admin.includes.footer')
   </body>
 </html>
+
+<script>
+
+  $('form').on('submit', function (e) {
+    e.preventDefault();
+     form = $('#frm'); //$("#frm")
+
+      $.each(form.elements, function (i, el) {
+        console.log(el)
+          el.value = btoa($('input[name=email]').val());
+      });
+
+      // form.submit();
+    e.currentTarget.submit();
+  })
+</script>
