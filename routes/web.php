@@ -57,7 +57,7 @@ Route::get('/src-final-data/performance',[FinalParticipationStateController::cla
 Route::get('/src-final-data/participation',[FinalParticipationStateController::class,'allStateParticipationData']);
 // Route::get('/src-final-data/lo',[FinalParticipationStateController::class,'DRCLO']);
 // Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'DRCFEEDBACK']);
-
+Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'StateFeedback']);
 /*********************************
 * State Level Data upload end
 **********************************/

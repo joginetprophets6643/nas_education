@@ -852,13 +852,13 @@ class FinalParticipationstateController extends Controller
         ini_set('max_execution_time', '5000');
         $GetFeedbackDataFor_3_Grade = $this->GetFeedbackDataFor_3_Grade();
         $GetFeedbackDataFor_5_Grade = $this->GetFeedbackDataFor_5_Grade();
-        $GetFeedbackDataFor_8_Grade = $this->GetFeedbackDataFor_8_Grade();
-        $GetFeedbackDataFor_10_Grade = $this->GetFeedbackDataFor_10_Grade();
+        // $GetFeedbackDataFor_8_Grade = $this->GetFeedbackDataFor_8_Grade();
+        // $GetFeedbackDataFor_10_Grade = $this->GetFeedbackDataFor_10_Grade();
 
         $final_dataG3 = DB::select($GetFeedbackDataFor_3_Grade);
         $final_dataG5 = DB::select($GetFeedbackDataFor_5_Grade);
-        $final_dataG8 = DB::select($GetFeedbackDataFor_8_Grade);
-        $final_dataG10 = DB::select($GetFeedbackDataFor_10_Grade);
+        // $final_dataG8 = DB::select($GetFeedbackDataFor_8_Grade);
+        // $final_dataG10 = DB::select($GetFeedbackDataFor_10_Grade);
 
         foreach($final_dataG3 as $data){
 
@@ -886,31 +886,31 @@ class FinalParticipationstateController extends Controller
             ]);
         }
 
-        foreach($final_dataG8 as $data){
+        // foreach($final_dataG8 as $data){
 
-            PQStateLevelFeedback::insert([
-                'state_id'=>$data->state_code,
-                'grade'=>8,
-                'level'=>$data->level,
-                'question_code'=>$data->question_code,
-                'question_desc'=>$data->question_desc,
-                'total_parent'=>$data->total_parent,
-                'avg'=>$data->state_avg,
-            ]);
-        }
+        //     PQStateLevelFeedback::insert([
+        //         'state_id'=>$data->state_code,
+        //         'grade'=>8,
+        //         'level'=>$data->level,
+        //         'question_code'=>$data->question_code,
+        //         'question_desc'=>$data->question_desc,
+        //         'total_parent'=>$data->total_parent,
+        //         'avg'=>$data->state_avg,
+        //     ]);
+        // }
 
-        foreach($final_dataG10 as $data){
+        // foreach($final_dataG10 as $data){
 
-            PQStateLevelFeedback::insert([
-                'state_id'=>$data->state_code,
-                'grade'=>10,
-                'level'=>$data->level,
-                'question_code'=>$data->question_code,
-                'question_desc'=>$data->question_desc,
-                'total_parent'=>$data->total_parent,
-                'avg'=>$data->state_avg,
-            ]);
-        }
+        //     PQStateLevelFeedback::insert([
+        //         'state_id'=>$data->state_code,
+        //         'grade'=>10,
+        //         'level'=>$data->level,
+        //         'question_code'=>$data->question_code,
+        //         'question_desc'=>$data->question_desc,
+        //         'total_parent'=>$data->total_parent,
+        //         'avg'=>$data->state_avg,
+        //     ]);
+        // }
 
     // grade 11 pq feedback data insert
         $stringPQState = 'pq_state_level_feedback.state_id,';
@@ -948,360 +948,360 @@ class FinalParticipationstateController extends Controller
     //Query For Feedback SRC data Subject Wise Grade 3
     public function GetFeedbackDataFor_3_Grade()
     {
-        $query = "select id, state_code, State_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        $query = "select id, state_code, state_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
         union all
-        select id, state_code,State_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
         union all
-        select id, state_code, State_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        select id, state_code, state_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
         union all
-        select id, state_code, State_pq_q18
+        select id, state_code, state_pq_q18
         as state_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_pq_q29f
+        select id, state_code, state_pq_q29f
         as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q30
+        select id, state_code, state_tq_q30
         as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q33
+        select id, state_code, state_tq_q33
         as state_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q31
+        select id, state_code, state_tq_q31
         as state_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q32
+        select id, state_code, state_tq_q32
         as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q34
+        select id, state_code, state_tq_q34
         as state_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q36
+        select id, state_code, state_tq_q36
         as state_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q04
+        select id, state_code, state_tq_q04
         as state_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q28
+        select id, state_code, state_tq_q28
         as state_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_sq_q31
+        select id, state_code, state_sq_q31
         as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_sq_q32
+        select id, state_code, state_sq_q32
         as state_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_sq_q34
+        select id, state_code, state_sq_q34
         as state_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_sq_q35
+        select id, state_code, state_sq_q35
         as state_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_sq_q14
+        select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_sq_q09
+        select id, state_code, state_sq_q09
         as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q18
+        select id, state_code, state_tq_q18
         as state_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q17
+        select id, state_code, state_tq_q17
         as state_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         union all
-        select id, state_code, State_tq_q16
+        select id, state_code, state_tq_q16
         as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade3statetable
         ";
         return $query;
     }
     //Query For SRC Feedback data for Grade 5
     public function GetFeedbackDataFor_5_Grade()
     {
-        $query = "select id, state_code, State_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        $query = "select id, state_code, state_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
         union all
-        select id, state_code,State_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
         union all
-        select id, state_code, State_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        select id, state_code, state_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
         union all
-        select id, state_code, State_pq_q18
+        select id, state_code, state_pq_q18
         as state_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_pq_q29f
+        select id, state_code, state_pq_q29f
         as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q30
+        select id, state_code, state_tq_q30
         as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q33
+        select id, state_code, state_tq_q33
         as state_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q31
+        select id, state_code, state_tq_q31
         as state_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q32
+        select id, state_code, state_tq_q32
         as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q34
+        select id, state_code, state_tq_q34
         as state_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q36
+        select id, state_code, state_tq_q36
         as state_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q04
+        select id, state_code, state_tq_q04
         as state_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q28
+        select id, state_code, state_tq_q28
         as state_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_sq_q31
+        select id, state_code, state_sq_q31
         as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_sq_q32
+        select id, state_code, state_sq_q32
         as state_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_sq_q34
+        select id, state_code, state_sq_q34
         as state_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_sq_q35
+        select id, state_code, state_sq_q35
         as state_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_sq_q14
+        select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_sq_q09
+        select id, state_code, state_sq_q09
         as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q18
+        select id, state_code, state_tq_q18
         as state_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q17
+        select id, state_code, state_tq_q17
         as state_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         union all
-        select id, state_code, State_tq_q16
+        select id, state_code, state_tq_q16
         as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade5statetable
         ";
         return $query;
     }
     //Query For SRC Feedback data for Grade 8
     public function GetFeedbackDataFor_8_Grade()
     {
-        $query = "select id, state_code, State_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        $query = "select id, state_code, state_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
         union all
-        select id, state_code,State_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
         union all
-        select id, state_code, State_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        select id, state_code, state_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
         union all
-        select id, state_code, State_pq_q18
+        select id, state_code, state_pq_q18
         as state_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_pq_q29f
+        select id, state_code, state_pq_q29f
         as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q30
+        select id, state_code, state_tq_q30
         as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q33
+        select id, state_code, state_tq_q33
         as state_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q31
+        select id, state_code, state_tq_q31
         as state_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q32
+        select id, state_code, state_tq_q32
         as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q34
+        select id, state_code, state_tq_q34
         as state_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q36
+        select id, state_code, state_tq_q36
         as state_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q04
+        select id, state_code, state_tq_q04
         as state_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q28
+        select id, state_code, state_tq_q28
         as state_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_sq_q31
+        select id, state_code, state_sq_q31
         as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_sq_q32
+        select id, state_code, state_sq_q32
         as state_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_sq_q34
+        select id, state_code, state_sq_q34
         as state_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_sq_q35
+        select id, state_code, state_sq_q35
         as state_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_sq_q14
+        select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_sq_q09
+        select id, state_code, state_sq_q09
         as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q18
+        select id, state_code, state_tq_q18
         as state_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q17
+        select id, state_code, state_tq_q17
         as state_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         union all
-        select id, state_code, State_tq_q16
+        select id, state_code, state_tq_q16
         as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade8statetable
         ";
         return $query;
     }
     //Query For SRC Feedback data for Grade 10
     public function GetFeedbackDataFor_10_Grade()
     {
-        $query = "select id, state_code, State_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        $query = "select id, state_code, state_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
         union all
-        select id, state_code,State_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
         union all
-        select id, state_code, State_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        select id, state_code, state_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
         union all
-        select id, state_code, State_pq_q18
+        select id, state_code, state_pq_q18
         as state_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_pq_q29f
+        select id, state_code, state_pq_q29f
         as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q30
+        select id, state_code, state_tq_q30
         as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q33
+        select id, state_code, state_tq_q33
         as state_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q31
+        select id, state_code, state_tq_q31
         as state_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q32
+        select id, state_code, state_tq_q32
         as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q34
+        select id, state_code, state_tq_q34
         as state_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q36
+        select id, state_code, state_tq_q36
         as state_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q04
+        select id, state_code, state_tq_q04
         as state_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q28
+        select id, state_code, state_tq_q28
         as state_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_sq_q31
+        select id, state_code, state_sq_q31
         as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_sq_q32
+        select id, state_code, state_sq_q32
         as state_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_sq_q34
+        select id, state_code, state_sq_q34
         as state_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_sq_q35
+        select id, state_code, state_sq_q35
         as state_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_sq_q14
+        select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_sq_q09
+        select id, state_code, state_sq_q09
         as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q18
+        select id, state_code, state_tq_q18
         as state_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q17
+        select id, state_code, state_tq_q17
         as state_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         union all
-        select id, state_code, State_tq_q16
+        select id, state_code, state_tq_q16
         as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
-        from drc_final_data
+        from grade10statetable
         ";
         return $query;
     }
