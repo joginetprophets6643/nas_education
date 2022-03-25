@@ -1401,7 +1401,13 @@ class FinalParticipationstateController extends Controller
     //Query For LO SRC data Subject Wise Grade 3
     public function GetAllStateDataSubjectCodeG3()
     {
-        $query = "select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M301' subject_code, 'math' language, 'Reads and writes numbers up to 999 using place value' description
+        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' drc_subject_code, 'L304' subject_code, 'math' language, 'Reads small texts with comprehension i.e., identifies main ideas, details,sequence and draws conclusions' description
+        from grade3Statetable
+        union all
+        select id, state_code, State_LA_psub3_2 as state_avg, India_LA_psub3_2 as national_avg, 'State_LA_psub3_2' drc_subject_code, 'L312' subject_code, 'math' language, 'Reads printed scripts on the classroom walls: poems, posters, charts etc.' description
+        from grade3Statetable
+        union all
+        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M301' subject_code, 'math' language, 'Reads and writes numbers up to 999 using place value' description
         from grade3Statetable
         union all
         select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' drc_subject_code, 'M302' subject_code, 'math' language, 'Compares numbers up to 999 based on their place values' description
