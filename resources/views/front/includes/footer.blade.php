@@ -259,11 +259,7 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('assets/front/js/bootstrap.bundle.min.js')}}"></script>
-    <!-- AOS JS -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <!-- <script src="{{asset('assets/front/js/aos.js')}}"></script>
-    <script src="{{asset('assets/front/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('assets/front/js/custom.js')}}"></script> -->
+    
     <script type="text/javascript">
     var url = "{{ url('/change') }}";
     $(".Langchange").change(function() {
@@ -282,6 +278,7 @@
     <script>
       let token = '{{env("API_TOKEN")}}'  
       let api_url ='{{env("API_URL")}}'
+      let d_api_url ='{{env("BACKEND_D_API_URL")}}'
       let backend_api_url = '{{env("BACKEND_API_URL")}}'
       let base_url = '{{env("BASE_URL")}}'+'/'
       AOS.init({

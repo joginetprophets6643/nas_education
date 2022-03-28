@@ -167,6 +167,9 @@
                                     <input type="text" class="form-control" name="email" placeholder="Email ID" id="email" value="{{old('email')}}" autocomplete="off">
                                     <label class="form-input-label">Email ID</label>
                                     <span class="text-danger" id="valid-email"></span>
+                                    @error('email')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                     <input type="hidden" name="email_otp" id="email_otp">
                                     <div class="otp-wrap">
                                         <div class="otp-input-wrap">
@@ -304,7 +307,7 @@ function emailValidation(){
     else{
         $('#valid-email').html("Please enter valid email");
     }
-    console.log(OTP)
+    // console.log(OTP)
     $('#email_otp').val(OTP);
 }
 
@@ -563,6 +566,19 @@ $('#passw').keyup(()=>{
 })
 $('#conf_passw').keyup(()=>{
   $('#conf_passw').val($('#conf_passw').val().replace(/\s+/g, " ").trim())
+})
+
+$('form').on('submit', function (e) {
+  e.preventDefault();
+  $.each(this, function (i, element) {
+    if(element.name=="password"){
+      element.value = btoa(element.value);
+    }
+    if(element.name=="password_confirmation"){
+      element.value = btoa(element.value);
+    }
+  })
+  e.currentTarget.submit();
 })
 
 </script>
