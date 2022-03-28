@@ -4,8 +4,8 @@
     Highcharts.chart("c3-average-graph", {
         chart: {
           type: "column",
-          height: "350",
-          width: "215",
+          // height: "350",
+          // width: "215",
         },
         title: {
           text: "",
@@ -19,9 +19,11 @@
           categories: ["EVS", "Language", "Mathematics"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+            style: {
+              fontSize:'15px'
+            }
           },
+          
         },
         yAxis: {
           max: 100,
@@ -34,11 +36,15 @@
         },
         legend: {
           enabled: false,
+          // align: 'right',
+          // verticalAlign: 'middle',
+          // layout: 'vertical',
+          // itemMarginBottom: 20
         },
         plotOptions: {
           column: {
             pointPadding: 0.1,
-            pointWidth: 10,
+            pointWidth: 50,
           },
           series: {
             borderWidth: 0,
@@ -63,7 +69,7 @@
               {
                 name: "EVS",
                 y: <?php echo (int)$dataArr['evs']['cards']['state']; ?>,
-                color: "#8D8A43",
+                color: "#527698",
               },
               {
                 name: "Language",
@@ -73,7 +79,7 @@
               {
                 name: "Mathematics",
                 y: <?php echo (int)$dataArr['math']['cards']['state']; ?>,
-                color: "#A3536F",
+                color: "#527698",
               },
             ],
           },
@@ -84,17 +90,17 @@
               {
                 name: "EVS",
                 y: <?php echo (int)$dataArr['evs']['cards']['national']; ?>,
-                color: "#CAC55F",
+                color: "#A3536F",
               },
               {
                 name: "Language",
                 y: <?php echo (int)$dataArr['language']['cards']['national']; ?>,
-                color: "#75A9D9",
+                color: "#A3536F",
               },
               {
                 name: "Mathematics",
                 y: <?php echo (int)$dataArr['math']['cards']['national']; ?>,
-                color: "#E9769F",
+                color: "#A3536F",
               },
             ],
           },
@@ -106,8 +112,8 @@
     Highcharts.chart("c5-average-graph", {
         chart: {
           type: "column",
-          height: "350",
-          width: "215",
+          // height: "350",
+          // width: "215",
         },
         title: {
           text: "",
@@ -121,8 +127,9 @@
           categories: ["EVS", "Language", "Mathematics"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+            style: {
+              fontSize:'15px'
+            }
           },
         },
         yAxis: {
@@ -140,7 +147,7 @@
         plotOptions: {
           column: {
             pointPadding: 0.1,
-            pointWidth: 10,
+            pointWidth: 50,
           },
           series: {
             borderWidth: 0,
@@ -165,7 +172,7 @@
               {
                 name: "EVS",
                 y: <?php echo (int)$dataArr['evs']['cards']['state']; ?>,
-                color: "#8D8A43",
+                color: "#527698",
               },
               {
                 name: "Language",
@@ -175,7 +182,7 @@
               {
                 name: "Mathematics",
                 y: <?php echo (int)$dataArr['math']['cards']['state']; ?>,
-                color: "#A3536F",
+                color: "#527698",
               },
             ],
           },
@@ -186,12 +193,12 @@
               {
                 name: "EVS",
                 y: <?php echo (int)$dataArr['evs']['cards']['national']; ?>,
-                color: "#CAC55F",
+                color: "#E9769F",
               },
               {
                 name: "Language",
                 y: <?php echo (int)$dataArr['language']['cards']['national']; ?>,
-                color: "#75A9D9",
+                color: "#E9769F",
               },
               {
                 name: "Mathematics",
@@ -208,8 +215,8 @@
     Highcharts.chart("c8-average-graph", {
         chart: {
           type: "column",
-          height: "350",
-          width: "250",
+          // height: "350",
+          // width: "250",
         },
         title: {
           text: "",
@@ -220,11 +227,12 @@
           },
         },
         xAxis: {
-          categories: ["Language", "Mathematics", "Science", "Social Sc."],
+          categories: ["Language", "Mathematics", "Science", "Social Science"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+            style: {
+              fontSize:'15px'
+            }
           },
         },
         yAxis: {
@@ -242,7 +250,7 @@
         plotOptions: {
           column: {
             pointPadding: 0.1,
-            pointWidth: 10,
+            pointWidth: 35,
           },
           series: {
             borderWidth: 0,
@@ -272,17 +280,17 @@
               {
                 name: "Mathematics",
                 y: <?php echo (int)$dataArr['math']['cards']['state']; ?>,
-                color: "#A3536F",
+                color: "#527698",
               },
               {
                 name: "Science",
                 y: <?php echo (int)$dataArr['sci']['cards']['state']; ?>,
-                color: "#027979",
+                color: "#527698",
               },
               {
                 name: "Social Science",
                 y: <?php echo (int)$dataArr['sst']['cards']['state']; ?>,
-                color: "#456D3B",
+                color: "#527698",
               },
             ],
           },
@@ -298,17 +306,17 @@
               {
                 name: "Mathematics",
                 y: <?php echo (int)$dataArr['math']['cards']['national']; ?>,
-                color: "#E9769F",
+                color: "#75A9D9",
               },
               {
                 name: "Science",
                 y: <?php echo (int)$dataArr['sci']['cards']['national']; ?>,
-                color: "#3CACAE",
+                color: "#75A9D9",
               },
               {
                 name: "Social Science",
                 y: <?php echo (int)$dataArr['sst']['cards']['national']; ?>,
-                color: "#E9769F",
+                color: "#75A9D9",
               },
             ],
           },
@@ -320,8 +328,8 @@
     Highcharts.chart("c10-average-graph", {
         chart: {
           type: "column",
-          height: "350",
-          width: "300",
+          // height: "350",
+          // width: "300",
         },
         title: {
           text: "",
@@ -341,8 +349,9 @@
           ],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+            style: {
+              fontSize:'15px'
+            }
           },
         },
         yAxis: {
@@ -360,7 +369,7 @@
         plotOptions: {
           column: {
             pointPadding: 0.1,
-            pointWidth: 10,
+            pointWidth: 28,
           },
           series: {
             borderWidth: 0,
@@ -385,7 +394,7 @@
               {
                 name: "MIL",
                 y: <?php echo (int)$dataArr['mil']['cards']['state']; ?>,
-                color: "#8D403F",
+                color: "#764673",
               },
               {
                 name: "English",
@@ -395,17 +404,17 @@
               {
                 name: "Mathematics",
                 y: <?php echo (int)$dataArr['math']['cards']['state']; ?>,
-                color: "#A3536F",
+                color: "#764673",
               },
               {
                 name: "Science",
                 y: <?php echo (int)$dataArr['sci']['cards']['state']; ?>,
-                color: "#027979",
+                color: "#764673",
               },
               {
                 name: "Social Science",
                 y: <?php echo (int)$dataArr['sst']['cards']['state']; ?>,
-                color: "#456D3B",
+                color: "#764673",
               },
             ],
           },
@@ -416,7 +425,7 @@
               {
                 name: "MIL",
                 y: <?php echo (int)$dataArr['mil']['cards']['national']; ?>,
-                color: "#EB6C69",
+                color: "#C574BF",
               },
               {
                 name: "English",
@@ -426,17 +435,17 @@
               {
                 name: "Mathematics",
                 y: <?php echo (int)$dataArr['math']['cards']['national']; ?>,
-                color: "#E9769F",
+                color: "#C574BF",
               },
               {
                 name: "Science",
                 y: <?php echo (int)$dataArr['sci']['cards']['national']; ?>,
-                color: "#3CACAE",
+                color: "#C574BF",
               },
               {
                 name: "Social Science",
                 y: <?php echo (int)$dataArr['sst']['cards']['national']; ?>,
-                color: "#E9769F",
+                color: "#C574BF",
               },
             ],
           },

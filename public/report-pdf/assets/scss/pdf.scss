@@ -1,20 +1,20 @@
 // State
 .bg-orange {
-    background-color: #F7941C !important;
+    background-color: #f7941c !important;
 }
 .bg-grey {
-    background-color: #E7E7E8 !important;
+    background-color: #e7e7e8 !important;
 }
-.border-left{
+.border-left {
     border-left: 1px dashed #647781 !important;
 }
-.border-top{
+.border-top {
     border-top: 1px dashed #647781 !important;
 }
-.border-right{
+.border-right {
     border-right: 1px dashed #647781 !important;
 }
-.border-bottom{
+.border-bottom {
     border-bottom: 1px dashed #647781 !important;
 }
 .text-28 {
@@ -32,17 +32,17 @@
     right: 0;
     .reportview-footer {
         padding: 16px;
-        background: #D6E5F4;
+        background: #d6e5f4;
         position: relative;
         .page-no {
             position: absolute;
             left: 50%;
             top: 0px;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             background: #2a6aa9;
             padding: 5px 25px;
             letter-spacing: 0.11px;
-            color: #FFFFFF;
+            color: #ffffff;
             font-size: 16px;
             font-weight: 500;
         }
@@ -79,12 +79,15 @@
                     .per-text-4 {
                         right: 20px !important;
                     }
-
-                } 
+                }
                 figure {
                     padding-left: 0;
                 }
-
+            }
+            .left {
+                h4 {
+                    font-size: 20px;
+                } 
             }
             .state-managemnt {
                 margin-left: 0;
@@ -113,7 +116,10 @@
             }
         }
         .pendamic-wrap {
-            .virus-icon1, .virus-icon2, .virus-icon4, .virus-icon5 {
+            .virus-icon1,
+            .virus-icon2,
+            .virus-icon4,
+            .virus-icon5 {
                 animation: none;
             }
             .virus-icon2 {
@@ -127,7 +133,6 @@
             .pendamic-progressbar-list {
                 padding: 20px;
             }
-
         }
         .state-performance-table {
             th {
@@ -145,15 +150,15 @@
                     }
                 }
             }
-        } 
-    } 
+        }
+    }
     .pg2 {
         // @include footer-mark(-1.5rem);
     }
     .nrc-pg2 {
         @include footer-mark(-1rem);
     }
-    
+
     .nrc-pg3 {
         // @include footer-mark(-1rem);
         .reportview-footer {
@@ -203,7 +208,6 @@
     .pg9 {
         @include footer-mark(-60rem);
     }
-
 }
 .state-heading {
     position: relative;
@@ -267,8 +271,8 @@
                     position: absolute;
                     top: 4rem;
                     right: 7.5rem;
-                    border: 8px solid #F1F1F1;
-                    .student-img, 
+                    border: 8px solid #f1f1f1;
+                    .student-img,
                     .school-img {
                         margin-top: 16px;
                     }
@@ -299,10 +303,10 @@
             @include legends(#919191);
         }
         .legend-3 {
-            @include legends(#B1B1B1);
+            @include legends(#b1b1b1);
         }
         .legend-4 {
-            @include legends(#D9D9D9);
+            @include legends(#d9d9d9);
         }
     }
     .graph-mark {
@@ -312,7 +316,13 @@
         .container {
             z-index: 100;
         }
-        @mixin class-container($pad-tb, $height, $max-height, $border-left, $border-top-bottom) {
+        @mixin class-container(
+            $pad-tb,
+            $height,
+            $max-height,
+            $border-left,
+            $border-top-bottom
+        ) {
             padding: 0.6rem 0.2rem;
             height: $height;
             z-index: 25;
@@ -324,7 +334,7 @@
                 position: relative;
                 &::before {
                     border-left: $border-left solid #2a6aa9;
-                    content: '';
+                    content: "";
                     position: absolute;
                     top: 50%;
                     right: -33px;
@@ -367,7 +377,6 @@
                 }
             }
         }
-
     }
 }
 .table-data {
@@ -400,14 +409,14 @@
     .teacher-testimony {
         .infotab-content {
             h2 {
-                color: #7CB342;
+                color: #7cb342;
             }
         }
     }
     .head-teacher-testimony {
         .infotab-content {
             h2 {
-                color: #75A9D9;
+                color: #75a9d9;
             }
         }
     }
@@ -437,16 +446,23 @@
         }
     }
 }
-@mixin custom-progress($fnt-size, $border-clr, $margin, $progress-bg, $progress-inner-bg, $inner-font) {
+@mixin custom-progress(
+    $fnt-size,
+    $border-clr,
+    $margin,
+    $progress-bg,
+    $progress-inner-bg,
+    $inner-font
+) {
     .progress-percent {
         font-size: $fnt-size;
-        width:1em;
-        height:1em;
+        width: 1em;
+        height: 1em;
         position: relative;
         background: $border-clr;
-        border-radius:50%;
-        overflow:hidden;
-        display:inline-block;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
         margin: $margin;
         .progress-inner {
             position: absolute;
@@ -454,7 +470,7 @@
             top: 0;
             width: 1em;
             height: 1em;
-            clip:rect(0 1em 1em 0.5em);
+            clip: rect(0 1em 1em 0.5em);
             .progress-round {
                 position: absolute;
                 left: 0;
@@ -462,11 +478,10 @@
                 width: 1em;
                 height: 1em;
                 background: $progress-bg;
-                clip:rect(0 1em 1em .5em);
-                transform:rotate(180deg);
-                transition:1.05s;
+                clip: rect(0 1em 1em 0.5em);
+                transform: rotate(180deg);
+                transition: 1.05s;
             }
-            
         }
         .progress-inbox {
             position: absolute;
@@ -475,7 +490,7 @@
             right: 10px;
             bottom: 10px;
             background: $progress-inner-bg;
-            z-index:3;
+            z-index: 3;
             border-radius: 50%;
             .percent_text {
                 position: absolute;
@@ -483,7 +498,7 @@
                 font-weight: 600;
                 left: 50%;
                 top: 50%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
                 z-index: 3;
             }
             .bottom-txt {
@@ -494,22 +509,22 @@
                 text-align: center;
                 left: 50%;
                 top: 55%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
                 z-index: 3;
             }
         }
     }
     .percent_more .progress-inner {
-        clip:rect(0 .5em 1em 0em);
+        clip: rect(0 0.5em 1em 0em);
     }
     .percent_more:after {
         position: absolute;
-        left: .5em;
-        top:0em;
+        left: 0.5em;
+        top: 0em;
         right: 0;
         bottom: 0;
         background: $progress-bg;
-        content:'';
+        content: "";
     }
 }
 .blue-progress-bar {
@@ -579,17 +594,17 @@
     @include progress-bar(#7cb342);
 }
 .pink-progress-container {
-    @include progress-bar(#E9769F);
+    @include progress-bar(#e9769f);
 }
 
 // National PDF CSS
-.p-30-60{
+.p-30-60 {
     padding: 30px 60px;
 }
-.mtb-15{
+.mtb-15 {
     margin: 15px 0;
 }
-.mtb-60{
+.mtb-60 {
     margin: 60px 0;
 }
 .heading-black-main {
@@ -612,33 +627,33 @@
         position: absolute;
         top: 12%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
-    .heading-wrap{
+    .heading-wrap {
         position: absolute;
         top: 20%;
         left: 5%;
         h2 {
             letter-spacing: 0.35px;
-            color: #FFFFFF;
-            font-family: 'Roboto Slab', serif;
+            color: #ffffff;
+            font-family: "Roboto Slab", serif;
             font-size: 70px;
             font-weight: bold;
         }
         p {
             letter-spacing: 0.2px;
-            color: #FFFFFF;
+            color: #ffffff;
             font-size: 40px;
             font-weight: 400;
         }
     }
 }
-.ap-graph-container{
-    .graph-wrap{
+.ap-graph-container {
+    .graph-wrap {
         position: relative;
         &:after {
             border-bottom: 1px solid #ccc;
-            content: '';
+            content: "";
             display: block;
             bottom: 49px;
             position: absolute;
@@ -664,55 +679,57 @@
     }
 }
 
-.sample-container{
-    .student-fbcard{
+.sample-container {
+    .student-fbcard {
         .title {
             font-size: 18px;
         }
     }
-    .progressbar-circle-lg{
-        .progress{
-            .progress-value{
+    .progressbar-circle-lg {
+        .progress {
+            .progress-value {
                 p {
                     font-size: 18px;
                 }
             }
         }
     }
-    .progressbar-line{
+    .progressbar-line {
         p {
             font-size: 18px;
         }
     }
 }
 
-.nrc-pendamic-container{
-    .pendamic-progressbar-card{
-        .pendamic-progressbar-list{
-            .col-md-3{
-                &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+.nrc-pendamic-container {
+    .pendamic-progressbar-card {
+        .pendamic-progressbar-list {
+            .col-md-3 {
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3) {
                     border-right: 1px dashed #647781;
                 }
             }
-            .progress{
+            .progress {
                 width: 125px;
                 height: 125px;
                 line-height: 125px;
                 &:after {
                     border: 14px solid #fff;
                 }
-                .progress-left{
+                .progress-left {
                     .progress-bar {
                         border-top-right-radius: 125px;
                         border-bottom-right-radius: 125px;
-                        border-width: 14px; 
+                        border-width: 14px;
                     }
                 }
-                .progress-right{
+                .progress-right {
                     .progress-bar {
                         border-top-left-radius: 125px;
                         border-bottom-left-radius: 125px;
-                        border-width: 14px; 
+                        border-width: 14px;
                     }
                 }
                 .progress-value {
@@ -722,12 +739,11 @@
             .title {
                 font-size: 18px;
             }
-        } 
+        }
     }
 }
 
-
-.subject-map-wrap{
+.subject-map-wrap {
     .subject-map-title {
         letter-spacing: 0px;
         color: #000000;
@@ -743,7 +759,7 @@
         margin: 30px 0;
         span {
             letter-spacing: 0px;
-            color: #FFFFFF;
+            color: #ffffff;
             font-size: 20px;
             font-weight: 400;
             display: flex;
@@ -767,21 +783,21 @@
         left: 0px;
         width: 50px;
     }
-    
+
     .virus-icon2 {
         position: absolute;
         top: -15px;
         left: 80px;
         width: 80px;
     }
-    
+
     .virus-icon3 {
         position: absolute;
         top: 0px;
         right: 100px;
         width: 50px;
     }
-    
+
     .virus-icon4 {
         position: absolute;
         top: 30px;
@@ -789,7 +805,6 @@
         width: 80px;
     }
 }
-
 
 .virus-icon-bottom {
     position: relative;
@@ -800,44 +815,103 @@
         left: 20px;
         width: 100px;
     }
-    
+
     .virus-icon2 {
         position: absolute;
         left: 150px;
         width: 50px;
         top: -80px;
     }
-    
+
     .virus-icon3 {
         position: absolute;
         left: 40%;
         width: 100px;
     }
-    
+
     .virus-icon4 {
         position: absolute;
         left: 48%;
         width: 50px;
         top: -60px;
     }
-    
+
     .virus-icon5 {
         position: absolute;
         right: 30%;
         width: 70px;
     }
-    
+
     .virus-icon6 {
         position: absolute;
         right: 15%;
         width: 100px;
         top: -140px;
     }
-    
+
     .virus-icon7 {
         position: absolute;
         right: 0;
         width: 50px;
         top: -100px;
+    }
+}
+
+.about-nas {
+    .highlights-container {
+        .reportview-class-content {
+            padding: 3rem 1rem;
+            h1 {
+                font-size: 4rem;
+                color: #57585a;
+                margin-bottom: 3rem;
+                line-height: 2rem;
+            }
+            .top-card {
+                z-index: 1;
+            }
+            .about-sec-card {
+                background: #e6e7e9;
+                padding: 11rem 2rem 2rem 2rem;
+                margin-top: -9rem;
+                p {
+                    line-height: 2.1rem;
+                    text-align: justify;
+                }
+            }
+        }
+    } 
+}
+.class-name {
+    .reportview-class-content {
+        height: 50em;
+        .class-card {
+            clip-path: polygon(0 0%, calc(100%) 0, calc(100%) 100%, 0 100%, 5rem 50%);
+            position: absolute;
+            width: 75%;
+            left: 25%;
+            top: 45%;
+            background: #57585a;
+            h2 {
+                font-size: 2.45rem;
+            }
+            h1 {
+                font-size: 3.5rem;
+
+            }
+        }
+    }
+}
+
+.light-grey {
+    background-color: #e6e7e9 !important;
+}
+.light-orange {
+    background-color: #f7941f1c !important;
+}
+.overall-box {
+    border: 1px solid #000;
+    .blue-txt {
+        color: #00BFFF;
     }
 }

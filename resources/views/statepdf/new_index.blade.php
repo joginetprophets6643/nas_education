@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="http://nas21.inroad.in/report-pdf/assets/scss/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{asset('report-pdf/assets/scss/bootstrap.min.css')}}" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
@@ -16,9 +16,9 @@
       rel="stylesheet"
     />
     <!-- Material Icons -->
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/material-icons.css" />
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/style.css" />
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/pdf.css" />
+    <link rel="stylesheet" href="{{asset('report-pdf/assets/material-icons.css')}}" />
+    <link rel="stylesheet" href="{{asset('report-pdf/assets/scss/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('report-pdf/assets/scss/pdf.css')}}" />
     <title>NAS | State PDF</title>
     <style>
       .col-md-1 {
@@ -59,73 +59,14 @@
       }
     </style>
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="http://nas21.inroad.in/report-pdf/assets/js/jquery-3.6.0.min.js"></script>
-    <script src="http://nas21.inroad.in/report-pdf/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('report-pdf/assets/js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('report-pdf/assets/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- <script src="http://nas21.inroad.in/report-pdf/assets/js/jquery-3.6.0.min.js"></script> -->
+    <!-- <script src="http://nas21.inroad.in/report-pdf/assets/js/bootstrap.bundle.min.js"></script> -->
     <!-- Highcharts JS -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="http://nas21.inroad.in/report-pdf/assets/js/custom.js"></script>
-    <!-- <style type="text/css">
-      .progress-percent {
-        font-size: 120px;
-        width:1em;
-        height:1em;
-        position: relative;
-        background: #eee;
-        border-radius:50%;
-        overflow:hidden;
-        display:inline-block;
-        margin:20px;
-      }
-      .progress-inner {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 1em;
-        height: 1em;
-        clip:rect(0 1em 1em .5em);
-      }
-      .progress-round {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 1em;
-        height: 1em;
-        background: #4527A0;
-        clip:rect(0 1em 1em .5em);
-        transform:rotate(180deg);
-        transition:1.05s;
-      }
-      .percent_more .progress-inner {
-        clip:rect(0 .5em 1em 0em);
-      }
-      .percent_more:after {
-        position: absolute;
-        left: .5em;
-        top:0em;
-        right: 0;
-        bottom: 0;
-        background: #4527A0;
-        content:'';
-      }
-      .progress-inbox {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        background: #fff;
-        z-index:3;
-        border-radius: 50%;
-      }
-      .percent_text {
-        position: absolute;
-        font-size: 30px;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        z-index: 3;
-      }
-    </style> -->
+    <!-- <script src="http://nas21.inroad.in/report-pdf/assets/js/custom.js"></script> -->
+    <script src="{{asset('report-pdf/assets/js/custom.js')}}"></script>
   </head>
   <body class="p-0 state-pdf">
     <!----------------------------------------- state report card starts ----------------------------------------->
@@ -157,6 +98,59 @@
       </section>
     </div>
     <!------------------------ page 1 ends ------------------------>
+    <!------------------------ page 2-new starts ------------------------>
+    <div class="page">
+      <section class="reportview-wrap about-nas">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="reportview-container mb-0 highlights-container">
+                <div class="reportview-class-wrap">
+                  
+                  <div class="reportview-class-content white-bg m-5">
+                    <!-- content -->
+                    <div class="row justify-content-center">
+                      <div class="col-md-12">
+                        <h1 class="text-center fw-bold">About NAS</h1>
+                      </div>
+                      <div class="col-md-6 top-card">
+                        <div class="bg-orange text-white text-center p-5">
+                          <h4 class="fw-lighter">
+                            The NAS is a system level assessment i.e. it summarizes students achievement at National, State/UT and District levels. NAS does not provide scores for individual student/school.
+                          </h4>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="about-sec-card">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <p>
+                                The National Achievement Survey (NAS) is a large scale survey of students’ learning, administered periodically, since 2001, at the elementary level and from 2015 at the secondary level, to monitor the health of the country’s education system. NAS is led by the NAS Cell, National Council of Educational Research and Training (NCERT), under the aegis of Department of School Education and Literacy (DoSEL), Ministry of Education (MoE). NAS conducted in November 2021 was administered in ….. Districts of ….. States and UTs.
+                              </p>
+                            </div>
+                            <div class="col-md-6">
+                              <p>
+                                 Nearly 2.2 million students studying in 1,10,000 (approx) Government and Government aided schools were tested in the learning outcomes developed by the Council. To understand the contextual variables three questionnaires were developed; Pupil Questionnaire (PQ), School Questionnaire (SQ) and Teacher Questionnaire (TQ). The Teacher Questionnaire was administered on ….. teachers. This document reflects the findings of NAS 2021.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="report-footer-wrap pg2">
+                    <div class="reportview-footer">
+                      <span class="page-no">2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!------------------------ page 2-new ends ------------------------>
     <!------------------------ page 2 starts ------------------------>
     <div class="page">
       <section class="reportview-wrap">
@@ -308,7 +302,7 @@
                   </div>
                   <div class="report-footer-wrap pg2">
                     <div class="reportview-footer">
-                      <span class="page-no">2</span>
+                      <span class="page-no">3</span>
                     </div>
                   </div>
                 </div>
@@ -319,8 +313,35 @@
       </section>
     </div>
     <!------------------------ page 2 ends ------------------------>
+    <!------------------------ class name starts ------------------------>
+    <div class="page">
+      <section class="reportview-wrap class-name">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="reportview-container mb-0 highlights-container">
+                <div class="reportview-class-wrap">
+                  <div class="reportview-class-content bg-orange">
+                    <div class="row align-items-center">
+                      <div class="col-md-12">
+                          <div class="text-white class-card pt-3 pb-2 text-center">
+                            <h2 class="mb-0 fw-bold">NAS 2021</h2>
+                            <h3 class="mb-0 fw-bold">RESULTS FOR</h3>
+                            <h1 class="mb-0 fw-bold">Class 3</h1>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!------------------------ class name ends ------------------------>
 
-    <!------------------------ page 3 starts ------------------------>
+    <!------------------------ page 3-new starts ------------------------>
     <div class="page">
       <section class="reportview-wrap">
         <div class="container">
@@ -331,6 +352,8 @@
                   <!-- header -->
                   <div class="reportview-header">
                     <h2>{{isset($stateVal->state_name)?$stateVal->state_name:'-'}} Report Card</h2>
+                    <!-- needed to be changed -->
+                    <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
                   <div
@@ -340,8 +363,7 @@
                       <!-- graph section -->
                       <div class="col-md-12 mt-4 w-100">
                         <h3 class="text-center text-28 fw-bold">
-                          Gradewise Performance of Students in the Different
-                          Subject Domain
+                          Performance of Students in the Different Subject (in percent correct)
                         </h3>
                         <div class="container d-flex justify-content-center my-3">
                           <span class="legend-1"></span>
@@ -349,145 +371,94 @@
                           <span class="legend-2"></span>
                           <p class="mb-0 me-4 text-15">National Average</p>
                         </div>
-                        <div class="d-flex graph-mark">
+                        <div class="graph-mark row justify-content-center">
                           <!-- class 3 -->
-                          @if(count($performanceData)>0)
-                            @foreach($performanceData as $avgPerformance)
-                              @php 
-                              $dataArr = json_decode($avgPerformance->data,true);
-                              $grade = $avgPerformance->grade;
-                              @endphp
-                                <div class="p-0 class-{{$grade}}-width">
-                                  <div class="graph-wrap">
-                                    <figure class="highcharts-figure">
-                                      <div id="c{{$grade}}-average-graph"></div>
-                                      <div class="dark-blue-bg mx-3">
-                                        <h6 class="text-center fw-light p-2 text-white">
-                                          Class {{$grade}}
-                                        </h6>
-                                      </div>
-                                    </figure>
-                                  </div>
-                                </div>
-                                @include('statepdf.firstgraph')
-                            @endforeach
-                          @endif
-                        </div>
-                      </div>
-                      <!-- graph section -->
-                      <div class="col-md-12 mt-5 mb-30">
-                        <h3 class="text-center text-28 fw-bold">
-                          Distribution of Students by Range
-                        </h3>
-                        <div class="container d-flex justify-content-center mt-3">
-                          <span class="legend-1"></span>
-                          <p class="mb-0 me-4 text-15">Below 30%</p>
-                          <span class="legend-2"></span>
-                          <p class="mb-0 me-4 text-15">30% - 50%</p>
-                          <span class="legend-3"></span>
-                          <p class="mb-0 me-4 text-15">51% - 75%</p>
-                          <span class="legend-4"></span>
-                          <p class="mb-0 text-15">Above 75%</p>
-                        </div>
-                        <div class="graph-mark d-flex mt-4">
-                          <div class="container-wrapper left-sec">
-
-                          @if(count($performanceData)>0)
-                            @foreach($performanceData as $rangePerformance)
-                              @php 
-                              $dataArrRange = json_decode($rangePerformance->data,true);
-                              $grade = $rangePerformance->grade;
-                              @endphp
-                                <div class="container class-{{$grade}}-container d-flex justify-content-between">
-                                  <div class="dark-blue-bg inner-container">
-                                    <h6 class="text-white mb-0">Class {{$grade}}</h6>
-                                  </div>
-                                  @if($grade==3 || $grade==5)
-                                    <div class="">
-                                      <p class="mb-0 fw-bold text-15 mt-1 text-end">EVS</p>
-                                      <p class="mb-0 fw-bold text-15 mt-3 text-end">Language</p>
-                                      <p class="mb-0 fw-bold text-15 mt-4 text-end">Mathematics</p>
-                                    </div>
-                                  @endif
-                                  @if($grade==8)
-                                    <div class="">
-                                      <p class="mb-0 fw-bold text-15 text-end">Language</p>
-                                      <p class="mb-0 fw-bold text-15 mt-3 text-end">Mathematics</p>
-                                      <p class="mb-0 fw-bold text-15 mt-3 text-end">Science</p>
-                                      <p class="mb-0 fw-bold text-15 mt-3 text-end">Social Science</p>
-                                    </div>
-                                  @endif
-                                  @if($grade==10)
-                                    <div class="">
-                                      <p class="mb-0 fw-bold text-15 text-end">MIL</p>
-                                      <p class="mb-0 fw-bold text-15 mt-1 text-end">English</p>
-                                      <p class="mb-0 fw-bold text-15 mt-2 text-end">Mathematics</p>
-                                      <p class="mb-0 fw-bold text-15 mt-2 pt-1 text-end">Science</p>
-                                      <p class="mb-0 fw-bold text-15 mt-2 text-end">Social Science</p>
-                                    </div>
-                                  @endif
-                                </div>
-                            @endforeach
-                          @endif
-
-                            <!-- <div class="container class-3-container d-flex justify-content-between">
-                              <div class="dark-blue-bg inner-container">
-                                <h6 class="text-white mb-0">Class 3</h6>
-                              </div>
-                              <div class="">
-                                <p class="mb-0 fw-bold text-15 text-end">EVS</p>
-                                <p class="mb-0 fw-bold text-15 mt-2 text-end">Language</p>
-                                <p class="mb-0 fw-bold text-15 mt-3 text-end">Mathematics</p>
-                              </div>
-                            </div>
-                            <div class="container class-5-container d-flex justify-content-between">
-                              <div class="dark-blue-bg inner-container">
-                                <h6 class="text-white mb-0">Class 5</h6>
-                              </div>
-                              <div class="">
-                                <p class="mb-0 fw-bold text-15 text-end">EVS</p>
-                                <p class="mb-0 fw-bold text-15 mt-2 text-end">Language</p>
-                                <p class="mb-0 fw-bold text-15 mt-3 text-end">Mathematics</p>
-                              </div>
-                            </div>
-                            <div class="container class-8-container d-flex justify-content-between">
-                              <div class="dark-blue-bg inner-container">
-                                <h6 class="text-white mb-0 mb-0">Class 8</h6>
-                              </div>
-                              <div class="">
-                                <p class="mb-0 fw-bold text-15 text-end">Language</p>
-                                <p class="mb-0 fw-bold text-15 mt-1 text-end">Mathematics</p>
-                                <p class="mb-0 fw-bold text-15 mt-2 text-end">Science</p>
-                                <p class="mb-0 fw-bold text-15 mt-1 text-end">Social Science</p>
-                              </div>
-                            </div>
-                            <div class="container class-10-container d-flex justify-content-between">
-                              <div class="dark-blue-bg inner-container">
-                                <h6 class="text-white mb-0">Class 10</h6>
-                              </div>
-                              <div class="">
-                                <p class="mb-0 fw-bold text-15 text-end">MIL</p>
-                                <p class="mb-0 fw-bold text-15 text-end">English</p>
-                                <p class="mb-0 fw-bold text-15 mt-1 text-end">Mathematics</p>
-                                <p class="mb-0 fw-bold text-15 mt-1 text-end">Science</p>
-                                <p class="mb-0 fw-bold text-15 mt-1 text-end">Social Science</p>
-                              </div>
-                            </div> -->
-                          </div>
-                          <div class="p-0 distribution-graph">
+                          <div class="col-md-6 class-3-width">
                             <div class="graph-wrap">
                               <figure class="highcharts-figure">
-                                @if(count($performanceData)>0)
-                                  @foreach($performanceData as $rangePerformance2)
-                                    @php 
-                                    $dataArrRange2 = json_decode($rangePerformance2->data,true);
-                                    $grade2 = $rangePerformance2->grade;
-                                    @endphp
-                                    <div id="c{{$grade2}}-range-graph"></div>
-                                    @include('statepdf.secondgraph')
-                                  @endforeach
-                                @endif
-
+                                <div id="c10-average-graph"></div>
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- table section -->
+                      <div class="col-md-12 mt-5 mb-30">
+                        <h3 class="text-center text-28 fw-bold">
+                          Percentage of Students by Performance Level
+                        </h3>
+                        <table class="table table-bordered text-center text-white">
+                          <thead>
+                            <tr class="">
+                              <th
+                                class="light-grey"
+                                scope="col"
+                              >
+                                
+                              </th>
+                              <th scope="col" class="card-red fw-normal">
+                                BELOW BASIC
+                              </th>
+                              <th scope="col" class="bg-orange fw-normal">
+                                BASIC
+                              </th>
+                              <th scope="col" class="card-green fw-normal">
+                                PROFICIENT
+                              </th>
+                              <th scope="col" class="card-blue fw-normal">
+                                PROFICIENT
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row" class="dark-blue-bg fw-normal text-start">EVS</th>
+                              <td class="light-red text-dark"></td>
+                              <td class="light-orange text-dark"></td>
+                              <td class="light-green text-dark"></td>
+                              <td class="light-blue text-dark"></td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="dark-blue-bg fw-normal text-start">Language</th>
+                              <td class="light-red text-dark"></td>
+                              <td class="light-orange text-dark"></td>
+                              <td class="light-green text-dark"></td>
+                              <td class="light-blue text-dark"></td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="dark-blue-bg fw-normal text-start">Mathematics</th>
+                              <td class="light-red text-dark"></td>
+                              <td class="light-orange text-dark"></td>
+                              <td class="light-green text-dark"></td>
+                              <td class="light-blue text-dark"></td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="light-grey fw-normal text-start"></th>
+                              <td class="light-red text-dark text-start">Learners at this level are at the early stages of development regarding the curriculum standards. They have not achieved sufficient knowledge and skills to be considered minimally successful regarding curriculum demands. They need guidance at every stage of learning. They can make little judgment and need a lot of encouragement and guidance.</td>
+                              <td class="light-orange text-dark text-start">Learners at this level demonstrate a minimum level of skills related to the curriculum learning outcomes. They can follow simple instructions and apply simple rules to achieve expected performance. They have some good ideas which often lack coherence. They need guidance at many stages of learning. They can solve problems using simple logic, and can also express themselves using simple language.</td>
+                              <td class="light-green text-dark text-start">Learners at this level have acquired most of the learning outcomes and skills required by the curriculum. They can work independently with minimum supervision. They have a systematic methodology to solve problems. They can communicate their ideas clearly. They can also connect different ideas and create meaning with minimum guidance and supervision. They can analyze situations and interpret information for application to new situations.</td>
+                              <td class="light-blue text-dark text-start">Learners at this level display exceptional mastery of the learning content as prescribed by the curriculum and beyond. They are independent with high analytical, reflective and critical thinking. They can connect and integrate concepts and ideas to create new knowledge/ meaning and solve complex problems. They communicate information with the highest level of creativity and coherence as well as make sound judgements.</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!-- comparision graph section -->
+                      <div class="col-md-12 mt-4 w-100">
+                        <h3 class="text-center text-28 fw-bold">
+                          Performance of Students in NAS 2017 and NAS 2021 
+                        </h3>
+                        <div class="container d-flex justify-content-center my-3">
+                          <span class="legend-1"></span>
+                          <p class="mb-0 me-4 text-15">NAS 2017</p>
+                          <span class="legend-2"></span>
+                          <p class="mb-0 me-4 text-15">NAS 2021</p>
+                        </div>
+                        <div class="graph-mark row justify-content-center">
+                          <!-- class 3 -->
+                          <div class="col-md-6 class-3-width">
+                            <div class="graph-wrap">
+                              <figure class="highcharts-figure">
+                                <div id="c10-compare-graph"></div>
                               </figure>
                             </div>
                           </div>
@@ -507,8 +478,8 @@
         </div>
       </section>
     </div>
-    <!------------------------ page 3 ends ------------------------>
-    <!------------------------ page 4 starts ------------------------>
+    <!------------------------ page 3-new ends ------------------------>
+    <!------------------------ page 4-new starts ------------------------>
     <div class="page">
       <section class="reportview-wrap">
         <div class="container">
@@ -519,39 +490,41 @@
                   <!-- header -->
                   <div class="reportview-header">
                     <h2>{{isset($stateVal->state_name)?$stateVal->state_name:'-'}} Report Card</h2>
+                    <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
                   <div class="reportview-class-content table-data white-bg py-4 px-0">
                     <div class="row mt-4">
                       <!-- Gender -->
                       <div class="col-md-9 left mb-60">
+                        <h4 class="">Participation by Gender</h4>
                         <table class="table table-bordered text-center text-white">
                           <thead>
-                            <tr class="dark-blue-bg">
+                            <tr class="bg-orange text-dark align-middle">
                               <th
-                                class="align-middle bg-orange text-start"
+                                class="align-middle dark-blue-bg text-white text-start"
                                 scope="col"
                                 colspan="2"
-                                rowspan="2"
+                                rowspan="3"
                               >
-                                PERFORMANCE BY GENDER
+                                SUBJECT
+                              </th>
+                              <th scope="col" colspan="2" rowspan="2" class="">
+                                Percentage correct answer
+                              </th>
+                              <th scope="col" colspan="4" class="">
+                                Percentage of children
+                              </th>
+                            </tr>
+                            <tr class="bg-orange text-dark">
+                              <th scope="col" colspan="2" class="">
+                               At basic and below basic level
                               </th>
                               <th scope="col" colspan="2" class="">
-                                Class 3
-                              </th>
-                              <th scope="col" colspan="2" class="">
-                                Class 5
-                              </th>
-                              <th scope="col" colspan="2" class="">
-                                Class 8
-                              </th>
-                              <th scope="col" colspan="2" class="">
-                                Class 10
+                               At proficient and advance level
                               </th>
                             </tr>
                             <tr class="dark-blue-bg">
-                              <th scope="col" class="">Boys</th>
-                              <th scope="col" class="">Girls</th>
                               <th scope="col" class="">Boys</th>
                               <th scope="col" class="">Girls</th>
                               <th scope="col" class="">Boys</th>
@@ -560,95 +533,51 @@
                               <th scope="col" class="">Girls</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            @php 
-                            $subjectArr = array('evs'=>'EVS','language'=>'Language','math'=>'Mathematics','sst'=>'Social Science','mil'=>'MIL','sci'=>'Science','eng'=>'English');
-                            $subjectColorArr = array('evs'=>'card-yellow','language'=>'card-blue','math'=>'card-pink','sst'=>'card-green','mil'=>'card-red','sci'=>'card-sagegreen','eng'=>'card-purple');
-                            @endphp
-                            @foreach($subjectArr as $key=>$subjectData)
-                            <!-- evs -->
-                            <tr class="{{$subjectColorArr[$key]}}">
-                              <td scope="row" rowspan="2" class="align-middle">
-                                {{$subjectData}}
+                          <tbody class="text-dark">
+                            <!-- sub 1 -->
+                            <tr class="light-orange">
+                              <td scope="row" rowspan="2" class="align-middle dark-blue text-white">
+                                Maths
                               </td>
                               <td>State</td>
-                              @if(count($performanceData)>0)
-                                @foreach($performanceData as $genderPerformance)
-                                  @php 
-                                  $dataArrGender = json_decode($genderPerformance->data,true);
-                                  $grade = $genderPerformance->grade;
-                                  @endphp
-                                    @if($grade==3 || $grade==5)
-                                      @if($key=='evs'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrGender[$key]['gender']['state']['boys']}}</td>
-                                        <td>{{$dataArrGender[$key]['gender']['state']['girls']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==8)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrGender[$key]['gender']['state']['boys']}}</td>
-                                        <td>{{$dataArrGender[$key]['gender']['state']['girls']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==10)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='mil'|| $key=='eng')
-                                        <td>{{$dataArrGender[$key]['gender']['state']['boys']}}</td>
-                                        <td>{{$dataArrGender[$key]['gender']['state']['girls']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-
-                                @endforeach
-                              @endif
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
                             </tr>
-                            <tr class="{{$subjectColorArr[$key]}}">
+                            <tr class="light-orange">
                               <td>National</td>
-                            @if(count($performanceData)>0)
-                                @foreach($performanceData as $genderPerformance)
-                                  @php 
-                                  $dataArrGender = json_decode($genderPerformance->data,true);
-                                  $grade = $genderPerformance->grade;
-                                  @endphp
-                                    @if($grade==3 || $grade==5)
-                                      @if($key=='evs'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrGender[$key]['gender']['national']['boys']}}</td>
-                                        <td>{{$dataArrGender[$key]['gender']['national']['girls']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==8)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrGender[$key]['gender']['national']['boys']}}</td>
-                                        <td>{{$dataArrGender[$key]['gender']['national']['girls']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==10)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='mil'|| $key=='eng')
-                                        <td>{{$dataArrGender[$key]['gender']['national']['boys']}}</td>
-                                        <td>{{$dataArrGender[$key]['gender']['national']['girls']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-
-                                @endforeach
-                              @endif
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
                             </tr>
-                            @endforeach
+                            <!-- sub 2 -->
+                            <tr class="light-blue">
+                              <td scope="row" rowspan="2" class="align-middle dark-blue text-white">
+                                Science
+                              </td>
+                              <td>State</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                            </tr>
+                            <tr class="light-blue">
+                              <td>National</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -661,33 +590,34 @@
                       </div>
                       <!-- Location -->
                       <div class="col-md-9 left mb-60">
+                        <h4 class="">Participation by Location</h4>
                         <table class="table table-bordered text-center text-white">
                           <thead>
-                            <tr class="dark-blue-bg">
+                            <tr class="bg-orange text-dark align-middle">
                               <th
-                                class="align-middle bg-orange text-start"
+                                class="align-middle dark-blue-bg text-white text-start"
                                 scope="col"
                                 colspan="2"
-                                rowspan="2"
+                                rowspan="3"
                               >
-                                PERFORMANCE BY LOCATION
+                                SUBJECT
+                              </th>
+                              <th scope="col" colspan="2" rowspan="2" class="">
+                              Performance of students <br> (percentage correct answer)
+                              </th>
+                              <th scope="col" colspan="4" class="">
+                                Percentage of children
+                              </th>
+                            </tr>
+                            <tr class="bg-orange text-dark">
+                              <th scope="col" colspan="2" class="">
+                               At basic and below basic level
                               </th>
                               <th scope="col" colspan="2" class="">
-                                Class 3
-                              </th>
-                              <th scope="col" colspan="2" class="">
-                                Class 5
-                              </th>
-                              <th scope="col" colspan="2" class="">
-                                Class 8
-                              </th>
-                              <th scope="col" colspan="2" class="">
-                                Class 10
+                               At proficient and advance level
                               </th>
                             </tr>
                             <tr class="dark-blue-bg">
-                              <th scope="col" class="">Rural</th>
-                              <th scope="col" class="">Urban</th>
                               <th scope="col" class="">Rural</th>
                               <th scope="col" class="">Urban</th>
                               <th scope="col" class="">Rural</th>
@@ -696,95 +626,51 @@
                               <th scope="col" class="">Urban</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            @php 
-                            $subjectArrLocation = array('evs'=>'EVS','language'=>'Language','math'=>'Mathematics','sst'=>'Social Science','mil'=>'MIL','sci'=>'Science','eng'=>'English');
-                            $subjectColorLocationArr = array('evs'=>'card-yellow','language'=>'card-blue','math'=>'card-pink','sst'=>'card-green','mil'=>'card-red','sci'=>'card-sagegreen','eng'=>'card-purple');
-                            @endphp
-                            @foreach($subjectArrLocation as $key=>$subjectDataLocation)
-                            <!-- evs -->
-                            <tr class="{{$subjectColorLocationArr[$key]}}">
-                              <td scope="row" rowspan="2" class="align-middle">
-                                {{$subjectDataLocation}}
+                          <tbody class="text-dark">
+                            <!-- sub 1 -->
+                            <tr class="light-orange">
+                              <td scope="row" rowspan="2" class="align-middle dark-blue text-white">
+                                Maths
                               </td>
                               <td>State</td>
-                              @if(count($performanceData)>0)
-                                @foreach($performanceData as $locationPerformance)
-                                  @php 
-                                  $dataArrLocation = json_decode($locationPerformance->data,true);
-                                  $grade = $locationPerformance->grade;
-                                  @endphp
-                                    @if($grade==3 || $grade==5)
-                                      @if($key=='evs'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrLocation[$key]['location']['state']['rural']}}</td>
-                                        <td>{{$dataArrLocation[$key]['location']['state']['urban']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==8)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrLocation[$key]['location']['state']['rural']}}</td>
-                                        <td>{{$dataArrLocation[$key]['location']['state']['urban']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==10)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='mil'|| $key=='eng')
-                                        <td>{{$dataArrLocation[$key]['location']['state']['rural']}}</td>
-                                        <td>{{$dataArrLocation[$key]['location']['state']['urban']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-
-                                @endforeach
-                              @endif
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
                             </tr>
-                            <tr class="{{$subjectColorLocationArr[$key]}}">
+                            <tr class="light-orange">
                               <td>National</td>
-                            @if(count($performanceData)>0)
-                                @foreach($performanceData as $locationPerformance)
-                                  @php 
-                                  $dataArrLocation = json_decode($locationPerformance->data,true);
-                                  $grade = $locationPerformance->grade;
-                                  @endphp
-                                    @if($grade==3 || $grade==5)
-                                      @if($key=='evs'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrLocation[$key]['location']['national']['rural']}}</td>
-                                        <td>{{$dataArrLocation[$key]['location']['national']['urban']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==8)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrLocation[$key]['location']['national']['rural']}}</td>
-                                        <td>{{$dataArrLocation[$key]['location']['national']['urban']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==10)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='mil'|| $key=='eng')
-                                        <td>{{$dataArrLocation[$key]['location']['national']['rural']}}</td>
-                                        <td>{{$dataArrLocation[$key]['location']['national']['urban']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-
-                                @endforeach
-                              @endif
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
                             </tr>
-                            @endforeach
+                            <!-- sub 2 -->
+                            <tr class="light-blue">
+                              <td scope="row" rowspan="2" class="align-middle dark-blue text-white">
+                                Science
+                              </td>
+                              <td>State</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                            </tr>
+                            <tr class="light-blue">
+                              <td>National</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -796,28 +682,31 @@
                       </div>
                       <!-- Management -->
                       <div class="col-md-9 left mb-60">
-                        <table class="table table-bordered text-center management-table text-white">
+                        <h4 class="">Participation by Management</h4>
+                        <table class="table table-bordered text-center  management-table text-white">
                           <thead>
-                            <tr class="dark-blue-bg">
+                            <tr class="bg-orange text-dark align-middle">
                               <th
-                                class="align-middle bg-orange text-start"
+                                class="align-middle dark-blue-bg text-white text-start"
                                 scope="col"
                                 colspan="2"
-                                rowspan="2"
+                                rowspan="3"
                               >
-                                PERFORMANCE BY MANAGEMENT
+                                SUBJECT
+                              </th>
+                              <th scope="col" colspan="4" rowspan="2" class="">
+                                Percentage correct answer
+                              </th>
+                              <th scope="col" colspan="8" class="">
+                                Percentage of children
+                              </th>
+                            </tr>
+                            <tr class="bg-orange text-dark">
+                              <th scope="col" colspan="4" class="">
+                               At basic and below basic level
                               </th>
                               <th scope="col" colspan="4" class="">
-                                Class 3
-                              </th>
-                              <th scope="col" colspan="4" class="">
-                                Class 5
-                              </th>
-                              <th scope="col" colspan="4" class="">
-                                Class 8
-                              </th>
-                              <th scope="col" colspan="4" class="">
-                                Class 10
+                               At proficient and advance level
                               </th>
                             </tr>
                             <tr class="dark-blue-bg head-rotate">
@@ -833,125 +722,77 @@
                               <th scope="col" class="">Private</th>
                               <th scope="col" class="">Aided</th>
                               <th scope="col" class="">Central</th>
-                              <th scope="col" class="">Govt.</th>
-                              <th scope="col" class="">Private</th>
-                              <th scope="col" class="">Aided</th>
-                              <th scope="col" class="">Central</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            @php 
-                            $subjectArrMangement = array('evs'=>'EVS','language'=>'Language','math'=>'Mathematics','sst'=>'Social Science','mil'=>'MIL','sci'=>'Science','eng'=>'English');
-                            $subjectColorMangementArr = array('evs'=>'card-yellow','language'=>'card-blue','math'=>'card-pink','sst'=>'card-green','mil'=>'card-red','sci'=>'card-sagegreen','eng'=>'card-purple');
-                            @endphp
-                            @foreach($subjectArrMangement as $key=>$subjectDataMangement)
-                            <!-- evs -->
-                            <tr class="{{$subjectColorMangementArr[$key]}}">
-                              <td scope="row" rowspan="2" class="align-middle">
-                                {{$subjectDataMangement}}
+                          <tbody class="text-dark">
+                            <!-- sub 1 -->
+                            <tr class="light-orange">
+                              <td scope="row" rowspan="2" class="align-middle dark-blue text-white">
+                                Maths
                               </td>
                               <td>State</td>
-                              @if(count($performanceData)>0)
-                                @foreach($performanceData as $MangementPerformance)
-                                  @php 
-                                  $dataArrMangement = json_decode($MangementPerformance->data,true);
-                                  $grade = $MangementPerformance->grade;
-                                  @endphp
-                                    @if($grade==3 || $grade==5)
-                                      @if($key=='evs'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrMangement[$key]['management']['state']['govt']}}</td>
-                                          <td>{{$dataArrMangement[$key]['management']['state']['private']}}</td>
-                                              <td>{{$dataArrMangement[$key]['management']['state']['govt_aided']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['state']['central_govt']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==8)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrMangement[$key]['management']['state']['govt']}}</td>
-                                          <td>{{$dataArrMangement[$key]['management']['state']['private']}}</td>
-                                              <td>{{$dataArrMangement[$key]['management']['state']['govt_aided']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['state']['central_govt']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==10)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='mil'|| $key=='eng')
-                                        <td>{{$dataArrMangement[$key]['management']['state']['govt']}}</td>
-                                          <td>{{$dataArrMangement[$key]['management']['state']['private']}}</td>
-                                              <td>{{$dataArrMangement[$key]['management']['state']['govt_aided']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['state']['central_govt']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-
-                                @endforeach
-                              @endif
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
                             </tr>
-                            <tr class="{{$subjectColorMangementArr[$key]}}">
+                            <tr class="light-orange">
                               <td>National</td>
-                            @if(count($performanceData)>0)
-                                @foreach($performanceData as $MangementPerformance)
-                                  @php 
-                                  $dataArrMangement = json_decode($MangementPerformance->data,true);
-                                  $grade = $MangementPerformance->grade;
-                                  @endphp
-                                    @if($grade==3 || $grade==5)
-                                      @if($key=='evs'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrMangement[$key]['management']['national']['govt']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['private']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['govt_aided']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['central_govt']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==8)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrMangement[$key]['management']['national']['govt']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['private']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['govt_aided']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['central_govt']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==10)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='mil'|| $key=='eng')
-                                        <td>{{$dataArrMangement[$key]['management']['national']['govt']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['private']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['govt_aided']}}</td>
-                                        <td>{{$dataArrMangement[$key]['management']['national']['central_govt']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-
-                                @endforeach
-                              @endif
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
                             </tr>
-                            @endforeach
+                            <!-- sub 2 -->
+                            <tr class="light-blue">
+                              <td scope="row" rowspan="2" class="align-middle dark-blue text-white">
+                                Science
+                              </td>
+                              <td>State</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                            </tr>
+                            <tr class="light-blue">
+                              <td>National</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -962,163 +803,118 @@
                         </div>
                       </div>
                       <!-- Social -->
-                      <div class="col-md-9 left">
-                        <table class="table table-bordered text-center management-table text-white">
+                      <div class="col-md-9 left mb-60">
+                        <h4 class="">Participation by Social Group</h4>
+                        <table class="table table-bordered text-center  management-table text-white">
                           <thead>
-                            <tr class="dark-blue-bg">
+                            <tr class="bg-orange text-dark align-middle">
                               <th
-                                class="align-middle bg-orange text-start"
+                                class="align-middle dark-blue-bg text-white text-start"
                                 scope="col"
                                 colspan="2"
-                                rowspan="2"
+                                rowspan="3"
                               >
-                                PERFORMANCE BY SOCIAL GROUP
+                                SUBJECT
+                              </th>
+                              <th scope="col" colspan="4" rowspan="2" class="">
+                                Percentage correct answer
+                              </th>
+                              <th scope="col" colspan="8" class="">
+                                Percentage of children
+                              </th>
+                            </tr>
+                            <tr class="bg-orange text-dark">
+                              <th scope="col" colspan="4" class="">
+                               At basic and below basic level
                               </th>
                               <th scope="col" colspan="4" class="">
-                                Class 3
-                              </th>
-                              <th scope="col" colspan="4" class="">
-                                Class 5
-                              </th>
-                              <th scope="col" colspan="4" class="">
-                                Class 8
-                              </th>
-                              <th scope="col" colspan="4" class="">
-                                Class 10
+                               At proficient and advance level
                               </th>
                             </tr>
                             <tr class="dark-blue-bg head-rotate">
                               <th scope="col" class="">SC</th>
                               <th scope="col" class="">ST</th>
                               <th scope="col" class="">OBC</th>
-                              <th scope="col" class="">Gen.</th>
+                              <th scope="col" class="">Others</th>
                               <th scope="col" class="">SC</th>
                               <th scope="col" class="">ST</th>
                               <th scope="col" class="">OBC</th>
-                              <th scope="col" class="">Gen.</th>
+                              <th scope="col" class="">Others</th>
                               <th scope="col" class="">SC</th>
                               <th scope="col" class="">ST</th>
                               <th scope="col" class="">OBC</th>
-                              <th scope="col" class="">Gen.</th>
-                              <th scope="col" class="">SC</th>
-                              <th scope="col" class="">ST</th>
-                              <th scope="col" class="">OBC</th>
-                              <th scope="col" class="">Gen.</th>
+                              <th scope="col" class="">Others</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            @php 
-                            $subjectArrSocialGroup = array('evs'=>'EVS','language'=>'Language','math'=>'Mathematics','sst'=>'Social Science','mil'=>'MIL','sci'=>'Science','eng'=>'English');
-                            $subjectColorSocialGroupArr = array('evs'=>'card-yellow','language'=>'card-blue','math'=>'card-pink','sst'=>'card-green','mil'=>'card-red','sci'=>'card-sagegreen','eng'=>'card-purple');
-                            @endphp
-                            @foreach($subjectArrSocialGroup as $key=>$subjectDataSocialGroup)
-                            <!-- evs -->
-                            <tr class="{{$subjectColorSocialGroupArr[$key]}}">
-                              <td scope="row" rowspan="2" class="align-middle">
-                                {{$subjectDataSocialGroup}}
+                          <tbody class="text-dark">
+                            <!-- sub 1 -->
+                            <tr class="light-orange">
+                              <td scope="row" rowspan="2" class="align-middle dark-blue text-white">
+                                Maths
                               </td>
                               <td>State</td>
-                              @if(count($performanceData)>0)
-                                @foreach($performanceData as $SocialGroupPerformance)
-                                  @php 
-                                  $dataArrSocialGroup = json_decode($SocialGroupPerformance->data,true);
-                                  $grade = $SocialGroupPerformance->grade;
-                                  @endphp
-                                    @if($grade==3 || $grade==5)
-                                      @if($key=='evs'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['sc']}}</td>
-                                          <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['st']}}</td>
-                                              <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['obc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['general']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==8)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['sc']}}</td>
-                                          <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['st']}}</td>
-                                              <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['obc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['general']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==10)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='mil'|| $key=='eng')
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['sc']}}</td>
-                                          <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['st']}}</td>
-                                              <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['obc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['state']['general']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-
-                                @endforeach
-                              @endif
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
                             </tr>
-                            <tr class="{{$subjectColorSocialGroupArr[$key]}}">
+                            <tr class="light-orange">
                               <td>National</td>
-                            @if(count($performanceData)>0)
-                                @foreach($performanceData as $SocialGroupPerformance)
-                                  @php 
-                                  $dataArrSocialGroup = json_decode($SocialGroupPerformance->data,true);
-                                  $grade = $SocialGroupPerformance->grade;
-                                  @endphp
-                                    @if($grade==3 || $grade==5)
-                                      @if($key=='evs'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['sc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['st']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['obc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['general']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==8)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='language')
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['sc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['st']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['obc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['general']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-                                    @if($grade==10)
-                                      @if($key=='sst'|| $key=='sci'||$key=='math' || $key=='mil'|| $key=='eng')
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['sc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['st']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['obc']}}</td>
-                                        <td>{{$dataArrSocialGroup[$key]['socialgroup']['national']['general']}}</td>
-                                      @else
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      @endif
-                                    @endif
-
-                                @endforeach
-                              @endif
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
                             </tr>
-                            @endforeach
+                            <!-- sub 2 -->
+                            <tr class="light-blue">
+                              <td scope="row" rowspan="2" class="align-middle dark-blue text-white">
+                                Science
+                              </td>
+                              <td>State</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                            </tr>
+                            <tr class="light-blue">
+                              <td>National</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                              <td>71</td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1142,7 +938,116 @@
         </div>
       </section>
     </div>
-    <!------------------------ page 4 ends ------------------------>
+    
+    <!------------------------ page 4-new ends ------------------------>
+    <!------------------------ page 5 starts ------------------------>
+    <!------------------------ page 5-new starts ------------------------>
+    <div class="page">
+      <section class="reportview-wrap">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="reportview-container">
+                <div class="reportview-class-wrap">
+                  <!-- header -->
+                  <div class="reportview-header">
+                    <h2>{{isset($stateVal->state_name)?$stateVal->state_name:'-'}} Report Card</h2>
+                    <span class="class">CLASS 3</span>
+                  </div>
+                  <!-- content -->
+                  <div class="reportview-class-content p-3 white-bg">
+                    <div class="row pb-100">
+                      <div class="col-md-12">
+                        <h4
+                          class="performance-heading heading-black-bold text-28 text-center p-4"
+                        >
+                          Overall Achievement Score
+                        </h4>
+                      </div>
+                      <div class="col-md-12 mb-3 mt-4 mx-2">
+                        <div class="row align-items-center overall-box">
+                            <div class="col-md-6 text-center">
+                              <p class="fw-bold">National Average</p>
+                              <h2 class="blue-txt">250</h2>
+                            </div>
+                            <div class="col-md-2 text-center light-green">
+                              <h3>14</h3>
+                              <div><img src="{{asset('report-pdf/assets/images/up-arrow.png')}}" alt="up-arrow"></div>
+                              <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
+                            </div>
+                            <div class="col-md-2 text-center bg-orange">
+                              <h3>14</h3>
+                              <div><img src="{{asset('report-pdf/assets/images/double-arrow.png')}}" alt="double-arrow"></div>
+                              <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
+                            </div>
+                            <div class="col-md-2 text-center light-red">
+                              <h3>14</h3>
+                              <div><img src="{{asset('report-pdf/assets/images/down-arrow.png')}}" alt="down-arrow"></div>
+                              <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
+                            </div>
+
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <table class="table table-bordered align-middle text-center">
+                          <thead>
+                            <tr class="bg-secondary text-white">
+                              <th scope="col">District Name</th>
+                              <th scope="col" class="">
+                                Mean
+                              </th>
+                              <th scope="col">SE</th>
+                              <th scope="col">Significant difference with State Mean</th>
+                              <th scope="col">At proficient and advance level</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="light-green fw-bold">
+                              <td>1</td>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td><img src="{{asset('report-pdf/assets/images/up-arrow.png')}}" alt="up-arrow"></td>
+                              <td>@mdo</td>
+                            </tr>
+                            <tr class="light-red fw-bold">
+                              <td>1</td>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td><img src="{{asset('report-pdf/assets/images/down-arrow.png')}}" alt="down-arrow"></td>
+                              <td>@mdo</td>
+                            </tr>
+                            <tr class="bg-orange fw-bold">
+                              <td>1</td>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td><img src="{{asset('report-pdf/assets/images/double-arrow.png')}}" alt="double-arrow"></td>
+                              <td>@mdo</td>
+                            </tr>
+                            <tr class="card-green fw-bold">
+                              <td>1</td>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td></td>
+                              <td>@mdo</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="report-footer-wrap pg4">
+                    <div class="reportview-footer">
+                      <span class="page-no">4</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!------------------------ page 5-new ends ------------------------>
     <!------------------------ page 5 starts ------------------------>
     <div class="page">
       <section class="reportview-wrap">
