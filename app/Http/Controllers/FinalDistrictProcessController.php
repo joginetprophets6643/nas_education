@@ -1334,7 +1334,7 @@ class FinalDistrictProcessController extends Controller
 
     // Learning Outcome Final Data district Wise
     public function districtWiseLO(){
-        DB::table('dist_grade_level_learningoutcome')->truncate();
+        DB::table('district_grade_level_learningoutcome')->truncate();
         ini_set('max_execution_time', '5000');
 
         $getAlldistrictDataSubjectWiseG3 = $this->GetAlldistrictDataSubjectCodeG3();
@@ -1368,7 +1368,7 @@ class FinalDistrictProcessController extends Controller
             districtGradeLevelLearningOutCome::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
-                'grade'=>3,
+                'grade'=>5,
                 'subject_code'=>$data->subject_code,
                 'language'=>$data->language,
                 'question'=>$data->description,

@@ -50,7 +50,7 @@ Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
 
 Route::get('/drc-final-data/participation',[FinalDistrictProcessController::class,'alldistrictParticipationData']);
 Route::get('/drc-final-data/performance',[FinalDistrictProcessController::class,'alldistrictPerformancedata']);
-
+Route::get('/drc-final-data/lo',[FinalDistrictProcessController::class,'districtWiseLO']);
 /*********************************
 * District Level Data upload end
 **********************************/
