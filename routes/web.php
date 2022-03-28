@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
 use App\Http\Controllers\FinalParticipationStateController;
+use App\Http\Controllers\FinalDistrictProcessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,11 +41,15 @@ Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
 /*********************************
 * District Level Data upload start
 **********************************/
-Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
-Route::get('/drc-final-data/performance',[DataProcessController::class,'performance']);
-Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
-Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);
-Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK']);
+// Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
+// Route::get('/drc-final-data/performance',[DataProcessController::class,'performance']);
+// Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
+// Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);
+// Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK']);
+
+
+Route::get('/drc-final-data/participation',[FinalDistrictProcessController::class,'alldistrictParticipationData']);
+Route::get('/drc-final-data/performance',[FinalDistrictProcessController::class,'alldistrictPerformancedata']);
 
 /*********************************
 * District Level Data upload end

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\request;
-use App\Models\AllGradedistrictParticipationTBL;
-use App\Models\districtGradeLevelPerformance;
+use App\Models\AllGradeParticipationTBL;
+use App\Models\PerformanceMaster;
 use App\Models\districtGradeLevelLearningOutCome;
 use App\Models\PQdistrictLevelFeedback;
 use DB;
@@ -17,7 +17,7 @@ class FinalDistrictProcessController extends Controller
          $grade3PrcoessData = $this->grade3ParticipationData();
          $grade5PrcoessData = $this->grade5ParticipationData();
          $grade8PrcoessData = $this->grade8ParticipationData();
-         $grade10PrcoessData = $this->grade10ParticipationData();
+        //  $grade10PrcoessData = $this->grade10ParticipationData();
          return "Participation Table Created";
     }
 
@@ -27,38 +27,38 @@ class FinalDistrictProcessController extends Controller
         $final_data=DB::table('grade3districttable')->get();
         // dd($final_data);
         foreach($final_data as $data){
-            AllGradedistrictParticipationTBL::insert([
-                "district_id" =>$data->district_code,
+            AllGradeParticipationTBL::insert([
+                "state_id" =>$data->state_code,
                 'district_id'=>$data->dist_code,
                 "grade"  =>3,
-                "total_school" =>$data->district_n_schools,
-                "total_student" =>$data->district_n,
-                "total_teacher" =>$data->district_n_teachers,
-                "rural_location" =>$data->district_rural_n,
+                "total_school" =>$data->dist_n_schools,
+                "total_student" =>$data->dist_n,
+                "total_teacher" =>$data->dist_n_teachers,
+                "rural_location" =>$data->dist_rural_n,
                 "rural_location_count" =>'0',
-                "urban_location" =>$data->district_urban_n,
+                "urban_location" =>$data->dist_urban_n,
                 "urban_location_count" =>'0',
-                "govt_school" =>$data->district_govt_n,
+                "govt_school" =>$data->dist_govt_n,
                 "govt_school_count" =>'0',
-                "govt_aided_school" =>$data->district_govtaid_n,
+                "govt_aided_school" =>$data->dist_govtaid_n,
                 "govt_aided_school_count" =>'0',
-                "private_school" =>$data->district_private_n,
+                "private_school" =>$data->dist_private_n,
                 "private_school_count" =>'0',
-                "central_govt_school" =>$data->district_centgovt_n,
+                "central_govt_school" =>$data->dist_centgovt_n,
                 "central_govt_school_count" =>'0',
-                "sc_social_group" =>$data->district_sc_n,
+                "sc_social_group" =>$data->dist_sc_n,
                 "sc_social_group_count" =>'0',
-                "obc_social_group" =>$data->district_obc_n,
+                "obc_social_group" =>$data->dist_obc_n,
                 "obc_social_group_count" =>'0',
-                "st_social_group" =>$data->district_st_n,
+                "st_social_group" =>$data->dist_st_n,
                 "st_social_group_count" =>'0',
-                "general_social_group" =>$data->district_general_n,
+                "general_social_group" =>$data->dist_general_n,
                 "general_social_group_count" =>'0',
-                "male_gender" =>$data->district_boy_n,
+                "male_gender" =>$data->dist_boy_n,
                 "male_gender_count" =>'0',
-                "female_gender" =>$data->district_girl_n,
+                "female_gender" =>$data->dist_girl_n,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->district_trans_n,
+                "trans_gender" =>$data->dist_trans_n,
                 "trans_gender_count" =>'0',
                
 
@@ -73,37 +73,38 @@ class FinalDistrictProcessController extends Controller
     {
         $final_data=DB::table('grade5districttable')->get();
         foreach($final_data as $data){
-            AllGradedistrictParticipationTBL::insert([
-                "district_id" =>$data->district_code,
+            AllGradeParticipationTBL::insert([
+                "state_id" =>$data->state_code,
+                'district_id'=>$data->dist_code,
                 "grade"  =>5,
-                "total_school" =>$data->district_n_schools,
-                "total_student" =>$data->district_n,
-                "total_teacher" =>$data->district_n_teachers,
-                "rural_location" =>$data->district_rural_n,
+                "total_school" =>$data->dist_n_schools,
+                "total_student" =>$data->dist_n,
+                "total_teacher" =>$data->dist_n_teachers,
+                "rural_location" =>$data->dist_rural_n,
                 "rural_location_count" =>'0',
-                "urban_location" =>$data->district_urban_n,
+                "urban_location" =>$data->dist_urban_n,
                 "urban_location_count" =>'0',
-                "govt_school" =>$data->district_govt_n,
+                "govt_school" =>$data->dist_govt_n,
                 "govt_school_count" =>'0',
-                "govt_aided_school" =>$data->district_govtaid_n,
+                "govt_aided_school" =>$data->dist_govtaid_n,
                 "govt_aided_school_count" =>'0',
-                "private_school" =>$data->district_private_n,
+                "private_school" =>$data->dist_private_n,
                 "private_school_count" =>'0',
-                "central_govt_school" =>$data->district_centgovt_n,
+                "central_govt_school" =>$data->dist_centgovt_n,
                 "central_govt_school_count" =>'0',
-                "sc_social_group" =>$data->district_sc_n,
+                "sc_social_group" =>$data->dist_sc_n,
                 "sc_social_group_count" =>'0',
-                "obc_social_group" =>$data->district_obc_n,
+                "obc_social_group" =>$data->dist_obc_n,
                 "obc_social_group_count" =>'0',
-                "st_social_group" =>$data->district_st_n,
+                "st_social_group" =>$data->dist_st_n,
                 "st_social_group_count" =>'0',
-                "general_social_group" =>$data->district_general_n,
+                "general_social_group" =>$data->dist_general_n,
                 "general_social_group_count" =>'0',
-                "male_gender" =>$data->district_boy_n,
+                "male_gender" =>$data->dist_boy_n,
                 "male_gender_count" =>'0',
-                "female_gender" =>$data->district_girl_n,
+                "female_gender" =>$data->dist_girl_n,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->district_trans_n,
+                "trans_gender" =>$data->dist_trans_n,
                 "trans_gender_count" =>'0',
             ]);
         }
@@ -112,37 +113,38 @@ class FinalDistrictProcessController extends Controller
     {
         $final_data=DB::table('grade8districttable')->get();
         foreach($final_data as $data){
-            AllGradedistrictParticipationTBL::insert([
-                "district_id" =>$data->district_code,
+            AllGradeParticipationTBL::insert([
+                "state_id" =>$data->state_code,
+                'district_id'=>$data->dist_code,
                 "grade"  =>8,
-                "total_school" =>$data->district_n_schools,
-                "total_student" =>$data->district_n,
-                "total_teacher" =>$data->district_n_teachers,
-                "rural_location" =>$data->district_rural_n,
+                "total_school" =>$data->dist_n_schools,
+                "total_student" =>$data->dist_n,
+                "total_teacher" =>$data->dist_n_teachers,
+                "rural_location" =>$data->dist_rural_n,
                 "rural_location_count" =>'0',
-                "urban_location" =>$data->district_urban_n,
+                "urban_location" =>$data->dist_urban_n,
                 "urban_location_count" =>'0',
-                "govt_school" =>$data->district_govt_n,
+                "govt_school" =>$data->dist_govt_n,
                 "govt_school_count" =>'0',
-                "govt_aided_school" =>$data->district_govtaid_n,
+                "govt_aided_school" =>$data->dist_govtaid_n,
                 "govt_aided_school_count" =>'0',
-                "private_school" =>$data->district_private_n,
+                "private_school" =>$data->dist_private_n,
                 "private_school_count" =>'0',
-                "central_govt_school" =>$data->district_centgovt_n,
+                "central_govt_school" =>$data->dist_centgovt_n,
                 "central_govt_school_count" =>'0',
-                "sc_social_group" =>$data->district_sc_n,
+                "sc_social_group" =>$data->dist_sc_n,
                 "sc_social_group_count" =>'0',
-                "obc_social_group" =>$data->district_obc_n,
+                "obc_social_group" =>$data->dist_obc_n,
                 "obc_social_group_count" =>'0',
-                "st_social_group" =>$data->district_st_n,
+                "st_social_group" =>$data->dist_st_n,
                 "st_social_group_count" =>'0',
-                "general_social_group" =>$data->district_general_n,
+                "general_social_group" =>$data->dist_general_n,
                 "general_social_group_count" =>'0',
-                "male_gender" =>$data->district_boy_n,
+                "male_gender" =>$data->dist_boy_n,
                 "male_gender_count" =>'0',
-                "female_gender" =>$data->district_girl_n,
+                "female_gender" =>$data->dist_girl_n,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->district_trans_n,
+                "trans_gender" =>$data->dist_trans_n,
                 "trans_gender_count" =>'0',
             ]);
         }
@@ -151,37 +153,38 @@ class FinalDistrictProcessController extends Controller
     {
         $final_data=DB::table('grade10districttable')->get();
         foreach($final_data as $data){
-            AllGradedistrictParticipationTBL::insert([
-                "district_id" =>$data->district_code,
+            AllGradeParticipationTBL::insert([
+                "state_id" =>$data->state_code,
+                'district_id'=>$data->dist_code,
                 "grade"  =>10,
-                "total_school" =>$data->district_n_schools,
-                "total_student" =>$data->district_n,
-                "total_teacher" =>$data->district_n_teachers,
-                "rural_location" =>$data->district_rural_n,
+                "total_school" =>$data->dist_n_schools,
+                "total_student" =>$data->dist_n,
+                "total_teacher" =>$data->dist_n_teachers,
+                "rural_location" =>$data->dist_rural_n,
                 "rural_location_count" =>'0',
-                "urban_location" =>$data->district_urban_n,
+                "urban_location" =>$data->dist_urban_n,
                 "urban_location_count" =>'0',
-                "govt_school" =>$data->district_govt_n,
+                "govt_school" =>$data->dist_govt_n,
                 "govt_school_count" =>'0',
-                "govt_aided_school" =>$data->district_govtaid_n,
+                "govt_aided_school" =>$data->dist_govtaid_n,
                 "govt_aided_school_count" =>'0',
-                "private_school" =>$data->district_private_n,
+                "private_school" =>$data->dist_private_n,
                 "private_school_count" =>'0',
-                "central_govt_school" =>$data->district_centgovt_n,
+                "central_govt_school" =>$data->dist_centgovt_n,
                 "central_govt_school_count" =>'0',
-                "sc_social_group" =>$data->district_sc_n,
+                "sc_social_group" =>$data->dist_sc_n,
                 "sc_social_group_count" =>'0',
-                "obc_social_group" =>$data->district_obc_n,
+                "obc_social_group" =>$data->dist_obc_n,
                 "obc_social_group_count" =>'0',
-                "st_social_group" =>$data->district_st_n,
+                "st_social_group" =>$data->dist_st_n,
                 "st_social_group_count" =>'0',
-                "general_social_group" =>$data->district_general_n,
+                "general_social_group" =>$data->dist_general_n,
                 "general_social_group_count" =>'0',
-                "male_gender" =>$data->district_boy_n,
+                "male_gender" =>$data->dist_boy_n,
                 "male_gender_count" =>'0',
-                "female_gender" =>$data->district_girl_n,
+                "female_gender" =>$data->dist_girl_n,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->district_trans_n,
+                "trans_gender" =>$data->dist_trans_n,
                 "trans_gender_count" =>'0',
             ]);
         }
@@ -190,11 +193,11 @@ class FinalDistrictProcessController extends Controller
 
     public function alldistrictPerformancedata()
     {
-        DB::table('district_grade_level_performance')->truncate();
+        DB::table('performance_master')->truncate();
         $grade3PrcoessData = $this->grade3PerformanceData();
         $grade5PrcoessData = $this->grade5PerformanceData();
         $grade8PrcoessData = $this->grade8PerformanceData();
-        $grade10PrcoessData = $this->grade10PerformanceData();
+        // $grade10PrcoessData = $this->grade10PerformanceData();
         return "Performance Table Created";
     }
 
@@ -209,119 +212,120 @@ class FinalDistrictProcessController extends Controller
             
             $newdistrictArray['language'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_la_pct)?$districtlevel->district_la_pct:'0',
+                    'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_la_boys_pct)?$districtlevel->district_la_boys_pct:'0',"girls"=>isset($districtlevel->district_la_girls_pct)?$districtlevel->district_la_girls_pct:'0','trans_gender'=>isset($districtlevel->district_la_trans_pct)?$districtlevel->district_la_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_la_urban_pct)?$districtlevel->district_la_urban_pct:'0',"rural"=>isset($districtlevel->district_la_rural_pct)?$districtlevel->district_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_la_rural_pl12)?$districtlevel->district_la_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_la_urban_pl12)?$districtlevel->district_la_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_la_rural_pl34)?$districtlevel->district_la_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_la_urban_pl34)?$districtlevel->district_la_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_la_urban_pct)?$districtlevel->dist_la_urban_pct:'0',"rural"=>isset($districtlevel->dist_la_rural_pct)?$districtlevel->dist_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_la_rural_pl12)?$districtlevel->dist_la_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_la_urban_pl12)?$districtlevel->dist_la_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_la_rural_pl34)?$districtlevel->dist_la_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_la_urban_pl34)?$districtlevel->dist_la_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_la_govt_pct)?$districtlevel->district_la_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_la_govtaid_pct)?$districtlevel->district_la_govtaid_pct:'0',"private"=>isset($districtlevel->district_la_private_pct)?$districtlevel->district_la_private_pct:'0',"central_govt"=>isset($districtlevel->district_la_centgovt_pct)?$districtlevel->district_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_la_govt_pl12)?$districtlevel->district_la_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_la_govtaid_pl12)?$districtlevel->district_la_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_la_govt_pl34)?$districtlevel->district_la_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_la_govtaid_pl34)?$districtlevel->district_la_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_la_private_pl12)?$districtlevel->district_la_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_la_centgovt_pl12)?$districtlevel->district_la_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_la_private_pl34)?$districtlevel->district_la_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_la_centgovt_pl34)?$districtlevel->district_la_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_la_govt_pct)?$districtlevel->dist_la_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_la_govtaid_pct)?$districtlevel->dist_la_govtaid_pct:'0',"private"=>isset($districtlevel->dist_la_private_pct)?$districtlevel->dist_la_private_pct:'0',"central_govt"=>isset($districtlevel->dist_la_centgovt_pct)?$districtlevel->dist_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_la_govt_pl12)?$districtlevel->dist_la_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_la_govtaid_pl12)?$districtlevel->dist_la_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_la_govt_pl34)?$districtlevel->dist_la_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_la_govtaid_pl34)?$districtlevel->dist_la_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_la_private_pl12)?$districtlevel->dist_la_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_la_centgovt_pl12)?$districtlevel->dist_la_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_la_private_pl34)?$districtlevel->dist_la_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_la_centgovt_pl34)?$districtlevel->dist_la_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_la_sc_pct)?$districtlevel->district_la_sc_pct:'0',"obc"=>isset($districtlevel->district_la_obc_pct)?$districtlevel->district_la_obc_pct:'0',"st"=>isset($districtlevel->district_la_st_pct)?$districtlevel->district_la_st_pct:'0',"general"=>isset($districtlevel->district_la_general_pct)?$districtlevel->district_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_la_sc_pl34)?$districtlevel->district_la_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_la_obc_pl12)?$districtlevel->district_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_la_sc_pl12)?$districtlevel->district_la_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_la_obc_pl34)?$districtlevel->district_la_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_la_st_pl12)?$districtlevel->district_la_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_la_general_pl12)?$districtlevel->district_la_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_la_st_pl34)?$districtlevel->district_la_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_la_general_pl34)?$districtlevel->district_la_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_la_obc_pl12)?$districtlevel->dist_la_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_la_obc_pl34)?$districtlevel->dist_la_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_la_st_pl12)?$districtlevel->dist_la_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_la_general_pl12)?$districtlevel->dist_la_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_la_st_pl34)?$districtlevel->dist_la_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_la_general_pl34)?$districtlevel->dist_la_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_la_pl1)?$districtlevel->district_la_pl1:'0',"basic"=>isset($districtlevel->district_la_pl2)?$districtlevel->district_la_pl2:'0',"proficient"=>isset($districtlevel->district_la_pl3)?$districtlevel->district_la_pl3:'0',"advanced"=>isset($districtlevel->district_la_pl4)?$districtlevel->district_la_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_la_pl1)?$districtlevel->dist_la_pl1:'0',"basic"=>isset($districtlevel->dist_la_pl2)?$districtlevel->dist_la_pl2:'0',"proficient"=>isset($districtlevel->dist_la_pl3)?$districtlevel->dist_la_pl3:'0',"advanced"=>isset($districtlevel->dist_la_pl4)?$districtlevel->dist_la_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
             
             $newdistrictArray['math'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_ma_pct)?$districtlevel->district_ma_pct:'0',
+                    'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_ma_boys_pct)?$districtlevel->district_ma_boys_pct:'0',"girls"=>isset($districtlevel->district_ma_girls_pct)?$districtlevel->district_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->district_ma_trans_pct)?$districtlevel->district_ma_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_ma_urban_pct)?$districtlevel->district_ma_urban_pct:'0',"rural"=>isset($districtlevel->district_ma_rural_pct)?$districtlevel->district_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_ma_rural_pl12)?$districtlevel->district_ma_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_ma_urban_pl12)?$districtlevel->district_ma_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_ma_rural_pl34)?$districtlevel->district_ma_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_ma_urban_pl34)?$districtlevel->district_ma_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_ma_urban_pct)?$districtlevel->dist_ma_urban_pct:'0',"rural"=>isset($districtlevel->dist_ma_rural_pct)?$districtlevel->dist_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_ma_rural_pl12)?$districtlevel->dist_ma_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_ma_urban_pl12)?$districtlevel->dist_ma_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_ma_rural_pl34)?$districtlevel->dist_ma_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_ma_urban_pl34)?$districtlevel->dist_ma_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_ma_govt_pct)?$districtlevel->district_ma_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_ma_govtaid_pct)?$districtlevel->district_ma_govtaid_pct:'0',"private"=>isset($districtlevel->district_ma_private_pct)?$districtlevel->district_ma_private_pct:'0',"central_govt"=>isset($districtlevel->district_ma_centgovt_pct)?$districtlevel->district_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_ma_govt_pl12)?$districtlevel->district_ma_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_ma_govtaid_pl12)?$districtlevel->district_ma_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_ma_govt_pl34)?$districtlevel->district_ma_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_ma_govtaid_pl34)?$districtlevel->district_ma_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_ma_private_pl12)?$districtlevel->district_ma_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_ma_centgovt_pl12)?$districtlevel->district_ma_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_ma_private_pl34)?$districtlevel->district_ma_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_ma_centgovt_pl34)?$districtlevel->district_ma_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_ma_govt_pct)?$districtlevel->dist_ma_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_ma_govtaid_pct)?$districtlevel->dist_ma_govtaid_pct:'0',"private"=>isset($districtlevel->dist_ma_private_pct)?$districtlevel->dist_ma_private_pct:'0',"central_govt"=>isset($districtlevel->dist_ma_centgovt_pct)?$districtlevel->dist_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_ma_govt_pl12)?$districtlevel->dist_ma_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_ma_govtaid_pl12)?$districtlevel->dist_ma_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_ma_govt_pl34)?$districtlevel->dist_ma_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_ma_govtaid_pl34)?$districtlevel->dist_ma_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_ma_private_pl12)?$districtlevel->dist_ma_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_ma_centgovt_pl12)?$districtlevel->dist_ma_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_ma_private_pl34)?$districtlevel->dist_ma_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_ma_centgovt_pl34)?$districtlevel->dist_ma_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_ma_sc_pct)?$districtlevel->district_ma_sc_pct:'0',"obc"=>isset($districtlevel->district_ma_obc_pct)?$districtlevel->district_ma_obc_pct:'0',"st"=>isset($districtlevel->district_ma_st_pct)?$districtlevel->district_ma_st_pct:'0',"general"=>isset($districtlevel->district_ma_general_pct)?$districtlevel->district_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_ma_sc_pl34)?$districtlevel->district_ma_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_ma_obc_pl12)?$districtlevel->district_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_ma_sc_pl12)?$districtlevel->district_ma_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_ma_obc_pl34)?$districtlevel->district_ma_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_ma_st_pl12)?$districtlevel->district_ma_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_ma_general_pl12)?$districtlevel->district_ma_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_ma_st_pl34)?$districtlevel->district_ma_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_ma_general_pl34)?$districtlevel->district_ma_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_ma_obc_pl12)?$districtlevel->dist_ma_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ma_obc_pl34)?$districtlevel->dist_ma_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ma_st_pl12)?$districtlevel->dist_ma_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ma_general_pl12)?$districtlevel->dist_ma_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_ma_st_pl34)?$districtlevel->dist_ma_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_ma_general_pl34)?$districtlevel->dist_ma_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_ma_pl1)?$districtlevel->district_ma_pl1:'0',"basic"=>isset($districtlevel->district_ma_pl2)?$districtlevel->district_ma_pl2:'0',"proficient"=>isset($districtlevel->district_ma_pl3)?$districtlevel->district_ma_pl3:'0',"advanced"=>isset($districtlevel->district_ma_pl4)?$districtlevel->district_ma_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_ma_pl1)?$districtlevel->dist_ma_pl1:'0',"basic"=>isset($districtlevel->dist_ma_pl2)?$districtlevel->dist_ma_pl2:'0',"proficient"=>isset($districtlevel->dist_ma_pl3)?$districtlevel->dist_ma_pl3:'0',"advanced"=>isset($districtlevel->dist_ma_pl4)?$districtlevel->dist_ma_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
             
             $newdistrictArray['evs'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_ev_pct)?$districtlevel->district_ev_pct:'0',
+                    'district'=>isset($districtlevel->dist_ev_pct)?$districtlevel->dist_ev_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_ev_boys_pct)?$districtlevel->district_ev_boys_pct:'0',"girls"=>isset($districtlevel->district_ev_girls_pct)?$districtlevel->district_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->district_ev_trans_pct)?$districtlevel->district_ev_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_ev_boys_pct)?$districtlevel->dist_ev_boys_pct:'0',"girls"=>isset($districtlevel->dist_ev_girls_pct)?$districtlevel->dist_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ev_trans_pct)?$districtlevel->dist_ev_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_ev_urban_pct)?$districtlevel->district_ev_urban_pct:'0',"rural"=>isset($districtlevel->district_ev_rural_pct)?$districtlevel->district_ev_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_ev_rural_pl12)?$districtlevel->district_ev_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_ev_urban_pl12)?$districtlevel->district_ev_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_ev_rural_pl34)?$districtlevel->district_ev_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_ev_urban_pl34)?$districtlevel->district_ev_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_ev_urban_pct)?$districtlevel->dist_ev_urban_pct:'0',"rural"=>isset($districtlevel->dist_ev_rural_pct)?$districtlevel->dist_ev_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_ev_rural_pl12)?$districtlevel->dist_ev_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_ev_urban_pl12)?$districtlevel->dist_ev_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_ev_rural_pl34)?$districtlevel->dist_ev_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_ev_urban_pl34)?$districtlevel->dist_ev_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_ev_govt_pct)?$districtlevel->district_ev_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_ev_govtaid_pct)?$districtlevel->district_ev_govtaid_pct:'0',"private"=>isset($districtlevel->district_ev_private_pct)?$districtlevel->district_ev_private_pct:'0',"central_govt"=>isset($districtlevel->district_ev_centgovt_pct)?$districtlevel->district_ev_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_ev_govt_pl12)?$districtlevel->district_ev_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_ev_govtaid_pl12)?$districtlevel->district_ev_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_ev_govt_pl34)?$districtlevel->district_ev_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_ev_govtaid_pl34)?$districtlevel->district_ev_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_ev_private_pl12)?$districtlevel->district_ev_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_ev_centgovt_pl12)?$districtlevel->district_ev_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_ev_private_pl34)?$districtlevel->district_ev_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_ev_centgovt_pl34)?$districtlevel->district_ev_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_ev_govt_pct)?$districtlevel->dist_ev_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_ev_govtaid_pct)?$districtlevel->dist_ev_govtaid_pct:'0',"private"=>isset($districtlevel->dist_ev_private_pct)?$districtlevel->dist_ev_private_pct:'0',"central_govt"=>isset($districtlevel->dist_ev_centgovt_pct)?$districtlevel->dist_ev_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_ev_govt_pl12)?$districtlevel->dist_ev_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_ev_govtaid_pl12)?$districtlevel->dist_ev_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_ev_govt_pl34)?$districtlevel->dist_ev_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_ev_govtaid_pl34)?$districtlevel->dist_ev_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_ev_private_pl12)?$districtlevel->dist_ev_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_ev_centgovt_pl12)?$districtlevel->dist_ev_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_ev_private_pl34)?$districtlevel->dist_ev_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_ev_centgovt_pl34)?$districtlevel->dist_ev_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_ev_sc_pct)?$districtlevel->district_ev_sc_pct:'0',"obc"=>isset($districtlevel->district_ev_obc_pct)?$districtlevel->district_ev_obc_pct:'0',"st"=>isset($districtlevel->district_ev_st_pct)?$districtlevel->district_ev_st_pct:'0',"general"=>isset($districtlevel->district_ev_general_pct)?$districtlevel->district_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_ev_sc_pl34)?$districtlevel->district_ev_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_ev_obc_pl12)?$districtlevel->district_ev_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_ev_sc_pl12)?$districtlevel->district_ev_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_ev_obc_pl34)?$districtlevel->district_ev_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_ev_st_pl12)?$districtlevel->district_ev_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_ev_general_pl12)?$districtlevel->district_ev_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_ev_st_pl34)?$districtlevel->district_ev_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_ev_general_pl34)?$districtlevel->district_ev_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_ev_sc_pct)?$districtlevel->dist_ev_sc_pct:'0',"obc"=>isset($districtlevel->dist_ev_obc_pct)?$districtlevel->dist_ev_obc_pct:'0',"st"=>isset($districtlevel->dist_ev_st_pct)?$districtlevel->dist_ev_st_pct:'0',"general"=>isset($districtlevel->dist_ev_general_pct)?$districtlevel->dist_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ev_sc_pl34)?$districtlevel->dist_ev_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_ev_obc_pl12)?$districtlevel->dist_ev_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ev_sc_pl12)?$districtlevel->dist_ev_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ev_obc_pl34)?$districtlevel->dist_ev_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ev_st_pl12)?$districtlevel->dist_ev_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ev_general_pl12)?$districtlevel->dist_ev_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_ev_st_pl34)?$districtlevel->dist_ev_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_ev_general_pl34)?$districtlevel->dist_ev_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_ev_pl1)?$districtlevel->district_ev_pl1:'0',"basic"=>isset($districtlevel->district_ev_pl2)?$districtlevel->district_ev_pl2:'0',"proficient"=>isset($districtlevel->district_ev_pl3)?$districtlevel->district_ev_pl3:'0',"advanced"=>isset($districtlevel->district_ev_pl4)?$districtlevel->district_ev_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_ev_pl1)?$districtlevel->dist_ev_pl1:'0',"basic"=>isset($districtlevel->dist_ev_pl2)?$districtlevel->dist_ev_pl2:'0',"proficient"=>isset($districtlevel->dist_ev_pl3)?$districtlevel->dist_ev_pl3:'0',"advanced"=>isset($districtlevel->dist_ev_pl4)?$districtlevel->dist_ev_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
                 
-            $districtArr['district_id'] = (int)$districtlevel->district_code;
+            $districtArr['state_id'] = (int)$districtlevel->state_code;
+            $districtArr['district_id'] = (int)$districtlevel->dist_code;
             $districtArr['grade'] = 3;
             $districtArr['data'] = json_encode($newdistrictArray);
             $districtArr['created_at'] = now();
@@ -329,7 +333,7 @@ class FinalDistrictProcessController extends Controller
             
             $districtPerformaceData[]=$districtArr;
         }
-            districtGradeLevelPerformance::insert($districtPerformaceData);
+            PerformanceMaster::insert($districtPerformaceData);
     }
 
     public function grade5PerformanceData()
@@ -341,118 +345,119 @@ class FinalDistrictProcessController extends Controller
             $newdistrictArray = array();
             $newdistrictArray['language'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_la_pct)?$districtlevel->district_la_pct:'0',
+                    'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_la_boys_pct)?$districtlevel->district_la_boys_pct:'0',"girls"=>isset($districtlevel->district_la_girls_pct)?$districtlevel->district_la_girls_pct:'0','trans_gender'=>isset($districtlevel->district_la_trans_pct)?$districtlevel->district_la_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_la_urban_pct)?$districtlevel->district_la_urban_pct:'0',"rural"=>isset($districtlevel->district_la_rural_pct)?$districtlevel->district_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_la_rural_pl12)?$districtlevel->district_la_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_la_urban_pl12)?$districtlevel->district_la_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_la_rural_pl34)?$districtlevel->district_la_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_la_urban_pl34)?$districtlevel->district_la_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_la_urban_pct)?$districtlevel->dist_la_urban_pct:'0',"rural"=>isset($districtlevel->dist_la_rural_pct)?$districtlevel->dist_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_la_rural_pl12)?$districtlevel->dist_la_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_la_urban_pl12)?$districtlevel->dist_la_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_la_rural_pl34)?$districtlevel->dist_la_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_la_urban_pl34)?$districtlevel->dist_la_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_la_govt_pct)?$districtlevel->district_la_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_la_govtaid_pct)?$districtlevel->district_la_govtaid_pct:'0',"private"=>isset($districtlevel->district_la_private_pct)?$districtlevel->district_la_private_pct:'0',"central_govt"=>isset($districtlevel->district_la_centgovt_pct)?$districtlevel->district_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_la_govt_pl12)?$districtlevel->district_la_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_la_govtaid_pl12)?$districtlevel->district_la_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_la_govt_pl34)?$districtlevel->district_la_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_la_govtaid_pl34)?$districtlevel->district_la_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_la_private_pl12)?$districtlevel->district_la_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_la_centgovt_pl12)?$districtlevel->district_la_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_la_private_pl34)?$districtlevel->district_la_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_la_centgovt_pl34)?$districtlevel->district_la_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_la_govt_pct)?$districtlevel->dist_la_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_la_govtaid_pct)?$districtlevel->dist_la_govtaid_pct:'0',"private"=>isset($districtlevel->dist_la_private_pct)?$districtlevel->dist_la_private_pct:'0',"central_govt"=>isset($districtlevel->dist_la_centgovt_pct)?$districtlevel->dist_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_la_govt_pl12)?$districtlevel->dist_la_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_la_govtaid_pl12)?$districtlevel->dist_la_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_la_govt_pl34)?$districtlevel->dist_la_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_la_govtaid_pl34)?$districtlevel->dist_la_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_la_private_pl12)?$districtlevel->dist_la_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_la_centgovt_pl12)?$districtlevel->dist_la_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_la_private_pl34)?$districtlevel->dist_la_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_la_centgovt_pl34)?$districtlevel->dist_la_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_la_sc_pct)?$districtlevel->district_la_sc_pct:'0',"obc"=>isset($districtlevel->district_la_obc_pct)?$districtlevel->district_la_obc_pct:'0',"st"=>isset($districtlevel->district_la_st_pct)?$districtlevel->district_la_st_pct:'0',"general"=>isset($districtlevel->district_la_general_pct)?$districtlevel->district_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_la_sc_pl34)?$districtlevel->district_la_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_la_obc_pl12)?$districtlevel->district_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_la_sc_pl12)?$districtlevel->district_la_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_la_obc_pl34)?$districtlevel->district_la_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_la_st_pl12)?$districtlevel->district_la_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_la_general_pl12)?$districtlevel->district_la_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_la_st_pl34)?$districtlevel->district_la_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_la_general_pl34)?$districtlevel->district_la_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_la_obc_pl12)?$districtlevel->dist_la_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_la_obc_pl34)?$districtlevel->dist_la_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_la_st_pl12)?$districtlevel->dist_la_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_la_general_pl12)?$districtlevel->dist_la_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_la_st_pl34)?$districtlevel->dist_la_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_la_general_pl34)?$districtlevel->dist_la_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_la_pl1)?$districtlevel->district_la_pl1:'0',"basic"=>isset($districtlevel->district_la_pl2)?$districtlevel->district_la_pl2:'0',"proficient"=>isset($districtlevel->district_la_pl3)?$districtlevel->district_la_pl3:'0',"advanced"=>isset($districtlevel->district_la_pl4)?$districtlevel->district_la_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_la_pl1)?$districtlevel->dist_la_pl1:'0',"basic"=>isset($districtlevel->dist_la_pl2)?$districtlevel->dist_la_pl2:'0',"proficient"=>isset($districtlevel->dist_la_pl3)?$districtlevel->dist_la_pl3:'0',"advanced"=>isset($districtlevel->dist_la_pl4)?$districtlevel->dist_la_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
             
             $newdistrictArray['math'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_ma_pct)?$districtlevel->district_ma_pct:'0',
+                    'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_ma_boys_pct)?$districtlevel->district_ma_boys_pct:'0',"girls"=>isset($districtlevel->district_ma_girls_pct)?$districtlevel->district_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->district_ma_trans_pct)?$districtlevel->district_ma_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_ma_urban_pct)?$districtlevel->district_ma_urban_pct:'0',"rural"=>isset($districtlevel->district_ma_rural_pct)?$districtlevel->district_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_ma_rural_pl12)?$districtlevel->district_ma_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_ma_urban_pl12)?$districtlevel->district_ma_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_ma_rural_pl34)?$districtlevel->district_ma_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_ma_urban_pl34)?$districtlevel->district_ma_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_ma_urban_pct)?$districtlevel->dist_ma_urban_pct:'0',"rural"=>isset($districtlevel->dist_ma_rural_pct)?$districtlevel->dist_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_ma_rural_pl12)?$districtlevel->dist_ma_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_ma_urban_pl12)?$districtlevel->dist_ma_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_ma_rural_pl34)?$districtlevel->dist_ma_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_ma_urban_pl34)?$districtlevel->dist_ma_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_ma_govt_pct)?$districtlevel->district_ma_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_ma_govtaid_pct)?$districtlevel->district_ma_govtaid_pct:'0',"private"=>isset($districtlevel->district_ma_private_pct)?$districtlevel->district_ma_private_pct:'0',"central_govt"=>isset($districtlevel->district_ma_centgovt_pct)?$districtlevel->district_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_ma_govt_pl12)?$districtlevel->district_ma_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_ma_govtaid_pl12)?$districtlevel->district_ma_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_ma_govt_pl34)?$districtlevel->district_ma_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_ma_govtaid_pl34)?$districtlevel->district_ma_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_ma_private_pl12)?$districtlevel->district_ma_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_ma_centgovt_pl12)?$districtlevel->district_ma_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_ma_private_pl34)?$districtlevel->district_ma_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_ma_centgovt_pl34)?$districtlevel->district_ma_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_ma_govt_pct)?$districtlevel->dist_ma_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_ma_govtaid_pct)?$districtlevel->dist_ma_govtaid_pct:'0',"private"=>isset($districtlevel->dist_ma_private_pct)?$districtlevel->dist_ma_private_pct:'0',"central_govt"=>isset($districtlevel->dist_ma_centgovt_pct)?$districtlevel->dist_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_ma_govt_pl12)?$districtlevel->dist_ma_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_ma_govtaid_pl12)?$districtlevel->dist_ma_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_ma_govt_pl34)?$districtlevel->dist_ma_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_ma_govtaid_pl34)?$districtlevel->dist_ma_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_ma_private_pl12)?$districtlevel->dist_ma_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_ma_centgovt_pl12)?$districtlevel->dist_ma_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_ma_private_pl34)?$districtlevel->dist_ma_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_ma_centgovt_pl34)?$districtlevel->dist_ma_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_ma_sc_pct)?$districtlevel->district_ma_sc_pct:'0',"obc"=>isset($districtlevel->district_ma_obc_pct)?$districtlevel->district_ma_obc_pct:'0',"st"=>isset($districtlevel->district_ma_st_pct)?$districtlevel->district_ma_st_pct:'0',"general"=>isset($districtlevel->district_ma_general_pct)?$districtlevel->district_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_ma_sc_pl34)?$districtlevel->district_ma_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_ma_obc_pl12)?$districtlevel->district_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_ma_sc_pl12)?$districtlevel->district_ma_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_ma_obc_pl34)?$districtlevel->district_ma_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_ma_st_pl12)?$districtlevel->district_ma_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_ma_general_pl12)?$districtlevel->district_ma_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_ma_st_pl34)?$districtlevel->district_ma_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_ma_general_pl34)?$districtlevel->district_ma_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_ma_obc_pl12)?$districtlevel->dist_ma_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ma_obc_pl34)?$districtlevel->dist_ma_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ma_st_pl12)?$districtlevel->dist_ma_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ma_general_pl12)?$districtlevel->dist_ma_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_ma_st_pl34)?$districtlevel->dist_ma_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_ma_general_pl34)?$districtlevel->dist_ma_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_ma_pl1)?$districtlevel->district_ma_pl1:'0',"basic"=>isset($districtlevel->district_ma_pl2)?$districtlevel->district_ma_pl2:'0',"proficient"=>isset($districtlevel->district_ma_pl3)?$districtlevel->district_ma_pl3:'0',"advanced"=>isset($districtlevel->district_ma_pl4)?$districtlevel->district_ma_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_ma_pl1)?$districtlevel->dist_ma_pl1:'0',"basic"=>isset($districtlevel->dist_ma_pl2)?$districtlevel->dist_ma_pl2:'0',"proficient"=>isset($districtlevel->dist_ma_pl3)?$districtlevel->dist_ma_pl3:'0',"advanced"=>isset($districtlevel->dist_ma_pl4)?$districtlevel->dist_ma_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
             
             $newdistrictArray['evs'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_ev_pct)?$districtlevel->district_ev_pct:'0',
+                    'district'=>isset($districtlevel->dist_ev_pct)?$districtlevel->dist_ev_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_ev_boys_pct)?$districtlevel->district_ev_boys_pct:'0',"girls"=>isset($districtlevel->district_ev_girls_pct)?$districtlevel->district_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->district_ev_trans_pct)?$districtlevel->district_ev_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_ev_boys_pct)?$districtlevel->dist_ev_boys_pct:'0',"girls"=>isset($districtlevel->dist_ev_girls_pct)?$districtlevel->dist_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ev_trans_pct)?$districtlevel->dist_ev_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_ev_urban_pct)?$districtlevel->district_ev_urban_pct:'0',"rural"=>isset($districtlevel->district_ev_rural_pct)?$districtlevel->district_ev_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_ev_rural_pl12)?$districtlevel->district_ev_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_ev_urban_pl12)?$districtlevel->district_ev_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_ev_rural_pl34)?$districtlevel->district_ev_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_ev_urban_pl34)?$districtlevel->district_ev_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_ev_urban_pct)?$districtlevel->dist_ev_urban_pct:'0',"rural"=>isset($districtlevel->dist_ev_rural_pct)?$districtlevel->dist_ev_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_ev_rural_pl12)?$districtlevel->dist_ev_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_ev_urban_pl12)?$districtlevel->dist_ev_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_ev_rural_pl34)?$districtlevel->dist_ev_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_ev_urban_pl34)?$districtlevel->dist_ev_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_ev_govt_pct)?$districtlevel->district_ev_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_ev_govtaid_pct)?$districtlevel->district_ev_govtaid_pct:'0',"private"=>isset($districtlevel->district_ev_private_pct)?$districtlevel->district_ev_private_pct:'0',"central_govt"=>isset($districtlevel->district_ev_centgovt_pct)?$districtlevel->district_ev_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_ev_govt_pl12)?$districtlevel->district_ev_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_ev_govtaid_pl12)?$districtlevel->district_ev_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_ev_govt_pl34)?$districtlevel->district_ev_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_ev_govtaid_pl34)?$districtlevel->district_ev_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_ev_private_pl12)?$districtlevel->district_ev_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_ev_centgovt_pl12)?$districtlevel->district_ev_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_ev_private_pl34)?$districtlevel->district_ev_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_ev_centgovt_pl34)?$districtlevel->district_ev_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_ev_govt_pct)?$districtlevel->dist_ev_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_ev_govtaid_pct)?$districtlevel->dist_ev_govtaid_pct:'0',"private"=>isset($districtlevel->dist_ev_private_pct)?$districtlevel->dist_ev_private_pct:'0',"central_govt"=>isset($districtlevel->dist_ev_centgovt_pct)?$districtlevel->dist_ev_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_ev_govt_pl12)?$districtlevel->dist_ev_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_ev_govtaid_pl12)?$districtlevel->dist_ev_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_ev_govt_pl34)?$districtlevel->dist_ev_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_ev_govtaid_pl34)?$districtlevel->dist_ev_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_ev_private_pl12)?$districtlevel->dist_ev_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_ev_centgovt_pl12)?$districtlevel->dist_ev_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_ev_private_pl34)?$districtlevel->dist_ev_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_ev_centgovt_pl34)?$districtlevel->dist_ev_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_ev_sc_pct)?$districtlevel->district_ev_sc_pct:'0',"obc"=>isset($districtlevel->district_ev_obc_pct)?$districtlevel->district_ev_obc_pct:'0',"st"=>isset($districtlevel->district_ev_st_pct)?$districtlevel->district_ev_st_pct:'0',"general"=>isset($districtlevel->district_ev_general_pct)?$districtlevel->district_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_ev_sc_pl34)?$districtlevel->district_ev_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_ev_obc_pl12)?$districtlevel->district_ev_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_ev_sc_pl12)?$districtlevel->district_ev_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_ev_obc_pl34)?$districtlevel->district_ev_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_ev_st_pl12)?$districtlevel->district_ev_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_ev_general_pl12)?$districtlevel->district_ev_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_ev_st_pl34)?$districtlevel->district_ev_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_ev_general_pl34)?$districtlevel->district_ev_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_ev_sc_pct)?$districtlevel->dist_ev_sc_pct:'0',"obc"=>isset($districtlevel->dist_ev_obc_pct)?$districtlevel->dist_ev_obc_pct:'0',"st"=>isset($districtlevel->dist_ev_st_pct)?$districtlevel->dist_ev_st_pct:'0',"general"=>isset($districtlevel->dist_ev_general_pct)?$districtlevel->dist_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ev_sc_pl34)?$districtlevel->dist_ev_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_ev_obc_pl12)?$districtlevel->dist_ev_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ev_sc_pl12)?$districtlevel->dist_ev_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ev_obc_pl34)?$districtlevel->dist_ev_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ev_st_pl12)?$districtlevel->dist_ev_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ev_general_pl12)?$districtlevel->dist_ev_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_ev_st_pl34)?$districtlevel->dist_ev_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_ev_general_pl34)?$districtlevel->dist_ev_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_ev_pl1)?$districtlevel->district_ev_pl1:'0',"basic"=>isset($districtlevel->district_ev_pl2)?$districtlevel->district_ev_pl2:'0',"proficient"=>isset($districtlevel->district_ev_pl3)?$districtlevel->district_ev_pl3:'0',"advanced"=>isset($districtlevel->district_ev_pl4)?$districtlevel->district_ev_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_ev_pl1)?$districtlevel->dist_ev_pl1:'0',"basic"=>isset($districtlevel->dist_ev_pl2)?$districtlevel->dist_ev_pl2:'0',"proficient"=>isset($districtlevel->dist_ev_pl3)?$districtlevel->dist_ev_pl3:'0',"advanced"=>isset($districtlevel->dist_ev_pl4)?$districtlevel->dist_ev_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
-        $districtArr['district_id'] = (int)$districtlevel->district_code;
+        $districtArr['state_id'] = (int)$districtlevel->state_code;
+        $districtArr['district_id'] = (int)$districtlevel->dist_code;
         $districtArr['grade'] = 5;
         $districtArr['data'] = json_encode($newdistrictArray);
         $districtArr['created_at'] = now();
@@ -460,7 +465,7 @@ class FinalDistrictProcessController extends Controller
         
         $districtPerformaceData[]=$districtArr;
         }
-        districtGradeLevelPerformance::insert($districtPerformaceData);
+        PerformanceMaster::insert($districtPerformaceData);
     }
 
     public function grade8PerformanceData()
@@ -472,157 +477,158 @@ class FinalDistrictProcessController extends Controller
             $newdistrictArray = array();
             $newdistrictArray['language'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_la_pct)?$districtlevel->district_la_pct:'0',
+                    'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_la_boys_pct)?$districtlevel->district_la_boys_pct:'0',"girls"=>isset($districtlevel->district_la_girls_pct)?$districtlevel->district_la_girls_pct:'0','trans_gender'=>isset($districtlevel->district_la_trans_pct)?$districtlevel->district_la_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_la_urban_pct)?$districtlevel->district_la_urban_pct:'0',"rural"=>isset($districtlevel->district_la_rural_pct)?$districtlevel->district_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_la_rural_pl12)?$districtlevel->district_la_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_la_urban_pl12)?$districtlevel->district_la_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_la_rural_pl34)?$districtlevel->district_la_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_la_urban_pl34)?$districtlevel->district_la_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_la_urban_pct)?$districtlevel->dist_la_urban_pct:'0',"rural"=>isset($districtlevel->dist_la_rural_pct)?$districtlevel->dist_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_la_rural_pl12)?$districtlevel->dist_la_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_la_urban_pl12)?$districtlevel->dist_la_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_la_rural_pl34)?$districtlevel->dist_la_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_la_urban_pl34)?$districtlevel->dist_la_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_la_govt_pct)?$districtlevel->district_la_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_la_govtaid_pct)?$districtlevel->district_la_govtaid_pct:'0',"private"=>isset($districtlevel->district_la_private_pct)?$districtlevel->district_la_private_pct:'0',"central_govt"=>isset($districtlevel->district_la_centgovt_pct)?$districtlevel->district_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_la_govt_pl12)?$districtlevel->district_la_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_la_govtaid_pl12)?$districtlevel->district_la_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_la_govt_pl34)?$districtlevel->district_la_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_la_govtaid_pl34)?$districtlevel->district_la_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_la_private_pl12)?$districtlevel->district_la_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_la_centgovt_pl12)?$districtlevel->district_la_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_la_private_pl34)?$districtlevel->district_la_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_la_centgovt_pl34)?$districtlevel->district_la_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_la_govt_pct)?$districtlevel->dist_la_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_la_govtaid_pct)?$districtlevel->dist_la_govtaid_pct:'0',"private"=>isset($districtlevel->dist_la_private_pct)?$districtlevel->dist_la_private_pct:'0',"central_govt"=>isset($districtlevel->dist_la_centgovt_pct)?$districtlevel->dist_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_la_govt_pl12)?$districtlevel->dist_la_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_la_govtaid_pl12)?$districtlevel->dist_la_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_la_govt_pl34)?$districtlevel->dist_la_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_la_govtaid_pl34)?$districtlevel->dist_la_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_la_private_pl12)?$districtlevel->dist_la_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_la_centgovt_pl12)?$districtlevel->dist_la_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_la_private_pl34)?$districtlevel->dist_la_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_la_centgovt_pl34)?$districtlevel->dist_la_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_la_sc_pct)?$districtlevel->district_la_sc_pct:'0',"obc"=>isset($districtlevel->district_la_obc_pct)?$districtlevel->district_la_obc_pct:'0',"st"=>isset($districtlevel->district_la_st_pct)?$districtlevel->district_la_st_pct:'0',"general"=>isset($districtlevel->district_la_general_pct)?$districtlevel->district_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_la_sc_pl34)?$districtlevel->district_la_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_la_obc_pl12)?$districtlevel->district_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_la_sc_pl12)?$districtlevel->district_la_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_la_obc_pl34)?$districtlevel->district_la_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_la_st_pl12)?$districtlevel->district_la_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_la_general_pl12)?$districtlevel->district_la_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_la_st_pl34)?$districtlevel->district_la_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_la_general_pl34)?$districtlevel->district_la_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_la_obc_pl12)?$districtlevel->dist_la_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_la_obc_pl34)?$districtlevel->dist_la_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_la_st_pl12)?$districtlevel->dist_la_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_la_general_pl12)?$districtlevel->dist_la_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_la_st_pl34)?$districtlevel->dist_la_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_la_general_pl34)?$districtlevel->dist_la_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_la_pl1)?$districtlevel->district_la_pl1:'0',"basic"=>isset($districtlevel->district_la_pl2)?$districtlevel->district_la_pl2:'0',"proficient"=>isset($districtlevel->district_la_pl3)?$districtlevel->district_la_pl3:'0',"advanced"=>isset($districtlevel->district_la_pl4)?$districtlevel->district_la_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_la_pl1)?$districtlevel->dist_la_pl1:'0',"basic"=>isset($districtlevel->dist_la_pl2)?$districtlevel->dist_la_pl2:'0',"proficient"=>isset($districtlevel->dist_la_pl3)?$districtlevel->dist_la_pl3:'0',"advanced"=>isset($districtlevel->dist_la_pl4)?$districtlevel->dist_la_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
             
             $newdistrictArray['math'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_ma_pct)?$districtlevel->district_ma_pct:'0',
+                    'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_ma_boys_pct)?$districtlevel->district_ma_boys_pct:'0',"girls"=>isset($districtlevel->district_ma_girls_pct)?$districtlevel->district_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->district_ma_trans_pct)?$districtlevel->district_ma_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_ma_urban_pct)?$districtlevel->district_ma_urban_pct:'0',"rural"=>isset($districtlevel->district_ma_rural_pct)?$districtlevel->district_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_ma_rural_pl12)?$districtlevel->district_ma_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_ma_urban_pl12)?$districtlevel->district_ma_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_ma_rural_pl34)?$districtlevel->district_ma_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_ma_urban_pl34)?$districtlevel->district_ma_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_ma_urban_pct)?$districtlevel->dist_ma_urban_pct:'0',"rural"=>isset($districtlevel->dist_ma_rural_pct)?$districtlevel->dist_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_ma_rural_pl12)?$districtlevel->dist_ma_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_ma_urban_pl12)?$districtlevel->dist_ma_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_ma_rural_pl34)?$districtlevel->dist_ma_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_ma_urban_pl34)?$districtlevel->dist_ma_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_ma_govt_pct)?$districtlevel->district_ma_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_ma_govtaid_pct)?$districtlevel->district_ma_govtaid_pct:'0',"private"=>isset($districtlevel->district_ma_private_pct)?$districtlevel->district_ma_private_pct:'0',"central_govt"=>isset($districtlevel->district_ma_centgovt_pct)?$districtlevel->district_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_ma_govt_pl12)?$districtlevel->district_ma_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_ma_govtaid_pl12)?$districtlevel->district_ma_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_ma_govt_pl34)?$districtlevel->district_ma_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_ma_govtaid_pl34)?$districtlevel->district_ma_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_ma_private_pl12)?$districtlevel->district_ma_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_ma_centgovt_pl12)?$districtlevel->district_ma_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_ma_private_pl34)?$districtlevel->district_ma_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_ma_centgovt_pl34)?$districtlevel->district_ma_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_ma_govt_pct)?$districtlevel->dist_ma_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_ma_govtaid_pct)?$districtlevel->dist_ma_govtaid_pct:'0',"private"=>isset($districtlevel->dist_ma_private_pct)?$districtlevel->dist_ma_private_pct:'0',"central_govt"=>isset($districtlevel->dist_ma_centgovt_pct)?$districtlevel->dist_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_ma_govt_pl12)?$districtlevel->dist_ma_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_ma_govtaid_pl12)?$districtlevel->dist_ma_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_ma_govt_pl34)?$districtlevel->dist_ma_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_ma_govtaid_pl34)?$districtlevel->dist_ma_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_ma_private_pl12)?$districtlevel->dist_ma_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_ma_centgovt_pl12)?$districtlevel->dist_ma_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_ma_private_pl34)?$districtlevel->dist_ma_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_ma_centgovt_pl34)?$districtlevel->dist_ma_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_ma_sc_pct)?$districtlevel->district_ma_sc_pct:'0',"obc"=>isset($districtlevel->district_ma_obc_pct)?$districtlevel->district_ma_obc_pct:'0',"st"=>isset($districtlevel->district_ma_st_pct)?$districtlevel->district_ma_st_pct:'0',"general"=>isset($districtlevel->district_ma_general_pct)?$districtlevel->district_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_ma_sc_pl34)?$districtlevel->district_ma_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_ma_obc_pl12)?$districtlevel->district_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_ma_sc_pl12)?$districtlevel->district_ma_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_ma_obc_pl34)?$districtlevel->district_ma_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_ma_st_pl12)?$districtlevel->district_ma_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_ma_general_pl12)?$districtlevel->district_ma_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_ma_st_pl34)?$districtlevel->district_ma_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_ma_general_pl34)?$districtlevel->district_ma_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_ma_obc_pl12)?$districtlevel->dist_ma_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ma_obc_pl34)?$districtlevel->dist_ma_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ma_st_pl12)?$districtlevel->dist_ma_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ma_general_pl12)?$districtlevel->dist_ma_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_ma_st_pl34)?$districtlevel->dist_ma_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_ma_general_pl34)?$districtlevel->dist_ma_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_ma_pl1)?$districtlevel->district_ma_pl1:'0',"basic"=>isset($districtlevel->district_ma_pl2)?$districtlevel->district_ma_pl2:'0',"proficient"=>isset($districtlevel->district_ma_pl3)?$districtlevel->district_ma_pl3:'0',"advanced"=>isset($districtlevel->district_ma_pl4)?$districtlevel->district_ma_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_ma_pl1)?$districtlevel->dist_ma_pl1:'0',"basic"=>isset($districtlevel->dist_ma_pl2)?$districtlevel->dist_ma_pl2:'0',"proficient"=>isset($districtlevel->dist_ma_pl3)?$districtlevel->dist_ma_pl3:'0',"advanced"=>isset($districtlevel->dist_ma_pl4)?$districtlevel->dist_ma_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
             
             $newdistrictArray['sci'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_sc_pct)?$districtlevel->district_sc_pct:'0',
+                    'district'=>isset($districtlevel->dist_sc_pct)?$districtlevel->dist_sc_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_sc_boys_pct)?$districtlevel->district_sc_boys_pct:'0',"girls"=>isset($districtlevel->district_sc_girls_pct)?$districtlevel->district_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->district_sc_trans_pct)?$districtlevel->district_sc_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_sc_boys_pct)?$districtlevel->dist_sc_boys_pct:'0',"girls"=>isset($districtlevel->dist_sc_girls_pct)?$districtlevel->dist_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_sc_trans_pct)?$districtlevel->dist_sc_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_sc_urban_pct)?$districtlevel->district_sc_urban_pct:'0',"rural"=>isset($districtlevel->district_sc_rural_pct)?$districtlevel->district_sc_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_sc_rural_pl12)?$districtlevel->district_sc_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_sc_urban_pl12)?$districtlevel->district_sc_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_sc_rural_pl34)?$districtlevel->district_sc_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_sc_urban_pl34)?$districtlevel->district_sc_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_sc_urban_pct)?$districtlevel->dist_sc_urban_pct:'0',"rural"=>isset($districtlevel->dist_sc_rural_pct)?$districtlevel->dist_sc_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_sc_rural_pl12)?$districtlevel->dist_sc_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_sc_urban_pl12)?$districtlevel->dist_sc_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_sc_rural_pl34)?$districtlevel->dist_sc_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_sc_urban_pl34)?$districtlevel->dist_sc_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_sc_govt_pct)?$districtlevel->district_sc_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_sc_govtaid_pct)?$districtlevel->district_sc_govtaid_pct:'0',"private"=>isset($districtlevel->district_sc_private_pct)?$districtlevel->district_sc_private_pct:'0',"central_govt"=>isset($districtlevel->district_sc_centgovt_pct)?$districtlevel->district_sc_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_sc_govt_pl12)?$districtlevel->district_sc_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_sc_govtaid_pl12)?$districtlevel->district_sc_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_sc_govt_pl34)?$districtlevel->district_sc_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_sc_govtaid_pl34)?$districtlevel->district_sc_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_sc_private_pl12)?$districtlevel->district_sc_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_sc_centgovt_pl12)?$districtlevel->district_sc_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_sc_private_pl34)?$districtlevel->district_sc_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_sc_centgovt_pl34)?$districtlevel->district_sc_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_sc_govt_pct)?$districtlevel->dist_sc_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_sc_govtaid_pct)?$districtlevel->dist_sc_govtaid_pct:'0',"private"=>isset($districtlevel->dist_sc_private_pct)?$districtlevel->dist_sc_private_pct:'0',"central_govt"=>isset($districtlevel->dist_sc_centgovt_pct)?$districtlevel->dist_sc_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_sc_govt_pl12)?$districtlevel->dist_sc_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_sc_govtaid_pl12)?$districtlevel->dist_sc_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_sc_govt_pl34)?$districtlevel->dist_sc_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_sc_govtaid_pl34)?$districtlevel->dist_sc_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_sc_private_pl12)?$districtlevel->dist_sc_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_sc_centgovt_pl12)?$districtlevel->dist_sc_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_sc_private_pl34)?$districtlevel->dist_sc_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_sc_centgovt_pl34)?$districtlevel->dist_sc_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_sc_sc_pct)?$districtlevel->district_sc_sc_pct:'0',"obc"=>isset($districtlevel->district_sc_obc_pct)?$districtlevel->district_sc_obc_pct:'0',"st"=>isset($districtlevel->district_sc_st_pct)?$districtlevel->district_sc_st_pct:'0',"general"=>isset($districtlevel->district_sc_general_pct)?$districtlevel->district_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_sc_sc_pl34)?$districtlevel->district_sc_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_sc_obc_pl12)?$districtlevel->district_sc_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_sc_sc_pl12)?$districtlevel->district_sc_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_sc_obc_pl34)?$districtlevel->district_sc_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_sc_st_pl12)?$districtlevel->district_sc_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_sc_general_pl12)?$districtlevel->district_sc_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_sc_st_pl34)?$districtlevel->district_sc_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_sc_general_pl34)?$districtlevel->district_sc_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_sc_sc_pct)?$districtlevel->dist_sc_sc_pct:'0',"obc"=>isset($districtlevel->dist_sc_obc_pct)?$districtlevel->dist_sc_obc_pct:'0',"st"=>isset($districtlevel->dist_sc_st_pct)?$districtlevel->dist_sc_st_pct:'0',"general"=>isset($districtlevel->dist_sc_general_pct)?$districtlevel->dist_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_sc_sc_pl34)?$districtlevel->dist_sc_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_sc_obc_pl12)?$districtlevel->dist_sc_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_sc_sc_pl12)?$districtlevel->dist_sc_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_sc_obc_pl34)?$districtlevel->dist_sc_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_sc_st_pl12)?$districtlevel->dist_sc_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_sc_general_pl12)?$districtlevel->dist_sc_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_sc_st_pl34)?$districtlevel->dist_sc_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_sc_general_pl34)?$districtlevel->dist_sc_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_sc_pl1)?$districtlevel->district_sc_pl1:'0',"basic"=>isset($districtlevel->district_sc_pl2)?$districtlevel->district_sc_pl2:'0',"proficient"=>isset($districtlevel->district_sc_pl3)?$districtlevel->district_sc_pl3:'0',"advanced"=>isset($districtlevel->district_sc_pl4)?$districtlevel->district_sc_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_sc_pl1)?$districtlevel->dist_sc_pl1:'0',"basic"=>isset($districtlevel->dist_sc_pl2)?$districtlevel->dist_sc_pl2:'0',"proficient"=>isset($districtlevel->dist_sc_pl3)?$districtlevel->dist_sc_pl3:'0',"advanced"=>isset($districtlevel->dist_sc_pl4)?$districtlevel->dist_sc_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
 
             $newdistrictArray['sst'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_ss_pct)?$districtlevel->district_ss_pct:'0',
+                    'district'=>isset($districtlevel->dist_ss_pct)?$districtlevel->dist_ss_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_ss_boys_pct)?$districtlevel->district_ss_boys_pct:'0',"girls"=>isset($districtlevel->district_ss_girls_pct)?$districtlevel->district_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->district_ss_trans_pct)?$districtlevel->district_ss_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_ss_boys_pct)?$districtlevel->dist_ss_boys_pct:'0',"girls"=>isset($districtlevel->dist_ss_girls_pct)?$districtlevel->dist_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ss_trans_pct)?$districtlevel->dist_ss_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_ss_urban_pct)?$districtlevel->district_ss_urban_pct:'0',"rural"=>isset($districtlevel->district_ss_rural_pct)?$districtlevel->district_ss_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_ss_rural_pl12)?$districtlevel->district_ss_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_ss_urban_pl12)?$districtlevel->district_ss_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_ss_rural_pl34)?$districtlevel->district_ss_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_ss_urban_pl34)?$districtlevel->district_ss_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_ss_urban_pct)?$districtlevel->dist_ss_urban_pct:'0',"rural"=>isset($districtlevel->dist_ss_rural_pct)?$districtlevel->dist_ss_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_ss_rural_pl12)?$districtlevel->dist_ss_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_ss_urban_pl12)?$districtlevel->dist_ss_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_ss_rural_pl34)?$districtlevel->dist_ss_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_ss_urban_pl34)?$districtlevel->dist_ss_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_ss_govt_pct)?$districtlevel->district_ss_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_ss_govtaid_pct)?$districtlevel->district_ss_govtaid_pct:'0',"private"=>isset($districtlevel->district_ss_private_pct)?$districtlevel->district_ss_private_pct:'0',"central_govt"=>isset($districtlevel->district_ss_centgovt_pct)?$districtlevel->district_ss_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_ss_govt_pl12)?$districtlevel->district_ss_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_ss_govtaid_pl12)?$districtlevel->district_ss_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_ss_govt_pl34)?$districtlevel->district_ss_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_ss_govtaid_pl34)?$districtlevel->district_ss_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_ss_private_pl12)?$districtlevel->district_ss_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_ss_centgovt_pl12)?$districtlevel->district_ss_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_ss_private_pl34)?$districtlevel->district_ss_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_ss_centgovt_pl34)?$districtlevel->district_ss_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_ss_govt_pct)?$districtlevel->dist_ss_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_ss_govtaid_pct)?$districtlevel->dist_ss_govtaid_pct:'0',"private"=>isset($districtlevel->dist_ss_private_pct)?$districtlevel->dist_ss_private_pct:'0',"central_govt"=>isset($districtlevel->dist_ss_centgovt_pct)?$districtlevel->dist_ss_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_ss_govt_pl12)?$districtlevel->dist_ss_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_ss_govtaid_pl12)?$districtlevel->dist_ss_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_ss_govt_pl34)?$districtlevel->dist_ss_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_ss_govtaid_pl34)?$districtlevel->dist_ss_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_ss_private_pl12)?$districtlevel->dist_ss_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_ss_centgovt_pl12)?$districtlevel->dist_ss_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_ss_private_pl34)?$districtlevel->dist_ss_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_ss_centgovt_pl34)?$districtlevel->dist_ss_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_ss_sc_pct)?$districtlevel->district_ss_sc_pct:'0',"obc"=>isset($districtlevel->district_ss_obc_pct)?$districtlevel->district_ss_obc_pct:'0',"st"=>isset($districtlevel->district_ss_st_pct)?$districtlevel->district_ss_st_pct:'0',"general"=>isset($districtlevel->district_ss_general_pct)?$districtlevel->district_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_ss_sc_pl34)?$districtlevel->district_ss_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_ss_obc_pl12)?$districtlevel->district_ss_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_ss_sc_pl12)?$districtlevel->district_ss_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_ss_obc_pl34)?$districtlevel->district_ss_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_ss_st_pl12)?$districtlevel->district_ss_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_ss_general_pl12)?$districtlevel->district_ss_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_ss_st_pl34)?$districtlevel->district_ss_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_ss_general_pl34)?$districtlevel->district_ss_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_ss_sc_pct)?$districtlevel->dist_ss_sc_pct:'0',"obc"=>isset($districtlevel->dist_ss_obc_pct)?$districtlevel->dist_ss_obc_pct:'0',"st"=>isset($districtlevel->dist_ss_st_pct)?$districtlevel->dist_ss_st_pct:'0',"general"=>isset($districtlevel->dist_ss_general_pct)?$districtlevel->dist_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ss_sc_pl34)?$districtlevel->dist_ss_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_ss_obc_pl12)?$districtlevel->dist_ss_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ss_sc_pl12)?$districtlevel->dist_ss_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ss_obc_pl34)?$districtlevel->dist_ss_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ss_st_pl12)?$districtlevel->dist_ss_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ss_general_pl12)?$districtlevel->dist_ss_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_ss_st_pl34)?$districtlevel->dist_ss_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_ss_general_pl34)?$districtlevel->dist_ss_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_ss_pl1)?$districtlevel->district_ss_pl1:'0',"basic"=>isset($districtlevel->district_ss_pl2)?$districtlevel->district_ss_pl2:'0',"proficient"=>isset($districtlevel->district_ss_pl3)?$districtlevel->district_ss_pl3:'0',"advanced"=>isset($districtlevel->district_ss_pl4)?$districtlevel->district_ss_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_ss_pl1)?$districtlevel->dist_ss_pl1:'0',"basic"=>isset($districtlevel->dist_ss_pl2)?$districtlevel->dist_ss_pl2:'0',"proficient"=>isset($districtlevel->dist_ss_pl3)?$districtlevel->dist_ss_pl3:'0',"advanced"=>isset($districtlevel->dist_ss_pl4)?$districtlevel->dist_ss_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
 
-        $districtArr['district_id'] = (int)$districtlevel->district_code;
+        $districtArr['state_id'] = (int)$districtlevel->state_code;
+        $districtArr['district_id'] = (int)$districtlevel->dist_code;
         $districtArr['grade'] = 8;
         $districtArr['data'] = json_encode($newdistrictArray);
         $districtArr['created_at'] = now();
@@ -630,7 +636,7 @@ class FinalDistrictProcessController extends Controller
         
         $districtPerformaceData[]=$districtArr;
         }
-        districtGradeLevelPerformance::insert($districtPerformaceData);
+        PerformanceMaster::insert($districtPerformaceData);
     }
 
     public function grade10PerformanceData()
@@ -642,195 +648,196 @@ class FinalDistrictProcessController extends Controller
             $newdistrictArray = array();
             $newdistrictArray['math'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_ma_pct)?$districtlevel->district_ma_pct:'0',
+                    'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_ma_boys_pct)?$districtlevel->district_ma_boys_pct:'0',"girls"=>isset($districtlevel->district_ma_girls_pct)?$districtlevel->district_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->district_ma_trans_pct)?$districtlevel->district_ma_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_ma_urban_pct)?$districtlevel->district_ma_urban_pct:'0',"rural"=>isset($districtlevel->district_ma_rural_pct)?$districtlevel->district_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_ma_rural_pl12)?$districtlevel->district_ma_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_ma_urban_pl12)?$districtlevel->district_ma_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_ma_rural_pl34)?$districtlevel->district_ma_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_ma_urban_pl34)?$districtlevel->district_ma_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_ma_urban_pct)?$districtlevel->dist_ma_urban_pct:'0',"rural"=>isset($districtlevel->dist_ma_rural_pct)?$districtlevel->dist_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_ma_rural_pl12)?$districtlevel->dist_ma_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_ma_urban_pl12)?$districtlevel->dist_ma_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_ma_rural_pl34)?$districtlevel->dist_ma_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_ma_urban_pl34)?$districtlevel->dist_ma_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_ma_govt_pct)?$districtlevel->district_ma_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_ma_govtaid_pct)?$districtlevel->district_ma_govtaid_pct:'0',"private"=>isset($districtlevel->district_ma_private_pct)?$districtlevel->district_ma_private_pct:'0',"central_govt"=>isset($districtlevel->district_ma_centgovt_pct)?$districtlevel->district_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_ma_govt_pl12)?$districtlevel->district_ma_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_ma_govtaid_pl12)?$districtlevel->district_ma_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_ma_govt_pl34)?$districtlevel->district_ma_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_ma_govtaid_pl34)?$districtlevel->district_ma_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_ma_private_pl12)?$districtlevel->district_ma_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_ma_centgovt_pl12)?$districtlevel->district_ma_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_ma_private_pl34)?$districtlevel->district_ma_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_ma_centgovt_pl34)?$districtlevel->district_ma_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_ma_govt_pct)?$districtlevel->dist_ma_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_ma_govtaid_pct)?$districtlevel->dist_ma_govtaid_pct:'0',"private"=>isset($districtlevel->dist_ma_private_pct)?$districtlevel->dist_ma_private_pct:'0',"central_govt"=>isset($districtlevel->dist_ma_centgovt_pct)?$districtlevel->dist_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_ma_govt_pl12)?$districtlevel->dist_ma_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_ma_govtaid_pl12)?$districtlevel->dist_ma_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_ma_govt_pl34)?$districtlevel->dist_ma_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_ma_govtaid_pl34)?$districtlevel->dist_ma_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_ma_private_pl12)?$districtlevel->dist_ma_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_ma_centgovt_pl12)?$districtlevel->dist_ma_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_ma_private_pl34)?$districtlevel->dist_ma_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_ma_centgovt_pl34)?$districtlevel->dist_ma_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_ma_sc_pct)?$districtlevel->district_ma_sc_pct:'0',"obc"=>isset($districtlevel->district_ma_obc_pct)?$districtlevel->district_ma_obc_pct:'0',"st"=>isset($districtlevel->district_ma_st_pct)?$districtlevel->district_ma_st_pct:'0',"general"=>isset($districtlevel->district_ma_general_pct)?$districtlevel->district_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_ma_sc_pl34)?$districtlevel->district_ma_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_ma_obc_pl12)?$districtlevel->district_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_ma_sc_pl12)?$districtlevel->district_ma_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_ma_obc_pl34)?$districtlevel->district_ma_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_ma_st_pl12)?$districtlevel->district_ma_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_ma_general_pl12)?$districtlevel->district_ma_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_ma_st_pl34)?$districtlevel->district_ma_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_ma_general_pl34)?$districtlevel->district_ma_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_ma_obc_pl12)?$districtlevel->dist_ma_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ma_obc_pl34)?$districtlevel->dist_ma_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ma_st_pl12)?$districtlevel->dist_ma_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ma_general_pl12)?$districtlevel->dist_ma_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_ma_st_pl34)?$districtlevel->dist_ma_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_ma_general_pl34)?$districtlevel->dist_ma_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_ma_pl1)?$districtlevel->district_ma_pl1:'0',"basic"=>isset($districtlevel->district_ma_pl2)?$districtlevel->district_ma_pl2:'0',"proficient"=>isset($districtlevel->district_ma_pl3)?$districtlevel->district_ma_pl3:'0',"advanced"=>isset($districtlevel->district_ma_pl4)?$districtlevel->district_ma_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_ma_pl1)?$districtlevel->dist_ma_pl1:'0',"basic"=>isset($districtlevel->dist_ma_pl2)?$districtlevel->dist_ma_pl2:'0',"proficient"=>isset($districtlevel->dist_ma_pl3)?$districtlevel->dist_ma_pl3:'0',"advanced"=>isset($districtlevel->dist_ma_pl4)?$districtlevel->dist_ma_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
             
             $newdistrictArray['sci'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_sc_pct)?$districtlevel->district_sc_pct:'0',
+                    'district'=>isset($districtlevel->dist_sc_pct)?$districtlevel->dist_sc_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_sc_boys_pct)?$districtlevel->district_sc_boys_pct:'0',"girls"=>isset($districtlevel->district_sc_girls_pct)?$districtlevel->district_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->district_sc_trans_pct)?$districtlevel->district_sc_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_sc_boys_pct)?$districtlevel->dist_sc_boys_pct:'0',"girls"=>isset($districtlevel->dist_sc_girls_pct)?$districtlevel->dist_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_sc_trans_pct)?$districtlevel->dist_sc_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_sc_urban_pct)?$districtlevel->district_sc_urban_pct:'0',"rural"=>isset($districtlevel->district_sc_rural_pct)?$districtlevel->district_sc_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_sc_rural_pl12)?$districtlevel->district_sc_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_sc_urban_pl12)?$districtlevel->district_sc_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_sc_rural_pl34)?$districtlevel->district_sc_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_sc_urban_pl34)?$districtlevel->district_sc_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_sc_urban_pct)?$districtlevel->dist_sc_urban_pct:'0',"rural"=>isset($districtlevel->dist_sc_rural_pct)?$districtlevel->dist_sc_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_sc_rural_pl12)?$districtlevel->dist_sc_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_sc_urban_pl12)?$districtlevel->dist_sc_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_sc_rural_pl34)?$districtlevel->dist_sc_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_sc_urban_pl34)?$districtlevel->dist_sc_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_sc_govt_pct)?$districtlevel->district_sc_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_sc_govtaid_pct)?$districtlevel->district_sc_govtaid_pct:'0',"private"=>isset($districtlevel->district_sc_private_pct)?$districtlevel->district_sc_private_pct:'0',"central_govt"=>isset($districtlevel->district_sc_centgovt_pct)?$districtlevel->district_sc_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_sc_govt_pl12)?$districtlevel->district_sc_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_sc_govtaid_pl12)?$districtlevel->district_sc_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_sc_govt_pl34)?$districtlevel->district_sc_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_sc_govtaid_pl34)?$districtlevel->district_sc_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_sc_private_pl12)?$districtlevel->district_sc_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_sc_centgovt_pl12)?$districtlevel->district_sc_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_sc_private_pl34)?$districtlevel->district_sc_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_sc_centgovt_pl34)?$districtlevel->district_sc_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_sc_govt_pct)?$districtlevel->dist_sc_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_sc_govtaid_pct)?$districtlevel->dist_sc_govtaid_pct:'0',"private"=>isset($districtlevel->dist_sc_private_pct)?$districtlevel->dist_sc_private_pct:'0',"central_govt"=>isset($districtlevel->dist_sc_centgovt_pct)?$districtlevel->dist_sc_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_sc_govt_pl12)?$districtlevel->dist_sc_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_sc_govtaid_pl12)?$districtlevel->dist_sc_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_sc_govt_pl34)?$districtlevel->dist_sc_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_sc_govtaid_pl34)?$districtlevel->dist_sc_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_sc_private_pl12)?$districtlevel->dist_sc_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_sc_centgovt_pl12)?$districtlevel->dist_sc_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_sc_private_pl34)?$districtlevel->dist_sc_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_sc_centgovt_pl34)?$districtlevel->dist_sc_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_sc_sc_pct)?$districtlevel->district_sc_sc_pct:'0',"obc"=>isset($districtlevel->district_sc_obc_pct)?$districtlevel->district_sc_obc_pct:'0',"st"=>isset($districtlevel->district_sc_st_pct)?$districtlevel->district_sc_st_pct:'0',"general"=>isset($districtlevel->district_sc_general_pct)?$districtlevel->district_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_sc_sc_pl34)?$districtlevel->district_sc_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_sc_obc_pl12)?$districtlevel->district_sc_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_sc_sc_pl12)?$districtlevel->district_sc_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_sc_obc_pl34)?$districtlevel->district_sc_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_sc_st_pl12)?$districtlevel->district_sc_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_sc_general_pl12)?$districtlevel->district_sc_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_sc_st_pl34)?$districtlevel->district_sc_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_sc_general_pl34)?$districtlevel->district_sc_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_sc_sc_pct)?$districtlevel->dist_sc_sc_pct:'0',"obc"=>isset($districtlevel->dist_sc_obc_pct)?$districtlevel->dist_sc_obc_pct:'0',"st"=>isset($districtlevel->dist_sc_st_pct)?$districtlevel->dist_sc_st_pct:'0',"general"=>isset($districtlevel->dist_sc_general_pct)?$districtlevel->dist_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_sc_sc_pl34)?$districtlevel->dist_sc_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_sc_obc_pl12)?$districtlevel->dist_sc_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_sc_sc_pl12)?$districtlevel->dist_sc_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_sc_obc_pl34)?$districtlevel->dist_sc_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_sc_st_pl12)?$districtlevel->dist_sc_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_sc_general_pl12)?$districtlevel->dist_sc_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_sc_st_pl34)?$districtlevel->dist_sc_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_sc_general_pl34)?$districtlevel->dist_sc_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_sc_pl1)?$districtlevel->district_sc_pl1:'0',"basic"=>isset($districtlevel->district_sc_pl2)?$districtlevel->district_sc_pl2:'0',"proficient"=>isset($districtlevel->district_sc_pl3)?$districtlevel->district_sc_pl3:'0',"advanced"=>isset($districtlevel->district_sc_pl4)?$districtlevel->district_sc_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_sc_pl1)?$districtlevel->dist_sc_pl1:'0',"basic"=>isset($districtlevel->dist_sc_pl2)?$districtlevel->dist_sc_pl2:'0',"proficient"=>isset($districtlevel->dist_sc_pl3)?$districtlevel->dist_sc_pl3:'0',"advanced"=>isset($districtlevel->dist_sc_pl4)?$districtlevel->dist_sc_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
 
             $newdistrictArray['sst'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_ss_pct)?$districtlevel->district_ss_pct:'0',
+                    'district'=>isset($districtlevel->dist_ss_pct)?$districtlevel->dist_ss_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_ss_boys_pct)?$districtlevel->district_ss_boys_pct:'0',"girls"=>isset($districtlevel->district_ss_girls_pct)?$districtlevel->district_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->district_ss_trans_pct)?$districtlevel->district_ss_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_ss_boys_pct)?$districtlevel->dist_ss_boys_pct:'0',"girls"=>isset($districtlevel->dist_ss_girls_pct)?$districtlevel->dist_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ss_trans_pct)?$districtlevel->dist_ss_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_ss_urban_pct)?$districtlevel->district_ss_urban_pct:'0',"rural"=>isset($districtlevel->district_ss_rural_pct)?$districtlevel->district_ss_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_ss_rural_pl12)?$districtlevel->district_ss_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_ss_urban_pl12)?$districtlevel->district_ss_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_ss_rural_pl34)?$districtlevel->district_ss_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_ss_urban_pl34)?$districtlevel->district_ss_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_ss_urban_pct)?$districtlevel->dist_ss_urban_pct:'0',"rural"=>isset($districtlevel->dist_ss_rural_pct)?$districtlevel->dist_ss_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_ss_rural_pl12)?$districtlevel->dist_ss_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_ss_urban_pl12)?$districtlevel->dist_ss_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_ss_rural_pl34)?$districtlevel->dist_ss_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_ss_urban_pl34)?$districtlevel->dist_ss_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_ss_govt_pct)?$districtlevel->district_ss_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_ss_govtaid_pct)?$districtlevel->district_ss_govtaid_pct:'0',"private"=>isset($districtlevel->district_ss_private_pct)?$districtlevel->district_ss_private_pct:'0',"central_govt"=>isset($districtlevel->district_ss_centgovt_pct)?$districtlevel->district_ss_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_ss_govt_pl12)?$districtlevel->district_ss_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_ss_govtaid_pl12)?$districtlevel->district_ss_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_ss_govt_pl34)?$districtlevel->district_ss_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_ss_govtaid_pl34)?$districtlevel->district_ss_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_ss_private_pl12)?$districtlevel->district_ss_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_ss_centgovt_pl12)?$districtlevel->district_ss_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_ss_private_pl34)?$districtlevel->district_ss_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_ss_centgovt_pl34)?$districtlevel->district_ss_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_ss_govt_pct)?$districtlevel->dist_ss_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_ss_govtaid_pct)?$districtlevel->dist_ss_govtaid_pct:'0',"private"=>isset($districtlevel->dist_ss_private_pct)?$districtlevel->dist_ss_private_pct:'0',"central_govt"=>isset($districtlevel->dist_ss_centgovt_pct)?$districtlevel->dist_ss_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_ss_govt_pl12)?$districtlevel->dist_ss_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_ss_govtaid_pl12)?$districtlevel->dist_ss_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_ss_govt_pl34)?$districtlevel->dist_ss_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_ss_govtaid_pl34)?$districtlevel->dist_ss_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_ss_private_pl12)?$districtlevel->dist_ss_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_ss_centgovt_pl12)?$districtlevel->dist_ss_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_ss_private_pl34)?$districtlevel->dist_ss_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_ss_centgovt_pl34)?$districtlevel->dist_ss_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_ss_sc_pct)?$districtlevel->district_ss_sc_pct:'0',"obc"=>isset($districtlevel->district_ss_obc_pct)?$districtlevel->district_ss_obc_pct:'0',"st"=>isset($districtlevel->district_ss_st_pct)?$districtlevel->district_ss_st_pct:'0',"general"=>isset($districtlevel->district_ss_general_pct)?$districtlevel->district_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_ss_sc_pl34)?$districtlevel->district_ss_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_ss_obc_pl12)?$districtlevel->district_ss_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_ss_sc_pl12)?$districtlevel->district_ss_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_ss_obc_pl34)?$districtlevel->district_ss_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_ss_st_pl12)?$districtlevel->district_ss_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_ss_general_pl12)?$districtlevel->district_ss_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_ss_st_pl34)?$districtlevel->district_ss_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_ss_general_pl34)?$districtlevel->district_ss_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_ss_sc_pct)?$districtlevel->dist_ss_sc_pct:'0',"obc"=>isset($districtlevel->dist_ss_obc_pct)?$districtlevel->dist_ss_obc_pct:'0',"st"=>isset($districtlevel->dist_ss_st_pct)?$districtlevel->dist_ss_st_pct:'0',"general"=>isset($districtlevel->dist_ss_general_pct)?$districtlevel->dist_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ss_sc_pl34)?$districtlevel->dist_ss_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_ss_obc_pl12)?$districtlevel->dist_ss_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ss_sc_pl12)?$districtlevel->dist_ss_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ss_obc_pl34)?$districtlevel->dist_ss_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ss_st_pl12)?$districtlevel->dist_ss_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ss_general_pl12)?$districtlevel->dist_ss_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_ss_st_pl34)?$districtlevel->dist_ss_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_ss_general_pl34)?$districtlevel->dist_ss_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_ss_pl1)?$districtlevel->district_ss_pl1:'0',"basic"=>isset($districtlevel->district_ss_pl2)?$districtlevel->district_ss_pl2:'0',"proficient"=>isset($districtlevel->district_ss_pl3)?$districtlevel->district_ss_pl3:'0',"advanced"=>isset($districtlevel->district_ss_pl4)?$districtlevel->district_ss_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_ss_pl1)?$districtlevel->dist_ss_pl1:'0',"basic"=>isset($districtlevel->dist_ss_pl2)?$districtlevel->dist_ss_pl2:'0',"proficient"=>isset($districtlevel->dist_ss_pl3)?$districtlevel->dist_ss_pl3:'0',"advanced"=>isset($districtlevel->dist_ss_pl4)?$districtlevel->dist_ss_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
 
             $newdistrictArray['eng'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_en_pct)?$districtlevel->district_en_pct:'0',
+                    'district'=>isset($districtlevel->dist_en_pct)?$districtlevel->dist_en_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_en_boys_pct)?$districtlevel->district_en_boys_pct:'0',"girls"=>isset($districtlevel->district_en_girls_pct)?$districtlevel->district_en_girls_pct:'0','trans_gender'=>isset($districtlevel->district_en_trans_pct)?$districtlevel->district_en_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_en_boys_pct)?$districtlevel->dist_en_boys_pct:'0',"girls"=>isset($districtlevel->dist_en_girls_pct)?$districtlevel->dist_en_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_en_trans_pct)?$districtlevel->dist_en_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_en_urban_pct)?$districtlevel->district_en_urban_pct:'0',"rural"=>isset($districtlevel->district_en_rural_pct)?$districtlevel->district_en_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_en_rural_pl12)?$districtlevel->district_en_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_en_urban_pl12)?$districtlevel->district_en_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_en_rural_pl34)?$districtlevel->district_en_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_en_urban_pl34)?$districtlevel->district_en_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_en_urban_pct)?$districtlevel->dist_en_urban_pct:'0',"rural"=>isset($districtlevel->dist_en_rural_pct)?$districtlevel->dist_en_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_en_rural_pl12)?$districtlevel->dist_en_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_en_urban_pl12)?$districtlevel->dist_en_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_en_rural_pl34)?$districtlevel->dist_en_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_en_urban_pl34)?$districtlevel->dist_en_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_en_govt_pct)?$districtlevel->district_en_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_en_govtaid_pct)?$districtlevel->district_en_govtaid_pct:'0',"private"=>isset($districtlevel->district_en_private_pct)?$districtlevel->district_en_private_pct:'0',"central_govt"=>isset($districtlevel->district_en_centgovt_pct)?$districtlevel->district_en_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_en_govt_pl12)?$districtlevel->district_en_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_en_govtaid_pl12)?$districtlevel->district_en_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_en_govt_pl34)?$districtlevel->district_en_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_en_govtaid_pl34)?$districtlevel->district_en_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_en_private_pl12)?$districtlevel->district_en_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_en_centgovt_pl12)?$districtlevel->district_en_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_en_private_pl34)?$districtlevel->district_en_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_en_centgovt_pl34)?$districtlevel->district_en_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_en_govt_pct)?$districtlevel->dist_en_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_en_govtaid_pct)?$districtlevel->dist_en_govtaid_pct:'0',"private"=>isset($districtlevel->dist_en_private_pct)?$districtlevel->dist_en_private_pct:'0',"central_govt"=>isset($districtlevel->dist_en_centgovt_pct)?$districtlevel->dist_en_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_en_govt_pl12)?$districtlevel->dist_en_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_en_govtaid_pl12)?$districtlevel->dist_en_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_en_govt_pl34)?$districtlevel->dist_en_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_en_govtaid_pl34)?$districtlevel->dist_en_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_en_private_pl12)?$districtlevel->dist_en_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_en_centgovt_pl12)?$districtlevel->dist_en_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_en_private_pl34)?$districtlevel->dist_en_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_en_centgovt_pl34)?$districtlevel->dist_en_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_en_sc_pct)?$districtlevel->district_en_sc_pct:'0',"obc"=>isset($districtlevel->district_en_obc_pct)?$districtlevel->district_en_obc_pct:'0',"st"=>isset($districtlevel->district_en_st_pct)?$districtlevel->district_en_st_pct:'0',"general"=>isset($districtlevel->district_en_general_pct)?$districtlevel->district_en_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_en_sc_pl34)?$districtlevel->district_en_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_en_obc_pl12)?$districtlevel->district_en_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_en_sc_pl12)?$districtlevel->district_en_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_en_obc_pl34)?$districtlevel->district_en_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_en_st_pl12)?$districtlevel->district_en_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_en_general_pl12)?$districtlevel->district_en_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_en_st_pl34)?$districtlevel->district_en_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_en_general_pl34)?$districtlevel->district_en_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_en_sc_pct)?$districtlevel->dist_en_sc_pct:'0',"obc"=>isset($districtlevel->dist_en_obc_pct)?$districtlevel->dist_en_obc_pct:'0',"st"=>isset($districtlevel->dist_en_st_pct)?$districtlevel->dist_en_st_pct:'0',"general"=>isset($districtlevel->dist_en_general_pct)?$districtlevel->dist_en_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_en_sc_pl34)?$districtlevel->dist_en_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_en_obc_pl12)?$districtlevel->dist_en_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_en_sc_pl12)?$districtlevel->dist_en_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_en_obc_pl34)?$districtlevel->dist_en_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_en_st_pl12)?$districtlevel->dist_en_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_en_general_pl12)?$districtlevel->dist_en_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_en_st_pl34)?$districtlevel->dist_en_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_en_general_pl34)?$districtlevel->dist_en_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_en_pl1)?$districtlevel->district_en_pl1:'0',"basic"=>isset($districtlevel->district_en_pl2)?$districtlevel->district_en_pl2:'0',"proficient"=>isset($districtlevel->district_en_pl3)?$districtlevel->district_en_pl3:'0',"advanced"=>isset($districtlevel->district_en_pl4)?$districtlevel->district_en_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_en_pl1)?$districtlevel->dist_en_pl1:'0',"basic"=>isset($districtlevel->dist_en_pl2)?$districtlevel->dist_en_pl2:'0',"proficient"=>isset($districtlevel->dist_en_pl3)?$districtlevel->dist_en_pl3:'0',"advanced"=>isset($districtlevel->dist_en_pl4)?$districtlevel->dist_en_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
 
             $newdistrictArray['mil'] =array(
                 'cards'=>array(
-                    'district'=>isset($districtlevel->district_la_pct)?$districtlevel->district_la_pct:'0',
+                    'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'national'=>isset($districtlevel->avg_l_marks)?$districtlevel->avg_l_marks:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->district_la_boys_pct)?$districtlevel->district_la_boys_pct:'0',"girls"=>isset($districtlevel->district_la_girls_pct)?$districtlevel->district_la_girls_pct:'0','trans_gender'=>isset($districtlevel->district_la_trans_pct)?$districtlevel->district_la_trans_pct:'0'),
+                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'),
                     'national'=>array("boys"=>isset($districtlevel->l_male_gender)?$districtlevel->l_male_gender:'0',"girls"=>isset($districtlevel->l_female_gender)?$districtlevel->l_female_gender:'0')),
                 'location'=>array(
-                    'district'=>array("urban"=>isset($districtlevel->district_la_urban_pct)?$districtlevel->district_la_urban_pct:'0',"rural"=>isset($districtlevel->district_la_rural_pct)?$districtlevel->district_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->district_la_rural_pl12)?$districtlevel->district_la_rural_pl12:'0'  
-                    ,'urban_basic_and_below_basic'=>isset($districtlevel->district_la_urban_pl12)?$districtlevel->district_la_urban_pl12:'0' 
-                    ,'rural_proficient_and_advance'=>isset($districtlevel->district_la_rural_pl34)?$districtlevel->district_la_rural_pl34:'0'
-                    ,'urban_proficient_and_advance'=>isset($districtlevel->district_la_urban_pl34)?$districtlevel->district_la_urban_pl34:'0'),
+                    'district'=>array("urban"=>isset($districtlevel->dist_la_urban_pct)?$districtlevel->dist_la_urban_pct:'0',"rural"=>isset($districtlevel->dist_la_rural_pct)?$districtlevel->dist_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($districtlevel->dist_la_rural_pl12)?$districtlevel->dist_la_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($districtlevel->dist_la_urban_pl12)?$districtlevel->dist_la_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($districtlevel->dist_la_rural_pl34)?$districtlevel->dist_la_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($districtlevel->dist_la_urban_pl34)?$districtlevel->dist_la_urban_pl34:'0'),
                     'national'=>array("urban"=>isset($districtlevel->l_urban_location)?$districtlevel->l_urban_location:'0',"rural"=>isset($districtlevel->l_rural_location)?$districtlevel->l_rural_location:'0')),
                 'management'=>array(
-                    'district'=>array("govt"=>isset($districtlevel->district_la_govt_pct)?$districtlevel->district_la_govt_pct:'0',"govt_aided"=>isset($districtlevel->district_la_govtaid_pct)?$districtlevel->district_la_govtaid_pct:'0',"private"=>isset($districtlevel->district_la_private_pct)?$districtlevel->district_la_private_pct:'0',"central_govt"=>isset($districtlevel->district_la_centgovt_pct)?$districtlevel->district_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->district_la_govt_pl12)?$districtlevel->district_la_govt_pl12:'0'  
-                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->district_la_govtaid_pl12)?$districtlevel->district_la_govtaid_pl12:'0' 
-                    ,'govt_proficient_and_advance'=>isset($districtlevel->district_la_govt_pl34)?$districtlevel->district_la_govt_pl34:'0'
-                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->district_la_govtaid_pl34)?$districtlevel->district_la_govtaid_pl34:'0'
-                    ,'private_basic_and_below_basic'=>isset($districtlevel->district_la_private_pl12)?$districtlevel->district_la_private_pl12:'0'  
-                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->district_la_centgovt_pl12)?$districtlevel->district_la_centgovt_pl12:'0' 
-                    ,'private_proficient_and_advance'=>isset($districtlevel->district_la_private_pl34)?$districtlevel->district_la_private_pl34:'0'
-                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->district_la_centgovt_pl34)?$districtlevel->district_la_centgovt_pl34:'0'),
+                    'district'=>array("govt"=>isset($districtlevel->dist_la_govt_pct)?$districtlevel->dist_la_govt_pct:'0',"govt_aided"=>isset($districtlevel->dist_la_govtaid_pct)?$districtlevel->dist_la_govtaid_pct:'0',"private"=>isset($districtlevel->dist_la_private_pct)?$districtlevel->dist_la_private_pct:'0',"central_govt"=>isset($districtlevel->dist_la_centgovt_pct)?$districtlevel->dist_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($districtlevel->dist_la_govt_pl12)?$districtlevel->dist_la_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($districtlevel->dist_la_govtaid_pl12)?$districtlevel->dist_la_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($districtlevel->dist_la_govt_pl34)?$districtlevel->dist_la_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($districtlevel->dist_la_govtaid_pl34)?$districtlevel->dist_la_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($districtlevel->dist_la_private_pl12)?$districtlevel->dist_la_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($districtlevel->dist_la_centgovt_pl12)?$districtlevel->dist_la_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($districtlevel->dist_la_private_pl34)?$districtlevel->dist_la_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($districtlevel->dist_la_centgovt_pl34)?$districtlevel->dist_la_centgovt_pl34:'0'),
                     'national'=>array("govt"=>isset($districtlevel->l_govt_management)?$districtlevel->l_govt_management:'0',"govt_aided"=>isset($districtlevel->l_govt_aided_management)?$districtlevel->l_govt_aided_management:'0',"private"=>isset($districtlevel->l_private_management)?$districtlevel->l_private_management:'0',"central_govt"=>isset($districtlevel->l_central_govt_management)?$districtlevel->l_central_govt_management:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->district_la_sc_pct)?$districtlevel->district_la_sc_pct:'0',"obc"=>isset($districtlevel->district_la_obc_pct)?$districtlevel->district_la_obc_pct:'0',"st"=>isset($districtlevel->district_la_st_pct)?$districtlevel->district_la_st_pct:'0',"general"=>isset($districtlevel->district_la_general_pct)?$districtlevel->district_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->district_la_sc_pl34)?$districtlevel->district_la_sc_pl34:'0' 
-                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->district_la_obc_pl12)?$districtlevel->district_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->district_la_sc_pl12)?$districtlevel->district_la_sc_pl12:'0'
-                    ,'obc_proficient_and_advance'=>isset($districtlevel->district_la_obc_pl34)?$districtlevel->district_la_obc_pl34:'0'
-                    ,'st_basic_and_below_basic'=>isset($districtlevel->district_la_st_pl12)?$districtlevel->district_la_st_pl12:'0'  
-                    ,'general_basic_and_below_basic'=>isset($districtlevel->district_la_general_pl12)?$districtlevel->district_la_general_pl12:'0' 
-                    ,'st_proficient_and_advance'=>isset($districtlevel->district_la_st_pl34)?$districtlevel->district_la_st_pl34:'0'
-                    ,'general_proficient_and_advance'=>isset($districtlevel->district_la_general_pl34)?$districtlevel->district_la_general_pl34:'0'),
+                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($districtlevel->dist_la_obc_pl12)?$districtlevel->dist_la_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($districtlevel->dist_la_obc_pl34)?$districtlevel->dist_la_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($districtlevel->dist_la_st_pl12)?$districtlevel->dist_la_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($districtlevel->dist_la_general_pl12)?$districtlevel->dist_la_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($districtlevel->dist_la_st_pl34)?$districtlevel->dist_la_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($districtlevel->dist_la_general_pl34)?$districtlevel->dist_la_general_pl34:'0'),
                     'national'=>array("sc"=>isset($districtlevel->l_sc_social_group)?$districtlevel->l_sc_social_group:'0',"obc"=>isset($districtlevel->l_obc_social_group)?$districtlevel->l_obc_social_group:'0',"st"=>isset($districtlevel->l_st_social_group)?$districtlevel->l_st_social_group:'0',"general"=>isset($districtlevel->l_general_social_group)?$districtlevel->l_general_social_group:'0')),
                 'performance_level'=>array(
-                    'district'=>array("below_basic"=>isset($districtlevel->district_la_pl1)?$districtlevel->district_la_pl1:'0',"basic"=>isset($districtlevel->district_la_pl2)?$districtlevel->district_la_pl2:'0',"proficient"=>isset($districtlevel->district_la_pl3)?$districtlevel->district_la_pl3:'0',"advanced"=>isset($districtlevel->district_la_pl4)?$districtlevel->district_la_pl4:'0'),
+                    'district'=>array("below_basic"=>isset($districtlevel->dist_la_pl1)?$districtlevel->dist_la_pl1:'0',"basic"=>isset($districtlevel->dist_la_pl2)?$districtlevel->dist_la_pl2:'0',"proficient"=>isset($districtlevel->dist_la_pl3)?$districtlevel->dist_la_pl3:'0',"advanced"=>isset($districtlevel->dist_la_pl4)?$districtlevel->dist_la_pl4:'0'),
                     'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
             );
 
-        $districtArr['district_id'] = (int)$districtlevel->district_code;
+        $districtArr['state_id'] = (int)$districtlevel->state_code;
+        $districtArr['district_id'] = (int)$districtlevel->dist_code;
         $districtArr['grade'] = 10;
         $districtArr['data'] = json_encode($newdistrictArray);
         $districtArr['created_at'] = now();
@@ -838,7 +845,7 @@ class FinalDistrictProcessController extends Controller
         
         $districtPerformaceData[]=$districtArr;
         }
-        districtGradeLevelPerformance::insert($districtPerformaceData);
+        PerformanceMaster::insert($districtPerformaceData);
     }
 
 
@@ -850,7 +857,7 @@ class FinalDistrictProcessController extends Controller
      *****************************************************************************/
     public function districtFeedback(){
             
-        DB::table('pq_district_level_feedback')->truncate();
+        DB::table('pq_dist_level_feedback')->truncate();
         ini_set('max_execution_time', '5000');
         $GetFeedbackDataFor_3_Grade = $this->GetFeedbackDataFor_3_Grade();
         $GetFeedbackDataFor_5_Grade = $this->GetFeedbackDataFor_5_Grade();
@@ -865,80 +872,80 @@ class FinalDistrictProcessController extends Controller
         foreach($final_dataG3 as $data){
 
             PQdistrictLevelFeedback::insert([
-                    'district_id'=>$data->district_code,
+                    'dist_id'=>$data->dist_code,
                     'grade'=>3,
                     'level'=>$data->level,
                     'question_code'=>$data->question_code,
                     'question_desc'=>$data->question_desc,
                     'total_parent'=>$data->total_parent,
-                    'avg'=>$data->district_avg,
+                    'avg'=>$data->dist_avg,
                 ]);
         }
 
         foreach($final_dataG5 as $data){
 
             PQdistrictLevelFeedback::insert([
-                'district_id'=>$data->district_code,
+                'dist_id'=>$data->dist_code,
                 'grade'=>5,
                 'level'=>$data->level,
                 'question_code'=>$data->question_code,
                 'question_desc'=>$data->question_desc,
                 'total_parent'=>$data->total_parent,
-                'avg'=>$data->district_avg,
+                'avg'=>$data->dist_avg,
             ]);
         }
 
         // foreach($final_dataG8 as $data){
 
         //     PQdistrictLevelFeedback::insert([
-        //         'district_id'=>$data->district_code,
+        //         'dist_id'=>$data->dist_code,
         //         'grade'=>8,
         //         'level'=>$data->level,
         //         'question_code'=>$data->question_code,
         //         'question_desc'=>$data->question_desc,
         //         'total_parent'=>$data->total_parent,
-        //         'avg'=>$data->district_avg,
+        //         'avg'=>$data->dist_avg,
         //     ]);
         // }
 
         // foreach($final_dataG10 as $data){
 
         //     PQdistrictLevelFeedback::insert([
-        //         'district_id'=>$data->district_code,
+        //         'dist_id'=>$data->dist_code,
         //         'grade'=>10,
         //         'level'=>$data->level,
         //         'question_code'=>$data->question_code,
         //         'question_desc'=>$data->question_desc,
         //         'total_parent'=>$data->total_parent,
-        //         'avg'=>$data->district_avg,
+        //         'avg'=>$data->dist_avg,
         //     ]);
         // }
 
     // grade 11 pq feedback data insert
-        $stringPQdistrict = 'pq_district_level_feedback.district_id,';
+        $stringPQdistrict = 'pq_dist_level_feedback.dist_id,';
         $wherePQdistrict = "('pq','pq1','pq2','pq3')";
-        $stringGroupBYPQdistrict = 'pq_district_level_feedback.district_id,';
-        $districtTBLPQ = "pq_district_level_feedback";
+        $stringGroupBYPQdistrict = 'pq_dist_level_feedback.dist_id,';
+        $districtTBLPQ = "pq_dist_level_feedback";
         $alldistrictFBPQ = $this->RaqQuery($stringPQdistrict,$wherePQdistrict,$stringGroupBYPQdistrict,$districtTBLPQ);
         $allPQdistrictData = DB::select($alldistrictFBPQ);
         $allPQdistrictData = json_decode(json_encode($allPQdistrictData), true);
         $allDNLODatadistrictPQ = PQdistrictLevelFeedback::insert($allPQdistrictData);  
 
     // grade 11 tq feedback data insert
-        $stringTQdistrict = 'pq_district_level_feedback.district_id,';
+        $stringTQdistrict = 'pq_dist_level_feedback.dist_id,';
         $whereTQdistrict = "('tq')";
-        $stringGroupBYTQdistrict = 'pq_district_level_feedback.district_id,';
-        $districtTBLTQ = "pq_district_level_feedback";
+        $stringGroupBYTQdistrict = 'pq_dist_level_feedback.dist_id,';
+        $districtTBLTQ = "pq_dist_level_feedback";
         $alldistrictFBTQ = $this->RaqQuery($stringTQdistrict,$whereTQdistrict,$stringGroupBYTQdistrict,$districtTBLTQ);
         $allTQdistrictData = DB::select($alldistrictFBTQ);
         $allTQdistrictData = json_decode(json_encode($allTQdistrictData), true);
         $alldNLODatadistrictTQ = PQdistrictLevelFeedback::insert($allTQdistrictData);   
 
     // grade 11 sq feedback data insert
-        $stringSQdistrict = 'pq_district_level_feedback.district_id,';
+        $stringSQdistrict = 'pq_dist_level_feedback.dist_id,';
         $whereSQdistrict = "('sq')";
-        $stringGroupBYSQdistrict = 'pq_district_level_feedback.district_id,';
-        $districtTBLSQ = "pq_district_level_feedback";
+        $stringGroupBYSQdistrict = 'pq_dist_level_feedback.dist_id,';
+        $districtTBLSQ = "pq_dist_level_feedback";
         $alldistrictFBSQ = $this->RaqQuery($stringSQdistrict,$whereSQdistrict,$stringGroupBYSQdistrict,$districtTBLSQ);
         $allSQdistrictData = DB::select($alldistrictFBSQ);
         $allSQdistrictData = json_decode(json_encode($allSQdistrictData), true);
@@ -950,89 +957,89 @@ class FinalDistrictProcessController extends Controller
     //Query For Feedback SRC data Subject Wise Grade 3
     public function GetFeedbackDataFor_3_Grade()
     {
-        $query = "select id, district_code, district_pq_q14 as district_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, dist_code, dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code,district_pq_q17 as district_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code,dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_pq_q32 as district_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q32 as dist_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_pq_q18
-        as district_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q18
+        as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_pq_q29f
-        as district_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q29f
+        as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q30
-        as district_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q30
+        as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q33
-        as district_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q33
+        as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q31
-        as district_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q31
+        as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q32
-        as district_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q32
+        as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q34
-        as district_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q34
+        as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q36
-        as district_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q36
+        as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q04
-        as district_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q04
+        as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q28
-        as district_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q28
+        as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_sq_q31
-        as district_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q31
+        as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_sq_q32
-        as district_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q32
+        as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_sq_q34
-        as district_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q34
+        as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_sq_q35
-        as district_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q35
+        as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_sq_q14
-        as district_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q14
+        as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_sq_q09
-        as district_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q09
+        as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q18
-        as district_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q18
+        as dist_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q17
-        as district_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q17
+        as dist_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, district_code, district_tq_q16
-        as district_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q16
+        as dist_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         ";
         return $query;
@@ -1040,89 +1047,89 @@ class FinalDistrictProcessController extends Controller
     //Query For SRC Feedback data for Grade 5
     public function GetFeedbackDataFor_5_Grade()
     {
-        $query = "select id, district_code, district_pq_q14 as district_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, dist_code, dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code,district_pq_q17 as district_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code,dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_pq_q32 as district_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q32 as dist_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_pq_q18
-        as district_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q18
+        as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_pq_q29f
-        as district_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q29f
+        as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q30
-        as district_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q30
+        as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q33
-        as district_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q33
+        as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q31
-        as district_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q31
+        as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q32
-        as district_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q32
+        as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q34
-        as district_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q34
+        as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q36
-        as district_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q36
+        as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q04
-        as district_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q04
+        as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q28
-        as district_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q28
+        as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_sq_q31
-        as district_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q31
+        as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_sq_q32
-        as district_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q32
+        as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_sq_q34
-        as district_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q34
+        as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_sq_q35
-        as district_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q35
+        as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_sq_q14
-        as district_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q14
+        as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_sq_q09
-        as district_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q09
+        as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q18
-        as district_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q18
+        as dist_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q17
-        as district_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q17
+        as dist_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, district_code, district_tq_q16
-        as district_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q16
+        as dist_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         ";
         return $query;
@@ -1130,89 +1137,89 @@ class FinalDistrictProcessController extends Controller
     //Query For SRC Feedback data for Grade 8
     public function GetFeedbackDataFor_8_Grade()
     {
-        $query = "select id, district_code, district_pq_q14 as district_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, dist_code, dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code,district_pq_q17 as district_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code,dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_pq_q32 as district_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q32 as dist_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_pq_q18
-        as district_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q18
+        as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_pq_q29f
-        as district_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q29f
+        as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q30
-        as district_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q30
+        as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q33
-        as district_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q33
+        as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q31
-        as district_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q31
+        as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q32
-        as district_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q32
+        as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q34
-        as district_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q34
+        as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q36
-        as district_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q36
+        as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q04
-        as district_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q04
+        as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q28
-        as district_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q28
+        as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_sq_q31
-        as district_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q31
+        as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_sq_q32
-        as district_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q32
+        as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_sq_q34
-        as district_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q34
+        as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_sq_q35
-        as district_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q35
+        as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_sq_q14
-        as district_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q14
+        as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_sq_q09
-        as district_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q09
+        as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q18
-        as district_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q18
+        as dist_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q17
-        as district_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q17
+        as dist_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, district_code, district_tq_q16
-        as district_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q16
+        as dist_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         ";
         return $query;
@@ -1220,89 +1227,89 @@ class FinalDistrictProcessController extends Controller
     //Query For SRC Feedback data for Grade 10
     public function GetFeedbackDataFor_10_Grade()
     {
-        $query = "select id, district_code, district_pq_q14 as district_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, dist_code, dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code,district_pq_q17 as district_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code,dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_pq_q32 as district_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q32 as dist_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_pq_q18
-        as district_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q18
+        as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_pq_q29f
-        as district_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_pq_q29f
+        as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q30
-        as district_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q30
+        as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q33
-        as district_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q33
+        as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q31
-        as district_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q31
+        as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q32
-        as district_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q32
+        as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q34
-        as district_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q34
+        as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q36
-        as district_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q36
+        as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q04
-        as district_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q04
+        as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q28
-        as district_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q28
+        as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_sq_q31
-        as district_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q31
+        as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_sq_q32
-        as district_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q32
+        as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_sq_q34
-        as district_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q34
+        as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_sq_q35
-        as district_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q35
+        as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_sq_q14
-        as district_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q14
+        as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_sq_q09
-        as district_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_sq_q09
+        as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q18
-        as district_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q18
+        as dist_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q17
-        as district_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q17
+        as dist_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, district_code, district_tq_q16
-        as district_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, dist_code, dist_tq_q16
+        as dist_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         ";
         return $query;
@@ -1327,7 +1334,7 @@ class FinalDistrictProcessController extends Controller
 
     // Learning Outcome Final Data district Wise
     public function districtWiseLO(){
-        DB::table('district_grade_level_learningoutcome')->truncate();
+        DB::table('dist_grade_level_learningoutcome')->truncate();
         ini_set('max_execution_time', '5000');
 
         $getAlldistrictDataSubjectWiseG3 = $this->GetAlldistrictDataSubjectCodeG3();
@@ -1361,7 +1368,7 @@ class FinalDistrictProcessController extends Controller
             districtGradeLevelLearningOutCome::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
-                'grade'=>5,
+                'grade'=>3,
                 'subject_code'=>$data->subject_code,
                 'language'=>$data->language,
                 'question'=>$data->description,
