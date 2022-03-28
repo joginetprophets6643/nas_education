@@ -193,7 +193,7 @@ class FinalParticipationstateController extends Controller
         $grade3PrcoessData = $this->grade3PerformanceData();
         $grade5PrcoessData = $this->grade5PerformanceData();
         $grade8PrcoessData = $this->grade8PerformanceData();
-        $grade10PrcoessData = $this->grade10PerformanceData();
+        // $grade10PrcoessData = $this->grade10PerformanceData();
         return "Performance Table Created";
     }
 
@@ -209,16 +209,29 @@ class FinalParticipationstateController extends Controller
             $newstateArray['language'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_la_pct)?$statelevel->state_la_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_la_boys_pl12)?$statelevel->state_la_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_la_boys_pl34)?$statelevel->state_la_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_la_girls_pl12)?$statelevel->state_la_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_la_girls_pl34)?$statelevel->state_la_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_la_boys_pct)?$statelevel->india_la_boys_pct:'0',"girls"=>isset($statelevel->india_la_girls_pct)?$statelevel->india_la_girls_pct:'0','trans_gender'=>isset($statelevel->india_la_trans_pct)?$statelevel->india_la_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_la_boys_pl12)?$statelevel->india_la_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_la_boys_pl34)?$statelevel->india_la_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_la_girls_pl12)?$statelevel->india_la_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_la_girls_pl34)?$statelevel->india_la_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_la_urban_pct)?$statelevel->state_la_urban_pct:'0',"rural"=>isset($statelevel->state_la_rural_pct)?$statelevel->state_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_la_rural_pl12)?$statelevel->state_la_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_la_urban_pl12)?$statelevel->state_la_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_la_rural_pl34)?$statelevel->state_la_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_la_urban_pl34)?$statelevel->state_la_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_la_urban_pct)?$statelevel->india_la_urban_pct:'0',"rural"=>isset($statelevel->india_la_rural_pct)?$statelevel->india_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_la_rural_pl12)?$statelevel->india_la_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_la_urban_pl12)?$statelevel->india_la_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_la_rural_pl34)?$statelevel->india_la_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_la_urban_pl34)?$statelevel->india_la_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_la_govt_pct)?$statelevel->state_la_govt_pct:'0',"govt_aided"=>isset($statelevel->state_la_govtaid_pct)?$statelevel->state_la_govtaid_pct:'0',"private"=>isset($statelevel->state_la_private_pct)?$statelevel->state_la_private_pct:'0',"central_govt"=>isset($statelevel->state_la_centgovt_pct)?$statelevel->state_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_la_govt_pl12)?$statelevel->state_la_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_la_govtaid_pl12)?$statelevel->state_la_govtaid_pl12:'0' 
@@ -228,7 +241,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_la_centgovt_pl12)?$statelevel->state_la_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_la_private_pl34)?$statelevel->state_la_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_la_centgovt_pl34)?$statelevel->state_la_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_la_govt_pct)?$statelevel->india_la_govt_pct:'0',"govt_aided"=>isset($statelevel->india_la_govtaid_pct)?$statelevel->india_la_govtaid_pct:'0',"private"=>isset($statelevel->india_la_private_pct)?$statelevel->india_la_private_pct:'0',"central_govt"=>isset($statelevel->india_la_centgovt_pct)?$statelevel->india_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_la_govt_pl12)?$statelevel->india_la_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_la_govtaid_pl12)?$statelevel->india_la_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_la_govt_pl34)?$statelevel->india_la_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_la_govtaid_pl34)?$statelevel->india_la_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_la_private_pl12)?$statelevel->india_la_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_la_centgovt_pl12)?$statelevel->india_la_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_la_private_pl34)?$statelevel->india_la_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_la_centgovt_pl34)?$statelevel->india_la_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_la_sc_pct)?$statelevel->state_la_sc_pct:'0',"obc"=>isset($statelevel->state_la_obc_pct)?$statelevel->state_la_obc_pct:'0',"st"=>isset($statelevel->state_la_st_pct)?$statelevel->state_la_st_pct:'0',"general"=>isset($statelevel->state_la_general_pct)?$statelevel->state_la_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_la_sc_pl34)?$statelevel->state_la_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_la_obc_pl12)?$statelevel->state_la_obc_pl12:'0' 
@@ -238,25 +259,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_la_general_pl12)?$statelevel->state_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_la_st_pl34)?$statelevel->state_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_la_general_pl34)?$statelevel->state_la_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_la_sc_pct)?$statelevel->india_la_sc_pct:'0',"obc"=>isset($statelevel->india_la_obc_pct)?$statelevel->india_la_obc_pct:'0',"st"=>isset($statelevel->india_la_st_pct)?$statelevel->india_la_st_pct:'0',"general"=>isset($statelevel->india_la_general_pct)?$statelevel->india_la_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_la_sc_pl34)?$statelevel->india_la_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_la_obc_pl12)?$statelevel->india_la_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_la_sc_pl12)?$statelevel->india_la_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_la_obc_pl34)?$statelevel->india_la_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_la_st_pl12)?$statelevel->india_la_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_la_general_pl12)?$statelevel->india_la_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_la_st_pl34)?$statelevel->india_la_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_la_general_pl34)?$statelevel->india_la_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_la_pl1)?$statelevel->state_la_pl1:'0',"basic"=>isset($statelevel->state_la_pl2)?$statelevel->state_la_pl2:'0',"proficient"=>isset($statelevel->state_la_pl3)?$statelevel->state_la_pl3:'0',"advanced"=>isset($statelevel->state_la_pl4)?$statelevel->state_la_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_la_pl1)?$statelevel->india_la_pl1:'0',"basic"=>isset($statelevel->india_la_pl2)?$statelevel->india_la_pl2:'0',"proficient"=>isset($statelevel->india_la_pl3)?$statelevel->india_la_pl3:'0',"advanced"=>isset($statelevel->india_la_pl4)?$statelevel->india_la_pl4:'0'))
             );
             
             $newstateArray['math'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ma_pct)?$statelevel->state_ma_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_ma_boys_pl12)?$statelevel->state_ma_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_ma_boys_pl34)?$statelevel->state_ma_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_ma_girls_pl12)?$statelevel->state_ma_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_ma_girls_pl34)?$statelevel->state_ma_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_ma_boys_pct)?$statelevel->india_ma_boys_pct:'0',"girls"=>isset($statelevel->india_ma_girls_pct)?$statelevel->india_ma_girls_pct:'0','trans_gender'=>isset($statelevel->india_ma_trans_pct)?$statelevel->india_ma_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_ma_boys_pl12)?$statelevel->india_ma_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_ma_boys_pl34)?$statelevel->india_ma_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_ma_girls_pl12)?$statelevel->india_ma_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_ma_girls_pl34)?$statelevel->india_ma_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_ma_urban_pct)?$statelevel->state_ma_urban_pct:'0',"rural"=>isset($statelevel->state_ma_rural_pct)?$statelevel->state_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_ma_rural_pl12)?$statelevel->state_ma_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_ma_urban_pl12)?$statelevel->state_ma_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_ma_rural_pl34)?$statelevel->state_ma_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_ma_urban_pl34)?$statelevel->state_ma_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_ma_urban_pct)?$statelevel->india_ma_urban_pct:'0',"rural"=>isset($statelevel->india_ma_rural_pct)?$statelevel->india_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_ma_rural_pl12)?$statelevel->india_ma_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_ma_urban_pl12)?$statelevel->india_ma_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_ma_rural_pl34)?$statelevel->india_ma_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_ma_urban_pl34)?$statelevel->india_ma_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_ma_govt_pct)?$statelevel->state_ma_govt_pct:'0',"govt_aided"=>isset($statelevel->state_ma_govtaid_pct)?$statelevel->state_ma_govtaid_pct:'0',"private"=>isset($statelevel->state_ma_private_pct)?$statelevel->state_ma_private_pct:'0',"central_govt"=>isset($statelevel->state_ma_centgovt_pct)?$statelevel->state_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_ma_govt_pl12)?$statelevel->state_ma_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_ma_govtaid_pl12)?$statelevel->state_ma_govtaid_pl12:'0' 
@@ -266,7 +308,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_ma_centgovt_pl12)?$statelevel->state_ma_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_ma_private_pl34)?$statelevel->state_ma_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_ma_centgovt_pl34)?$statelevel->state_ma_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_ma_govt_pct)?$statelevel->india_ma_govt_pct:'0',"govt_aided"=>isset($statelevel->india_ma_govtaid_pct)?$statelevel->india_ma_govtaid_pct:'0',"private"=>isset($statelevel->india_ma_private_pct)?$statelevel->india_ma_private_pct:'0',"central_govt"=>isset($statelevel->india_ma_centgovt_pct)?$statelevel->india_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_ma_govt_pl12)?$statelevel->india_ma_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_ma_govtaid_pl12)?$statelevel->india_ma_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_ma_govt_pl34)?$statelevel->india_ma_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_ma_govtaid_pl34)?$statelevel->india_ma_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_ma_private_pl12)?$statelevel->india_ma_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_ma_centgovt_pl12)?$statelevel->india_ma_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_ma_private_pl34)?$statelevel->india_ma_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_ma_centgovt_pl34)?$statelevel->india_ma_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_ma_sc_pct)?$statelevel->state_ma_sc_pct:'0',"obc"=>isset($statelevel->state_ma_obc_pct)?$statelevel->state_ma_obc_pct:'0',"st"=>isset($statelevel->state_ma_st_pct)?$statelevel->state_ma_st_pct:'0',"general"=>isset($statelevel->state_ma_general_pct)?$statelevel->state_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_ma_sc_pl34)?$statelevel->state_ma_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_ma_obc_pl12)?$statelevel->state_ma_obc_pl12:'0' 
@@ -276,25 +326,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_ma_general_pl12)?$statelevel->state_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_ma_st_pl34)?$statelevel->state_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_ma_general_pl34)?$statelevel->state_ma_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_ma_sc_pct)?$statelevel->india_ma_sc_pct:'0',"obc"=>isset($statelevel->india_ma_obc_pct)?$statelevel->india_ma_obc_pct:'0',"st"=>isset($statelevel->india_ma_st_pct)?$statelevel->india_ma_st_pct:'0',"general"=>isset($statelevel->india_ma_general_pct)?$statelevel->india_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_ma_sc_pl34)?$statelevel->india_ma_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_ma_obc_pl12)?$statelevel->india_ma_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_ma_sc_pl12)?$statelevel->india_ma_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_ma_obc_pl34)?$statelevel->india_ma_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_ma_st_pl12)?$statelevel->india_ma_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_ma_general_pl12)?$statelevel->india_ma_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_ma_st_pl34)?$statelevel->india_ma_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_ma_general_pl34)?$statelevel->india_ma_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_ma_pl1)?$statelevel->state_ma_pl1:'0',"basic"=>isset($statelevel->state_ma_pl2)?$statelevel->state_ma_pl2:'0',"proficient"=>isset($statelevel->state_ma_pl3)?$statelevel->state_ma_pl3:'0',"advanced"=>isset($statelevel->state_ma_pl4)?$statelevel->state_ma_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_ma_pl1)?$statelevel->india_ma_pl1:'0',"basic"=>isset($statelevel->india_ma_pl2)?$statelevel->india_ma_pl2:'0',"proficient"=>isset($statelevel->india_ma_pl3)?$statelevel->india_ma_pl3:'0',"advanced"=>isset($statelevel->india_ma_pl4)?$statelevel->india_ma_pl4:'0'))
             );
             
             $newstateArray['evs'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ev_pct)?$statelevel->state_ev_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_ev_pct)?$statelevel->india_ev_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_ev_boys_pct)?$statelevel->state_ev_boys_pct:'0',"girls"=>isset($statelevel->state_ev_girls_pct)?$statelevel->state_ev_girls_pct:'0','trans_gender'=>isset($statelevel->state_ev_trans_pct)?$statelevel->state_ev_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_ev_boys_pct)?$statelevel->state_ev_boys_pct:'0',"girls"=>isset($statelevel->state_ev_girls_pct)?$statelevel->state_ev_girls_pct:'0','trans_gender'=>isset($statelevel->state_ev_trans_pct)?$statelevel->state_ev_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_ev_boys_pl12)?$statelevel->state_ev_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_ev_boys_pl34)?$statelevel->state_ev_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_ev_girls_pl12)?$statelevel->state_ev_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_ev_girls_pl34)?$statelevel->state_ev_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_ev_boys_pct)?$statelevel->india_ev_boys_pct:'0',"girls"=>isset($statelevel->india_ev_girls_pct)?$statelevel->india_ev_girls_pct:'0','trans_gender'=>isset($statelevel->india_ev_trans_pct)?$statelevel->india_ev_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_ev_boys_pl12)?$statelevel->india_ev_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_ev_boys_pl34)?$statelevel->india_ev_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_ev_girls_pl12)?$statelevel->india_ev_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_ev_girls_pl34)?$statelevel->india_ev_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_ev_urban_pct)?$statelevel->state_ev_urban_pct:'0',"rural"=>isset($statelevel->state_ev_rural_pct)?$statelevel->state_ev_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_ev_rural_pl12)?$statelevel->state_ev_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_ev_urban_pl12)?$statelevel->state_ev_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_ev_rural_pl34)?$statelevel->state_ev_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_ev_urban_pl34)?$statelevel->state_ev_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_ev_urban_pct)?$statelevel->india_ev_urban_pct:'0',"rural"=>isset($statelevel->india_ev_rural_pct)?$statelevel->india_ev_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_ev_rural_pl12)?$statelevel->india_ev_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_ev_urban_pl12)?$statelevel->india_ev_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_ev_rural_pl34)?$statelevel->india_ev_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_ev_urban_pl34)?$statelevel->india_ev_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_ev_govt_pct)?$statelevel->state_ev_govt_pct:'0',"govt_aided"=>isset($statelevel->state_ev_govtaid_pct)?$statelevel->state_ev_govtaid_pct:'0',"private"=>isset($statelevel->state_ev_private_pct)?$statelevel->state_ev_private_pct:'0',"central_govt"=>isset($statelevel->state_ev_centgovt_pct)?$statelevel->state_ev_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_ev_govt_pl12)?$statelevel->state_ev_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_ev_govtaid_pl12)?$statelevel->state_ev_govtaid_pl12:'0' 
@@ -304,7 +375,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_ev_centgovt_pl12)?$statelevel->state_ev_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_ev_private_pl34)?$statelevel->state_ev_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_ev_centgovt_pl34)?$statelevel->state_ev_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_ev_govt_pct)?$statelevel->india_ev_govt_pct:'0',"govt_aided"=>isset($statelevel->india_ev_govtaid_pct)?$statelevel->india_ev_govtaid_pct:'0',"private"=>isset($statelevel->india_ev_private_pct)?$statelevel->india_ev_private_pct:'0',"central_govt"=>isset($statelevel->india_ev_centgovt_pct)?$statelevel->india_ev_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_ev_govt_pl12)?$statelevel->india_ev_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_ev_govtaid_pl12)?$statelevel->india_ev_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_ev_govt_pl34)?$statelevel->india_ev_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_ev_govtaid_pl34)?$statelevel->india_ev_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_ev_private_pl12)?$statelevel->india_ev_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_ev_centgovt_pl12)?$statelevel->india_ev_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_ev_private_pl34)?$statelevel->india_ev_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_ev_centgovt_pl34)?$statelevel->india_ev_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_ev_sc_pct)?$statelevel->state_ev_sc_pct:'0',"obc"=>isset($statelevel->state_ev_obc_pct)?$statelevel->state_ev_obc_pct:'0',"st"=>isset($statelevel->state_ev_st_pct)?$statelevel->state_ev_st_pct:'0',"general"=>isset($statelevel->state_ev_general_pct)?$statelevel->state_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_ev_sc_pl34)?$statelevel->state_ev_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_ev_obc_pl12)?$statelevel->state_ev_obc_pl12:'0' 
@@ -314,10 +393,18 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_ev_general_pl12)?$statelevel->state_ev_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_ev_st_pl34)?$statelevel->state_ev_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_ev_general_pl34)?$statelevel->state_ev_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_ev_sc_pct)?$statelevel->india_ev_sc_pct:'0',"obc"=>isset($statelevel->india_ev_obc_pct)?$statelevel->india_ev_obc_pct:'0',"st"=>isset($statelevel->india_ev_st_pct)?$statelevel->india_ev_st_pct:'0',"general"=>isset($statelevel->india_ev_general_pct)?$statelevel->india_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_ev_sc_pl34)?$statelevel->india_ev_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_ev_obc_pl12)?$statelevel->india_ev_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_ev_sc_pl12)?$statelevel->india_ev_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_ev_obc_pl34)?$statelevel->india_ev_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_ev_st_pl12)?$statelevel->india_ev_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_ev_general_pl12)?$statelevel->india_ev_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_ev_st_pl34)?$statelevel->india_ev_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_ev_general_pl34)?$statelevel->india_ev_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_ev_pl1)?$statelevel->state_ev_pl1:'0',"basic"=>isset($statelevel->state_ev_pl2)?$statelevel->state_ev_pl2:'0',"proficient"=>isset($statelevel->state_ev_pl3)?$statelevel->state_ev_pl3:'0',"advanced"=>isset($statelevel->state_ev_pl4)?$statelevel->state_ev_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_ev_pl1)?$statelevel->india_ev_pl1:'0',"basic"=>isset($statelevel->india_ev_pl2)?$statelevel->india_ev_pl2:'0',"proficient"=>isset($statelevel->india_ev_pl3)?$statelevel->india_ev_pl3:'0',"advanced"=>isset($statelevel->india_ev_pl4)?$statelevel->india_ev_pl4:'0'))
             );
                 
             $stateArr['state_id'] = (int)$statelevel->state_code;
@@ -341,16 +428,29 @@ class FinalParticipationstateController extends Controller
             $newstateArray['language'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_la_pct)?$statelevel->state_la_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_la_boys_pl12)?$statelevel->state_la_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_la_boys_pl34)?$statelevel->state_la_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_la_girls_pl12)?$statelevel->state_la_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_la_girls_pl34)?$statelevel->state_la_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_la_boys_pct)?$statelevel->india_la_boys_pct:'0',"girls"=>isset($statelevel->india_la_girls_pct)?$statelevel->india_la_girls_pct:'0','trans_gender'=>isset($statelevel->india_la_trans_pct)?$statelevel->india_la_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_la_boys_pl12)?$statelevel->india_la_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_la_boys_pl34)?$statelevel->india_la_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_la_girls_pl12)?$statelevel->india_la_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_la_girls_pl34)?$statelevel->india_la_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_la_urban_pct)?$statelevel->state_la_urban_pct:'0',"rural"=>isset($statelevel->state_la_rural_pct)?$statelevel->state_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_la_rural_pl12)?$statelevel->state_la_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_la_urban_pl12)?$statelevel->state_la_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_la_rural_pl34)?$statelevel->state_la_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_la_urban_pl34)?$statelevel->state_la_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_la_urban_pct)?$statelevel->india_la_urban_pct:'0',"rural"=>isset($statelevel->india_la_rural_pct)?$statelevel->india_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_la_rural_pl12)?$statelevel->india_la_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_la_urban_pl12)?$statelevel->india_la_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_la_rural_pl34)?$statelevel->india_la_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_la_urban_pl34)?$statelevel->india_la_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_la_govt_pct)?$statelevel->state_la_govt_pct:'0',"govt_aided"=>isset($statelevel->state_la_govtaid_pct)?$statelevel->state_la_govtaid_pct:'0',"private"=>isset($statelevel->state_la_private_pct)?$statelevel->state_la_private_pct:'0',"central_govt"=>isset($statelevel->state_la_centgovt_pct)?$statelevel->state_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_la_govt_pl12)?$statelevel->state_la_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_la_govtaid_pl12)?$statelevel->state_la_govtaid_pl12:'0' 
@@ -360,7 +460,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_la_centgovt_pl12)?$statelevel->state_la_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_la_private_pl34)?$statelevel->state_la_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_la_centgovt_pl34)?$statelevel->state_la_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_la_govt_pct)?$statelevel->india_la_govt_pct:'0',"govt_aided"=>isset($statelevel->india_la_govtaid_pct)?$statelevel->india_la_govtaid_pct:'0',"private"=>isset($statelevel->india_la_private_pct)?$statelevel->india_la_private_pct:'0',"central_govt"=>isset($statelevel->india_la_centgovt_pct)?$statelevel->india_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_la_govt_pl12)?$statelevel->india_la_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_la_govtaid_pl12)?$statelevel->india_la_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_la_govt_pl34)?$statelevel->india_la_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_la_govtaid_pl34)?$statelevel->india_la_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_la_private_pl12)?$statelevel->india_la_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_la_centgovt_pl12)?$statelevel->india_la_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_la_private_pl34)?$statelevel->india_la_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_la_centgovt_pl34)?$statelevel->india_la_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_la_sc_pct)?$statelevel->state_la_sc_pct:'0',"obc"=>isset($statelevel->state_la_obc_pct)?$statelevel->state_la_obc_pct:'0',"st"=>isset($statelevel->state_la_st_pct)?$statelevel->state_la_st_pct:'0',"general"=>isset($statelevel->state_la_general_pct)?$statelevel->state_la_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_la_sc_pl34)?$statelevel->state_la_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_la_obc_pl12)?$statelevel->state_la_obc_pl12:'0' 
@@ -370,25 +478,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_la_general_pl12)?$statelevel->state_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_la_st_pl34)?$statelevel->state_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_la_general_pl34)?$statelevel->state_la_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_la_sc_pct)?$statelevel->india_la_sc_pct:'0',"obc"=>isset($statelevel->india_la_obc_pct)?$statelevel->india_la_obc_pct:'0',"st"=>isset($statelevel->india_la_st_pct)?$statelevel->india_la_st_pct:'0',"general"=>isset($statelevel->india_la_general_pct)?$statelevel->india_la_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_la_sc_pl34)?$statelevel->india_la_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_la_obc_pl12)?$statelevel->india_la_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_la_sc_pl12)?$statelevel->india_la_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_la_obc_pl34)?$statelevel->india_la_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_la_st_pl12)?$statelevel->india_la_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_la_general_pl12)?$statelevel->india_la_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_la_st_pl34)?$statelevel->india_la_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_la_general_pl34)?$statelevel->india_la_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_la_pl1)?$statelevel->state_la_pl1:'0',"basic"=>isset($statelevel->state_la_pl2)?$statelevel->state_la_pl2:'0',"proficient"=>isset($statelevel->state_la_pl3)?$statelevel->state_la_pl3:'0',"advanced"=>isset($statelevel->state_la_pl4)?$statelevel->state_la_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_la_pl1)?$statelevel->india_la_pl1:'0',"basic"=>isset($statelevel->india_la_pl2)?$statelevel->india_la_pl2:'0',"proficient"=>isset($statelevel->india_la_pl3)?$statelevel->india_la_pl3:'0',"advanced"=>isset($statelevel->india_la_pl4)?$statelevel->india_la_pl4:'0'))
             );
             
             $newstateArray['math'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ma_pct)?$statelevel->state_ma_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_ma_boys_pl12)?$statelevel->state_ma_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_ma_boys_pl34)?$statelevel->state_ma_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_ma_girls_pl12)?$statelevel->state_ma_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_ma_girls_pl34)?$statelevel->state_ma_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_ma_boys_pct)?$statelevel->india_ma_boys_pct:'0',"girls"=>isset($statelevel->india_ma_girls_pct)?$statelevel->india_ma_girls_pct:'0','trans_gender'=>isset($statelevel->india_ma_trans_pct)?$statelevel->india_ma_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_ma_boys_pl12)?$statelevel->india_ma_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_ma_boys_pl34)?$statelevel->india_ma_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_ma_girls_pl12)?$statelevel->india_ma_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_ma_girls_pl34)?$statelevel->india_ma_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_ma_urban_pct)?$statelevel->state_ma_urban_pct:'0',"rural"=>isset($statelevel->state_ma_rural_pct)?$statelevel->state_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_ma_rural_pl12)?$statelevel->state_ma_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_ma_urban_pl12)?$statelevel->state_ma_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_ma_rural_pl34)?$statelevel->state_ma_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_ma_urban_pl34)?$statelevel->state_ma_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_ma_urban_pct)?$statelevel->india_ma_urban_pct:'0',"rural"=>isset($statelevel->india_ma_rural_pct)?$statelevel->india_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_ma_rural_pl12)?$statelevel->india_ma_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_ma_urban_pl12)?$statelevel->india_ma_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_ma_rural_pl34)?$statelevel->india_ma_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_ma_urban_pl34)?$statelevel->india_ma_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_ma_govt_pct)?$statelevel->state_ma_govt_pct:'0',"govt_aided"=>isset($statelevel->state_ma_govtaid_pct)?$statelevel->state_ma_govtaid_pct:'0',"private"=>isset($statelevel->state_ma_private_pct)?$statelevel->state_ma_private_pct:'0',"central_govt"=>isset($statelevel->state_ma_centgovt_pct)?$statelevel->state_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_ma_govt_pl12)?$statelevel->state_ma_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_ma_govtaid_pl12)?$statelevel->state_ma_govtaid_pl12:'0' 
@@ -398,7 +527,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_ma_centgovt_pl12)?$statelevel->state_ma_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_ma_private_pl34)?$statelevel->state_ma_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_ma_centgovt_pl34)?$statelevel->state_ma_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_ma_govt_pct)?$statelevel->india_ma_govt_pct:'0',"govt_aided"=>isset($statelevel->india_ma_govtaid_pct)?$statelevel->india_ma_govtaid_pct:'0',"private"=>isset($statelevel->india_ma_private_pct)?$statelevel->india_ma_private_pct:'0',"central_govt"=>isset($statelevel->india_ma_centgovt_pct)?$statelevel->india_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_ma_govt_pl12)?$statelevel->india_ma_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_ma_govtaid_pl12)?$statelevel->india_ma_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_ma_govt_pl34)?$statelevel->india_ma_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_ma_govtaid_pl34)?$statelevel->india_ma_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_ma_private_pl12)?$statelevel->india_ma_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_ma_centgovt_pl12)?$statelevel->india_ma_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_ma_private_pl34)?$statelevel->india_ma_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_ma_centgovt_pl34)?$statelevel->india_ma_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_ma_sc_pct)?$statelevel->state_ma_sc_pct:'0',"obc"=>isset($statelevel->state_ma_obc_pct)?$statelevel->state_ma_obc_pct:'0',"st"=>isset($statelevel->state_ma_st_pct)?$statelevel->state_ma_st_pct:'0',"general"=>isset($statelevel->state_ma_general_pct)?$statelevel->state_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_ma_sc_pl34)?$statelevel->state_ma_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_ma_obc_pl12)?$statelevel->state_ma_obc_pl12:'0' 
@@ -408,25 +545,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_ma_general_pl12)?$statelevel->state_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_ma_st_pl34)?$statelevel->state_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_ma_general_pl34)?$statelevel->state_ma_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_ma_sc_pct)?$statelevel->india_ma_sc_pct:'0',"obc"=>isset($statelevel->india_ma_obc_pct)?$statelevel->india_ma_obc_pct:'0',"st"=>isset($statelevel->india_ma_st_pct)?$statelevel->india_ma_st_pct:'0',"general"=>isset($statelevel->india_ma_general_pct)?$statelevel->india_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_ma_sc_pl34)?$statelevel->india_ma_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_ma_obc_pl12)?$statelevel->india_ma_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_ma_sc_pl12)?$statelevel->india_ma_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_ma_obc_pl34)?$statelevel->india_ma_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_ma_st_pl12)?$statelevel->india_ma_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_ma_general_pl12)?$statelevel->india_ma_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_ma_st_pl34)?$statelevel->india_ma_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_ma_general_pl34)?$statelevel->india_ma_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_ma_pl1)?$statelevel->state_ma_pl1:'0',"basic"=>isset($statelevel->state_ma_pl2)?$statelevel->state_ma_pl2:'0',"proficient"=>isset($statelevel->state_ma_pl3)?$statelevel->state_ma_pl3:'0',"advanced"=>isset($statelevel->state_ma_pl4)?$statelevel->state_ma_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_ma_pl1)?$statelevel->india_ma_pl1:'0',"basic"=>isset($statelevel->india_ma_pl2)?$statelevel->india_ma_pl2:'0',"proficient"=>isset($statelevel->india_ma_pl3)?$statelevel->india_ma_pl3:'0',"advanced"=>isset($statelevel->india_ma_pl4)?$statelevel->india_ma_pl4:'0'))
             );
             
             $newstateArray['evs'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ev_pct)?$statelevel->state_ev_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_ev_pct)?$statelevel->india_ev_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_ev_boys_pct)?$statelevel->state_ev_boys_pct:'0',"girls"=>isset($statelevel->state_ev_girls_pct)?$statelevel->state_ev_girls_pct:'0','trans_gender'=>isset($statelevel->state_ev_trans_pct)?$statelevel->state_ev_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_ev_boys_pct)?$statelevel->state_ev_boys_pct:'0',"girls"=>isset($statelevel->state_ev_girls_pct)?$statelevel->state_ev_girls_pct:'0','trans_gender'=>isset($statelevel->state_ev_trans_pct)?$statelevel->state_ev_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_ev_boys_pl12)?$statelevel->state_ev_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_ev_boys_pl34)?$statelevel->state_ev_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_ev_girls_pl12)?$statelevel->state_ev_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_ev_girls_pl34)?$statelevel->state_ev_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_ev_boys_pct)?$statelevel->india_ev_boys_pct:'0',"girls"=>isset($statelevel->india_ev_girls_pct)?$statelevel->india_ev_girls_pct:'0','trans_gender'=>isset($statelevel->india_ev_trans_pct)?$statelevel->india_ev_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_ev_boys_pl12)?$statelevel->india_ev_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_ev_boys_pl34)?$statelevel->india_ev_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_ev_girls_pl12)?$statelevel->india_ev_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_ev_girls_pl34)?$statelevel->india_ev_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_ev_urban_pct)?$statelevel->state_ev_urban_pct:'0',"rural"=>isset($statelevel->state_ev_rural_pct)?$statelevel->state_ev_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_ev_rural_pl12)?$statelevel->state_ev_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_ev_urban_pl12)?$statelevel->state_ev_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_ev_rural_pl34)?$statelevel->state_ev_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_ev_urban_pl34)?$statelevel->state_ev_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_ev_urban_pct)?$statelevel->india_ev_urban_pct:'0',"rural"=>isset($statelevel->india_ev_rural_pct)?$statelevel->india_ev_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_ev_rural_pl12)?$statelevel->india_ev_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_ev_urban_pl12)?$statelevel->india_ev_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_ev_rural_pl34)?$statelevel->india_ev_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_ev_urban_pl34)?$statelevel->india_ev_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_ev_govt_pct)?$statelevel->state_ev_govt_pct:'0',"govt_aided"=>isset($statelevel->state_ev_govtaid_pct)?$statelevel->state_ev_govtaid_pct:'0',"private"=>isset($statelevel->state_ev_private_pct)?$statelevel->state_ev_private_pct:'0',"central_govt"=>isset($statelevel->state_ev_centgovt_pct)?$statelevel->state_ev_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_ev_govt_pl12)?$statelevel->state_ev_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_ev_govtaid_pl12)?$statelevel->state_ev_govtaid_pl12:'0' 
@@ -436,7 +594,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_ev_centgovt_pl12)?$statelevel->state_ev_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_ev_private_pl34)?$statelevel->state_ev_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_ev_centgovt_pl34)?$statelevel->state_ev_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_ev_govt_pct)?$statelevel->india_ev_govt_pct:'0',"govt_aided"=>isset($statelevel->india_ev_govtaid_pct)?$statelevel->india_ev_govtaid_pct:'0',"private"=>isset($statelevel->india_ev_private_pct)?$statelevel->india_ev_private_pct:'0',"central_govt"=>isset($statelevel->india_ev_centgovt_pct)?$statelevel->india_ev_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_ev_govt_pl12)?$statelevel->india_ev_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_ev_govtaid_pl12)?$statelevel->india_ev_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_ev_govt_pl34)?$statelevel->india_ev_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_ev_govtaid_pl34)?$statelevel->india_ev_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_ev_private_pl12)?$statelevel->india_ev_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_ev_centgovt_pl12)?$statelevel->india_ev_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_ev_private_pl34)?$statelevel->india_ev_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_ev_centgovt_pl34)?$statelevel->india_ev_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_ev_sc_pct)?$statelevel->state_ev_sc_pct:'0',"obc"=>isset($statelevel->state_ev_obc_pct)?$statelevel->state_ev_obc_pct:'0',"st"=>isset($statelevel->state_ev_st_pct)?$statelevel->state_ev_st_pct:'0',"general"=>isset($statelevel->state_ev_general_pct)?$statelevel->state_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_ev_sc_pl34)?$statelevel->state_ev_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_ev_obc_pl12)?$statelevel->state_ev_obc_pl12:'0' 
@@ -446,10 +612,18 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_ev_general_pl12)?$statelevel->state_ev_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_ev_st_pl34)?$statelevel->state_ev_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_ev_general_pl34)?$statelevel->state_ev_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_ev_sc_pct)?$statelevel->india_ev_sc_pct:'0',"obc"=>isset($statelevel->india_ev_obc_pct)?$statelevel->india_ev_obc_pct:'0',"st"=>isset($statelevel->india_ev_st_pct)?$statelevel->india_ev_st_pct:'0',"general"=>isset($statelevel->india_ev_general_pct)?$statelevel->india_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_ev_sc_pl34)?$statelevel->india_ev_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_ev_obc_pl12)?$statelevel->india_ev_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_ev_sc_pl12)?$statelevel->india_ev_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_ev_obc_pl34)?$statelevel->india_ev_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_ev_st_pl12)?$statelevel->india_ev_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_ev_general_pl12)?$statelevel->india_ev_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_ev_st_pl34)?$statelevel->india_ev_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_ev_general_pl34)?$statelevel->india_ev_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_ev_pl1)?$statelevel->state_ev_pl1:'0',"basic"=>isset($statelevel->state_ev_pl2)?$statelevel->state_ev_pl2:'0',"proficient"=>isset($statelevel->state_ev_pl3)?$statelevel->state_ev_pl3:'0',"advanced"=>isset($statelevel->state_ev_pl4)?$statelevel->state_ev_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_ev_pl1)?$statelevel->india_ev_pl1:'0',"basic"=>isset($statelevel->india_ev_pl2)?$statelevel->india_ev_pl2:'0',"proficient"=>isset($statelevel->india_ev_pl3)?$statelevel->india_ev_pl3:'0',"advanced"=>isset($statelevel->india_ev_pl4)?$statelevel->india_ev_pl4:'0'))
             );
         $stateArr['state_id'] = (int)$statelevel->state_code;
         $stateArr['grade'] = 5;
@@ -472,16 +646,29 @@ class FinalParticipationstateController extends Controller
             $newstateArray['language'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_la_pct)?$statelevel->state_la_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_la_boys_pl12)?$statelevel->state_la_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_la_boys_pl34)?$statelevel->state_la_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_la_girls_pl12)?$statelevel->state_la_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_la_girls_pl34)?$statelevel->state_la_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_la_boys_pct)?$statelevel->india_la_boys_pct:'0',"girls"=>isset($statelevel->india_la_girls_pct)?$statelevel->india_la_girls_pct:'0','trans_gender'=>isset($statelevel->india_la_trans_pct)?$statelevel->india_la_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_la_boys_pl12)?$statelevel->india_la_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_la_boys_pl34)?$statelevel->india_la_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_la_girls_pl12)?$statelevel->india_la_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_la_girls_pl34)?$statelevel->india_la_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_la_urban_pct)?$statelevel->state_la_urban_pct:'0',"rural"=>isset($statelevel->state_la_rural_pct)?$statelevel->state_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_la_rural_pl12)?$statelevel->state_la_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_la_urban_pl12)?$statelevel->state_la_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_la_rural_pl34)?$statelevel->state_la_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_la_urban_pl34)?$statelevel->state_la_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_la_urban_pct)?$statelevel->india_la_urban_pct:'0',"rural"=>isset($statelevel->india_la_rural_pct)?$statelevel->india_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_la_rural_pl12)?$statelevel->india_la_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_la_urban_pl12)?$statelevel->india_la_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_la_rural_pl34)?$statelevel->india_la_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_la_urban_pl34)?$statelevel->india_la_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_la_govt_pct)?$statelevel->state_la_govt_pct:'0',"govt_aided"=>isset($statelevel->state_la_govtaid_pct)?$statelevel->state_la_govtaid_pct:'0',"private"=>isset($statelevel->state_la_private_pct)?$statelevel->state_la_private_pct:'0',"central_govt"=>isset($statelevel->state_la_centgovt_pct)?$statelevel->state_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_la_govt_pl12)?$statelevel->state_la_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_la_govtaid_pl12)?$statelevel->state_la_govtaid_pl12:'0' 
@@ -491,7 +678,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_la_centgovt_pl12)?$statelevel->state_la_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_la_private_pl34)?$statelevel->state_la_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_la_centgovt_pl34)?$statelevel->state_la_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_la_govt_pct)?$statelevel->india_la_govt_pct:'0',"govt_aided"=>isset($statelevel->india_la_govtaid_pct)?$statelevel->india_la_govtaid_pct:'0',"private"=>isset($statelevel->india_la_private_pct)?$statelevel->india_la_private_pct:'0',"central_govt"=>isset($statelevel->india_la_centgovt_pct)?$statelevel->india_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_la_govt_pl12)?$statelevel->india_la_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_la_govtaid_pl12)?$statelevel->india_la_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_la_govt_pl34)?$statelevel->india_la_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_la_govtaid_pl34)?$statelevel->india_la_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_la_private_pl12)?$statelevel->india_la_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_la_centgovt_pl12)?$statelevel->india_la_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_la_private_pl34)?$statelevel->india_la_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_la_centgovt_pl34)?$statelevel->india_la_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_la_sc_pct)?$statelevel->state_la_sc_pct:'0',"obc"=>isset($statelevel->state_la_obc_pct)?$statelevel->state_la_obc_pct:'0',"st"=>isset($statelevel->state_la_st_pct)?$statelevel->state_la_st_pct:'0',"general"=>isset($statelevel->state_la_general_pct)?$statelevel->state_la_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_la_sc_pl34)?$statelevel->state_la_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_la_obc_pl12)?$statelevel->state_la_obc_pl12:'0' 
@@ -501,25 +696,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_la_general_pl12)?$statelevel->state_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_la_st_pl34)?$statelevel->state_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_la_general_pl34)?$statelevel->state_la_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_la_sc_pct)?$statelevel->india_la_sc_pct:'0',"obc"=>isset($statelevel->india_la_obc_pct)?$statelevel->india_la_obc_pct:'0',"st"=>isset($statelevel->india_la_st_pct)?$statelevel->india_la_st_pct:'0',"general"=>isset($statelevel->india_la_general_pct)?$statelevel->india_la_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_la_sc_pl34)?$statelevel->india_la_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_la_obc_pl12)?$statelevel->india_la_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_la_sc_pl12)?$statelevel->india_la_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_la_obc_pl34)?$statelevel->india_la_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_la_st_pl12)?$statelevel->india_la_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_la_general_pl12)?$statelevel->india_la_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_la_st_pl34)?$statelevel->india_la_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_la_general_pl34)?$statelevel->india_la_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_la_pl1)?$statelevel->state_la_pl1:'0',"basic"=>isset($statelevel->state_la_pl2)?$statelevel->state_la_pl2:'0',"proficient"=>isset($statelevel->state_la_pl3)?$statelevel->state_la_pl3:'0',"advanced"=>isset($statelevel->state_la_pl4)?$statelevel->state_la_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_la_pl1)?$statelevel->india_la_pl1:'0',"basic"=>isset($statelevel->india_la_pl2)?$statelevel->india_la_pl2:'0',"proficient"=>isset($statelevel->india_la_pl3)?$statelevel->india_la_pl3:'0',"advanced"=>isset($statelevel->india_la_pl4)?$statelevel->india_la_pl4:'0'))
             );
             
             $newstateArray['math'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ma_pct)?$statelevel->state_ma_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_ma_boys_pl12)?$statelevel->state_ma_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_ma_boys_pl34)?$statelevel->state_ma_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_ma_girls_pl12)?$statelevel->state_ma_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_ma_girls_pl34)?$statelevel->state_ma_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_ma_boys_pct)?$statelevel->india_ma_boys_pct:'0',"girls"=>isset($statelevel->india_ma_girls_pct)?$statelevel->india_ma_girls_pct:'0','trans_gender'=>isset($statelevel->india_ma_trans_pct)?$statelevel->india_ma_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_ma_boys_pl12)?$statelevel->india_ma_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_ma_boys_pl34)?$statelevel->india_ma_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_ma_girls_pl12)?$statelevel->india_ma_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_ma_girls_pl34)?$statelevel->india_ma_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_ma_urban_pct)?$statelevel->state_ma_urban_pct:'0',"rural"=>isset($statelevel->state_ma_rural_pct)?$statelevel->state_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_ma_rural_pl12)?$statelevel->state_ma_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_ma_urban_pl12)?$statelevel->state_ma_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_ma_rural_pl34)?$statelevel->state_ma_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_ma_urban_pl34)?$statelevel->state_ma_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_ma_urban_pct)?$statelevel->india_ma_urban_pct:'0',"rural"=>isset($statelevel->india_ma_rural_pct)?$statelevel->india_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_ma_rural_pl12)?$statelevel->india_ma_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_ma_urban_pl12)?$statelevel->india_ma_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_ma_rural_pl34)?$statelevel->india_ma_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_ma_urban_pl34)?$statelevel->india_ma_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_ma_govt_pct)?$statelevel->state_ma_govt_pct:'0',"govt_aided"=>isset($statelevel->state_ma_govtaid_pct)?$statelevel->state_ma_govtaid_pct:'0',"private"=>isset($statelevel->state_ma_private_pct)?$statelevel->state_ma_private_pct:'0',"central_govt"=>isset($statelevel->state_ma_centgovt_pct)?$statelevel->state_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_ma_govt_pl12)?$statelevel->state_ma_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_ma_govtaid_pl12)?$statelevel->state_ma_govtaid_pl12:'0' 
@@ -529,7 +745,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_ma_centgovt_pl12)?$statelevel->state_ma_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_ma_private_pl34)?$statelevel->state_ma_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_ma_centgovt_pl34)?$statelevel->state_ma_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_ma_govt_pct)?$statelevel->india_ma_govt_pct:'0',"govt_aided"=>isset($statelevel->india_ma_govtaid_pct)?$statelevel->india_ma_govtaid_pct:'0',"private"=>isset($statelevel->india_ma_private_pct)?$statelevel->india_ma_private_pct:'0',"central_govt"=>isset($statelevel->india_ma_centgovt_pct)?$statelevel->india_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_ma_govt_pl12)?$statelevel->india_ma_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_ma_govtaid_pl12)?$statelevel->india_ma_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_ma_govt_pl34)?$statelevel->india_ma_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_ma_govtaid_pl34)?$statelevel->india_ma_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_ma_private_pl12)?$statelevel->india_ma_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_ma_centgovt_pl12)?$statelevel->india_ma_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_ma_private_pl34)?$statelevel->india_ma_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_ma_centgovt_pl34)?$statelevel->india_ma_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_ma_sc_pct)?$statelevel->state_ma_sc_pct:'0',"obc"=>isset($statelevel->state_ma_obc_pct)?$statelevel->state_ma_obc_pct:'0',"st"=>isset($statelevel->state_ma_st_pct)?$statelevel->state_ma_st_pct:'0',"general"=>isset($statelevel->state_ma_general_pct)?$statelevel->state_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_ma_sc_pl34)?$statelevel->state_ma_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_ma_obc_pl12)?$statelevel->state_ma_obc_pl12:'0' 
@@ -539,25 +763,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_ma_general_pl12)?$statelevel->state_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_ma_st_pl34)?$statelevel->state_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_ma_general_pl34)?$statelevel->state_ma_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_ma_sc_pct)?$statelevel->india_ma_sc_pct:'0',"obc"=>isset($statelevel->india_ma_obc_pct)?$statelevel->india_ma_obc_pct:'0',"st"=>isset($statelevel->india_ma_st_pct)?$statelevel->india_ma_st_pct:'0',"general"=>isset($statelevel->india_ma_general_pct)?$statelevel->india_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_ma_sc_pl34)?$statelevel->india_ma_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_ma_obc_pl12)?$statelevel->india_ma_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_ma_sc_pl12)?$statelevel->india_ma_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_ma_obc_pl34)?$statelevel->india_ma_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_ma_st_pl12)?$statelevel->india_ma_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_ma_general_pl12)?$statelevel->india_ma_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_ma_st_pl34)?$statelevel->india_ma_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_ma_general_pl34)?$statelevel->india_ma_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_ma_pl1)?$statelevel->state_ma_pl1:'0',"basic"=>isset($statelevel->state_ma_pl2)?$statelevel->state_ma_pl2:'0',"proficient"=>isset($statelevel->state_ma_pl3)?$statelevel->state_ma_pl3:'0',"advanced"=>isset($statelevel->state_ma_pl4)?$statelevel->state_ma_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_ma_pl1)?$statelevel->india_ma_pl1:'0',"basic"=>isset($statelevel->india_ma_pl2)?$statelevel->india_ma_pl2:'0',"proficient"=>isset($statelevel->india_ma_pl3)?$statelevel->india_ma_pl3:'0',"advanced"=>isset($statelevel->india_ma_pl4)?$statelevel->india_ma_pl4:'0'))
             );
             
             $newstateArray['sci'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_sc_pct)?$statelevel->state_sc_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_sc_pct)?$statelevel->india_sc_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_sc_boys_pct)?$statelevel->state_sc_boys_pct:'0',"girls"=>isset($statelevel->state_sc_girls_pct)?$statelevel->state_sc_girls_pct:'0','trans_gender'=>isset($statelevel->state_sc_trans_pct)?$statelevel->state_sc_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_sc_boys_pct)?$statelevel->state_sc_boys_pct:'0',"girls"=>isset($statelevel->state_sc_girls_pct)?$statelevel->state_sc_girls_pct:'0','trans_gender'=>isset($statelevel->state_sc_trans_pct)?$statelevel->state_sc_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_sc_boys_pl12)?$statelevel->state_sc_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_sc_boys_pl34)?$statelevel->state_sc_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_sc_girls_pl12)?$statelevel->state_sc_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_sc_girls_pl34)?$statelevel->state_sc_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_sc_boys_pct)?$statelevel->india_sc_boys_pct:'0',"girls"=>isset($statelevel->india_sc_girls_pct)?$statelevel->india_sc_girls_pct:'0','trans_gender'=>isset($statelevel->india_sc_trans_pct)?$statelevel->india_sc_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_sc_boys_pl12)?$statelevel->india_sc_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_sc_boys_pl34)?$statelevel->india_sc_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_sc_girls_pl12)?$statelevel->india_sc_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_sc_girls_pl34)?$statelevel->india_sc_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_sc_urban_pct)?$statelevel->state_sc_urban_pct:'0',"rural"=>isset($statelevel->state_sc_rural_pct)?$statelevel->state_sc_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_sc_rural_pl12)?$statelevel->state_sc_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_sc_urban_pl12)?$statelevel->state_sc_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_sc_rural_pl34)?$statelevel->state_sc_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_sc_urban_pl34)?$statelevel->state_sc_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_sc_urban_pct)?$statelevel->india_sc_urban_pct:'0',"rural"=>isset($statelevel->india_sc_rural_pct)?$statelevel->india_sc_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_sc_rural_pl12)?$statelevel->india_sc_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_sc_urban_pl12)?$statelevel->india_sc_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_sc_rural_pl34)?$statelevel->india_sc_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_sc_urban_pl34)?$statelevel->india_sc_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_sc_govt_pct)?$statelevel->state_sc_govt_pct:'0',"govt_aided"=>isset($statelevel->state_sc_govtaid_pct)?$statelevel->state_sc_govtaid_pct:'0',"private"=>isset($statelevel->state_sc_private_pct)?$statelevel->state_sc_private_pct:'0',"central_govt"=>isset($statelevel->state_sc_centgovt_pct)?$statelevel->state_sc_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_sc_govt_pl12)?$statelevel->state_sc_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_sc_govtaid_pl12)?$statelevel->state_sc_govtaid_pl12:'0' 
@@ -567,7 +812,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_sc_centgovt_pl12)?$statelevel->state_sc_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_sc_private_pl34)?$statelevel->state_sc_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_sc_centgovt_pl34)?$statelevel->state_sc_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_sc_govt_pct)?$statelevel->india_sc_govt_pct:'0',"govt_aided"=>isset($statelevel->india_sc_govtaid_pct)?$statelevel->india_sc_govtaid_pct:'0',"private"=>isset($statelevel->india_sc_private_pct)?$statelevel->india_sc_private_pct:'0',"central_govt"=>isset($statelevel->india_sc_centgovt_pct)?$statelevel->india_sc_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_sc_govt_pl12)?$statelevel->india_sc_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_sc_govtaid_pl12)?$statelevel->india_sc_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_sc_govt_pl34)?$statelevel->india_sc_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_sc_govtaid_pl34)?$statelevel->india_sc_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_sc_private_pl12)?$statelevel->india_sc_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_sc_centgovt_pl12)?$statelevel->india_sc_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_sc_private_pl34)?$statelevel->india_sc_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_sc_centgovt_pl34)?$statelevel->india_sc_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_sc_sc_pct)?$statelevel->state_sc_sc_pct:'0',"obc"=>isset($statelevel->state_sc_obc_pct)?$statelevel->state_sc_obc_pct:'0',"st"=>isset($statelevel->state_sc_st_pct)?$statelevel->state_sc_st_pct:'0',"general"=>isset($statelevel->state_sc_general_pct)?$statelevel->state_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_sc_sc_pl34)?$statelevel->state_sc_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_sc_obc_pl12)?$statelevel->state_sc_obc_pl12:'0' 
@@ -577,25 +830,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_sc_general_pl12)?$statelevel->state_sc_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_sc_st_pl34)?$statelevel->state_sc_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_sc_general_pl34)?$statelevel->state_sc_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_sc_sc_pct)?$statelevel->india_sc_sc_pct:'0',"obc"=>isset($statelevel->india_sc_obc_pct)?$statelevel->india_sc_obc_pct:'0',"st"=>isset($statelevel->india_sc_st_pct)?$statelevel->india_sc_st_pct:'0',"general"=>isset($statelevel->india_sc_general_pct)?$statelevel->india_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_sc_sc_pl34)?$statelevel->india_sc_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_sc_obc_pl12)?$statelevel->india_sc_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_sc_sc_pl12)?$statelevel->india_sc_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_sc_obc_pl34)?$statelevel->india_sc_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_sc_st_pl12)?$statelevel->india_sc_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_sc_general_pl12)?$statelevel->india_sc_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_sc_st_pl34)?$statelevel->india_sc_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_sc_general_pl34)?$statelevel->india_sc_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_sc_pl1)?$statelevel->state_sc_pl1:'0',"basic"=>isset($statelevel->state_sc_pl2)?$statelevel->state_sc_pl2:'0',"proficient"=>isset($statelevel->state_sc_pl3)?$statelevel->state_sc_pl3:'0',"advanced"=>isset($statelevel->state_sc_pl4)?$statelevel->state_sc_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_sc_pl1)?$statelevel->india_sc_pl1:'0',"basic"=>isset($statelevel->india_sc_pl2)?$statelevel->india_sc_pl2:'0',"proficient"=>isset($statelevel->india_sc_pl3)?$statelevel->india_sc_pl3:'0',"advanced"=>isset($statelevel->india_sc_pl4)?$statelevel->india_sc_pl4:'0'))
             );
 
             $newstateArray['sst'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ss_pct)?$statelevel->state_ss_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_ss_pct)?$statelevel->india_ss_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_ss_boys_pct)?$statelevel->state_ss_boys_pct:'0',"girls"=>isset($statelevel->state_ss_girls_pct)?$statelevel->state_ss_girls_pct:'0','trans_gender'=>isset($statelevel->state_ss_trans_pct)?$statelevel->state_ss_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_ss_boys_pct)?$statelevel->state_ss_boys_pct:'0',"girls"=>isset($statelevel->state_ss_girls_pct)?$statelevel->state_ss_girls_pct:'0','trans_gender'=>isset($statelevel->state_ss_trans_pct)?$statelevel->state_ss_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_ss_boys_pl12)?$statelevel->state_ss_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_ss_boys_pl34)?$statelevel->state_ss_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_ss_girls_pl12)?$statelevel->state_ss_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_ss_girls_pl34)?$statelevel->state_ss_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_ss_boys_pct)?$statelevel->india_ss_boys_pct:'0',"girls"=>isset($statelevel->india_ss_girls_pct)?$statelevel->india_ss_girls_pct:'0','trans_gender'=>isset($statelevel->india_ss_trans_pct)?$statelevel->india_ss_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_ss_boys_pl12)?$statelevel->india_ss_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_ss_boys_pl34)?$statelevel->india_ss_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_ss_girls_pl12)?$statelevel->india_ss_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_ss_girls_pl34)?$statelevel->india_ss_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_ss_urban_pct)?$statelevel->state_ss_urban_pct:'0',"rural"=>isset($statelevel->state_ss_rural_pct)?$statelevel->state_ss_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_ss_rural_pl12)?$statelevel->state_ss_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_ss_urban_pl12)?$statelevel->state_ss_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_ss_rural_pl34)?$statelevel->state_ss_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_ss_urban_pl34)?$statelevel->state_ss_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_ss_urban_pct)?$statelevel->india_ss_urban_pct:'0',"rural"=>isset($statelevel->india_ss_rural_pct)?$statelevel->india_ss_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_ss_rural_pl12)?$statelevel->india_ss_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_ss_urban_pl12)?$statelevel->india_ss_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_ss_rural_pl34)?$statelevel->india_ss_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_ss_urban_pl34)?$statelevel->india_ss_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_ss_govt_pct)?$statelevel->state_ss_govt_pct:'0',"govt_aided"=>isset($statelevel->state_ss_govtaid_pct)?$statelevel->state_ss_govtaid_pct:'0',"private"=>isset($statelevel->state_ss_private_pct)?$statelevel->state_ss_private_pct:'0',"central_govt"=>isset($statelevel->state_ss_centgovt_pct)?$statelevel->state_ss_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_ss_govt_pl12)?$statelevel->state_ss_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_ss_govtaid_pl12)?$statelevel->state_ss_govtaid_pl12:'0' 
@@ -605,7 +879,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_ss_centgovt_pl12)?$statelevel->state_ss_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_ss_private_pl34)?$statelevel->state_ss_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_ss_centgovt_pl34)?$statelevel->state_ss_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_ss_govt_pct)?$statelevel->india_ss_govt_pct:'0',"govt_aided"=>isset($statelevel->india_ss_govtaid_pct)?$statelevel->india_ss_govtaid_pct:'0',"private"=>isset($statelevel->india_ss_private_pct)?$statelevel->india_ss_private_pct:'0',"central_govt"=>isset($statelevel->india_ss_centgovt_pct)?$statelevel->india_ss_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_ss_govt_pl12)?$statelevel->india_ss_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_ss_govtaid_pl12)?$statelevel->india_ss_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_ss_govt_pl34)?$statelevel->india_ss_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_ss_govtaid_pl34)?$statelevel->india_ss_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_ss_private_pl12)?$statelevel->india_ss_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_ss_centgovt_pl12)?$statelevel->india_ss_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_ss_private_pl34)?$statelevel->india_ss_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_ss_centgovt_pl34)?$statelevel->india_ss_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_ss_sc_pct)?$statelevel->state_ss_sc_pct:'0',"obc"=>isset($statelevel->state_ss_obc_pct)?$statelevel->state_ss_obc_pct:'0',"st"=>isset($statelevel->state_ss_st_pct)?$statelevel->state_ss_st_pct:'0',"general"=>isset($statelevel->state_ss_general_pct)?$statelevel->state_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_ss_sc_pl34)?$statelevel->state_ss_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_ss_obc_pl12)?$statelevel->state_ss_obc_pl12:'0' 
@@ -615,10 +897,18 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_ss_general_pl12)?$statelevel->state_ss_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_ss_st_pl34)?$statelevel->state_ss_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_ss_general_pl34)?$statelevel->state_ss_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_ss_sc_pct)?$statelevel->india_ss_sc_pct:'0',"obc"=>isset($statelevel->india_ss_obc_pct)?$statelevel->india_ss_obc_pct:'0',"st"=>isset($statelevel->india_ss_st_pct)?$statelevel->india_ss_st_pct:'0',"general"=>isset($statelevel->india_ss_general_pct)?$statelevel->india_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_ss_sc_pl34)?$statelevel->india_ss_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_ss_obc_pl12)?$statelevel->india_ss_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_ss_sc_pl12)?$statelevel->india_ss_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_ss_obc_pl34)?$statelevel->india_ss_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_ss_st_pl12)?$statelevel->india_ss_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_ss_general_pl12)?$statelevel->india_ss_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_ss_st_pl34)?$statelevel->india_ss_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_ss_general_pl34)?$statelevel->india_ss_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_ss_pl1)?$statelevel->state_ss_pl1:'0',"basic"=>isset($statelevel->state_ss_pl2)?$statelevel->state_ss_pl2:'0',"proficient"=>isset($statelevel->state_ss_pl3)?$statelevel->state_ss_pl3:'0',"advanced"=>isset($statelevel->state_ss_pl4)?$statelevel->state_ss_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_ss_pl1)?$statelevel->india_ss_pl1:'0',"basic"=>isset($statelevel->india_ss_pl2)?$statelevel->india_ss_pl2:'0',"proficient"=>isset($statelevel->india_ss_pl3)?$statelevel->india_ss_pl3:'0',"advanced"=>isset($statelevel->india_ss_pl4)?$statelevel->india_ss_pl4:'0'))
             );
 
         $stateArr['state_id'] = (int)$statelevel->state_code;
@@ -642,16 +932,29 @@ class FinalParticipationstateController extends Controller
             $newstateArray['math'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ma_pct)?$statelevel->state_ma_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_ma_boys_pl12)?$statelevel->state_ma_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_ma_boys_pl34)?$statelevel->state_ma_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_ma_girls_pl12)?$statelevel->state_ma_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_ma_girls_pl34)?$statelevel->state_ma_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_ma_boys_pct)?$statelevel->india_ma_boys_pct:'0',"girls"=>isset($statelevel->india_ma_girls_pct)?$statelevel->india_ma_girls_pct:'0','trans_gender'=>isset($statelevel->india_ma_trans_pct)?$statelevel->india_ma_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_ma_boys_pl12)?$statelevel->india_ma_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_ma_boys_pl34)?$statelevel->india_ma_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_ma_girls_pl12)?$statelevel->india_ma_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_ma_girls_pl34)?$statelevel->india_ma_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_ma_urban_pct)?$statelevel->state_ma_urban_pct:'0',"rural"=>isset($statelevel->state_ma_rural_pct)?$statelevel->state_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_ma_rural_pl12)?$statelevel->state_ma_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_ma_urban_pl12)?$statelevel->state_ma_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_ma_rural_pl34)?$statelevel->state_ma_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_ma_urban_pl34)?$statelevel->state_ma_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_ma_urban_pct)?$statelevel->india_ma_urban_pct:'0',"rural"=>isset($statelevel->india_ma_rural_pct)?$statelevel->india_ma_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_ma_rural_pl12)?$statelevel->india_ma_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_ma_urban_pl12)?$statelevel->india_ma_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_ma_rural_pl34)?$statelevel->india_ma_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_ma_urban_pl34)?$statelevel->india_ma_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_ma_govt_pct)?$statelevel->state_ma_govt_pct:'0',"govt_aided"=>isset($statelevel->state_ma_govtaid_pct)?$statelevel->state_ma_govtaid_pct:'0',"private"=>isset($statelevel->state_ma_private_pct)?$statelevel->state_ma_private_pct:'0',"central_govt"=>isset($statelevel->state_ma_centgovt_pct)?$statelevel->state_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_ma_govt_pl12)?$statelevel->state_ma_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_ma_govtaid_pl12)?$statelevel->state_ma_govtaid_pl12:'0' 
@@ -661,7 +964,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_ma_centgovt_pl12)?$statelevel->state_ma_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_ma_private_pl34)?$statelevel->state_ma_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_ma_centgovt_pl34)?$statelevel->state_ma_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_ma_govt_pct)?$statelevel->india_ma_govt_pct:'0',"govt_aided"=>isset($statelevel->india_ma_govtaid_pct)?$statelevel->india_ma_govtaid_pct:'0',"private"=>isset($statelevel->india_ma_private_pct)?$statelevel->india_ma_private_pct:'0',"central_govt"=>isset($statelevel->india_ma_centgovt_pct)?$statelevel->india_ma_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_ma_govt_pl12)?$statelevel->india_ma_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_ma_govtaid_pl12)?$statelevel->india_ma_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_ma_govt_pl34)?$statelevel->india_ma_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_ma_govtaid_pl34)?$statelevel->india_ma_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_ma_private_pl12)?$statelevel->india_ma_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_ma_centgovt_pl12)?$statelevel->india_ma_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_ma_private_pl34)?$statelevel->india_ma_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_ma_centgovt_pl34)?$statelevel->india_ma_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_ma_sc_pct)?$statelevel->state_ma_sc_pct:'0',"obc"=>isset($statelevel->state_ma_obc_pct)?$statelevel->state_ma_obc_pct:'0',"st"=>isset($statelevel->state_ma_st_pct)?$statelevel->state_ma_st_pct:'0',"general"=>isset($statelevel->state_ma_general_pct)?$statelevel->state_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_ma_sc_pl34)?$statelevel->state_ma_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_ma_obc_pl12)?$statelevel->state_ma_obc_pl12:'0' 
@@ -671,25 +982,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_ma_general_pl12)?$statelevel->state_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_ma_st_pl34)?$statelevel->state_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_ma_general_pl34)?$statelevel->state_ma_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_ma_sc_pct)?$statelevel->india_ma_sc_pct:'0',"obc"=>isset($statelevel->india_ma_obc_pct)?$statelevel->india_ma_obc_pct:'0',"st"=>isset($statelevel->india_ma_st_pct)?$statelevel->india_ma_st_pct:'0',"general"=>isset($statelevel->india_ma_general_pct)?$statelevel->india_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_ma_sc_pl34)?$statelevel->india_ma_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_ma_obc_pl12)?$statelevel->india_ma_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_ma_sc_pl12)?$statelevel->india_ma_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_ma_obc_pl34)?$statelevel->india_ma_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_ma_st_pl12)?$statelevel->india_ma_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_ma_general_pl12)?$statelevel->india_ma_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_ma_st_pl34)?$statelevel->india_ma_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_ma_general_pl34)?$statelevel->india_ma_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_ma_pl1)?$statelevel->state_ma_pl1:'0',"basic"=>isset($statelevel->state_ma_pl2)?$statelevel->state_ma_pl2:'0',"proficient"=>isset($statelevel->state_ma_pl3)?$statelevel->state_ma_pl3:'0',"advanced"=>isset($statelevel->state_ma_pl4)?$statelevel->state_ma_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_ma_pl1)?$statelevel->india_ma_pl1:'0',"basic"=>isset($statelevel->india_ma_pl2)?$statelevel->india_ma_pl2:'0',"proficient"=>isset($statelevel->india_ma_pl3)?$statelevel->india_ma_pl3:'0',"advanced"=>isset($statelevel->india_ma_pl4)?$statelevel->india_ma_pl4:'0'))
             );
             
             $newstateArray['sci'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_sc_pct)?$statelevel->state_sc_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_sc_pct)?$statelevel->india_sc_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_sc_boys_pct)?$statelevel->state_sc_boys_pct:'0',"girls"=>isset($statelevel->state_sc_girls_pct)?$statelevel->state_sc_girls_pct:'0','trans_gender'=>isset($statelevel->state_sc_trans_pct)?$statelevel->state_sc_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_sc_boys_pct)?$statelevel->state_sc_boys_pct:'0',"girls"=>isset($statelevel->state_sc_girls_pct)?$statelevel->state_sc_girls_pct:'0','trans_gender'=>isset($statelevel->state_sc_trans_pct)?$statelevel->state_sc_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_sc_boys_pl12)?$statelevel->state_sc_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_sc_boys_pl34)?$statelevel->state_sc_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_sc_girls_pl12)?$statelevel->state_sc_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_sc_girls_pl34)?$statelevel->state_sc_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_sc_boys_pct)?$statelevel->india_sc_boys_pct:'0',"girls"=>isset($statelevel->india_sc_girls_pct)?$statelevel->india_sc_girls_pct:'0','trans_gender'=>isset($statelevel->india_sc_trans_pct)?$statelevel->india_sc_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_sc_boys_pl12)?$statelevel->india_sc_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_sc_boys_pl34)?$statelevel->india_sc_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_sc_girls_pl12)?$statelevel->india_sc_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_sc_girls_pl34)?$statelevel->india_sc_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_sc_urban_pct)?$statelevel->state_sc_urban_pct:'0',"rural"=>isset($statelevel->state_sc_rural_pct)?$statelevel->state_sc_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_sc_rural_pl12)?$statelevel->state_sc_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_sc_urban_pl12)?$statelevel->state_sc_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_sc_rural_pl34)?$statelevel->state_sc_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_sc_urban_pl34)?$statelevel->state_sc_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_sc_urban_pct)?$statelevel->india_sc_urban_pct:'0',"rural"=>isset($statelevel->india_sc_rural_pct)?$statelevel->india_sc_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_sc_rural_pl12)?$statelevel->india_sc_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_sc_urban_pl12)?$statelevel->india_sc_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_sc_rural_pl34)?$statelevel->india_sc_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_sc_urban_pl34)?$statelevel->india_sc_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_sc_govt_pct)?$statelevel->state_sc_govt_pct:'0',"govt_aided"=>isset($statelevel->state_sc_govtaid_pct)?$statelevel->state_sc_govtaid_pct:'0',"private"=>isset($statelevel->state_sc_private_pct)?$statelevel->state_sc_private_pct:'0',"central_govt"=>isset($statelevel->state_sc_centgovt_pct)?$statelevel->state_sc_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_sc_govt_pl12)?$statelevel->state_sc_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_sc_govtaid_pl12)?$statelevel->state_sc_govtaid_pl12:'0' 
@@ -699,7 +1031,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_sc_centgovt_pl12)?$statelevel->state_sc_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_sc_private_pl34)?$statelevel->state_sc_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_sc_centgovt_pl34)?$statelevel->state_sc_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_sc_govt_pct)?$statelevel->india_sc_govt_pct:'0',"govt_aided"=>isset($statelevel->india_sc_govtaid_pct)?$statelevel->india_sc_govtaid_pct:'0',"private"=>isset($statelevel->india_sc_private_pct)?$statelevel->india_sc_private_pct:'0',"central_govt"=>isset($statelevel->india_sc_centgovt_pct)?$statelevel->india_sc_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_sc_govt_pl12)?$statelevel->india_sc_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_sc_govtaid_pl12)?$statelevel->india_sc_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_sc_govt_pl34)?$statelevel->india_sc_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_sc_govtaid_pl34)?$statelevel->india_sc_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_sc_private_pl12)?$statelevel->india_sc_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_sc_centgovt_pl12)?$statelevel->india_sc_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_sc_private_pl34)?$statelevel->india_sc_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_sc_centgovt_pl34)?$statelevel->india_sc_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_sc_sc_pct)?$statelevel->state_sc_sc_pct:'0',"obc"=>isset($statelevel->state_sc_obc_pct)?$statelevel->state_sc_obc_pct:'0',"st"=>isset($statelevel->state_sc_st_pct)?$statelevel->state_sc_st_pct:'0',"general"=>isset($statelevel->state_sc_general_pct)?$statelevel->state_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_sc_sc_pl34)?$statelevel->state_sc_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_sc_obc_pl12)?$statelevel->state_sc_obc_pl12:'0' 
@@ -709,25 +1049,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_sc_general_pl12)?$statelevel->state_sc_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_sc_st_pl34)?$statelevel->state_sc_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_sc_general_pl34)?$statelevel->state_sc_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_sc_sc_pct)?$statelevel->india_sc_sc_pct:'0',"obc"=>isset($statelevel->india_sc_obc_pct)?$statelevel->india_sc_obc_pct:'0',"st"=>isset($statelevel->india_sc_st_pct)?$statelevel->india_sc_st_pct:'0',"general"=>isset($statelevel->india_sc_general_pct)?$statelevel->india_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_sc_sc_pl34)?$statelevel->india_sc_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_sc_obc_pl12)?$statelevel->india_sc_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_sc_sc_pl12)?$statelevel->india_sc_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_sc_obc_pl34)?$statelevel->india_sc_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_sc_st_pl12)?$statelevel->india_sc_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_sc_general_pl12)?$statelevel->india_sc_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_sc_st_pl34)?$statelevel->india_sc_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_sc_general_pl34)?$statelevel->india_sc_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_sc_pl1)?$statelevel->state_sc_pl1:'0',"basic"=>isset($statelevel->state_sc_pl2)?$statelevel->state_sc_pl2:'0',"proficient"=>isset($statelevel->state_sc_pl3)?$statelevel->state_sc_pl3:'0',"advanced"=>isset($statelevel->state_sc_pl4)?$statelevel->state_sc_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_sc_pl1)?$statelevel->india_sc_pl1:'0',"basic"=>isset($statelevel->india_sc_pl2)?$statelevel->india_sc_pl2:'0',"proficient"=>isset($statelevel->india_sc_pl3)?$statelevel->india_sc_pl3:'0',"advanced"=>isset($statelevel->india_sc_pl4)?$statelevel->india_sc_pl4:'0'))
             );
 
             $newstateArray['sst'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ss_pct)?$statelevel->state_ss_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_ss_pct)?$statelevel->india_ss_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_ss_boys_pct)?$statelevel->state_ss_boys_pct:'0',"girls"=>isset($statelevel->state_ss_girls_pct)?$statelevel->state_ss_girls_pct:'0','trans_gender'=>isset($statelevel->state_ss_trans_pct)?$statelevel->state_ss_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_ss_boys_pct)?$statelevel->state_ss_boys_pct:'0',"girls"=>isset($statelevel->state_ss_girls_pct)?$statelevel->state_ss_girls_pct:'0','trans_gender'=>isset($statelevel->state_ss_trans_pct)?$statelevel->state_ss_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_ss_boys_pl12)?$statelevel->state_ss_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_ss_boys_pl34)?$statelevel->state_ss_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_ss_girls_pl12)?$statelevel->state_ss_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_ss_girls_pl34)?$statelevel->state_ss_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_ss_boys_pct)?$statelevel->india_ss_boys_pct:'0',"girls"=>isset($statelevel->india_ss_girls_pct)?$statelevel->india_ss_girls_pct:'0','trans_gender'=>isset($statelevel->india_ss_trans_pct)?$statelevel->india_ss_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_ss_boys_pl12)?$statelevel->india_ss_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_ss_boys_pl34)?$statelevel->india_ss_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_ss_girls_pl12)?$statelevel->india_ss_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_ss_girls_pl34)?$statelevel->india_ss_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_ss_urban_pct)?$statelevel->state_ss_urban_pct:'0',"rural"=>isset($statelevel->state_ss_rural_pct)?$statelevel->state_ss_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_ss_rural_pl12)?$statelevel->state_ss_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_ss_urban_pl12)?$statelevel->state_ss_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_ss_rural_pl34)?$statelevel->state_ss_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_ss_urban_pl34)?$statelevel->state_ss_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_ss_urban_pct)?$statelevel->india_ss_urban_pct:'0',"rural"=>isset($statelevel->india_ss_rural_pct)?$statelevel->india_ss_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_ss_rural_pl12)?$statelevel->india_ss_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_ss_urban_pl12)?$statelevel->india_ss_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_ss_rural_pl34)?$statelevel->india_ss_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_ss_urban_pl34)?$statelevel->india_ss_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_ss_govt_pct)?$statelevel->state_ss_govt_pct:'0',"govt_aided"=>isset($statelevel->state_ss_govtaid_pct)?$statelevel->state_ss_govtaid_pct:'0',"private"=>isset($statelevel->state_ss_private_pct)?$statelevel->state_ss_private_pct:'0',"central_govt"=>isset($statelevel->state_ss_centgovt_pct)?$statelevel->state_ss_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_ss_govt_pl12)?$statelevel->state_ss_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_ss_govtaid_pl12)?$statelevel->state_ss_govtaid_pl12:'0' 
@@ -737,7 +1098,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_ss_centgovt_pl12)?$statelevel->state_ss_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_ss_private_pl34)?$statelevel->state_ss_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_ss_centgovt_pl34)?$statelevel->state_ss_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_ss_govt_pct)?$statelevel->india_ss_govt_pct:'0',"govt_aided"=>isset($statelevel->india_ss_govtaid_pct)?$statelevel->india_ss_govtaid_pct:'0',"private"=>isset($statelevel->india_ss_private_pct)?$statelevel->india_ss_private_pct:'0',"central_govt"=>isset($statelevel->india_ss_centgovt_pct)?$statelevel->india_ss_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_ss_govt_pl12)?$statelevel->india_ss_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_ss_govtaid_pl12)?$statelevel->india_ss_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_ss_govt_pl34)?$statelevel->india_ss_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_ss_govtaid_pl34)?$statelevel->india_ss_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_ss_private_pl12)?$statelevel->india_ss_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_ss_centgovt_pl12)?$statelevel->india_ss_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_ss_private_pl34)?$statelevel->india_ss_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_ss_centgovt_pl34)?$statelevel->india_ss_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_ss_sc_pct)?$statelevel->state_ss_sc_pct:'0',"obc"=>isset($statelevel->state_ss_obc_pct)?$statelevel->state_ss_obc_pct:'0',"st"=>isset($statelevel->state_ss_st_pct)?$statelevel->state_ss_st_pct:'0',"general"=>isset($statelevel->state_ss_general_pct)?$statelevel->state_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_ss_sc_pl34)?$statelevel->state_ss_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_ss_obc_pl12)?$statelevel->state_ss_obc_pl12:'0' 
@@ -747,25 +1116,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_ss_general_pl12)?$statelevel->state_ss_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_ss_st_pl34)?$statelevel->state_ss_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_ss_general_pl34)?$statelevel->state_ss_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_ss_sc_pct)?$statelevel->india_ss_sc_pct:'0',"obc"=>isset($statelevel->india_ss_obc_pct)?$statelevel->india_ss_obc_pct:'0',"st"=>isset($statelevel->india_ss_st_pct)?$statelevel->india_ss_st_pct:'0',"general"=>isset($statelevel->india_ss_general_pct)?$statelevel->india_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_ss_sc_pl34)?$statelevel->india_ss_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_ss_obc_pl12)?$statelevel->india_ss_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_ss_sc_pl12)?$statelevel->india_ss_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_ss_obc_pl34)?$statelevel->india_ss_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_ss_st_pl12)?$statelevel->india_ss_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_ss_general_pl12)?$statelevel->india_ss_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_ss_st_pl34)?$statelevel->india_ss_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_ss_general_pl34)?$statelevel->india_ss_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_ss_pl1)?$statelevel->state_ss_pl1:'0',"basic"=>isset($statelevel->state_ss_pl2)?$statelevel->state_ss_pl2:'0',"proficient"=>isset($statelevel->state_ss_pl3)?$statelevel->state_ss_pl3:'0',"advanced"=>isset($statelevel->state_ss_pl4)?$statelevel->state_ss_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_ss_pl1)?$statelevel->india_ss_pl1:'0',"basic"=>isset($statelevel->india_ss_pl2)?$statelevel->india_ss_pl2:'0',"proficient"=>isset($statelevel->india_ss_pl3)?$statelevel->india_ss_pl3:'0',"advanced"=>isset($statelevel->india_ss_pl4)?$statelevel->india_ss_pl4:'0'))
             );
 
             $newstateArray['eng'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_en_pct)?$statelevel->state_en_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_en_pct)?$statelevel->india_en_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_en_boys_pct)?$statelevel->state_en_boys_pct:'0',"girls"=>isset($statelevel->state_en_girls_pct)?$statelevel->state_en_girls_pct:'0','trans_gender'=>isset($statelevel->state_en_trans_pct)?$statelevel->state_en_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_en_boys_pct)?$statelevel->state_en_boys_pct:'0',"girls"=>isset($statelevel->state_en_girls_pct)?$statelevel->state_en_girls_pct:'0','trans_gender'=>isset($statelevel->state_en_trans_pct)?$statelevel->state_en_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_en_boys_pl12)?$statelevel->state_en_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_en_boys_pl34)?$statelevel->state_en_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_en_girls_pl12)?$statelevel->state_en_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_en_girls_pl34)?$statelevel->state_en_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_en_boys_pct)?$statelevel->india_en_boys_pct:'0',"girls"=>isset($statelevel->india_en_girls_pct)?$statelevel->india_en_girls_pct:'0','trans_gender'=>isset($statelevel->india_en_trans_pct)?$statelevel->india_en_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_en_boys_pl12)?$statelevel->india_en_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_en_boys_pl34)?$statelevel->india_en_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_en_girls_pl12)?$statelevel->india_en_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_en_girls_pl34)?$statelevel->india_en_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_en_urban_pct)?$statelevel->state_en_urban_pct:'0',"rural"=>isset($statelevel->state_en_rural_pct)?$statelevel->state_en_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_en_rural_pl12)?$statelevel->state_en_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_en_urban_pl12)?$statelevel->state_en_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_en_rural_pl34)?$statelevel->state_en_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_en_urban_pl34)?$statelevel->state_en_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_en_urban_pct)?$statelevel->india_en_urban_pct:'0',"rural"=>isset($statelevel->india_en_rural_pct)?$statelevel->india_en_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_en_rural_pl12)?$statelevel->india_en_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_en_urban_pl12)?$statelevel->india_en_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_en_rural_pl34)?$statelevel->india_en_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_en_urban_pl34)?$statelevel->india_en_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_en_govt_pct)?$statelevel->state_en_govt_pct:'0',"govt_aided"=>isset($statelevel->state_en_govtaid_pct)?$statelevel->state_en_govtaid_pct:'0',"private"=>isset($statelevel->state_en_private_pct)?$statelevel->state_en_private_pct:'0',"central_govt"=>isset($statelevel->state_en_centgovt_pct)?$statelevel->state_en_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_en_govt_pl12)?$statelevel->state_en_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_en_govtaid_pl12)?$statelevel->state_en_govtaid_pl12:'0' 
@@ -775,7 +1165,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_en_centgovt_pl12)?$statelevel->state_en_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_en_private_pl34)?$statelevel->state_en_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_en_centgovt_pl34)?$statelevel->state_en_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_en_govt_pct)?$statelevel->india_en_govt_pct:'0',"govt_aided"=>isset($statelevel->india_en_govtaid_pct)?$statelevel->india_en_govtaid_pct:'0',"private"=>isset($statelevel->india_en_private_pct)?$statelevel->india_en_private_pct:'0',"central_govt"=>isset($statelevel->india_en_centgovt_pct)?$statelevel->india_en_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_en_govt_pl12)?$statelevel->india_en_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_en_govtaid_pl12)?$statelevel->india_en_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_en_govt_pl34)?$statelevel->india_en_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_en_govtaid_pl34)?$statelevel->india_en_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_en_private_pl12)?$statelevel->india_en_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_en_centgovt_pl12)?$statelevel->india_en_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_en_private_pl34)?$statelevel->india_en_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_en_centgovt_pl34)?$statelevel->india_en_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_en_sc_pct)?$statelevel->state_en_sc_pct:'0',"obc"=>isset($statelevel->state_en_obc_pct)?$statelevel->state_en_obc_pct:'0',"st"=>isset($statelevel->state_en_st_pct)?$statelevel->state_en_st_pct:'0',"general"=>isset($statelevel->state_en_general_pct)?$statelevel->state_en_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_en_sc_pl34)?$statelevel->state_en_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_en_obc_pl12)?$statelevel->state_en_obc_pl12:'0' 
@@ -785,25 +1183,46 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_en_general_pl12)?$statelevel->state_en_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_en_st_pl34)?$statelevel->state_en_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_en_general_pl34)?$statelevel->state_en_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_en_sc_pct)?$statelevel->india_en_sc_pct:'0',"obc"=>isset($statelevel->india_en_obc_pct)?$statelevel->india_en_obc_pct:'0',"st"=>isset($statelevel->india_en_st_pct)?$statelevel->india_en_st_pct:'0',"general"=>isset($statelevel->india_en_general_pct)?$statelevel->india_en_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_en_sc_pl34)?$statelevel->india_en_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_en_obc_pl12)?$statelevel->india_en_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_en_sc_pl12)?$statelevel->india_en_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_en_obc_pl34)?$statelevel->india_en_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_en_st_pl12)?$statelevel->india_en_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_en_general_pl12)?$statelevel->india_en_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_en_st_pl34)?$statelevel->india_en_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_en_general_pl34)?$statelevel->india_en_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_en_pl1)?$statelevel->state_en_pl1:'0',"basic"=>isset($statelevel->state_en_pl2)?$statelevel->state_en_pl2:'0',"proficient"=>isset($statelevel->state_en_pl3)?$statelevel->state_en_pl3:'0',"advanced"=>isset($statelevel->state_en_pl4)?$statelevel->state_en_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_en_pl1)?$statelevel->india_en_pl1:'0',"basic"=>isset($statelevel->india_en_pl2)?$statelevel->india_en_pl2:'0',"proficient"=>isset($statelevel->india_en_pl3)?$statelevel->india_en_pl3:'0',"advanced"=>isset($statelevel->india_en_pl4)?$statelevel->india_en_pl4:'0'))
             );
 
             $newstateArray['mil'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_la_pct)?$statelevel->state_la_pct:'0',
-                    'national'=>isset($statelevel->avg_l_marks)?$statelevel->avg_l_marks:'0'),
+                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0'),
                 'gender'=>array(
-                    'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'),
-                    'national'=>array("boys"=>isset($statelevel->l_male_gender)?$statelevel->l_male_gender:'0',"girls"=>isset($statelevel->l_female_gender)?$statelevel->l_female_gender:'0')),
+                    'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->state_la_boys_pl12)?$statelevel->state_la_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->state_la_boys_pl34)?$statelevel->state_la_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->state_la_girls_pl12)?$statelevel->state_la_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->state_la_girls_pl34)?$statelevel->state_la_girls_pl34:'0'),
+
+                    'national'=>array("boys"=>isset($statelevel->india_la_boys_pct)?$statelevel->india_la_boys_pct:'0',"girls"=>isset($statelevel->india_la_girls_pct)?$statelevel->india_la_girls_pct:'0','trans_gender'=>isset($statelevel->india_la_trans_pct)?$statelevel->india_la_trans_pct:'0'
+                    ,'boys_basic_and_below_basic'=>isset($statelevel->india_la_boys_pl12)?$statelevel->india_la_boys_pl12:'0'
+                    ,'boys_proficient_and_advance'=>isset($statelevel->india_la_boys_pl34)?$statelevel->india_la_boys_pl34:'0'
+                    ,'girls_basic_and_below_basic'=>isset($statelevel->india_la_girls_pl12)?$statelevel->india_la_girls_pl12:'0'
+                    ,'girls_proficient_and_advance'=>isset($statelevel->india_la_girls_pl34)?$statelevel->india_la_girls_pl34:'0')),
                 'location'=>array(
                     'state'=>array("urban"=>isset($statelevel->state_la_urban_pct)?$statelevel->state_la_urban_pct:'0',"rural"=>isset($statelevel->state_la_rural_pct)?$statelevel->state_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->state_la_rural_pl12)?$statelevel->state_la_rural_pl12:'0'  
                     ,'urban_basic_and_below_basic'=>isset($statelevel->state_la_urban_pl12)?$statelevel->state_la_urban_pl12:'0' 
                     ,'rural_proficient_and_advance'=>isset($statelevel->state_la_rural_pl34)?$statelevel->state_la_rural_pl34:'0'
                     ,'urban_proficient_and_advance'=>isset($statelevel->state_la_urban_pl34)?$statelevel->state_la_urban_pl34:'0'),
-                    'national'=>array("urban"=>isset($statelevel->l_urban_location)?$statelevel->l_urban_location:'0',"rural"=>isset($statelevel->l_rural_location)?$statelevel->l_rural_location:'0')),
+                    
+                    'national'=>array("urban"=>isset($statelevel->india_la_urban_pct)?$statelevel->india_la_urban_pct:'0',"rural"=>isset($statelevel->india_la_rural_pct)?$statelevel->india_la_rural_pct:'0','rural_basic_and_below_basic'=>isset($statelevel->india_la_rural_pl12)?$statelevel->india_la_rural_pl12:'0'  
+                    ,'urban_basic_and_below_basic'=>isset($statelevel->india_la_urban_pl12)?$statelevel->india_la_urban_pl12:'0' 
+                    ,'rural_proficient_and_advance'=>isset($statelevel->india_la_rural_pl34)?$statelevel->india_la_rural_pl34:'0'
+                    ,'urban_proficient_and_advance'=>isset($statelevel->india_la_urban_pl34)?$statelevel->india_la_urban_pl34:'0')),
                 'management'=>array(
                     'state'=>array("govt"=>isset($statelevel->state_la_govt_pct)?$statelevel->state_la_govt_pct:'0',"govt_aided"=>isset($statelevel->state_la_govtaid_pct)?$statelevel->state_la_govtaid_pct:'0',"private"=>isset($statelevel->state_la_private_pct)?$statelevel->state_la_private_pct:'0',"central_govt"=>isset($statelevel->state_la_centgovt_pct)?$statelevel->state_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->state_la_govt_pl12)?$statelevel->state_la_govt_pl12:'0'  
                     ,'govt_aided_basic_and_below_basic'=>isset($statelevel->state_la_govtaid_pl12)?$statelevel->state_la_govtaid_pl12:'0' 
@@ -813,7 +1232,15 @@ class FinalParticipationstateController extends Controller
                     ,'central_govt_basic_and_below_basic'=>isset($statelevel->state_la_centgovt_pl12)?$statelevel->state_la_centgovt_pl12:'0' 
                     ,'private_proficient_and_advance'=>isset($statelevel->state_la_private_pl34)?$statelevel->state_la_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($statelevel->state_la_centgovt_pl34)?$statelevel->state_la_centgovt_pl34:'0'),
-                    'national'=>array("govt"=>isset($statelevel->l_govt_management)?$statelevel->l_govt_management:'0',"govt_aided"=>isset($statelevel->l_govt_aided_management)?$statelevel->l_govt_aided_management:'0',"private"=>isset($statelevel->l_private_management)?$statelevel->l_private_management:'0',"central_govt"=>isset($statelevel->l_central_govt_management)?$statelevel->l_central_govt_management:'0')),
+                    
+                    'national'=>array("govt"=>isset($statelevel->india_la_govt_pct)?$statelevel->india_la_govt_pct:'0',"govt_aided"=>isset($statelevel->india_la_govtaid_pct)?$statelevel->india_la_govtaid_pct:'0',"private"=>isset($statelevel->india_la_private_pct)?$statelevel->india_la_private_pct:'0',"central_govt"=>isset($statelevel->india_la_centgovt_pct)?$statelevel->india_la_centgovt_pct:'0','govt_basic_and_below_basic'=>isset($statelevel->india_la_govt_pl12)?$statelevel->india_la_govt_pl12:'0'  
+                    ,'govt_aided_basic_and_below_basic'=>isset($statelevel->india_la_govtaid_pl12)?$statelevel->india_la_govtaid_pl12:'0' 
+                    ,'govt_proficient_and_advance'=>isset($statelevel->india_la_govt_pl34)?$statelevel->india_la_govt_pl34:'0'
+                    ,'govt_aided_proficient_and_advance'=>isset($statelevel->india_la_govtaid_pl34)?$statelevel->india_la_govtaid_pl34:'0'
+                    ,'private_basic_and_below_basic'=>isset($statelevel->india_la_private_pl12)?$statelevel->india_la_private_pl12:'0'  
+                    ,'central_govt_basic_and_below_basic'=>isset($statelevel->india_la_centgovt_pl12)?$statelevel->india_la_centgovt_pl12:'0' 
+                    ,'private_proficient_and_advance'=>isset($statelevel->india_la_private_pl34)?$statelevel->india_la_private_pl34:'0'
+                    ,'central_govt_proficient_and_advance'=>isset($statelevel->india_la_centgovt_pl34)?$statelevel->india_la_centgovt_pl34:'0')),
                 'socialgroup'=>array(
                     'state'=>array("sc"=>isset($statelevel->state_la_sc_pct)?$statelevel->state_la_sc_pct:'0',"obc"=>isset($statelevel->state_la_obc_pct)?$statelevel->state_la_obc_pct:'0',"st"=>isset($statelevel->state_la_st_pct)?$statelevel->state_la_st_pct:'0',"general"=>isset($statelevel->state_la_general_pct)?$statelevel->state_la_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->state_la_sc_pl34)?$statelevel->state_la_sc_pl34:'0' 
                     ,'obc_aided_basic_and_below_basic'=>isset($statelevel->state_la_obc_pl12)?$statelevel->state_la_obc_pl12:'0' 
@@ -823,10 +1250,18 @@ class FinalParticipationstateController extends Controller
                     ,'general_basic_and_below_basic'=>isset($statelevel->state_la_general_pl12)?$statelevel->state_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($statelevel->state_la_st_pl34)?$statelevel->state_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($statelevel->state_la_general_pl34)?$statelevel->state_la_general_pl34:'0'),
-                    'national'=>array("sc"=>isset($statelevel->l_sc_social_group)?$statelevel->l_sc_social_group:'0',"obc"=>isset($statelevel->l_obc_social_group)?$statelevel->l_obc_social_group:'0',"st"=>isset($statelevel->l_st_social_group)?$statelevel->l_st_social_group:'0',"general"=>isset($statelevel->l_general_social_group)?$statelevel->l_general_social_group:'0')),
+                    
+                    'national'=>array("sc"=>isset($statelevel->india_la_sc_pct)?$statelevel->india_la_sc_pct:'0',"obc"=>isset($statelevel->india_la_obc_pct)?$statelevel->india_la_obc_pct:'0',"st"=>isset($statelevel->india_la_st_pct)?$statelevel->india_la_st_pct:'0',"general"=>isset($statelevel->india_la_general_pct)?$statelevel->india_la_general_pct:'0','sc_basic_and_below_basic'=>isset($statelevel->india_la_sc_pl34)?$statelevel->india_la_sc_pl34:'0' 
+                    ,'obc_aided_basic_and_below_basic'=>isset($statelevel->india_la_obc_pl12)?$statelevel->india_la_obc_pl12:'0' 
+                    ,'sc_proficient_and_advance'=>isset($statelevel->india_la_sc_pl12)?$statelevel->india_la_sc_pl12:'0'
+                    ,'obc_proficient_and_advance'=>isset($statelevel->india_la_obc_pl34)?$statelevel->india_la_obc_pl34:'0'
+                    ,'st_basic_and_below_basic'=>isset($statelevel->india_la_st_pl12)?$statelevel->india_la_st_pl12:'0'  
+                    ,'general_basic_and_below_basic'=>isset($statelevel->india_la_general_pl12)?$statelevel->india_la_general_pl12:'0' 
+                    ,'st_proficient_and_advance'=>isset($statelevel->india_la_st_pl34)?$statelevel->india_la_st_pl34:'0'
+                    ,'general_proficient_and_advance'=>isset($statelevel->india_la_general_pl34)?$statelevel->india_la_general_pl34:'0')),
                 'performance_level'=>array(
                     'state'=>array("below_basic"=>isset($statelevel->state_la_pl1)?$statelevel->state_la_pl1:'0',"basic"=>isset($statelevel->state_la_pl2)?$statelevel->state_la_pl2:'0',"proficient"=>isset($statelevel->state_la_pl3)?$statelevel->state_la_pl3:'0',"advanced"=>isset($statelevel->state_la_pl4)?$statelevel->state_la_pl4:'0'),
-                    'national'=>array("below_basic"=>isset($nationalPerformanceQuery[0]->l_avg_below_basic)?$nationalPerformanceQuery[0]->l_avg_below_basic:'0',"basic"=>isset($nationalPerformanceQuery[0]->l_avg_basic)?$nationalPerformanceQuery[0]->l_avg_basic:'0',"proficient"=>isset($nationalPerformanceQuery[0]->l_avg_proficient)?$nationalPerformanceQuery[0]->l_avg_proficient:'0',"advanced"=>isset($nationalPerformanceQuery[0]->l_avg_advanced)?$nationalPerformanceQuery[0]->l_avg_advanced:'0'))
+                    'national'=>array("below_basic"=>isset($statelevel->india_la_pl1)?$statelevel->india_la_pl1:'0',"basic"=>isset($statelevel->india_la_pl2)?$statelevel->india_la_pl2:'0',"proficient"=>isset($statelevel->india_la_pl3)?$statelevel->india_la_pl3:'0',"advanced"=>isset($statelevel->india_la_pl4)?$statelevel->india_la_pl4:'0'))
             );
 
         $stateArr['state_id'] = (int)$statelevel->state_code;
