@@ -12,7 +12,8 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="{{ asset('assets/admin/vendors/js/vendor.bundle.base.js')}}"></script>
+   
+    <script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="{{ asset('assets/admin/vendors/chart.js/Chart.min.js')}}"></script>
@@ -52,7 +53,8 @@ let modules=['User','Media','Team','Content','Program','Master','Statistic','Dat
 // edit=modules.filter(e=>!edit.includes(e));
 // delet=modules.filter(e=>!delet.includes(e));
 view.forEach((item)=>{
-  $('#'+item).css('display',"list-item");
+  // $('#'+item).css('display',"list-item");
+  $('#'+item).removeClass('hide-item');
 });
 add.forEach((item)=>{
   // $('.'+item+'_add').attr("disabled",true);

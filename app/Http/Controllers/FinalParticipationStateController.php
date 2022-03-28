@@ -1343,12 +1343,12 @@ class FinalParticipationstateController extends Controller
         ini_set('max_execution_time', '5000');
 
         $getAllStateDataSubjectWiseG3 = $this->GetAllStateDataSubjectCodeG3();
-        //$getAllStateDataSubjectWiseG5 = $this->GetAllStateDataSubjectCodeG5();
+        $getAllStateDataSubjectWiseG5 = $this->GetAllStateDataSubjectCodeG5();
         $getAllStateDataSubjectWiseG8 = $this->GetAllStateDataSubjectCodeG8();
         $getAllStateDataSubjectWiseG10 = $this->GetAllStateDataSubjectCodeG10();
 
         $final_dataG3 = DB::select($getAllStateDataSubjectWiseG3);
-        //$final_dataG5 = DB::select($getAllStateDataSubjectWiseG5);
+        $final_dataG5 = DB::select($getAllStateDataSubjectWiseG5);
         $final_dataG8 = DB::select($getAllStateDataSubjectWiseG8);
         $final_dataG10 = DB::select($getAllStateDataSubjectWiseG10);
 
@@ -1366,19 +1366,19 @@ class FinalParticipationstateController extends Controller
                 ]);
         }
 
-        // foreach($final_dataG5 as $data){
+        foreach($final_dataG5 as $data){
 
-        //     StateGradeLevelLearningOutCome::insert([
-        //         'state_id'=>$data->state_code,
-        //         'grade'=>5,
-        //         'subject_code'=>$data->subject_code,
-        //         'language'=>$data->language,
-        //         'question'=>$data->description,
-        //         'total_student'=>'0',
-        //         'state_avg'=>$data->state_avg,
-        //         'national_avg'=>$data->national_avg,
-        //     ]);
-        // }
+            StateGradeLevelLearningOutCome::insert([
+                'state_id'=>$data->state_code,
+                'grade'=>5,
+                'subject_code'=>$data->subject_code,
+                'language'=>$data->language,
+                'question'=>$data->description,
+                'total_student'=>'0',
+                'state_avg'=>$data->state_avg,
+                'national_avg'=>$data->national_avg,
+            ]);
+        }
 
         foreach($final_dataG8 as $data){
 
@@ -1494,7 +1494,10 @@ class FinalParticipationstateController extends Controller
     //Query For LO SRC data Subject Wise Grade 5
     public function GetAllStateDataSubjectCodeG5()
     {
-        $query = "select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M401' subject_code, 'math' language, 'Applies operations of numbers in daily life situations' description
+        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' drc_subject_code, 'L508' subject_code, 'language' language, 'Reads text with comprehension, locates details and sequence of events' description
+        from grade5statetable
+        union all
+        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M401' subject_code, 'math' language, 'Applies operations of numbers in daily life situations' description
         from grade5statetable
         union all
         select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' drc_subject_code, 'M412' subject_code, 'math' language, 'Explores the area and perimeter of simple geometrical shapes (triangle, rectangle, square) in terms of given shape as a unit' description

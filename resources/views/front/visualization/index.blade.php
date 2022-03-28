@@ -75,12 +75,12 @@
               <div class="col-md-12">
                 <p class="fw-bold">Dashboard</p>
                 <div class="row">
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-6">
                     <p class="desc-black">
                       The NAS dashboard has been divided into two clusters – Class-3, Class-5, Class-8 and Class-10. Subject wise information on following indicators and subgroups has been provided.
                     </p>
-                  </div>
-                  <div class="col-md-6">
+                  </div> -->
+                  <div class="col-md-12">
                     <p class="desc-black">
                     The NAS dashboard has been divided into two clusters – Class-3, Class-5, Class-8 and Class-10. Subject wise information on following indicators and subgroups has been provided.
                     </p>
@@ -88,7 +88,7 @@
                 </div>
                 
               </div>
-              <div class="col-md-6">
+              <!-- <div class="col-md-6">
                 <div class="line-card line-card-shadow">
                   <div class="line-cardimg">
                     <img src="{{asset('assets/front/images/visualization_2017.png')}}" alt="visualization" class="img-fluid" />
@@ -97,8 +97,8 @@
                     <a href="{{ env('NAS2017URL') }}" class="line-cardbtn org-btn" target="_blank">Access Dashboard 2017</a>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-6">
+              </div> -->
+              <div class="col-md-12">
                 <div class="line-card line-card-shadow">
                   <div class="line-cardimg">
                   

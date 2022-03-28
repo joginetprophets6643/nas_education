@@ -35,7 +35,7 @@ class UserController extends BaseController
     {
 
         User::where('mobile_no',$request->user)->update([
-            'password'=>Hash::make($request->password),
+            'password'=>Hash::make(base64_decode($request->password)),
         ]);
 
         return true;
@@ -98,7 +98,7 @@ class UserController extends BaseController
             $user->mobile_no=$request->mobile_no;
             $user->country=$request->country;
             $user->district_id=$request->district;
-            $user->password=Hash::make($request->password);
+            $user->password=Hash::make(base64_decode($request->password));
             $user->ip_address=$ip;
             $user->save();
             return Redirect()->route('success');
@@ -143,7 +143,7 @@ class UserController extends BaseController
             $user->mobile_no=$request->mobile_no;
             $user->country=$request->country;
             $user->district_id=$request->district;
-            $user->password=Hash::make($request->password);
+            $user->password=Hash::make(base64_decode($request->password));
             $user->ip_address=$ip;
             $user->save();
             return Redirect()->route('success');
@@ -168,6 +168,11 @@ class UserController extends BaseController
             return redirect()->route('login')->with('error','Captcha is not correct');
         }
         $credentials = $request->only('mobile_no', 'password');
+        foreach($credentials as $key=>$item){
+            if($key=="password"){
+                $credentials[$key]=base64_decode($item);
+            }
+        }
         if (Auth::attempt($credentials)) {
             return redirect()->route('successLogin');
         }
