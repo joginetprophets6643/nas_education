@@ -15,11 +15,21 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\DrcCron::class,
+        Commands\Src3Cron::class,
+        Commands\Src5Cron::class,
+        Commands\Src8Cron::class,
+        Commands\Src10Cron::class,
     ];
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('Drc:cron')
+        // $schedule->command('Drc:cron')
+        // ->everyMinute();
+        $schedule->command('Src3:cron')
+        ->everyMinute();
+        $schedule->command('Src5:cron')
+        ->everyMinute();
+        $schedule->command('Src8:cron')
         ->everyMinute();
     }
 

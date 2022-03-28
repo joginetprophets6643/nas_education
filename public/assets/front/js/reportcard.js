@@ -58,6 +58,7 @@ const entities = {
   rural: 'Rural',
   state_average: 'State Average',
   national_average: 'National Average',
+  trans_gender:'Trans Gender'
 }
 
 // geography wise screen
@@ -1533,7 +1534,7 @@ function createPerformanceScreen(data, empty) {
 
     // scales for section column charts
     const scales = {
-      gender: ['boys', 'girls'],
+      gender: ['boys', 'girls','trans_gender'],
       management: ['govt', 'govt_aided', 'private', 'central_govt'],
       socialgroup: ['sc', 'obc', 'st', 'general'],
       location: ['rural', 'urban'],
