@@ -853,65 +853,78 @@ class FinalParticipationstateController extends Controller
         ini_set('max_execution_time', '5000');
         $GetFeedbackDataFor_3_Grade = $this->GetFeedbackDataFor_3_Grade();
         $GetFeedbackDataFor_5_Grade = $this->GetFeedbackDataFor_5_Grade();
-        // $GetFeedbackDataFor_8_Grade = $this->GetFeedbackDataFor_8_Grade();
-        // $GetFeedbackDataFor_10_Grade = $this->GetFeedbackDataFor_10_Grade();
+        $GetFeedbackDataFor_8_Grade = $this->GetFeedbackDataFor_8_Grade();
+        $GetFeedbackDataFor_10_Grade = $this->GetFeedbackDataFor_10_Grade();
 
         $final_dataG3 = DB::select($GetFeedbackDataFor_3_Grade);
         $final_dataG5 = DB::select($GetFeedbackDataFor_5_Grade);
-        // $final_dataG8 = DB::select($GetFeedbackDataFor_8_Grade);
-        // $final_dataG10 = DB::select($GetFeedbackDataFor_10_Grade);
+        $final_dataG8 = DB::select($GetFeedbackDataFor_8_Grade);
+        $final_dataG10 = DB::select($GetFeedbackDataFor_10_Grade);
 
-        foreach($final_dataG3 as $data){
+        if(count($final_dataG3)>0)
+        {
+            foreach($final_dataG3 as $data){
 
-            PQStateLevelFeedback::insert([
+                PQStateLevelFeedback::insert([
+                        'state_id'=>$data->state_code,
+                        'grade'=>3,
+                        'level'=>$data->level,
+                        'question_code'=>$data->question_code,
+                        'question_desc'=>$data->question_desc,
+                        'total_parent'=>$data->total_parent,
+                        'avg'=>$data->state_avg,
+                    ]);
+            }
+        }
+
+        if(count($final_dataG5)>0)
+        {
+            foreach($final_dataG5 as $data){
+
+                PQStateLevelFeedback::insert([
                     'state_id'=>$data->state_code,
-                    'grade'=>3,
+                    'grade'=>5,
                     'level'=>$data->level,
                     'question_code'=>$data->question_code,
                     'question_desc'=>$data->question_desc,
                     'total_parent'=>$data->total_parent,
                     'avg'=>$data->state_avg,
                 ]);
+            }
         }
 
-        foreach($final_dataG5 as $data){
+        if(count($final_dataG8)>0)
+        {
+            foreach($final_dataG8 as $data){
 
-            PQStateLevelFeedback::insert([
-                'state_id'=>$data->state_code,
-                'grade'=>5,
-                'level'=>$data->level,
-                'question_code'=>$data->question_code,
-                'question_desc'=>$data->question_desc,
-                'total_parent'=>$data->total_parent,
-                'avg'=>$data->state_avg,
-            ]);
+                PQStateLevelFeedback::insert([
+                    'state_id'=>$data->state_code,
+                    'grade'=>8,
+                    'level'=>$data->level,
+                    'question_code'=>$data->question_code,
+                    'question_desc'=>$data->question_desc,
+                    'total_parent'=>$data->total_parent,
+                    'avg'=>$data->state_avg,
+                ]);
+            }
         }
 
-        // foreach($final_dataG8 as $data){
+        if(count($final_dataG10)>0)
+        {
+            foreach($final_dataG10 as $data){
 
-        //     PQStateLevelFeedback::insert([
-        //         'state_id'=>$data->state_code,
-        //         'grade'=>8,
-        //         'level'=>$data->level,
-        //         'question_code'=>$data->question_code,
-        //         'question_desc'=>$data->question_desc,
-        //         'total_parent'=>$data->total_parent,
-        //         'avg'=>$data->state_avg,
-        //     ]);
-        // }
+                PQStateLevelFeedback::insert([
+                    'state_id'=>$data->state_code,
+                    'grade'=>10,
+                    'level'=>$data->level,
+                    'question_code'=>$data->question_code,
+                    'question_desc'=>$data->question_desc,
+                    'total_parent'=>$data->total_parent,
+                    'avg'=>$data->state_avg,
+                ]);
+            }
+        }
 
-        // foreach($final_dataG10 as $data){
-
-        //     PQStateLevelFeedback::insert([
-        //         'state_id'=>$data->state_code,
-        //         'grade'=>10,
-        //         'level'=>$data->level,
-        //         'question_code'=>$data->question_code,
-        //         'question_desc'=>$data->question_desc,
-        //         'total_parent'=>$data->total_parent,
-        //         'avg'=>$data->state_avg,
-        //     ]);
-        // }
 
     // grade 11 pq feedback data insert
         $stringPQState = 'pq_state_level_feedback.state_id,';
@@ -1129,20 +1142,20 @@ class FinalParticipationstateController extends Controller
     //Query For SRC Feedback data for Grade 8
     public function GetFeedbackDataFor_8_Grade()
     {
-        $query = "select id, state_code, state_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, state_code, state_LA_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
-        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code,state_LA_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
-        select id, state_code, state_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, state_LA_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
-        select id, state_code, state_pq_q18
+        select id, state_code, state_LA_pq_q18
         as state_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
-        select id, state_code, state_pq_q29f
+        select id, state_code, state_LA_pq_q29f
         as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
@@ -1219,20 +1232,20 @@ class FinalParticipationstateController extends Controller
     //Query For SRC Feedback data for Grade 10
     public function GetFeedbackDataFor_10_Grade()
     {
-        $query = "select id, state_code, state_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, state_code, state_LA_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
-        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code,state_LA_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
-        select id, state_code, state_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, state_LA_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
-        select id, state_code, state_pq_q18
+        select id, state_code, state_LA_pq_q18
         as state_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
-        select id, state_code, state_pq_q29f
+        select id, state_code, state_LA_pq_q29f
         as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
@@ -1330,12 +1343,12 @@ class FinalParticipationstateController extends Controller
         ini_set('max_execution_time', '5000');
 
         $getAllStateDataSubjectWiseG3 = $this->GetAllStateDataSubjectCodeG3();
-        //$getAllStateDataSubjectWiseG5 = $this->GetAllStateDataSubjectCodeG5();
+        $getAllStateDataSubjectWiseG5 = $this->GetAllStateDataSubjectCodeG5();
         $getAllStateDataSubjectWiseG8 = $this->GetAllStateDataSubjectCodeG8();
         $getAllStateDataSubjectWiseG10 = $this->GetAllStateDataSubjectCodeG10();
 
         $final_dataG3 = DB::select($getAllStateDataSubjectWiseG3);
-        //$final_dataG5 = DB::select($getAllStateDataSubjectWiseG5);
+        $final_dataG5 = DB::select($getAllStateDataSubjectWiseG5);
         $final_dataG8 = DB::select($getAllStateDataSubjectWiseG8);
         $final_dataG10 = DB::select($getAllStateDataSubjectWiseG10);
 
@@ -1353,19 +1366,19 @@ class FinalParticipationstateController extends Controller
                 ]);
         }
 
-        // foreach($final_dataG5 as $data){
+        foreach($final_dataG5 as $data){
 
-        //     StateGradeLevelLearningOutCome::insert([
-        //         'state_id'=>$data->state_code,
-        //         'grade'=>5,
-        //         'subject_code'=>$data->subject_code,
-        //         'language'=>$data->language,
-        //         'question'=>$data->description,
-        //         'total_student'=>'0',
-        //         'state_avg'=>$data->state_avg,
-        //         'national_avg'=>$data->national_avg,
-        //     ]);
-        // }
+            StateGradeLevelLearningOutCome::insert([
+                'state_id'=>$data->state_code,
+                'grade'=>5,
+                'subject_code'=>$data->subject_code,
+                'language'=>$data->language,
+                'question'=>$data->description,
+                'total_student'=>'0',
+                'state_avg'=>$data->state_avg,
+                'national_avg'=>$data->national_avg,
+            ]);
+        }
 
         foreach($final_dataG8 as $data){
 
@@ -1481,7 +1494,10 @@ class FinalParticipationstateController extends Controller
     //Query For LO SRC data Subject Wise Grade 5
     public function GetAllStateDataSubjectCodeG5()
     {
-        $query = "select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M401' subject_code, 'math' language, 'Applies operations of numbers in daily life situations' description
+        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' drc_subject_code, 'L508' subject_code, 'language' language, 'Reads text with comprehension, locates details and sequence of events' description
+        from grade5statetable
+        union all
+        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M401' subject_code, 'math' language, 'Applies operations of numbers in daily life situations' description
         from grade5statetable
         union all
         select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' drc_subject_code, 'M412' subject_code, 'math' language, 'Explores the area and perimeter of simple geometrical shapes (triangle, rectangle, square) in terms of given shape as a unit' description
