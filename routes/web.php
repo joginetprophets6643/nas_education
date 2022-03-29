@@ -33,7 +33,13 @@ use App\Http\Controllers\FinalDistrictProcessController;
 **********************************/
 Route::get('/data-2017/state-master',[Data2017Controller::class,'state']);
 Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
+Route::get('/allGradesDataImport', function () {
 
+    \Artisan::call('schedule:run');
+
+    dd("All Grades Data Imported Successfully...");
+
+});
 /*********************************
 * 2017 Data upload end
 **********************************/
