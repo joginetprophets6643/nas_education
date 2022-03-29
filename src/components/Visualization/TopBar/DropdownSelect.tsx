@@ -1,10 +1,10 @@
 import React from 'react'
 
-const DropdownSelect = () => {
+const DropdownSelect = (props:any) => {
   return (
     <div className="dropdown-select-wrap">
         <h3 className="select-label">
-        You can select any state/UT, District or block from here
+            {props.label}
         </h3>
         <div className="dropdown">
             <a className="menu-level-main dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">India</a>

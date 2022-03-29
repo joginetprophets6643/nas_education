@@ -13,6 +13,7 @@ import { IntialStateModel, ParticipationCards } from '@/models/visualization';
 import { StoreModel } from '@/models/visualization';
 import { ClassSubjects } from '@/models/visualization';
 import { SubjectIcons } from '@/models/visualization';
+import MapTab from '@/components/Visualization/MapTab/MapTab';
 
 const TabContent = () => {
 
@@ -220,6 +221,7 @@ const TabContent = () => {
             </div>
         </div>
         ))}
+        <MapTab />
     </div>
   );
 };

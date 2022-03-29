@@ -65,7 +65,7 @@
       </div>
     </section>
 
-    <section class="report-card-wrap ptb-60">
+    <section class="report-card-wrap nrc-home-wrap ptb-60">
       <div class="container">
         <div class="row align-items-center p-3 line-card-shadow">
           <div class="col-md-12">
@@ -192,7 +192,7 @@
                 <div class="info-wrap">
                   <div class="infotab-content-wrap">
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-12 col-lg-6">
                           <div class="infotab-content light-blue-bg">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="content">
@@ -210,7 +210,7 @@
                             </div>
                           </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-12 col-lg-6">
                           <div class="infotab-content light-pink-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -228,7 +228,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-12 col-lg-6">
                           <div class="infotab-content light-green-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -247,7 +247,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-12 col-lg-6">
                           <div class="infotab-content light-yellow-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
@@ -265,7 +265,7 @@
                             
                           </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-12 col-lg-6">
                         <div class="infotab-content light-purple-bg">
                           <div class="d-flex align-items-center justify-content-between">
                             <div class="content">
@@ -281,8 +281,8 @@
                             </div>
                           </div>
                         </div>
-                    </div>
-                      <div class="col-md-6">
+                      </div>
+                      <div class="col-md-12 col-lg-6">
                           <div class="infotab-content light-sagegreen-bg">
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">

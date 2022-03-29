@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             @endif
-                            <div class="col-md-8">
+                            <div class="col-md-8 order-2 order-md-1">
                                 <h2 class="heading-blue-sm">
                                     {{$program->title}}
                                 </h2>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             @if(($i%2)==0)
-                            <div class="col-md-4">
+                            <div class="col-md-4 order-1 order-md-2">
                                 <div class="nasprogram-img">
                                     <img src="{{asset('assets/uploads/program/'.$program->image)}}" alt="img" class="img-fluid">
                                 </div>
@@ -65,7 +65,7 @@
                     <div class="nasprogram-about">
                         <div class="row">
                             @foreach($members as $member)
-                            <div class="col-md-3">
+                            <div class="col-md-3 mb-3">
                                 <h2 class="name">
                                 {{$member->name}}
                                 </h2>

@@ -30,12 +30,12 @@
               <div class="col-md-12">
                 
                    <div class="card-white">
-                    <div class="d-flex">
+                    <div class="d-flex justify-content-between">
                       {{-- <div class="col-md-12 col-lg-6 aboutpage-img-wrap">
                         <img src="{{asset('assets/front/images/about.png')}}" alt="img" class="img-fluid" />
                       </div> --}}
-                      <div class="col-md-12 aboutpage-content d-flex justify-content-between">
-                        <h2 class="heading-blue">
+                      <div class="col-md-12 aboutpage-content d-flex justify-content-between w-100">
+                        <h2 class="heading-blue mr-2">
                           State Wise Data List of NAS-2017
                         </h2>
                         <div class="">
