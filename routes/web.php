@@ -17,7 +17,7 @@ use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
 use App\Http\Controllers\FinalParticipationStateController;
 use App\Http\Controllers\FinalDistrictProcessController;
-
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +34,14 @@ use App\Http\Controllers\FinalDistrictProcessController;
 Route::get('/data-2017/state-master',[Data2017Controller::class,'state']);
 Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
 Route::get('/allGradesDataImport', function () {
-
+    DB::table('grade3statetable')->truncate();
+    DB::table('grade5statetable')->truncate();
+    DB::table('grade8statetable')->truncate();
+    DB::table('grade10statetable')->truncate();
+    DB::table('grade3districttable')->truncate();
+    DB::table('grade5districttable')->truncate();
+    DB::table('grade8districttable')->truncate();
+    DB::table('grade10districttable')->truncate();
     \Artisan::call('schedule:run');
 
     dd("All Grades Data Imported Successfully...");
