@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="http://nas21.inroad.in/report-pdf/assets/scss/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://nas21.inroad.in/report-pdf/assets/scss/bootstrap.min.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
@@ -16,9 +16,9 @@
       rel="stylesheet"
     />
     <!-- Material Icons -->
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/material-icons.css" />
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/style.css" />
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/pdf.css" />
+    <link rel="stylesheet" href="https://nas21.inroad.in/report-pdf/assets/scss/material-icons.css" />
+    <link rel="stylesheet" href="https://nas21.inroad.in/report-pdf/assets/scss/style.css" />
+    <link rel="stylesheet" href="https://nas21.inroad.in/report-pdf/assets/scss/pdf.css" />
     <title>NAS | State PDF</title>
     <style>
       .col-md-1 {
@@ -59,11 +59,11 @@
       }
     </style>
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="http://nas21.inroad.in/report-pdf/assets/js/jquery-3.6.0.min.js"></script>
-    <script src="http://nas21.inroad.in/report-pdf/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://nas21.inroad.in/report-pdf/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="https://nas21.inroad.in/report-pdf/assets/js/bootstrap.bundle.min.js"></script>
     <!-- Highcharts JS -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="http://nas21.inroad.in/report-pdf/assets/js/custom.js"></script>
+    <script src="https://nas21.inroad.in/report-pdf/assets/js/custom.js"></script>
     <!-- <style type="text/css">
       .progress-percent {
         font-size: 120px;
@@ -138,12 +138,12 @@
               <div class="reportview-container mb-0">
                 <div class="reportview-content-wrap state-heading">
                   <img
-                    src="http://nas21.inroad.in/report-pdf/assets/images/state-header-img.png"
+                    src="https://nas21.inroad.in/report-pdf/assets/images/state-header-img.png"
                     width="100%"
                     alt="cover-img"
                   />
                   <div class="heading-img-wrap text-white fw-bold">
-                    <img src="http://nas21.inroad.in/report-pdf/assets/images/ministry-of-education.png" alt="" />
+                    <img src="https://nas21.inroad.in/report-pdf/assets/images/ministry-of-education.png" alt="" />
                   </div>
                   <div class="heading-wrap text-white fw-bold">
                     <h2>STATE REPORT CARD</h2>
@@ -238,7 +238,7 @@
                           <div class="wrap">
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/area-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/area-icon.png"
                                 alt="area-icon"
                                 width="43"
                               />
@@ -250,7 +250,7 @@
                             </div>
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/population-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/population-icon.png"
                                 alt="population-icon"
                                 width="58"
                               />
@@ -261,7 +261,7 @@
                             </div>
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/density-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/density-icon.png"
                                 alt="density-icon"
                                 width="43"
                               />
@@ -273,7 +273,7 @@
                             </div>
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/literacy-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/literacy-icon.png"
                                 alt="area-icon"
                                 width="43"
                               />
@@ -284,7 +284,7 @@
                             </div>
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/child-sex-ratio-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/child-sex-ratio-icon.png"
                                 alt="area-icon"
                                 width="43"
                               />
@@ -314,7 +314,7 @@
                             <div class="img-tile dark-blue-bg align-items-center">
                               <img
                                 class="school-img"
-                                src="http://nas21.inroad.in/report-pdf/assets/images/school.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/school.png"
                                 alt="school"
                               />
                             </div>
@@ -331,7 +331,7 @@
                             <div class="img-tile dark-blue-bg align-items-center">
                               <img
                                 class="teacher-img"
-                                src="http://nas21.inroad.in/report-pdf/assets/images/teacher.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/teacher.png"
                                 alt="school"
                               />
                             </div>
@@ -348,7 +348,7 @@
                             <div class="img-tile dark-blue-bg align-items-center">
                               <img
                                 class="student-img"
-                                src="http://nas21.inroad.in/report-pdf/assets/images/students.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/students.png"
                                 alt="school"
                               />
                             </div>
@@ -1306,17 +1306,17 @@
                           </div>
                           <div class="col-md-2 text-center light-green">
                             <h3>14</h3>
-                            <div><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></div>
+                            <div><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></div>
                             <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
                           </div>
                           <div class="col-md-2 text-center bg-orange">
                             <h3>14</h3>
-                            <div><img src="http://nas21.inroad.in/report-pdf/assets/images/double-arrow.png" alt="double-arrow"></div>
+                            <div><img src="https://nas21.inroad.in/report-pdf/assets/images/double-arrow.png" alt="double-arrow"></div>
                             <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
                           </div>
                           <div class="col-md-2 text-center light-red">
                             <h3>14</h3>
-                            <div><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></div>
+                            <div><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></div>
                             <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
                           </div>
                         </div>
@@ -1340,7 +1340,7 @@
                                   <td>Moga</td>
                                   <td>267</td>
                                   <td>3</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>45</td>
                                   <td>55</td>
                                 </tr>
@@ -1348,7 +1348,7 @@
                                   <td>Fatehgarh Sahib</td>
                                   <td>263</td>
                                   <td>1</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>40</td>
                                   <td>60</td>
                                 </tr>
@@ -1356,7 +1356,7 @@
                                   <td>Jalandhar</td>
                                   <td>262</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>30</td>
                                   <td>70</td>
                                 </tr>
@@ -1364,7 +1364,7 @@
                                   <td>Faridkot</td>
                                   <td>259</td>
                                   <td>3</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>35</td>
                                   <td>65</td>
                                 </tr>
@@ -1372,7 +1372,7 @@
                                   <td>Pathankot</td>
                                   <td>259</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>55</td>
                                   <td>45</td>
                                 </tr>
@@ -1380,7 +1380,7 @@
                                   <td>Muktsar</td>
                                   <td>258</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>60</td>
                                   <td>40</td>
                                 </tr>
@@ -1388,7 +1388,7 @@
                                   <td>Fazilka</td>
                                   <td>253</td>
                                   <td>3</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>51</td>
                                   <td>49</td>
                                 </tr>
@@ -1396,7 +1396,7 @@
                                   <td>Barnala</td>
                                   <td>251</td>
                                   <td>3</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>57</td>
                                   <td>43</td>
                                 </tr>
@@ -1404,7 +1404,7 @@
                                   <td>Sangrur</td>
                                   <td>248</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>62</td>
                                   <td>38</td>
                                 </tr>
@@ -1412,7 +1412,7 @@
                                   <td>Mohali</td>
                                   <td>248</td>
                                   <td>1</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>59</td>
                                   <td>41</td>
                                 </tr>
@@ -1420,7 +1420,7 @@
                                   <td>Kapurthala</td>
                                   <td>245</td>
                                   <td>1</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>64</td>
                                   <td>36</td>
                                 </tr>
@@ -1428,7 +1428,7 @@
                                   <td>Ludhiana</td>
                                   <td>245</td>
                                   <td>1</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>66</td>
                                   <td>34</td>
                                 </tr>
@@ -1436,7 +1436,7 @@
                                   <td>Firozpur</td>
                                   <td>245</td>
                                   <td>1</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
                                   <td>53</td>
                                   <td>47</td>
                                 </tr>
@@ -1445,7 +1445,7 @@
                                   <td>Bathinda</td>
                                   <td>244</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/double-arrow.png" alt="double-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/double-arrow.png" alt="double-arrow"></td>
                                   <td>50</td>
                                   <td>50</td>
                                 </tr>
@@ -1454,7 +1454,7 @@
                                   <td>Taran Taran</td>
                                   <td>241</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
                                   <td>41</td>
                                   <td>59</td>
                                 </tr>
@@ -1462,7 +1462,7 @@
                                   <td>Hoshiarpur</td>
                                   <td>236</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
                                   <td>40</td>
                                   <td>60</td>
                                 </tr>
@@ -1470,7 +1470,7 @@
                                   <td>Mansa</td>
                                   <td>234</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
                                   <td>45</td>
                                   <td>55</td>
                                 </tr>
@@ -1478,7 +1478,7 @@
                                   <td>Nawanshahr</td>
                                   <td>231</td>
                                   <td>3</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
                                   <td>49</td>
                                   <td>51</td>
                                 </tr>
@@ -1486,7 +1486,7 @@
                                   <td>Gurdaspur</td>
                                   <td>223</td>
                                   <td>2</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
                                   <td>59</td>
                                   <td>41</td>
                                 </tr>
@@ -1494,7 +1494,7 @@
                                   <td>Amritsar</td>
                                   <td>221</td>
                                   <td>1</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
                                   <td>53</td>
                                   <td>47</td>
                                 </tr>
@@ -1502,7 +1502,7 @@
                                   <td>Rupnagar</td>
                                   <td>218</td>
                                   <td>5</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
                                   <td>50</td>
                                   <td>50</td>
                                 </tr>
@@ -1510,7 +1510,7 @@
                                   <td>Patiala</td>
                                   <td>217</td>
                                   <td>3</td>
-                                  <td><img src="http://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
+                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
                                   <td>38</td>
                                   <td>62</td>
                                 </tr>
@@ -1670,14 +1670,14 @@
                       <div class="pendamic-wrap my-5">
                         <div class="virus-icon2">
                           <img
-                            src="http://nas21.inroad.in/report-pdf/assets/images/virus.png"
+                            src="https://nas21.inroad.in/report-pdf/assets/images/virus.png"
                             alt="virus"
                             class="img-fluid"
                           />
                         </div>
                         <div class="virus-icon4">
                           <img
-                            src="http://nas21.inroad.in/report-pdf/assets/images/virus.png"
+                            src="https://nas21.inroad.in/report-pdf/assets/images/virus.png"
                             alt="virus"
                             class="img-fluid"
                           />
@@ -1978,7 +1978,7 @@
                                         <tr class="card-pink text-white">
                                           <td class="text" colspan="5">
                                             <img
-                                              src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png"
+                                              src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png"
                                               alt=""
                                             />
                                             Mathematics
@@ -2008,7 +2008,7 @@
                                         <tr class="card-blue text-white">
                                           <td class="text" colspan="5">
                                             <img
-                                              src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png"
+                                              src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png"
                                               alt="" style="width: 35px;height: 30px;"
                                             />
                                             Language
@@ -2038,7 +2038,7 @@
                                         <tr class="card-yellow text-white">
                                           <td class="text" colspan="5">
                                             <img
-                                              src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png"
+                                              src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png"
                                               alt=""
                                             />
                                             EVS
@@ -2067,7 +2067,7 @@
                                         <tr class="card-sagegreen text-white">
                                           <td class="text" colspan="5">
                                             <img
-                                              src="http://nas21.inroad.in/report-pdf/assets/images/science-icon.png"
+                                              src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png"
                                               alt=""
                                             />
                                             Science
@@ -2096,7 +2096,7 @@
                                         <tr class="card-green text-white">
                                           <td class="text" colspan="5">
                                             <img
-                                              src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png"
+                                              src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png"
                                               alt=""
                                             />
                                             Social Science
@@ -2125,7 +2125,7 @@
                                         <tr class="card-red text-white">
                                           <td class="text" colspan="5">
                                             <img
-                                              src="http://nas21.inroad.in/report-pdf/assets/images/mil-icon.png"
+                                              src="https://nas21.inroad.in/report-pdf/assets/images/mil-icon.png"
                                               alt=""
                                             />
                                             MIL
@@ -2154,7 +2154,7 @@
                                         <tr class="card-purple text-white">
                                           <td class="text" colspan="5">
                                             <img
-                                              src="http://nas21.inroad.in/report-pdf/assets/images/english-icon.png"
+                                              src="https://nas21.inroad.in/report-pdf/assets/images/english-icon.png"
                                               alt=""
                                             />
                                             English
