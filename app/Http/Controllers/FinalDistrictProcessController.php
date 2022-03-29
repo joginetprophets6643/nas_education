@@ -17,7 +17,7 @@ class FinalDistrictProcessController extends Controller
          $grade3PrcoessData = $this->grade3ParticipationData();
          $grade5PrcoessData = $this->grade5ParticipationData();
          $grade8PrcoessData = $this->grade8ParticipationData();
-        //  $grade10PrcoessData = $this->grade10ParticipationData();
+         $grade10PrcoessData = $this->grade10ParticipationData();
          return "Participation Table Created";
     }
 
@@ -197,7 +197,7 @@ class FinalDistrictProcessController extends Controller
         $grade3PrcoessData = $this->grade3PerformanceData();
         $grade5PrcoessData = $this->grade5PerformanceData();
         $grade8PrcoessData = $this->grade8PerformanceData();
-        // $grade10PrcoessData = $this->grade10PerformanceData();
+        $grade10PrcoessData = $this->grade10PerformanceData();
         return "Performance Table Created";
     }
 
