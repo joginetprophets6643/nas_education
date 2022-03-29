@@ -14,7 +14,7 @@
         <ul class="navbar-nav navbar-nav-right ml-auto">          
           
           <li class="nav-item dropdown d-xl-inline-flex user-dropdown">
-            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#"  data-bs-toggle="dropdown" aria-expanded="false">
             <span class="font-weight-normal"> {{Auth::user()->name}} </span></a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
@@ -50,15 +50,15 @@
             </a>
           </li>
           
-          <li class="nav-item" id="User" style="display:none;">
+          <li class="nav-item hide-item" id="User">
             <a class="nav-link" href="{{url('/secure-admin/user')}}">
               <span class="menu-title">Manage User</span>
               <i class="fas fa-user menu-icon"></i>
             </a>
           </li>
 
-          <li class="nav-item" id="Media" style="display:none;">
-            <a class="nav-link" data-toggle="collapse" href="#media" aria-expanded="false" aria-controls="auth">
+          <li class="nav-item hide-item" id="Media">
+            <a class="nav-link" data-bs-toggle="collapse" href="#media" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Manage Media</span>
               <!-- <i class="icon-doc menu-icon"></i> -->
               <i class="fa fa-photo-video menu-icon"></i>            </a>
@@ -70,29 +70,29 @@
             </div>
           </li>
 
-          <li class="nav-item" id="Team" style="display:none;">
+          <li class="nav-item hide-item" id="Team">
             <a class="nav-link" href="{{url('/secure-admin/team-manager')}}">
               <span class="menu-title">Manage Team</span>
               <i class="fa fa-users menu-icon"></i>            
             </a>
           </li>
 
-          <li class="nav-item" id="Content" style="display:none;">
+          <li class="nav-item hide-item" id="Content">
             <a class="nav-link" href="{{url('secure-admin/static-content')}}">
               <span class="menu-title">Manage Content</span>
               <i class="fas fa-file-alt menu-icon"></i>            
             </a>
           </li>
 
-          <li class="nav-item" id="Program" style="display:none;">
+          <li class="nav-item hide-item" id="Program">
             <a class="nav-link" href="{{url('/secure-admin/static-program')}}">
               <span class="menu-title">Manage Program</span>
               <i class="far fa-file-alt menu-icon"></i>            
             </a>
           </li>
 
-          <li class="nav-item" id="Master" style="display:none;">
-            <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="auth">
+          <li class="nav-item hide-item" id="Master">
+            <a class="nav-link" data-bs-toggle="collapse" href="#master" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Master</span>
               <i class="fas fa-globe-africa menu-icon"></i>            
             </a>
@@ -104,7 +104,7 @@
             </div>
           </li>
 
-          <li class="nav-item" id="Statistic" style="display:none;">
+          <li class="nav-item hide-item" id="Statistic">
             <a class="nav-link" href="{{url('/secure-admin/national-statistic')}}">
               <span class="menu-title">National Statistic</span>
               <i class="fas fa-globe menu-icon"></i>            
@@ -112,14 +112,14 @@
           </li>
 
 
-          <li class="nav-item" id="Data" style="display:none;">
+          <li class="nav-item hide-item" id="Data">
             <a class="nav-link" href="{{url('/secure-admin/upload-csv-files')}}">
               <span class="menu-title">Manage Data</span>
               <i class="fas fa-database menu-icon"></i>            
             </a>
           </li>
 
-          <li class="nav-item" id="Query" style="display:none;">
+          <li class="nav-item hide-item" id="Query">
             <a class="nav-link" href="{{url('/secure-admin/query-button')}}">
               <span class="menu-title">Query Buttons</span>
               <i class="fas fa-database menu-icon"></i>            
@@ -127,28 +127,28 @@
           </li>
 
 
-          <li class="nav-item" id="Banner" style="display:none;">
+          <li class="nav-item hide-item" id="Banner">
             <a class="nav-link" href="{{url('/secure-admin/manage-banner')}}">
               <span class="menu-title">Manage Banner</span>
               <i class="far fa-images menu-icon"></i>            
             </a>
           </li>
 
-          <li class="nav-item" id="Client-Logo" style="display:none;">
+          <li class="nav-item hide-item" id="Client-Logo">
             <a class="nav-link" href="{{url('/secure-admin/client-logo')}}">
               <span class="menu-title">Manage Client Logo</span>
               <i class="fas fa-images menu-icon"></i>            
             </a>
           </li>
 
-          <li class="nav-item" id="Registration" style="display:none;">
+          <li class="nav-item hide-item" id="Registration">
             <a class="nav-link" href="{{url('/secure-admin/registration-list')}}">
               <span class="menu-title">Total Registration</span>
               <i class="fas fa-user-friends menu-icon"></i>            
             </a>
           </li>
 
-          <li class="nav-item" id="RTI" style="display:none;">
+          <li class="nav-item  hide-item" id="RTI">
             <a class="nav-link" href="{{url('/secure-admin/manage-rti')}}">
               <span class="menu-title">Manage RTI</span>
               <!-- <i class="icon-user menu-icon"></i> -->
@@ -156,7 +156,7 @@
             </a>
           </li>
 
-          <li class="nav-item" id="Setting" style="display:none;">
+          <li class="nav-item  hide-item" id="Setting">
             <a class="nav-link" href="{{route('setting')}}">
               <span class="menu-title">Manage Setting</span>
               <!-- <i class="icon-user menu-icon"></i> -->

@@ -34,27 +34,27 @@ const mapOptions = {
   credits: {
     enabled: false
   },
-    series: [{
-      mapData: mapDataIE,
-      name: 'Random data',
-      allowPointSelect: true,
-      cursor: 'pointer',
-      color: "#9ec2e4",
-      borderColor: "#6e6f70",
-      states: {
-        hover: {
-          color: '#f7941c'
-        },
-        select: {
-          color: '#9ec2e4'
-        }
+  series: [{
+    mapData: mapDataIE,
+    name: 'Random data',
+    allowPointSelect: true,
+    cursor: 'pointer',
+    color: "#9ec2e4",
+    borderColor: "#6e6f70",
+    states: {
+      hover: {
+        color: '#f7941c'
       },
-      dataLabels: {
-        // enabled: true,
-        // format: '{point.name}'
-      },
-      
-    }]
+      select: {
+        color: '#9ec2e4'
+      }
+    },
+    dataLabels: {
+      // enabled: true,
+      // format: '{point.name}'
+    },
+    
+  }]
 }
   return (
     <div className="apcard-graph-wrap">

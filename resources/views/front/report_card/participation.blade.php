@@ -73,6 +73,16 @@
                                                     </div>
                                                     
                                                   </div>
+                                                  <div class="category-wrap">
+                                                    <div class="card-round card-blue-gradient">
+                                                      <span class="percentage" id="paricipation_gender_trans_class3">0%</span>
+                                                      <small class="title">Transgender</small>
+                                                    </div>
+                                                    <div class="img-wrap">
+                                                      <img src="{{asset('assets/front/images/trans-blue.svg')}}" alt="img" class="img-fluid" />
+                                                    </div>
+                                                    
+                                                  </div>
                                               </div>
                                             </div>
                                           </div>
@@ -239,6 +249,16 @@
                                                       <path id="Path_28" data-name="Path 28" d="M46.5,48.609c0,2.034.545,1.746,2.562,2.8,2.61,1.345,3.892,2.274,5.749.753,1.457-1.185,6.71-11.034,7.607-11.627V52.469c0,3.331-4.5,20.5-5.541,24.855-.432,1.778-1.537,4.18.064,4.18h9.817v31.629c0,3.523,5.029,2.979,7.463,2.979,1.6,0,3.539-1.169,3.539-2.466V81.5h2.162v32.03c0,1.249,2.034,2.466,3.539,2.466,2.418,0,7.463.544,7.463-2.979V81.5h9.609c1.6,0,.224-3.075-.288-5.365-.384-1.778-.785-3.2-1.169-4.9-.737-3.379-1.6-6.406-2.354-9.817-.368-1.6-.785-3.107-1.153-4.8a21.012,21.012,0,0,1-.929-5.125V39.577l.561.721a9.813,9.813,0,0,1,.545.913l5.509,8.936a5.781,5.781,0,0,0,1.281,1.6c2.162,1.826,3.427.336,5.781-.721,2.9-1.313,3.491-2.162,1.6-5.493-1.7-2.931-4.116-6.486-5.765-9.417-1.041-1.65-9.4-15.47-10.378-16.223-1.6-1.313-4.02-.913-7.031-.913H70.478c-3.075,0-5.477-.416-7.031,1.089l-8.68,13.981c-.256.448-.4.689-.7,1.137l-5.125,8.28c-.977,1.746-2.5,3.3-2.5,5.141" transform="translate(-46.44 11.383)" fill="#e9769f"/>
                                                     </svg>
                                                   </div>
+                                                </div>
+                                                <div class="category-wrap">
+                                                    <div class="card-round card-blue-gradient">
+                                                      <span class="percentage" id="paricipation_gender_trans_class5">0%</span>
+                                                      <small class="title">Transgender</small>
+                                                    </div>
+                                                    <div class="img-wrap">
+                                                      <img src="{{asset('assets/front/images/trans-blue.svg')}}" alt="img" class="img-fluid" />
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                           </div>
@@ -418,6 +438,16 @@
                                                     </svg>
                                                   </div>
                                                 </div>
+                                                <div class="category-wrap">
+                                                    <div class="card-round card-green-gradient">
+                                                      <span class="percentage" id="paricipation_gender_trans_class8">0%</span>
+                                                      <small class="title">Transgender</small>
+                                                    </div>
+                                                    <div class="img-wrap">
+                                                      <img src="{{asset('assets/front/images/trans-green.svg')}}" alt="img" class="img-fluid" />
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                           </div>
                                         </div>
@@ -596,6 +626,16 @@
                                                     </svg>
                                                   </div>
                                                 </div>
+                                                <div class="category-wrap">
+                                                    <div class="card-round card-red-gradient">
+                                                      <span class="percentage" id="paricipation_gender_trans_class10">0%</span>
+                                                      <small class="title">Transgender</small>
+                                                    </div>
+                                                    <div class="img-wrap">
+                                                      <img src="{{asset('assets/front/images/trans-red.svg')}}" alt="img" class="img-fluid" />
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                           </div>
                                         </div>
@@ -759,6 +799,16 @@
                                                       <path id="Path_28" data-name="Path 28" d="M46.5,48.609c0,2.034.545,1.746,2.562,2.8,2.61,1.345,3.892,2.274,5.749.753,1.457-1.185,6.71-11.034,7.607-11.627V52.469c0,3.331-4.5,20.5-5.541,24.855-.432,1.778-1.537,4.18.064,4.18h9.817v31.629c0,3.523,5.029,2.979,7.463,2.979,1.6,0,3.539-1.169,3.539-2.466V81.5h2.162v32.03c0,1.249,2.034,2.466,3.539,2.466,2.418,0,7.463.544,7.463-2.979V81.5h9.609c1.6,0,.224-3.075-.288-5.365-.384-1.778-.785-3.2-1.169-4.9-.737-3.379-1.6-6.406-2.354-9.817-.368-1.6-.785-3.107-1.153-4.8a21.012,21.012,0,0,1-.929-5.125V39.577l.561.721a9.813,9.813,0,0,1,.545.913l5.509,8.936a5.781,5.781,0,0,0,1.281,1.6c2.162,1.826,3.427.336,5.781-.721,2.9-1.313,3.491-2.162,1.6-5.493-1.7-2.931-4.116-6.486-5.765-9.417-1.041-1.65-9.4-15.47-10.378-16.223-1.6-1.313-4.02-.913-7.031-.913H70.478c-3.075,0-5.477-.416-7.031,1.089l-8.68,13.981c-.256.448-.4.689-.7,1.137l-5.125,8.28c-.977,1.746-2.5,3.3-2.5,5.141" transform="translate(-46.44 11.383)" fill="#EB6C69"/>
                                                     </svg>
                                                   </div>
+                                                </div>
+                                                <div class="category-wrap">
+                                                    <div class="card-round card-red-gradient">
+                                                      <span class="percentage" id="paricipation_gender_trans_classall">0%</span>
+                                                      <small class="title">Transgender</small>
+                                                    </div>
+                                                    <div class="img-wrap">
+                                                      <img src="{{asset('assets/front/images/trans-red.svg')}}" alt="img" class="img-fluid" />
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                           </div>

@@ -69,7 +69,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                      <input type="number" class="form-control mobile" name="mobile_no" placeholder="Mobile No." autocomplete="off">
+                                      <input type="text" class="form-control mobile" name="mobile_no" id="mobile" placeholder="Mobile No." autocomplete="off">
                                       <label class="form-input-label">Mobile No.</label>
                                       <sapn class="input-icon">
                                         <img src="{{asset('assets/front/images/mobile-icon.svg')}}" alt="icon" />
@@ -385,5 +385,29 @@ $('.otp-input').keyup(()=>{
 $('#pass_log_id').keyup(()=>{
   $('#pass_log_id').val($('#pass_log_id').val().replace(/\s+/g, " ").trim())
 })
+
+$('form').on('submit', function (e) {
+  e.preventDefault();
+  $.each(this, function (i, element) {
+    if(element.name=="password"){
+      element.value = btoa(element.value);
+    }
+  })
+  e.currentTarget.submit();
+})
+
+$(document).ready(function () {    
+    
+    $('.mobile').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (String.fromCharCode(charCode).match(/[^0-9]/g) || e.currentTarget.value.length == 10)    
+
+            return false;                        
+
+    });    
+
+});
 
 </script>

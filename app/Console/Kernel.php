@@ -31,6 +31,8 @@ class Kernel extends ConsoleKernel
         ->everyMinute();
         $schedule->command('Src8:cron')
         ->everyMinute();
+        $schedule->command('Src10:cron')
+        ->everyMinute();
     }
 
     /**

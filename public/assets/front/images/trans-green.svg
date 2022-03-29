@@ -1,0 +1,17 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 128" width="65" height="128">
+	<title>boy-icon-svg (1)-svg</title>
+	<defs>
+		<image width="29" height="29" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAMAAABhTZc9AAAAAXNSR0IB2cksfwAAAIdQTFRFAAAA6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6XafyADJbQAAAC10Uk5TABBvr9//77+PTyCff1DPYHCAMLBAwOBsXPANCnoGTQwFAAEcoD4SAjgmB9CQ+dCz0gAAAL9JREFUeJy10tkSgjAMBdBUCSiLlGpR3Ouu+P/fZ9ACIm3fvI85k0ymDUAdNhh6iH4wGkMvYYRN/Jh1McZOvOTLWIC/GbQ46SFiWmtkQEQ9nBsR/fdqzDcrZo5W3ezZFDmAsCJOHYMpAJlDQ6fO/qYCEofSt9tR0lvlVp2TLmxYLElXhUXXFW62Zsx3ewWHI5yMer4oBeoKIA2Ywq1SReP73XR091qBd1fLBdUejQLLWi/1tWr6RDylLKXkYVNRL8e8FMEMHsjGAAAAAElFTkSuQmCC"/>
+		<image  width="14" height="29" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAdCAMAAACt1K3WAAAAAXNSR0IB2cksfwAAAFFQTFRFcrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrVicrViAkypCwAAABt0Uk5TABBvr9//IJ9/v89w7zCAUOAP8A0GSwKdwKCQTbhb8QAAAGNJREFUeJytzkcOgDAQQ9EZwLRQQwvc/6AECcSYNX/35I1FnjRJMzzIC1zdKoGXWsFQa1gWsHSw1IZox8iM2ILomN1/7Jk5Uwbm5/PoLad5oXWVzTIWmLIzxXmiaOctY+0RwgkP9wfZ0/vURwAAAABJRU5ErkJggg=="/>
+		<image  width="33" height="98" id="img3" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAABiCAMAAADp9kqfAAAAAXNSR0IB2cksfwAAAIdQTFRF6Xaf6Xaf6Xaf6XafAAAA6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xaf6Xafpx7JPwAAAC10Uk5Tf5+/IAD/YEDfEJCAMHDvr1CgwOCw8NDP++zz/eh5GCc7SE1ZJqoSAQDrXvR0HuAMQgAAAT1JREFUeJzt19tygyAQBmAioCJCMNEmPaZND0kP7/98bUerCEv+B6h7xc58IzvgMsDYX6yybMW4iILJeeRQyAKKUiEhKyjCeQgRzEMIqaGQNRQZFNJAYRUScg2FtygpUUIxLUpSWI7EWGxaSAfFsIMXxFBsJBpvXJOi2EzjjBa1lxhSCD0lvztICLWdsjXdL8UsJTuq9YslBe+8nO5KM+U60bdXY24SYixWJ3u/X5SGXzgd3LZrOLnqTgQRCQ3FBgoLRXSQxcJA0UIRFkL86zUUBooWCgtFUAglcigaKEooJIfCQVFBsYNCKigcFBUUu6TY2+ub26CQmbi7rx8Oj0/H4/MLLfavb6dzHydavH+cx6DFJyOFfzh+CSJmIurqRSxiEf9ZePei6FXRC5EPt54ufpkMQiintXbkB37iG2Y7Q80XhJITAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		.s0 { fill: #72b562 } 
+		.s1 { fill: #ffffff } 
+	</style>
+	<use id="img1" href="#img1" transform="matrix(1,0,0,1,19,0)"/>
+	<use id="girl-icon-svg (4)" href="#img2" x="18" y="0"/>
+	<path id="Path_30" class="s0" d="m44.4 121.1c0 2.2 1.2 6.3-3.9 6.3-2.3 0-7.1 0.5-7.1-2.7v-35.2h-1.9v34.9c0 3.6-4.9 3.1-7.5 3.1q-0.7 0.1-1.3-0.1-0.7-0.2-1.2-0.7-0.5-0.4-0.9-1-0.3-0.6-0.4-1.3v-34.9c-5.2 0-4.3-4.4-4.3-6.7v-29.9l-0.6 0.7c-0.2 0.2-0.3 0.5-0.5 0.9q-0.7 1.2-1.5 2.4-0.8 1.3-1.6 2.5-0.8 1.2-1.7 2.3-0.8 1.2-1.7 2.4-0.4 0.3-0.9 0.5-0.4 0.2-1 0.2-0.5 0-1-0.1-0.5-0.2-0.9-0.6c-3.1-1.5-4.5-1.3-4.5-3.7 0-0.6 11.6-20.4 13.6-23.9 0.4-0.7 0.7-1.1 1.1-1.8 0.4-0.6 0.8-1.2 1.2-1.9q0.2-0.5 0.6-1 0.4-0.5 0.9-0.8 0.5-0.3 1.1-0.5 0.5-0.2 1.1-0.2h25.8c3.5 0 16.3 24.4 18.3 27.8q0.2 0.3 0.4 0.7 0.1 0.3 0.2 0.6 0.1 0.4 0.2 0.8 0 0.3-0.1 0.7c0 1.4-1.7 1.7-2.7 2.2-2.7 1.4-4.4 2.8-6.9-0.8-1.1-1.7-6.1-10-6.7-10.4v30.1c0 4.5 0.8 6.6-3.7 7.5z"/>
+	<use id="img3" href="#img3" x="32" y="30"/>
+	<path id="Shape 1" class="s1" d="m31 31h3v95h-3z"/>
+</svg>
