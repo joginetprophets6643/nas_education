@@ -40,6 +40,6 @@ class Src5Cron extends Command
     public function handle()
     {
         Excel::import(new Src5DataImport, public_path('G05y21_StateReports.csv'));
-        \Log::info("Cron run Succesfully....");
+        \Log::info("SRC5 Cron run Succesfully....");
     }
 }

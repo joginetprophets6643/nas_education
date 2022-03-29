@@ -19,6 +19,10 @@ class Kernel extends ConsoleKernel
         Commands\Src5Cron::class,
         Commands\Src8Cron::class,
         Commands\Src10Cron::class,
+        Commands\Drc3Cron::class,
+        Commands\Drc5Cron::class,
+        Commands\Drc8Cron::class,
+        Commands\Drc10Cron::class,
     ];
     protected function schedule(Schedule $schedule)
     {
@@ -33,6 +37,15 @@ class Kernel extends ConsoleKernel
         ->everyMinute();
         $schedule->command('Src10:cron')
         ->everyMinute();
+        $schedule->command('Drc3:cron')
+        ->everyMinute();
+        $schedule->command('Drc5:cron')
+        ->everyMinute();
+        $schedule->command('Drc8:cron')
+        ->everyMinute();
+        $schedule->command('Drc10:cron')
+        ->everyMinute();
+        
     }
 
     /**
