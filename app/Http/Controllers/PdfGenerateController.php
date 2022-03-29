@@ -10,6 +10,8 @@ use App\Models\State_Master;
 use App\Models\NationalStatistic;
 use DB;
 use App\Models\StateGradeLevelPerformance;
+use Illuminate\Support\Facades\Log;
+
 
 class PdfGenerateController extends Controller
 {
@@ -32,7 +34,7 @@ class PdfGenerateController extends Controller
                             'DistrictFeedback'=>function($feedback){
                                 $feedback->orderBy('grade','asc');
                             }])
-                            // ->whereIn('udise_district_code',['710'])
+                            ->whereIn('udise_district_code',['710'])
                             ->get();
         // dd($districtData);
         if(count($districtData)>0)
@@ -72,12 +74,11 @@ class PdfGenerateController extends Controller
                             //,'721','715'
         if(count($districtData)>0)
         {
-            foreach($districtData as $districtVal)
+            foreach($districtData as $dk=>$districtVal)
             {
                 $districtParticipationData = $districtVal['DistrictParticipation'];
                 $districtLOData = $districtVal['DistrictLO'];
                 $districtFeedbackData = $districtVal['DistrictFeedback'];
-                // dd($districtVal);
                 $folderPath = public_path('nas_pdf/national/'.$districtVal->udise_state_code.'/'.$districtVal->udise_district_code.'/');
 
                 if(File::isDirectory($folderPath)){
@@ -101,6 +102,7 @@ class PdfGenerateController extends Controller
 
                 $pdf->saveAs($file_path);            
                 // return response()->download($file_path);
+                Log::channel('naspdf')->info("district-pdf : District ID- ".$districtVal->udise_district_code." ,District Name-".$districtVal->district_name." ,State Name-".$districtVal->state_name.' , count-'.$dk+1);
             }
         }
 
@@ -202,6 +204,189 @@ class PdfGenerateController extends Controller
     }
 
     /**
+    * State Pdf View
+    *
+    * Date : 28/03/2022
+    */
+    public function StateIndexPDFNewDraft()
+    {
+        $stateData = State_Master::select('id','state_name','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
+                            ->with(['StateParticipation'=>function($participation){
+                                $participation->select('id','state_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
+                                $participation->with(['StatePerformance']);
+                                $participation->orderBy('grade','asc');
+                            },'StatePerformance'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'StateLO'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'StateFeedback'=>function($feedback){
+                                $feedback->orderBy('grade','asc');
+                            }])
+                            ->whereIn('udise_state_code',['7'])
+                            ->get();
+        if(count($stateData)>0)
+        {
+            foreach($stateData as $stateVal)
+            {
+                $stateParticipationDataAll = $stateVal['StateParticipation'];
+                $stateFeedbackData = $stateVal['StateFeedback'];
+                $stateLOData = $stateVal['StateLO'];
+
+                // dd($stateParticipationData);
+
+                $performanceData = $stateVal['StatePerformance'];
+                $stateParticipationQuery = $this->StateParticipationGroupByQuery($stateVal->udise_state_code);
+                $stateParticipationData = DB::select($stateParticipationQuery);
+                $stateParticipationData = json_decode(json_encode($stateParticipationData), true);
+                if(count($stateParticipationData)>0)
+                {
+                  $sc_social_group = $stateParticipationData[0]['sc_social_group'];
+                }
+                else
+                {
+                  $sc_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $obc_social_group = $stateParticipationData[0]['obc_social_group'];
+                }
+                else
+                {
+                  $obc_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $st_social_group = $stateParticipationData[0]['st_social_group'];
+                }
+                else
+                {
+                  $st_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $general_social_group = $stateParticipationData[0]['general_social_group'];
+                }
+                else
+                {
+                  $general_social_group = 0;
+                }        
+                $scImg = $this->getImgName($sc_social_group,'pink');
+                $obcImg = $this->getImgName($obc_social_group,'yellow');
+                $stImg = $this->getImgName($st_social_group,'sagegreen');
+                $genImg = $this->getImgName($general_social_group,'blue');
+
+                return view('statepdf.index2',compact('stateVal','performanceData','stateParticipationData','stateLOData','scImg','obcImg','stImg','genImg','stateParticipationDataAll','stateFeedbackData'));
+            }
+        }  
+    }
+    /**
+    * Download State Pdf 
+    *
+    * Date : 28/03/2022
+    */    
+    public function StatedwnNew()
+    {
+        $stateData = State_Master::select('id','state_name','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
+                            ->with(['StateParticipation'=>function($participation){
+                                $participation->select('id','state_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
+                                $participation->with(['StatePerformance']);
+                                $participation->orderBy('grade','asc');
+                            },'StatePerformance'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'StateLO'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'StateFeedback'=>function($feedback){
+                                $feedback->orderBy('grade','asc');
+                            }])
+                            ->whereIn('udise_state_code',['7'])
+                            ->get();
+                            //,'721','715'
+        if(count($stateData)>0)
+        {
+            foreach($stateData as $sk=>$stateVal)
+            {
+                $stateParticipationDataAll = $stateVal['StateParticipation'];
+                $stateFeedbackData = $stateVal['StateFeedback'];
+                $stateLOData = $stateVal['StateLO'];
+
+                $performanceData = $stateVal['StatePerformance'];
+                $stateParticipationQuery = $this->StateParticipationGroupByQuery($stateVal->udise_state_code);
+                $stateParticipationData = DB::select($stateParticipationQuery);
+                $stateParticipationData = json_decode(json_encode($stateParticipationData), true);
+                if(count($stateParticipationData)>0)
+                {
+                  $sc_social_group = $stateParticipationData[0]['sc_social_group'];
+                }
+                else
+                {
+                  $sc_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $obc_social_group = $stateParticipationData[0]['obc_social_group'];
+                }
+                else
+                {
+                  $obc_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $st_social_group = $stateParticipationData[0]['st_social_group'];
+                }
+                else
+                {
+                  $st_social_group = 0;
+                }
+                if(count($stateParticipationData)>0)
+                {
+                  $general_social_group = $stateParticipationData[0]['general_social_group'];
+                }
+                else
+                {
+                  $general_social_group = 0;
+                }        
+                $scImg = $this->getImgName($sc_social_group,'pink');
+                $obcImg = $this->getImgName($obc_social_group,'yellow');
+                $stImg = $this->getImgName($st_social_group,'sagegreen');
+                $genImg = $this->getImgName($general_social_group,'blue');
+
+                $folderPath = public_path('nas_pdf/national/'.$stateVal->udise_state_code.'/');
+
+                $fileName='nas-state';
+                $file_path = $folderPath.''.$fileName.'-report.pdf';
+
+                if(File::isDirectory($folderPath)){
+                    // File::deleteDirectory($folderPath);
+                    if(File::exists($file_path))
+                    {
+                        File::delete($file_path);
+                    }
+                }
+                if(!File::isDirectory($folderPath)){
+                    File::makeDirectory($folderPath, 0777, true, true);
+                }
+               
+                $render = view('statepdf.index2',compact('stateVal','performanceData','stateParticipationData','stateLOData','scImg','obcImg','stImg','genImg','stateParticipationDataAll','stateFeedbackData'))->render();
+                $pdf = new Pdf;
+                $pdf->addPage($render);
+                $pdf->setOptions(['javascript-delay' => 5000,'page-size'=>'a4']);
+                // ,'page-size'=>'a3'
+                // Storage::put('public/pdf/report.pdf', $pdf->output());
+
+                $pdf->saveAs($file_path);            
+                Log::channel('naspdf')->info("state-pdf : State ID- ".$stateVal->udise_state_code." ,State Name-".$stateVal->state_name.' , count-'.$sk+1);
+
+                return response()->download($file_path);
+            }
+        }
+
+        echo 'State Level Pdf generate successfully.';
+    }
+    /**
     * Download State Pdf 
     *
     * Date : 15/02/2021
@@ -220,7 +405,7 @@ class PdfGenerateController extends Controller
                             //,'721','715'
         if(count($stateData)>0)
         {
-            foreach($stateData as $stateVal)
+            foreach($stateData as $sk=>$stateVal)
             {
                 $performanceData = $stateVal['StatePerformance'];
                 $stateParticipationQuery = $this->StateParticipationGroupByQuery($stateVal->udise_state_code);
@@ -333,6 +518,8 @@ class PdfGenerateController extends Controller
                 // Storage::put('public/pdf/report.pdf', $pdf->output());
 
                 $pdf->saveAs($file_path);            
+                Log::channel('naspdf')->info("state-pdf : State ID- ".$stateVal->udise_state_code." ,State Name-".$stateVal->state_name.' , count-'.$sk+1);
+
                 // return response()->download($file_path);
             }
         }

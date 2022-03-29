@@ -31,5 +31,8 @@ class State_Master extends Model
     {
         return $this->hasMany(StateGradeLevelLearningOutCome::class,'state_id','udise_state_code');
     }
-
+    public function StateParticipation()
+    {
+        return $this->hasMany(AllGradeStateParticipationTBL::class,'state_id','udise_state_code');
+    } 
 }

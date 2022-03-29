@@ -6,7 +6,7 @@
         alt="dialog_box"
       />
       <h5 class="mb-15 text-white">
-        <span class="">{{count($stateParticipationData)>0?$stateParticipationData[0]['male_gender'] :'0'}}</span>
+        <span class="">{{isset($stateParticipationFinal)>0?$stateParticipationFinal->male_gender :'0'}}</span>
         <span class="">%</span>
       </h5>
     </div>
@@ -16,7 +16,7 @@
         alt="dialog_box"
       />
       <h5 class="mb-15 text-white">
-        <span class="">{{count($stateParticipationData)>0?$stateParticipationData[0]['female_gender'] :'0'}}</span>
+        <span class="">{{isset($stateParticipationFinal)>0?$stateParticipationFinal->female_gender :'0'}}</span>
         <span class="">%</span>
       </h5>
     </div>
