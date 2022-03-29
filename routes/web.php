@@ -104,6 +104,9 @@ Route::get('download-pdf', [PdfGenerateController::class, 'dwn'])->name('downloa
 // State Pdf Generate start
 Route::get('state-pdf', [PdfGenerateController::class, 'StateIndex']);
 Route::get('state-download-pdf', [PdfGenerateController::class, 'Statedwn'])->name('statedownload');
+
+Route::get('state-pdf2', [PdfGenerateController::class, 'StateIndexPDFNewDraft']);
+Route::get('state-download-pdf2', [PdfGenerateController::class, 'StatedwnNew']);
 //  State Pdf Generate End
 
 // National Pdf Generate start

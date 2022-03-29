@@ -1,18 +1,18 @@
 <div class="img-wrap mt-4">
   <div class="d-flex justify-content-center mb-4 w-100">
     <div class="me-5 pe-3">
-      <h3 class="text-blue">{{count($stateParticipationData)>0?$stateParticipationData[0]['rural_location'] :'0'}}%</h3>
+      <h3 class="text-blue">{{isset($stateParticipationFinal)>0?$stateParticipationFinal->rural_location :'0'}}%</h3>
     </div>
     <div class="ms-4 ps-3">
-      <h3 class="text-pink">{{count($stateParticipationData)>0?$stateParticipationData[0]['urban_location'] :'0'}}%</h3>
+      <h3 class="text-pink">{{isset($stateParticipationFinal)>0?$stateParticipationFinal->urban_location :'0'}}%</h3>
     </div>
   </div>
   @php
-    if(count($stateParticipationData)>0 && ($stateParticipationData[0]['urban_location']>$stateParticipationData[0]['rural_location']))
+    if(isset($stateParticipationFinal)>0 && ($stateParticipationFinal->urban_location>$stateParticipationFinal->rural_location))
     {
       $locationImg = 'c3-30-location.jpg';
     }
-    elseif(count($stateParticipationData)>0 && ($stateParticipationData[0]['urban_location']==$stateParticipationData[0]['rural_location']))
+    elseif(isset($stateParticipationFinal)>0 && ($stateParticipationFinal->urban_location==$stateParticipationFinal->rural_location))
     {
       $locationImg = 'c3-50-location.jpg';
     }

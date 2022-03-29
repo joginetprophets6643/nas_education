@@ -1,4 +1,5 @@
 <script type="text/javascript">
+    <?php if($grade==3){?>
 	      // c3-compare-graph bar graph
     Highcharts.chart("c3-compare-graph", {
         chart: {
@@ -105,7 +106,7 @@
           },
         ],
       });
-
+  <?php } if($grade==5){?>
       // c5-compare-graph bar graph
     Highcharts.chart("c5-compare-graph", {
         chart: {
@@ -207,7 +208,7 @@
           },
         ],
       });
-
+  <?php } if($grade==8){?>
       // c8-compare-graph bar graph
 
     Highcharts.chart("c8-compare-graph", {
@@ -320,7 +321,7 @@
           },
         ],
       });
-
+  <?php } if($grade==10){?>
       // c10-compare-graph bar graph
     Highcharts.chart("c10-compare-graph", {
         chart: {
@@ -448,4 +449,5 @@
           },
         ],
       });
+    <?php }?>
 </script>
