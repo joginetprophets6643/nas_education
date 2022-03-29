@@ -49,9 +49,9 @@
                                 @endif
                                 <div class="common-form login-form">
 
-                                <form id="reset-form">
+                                <form id="reset-form" method="POST">
                                     <div class="form-group">
-                                      <input type="number" class="form-control mobile" name="mobile_no" placeholder="Mobile No." autocomplete="off">
+                                      <input type="text" class="form-control mobile" name="mobile_no" placeholder="Mobile No." autocomplete="off">
                                       <label class="form-input-label">Mobile No.</label>
                                       <sapn class="input-icon">
                                         <img src="{{asset('assets/front/images/mobile-icon.svg')}}" alt="icon" />
@@ -93,10 +93,10 @@
                                 </form>
                                 
 
-                                <form id="password-form" class="otp-dis">
+                                <form id="password-form" class="otp-dis" method="POST">
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <input type="password" class="form-control" name="password" placeholder="Password">
+                                            <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
                                             <label class="form-input-label">Password</label>
                                             <span class="text-danger" id="conf_pass"></span>
                                         </div>
@@ -104,7 +104,7 @@
                                     <input type="hidden" name="user" id="user_mobile">
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
+                                            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" autocomplete="off">
                                             <label class="form-input-label">Confirm Password</label>
                                         </div>
                                     </div>
@@ -132,31 +132,52 @@
 let user='' 
 let OTP='';
 
+$(document).ready(function () {    
+    
+    $('.mobile').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (String.fromCharCode(charCode).match(/[^0-9]/g) || e.currentTarget.value.length == 10)    
+
+            return false;                        
+
+    });    
+
+});
+
 function sendOtp(){
 
     let flag=Validation();
 
     if(flag){
+        // const filters={
+        //     "mobile_no":{
+        //         "_eq": $('.mobile').val()
+        //     }
+        // }
         
-        const filters={
-            "mobile_no":{
-                "_eq": $('.mobile').val()
-            }
+        data={
+            'mobile_no': $('.mobile').val()
         }
-
         $.ajax({
-            type: "GET",
+            type: "POST",
             headers: {
             "Authorization": "Bearer " + token
             },
-            url: api_url + "users?filter="+ JSON.stringify(filters),
+            contentType: "application/json",
+            dataType: "json",
+            data:JSON.stringify(data),
+            url: d_api_url + "programs/users",
         }).done(response => {
             user=response.data;
-
-            if(user.length>0){
+            
+            if(user!=null){
+                user=JSON.parse(atob(user))
+                console.log(user)
                 $('#user_mobile').val(user[0].mobile_no)
                 OTP = otpCreation(); 
-                console.log(OTP)
+                // console.log(OTP)
                 $('#common_otp').val(OTP);             
 
                 $.ajax({
@@ -220,6 +241,7 @@ function Validation(){
             return true
         }
         else{
+            $('#error').html('')
             $('#valid_mobile').html("Please enter valid mobile number");
             return false
         }
@@ -301,10 +323,12 @@ $('.s-btn').click(()=>{
         if(item.name=='password')
         {
             pass=item.value
+            item.value=btoa(item.value)
         }
         if(item.name=='password_confirmation')
         {
             con_pass=item.value
+            item.value=btoa(item.value)
         }
     });
     
@@ -319,8 +343,8 @@ $('.s-btn').click(()=>{
                 url: base_url + 'data-share/change-password',
                 success: function (data) {
                     if(data){
-                        console.log("updated successfully")
-                        window.location='http://localhost:8000/data-share/login'
+                        // console.log("updated successfully")
+                        window.location="{{route('login')}}"
                     }
                 }
             })

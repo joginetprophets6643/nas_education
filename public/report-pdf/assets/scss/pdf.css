@@ -1,9 +1,9 @@
 .bg-orange {
-  background-color: #F7941C !important;
+  background-color: #f7941c !important;
 }
 
 .bg-grey {
-  background-color: #E7E7E8 !important;
+  background-color: #e7e7e8 !important;
 }
 
 .border-left {
@@ -68,6 +68,10 @@
   padding-left: 0;
 }
 
+.state-pdf .reportview-class-wrap .reportview-class-content .left h4 {
+  font-size: 20px;
+}
+
 .state-pdf .reportview-class-wrap .reportview-class-content .state-managemnt {
   margin-left: 0;
 }
@@ -95,7 +99,10 @@
   font-size: 16px;
 }
 
-.state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon1, .state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon2, .state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon4, .state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon5 {
+.state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon1,
+.state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon2,
+.state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon4,
+.state-pdf .reportview-class-wrap .pendamic-wrap .virus-icon5 {
   -webkit-animation: none;
           animation: none;
 }
@@ -131,7 +138,7 @@
 
 .state-pdf .nrc-pg2 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -144,7 +151,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -168,7 +175,7 @@
 
 .state-pdf .nrc-pg4 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -181,7 +188,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -196,7 +203,7 @@
 
 .state-pdf .nrc-pg5 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -209,7 +216,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -224,7 +231,7 @@
 
 .state-pdf .nrc-pg6 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -237,7 +244,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -252,7 +259,7 @@
 
 .state-pdf .nrc-pg7 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -265,7 +272,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -280,7 +287,7 @@
 
 .state-pdf .nrc-pg8 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -293,7 +300,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -308,7 +315,7 @@
 
 .state-pdf .nrc-pg9 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -321,7 +328,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -336,7 +343,7 @@
 
 .state-pdf .pg3 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -349,7 +356,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -364,7 +371,7 @@
 
 .state-pdf .pg4 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -377,7 +384,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -392,7 +399,7 @@
 
 .state-pdf .pg5 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -405,7 +412,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -420,7 +427,7 @@
 
 .state-pdf .pg6 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -433,7 +440,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -448,7 +455,7 @@
 
 .state-pdf .pg7 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -461,7 +468,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -476,7 +483,7 @@
 
 .state-pdf .pg8 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -489,7 +496,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -504,7 +511,7 @@
 
 .state-pdf .pg9 .reportview-footer {
   padding: 16px;
-  background: #D6E5F4;
+  background: #d6e5f4;
   position: relative;
 }
 
@@ -517,7 +524,7 @@
   background: #2a6aa9;
   padding: 5px 25px;
   letter-spacing: 0.11px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -592,7 +599,7 @@
   position: absolute;
   top: 4rem;
   right: 7.5rem;
-  border: 8px solid #F1F1F1;
+  border: 8px solid #f1f1f1;
 }
 
 .highlights-container .reportview-class-content .right-sec .report-card-head .img-tile .student-img,
@@ -629,13 +636,13 @@
 }
 
 .performance-graph .container .legend-3 {
-  border: 7px solid #B1B1B1;
+  border: 7px solid #b1b1b1;
   height: 12px;
   margin: 4px 4px 0 0;
 }
 
 .performance-graph .container .legend-4 {
-  border: 7px solid #D9D9D9;
+  border: 7px solid #d9d9d9;
   height: 12px;
   margin: 4px 4px 0 0;
 }
@@ -664,7 +671,7 @@
 
 .performance-graph .graph-mark .class-3-container .inner-container::before {
   border-left: 33px solid #2a6aa9;
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: -33px;
@@ -691,7 +698,7 @@
 
 .performance-graph .graph-mark .class-5-container .inner-container::before {
   border-left: 33px solid #2a6aa9;
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: -33px;
@@ -718,7 +725,7 @@
 
 .performance-graph .graph-mark .class-8-container .inner-container::before {
   border-left: 33px solid #2a6aa9;
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: -33px;
@@ -745,7 +752,7 @@
 
 .performance-graph .graph-mark .class-10-container .inner-container::before {
   border-left: 33px solid #2a6aa9;
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: -33px;
@@ -802,11 +809,11 @@
 }
 
 .state-testimony .teacher-testimony .infotab-content h2 {
-  color: #7CB342;
+  color: #7cb342;
 }
 
 .state-testimony .head-teacher-testimony .infotab-content h2 {
-  color: #75A9D9;
+  color: #75a9d9;
 }
 
 .state-table .ach-table tbody tr:last-child td:last-child {
@@ -905,12 +912,12 @@
 
 .blue-progress-bar .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #75a9d9;
-  content: '';
+  content: "";
 }
 
 .pink-progress-bar .progress-percent {
@@ -989,12 +996,12 @@
 
 .pink-progress-bar .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #e9769f;
-  content: '';
+  content: "";
 }
 
 .green-progress-bar .progress-percent {
@@ -1073,12 +1080,12 @@
 
 .green-progress-bar .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #7cb342;
-  content: '';
+  content: "";
 }
 
 .blue-progress-bar-lg .progress-percent {
@@ -1157,12 +1164,12 @@
 
 .blue-progress-bar-lg .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #75a9d9;
-  content: '';
+  content: "";
 }
 
 .pink-progress-bar-lg .progress-percent {
@@ -1241,12 +1248,12 @@
 
 .pink-progress-bar-lg .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #e9769f;
-  content: '';
+  content: "";
 }
 
 .pink-progress-bar-lg-txt .progress-percent {
@@ -1325,12 +1332,12 @@
 
 .pink-progress-bar-lg-txt .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #e9769f;
-  content: '';
+  content: "";
 }
 
 .pink-progress-bar-lg-txt .percent_text {
@@ -1413,12 +1420,12 @@
 
 .green-progress-bar-lg .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #7cb342;
-  content: '';
+  content: "";
 }
 
 .green-progress-bar-lg-txt .progress-percent {
@@ -1497,12 +1504,12 @@
 
 .green-progress-bar-lg-txt .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #7cb342;
-  content: '';
+  content: "";
 }
 
 .green-progress-bar-lg-txt .percent_text {
@@ -1585,12 +1592,12 @@
 
 .blue-progress-bar-sm .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #75a9d9;
-  content: '';
+  content: "";
 }
 
 .pink-progress-bar-sm .progress-percent {
@@ -1669,12 +1676,12 @@
 
 .pink-progress-bar-sm .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #e9769f;
-  content: '';
+  content: "";
 }
 
 .green-progress-bar-sm .progress-percent {
@@ -1753,12 +1760,12 @@
 
 .green-progress-bar-sm .percent_more:after {
   position: absolute;
-  left: .5em;
+  left: 0.5em;
   top: 0em;
   right: 0;
   bottom: 0;
   background: #7cb342;
-  content: '';
+  content: "";
 }
 
 /* line progress bar */
@@ -1799,7 +1806,7 @@
 .pink-progress-container .line-progress-bar {
   height: 100%;
   width: 0;
-  background-color: #E9769F;
+  background-color: #e9769f;
   border-radius: 4px;
 }
 
@@ -1859,15 +1866,15 @@
 
 .national-heading .heading-wrap h2 {
   letter-spacing: 0.35px;
-  color: #FFFFFF;
-  font-family: 'Roboto Slab', serif;
+  color: #ffffff;
+  font-family: "Roboto Slab", serif;
   font-size: 70px;
   font-weight: bold;
 }
 
 .national-heading .heading-wrap p {
   letter-spacing: 0.2px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 40px;
   font-weight: 400;
 }
@@ -1878,7 +1885,7 @@
 
 .ap-graph-container .graph-wrap:after {
   border-bottom: 1px solid #ccc;
-  content: '';
+  content: "";
   display: block;
   bottom: 49px;
   position: absolute;
@@ -1975,7 +1982,7 @@
 
 .subject-map-wrap .subject-map-iconname span {
   letter-spacing: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 400;
   display: -webkit-box;
@@ -2078,5 +2085,69 @@
   right: 0;
   width: 50px;
   top: -100px;
+}
+
+.about-nas .highlights-container .reportview-class-content {
+  padding: 3rem 1rem;
+}
+
+.about-nas .highlights-container .reportview-class-content h1 {
+  font-size: 4rem;
+  color: #57585a;
+  margin-bottom: 3rem;
+  line-height: 2rem;
+}
+
+.about-nas .highlights-container .reportview-class-content .top-card {
+  z-index: 1;
+}
+
+.about-nas .highlights-container .reportview-class-content .about-sec-card {
+  background: #e6e7e9;
+  padding: 11rem 2rem 2rem 2rem;
+  margin-top: -9rem;
+}
+
+.about-nas .highlights-container .reportview-class-content .about-sec-card p {
+  line-height: 2.1rem;
+  text-align: justify;
+}
+
+.class-name .reportview-class-content {
+  height: 50em;
+}
+
+.class-name .reportview-class-content .class-card {
+  -webkit-clip-path: polygon(0 0%, calc(100%) 0, calc(100%) 100%, 0 100%, 5rem 50%);
+          clip-path: polygon(0 0%, calc(100%) 0, calc(100%) 100%, 0 100%, 5rem 50%);
+  position: absolute;
+  width: 75%;
+  left: 25%;
+  top: 45%;
+  background: #57585a;
+}
+
+.class-name .reportview-class-content .class-card h2 {
+  font-size: 2.45rem;
+}
+
+.class-name .reportview-class-content .class-card h1 {
+  font-size: 3.5rem;
+}
+
+.light-grey {
+  background-color: #e6e7e9 !important;
+}
+
+.light-orange {
+  background-color: #f7941f1c !important;
+}
+
+.overall-box {
+  border: 1px solid #000;
+}
+
+.overall-box .blue-txt {
+  color: #00BFFF;
 }
 /*# sourceMappingURL=pdf.css.map */

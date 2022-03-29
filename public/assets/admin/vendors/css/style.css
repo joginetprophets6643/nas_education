@@ -17454,6 +17454,7 @@ dl li {
     position: absolute;
     font-size: 0.9rem;
     margin-top: 0;
+    margin-left: -9rem;
     padding: 0;
 }
 .navbar
@@ -18541,4 +18542,8 @@ a,.btn,.action {
 a.btn.btn-danger.btn-sm.RTI_delete {
     float: right;
     margin-top: -40px;
+}
+
+.hide-item{
+    display: none;
 }

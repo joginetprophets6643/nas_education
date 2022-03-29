@@ -65,7 +65,7 @@
   $('form').on('submit', function (e) {
     e.preventDefault();
      $.each(this, function (i, element) {
-    console.log("element name " + element.name + ", element val: " + element.value);
+    // console.log("element name " + element.name + ", element val: " + element.value);
     if(element.name=="password"){
       element.value = btoa(element.value);
     }

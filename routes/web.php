@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
 use App\Http\Controllers\FinalParticipationStateController;
+use App\Http\Controllers\FinalDistrictProcessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,12 +41,16 @@ Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
 /*********************************
 * District Level Data upload start
 **********************************/
-Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
-Route::get('/drc-final-data/performance',[DataProcessController::class,'performance']);
-Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
-Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);
-Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK']);
+// Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
+// Route::get('/drc-final-data/performance',[DataProcessController::class,'performance']);
+// Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
+// Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);
+// Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK']);
 
+
+Route::get('/drc-final-data/participation',[FinalDistrictProcessController::class,'alldistrictParticipationData']);
+Route::get('/drc-final-data/performance',[FinalDistrictProcessController::class,'alldistrictPerformancedata']);
+Route::get('/drc-final-data/lo',[FinalDistrictProcessController::class,'districtWiseLO']);
 /*********************************
 * District Level Data upload end
 **********************************/
@@ -337,7 +342,7 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
 
 
 //Front Routes
-Route::group(["middleware" => ["authCheck"]], function(){
+// Route::group(["middleware" => ["authCheck"]], function(){
 
     Route::group(["middleware" => ["language"]], function(){
         Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
@@ -408,13 +413,13 @@ Route::group(["middleware" => ["authCheck"]], function(){
     });
 
     Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
-    Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
+    // Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
 
-});
+// });
 
-Route::group(["middleware" => ["loggedCheck"]], function(){
+// Route::group(["middleware" => ["loggedCheck"]], function(){
 
-    Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
-    Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
+//     Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
+//     Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
 
-});
+// });

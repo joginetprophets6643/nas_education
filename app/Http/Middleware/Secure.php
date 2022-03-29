@@ -20,7 +20,7 @@ class Secure
         if(Auth::user()){
             if(!Auth::user()->address)
             {
-            return redirect()->back();
+            return redirect()->route('dashboard');
             }
             else
             {
