@@ -41,7 +41,7 @@
                         <div class="search">
                             <input type="text" class="searchTerm" placeholder="Search Here" name="state" id="state">
                             <button type="submit" class="searchButton">
-                                <i class="fa fa-search"></i>
+                                <img src="{{asset('assets/front/images/icons8-search.svg')}}" alt="icon" />
                             </button>
                         </div>
                         <!-- <label id="search">Search:</label> -->
