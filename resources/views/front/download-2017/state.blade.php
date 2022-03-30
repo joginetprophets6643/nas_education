@@ -39,8 +39,8 @@
                           State Wise Data List of NAS-2017
                         </h2>
                         <div class="">
-                            <a class="btn btn-sm org-btn p-1" href="{{url('/report-card/2017')}}">
-                                <i class="fa fa-arrow-left px-1"></i>
+                            <a class="btn btn-sm org-btn p-1 left-arrow" href="{{url('/report-card/2017')}}">
+                                <img src="{{asset('assets/front/images/arrow-left-solid.svg')}}" class="px-1" alt="icon" />
                                 <span class="px-1">Back</span>
                             </a>
                         </div>
