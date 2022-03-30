@@ -1794,30 +1794,26 @@ class FinalDistrictProcessController extends Controller
     }
 
 
-    /******************************************************************************
-     * Author: Er. Sanjay Kumar
-     * Date: March 25,2022
-     * Desc: Create Feedback data for tq,sq and pq for grade 3,5,8 and 10
-     *       We are also create data for all grade as 11th grade
-     *****************************************************************************/
+    //Create Feedback data for tq,sq and pq for grade 3,5,8 and 10 We are also create data for all grade as 11th grade
     public function districtFeedback(){
             
-        DB::table('pq_dist_level_feedback')->truncate();
+        DB::table('pq_district_level_feedback')->truncate();
         ini_set('max_execution_time', '5000');
         $GetFeedbackDataFor_3_Grade = $this->GetFeedbackDataFor_3_Grade();
         $GetFeedbackDataFor_5_Grade = $this->GetFeedbackDataFor_5_Grade();
-        // $GetFeedbackDataFor_8_Grade = $this->GetFeedbackDataFor_8_Grade();
-        // $GetFeedbackDataFor_10_Grade = $this->GetFeedbackDataFor_10_Grade();
+        $GetFeedbackDataFor_8_Grade = $this->GetFeedbackDataFor_8_Grade();
+        $GetFeedbackDataFor_10_Grade = $this->GetFeedbackDataFor_10_Grade();
 
         $final_dataG3 = DB::select($GetFeedbackDataFor_3_Grade);
         $final_dataG5 = DB::select($GetFeedbackDataFor_5_Grade);
-        // $final_dataG8 = DB::select($GetFeedbackDataFor_8_Grade);
-        // $final_dataG10 = DB::select($GetFeedbackDataFor_10_Grade);
+        $final_dataG8 = DB::select($GetFeedbackDataFor_8_Grade);
+        $final_dataG10 = DB::select($GetFeedbackDataFor_10_Grade);
 
         foreach($final_dataG3 as $data){
 
             PQdistrictLevelFeedback::insert([
-                    'dist_id'=>$data->dist_code,
+                    'state_id'=>$data->state_code,
+                    'district_id'=>$data->dist_code,
                     'grade'=>3,
                     'level'=>$data->level,
                     'question_code'=>$data->question_code,
@@ -1830,7 +1826,8 @@ class FinalDistrictProcessController extends Controller
         foreach($final_dataG5 as $data){
 
             PQdistrictLevelFeedback::insert([
-                'dist_id'=>$data->dist_code,
+                'state_id'=>$data->state_code,
+                'district_id'=>$data->dist_code,
                 'grade'=>5,
                 'level'=>$data->level,
                 'question_code'=>$data->question_code,
@@ -1840,57 +1837,59 @@ class FinalDistrictProcessController extends Controller
             ]);
         }
 
-        // foreach($final_dataG8 as $data){
+        foreach($final_dataG8 as $data){
 
-        //     PQdistrictLevelFeedback::insert([
-        //         'dist_id'=>$data->dist_code,
-        //         'grade'=>8,
-        //         'level'=>$data->level,
-        //         'question_code'=>$data->question_code,
-        //         'question_desc'=>$data->question_desc,
-        //         'total_parent'=>$data->total_parent,
-        //         'avg'=>$data->dist_avg,
-        //     ]);
-        // }
+            PQdistrictLevelFeedback::insert([
+                'state_id'=>$data->state_code,
+                'district_id'=>$data->dist_code,
+                'grade'=>8,
+                'level'=>$data->level,
+                'question_code'=>$data->question_code,
+                'question_desc'=>$data->question_desc,
+                'total_parent'=>$data->total_parent,
+                'avg'=>$data->dist_avg,
+            ]);
+        }
 
-        // foreach($final_dataG10 as $data){
+        foreach($final_dataG10 as $data){
 
-        //     PQdistrictLevelFeedback::insert([
-        //         'dist_id'=>$data->dist_code,
-        //         'grade'=>10,
-        //         'level'=>$data->level,
-        //         'question_code'=>$data->question_code,
-        //         'question_desc'=>$data->question_desc,
-        //         'total_parent'=>$data->total_parent,
-        //         'avg'=>$data->dist_avg,
-        //     ]);
-        // }
+            PQdistrictLevelFeedback::insert([
+                'state_id'=>$data->state_code,
+                'district_id'=>$data->dist_code,
+                'grade'=>10,
+                'level'=>$data->level,
+                'question_code'=>$data->question_code,
+                'question_desc'=>$data->question_desc,
+                'total_parent'=>$data->total_parent,
+                'avg'=>$data->dist_avg,
+            ]);
+        }
 
     // grade 11 pq feedback data insert
-        $stringPQdistrict = 'pq_dist_level_feedback.dist_id,';
+        $stringPQdistrict = 'pq_district_level_feedback.district_id,';
         $wherePQdistrict = "('pq','pq1','pq2','pq3')";
-        $stringGroupBYPQdistrict = 'pq_dist_level_feedback.dist_id,';
-        $districtTBLPQ = "pq_dist_level_feedback";
+        $stringGroupBYPQdistrict = 'pq_district_level_feedback.district_id,';
+        $districtTBLPQ = "pq_district_level_feedback";
         $alldistrictFBPQ = $this->RaqQuery($stringPQdistrict,$wherePQdistrict,$stringGroupBYPQdistrict,$districtTBLPQ);
         $allPQdistrictData = DB::select($alldistrictFBPQ);
         $allPQdistrictData = json_decode(json_encode($allPQdistrictData), true);
         $allDNLODatadistrictPQ = PQdistrictLevelFeedback::insert($allPQdistrictData);  
 
     // grade 11 tq feedback data insert
-        $stringTQdistrict = 'pq_dist_level_feedback.dist_id,';
+        $stringTQdistrict = 'pq_district_level_feedback.district_id,';
         $whereTQdistrict = "('tq')";
-        $stringGroupBYTQdistrict = 'pq_dist_level_feedback.dist_id,';
-        $districtTBLTQ = "pq_dist_level_feedback";
+        $stringGroupBYTQdistrict = 'pq_district_level_feedback.district_id,';
+        $districtTBLTQ = "pq_district_level_feedback";
         $alldistrictFBTQ = $this->RaqQuery($stringTQdistrict,$whereTQdistrict,$stringGroupBYTQdistrict,$districtTBLTQ);
         $allTQdistrictData = DB::select($alldistrictFBTQ);
         $allTQdistrictData = json_decode(json_encode($allTQdistrictData), true);
         $alldNLODatadistrictTQ = PQdistrictLevelFeedback::insert($allTQdistrictData);   
 
     // grade 11 sq feedback data insert
-        $stringSQdistrict = 'pq_dist_level_feedback.dist_id,';
+        $stringSQdistrict = 'pq_district_level_feedback.district_id,';
         $whereSQdistrict = "('sq')";
-        $stringGroupBYSQdistrict = 'pq_dist_level_feedback.dist_id,';
-        $districtTBLSQ = "pq_dist_level_feedback";
+        $stringGroupBYSQdistrict = 'pq_district_level_feedback.district_id,';
+        $districtTBLSQ = "pq_district_level_feedback";
         $alldistrictFBSQ = $this->RaqQuery($stringSQdistrict,$whereSQdistrict,$stringGroupBYSQdistrict,$districtTBLSQ);
         $allSQdistrictData = DB::select($alldistrictFBSQ);
         $allSQdistrictData = json_decode(json_encode($allSQdistrictData), true);
@@ -1899,362 +1898,323 @@ class FinalDistrictProcessController extends Controller
         return "Feedback data successfully created.";
     }
 
-    //Query For Feedback SRC data Subject Wise Grade 3
+    //Query For Feedback DRC data Subject Wise Grade 3
     public function GetFeedbackDataFor_3_Grade()
     {
-        $query = "select id, dist_code, dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, state_code, dist_code, Dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code,dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_pq_q32 as dist_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q18 as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_pq_q18
-        as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q10 as dist_avg, 'pq' level, 'Students go out and play during games period' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_pq_q29f
-        as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to any digital device of class 3, 5 and 8 avail computer in the school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q30
-        as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q30 as dist_avg, 'pq' level, 'students of class 10 have laboratory facility in school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q33
-        as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q27g as dist_avg, 'pq' level, 'Students have internet connectivity at home' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q31
-        as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q32
-        as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q30 as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q34
-        as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q33 as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q36
-        as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q31 as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q04
-        as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q28
-        as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_sq_q31
-        as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_sq_q32
-        as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_sq_q34
-        as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_sq_q35
-        as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q31 as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_sq_q14
-        as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q32 as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_sq_q09
-        as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q34 as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q18
-        as dist_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q35 as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q17
-        as dist_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q14 as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, dist_code, dist_tq_q16
-        as dist_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q09 as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        from grade3districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        from grade3districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        from grade3districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         ";
         return $query;
     }
-    //Query For SRC Feedback data for Grade 5
+    //Query For DRC Feedback data for Grade 5
     public function GetFeedbackDataFor_5_Grade()
     {
-        $query = "select id, dist_code, dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, state_code, dist_code, Dist_pq_q14 as dist_avg, 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code,dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_pq_q32 as dist_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
-        from grade5districttable
-        union all
-        select id, dist_code, dist_pq_q18
+        select id, state_code, dist_code, Dist_pq_q18
         as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_pq_q29f
-        as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q10 as dist_avg, 'pq' level, 'Students go out and play during games period' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q30
-        as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to any digital device of class 3, 5 and 8 avail computer in the school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q33
-        as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q30 as dist_avg, 'pq' level, 'Students of class 10 have laboratory facility in school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q31
-        as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q27g as dist_avg, 'pq' level, 'Students have internet connectivity at home' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q32
-        as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q34
-        as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q30 as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q36
-        as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q33 as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q04
-        as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q31 as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q28
-        as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_sq_q31
-        as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_sq_q32
-        as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_sq_q34
-        as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_sq_q35
-        as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_sq_q14
-        as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q31 as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_sq_q09
-        as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q32 as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q18
-        as dist_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q34 as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q17
-        as dist_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q35 as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, dist_code, dist_tq_q16
-        as dist_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q14 as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        from grade5districttable
+        union all
+        select id, state_code, dist_code, Dist_sq_q09 as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        from grade5districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        from grade5districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        from grade5districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         ";
         return $query;
     }
-    //Query For SRC Feedback data for Grade 8
+    //Query For DRC Feedback data for Grade 8
     public function GetFeedbackDataFor_8_Grade()
     {
-        $query = "select id, dist_code, dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, state_code, dist_code, Dist_pq_q14 as dist_avg, 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code,dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_pq_q32 as dist_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q18 as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_pq_q18
-        as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q10 as dist_avg, 'pq' level, 'Students go out and play during games period' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_pq_q29f
-        as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to any digital device of class 3, 5 and 8 avail computer in the school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q30
-        as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q30 as dist_avg, 'pq' level, 'Students of class 10 have laboratory facility in school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q33
-        as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q27g as dist_avg, 'pq' level, 'Students have internet connectivity at home' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q31
-        as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q32
-        as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q30 as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q34
-        as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q33 as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q36
-        as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q31 as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q04
-        as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q28
-        as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_sq_q31
-        as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_sq_q32
-        as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_sq_q34
-        as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_sq_q35
-        as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q31 as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_sq_q14
-        as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q32 as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_sq_q09
-        as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q34 as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q18
-        as dist_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q35 as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q17
-        as dist_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q14 as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, dist_code, dist_tq_q16
-        as dist_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q09 as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        from grade8districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        from grade8districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        from grade8districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         ";
         return $query;
     }
-    //Query For SRC Feedback data for Grade 10
+    //Query For DRC Feedback data for Grade 10
     public function GetFeedbackDataFor_10_Grade()
     {
-        $query = "select id, dist_code, dist_pq_q14 as dist_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
+        $query = "select id, state_code, dist_code, Dist_pq_q14 as dist_avg, 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code,dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q17 as dist_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_pq_q32 as dist_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q18 as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_pq_q18
-        as dist_avg, 'pq' level, 'students could understand, what teachers teach in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q10 as dist_avg, 'pq' level, 'Students go out and play during games period' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_pq_q29f
-        as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to any digital device of class 3, 5 and 8 avail computer in the school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q30
-        as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q30 as dist_avg, 'pq' level, 'students of class 10 have laboratory facility in school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q33
-        as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q27g as dist_avg, 'pq' level, 'Students have internet connectivity at home' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q31
-        as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q32
-        as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q30 as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q34
-        as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q33 as dist_avg, 'tq' level, 'Teachers have adequate work space' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q36
-        as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q31 as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q04
-        as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q28
-        as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_sq_q31
-        as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_sq_q32
-        as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_sq_q34
-        as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_sq_q35
-        as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q31 as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_sq_q14
-        as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q32 as dist_avg, 'sq' level, 'of schools have adequate supporting staff' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_sq_q09
-        as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q34 as dist_avg, 'sq' level, 'of schools have adequate audio visual resources' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q18
-        as dist_avg, 'pq3' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q35 as dist_avg, 'sq' level, 'of schools have adequate library resources' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q17
-        as dist_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q14 as dist_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, dist_code, dist_tq_q16
-        as dist_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_sq_q09 as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
+        from grade10districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        from grade10districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        from grade10districttable
+        union all
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         ";
         return $query;
@@ -2267,12 +2227,12 @@ class FinalDistrictProcessController extends Controller
              WHEN ".$tbl_name.".question_code IS NOT NULL THEN '11' 
                ELSE ".$tbl_name.".question_code
              END AS grade,
-        ".$tbl_name.".level, ".$tbl_name.".question_code, ".$tbl_name.".question_desc, 
+             ".$tbl_name.".state_id, ".$tbl_name.".level, ".$tbl_name.".question_code, ".$tbl_name.".question_desc, 
         sum(".$tbl_name.".total_parent::float) AS total_parent,
          round(SUM(avg::float)/count(".$tbl_name.".id)) as avg 
         from ".$tbl_name."
         where ".$tbl_name.".level in ".$wherePQNational."
-        group by ".$groupByString." ".$tbl_name.".question_code, ".$tbl_name.".question_desc,".$tbl_name.".level";
+        group by ".$groupByString." ".$tbl_name.".question_code, ".$tbl_name.".question_desc,".$tbl_name.".level,".$tbl_name.".state_id";
 
         return $query;
     }
@@ -2284,13 +2244,13 @@ class FinalDistrictProcessController extends Controller
 
         $getAlldistrictDataSubjectWiseG3 = $this->GetAlldistrictDataSubjectCodeG3();
         $getAlldistrictDataSubjectWiseG5 = $this->GetAlldistrictDataSubjectCodeG5();
-        //$getAlldistrictDataSubjectWiseG8 = $this->GetAlldistrictDataSubjectCodeG8();
-        //$getAlldistrictDataSubjectWiseG10 = $this->GetAlldistrictDataSubjectCodeG10();
+        $getAlldistrictDataSubjectWiseG8 = $this->GetAlldistrictDataSubjectCodeG8();
+        $getAlldistrictDataSubjectWiseG10 = $this->GetAlldistrictDataSubjectCodeG10();
 
         $final_dataG3 = DB::select($getAlldistrictDataSubjectWiseG3);
         $final_dataG5 = DB::select($getAlldistrictDataSubjectWiseG5);
-        //$final_dataG8 = DB::select($getAlldistrictDataSubjectWiseG8);
-        // $final_dataG10 = DB::select($getAlldistrictDataSubjectWiseG10);
+        $final_dataG8 = DB::select($getAlldistrictDataSubjectWiseG8);
+        $final_dataG10 = DB::select($getAlldistrictDataSubjectWiseG10);
 
         foreach($final_dataG3 as $data){
 
@@ -2324,36 +2284,37 @@ class FinalDistrictProcessController extends Controller
             ]);
         }
 
-        // foreach($final_dataG8 as $data){
+        foreach($final_dataG8 as $data){
 
-        //     districtGradeLevelLearningOutCome::insert([
-        //         'state_id'=>$data->state_code,
-        //         'district_id'=>$data->dist_code,
-        //         'grade'=>8,
-        //         'subject_code'=>$data->subject_code,
-        //         'language'=>$data->language,
-        //         'question'=>$data->description,
-        //         'total_student'=>'0',
-        //         'avg'=>$data->district_avg,
-        //         'state_avg'=>$data->state_avg,
-        //         'national_avg'=>$data->national_avg,ional_avg,
-        //     ]);
-        // }
+            districtGradeLevelLearningOutCome::insert([
+                'state_id'=>$data->state_code,
+                'district_id'=>$data->dist_code,
+                'grade'=>8,
+                'subject_code'=>$data->subject_code,
+                'language'=>$data->language,
+                'question'=>$data->description,
+                'total_student'=>'0',
+                'avg'=>$data->district_avg,
+                'state_avg'=>$data->state_avg,
+                'national_avg'=>$data->national_avg,
+            ]);
+        }
 
-        // foreach($final_dataG10 as $data){
+        foreach($final_dataG10 as $data){
 
-        //     districtGradeLevelLearningOutCome::insert([
-        //         'district_id'=>$data->dist_code,
-        //         'grade'=>10,
-        //         'subject_code'=>$data->subject_code,
-        //         'language'=>$data->language,
-        //         'question'=>$data->description,
-        //         'total_student'=>'0',
-        //         'avg'=>$data->district_avg,
-        //         'state_avg'=>$data->state_avg,
-        //         'national_avg'=>$data->national_avg,
-        //     ]);
-        // }
+            districtGradeLevelLearningOutCome::insert([
+                'state_id'=>$data->state_code,
+                'district_id'=>$data->dist_code,
+                'grade'=>10,
+                'subject_code'=>$data->subject_code,
+                'language'=>$data->language,
+                'question'=>$data->description,
+                'total_student'=>'0',
+                'avg'=>$data->district_avg,
+                'state_avg'=>$data->state_avg,
+                'national_avg'=>$data->national_avg,
+            ]);
+        }
 
         return "district Learning Outcome Table Created";
     }
@@ -2361,10 +2322,10 @@ class FinalDistrictProcessController extends Controller
     //Query For LO DRC data Subject Wise Grade 3
     public function GetAlldistrictDataSubjectCodeG3()
     {
-        $query = "select id, state_code, dist_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, Dist_LA_psub3_1 as district_avg, 'L304' subject_code, 'math' language, 'Reads small texts with comprehension i.e., identifies main ideas, details,sequence and draws conclusions' description
+        $query = "select id, state_code, dist_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, Dist_LA_psub3_1 as district_avg, 'L304' subject_code, 'language' language, 'Reads small texts with comprehension i.e., identifies main ideas, details,sequence and draws conclusions' description
         from grade3Districttable
         union all
-        select id, state_code, dist_code, State_LA_psub3_2 as state_avg, India_LA_psub3_2 as national_avg, Dist_LA_psub3_2 as district_avg, 'L312' subject_code, 'math' language, 'Reads printed scripts on the classroom walls: poems, posters, charts etc.' description
+        select id, state_code, dist_code, State_LA_psub3_2 as state_avg, India_LA_psub3_2 as national_avg, Dist_LA_psub3_2 as district_avg, 'L312' subject_code, 'language' language, 'Reads printed scripts on the classroom walls: poems, posters, charts etc.' description
         from grade3Districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, Dist_MA_psub3_1 as district_avg, 'M301' subject_code, 'math' language, 'Reads and writes numbers up to 999 using place value' description
@@ -2710,7 +2671,7 @@ class FinalDistrictProcessController extends Controller
         $query = "select id, state_code, dist_code, State_EN_psub3_1 as state_avg, India_EN_psub3_1 as national_avg, Dist_EN_psub3_1 as district_avg, 'E1007' subject_code, 'eng' language, 'Reads, comprehends and responds to complex texts independently.' description
         from grade10districttable
         union all
-        select id, state_code, dist_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, Dist_LA_psub3_1 as district_avg, 'MIL1011' subject_code, 'mil' language, 'पपपपपपपपपप पपप पपपपप पपपपपप पप पपपपपपपप पपपप पपपपप, पपपपप, पपपपपप पप पपपपप-पपपपप पप पपपप पपपप पपपप' description
+        select id, state_code, dist_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, Dist_LA_psub3_1 as district_avg, 'MIL1011' subject_code, 'mil' language, 'पाठ्यवस्तु में शामिल रचनाओं के अतिरिक्‍त अन्य कविता, कहानी,एकांकी को पढ़ते-लिखते और मंचन करते हैं।' description
         from grade10districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, Dist_MA_psub3_1 as district_avg, 'M1001' subject_code, 'math' language, 'Generalises properties of numbers and relations among them studied earlier to evolve results, such as, Euclid’s division algorithm, Fundamental Theorem of Arithmetic and applies them to solve problems related to real life contexts.' description
