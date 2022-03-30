@@ -19,18 +19,33 @@ class Kernel extends ConsoleKernel
         Commands\Src5Cron::class,
         Commands\Src8Cron::class,
         Commands\Src10Cron::class,
+        Commands\Drc3Cron::class,
+        Commands\Drc5Cron::class,
+        Commands\Drc8Cron::class,
+        Commands\Drc10Cron::class,
     ];
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
         // $schedule->command('Drc:cron')
         // ->everyMinute();
-        $schedule->command('Src3:cron')
+        // $schedule->command('Src3:cron')
+        // ->everyMinute();
+        // $schedule->command('Src5:cron')
+        // ->everyMinute();
+        // $schedule->command('Src8:cron')
+        // ->everyMinute();
+        // $schedule->command('Src10:cron')
+        // ->everyMinute();
+        $schedule->command('Drc3:cron')
         ->everyMinute();
-        $schedule->command('Src5:cron')
+        $schedule->command('Drc5:cron')
         ->everyMinute();
-        $schedule->command('Src8:cron')
+        $schedule->command('Drc8:cron')
         ->everyMinute();
+        $schedule->command('Drc10:cron')
+        ->everyMinute();
+        
     }
 
     /**

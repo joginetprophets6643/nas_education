@@ -58,7 +58,7 @@ const entities = {
   rural: 'Rural',
   state_average: 'State Average',
   national_average: 'National Average',
-  trans_gender:'Trans Gender'
+  trans_gender: 'Trans Gender'
 }
 
 // geography wise screen
@@ -819,7 +819,7 @@ async function getData() {
       district: 'pq_district_level_feedback',
     },
     participation: {
-      state: 'all_grade_participation_tbl',
+      state: 'all_grade_state_participation_tbl',
       national: 'all_grade_participation_tbl',
       district: 'all_grade_participation_tbl',
     },
@@ -983,6 +983,7 @@ function updateData(data) {
       let total_teacher = 0
       let total_male = 0
       let total_female = 0
+      let total_trans = 0
       let total_urban = 0
       let total_rural = 0
       let gen_group = 0
@@ -1000,6 +1001,7 @@ function updateData(data) {
         total_student += parseInt(pari_inf.total_student)
         total_male += parseInt(pari_inf.male_gender)
         total_female += parseInt(pari_inf.female_gender)
+        total_trans += parseInt(pari_inf.trans_gender)
         total_urban += parseInt(pari_inf.urban_location)
         total_rural += parseInt(pari_inf.rural_location)
         gen_group += parseInt(pari_inf.general_social_group)
@@ -1014,6 +1016,7 @@ function updateData(data) {
       })
 
       total_female = total_female > 0 ? total_female / Object.keys(data).length : 0
+      total_trans = total_trans > 0 ? total_trans / Object.keys(data).length : 0
       total_male = total_male > 0 ? total_male / Object.keys(data).length : 0
       total_urban = total_urban > 0 ? total_urban / Object.keys(data).length : 0
       total_rural = total_rural > 0 ? total_rural / Object.keys(data).length : 0
@@ -1030,6 +1033,7 @@ function updateData(data) {
       $('#participation_teachers_class' + classType).html(total_teacher.toFixed(0))
       $('#participation_students_class' + classType).html(total_student.toFixed(0))
       $('#paricipation_gender_male_class' + classType).html(total_male.toFixed(0) + '%')
+      $('#paricipation_gender_trans_class' + classType).html(total_trans.toFixed(0) + '%')
       $('#paricipation_gender_female_class' + classType).html(total_female.toFixed(0) + '%')
       $('#participation_rural_class' + classType).html(total_rural.toFixed(0) + '%')
       $('#participation_urban_class' + classType).html(total_urban.toFixed(0) + '%')
@@ -1534,7 +1538,7 @@ function createPerformanceScreen(data, empty) {
 
     // scales for section column charts
     const scales = {
-      gender: ['boys', 'girls','trans_gender'],
+      gender: ['boys', 'girls', 'trans_gender'],
       management: ['govt', 'govt_aided', 'private', 'central_govt'],
       socialgroup: ['sc', 'obc', 'st', 'general'],
       location: ['rural', 'urban'],

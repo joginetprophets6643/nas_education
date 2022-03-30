@@ -4,16 +4,16 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\Src10DataImport;
+use App\Imports\Drc8DataImport;
 
-class Src10Cron extends Command
+class DRC8Cron extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'Src10:cron';
+    protected $signature = 'DRC8:cron';
 
     /**
      * The console command description.
@@ -39,7 +39,7 @@ class Src10Cron extends Command
      */
     public function handle()
     {
-        Excel::import(new Src10DataImport, public_path('G10y21_StateReports.csv'));
-        \Log::info("SRC10 Cron run Succesfully....");
+        Excel::import(new Drc8DataImport, public_path('G08y21_DistrictReports.csv'));
+        \Log::info("DRC8 Cron run Succesfully....");
     }
 }

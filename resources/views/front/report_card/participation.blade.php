@@ -75,7 +75,7 @@
                                                   </div>
                                                   <div class="category-wrap">
                                                     <div class="card-round card-blue-gradient">
-                                                      <span class="percentage" id="paricipation_gender_female_class3">0%</span>
+                                                      <span class="percentage" id="paricipation_gender_trans_class3">0%</span>
                                                       <small class="title">Transgender</small>
                                                     </div>
                                                     <div class="img-wrap">
@@ -252,7 +252,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                     <div class="card-round card-blue-gradient">
-                                                      <span class="percentage" id="paricipation_gender_female_class3">0%</span>
+                                                      <span class="percentage" id="paricipation_gender_trans_class5">0%</span>
                                                       <small class="title">Transgender</small>
                                                     </div>
                                                     <div class="img-wrap">
@@ -440,7 +440,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                     <div class="card-round card-green-gradient">
-                                                      <span class="percentage" id="paricipation_gender_female_class3">0%</span>
+                                                      <span class="percentage" id="paricipation_gender_trans_class8">0%</span>
                                                       <small class="title">Transgender</small>
                                                     </div>
                                                     <div class="img-wrap">
@@ -628,7 +628,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                     <div class="card-round card-red-gradient">
-                                                      <span class="percentage" id="paricipation_gender_female_class3">0%</span>
+                                                      <span class="percentage" id="paricipation_gender_trans_class10">0%</span>
                                                       <small class="title">Transgender</small>
                                                     </div>
                                                     <div class="img-wrap">
@@ -802,7 +802,7 @@
                                                 </div>
                                                 <div class="category-wrap">
                                                     <div class="card-round card-red-gradient">
-                                                      <span class="percentage" id="paricipation_gender_female_class3">0%</span>
+                                                      <span class="percentage" id="paricipation_gender_trans_classall">0%</span>
                                                       <small class="title">Transgender</small>
                                                     </div>
                                                     <div class="img-wrap">

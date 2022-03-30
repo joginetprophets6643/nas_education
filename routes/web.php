@@ -17,7 +17,7 @@ use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
 use App\Http\Controllers\FinalParticipationStateController;
 use App\Http\Controllers\FinalDistrictProcessController;
-
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +33,20 @@ use App\Http\Controllers\FinalDistrictProcessController;
 **********************************/
 Route::get('/data-2017/state-master',[Data2017Controller::class,'state']);
 Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
+Route::get('/allGradesDataImport', function () {
+    DB::table('grade3statetable')->truncate();
+    DB::table('grade5statetable')->truncate();
+    DB::table('grade8statetable')->truncate();
+    DB::table('grade10statetable')->truncate();
+    DB::table('grade3districttable')->truncate();
+    DB::table('grade5districttable')->truncate();
+    DB::table('grade8districttable')->truncate();
+    DB::table('grade10districttable')->truncate();
+    \Artisan::call('schedule:run');
 
+    dd("All Grades Data Imported Successfully...");
+
+});
 /*********************************
 * 2017 Data upload end
 **********************************/
@@ -41,7 +54,7 @@ Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
 /*********************************
 * District Level Data upload start
 **********************************/
-// Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
+Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
 // Route::get('/drc-final-data/performance',[DataProcessController::class,'performance']);
 // Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
 // Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);
@@ -51,6 +64,8 @@ Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
 Route::get('/drc-final-data/participation',[FinalDistrictProcessController::class,'alldistrictParticipationData']);
 Route::get('/drc-final-data/performance',[FinalDistrictProcessController::class,'alldistrictPerformancedata']);
 Route::get('/drc-final-data/lo',[FinalDistrictProcessController::class,'districtWiseLO']);
+Route::get('/drc-final-data/feedback',[FinalDistrictProcessController::class,'districtFeedback']);
+
 /*********************************
 * District Level Data upload end
 **********************************/
@@ -98,6 +113,9 @@ Route::get('download-pdf', [PdfGenerateController::class, 'dwn'])->name('downloa
 // State Pdf Generate start
 Route::get('state-pdf', [PdfGenerateController::class, 'StateIndex']);
 Route::get('state-download-pdf', [PdfGenerateController::class, 'Statedwn'])->name('statedownload');
+
+Route::get('state-pdf2', [PdfGenerateController::class, 'StateIndexPDFNewDraft']);
+Route::get('state-download-pdf2', [PdfGenerateController::class, 'StatedwnNew']);
 //  State Pdf Generate End
 
 // National Pdf Generate start
