@@ -8466,7 +8466,7 @@ ul {
   margin-right: 10px;
 }
 
-.glimps-card .glimps-graph {
+.glimps-card .glimps-graph-wrap {
   padding: 30px;
 }
 
@@ -10047,6 +10047,68 @@ ul {
 .card-red-gradient {
   background-image: -webkit-gradient(linear, left top, right top, from(#3cacae), color-stop(#5baa7e), color-stop(#919f4f), color-stop(#c68942), to(#eb6c69));
   background-image: linear-gradient(to right, #3cacae, #5baa7e, #919f4f, #c68942, #eb6c69);
+}
+
+.icon-color-red svg {
+  fill: #eb6c69;
+}
+
+.icon-color-yellow svg {
+  fill: #cac55f;
+}
+
+.icon-color-green svg {
+  fill: #72b562;
+}
+
+.glimps-table {
+  border: 1px solid #006bb6;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+
+.glimps-table .table {
+  margin: 0;
+}
+
+.glimps-table .table tr {
+  border-bottom: 1px solid #006bb6;
+}
+
+.glimps-table .table tr th {
+  background-color: #006bb6;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.glimps-table .table tr th:first-child {
+  text-align: left;
+}
+
+.glimps-table .table tbody tr:last-child {
+  border-style: none !important;
+}
+
+.glimps-table .table tbody tr td {
+  text-align: center;
+  color: #101010;
+  font-size: 14px;
+  border: none;
+  vertical-align: middle;
+}
+
+.glimps-table .table tbody tr td:first-child {
+  text-align: left;
+}
+
+.glimps-table .table tbody .success-status {
+  background-color: #8bc63e;
+}
+
+.glimps-table .table tbody .success-status td {
+  color: #fff;
 }
 
 @media (min-width: 992px) {
