@@ -2277,10 +2277,10 @@ class FinalDistrictProcessController extends Controller
     //Query For LO DRC data Subject Wise Grade 3
     public function GetAlldistrictDataSubjectCodeG3()
     {
-        $query = "select id, state_code, dist_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, Dist_LA_psub3_1 as district_avg, 'L304' subject_code, 'math' language, 'Reads small texts with comprehension i.e., identifies main ideas, details,sequence and draws conclusions' description
+        $query = "select id, state_code, dist_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, Dist_LA_psub3_1 as district_avg, 'L304' subject_code, 'language' language, 'Reads small texts with comprehension i.e., identifies main ideas, details,sequence and draws conclusions' description
         from grade3Districttable
         union all
-        select id, state_code, dist_code, State_LA_psub3_2 as state_avg, India_LA_psub3_2 as national_avg, Dist_LA_psub3_2 as district_avg, 'L312' subject_code, 'math' language, 'Reads printed scripts on the classroom walls: poems, posters, charts etc.' description
+        select id, state_code, dist_code, State_LA_psub3_2 as state_avg, India_LA_psub3_2 as national_avg, Dist_LA_psub3_2 as district_avg, 'L312' subject_code, 'language' language, 'Reads printed scripts on the classroom walls: poems, posters, charts etc.' description
         from grade3Districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, Dist_MA_psub3_1 as district_avg, 'M301' subject_code, 'math' language, 'Reads and writes numbers up to 999 using place value' description
