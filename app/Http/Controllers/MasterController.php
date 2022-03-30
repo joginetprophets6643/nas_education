@@ -158,7 +158,7 @@ class MasterController extends Controller
         District_Master::where('id',$id)->update([
             'district_id'=>$request->district_id,
             'state_id'=>$request->state_id,
-            'state_name'=>$state_name,
+            'state_name'=>$state_name->state_name,
             'district_name'=>$request->district_name,
             'description'=>$request->description,
             'udise_district_code'=>$request->district_code,
