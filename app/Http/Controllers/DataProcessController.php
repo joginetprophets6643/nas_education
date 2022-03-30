@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\District_Master;
+use App\Models\NationalStatistic;
 use App\Models\AllGradeParticipationTBL;
 use App\Models\PerformanceMaster;
 use App\Models\DistrictGradeLevelLearningOutCome;
@@ -17,7 +18,12 @@ class DataProcessController extends Controller
     public function index(){
 
         $final_data=DB::table('district_school_teacher')->get();
-        // dd($final_data);
+        // dd($final_data[0]);
+
+        NationalStatistic::where('id',1)->update([
+            'no_of_schools'=>$final_data[0]->total_schools,
+            'no_of_teachers'=>$final_data[0]->total_teacher,
+        ]);
 
         foreach($final_data as $data){
 
@@ -30,7 +36,7 @@ class DataProcessController extends Controller
                 // 'density_of_population'=>$data->drc_den_tot,
                 // 'literacy_rate'=>$data->drc_lit_tot,
                 // 'child_sex_ratio'=>$data->drc_csr_tot,
-                'no_of_schools'=>$data->all_management_school,
+                'no_of_schools'=>$data->total_schools,
                 'state_govt_schools'=>$data->state_govt_school,
                 'govt_aided_schools'=>$data->govt_aided_school,
                 'central_govt_schools'=>$data->central_govt_school,
@@ -43,6 +49,8 @@ class DataProcessController extends Controller
             ]);            
 
         }
+
+
 
     }
 

@@ -888,7 +888,7 @@
       display_name = info.district_name
     }
     else{
-      total_teachers = 0
+      total_teachers = info.no_of_teachers
       display_name = 'National'
     }
     // console.log(info)
