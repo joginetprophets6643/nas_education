@@ -16,29 +16,29 @@ class DataProcessController extends Controller
 //  DRC Final Data District Wise Update District Master
     public function index(){
 
-        $final_data=DB::table('drc_final_data')->get();
+        $final_data=DB::table('district_school_teacher')->get();
         // dd($final_data);
 
         foreach($final_data as $data){
 
-            District_Master::where('udise_district_code',$data->udise_district_code)->update([
+            District_Master::where('udise_district_code',$data->code)->update([
 
-                'total_district_area'=>$data->drc_area_tot,
-                'total_population'=>$data->drc_pop_tot,
-                'rural_population'=>$data->drc_pop_rur,
-                'urban_population'=>$data->drc_pop_urb,
-                'density_of_population'=>$data->drc_den_tot,
-                'literacy_rate'=>$data->drc_lit_tot,
-                'child_sex_ratio'=>$data->drc_csr_tot,
-                'no_of_schools'=>$data->drc_sch_tot,
-                'state_govt_schools'=>$data->drc_sch_sgov,
-                'govt_aided_schools'=>$data->drc_sch_agov,
-                'central_govt_schools'=>$data->drc_sch_cgov,
-                'private_unaided_reco_schools'=>$data->drc_sch_pvt,
-                'teacher_state_govt_schools'=>$data->drc_trs_sgov,
-                'teacher_govt_aided_schools'=>$data->drc_trs_agov,
-                'teacher_central_govt_schools'=>$data->drc_trs_cgov,
-                'teacher_private_unaided_reco_schools'=>$data->drc_trs_pvt
+                // 'total_district_area'=>$data->drc_area_tot,
+                // 'total_population'=>$data->drc_pop_tot,
+                // 'rural_population'=>$data->drc_pop_rur,
+                // 'urban_population'=>$data->drc_pop_urb,
+                // 'density_of_population'=>$data->drc_den_tot,
+                // 'literacy_rate'=>$data->drc_lit_tot,
+                // 'child_sex_ratio'=>$data->drc_csr_tot,
+                'no_of_schools'=>$data->all_management_school,
+                'state_govt_schools'=>$data->state_govt_school,
+                'govt_aided_schools'=>$data->govt_aided_school,
+                'central_govt_schools'=>$data->central_govt_school,
+                'private_unaided_reco_schools'=>$data->private_unaided_school,
+                'teacher_state_govt_schools'=>$data->state_govt_teacher,
+                'teacher_govt_aided_schools'=>$data->govt_aided_teacher,
+                'teacher_central_govt_schools'=>$data->central_govt_teacher,
+                'teacher_private_unaided_reco_schools'=>$data->private_unaided_teacher
 
             ]);            
 

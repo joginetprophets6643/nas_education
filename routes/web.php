@@ -54,7 +54,7 @@ Route::get('/allGradesDataImport', function () {
 /*********************************
 * District Level Data upload start
 **********************************/
-// Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
+Route::get('/drc-final-data/district-master',[DataProcessController::class,'index']);
 // Route::get('/drc-final-data/performance',[DataProcessController::class,'performance']);
 // Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
 // Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);

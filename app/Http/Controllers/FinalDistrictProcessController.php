@@ -214,7 +214,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'state'=>isset($districtlevel->state_la_pct)?$districtlevel->state_la_pct:'0',
-                    'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0'),
+                    'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_la_se)?$districtlevel->dist_la_se:'0',
+                    'sd_state'=>isset($districtlevel->state_la_se)?$districtlevel->state_la_se:'0',
+                    'sd_national'=>isset($districtlevel->india_la_se)?$districtlevel->india_la_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_la_boys_pl12)?$districtlevel->dist_la_boys_pl12:'0'
@@ -312,7 +315,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'state'=>isset($districtlevel->state_ma_pct)?$districtlevel->state_ma_pct:'0',
-                    'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0'),
+                    'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_ma_se)?$districtlevel->dist_ma_se:'0',
+                    'sd_state'=>isset($districtlevel->state_ma_se)?$districtlevel->state_ma_se:'0',
+                    'sd_national'=>isset($districtlevel->india_ma_se)?$districtlevel->india_ma_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ma_boys_pl12)?$districtlevel->dist_ma_boys_pl12:'0'
@@ -410,7 +416,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_ev_pct)?$districtlevel->dist_ev_pct:'0',
                     'state'=>isset($districtlevel->state_ev_pct)?$districtlevel->state_ev_pct:'0',
-                    'national'=>isset($districtlevel->india_ev_pct)?$districtlevel->india_ev_pct:'0'),
+                    'national'=>isset($districtlevel->india_ev_pct)?$districtlevel->india_ev_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_ev_se)?$districtlevel->dist_ev_se:'0',
+                    'sd_state'=>isset($districtlevel->state_ev_se)?$districtlevel->state_ev_se:'0',
+                    'sd_national'=>isset($districtlevel->india_ev_se)?$districtlevel->india_ev_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_ev_boys_pct)?$districtlevel->dist_ev_boys_pct:'0',"girls"=>isset($districtlevel->dist_ev_girls_pct)?$districtlevel->dist_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ev_trans_pct)?$districtlevel->dist_ev_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ev_boys_pl12)?$districtlevel->dist_ev_boys_pl12:'0'
@@ -527,7 +536,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'state'=>isset($districtlevel->state_la_pct)?$districtlevel->state_la_pct:'0',
-                    'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0'),
+                    'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_la_se)?$districtlevel->dist_la_se:'0',
+                    'sd_state'=>isset($districtlevel->state_la_se)?$districtlevel->state_la_se:'0',
+                    'sd_national'=>isset($districtlevel->india_la_se)?$districtlevel->india_la_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_la_boys_pl12)?$districtlevel->dist_la_boys_pl12:'0'
@@ -625,7 +637,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'state'=>isset($districtlevel->state_ma_pct)?$districtlevel->state_ma_pct:'0',
-                    'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0'),
+                    'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_ma_se)?$districtlevel->dist_ma_se:'0',
+                    'sd_state'=>isset($districtlevel->state_ma_se)?$districtlevel->state_ma_se:'0',
+                    'sd_national'=>isset($districtlevel->india_ma_se)?$districtlevel->india_ma_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ma_boys_pl12)?$districtlevel->dist_ma_boys_pl12:'0'
@@ -723,7 +738,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_ev_pct)?$districtlevel->dist_ev_pct:'0',
                     'state'=>isset($districtlevel->state_ev_pct)?$districtlevel->state_ev_pct:'0',
-                    'national'=>isset($districtlevel->india_ev_pct)?$districtlevel->india_ev_pct:'0'),
+                    'national'=>isset($districtlevel->india_ev_pct)?$districtlevel->india_ev_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_ev_se)?$districtlevel->dist_ev_se:'0',
+                    'sd_state'=>isset($districtlevel->state_ev_se)?$districtlevel->state_ev_se:'0',
+                    'sd_national'=>isset($districtlevel->india_ev_se)?$districtlevel->india_ev_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_ev_boys_pct)?$districtlevel->dist_ev_boys_pct:'0',"girls"=>isset($districtlevel->dist_ev_girls_pct)?$districtlevel->dist_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ev_trans_pct)?$districtlevel->dist_ev_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ev_boys_pl12)?$districtlevel->dist_ev_boys_pl12:'0'
@@ -839,7 +857,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'state'=>isset($districtlevel->state_la_pct)?$districtlevel->state_la_pct:'0',
-                    'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0'),
+                    'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_la_se)?$districtlevel->dist_la_se:'0',
+                    'sd_state'=>isset($districtlevel->state_la_se)?$districtlevel->state_la_se:'0',
+                    'sd_national'=>isset($districtlevel->india_la_se)?$districtlevel->india_la_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_la_boys_pl12)?$districtlevel->dist_la_boys_pl12:'0'
@@ -937,7 +958,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'state'=>isset($districtlevel->state_ma_pct)?$districtlevel->state_ma_pct:'0',
-                    'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0'),
+                    'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_ma_se)?$districtlevel->dist_ma_se:'0',
+                    'sd_state'=>isset($districtlevel->state_ma_se)?$districtlevel->state_ma_se:'0',
+                    'sd_national'=>isset($districtlevel->india_ma_se)?$districtlevel->india_ma_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ma_boys_pl12)?$districtlevel->dist_ma_boys_pl12:'0'
@@ -1035,7 +1059,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_sc_pct)?$districtlevel->dist_sc_pct:'0',
                     'state'=>isset($districtlevel->state_sc_pct)?$districtlevel->state_sc_pct:'0',
-                    'national'=>isset($districtlevel->india_sc_pct)?$districtlevel->india_sc_pct:'0'),
+                    'national'=>isset($districtlevel->india_sc_pct)?$districtlevel->india_sc_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_sc_se)?$districtlevel->dist_sc_se:'0',
+                    'sd_state'=>isset($districtlevel->state_sc_se)?$districtlevel->state_sc_se:'0',
+                    'sd_national'=>isset($districtlevel->india_sc_se)?$districtlevel->india_sc_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_sc_boys_pct)?$districtlevel->dist_sc_boys_pct:'0',"girls"=>isset($districtlevel->dist_sc_girls_pct)?$districtlevel->dist_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_sc_trans_pct)?$districtlevel->dist_sc_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_sc_boys_pl12)?$districtlevel->dist_sc_boys_pl12:'0'
@@ -1133,7 +1160,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_ss_pct)?$districtlevel->dist_ss_pct:'0',
                     'state'=>isset($districtlevel->state_ss_pct)?$districtlevel->state_ss_pct:'0',
-                    'national'=>isset($districtlevel->india_ss_pct)?$districtlevel->india_ss_pct:'0'),
+                    'national'=>isset($districtlevel->india_ss_pct)?$districtlevel->india_ss_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_ss_se)?$districtlevel->dist_ss_se:'0',
+                    'sd_state'=>isset($districtlevel->state_ss_se)?$districtlevel->state_ss_se:'0',
+                    'sd_national'=>isset($districtlevel->india_ss_se)?$districtlevel->india_ss_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_ss_boys_pct)?$districtlevel->dist_ss_boys_pct:'0',"girls"=>isset($districtlevel->dist_ss_girls_pct)?$districtlevel->dist_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ss_trans_pct)?$districtlevel->dist_ss_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ss_boys_pl12)?$districtlevel->dist_ss_boys_pl12:'0'
@@ -1250,7 +1280,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'state'=>isset($districtlevel->state_ma_pct)?$districtlevel->state_ma_pct:'0',
-                    'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0'),
+                    'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_ma_se)?$districtlevel->dist_ma_se:'0',
+                    'sd_state'=>isset($districtlevel->state_ma_se)?$districtlevel->state_ma_se:'0',
+                    'sd_national'=>isset($districtlevel->india_ma_se)?$districtlevel->india_ma_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ma_boys_pl12)?$districtlevel->dist_ma_boys_pl12:'0'
@@ -1348,7 +1381,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_sc_pct)?$districtlevel->dist_sc_pct:'0',
                     'state'=>isset($districtlevel->state_sc_pct)?$districtlevel->state_sc_pct:'0',
-                    'national'=>isset($districtlevel->india_sc_pct)?$districtlevel->india_sc_pct:'0'),
+                    'national'=>isset($districtlevel->india_sc_pct)?$districtlevel->india_sc_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_sc_se)?$districtlevel->dist_sc_se:'0',
+                    'sd_state'=>isset($districtlevel->state_sc_se)?$districtlevel->state_sc_se:'0',
+                    'sd_national'=>isset($districtlevel->india_sc_se)?$districtlevel->india_sc_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_sc_boys_pct)?$districtlevel->dist_sc_boys_pct:'0',"girls"=>isset($districtlevel->dist_sc_girls_pct)?$districtlevel->dist_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_sc_trans_pct)?$districtlevel->dist_sc_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_sc_boys_pl12)?$districtlevel->dist_sc_boys_pl12:'0'
@@ -1446,7 +1482,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_ss_pct)?$districtlevel->dist_ss_pct:'0',
                     'state'=>isset($districtlevel->state_ss_pct)?$districtlevel->state_ss_pct:'0',
-                    'national'=>isset($districtlevel->india_ss_pct)?$districtlevel->india_ss_pct:'0'),
+                    'national'=>isset($districtlevel->india_ss_pct)?$districtlevel->india_ss_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_ss_se)?$districtlevel->dist_ss_se:'0',
+                    'sd_state'=>isset($districtlevel->state_ss_se)?$districtlevel->state_ss_se:'0',
+                    'sd_national'=>isset($districtlevel->india_ss_se)?$districtlevel->india_ss_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_ss_boys_pct)?$districtlevel->dist_ss_boys_pct:'0',"girls"=>isset($districtlevel->dist_ss_girls_pct)?$districtlevel->dist_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ss_trans_pct)?$districtlevel->dist_ss_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ss_boys_pl12)?$districtlevel->dist_ss_boys_pl12:'0'
@@ -1544,7 +1583,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_en_pct)?$districtlevel->dist_en_pct:'0',
                     'state'=>isset($districtlevel->state_en_pct)?$districtlevel->state_en_pct:'0',
-                    'national'=>isset($districtlevel->india_en_pct)?$districtlevel->india_en_pct:'0'),
+                    'national'=>isset($districtlevel->india_en_pct)?$districtlevel->india_en_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_en_se)?$districtlevel->dist_en_se:'0',
+                    'sd_state'=>isset($districtlevel->state_en_se)?$districtlevel->state_en_se:'0',
+                    'sd_national'=>isset($districtlevel->india_en_se)?$districtlevel->india_en_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_en_boys_pct)?$districtlevel->dist_en_boys_pct:'0',"girls"=>isset($districtlevel->dist_en_girls_pct)?$districtlevel->dist_en_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_en_trans_pct)?$districtlevel->dist_en_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_en_boys_pl12)?$districtlevel->dist_en_boys_pl12:'0'
@@ -1642,7 +1684,10 @@ class FinalDistrictProcessController extends Controller
                 'cards'=>array(
                     'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'state'=>isset($districtlevel->state_la_pct)?$districtlevel->state_la_pct:'0',
-                    'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0'),
+                    'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0',
+                    'sd_district'=>isset($districtlevel->dist_la_se)?$districtlevel->dist_la_se:'0',
+                    'sd_state'=>isset($districtlevel->state_la_se)?$districtlevel->state_la_se:'0',
+                    'sd_national'=>isset($districtlevel->india_la_se)?$districtlevel->india_la_se:'0'),
                 'gender'=>array(
                     'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_la_boys_pl12)?$districtlevel->dist_la_boys_pl12:'0'
