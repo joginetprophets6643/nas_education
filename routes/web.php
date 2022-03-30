@@ -64,6 +64,8 @@ Route::get('/allGradesDataImport', function () {
 Route::get('/drc-final-data/participation',[FinalDistrictProcessController::class,'alldistrictParticipationData']);
 Route::get('/drc-final-data/performance',[FinalDistrictProcessController::class,'alldistrictPerformancedata']);
 Route::get('/drc-final-data/lo',[FinalDistrictProcessController::class,'districtWiseLO']);
+Route::get('/drc-final-data/feedback',[FinalDistrictProcessController::class,'districtFeedback']);
+
 /*********************************
 * District Level Data upload end
 **********************************/
