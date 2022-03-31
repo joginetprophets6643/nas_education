@@ -265,7 +265,7 @@ function createSocialBarGraph(bar, colors) {
         borderWidth: 0,
         dataLabels: {
           enabled: true,
-          format: '{point.y:.1f}%'
+          format: '{point.y:.2f}%'
         }
       }
     },
@@ -286,14 +286,14 @@ function createSocialBarGraph(bar, colors) {
             color: colors.sc
           },
           {
-            name: "OBC",
-            y: bar.obc,
-            color: colors.obc
-          },
-          {
             name: "ST",
             y: bar.st,
             color: colors.st
+          },
+          {
+            name: "OBC",
+            y: bar.obc,
+            color: colors.obc
           },
           {
             name: "General",
@@ -999,15 +999,15 @@ function updateData(data) {
         total_school += parseInt(pari_inf.total_school)
         total_teacher += parseInt(pari_inf.total_teacher)
         total_student += parseInt(pari_inf.total_student)
-        total_male += parseInt(pari_inf.male_gender)
-        total_female += parseInt(pari_inf.female_gender)
-        total_trans += parseInt(pari_inf.trans_gender)
+        total_male += parseFloat(pari_inf.male_gender)
+        total_female += parseFloat(pari_inf.female_gender)
+        total_trans += parseFloat(pari_inf.trans_gender)
         total_urban += parseInt(pari_inf.urban_location)
         total_rural += parseInt(pari_inf.rural_location)
-        gen_group += parseInt(pari_inf.general_social_group)
-        sc_group += parseInt(pari_inf.sc_social_group)
-        st_group += parseInt(pari_inf.st_social_group)
-        obc_group += parseInt(pari_inf.obc_social_group)
+        gen_group += parseFloat(pari_inf.general_social_group)
+        sc_group += parseFloat(pari_inf.sc_social_group)
+        st_group += parseFloat(pari_inf.st_social_group)
+        obc_group += parseFloat(pari_inf.obc_social_group)
         cent_gov += parseInt(pari_inf.central_govt_school)
         gov_aided += parseInt(pari_inf.govt_aided_school)
         priv += parseInt(pari_inf.private_school)
@@ -1032,23 +1032,23 @@ function updateData(data) {
       $('#participation_school_class' + classType).html(total_school.toFixed(0))
       $('#participation_teachers_class' + classType).html(total_teacher.toFixed(0))
       $('#participation_students_class' + classType).html(total_student.toFixed(0))
-      $('#paricipation_gender_male_class' + classType).html(total_male.toFixed(0) + '%')
-      $('#paricipation_gender_trans_class' + classType).html(total_trans.toFixed(0) + '%')
-      $('#paricipation_gender_female_class' + classType).html(total_female.toFixed(0) + '%')
+      $('#paricipation_gender_male_class' + classType).html(total_male.toFixed(2) + '%')
+      $('#paricipation_gender_trans_class' + classType).html(total_trans.toFixed(2) + '%')
+      $('#paricipation_gender_female_class' + classType).html(total_female.toFixed(2) + '%')
       $('#participation_rural_class' + classType).html(total_rural.toFixed(0) + '%')
       $('#participation_urban_class' + classType).html(total_urban.toFixed(0) + '%')
 
       const doughnutChart = {
-        gov: parserInt(gov.toFixed(0)),
-        private: parserInt(priv.toFixed(0)),
-        gov_aided: parserInt(gov_aided.toFixed(0)),
-        cent_gov: parserInt(cent_gov.toFixed(0)),
+        gov: Math.round(gov.toFixed(0)),
+        private: Math.round(priv.toFixed(0)),
+        gov_aided: Math.round(gov_aided.toFixed(0)),
+        cent_gov: Math.round(cent_gov.toFixed(0)),
       }
       const barChart = {
-        gen: parserInt(gen_group.toFixed(0)),
-        sc: parserInt(sc_group.toFixed(0)),
-        st: parserInt(st_group.toFixed(0)),
-        obc: parserInt(obc_group.toFixed(0))
+        gen: parseFloat(gen_group.toFixed(2)),
+        sc: parseFloat(sc_group.toFixed(2)),
+        st: parseFloat(st_group.toFixed(2)),
+        obc: parseFloat(obc_group.toFixed(2))
       }
 
       const doughnutChartColors = {
@@ -1421,8 +1421,8 @@ function updateData(data) {
         }
       })
 
-      $('#feedback' + current_demography + '_pq2_average_class3').html(parserInt(pq2Average / 4) + '%')
-      $('#feedback' + current_demography + '_pq3_average_class3').html(parserInt(pq3Average / 3) + '%')
+      $('#feedback' + current_demography + '_pq2_average_class3').html(Math.round(pq2Average / 4) + '%')
+      $('#feedback' + current_demography + '_pq3_average_class3').html(Math.round(pq3Average / 3) + '%')
 
     }
 
@@ -1498,12 +1498,12 @@ function toggleActiveDistrict(district_id, value) {
 function getOutcomeRow(lo, classStyle) {
   let row = ''
   if (selected_geography === 'district') {
-    row = '<tr class="' + classStyle + '"><td>' + lo.subject_code + '</td><td>' + (lo.question === '0' ? 'N/A' : lo.question) + '</td><td>' + parserInt(lo.avg) + '</td><td>' + parseInt(lo.state_avg) + '</td><td>' + parseInt(lo.national_avg) + '</td></tr>'
+    row = '<tr class="' + classStyle + '"><td>' + lo.subject_code + '</td><td>' + (lo.question === '0' ? 'N/A' : lo.question) + '</td><td>' + Math.round(lo.avg) + '</td><td>' + Math.round(lo.state_avg) + '</td><td>' + Math.round(lo.national_avg) + '</td></tr>'
   }
   else if (selected_geography === 'state') {
-    row = '<tr class="' + classStyle + '"><td>' + lo.subject_code + '</td><td>' + (lo.question === '0' ? 'N/A' : lo.question) + '</td><td>' + parseInt(lo.state_avg) + '</td><td>' + parseInt(lo.national_avg) + '</td></tr>'
+    row = '<tr class="' + classStyle + '"><td>' + lo.subject_code + '</td><td>' + (lo.question === '0' ? 'N/A' : lo.question) + '</td><td>' + Math.round(lo.state_avg) + '</td><td>' + Math.round(lo.national_avg) + '</td></tr>'
   } else {
-    row = '<tr class="' + classStyle + '"><td>' + lo.subject_code + '</td><td>' + (lo.question === '0' ? 'N/A' : lo.question) + '</td><td>' + parseInt(lo.national_avg) + '</td></tr>'
+    row = '<tr class="' + classStyle + '"><td>' + lo.subject_code + '</td><td>' + (lo.question === '0' ? 'N/A' : lo.question) + '</td><td>' + Math.round(lo.national_avg) + '</td></tr>'
   }
   return row
 }
@@ -1540,7 +1540,7 @@ function createPerformanceScreen(data, empty) {
     const scales = {
       gender: ['boys', 'girls', 'trans_gender'],
       management: ['govt', 'govt_aided', 'private', 'central_govt'],
-      socialgroup: ['sc', 'obc', 'st', 'general'],
+      socialgroup: ['sc', 'st', 'obc', 'general'],
       location: ['rural', 'urban'],
     }
 
@@ -1583,7 +1583,7 @@ function createPerformanceScreen(data, empty) {
         if (!empty) {
           if (current_demography === '') {
             table_criteria.forEach((criteria) => {
-              const table_tupple = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['performance_level']['district'][criteria])
+              const table_tupple = Math.round(data[subjects_short_codes[sub.toLowerCase()]]['performance_level']['district'][criteria])
               const table_where = "peformance_" + sub + "_" + criteria + "_table_class" + classType
               $('#' + table_where).html(table_tupple)
             })
@@ -1598,7 +1598,7 @@ function createPerformanceScreen(data, empty) {
               const card_where = screenType + current_demography + '_' + subjects_short_codes[sub.toLowerCase()] + '_' + demo + '_class' + classType
               let cardData = 0
               if (!empty) {
-                cardData = parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
+                cardData = Math.round(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo])
               }
               updateCards(card_where, cardData)
             }
@@ -1607,7 +1607,7 @@ function createPerformanceScreen(data, empty) {
             if (classType !== 'all') {
               const item = {
                 color: color[index + 2],
-                y: !empty ? parserInt(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo]) : 0,
+                y: !empty ? Math.round(data[subjects_short_codes[sub.toLowerCase()]]['cards'][demo]) : 0,
                 name: entities[demo + '_average']
               }
               state_chart_data.push(item)
@@ -1648,7 +1648,7 @@ function createPerformanceScreen(data, empty) {
               if (empty) {
                 dataToShow = 0
               } else {
-                dataToShow = parserInt(data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()][demo][element])
+                dataToShow = Math.round(data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()][demo][element])
               }
               chart_data.push(dataToShow)
             });
@@ -1754,25 +1754,26 @@ async function createInformationScreen(data) {
   if (selected_geography !== 'national') {
     $('.information_state_name').html(format_string(state_name))
   }
-  $('#' + prefix + 'area_class3').html(parserInt(dataToShow.total_district_area))
-  $('#' + prefix + 'population_class3').html(parserInt(dataToShow.total_population))
-  $('#' + prefix + 'density_class3').html(parserInt(dataToShow.density_of_population))
-  $('#' + prefix + 'sex_ratio_class3').html(parserInt(dataToShow.child_sex_ratio))
-  $('#' + prefix + 'literacy_class3').html(parserInt(dataToShow.literacy_rate))
+  $('#' + prefix + 'area_class3').html(Math.round(dataToShow.total_district_area))
+  $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population))
+  $('#' + prefix + 'density_class3').html(Math.round(dataToShow.density_of_population))
+  $('#' + prefix + 'sex_ratio_class3').html(Math.round(dataToShow.child_sex_ratio))
+  $('#' + prefix + 'literacy_class3').html(Math.round(dataToShow.literacy_rate))
 
   if (selected_geography === 'district') {
     $('.' + prefix + 'name').html(format_string(dataToShow.district_name))
-    $('#' + prefix + 'rural_class3').html(parserInt(dataToShow.rural_population))
-    $('#' + prefix + 'urban_class3').html(parserInt(dataToShow.urban_population))
-    $('#' + prefix + 'total_school_class3').html(parserInt(dataToShow.no_of_schools))
-    $('#' + prefix + 'state_school_class3').html(parserInt(dataToShow.state_govt_schools))
-    $('#' + prefix + 'govt_aided_school_class3').html(parserInt(dataToShow.govt_aided_schools))
-    $('#' + prefix + 'govt_school_class3').html(parserInt(dataToShow.central_govt_schools))
-    $('#' + prefix + 'private_school_class3').html(parserInt(dataToShow.private_unaided_reco_schools))
-    $('#' + prefix + 'state_teacher_class3').html(parserInt(dataToShow.teacher_state_govt_schools))
-    $('#' + prefix + 'govt_teacher_class3').html(parserInt(dataToShow.teacher_central_govt_schools))
-    $('#' + prefix + 'govt_aided_teacher_class3').html(parserInt(dataToShow.teacher_govt_aided_schools))
-    $('#' + prefix + 'private_teacher_class3').html(parserInt(dataToShow.teacher_private_unaided_reco_schools))
+    $('#' + prefix + 'rural_class3').html(Math.round(dataToShow.rural_population))
+    $('#' + prefix + 'urban_class3').html(Math.round(dataToShow.urban_population))
+    $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools))
+    $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools))
+    $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools))
+    $('#' + prefix + 'govt_school_class3').html(Math.round(dataToShow.central_govt_schools))
+    $('#' + prefix + 'private_school_class3').html(Math.round(dataToShow.private_unaided_reco_schools))
+    $('#' + prefix + 'total_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools) + Math.round(dataToShow.teacher_central_govt_schools) + Math.round(dataToShow.teacher_govt_aided_schools) + Math.round(dataToShow.teacher_private_unaided_reco_schools))
+    $('#' + prefix + 'state_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools))
+    $('#' + prefix + 'govt_teacher_class3').html(Math.round(dataToShow.teacher_central_govt_schools))
+    $('#' + prefix + 'govt_aided_teacher_class3').html(Math.round(dataToShow.teacher_govt_aided_schools))
+    $('#' + prefix + 'private_teacher_class3').html(Math.round(dataToShow.teacher_private_unaided_reco_schools))
     $('#' + prefix + 'description_class3').html(dataToShow.description)
   }
 
@@ -1994,7 +1995,7 @@ function createDognutDataAndChart(data, subjects, grade) {
     data[key].forEach((tupple, i) => {
       const series_obj = {
         name: subjects_full_names[subjects[i]],
-        y: parserInt(tupple),
+        y: Math.round(tupple),
         z: 100,
         color: color_code[subjects[i]]
       }
@@ -2238,7 +2239,7 @@ function getColourOfState(req_colors, state_id, section_data) {
       category = state.category
     }
   })
-  return { color: color, category: parserInt(category) }
+  return { color: color, category: Math.round(category) }
 }
 
 
@@ -2312,7 +2313,7 @@ function createCumulativeCardsForPerformance(data) {
 
       const cards = json_data[subject]['cards']
       Object.keys(cards).forEach(geog => {
-        cumulative_subject_count[subject][geog] += parserInt(cards[geog])
+        cumulative_subject_count[subject][geog] += Math.round(cards[geog])
       })
     })
   })
@@ -2326,10 +2327,10 @@ function createCumulativeCardsForPerformance(data) {
         let val = 0
         if (selected_geography === 'district') {
           where = screenType + '_' + subject + '_' + demo + '_class' + classType
-          val = parserInt(cumulative_subject_count[subject][demo] / divisor[subject])
+          val = Math.round(cumulative_subject_count[subject][demo] / divisor[subject])
         }
         if (selected_geography === 'national') {
-          val = parserInt(cumulative_subject_count[subject][demo])
+          val = Math.round(cumulative_subject_count[subject][demo])
           where = screenType + selected_geography + '_' + subject + '_' + demo + '_class' + classType
         }
         updateCards(where, val)
@@ -2338,7 +2339,7 @@ function createCumulativeCardsForPerformance(data) {
         const color = colorCode[key]
         const item = {
           color: color[index + 2],
-          y: parserInt(cumulative_subject_count[subject][demo] / divisor[subject]),
+          y: Math.round(cumulative_subject_count[subject][demo] / divisor[subject]),
           name: entities[demo + '_average']
         }
 
