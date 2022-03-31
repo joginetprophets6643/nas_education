@@ -68,6 +68,10 @@ Route::get('/drc-final-data/performance',[FinalDistrictProcessController::class,
 Route::get('/drc-final-data/lo',[FinalDistrictProcessController::class,'districtWiseLO'])->name('lo');
 Route::get('/drc-final-data/feedback',[FinalDistrictProcessController::class,'districtFeedback'])->name('feedback');
 
+Route::get('/drc-upload-view',function(){
+    return view('front.drc-upload.index');
+});
+Route::post('/drc-upload-file',[UploadController::class,'district'])->name('drc-upload');
 /*********************************
 * District Level Data upload end
 **********************************/
