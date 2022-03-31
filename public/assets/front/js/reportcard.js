@@ -1032,9 +1032,9 @@ function updateData(data) {
       $('#participation_school_class' + classType).html(total_school.toFixed(0))
       $('#participation_teachers_class' + classType).html(total_teacher.toFixed(0))
       $('#participation_students_class' + classType).html(total_student.toFixed(0))
-      $('#paricipation_gender_male_class' + classType).html(total_male.toFixed(1) + '%')
-      $('#paricipation_gender_trans_class' + classType).html(total_trans.toFixed(1) + '%')
-      $('#paricipation_gender_female_class' + classType).html(total_female.toFixed(1) + '%')
+      $('#paricipation_gender_male_class' + classType).html((Math.round(total_male * 10) / 10).toFixed(1) + '%')
+      $('#paricipation_gender_trans_class' + classType).html((Math.round(total_trans * 10) / 10).toFixed(1) + '%')
+      $('#paricipation_gender_female_class' + classType).html((Math.round(total_female * 10) / 10).toFixed(1) + '%')
       $('#participation_rural_class' + classType).html(total_rural.toFixed(0) + '%')
       $('#participation_urban_class' + classType).html(total_urban.toFixed(0) + '%')
 
@@ -1045,10 +1045,10 @@ function updateData(data) {
         cent_gov: Math.round(cent_gov.toFixed(0)),
       }
       const barChart = {
-        gen: parseFloat(gen_group.toFixed(1)),
-        sc: parseFloat(sc_group.toFixed(1)),
-        st: parseFloat(st_group.toFixed(1)),
-        obc: parseFloat(obc_group.toFixed(1))
+        gen: parseFloat((Math.round(gen_group * 10) / 10).toFixed(1)),
+        sc: parseFloat((Math.round(sc_group * 10) / 10).toFixed(1)),
+        st: parseFloat((Math.round(st_group * 10) / 10).toFixed(1)),
+        obc: parseFloat((Math.round(obc_group * 10) / 10).toFixed(1))
       }
 
       const doughnutChartColors = {
