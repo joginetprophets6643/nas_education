@@ -996,22 +996,22 @@ function updateData(data) {
       let gov = 0
 
       data.map(pari_inf => {
-        total_school += parseInt(pari_inf.total_school)
-        total_teacher += parseInt(pari_inf.total_teacher)
-        total_student += parseInt(pari_inf.total_student)
+        total_school += parseFloat(pari_inf.total_school)
+        total_teacher += parseFloat(pari_inf.total_teacher)
+        total_student += parseFloat(pari_inf.total_student)
         total_male += parseFloat(pari_inf.male_gender)
         total_female += parseFloat(pari_inf.female_gender)
         total_trans += parseFloat(pari_inf.trans_gender)
-        total_urban += parseInt(pari_inf.urban_location)
-        total_rural += parseInt(pari_inf.rural_location)
+        total_urban += parseFloat(pari_inf.urban_location)
+        total_rural += parseFloat(pari_inf.rural_location)
         gen_group += parseFloat(pari_inf.general_social_group)
         sc_group += parseFloat(pari_inf.sc_social_group)
         st_group += parseFloat(pari_inf.st_social_group)
         obc_group += parseFloat(pari_inf.obc_social_group)
-        cent_gov += parseInt(pari_inf.central_govt_school)
-        gov_aided += parseInt(pari_inf.govt_aided_school)
-        priv += parseInt(pari_inf.private_school)
-        gov += parseInt(pari_inf.govt_school)
+        cent_gov += parseFloat(pari_inf.central_govt_school)
+        gov_aided += parseFloat(pari_inf.govt_aided_school)
+        priv += parseFloat(pari_inf.private_school)
+        gov += parseFloat(pari_inf.govt_school)
 
       })
 
@@ -1029,14 +1029,14 @@ function updateData(data) {
       priv = priv > 0 ? priv / Object.keys(data).length : 0
       gov = gov > 0 ? gov / Object.keys(data).length : 0
 
-      $('#participation_school_class' + classType).html(total_school.toFixed(0))
-      $('#participation_teachers_class' + classType).html(total_teacher.toFixed(0))
-      $('#participation_students_class' + classType).html(total_student.toFixed(0))
+      $('#participation_school_class' + classType).html(Math.round(total_school))
+      $('#participation_teachers_class' + classType).html(Math.round(total_teacher))
+      $('#participation_students_class' + classType).html(Math.round(total_student))
       $('#paricipation_gender_male_class' + classType).html((Math.round(total_male * 10) / 10).toFixed(1) + '%')
       $('#paricipation_gender_trans_class' + classType).html((Math.round(total_trans * 10) / 10).toFixed(1) + '%')
       $('#paricipation_gender_female_class' + classType).html((Math.round(total_female * 10) / 10).toFixed(1) + '%')
-      $('#participation_rural_class' + classType).html(total_rural.toFixed(0) + '%')
-      $('#participation_urban_class' + classType).html(total_urban.toFixed(0) + '%')
+      $('#participation_rural_class' + classType).html(Math.round(total_rural) + '%')
+      $('#participation_urban_class' + classType).html(Math.round(total_urban) + '%')
 
       const doughnutChart = {
         gov: Math.round(gov.toFixed(0)),
