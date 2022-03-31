@@ -4,9 +4,14 @@ namespace App\Imports;
 
 use App\Models\Src10Datas;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class Src10DataImport implements ToModel
+class Src10DataImport implements ToModel,WithStartRow
 {
+    public function startRow(): int
+    {
+        return 2;
+    }
     /**
     * @param array $row
     *
@@ -14,6 +19,11 @@ class Src10DataImport implements ToModel
     */
     public function model(array $row)
     {
+        foreach($row as $key=>$item){
+            if($item==" "){
+                $row[$key]=0;
+            }
+        }
         return new Src10Datas([
         'class'=>$row['0'],
         'state_code'=>$row['1'],

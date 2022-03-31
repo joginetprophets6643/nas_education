@@ -14,6 +14,7 @@ use App\Imports\ImportAt5s;
 use App\Imports\ImportAt3s;
 use App\Imports\ImportAt8s;
 use Validator;
+use Illuminate\Http\Request;
 use App\Models\PQs;
 use App\Models\At3s;
 use App\Models\At3_key;
@@ -429,5 +430,29 @@ class UploadController extends Controller
     public function destroy(Upload $upload)
     {
         //
+    }
+
+    public function district(Request $request){
+        $request->validate([
+            'drc.*'=>'mimes:csv',
+        ]);
+        $files=$request->file('drc');
+        $name=[];
+        foreach($files as $file){
+            $filename = $file->getClientOriginalName();
+            $csv=public_path($filename);
+            if($filename=="G03y21_DistrictReports.csv" || $filename=="G05y21_DistrictReports.csv" || $filename=="G08y21_DistrictReports.csv" || $filename=="G10y21_DistrictReports.csv"){
+                $file->move(public_path(''),$filename);
+            }
+            else{
+                $name[]=$filename;
+            }
+        }
+        if(count($name)>0){
+            dd(implode(",",$name)." Not Allowed");
+        }
+        else{
+            dd("Uploaded successfully");
+        }
     }
 }
