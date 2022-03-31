@@ -996,22 +996,22 @@ function updateData(data) {
       let gov = 0
 
       data.map(pari_inf => {
-        total_school += parseInt(pari_inf.total_school)
-        total_teacher += parseInt(pari_inf.total_teacher)
-        total_student += parseInt(pari_inf.total_student)
+        total_school += parseFloat(pari_inf.total_school)
+        total_teacher += parseFloat(pari_inf.total_teacher)
+        total_student += parseFloat(pari_inf.total_student)
         total_male += parseFloat(pari_inf.male_gender)
         total_female += parseFloat(pari_inf.female_gender)
         total_trans += parseFloat(pari_inf.trans_gender)
-        total_urban += parseInt(pari_inf.urban_location)
-        total_rural += parseInt(pari_inf.rural_location)
+        total_urban += parseFloat(pari_inf.urban_location)
+        total_rural += parseFloat(pari_inf.rural_location)
         gen_group += parseFloat(pari_inf.general_social_group)
         sc_group += parseFloat(pari_inf.sc_social_group)
         st_group += parseFloat(pari_inf.st_social_group)
         obc_group += parseFloat(pari_inf.obc_social_group)
-        cent_gov += parseInt(pari_inf.central_govt_school)
-        gov_aided += parseInt(pari_inf.govt_aided_school)
-        priv += parseInt(pari_inf.private_school)
-        gov += parseInt(pari_inf.govt_school)
+        cent_gov += parseFloat(pari_inf.central_govt_school)
+        gov_aided += parseFloat(pari_inf.govt_aided_school)
+        priv += parseFloat(pari_inf.private_school)
+        gov += parseFloat(pari_inf.govt_school)
 
       })
 
