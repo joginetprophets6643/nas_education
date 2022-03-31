@@ -265,7 +265,7 @@ function createSocialBarGraph(bar, colors) {
         borderWidth: 0,
         dataLabels: {
           enabled: true,
-          format: '{point.y:.2f}%'
+          format: '{point.y:.1f}%'
         }
       }
     },
@@ -1032,9 +1032,9 @@ function updateData(data) {
       $('#participation_school_class' + classType).html(total_school.toFixed(0))
       $('#participation_teachers_class' + classType).html(total_teacher.toFixed(0))
       $('#participation_students_class' + classType).html(total_student.toFixed(0))
-      $('#paricipation_gender_male_class' + classType).html(total_male.toFixed(2) + '%')
-      $('#paricipation_gender_trans_class' + classType).html(total_trans.toFixed(2) + '%')
-      $('#paricipation_gender_female_class' + classType).html(total_female.toFixed(2) + '%')
+      $('#paricipation_gender_male_class' + classType).html(total_male.toFixed(1) + '%')
+      $('#paricipation_gender_trans_class' + classType).html(total_trans.toFixed(1) + '%')
+      $('#paricipation_gender_female_class' + classType).html(total_female.toFixed(1) + '%')
       $('#participation_rural_class' + classType).html(total_rural.toFixed(0) + '%')
       $('#participation_urban_class' + classType).html(total_urban.toFixed(0) + '%')
 
@@ -1045,10 +1045,10 @@ function updateData(data) {
         cent_gov: Math.round(cent_gov.toFixed(0)),
       }
       const barChart = {
-        gen: parseFloat(gen_group.toFixed(2)),
-        sc: parseFloat(sc_group.toFixed(2)),
-        st: parseFloat(st_group.toFixed(2)),
-        obc: parseFloat(obc_group.toFixed(2))
+        gen: parseFloat(gen_group.toFixed(1)),
+        sc: parseFloat(sc_group.toFixed(1)),
+        st: parseFloat(st_group.toFixed(1)),
+        obc: parseFloat(obc_group.toFixed(1))
       }
 
       const doughnutChartColors = {
