@@ -4,9 +4,13 @@ namespace App\Imports;
 
 use App\Models\Drc3Datas;
 use Maatwebsite\Excel\Concerns\ToModel;
-
-class Drc3DataImport implements ToModel
+use Maatwebsite\Excel\Concerns\WithStartRow;
+class Drc3DataImport implements ToModel,WithStartRow
 {
+    public function startRow(): int
+    {
+        return 2;
+    }
     /**
     * @param array $row
     *
@@ -14,6 +18,11 @@ class Drc3DataImport implements ToModel
     */
     public function model(array $row)
     {
+        foreach($row as $key=>$item){
+            if($item==" "){
+                $row[$key]=0;
+            }
+        }
         return new Drc3Datas([
             
             "class"=>$row['0'],
