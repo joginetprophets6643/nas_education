@@ -59,12 +59,14 @@ Route::get('/drc-final-data/district-master',[DataProcessController::class,'inde
 // Route::get('/drc-final-data/participation',[DataProcessController::class,'participation']);
 // Route::get('/drc-final-data/lo',[DataProcessController::class,'DRCLO']);
 // Route::get('/drc-final-data/feedback',[DataProcessController::class,'DRCFEEDBACK']);
+Route::get('/drc-final-data',function(){
+    return Redirect()->route('participate');
+}); 
 
-
-Route::get('/drc-final-data/participation',[FinalDistrictProcessController::class,'alldistrictParticipationData']);
-Route::get('/drc-final-data/performance',[FinalDistrictProcessController::class,'alldistrictPerformancedata']);
-Route::get('/drc-final-data/lo',[FinalDistrictProcessController::class,'districtWiseLO']);
-Route::get('/drc-final-data/feedback',[FinalDistrictProcessController::class,'districtFeedback']);
+Route::get('/drc-final-data/participation',[FinalDistrictProcessController::class,'alldistrictParticipationData'])->name('participate');
+Route::get('/drc-final-data/performance',[FinalDistrictProcessController::class,'alldistrictPerformancedata'])->name('performance');
+Route::get('/drc-final-data/lo',[FinalDistrictProcessController::class,'districtWiseLO'])->name('lo');
+Route::get('/drc-final-data/feedback',[FinalDistrictProcessController::class,'districtFeedback'])->name('feedback');
 
 /*********************************
 * District Level Data upload end

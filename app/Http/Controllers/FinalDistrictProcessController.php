@@ -18,7 +18,7 @@ class FinalDistrictProcessController extends Controller
          $grade5PrcoessData = $this->grade5ParticipationData();
          $grade8PrcoessData = $this->grade8ParticipationData();
          $grade10PrcoessData = $this->grade10ParticipationData();
-         return "Participation Table Created";
+         return Redirect()->route('performance');
     }
 
     public function grade3ParticipationData()
@@ -58,7 +58,7 @@ class FinalDistrictProcessController extends Controller
                 "male_gender_count" =>'0',
                 "female_gender" =>$data->dist_girl_n,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->dist_transg_n,
+                "trans_gender" =>$data->dist_trans_n,
                 "trans_gender_count" =>'0',
                
 
@@ -104,7 +104,7 @@ class FinalDistrictProcessController extends Controller
                 "male_gender_count" =>'0',
                 "female_gender" =>$data->dist_girl_n,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->dist_transg_n,
+                "trans_gender" =>$data->dist_trans_n,
                 "trans_gender_count" =>'0',
             ]);
         }
@@ -144,7 +144,7 @@ class FinalDistrictProcessController extends Controller
                 "male_gender_count" =>'0',
                 "female_gender" =>$data->dist_girl_n,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->dist_transg_n,
+                "trans_gender" =>$data->dist_trans_n,
                 "trans_gender_count" =>'0',
             ]);
         }
@@ -184,7 +184,7 @@ class FinalDistrictProcessController extends Controller
                 "male_gender_count" =>'0',
                 "female_gender" =>$data->dist_girl_n,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->dist_transg_n,
+                "trans_gender" =>$data->dist_trans_n,
                 "trans_gender_count" =>'0',
             ]);
         }
@@ -198,7 +198,7 @@ class FinalDistrictProcessController extends Controller
         $grade5PrcoessData = $this->grade5PerformanceData();
         $grade8PrcoessData = $this->grade8PerformanceData();
         $grade10PrcoessData = $this->grade10PerformanceData();
-        return "Performance Table Created";
+        return Redirect()->route('lo');
     }
 
 
@@ -1895,7 +1895,7 @@ class FinalDistrictProcessController extends Controller
         $allSQdistrictData = json_decode(json_encode($allSQdistrictData), true);
         $allDNLODatadistrictSQ = PQdistrictLevelFeedback::insert($allSQdistrictData); 
 
-        return "Feedback data successfully created.";
+        return "All data successfully created.";
     }
 
     //Query For Feedback DRC data Subject Wise Grade 3
@@ -2316,7 +2316,7 @@ class FinalDistrictProcessController extends Controller
             ]);
         }
 
-        return "district Learning Outcome Table Created";
+        return Redirect()->route('feedback');
     }
 
     //Query For LO DRC data Subject Wise Grade 3
