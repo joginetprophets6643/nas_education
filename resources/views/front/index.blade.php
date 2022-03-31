@@ -946,7 +946,10 @@
       if(value === ''){
         return 0
       }else{
-        return parseInt(value)
+        console.log(value,"Before")
+        console.log(Math.round(value),"After")
+        return Math.round(value)
+        
       }
     }
   }
