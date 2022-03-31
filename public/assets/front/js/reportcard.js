@@ -564,7 +564,7 @@ function chageDataWithFilter(filter_type, value) {
         activeState = lastActiveState
         activeDistrict = lastActiveDistrict
         $('#active_state').html(activeState.state_name)
-        $('#active_district').html(activeDistrict.district_name)
+        $('#active_district').html(format_string(activeDistrict.district_name))
         $('#navbar-highlighter').html('(' + format_string(activeState.state_name) + ' > ' + format_string(activeDistrict.district_name) + ')')
         toggleDistrictList(activeDistrict.udise_state_code, true)
         toggleActiveDistrict(activeDistrict.udise_district_code, true)
@@ -963,7 +963,7 @@ function setActiveStateDistrict(state_id, district_id) {
   makeDistrictActive(district_id)
   setBreadCrumb('district', true)
   $('#active_state').html(activeState.state_name)
-  $('#active_district').html(activeDistrict.district_name)
+  $('#active_district').html(format_string(activeDistrict.district_name))
   $('#navbar-highlighter').html('(' + format_string(activeState.state_name) + ')')
   $('#navbar-highlighter').html('(' + format_string(activeState.state_name) + ' > ' + format_string(activeDistrict.district_name) + ')')
 
