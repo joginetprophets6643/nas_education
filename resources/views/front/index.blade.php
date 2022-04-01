@@ -716,7 +716,7 @@
                               $('#select-info').html('Please select a District on the interactive map or search for the name below to continue.');
 
                               const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
-                              triggerDistrictChart(selectedMapData)                 
+                              triggerDistrictChart(e.point.name,selectedMapData)                 
                               populateDemographicInfo(e.point.value)
                             },
                       }
@@ -781,7 +781,7 @@
     $('#BackToN').css('display','none');
   }
 
-  function triggerDistrictChart(data){
+  function triggerDistrictChart(name,data){
     let demographicInfo = []
     document.getElementById("map-container").style.display = "none";
     if(typeof data  === 'undefined'){
@@ -827,14 +827,16 @@
             select: {
               // color: '#f7941c'
               color: '#006bb6'
-            }
+            },
           },
           events:{
             click: (e)=>{
-              $('#area-title').html('Area of the District');
-              $('#teacher-title').html('Teachers in District');
-              $('#select-info').html('Please proceed to READ MORE.');
-              setActiveDistrict(e.point.id);
+                $('#name').html(e.point.name.toUpperCase());
+                $('.highcharts-title').html(name.toUpperCase()+' ('+e.point.name.toUpperCase()+')');
+                $('#area-title').html('Area of the District');
+                $('#teacher-title').html('Teachers in District');
+                $('#select-info').html('Please proceed to READ MORE.');
+                setActiveDistrict(e.point.id);
               // e.point.color = '#f7941c';
             }
           },
@@ -933,7 +935,7 @@
         console.log(selected_state['hc-key'])
         const state_name = selected_state['hc-key'] 
         const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
-        triggerDistrictChart(selectedMapData)
+        triggerDistrictChart(state_name,selectedMapData)
         populateDemographicInfo(parserInt(val))
       }
     }
