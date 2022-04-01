@@ -53,7 +53,7 @@
           <li class="nav-item hide-item" id="User">
             <a class="nav-link" href="{{url('/secure-admin/user')}}">
               <span class="menu-title">Manage User</span>
-              <i class="fas fa-user menu-icon"></i>
+              <img src="{{asset('assets/admin/vendors/images/user-solid.svg')}}" alt="">
             </a>
           </li>
 
@@ -61,7 +61,7 @@
             <a class="nav-link" data-bs-toggle="collapse" href="#media" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Manage Media</span>
               <!-- <i class="icon-doc menu-icon"></i> -->
-              <i class="fa fa-photo-video menu-icon"></i>            </a>
+              <img class="sidebar-icons" src="{{asset('assets/admin/vendors/images/photo-film-solid.svg')}}" alt="">
             <div class="collapse" id="media">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/secure-admin/event')}}"> Manage Images </a></li>
@@ -73,28 +73,28 @@
           <li class="nav-item hide-item" id="Team">
             <a class="nav-link" href="{{url('/secure-admin/team-manager')}}">
               <span class="menu-title">Manage Team</span>
-              <i class="fa fa-users menu-icon"></i>            
+              <img class="sidebar-icons" src="{{asset('assets/admin/vendors/images/users-solid.svg')}}" alt="">           
             </a>
           </li>
 
           <li class="nav-item hide-item" id="Content">
             <a class="nav-link" href="{{url('secure-admin/static-content')}}">
               <span class="menu-title">Manage Content</span>
-              <i class="fas fa-file-alt menu-icon"></i>            
+              <img src="{{asset('assets/admin/vendors/images/file-alt-solid.svg')}}" alt="">            
             </a>
           </li>
 
           <li class="nav-item hide-item" id="Program">
             <a class="nav-link" href="{{url('/secure-admin/static-program')}}">
               <span class="menu-title">Manage Program</span>
-              <i class="far fa-file-alt menu-icon"></i>            
+              <img src="{{asset('assets/admin/vendors/images/file-lines-solid.svg')}}" alt="">            
             </a>
           </li>
 
           <li class="nav-item hide-item" id="Master">
             <a class="nav-link" data-bs-toggle="collapse" href="#master" aria-expanded="false" aria-controls="auth">
               <span class="menu-title">Master</span>
-              <i class="fas fa-globe-africa menu-icon"></i>            
+              <img src="{{asset('assets/admin/vendors/images/earth-africa-solid.svg')}}" alt="">            
             </a>
             <div class="collapse" id="master">
               <ul class="nav flex-column sub-menu">
@@ -107,7 +107,7 @@
           <li class="nav-item hide-item" id="Statistic">
             <a class="nav-link" href="{{url('/secure-admin/national-statistic')}}">
               <span class="menu-title">National Statistic</span>
-              <i class="fas fa-globe menu-icon"></i>            
+              <img src="{{asset('assets/admin/vendors/images/globe-solid.svg')}}" alt="">            
             </a>
           </li>
 
@@ -115,14 +115,14 @@
           <li class="nav-item hide-item" id="Data">
             <a class="nav-link" href="{{url('/secure-admin/upload-csv-files')}}">
               <span class="menu-title">Manage Data</span>
-              <i class="fas fa-database menu-icon"></i>            
+              <img src="{{asset('assets/admin/vendors/images/database-solid.svg')}}" alt="">            
             </a>
           </li>
 
           <li class="nav-item hide-item" id="Query">
             <a class="nav-link" href="{{url('/secure-admin/query-button')}}">
               <span class="menu-title">Query Buttons</span>
-              <i class="fas fa-database menu-icon"></i>            
+              <img src="{{asset('assets/admin/vendors/images/database-solid.svg')}}" alt="">            
             </a>
           </li>
 
@@ -130,21 +130,21 @@
           <li class="nav-item hide-item" id="Banner">
             <a class="nav-link" href="{{url('/secure-admin/manage-banner')}}">
               <span class="menu-title">Manage Banner</span>
-              <i class="far fa-images menu-icon"></i>            
+              <img class="sidebar-icons" src="{{asset('assets/admin/vendors/images/images-regular.svg')}}" alt="">            
             </a>
           </li>
 
           <li class="nav-item hide-item" id="Client-Logo">
             <a class="nav-link" href="{{url('/secure-admin/client-logo')}}">
               <span class="menu-title">Manage Client Logo</span>
-              <i class="fas fa-images menu-icon"></i>            
+              <img class="sidebar-icons" src="{{asset('assets/admin/vendors/images/images-solid.svg')}}" alt="">          
             </a>
           </li>
 
           <li class="nav-item hide-item" id="Registration">
             <a class="nav-link" href="{{url('/secure-admin/registration-list')}}">
               <span class="menu-title">Total Registration</span>
-              <i class="fas fa-user-friends menu-icon"></i>            
+              <img class="sidebar-icons" src="{{asset('assets/admin/vendors/images/user-group-solid.svg')}}" alt="">            
             </a>
           </li>
 
@@ -152,7 +152,7 @@
             <a class="nav-link" href="{{url('/secure-admin/manage-rti')}}">
               <span class="menu-title">Manage RTI</span>
               <!-- <i class="icon-user menu-icon"></i> -->
-              <i class="far fa-file-pdf menu-icon"></i>            
+              <img src="{{asset('assets/admin/vendors/images/file-pdf-solid.svg')}}" alt="">           
             </a>
           </li>
 
@@ -160,7 +160,7 @@
             <a class="nav-link" href="{{route('setting')}}">
               <span class="menu-title">Manage Setting</span>
               <!-- <i class="icon-user menu-icon"></i> -->
-              <i class="fas fa-cog menu-icon"></i>
+              <img src="{{asset('assets/admin/vendors/images/gear-solid.svg')}}" alt="">
             </a>
           </li>
 

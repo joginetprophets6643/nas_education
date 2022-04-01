@@ -18547,3 +18547,16 @@ a.btn.btn-danger.btn-sm.RTI_delete {
 .hide-item{
     display: none;
 }
+
+.sidebar-icons{
+    width: 20px !important;
+}
+.sidebar .nav-link img {
+    width: 16px;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

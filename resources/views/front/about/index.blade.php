@@ -30,23 +30,23 @@
               <div class="col-md-12">
                    <div class="card-white">
                     <div class="d-flex">
-                      <div class="col-md-12 col-lg-6 aboutpage-img-wrap">
+                      <!-- <div class="col-md-12 col-lg-6 aboutpage-img-wrap">
                         <img src="{{asset('assets/front/images/about.png')}}" alt="img" class="img-fluid" />
-                      </div>
+                      </div> -->
                       @if(!empty($content->page_meta_title))
-                      <div class="col-md-12 col-lg-6 aboutpage-content">
+                      <div class="col-md-12 col-lg-12 aboutpage-content">
                         <h2 class="heading-blue">
                           {{$content->page_meta_title}}
                         </h2>
                         <div class="desc-black">
-                            {!!$content->home_page_content!!}
+                            {!!$content->inner_page_content!!}
                         </div>
                       </div>
                     </div>
                     <div class="col-md-12">
-                      <div class="desc-black" data-aos="fade-up">
+                      <!-- <div class="desc-black">
                             {!!$content->inner_page_content!!}
-                        </div>
+                        </div> -->
                     </div>
                     @endif
                    </div>
