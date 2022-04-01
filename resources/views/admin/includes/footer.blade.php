@@ -83,7 +83,6 @@ $('.extra').css('display',"inline-block");
     $('.table').DataTable();
 } );
 </script>
-<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
-    <script src="{{asset('assets/front/js/all.js')}}" data-auto-replace-svg="nest"></script>
+
   </body>
 </html>
