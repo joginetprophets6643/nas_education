@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\request;
 use App\Models\AllGradeParticipationTBL;
 use App\Models\PerformanceMaster;
-use App\Models\districtGradeLevelLearningOutCome;
-use App\Models\PQdistrictLevelFeedback;
+use App\Models\DistrictGradeLevelLearningOutCome;
+use App\Models\PQDistrictLevelFeedback;
 use DB;
 
 class FinalDistrictProcessController extends Controller
@@ -1811,7 +1811,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG3 as $data){
 
-            PQdistrictLevelFeedback::insert([
+            PQDistrictLevelFeedback::insert([
                     'state_id'=>$data->state_code,
                     'district_id'=>$data->dist_code,
                     'grade'=>3,
@@ -1825,7 +1825,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG5 as $data){
 
-            PQdistrictLevelFeedback::insert([
+            PQDistrictLevelFeedback::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>5,
@@ -1839,7 +1839,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG8 as $data){
 
-            PQdistrictLevelFeedback::insert([
+            PQDistrictLevelFeedback::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>8,
@@ -1853,7 +1853,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG10 as $data){
 
-            PQdistrictLevelFeedback::insert([
+            PQDistrictLevelFeedback::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>10,
@@ -1873,7 +1873,7 @@ class FinalDistrictProcessController extends Controller
         $alldistrictFBPQ = $this->RaqQuery($stringPQdistrict,$wherePQdistrict,$stringGroupBYPQdistrict,$districtTBLPQ);
         $allPQdistrictData = DB::select($alldistrictFBPQ);
         $allPQdistrictData = json_decode(json_encode($allPQdistrictData), true);
-        $allDNLODatadistrictPQ = PQdistrictLevelFeedback::insert($allPQdistrictData);  
+        $allDNLODatadistrictPQ = PQDistrictLevelFeedback::insert($allPQdistrictData);  
 
     // grade 11 tq feedback data insert
         $stringTQdistrict = 'pq_district_level_feedback.district_id,';
@@ -1883,7 +1883,7 @@ class FinalDistrictProcessController extends Controller
         $alldistrictFBTQ = $this->RaqQuery($stringTQdistrict,$whereTQdistrict,$stringGroupBYTQdistrict,$districtTBLTQ);
         $allTQdistrictData = DB::select($alldistrictFBTQ);
         $allTQdistrictData = json_decode(json_encode($allTQdistrictData), true);
-        $alldNLODatadistrictTQ = PQdistrictLevelFeedback::insert($allTQdistrictData);   
+        $alldNLODatadistrictTQ = PQDistrictLevelFeedback::insert($allTQdistrictData);   
 
     // grade 11 sq feedback data insert
         $stringSQdistrict = 'pq_district_level_feedback.district_id,';
@@ -1893,7 +1893,7 @@ class FinalDistrictProcessController extends Controller
         $alldistrictFBSQ = $this->RaqQuery($stringSQdistrict,$whereSQdistrict,$stringGroupBYSQdistrict,$districtTBLSQ);
         $allSQdistrictData = DB::select($alldistrictFBSQ);
         $allSQdistrictData = json_decode(json_encode($allSQdistrictData), true);
-        $allDNLODatadistrictSQ = PQdistrictLevelFeedback::insert($allSQdistrictData); 
+        $allDNLODatadistrictSQ = PQDistrictLevelFeedback::insert($allSQdistrictData); 
 
         return "All data successfully created.";
     }
@@ -2254,7 +2254,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG3 as $data){
 
-                districtGradeLevelLearningOutCome::insert([
+                DistrictGradeLevelLearningOutCome::insert([
                     'state_id'=>$data->state_code,
                     'district_id'=>$data->dist_code,
                     'grade'=>3,
@@ -2270,7 +2270,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG5 as $data){
 
-            districtGradeLevelLearningOutCome::insert([
+            DistrictGradeLevelLearningOutCome::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>5,
@@ -2286,7 +2286,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG8 as $data){
 
-            districtGradeLevelLearningOutCome::insert([
+            DistrictGradeLevelLearningOutCome::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>8,
@@ -2302,7 +2302,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG10 as $data){
 
-            districtGradeLevelLearningOutCome::insert([
+            DistrictGradeLevelLearningOutCome::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>10,
