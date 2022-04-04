@@ -781,6 +781,8 @@
     $('#BackToN').css('display','none');
   }
 
+  let map_status=0
+
   function triggerDistrictChart(name,data){
     let demographicInfo = []
     document.getElementById("map-container").style.display = "none";
@@ -831,12 +833,26 @@
           },
           events:{
             click: (e)=>{
-                $('#name').html(e.point.name.toUpperCase());
-                $('.highcharts-title').html(name.toUpperCase()+' ('+e.point.name.toUpperCase()+')');
-                $('#area-title').html('Area of the District');
-                $('#teacher-title').html('Teachers in District');
-                $('#select-info').html('Please proceed to READ MORE.');
-                setActiveDistrict(e.point.id);
+                if(map_status!=0){
+                  const selected_state=[JSON.parse(sessionStorage.getItem('activeState'))]
+                  $('#name').html(selected_state[0].state_name.toUpperCase());
+                  $('.highcharts-title').html(selected_state[0].state_name.toUpperCase());
+                  $('#area-title').html('Area of the State');
+                  $('#teacher-title').html('Teachers in state');
+                  $('#select-info').html('Please select a District on the interactive map or search for the name below to continue.');
+                  sessionStorage.removeItem('activeDistrict');
+                  populateDemographicInfo(selected_state[0].state_id);
+                  map_status=0;
+                }else{
+                  $('#name').html(e.point.name.toUpperCase());
+                  $('.highcharts-title').html(name.toUpperCase()+' ('+e.point.name.toUpperCase()+')');
+                  $('#area-title').html('Area of the District');
+                  $('#teacher-title').html('Teachers in District');
+                  $('#select-info').html('Please proceed to READ MORE.');
+                  setActiveDistrict(e.point.id);
+                  map_status=1;
+                }
+                
               // e.point.color = '#f7941c';
             }
           },
