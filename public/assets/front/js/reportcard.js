@@ -382,7 +382,8 @@ async function createSidebarStates(data) {
     }
   }).done(response => {
     district_data = response.data
-    sessionStorage.setItem('districts', JSON.stringify(response.data))
+    district_data.sort((a, b) => a.district_name.localeCompare(b.district_name))
+    sessionStorage.setItem('districts', JSON.stringify(district_data))
   });
 
   await data.map(state => {
