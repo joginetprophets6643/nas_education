@@ -446,7 +446,7 @@ function toggleDistrictList(state_id, value, from_where = "") {
       } else {
         setBreadCrumb('state', true)
       }
-      $('#sidebar_active_state').html(activeState.state_name)
+      $('#sidebar_active_state').html(format_string(activeState.state_name))
       $('#navbar-highlighter').html('(' + format_string(activeState.state_name) + ')')
     }
     $('#state_' + state_id + '').addClass("active");
@@ -540,7 +540,7 @@ function chageDataWithFilter(filter_type, value) {
       activeState = lastActiveState
       activeDistrict = ''
       $('#active_state').html(activeState.state_name)
-      $('#sidebar_active_state').html(activeState.state_name)
+      $('#sidebar_active_state').html(format_string(activeState.state_name))
       $('#navbar-highlighter').html('(' + format_string(activeState.state_name) + ')')
       toggleActiveDistrict(activeDistrict.udise_district_code, false)
       removeItem('activeDistrict')
