@@ -1160,6 +1160,20 @@ ul {
     }
 }
 
+.contact-info {
+    br{
+        display: none;
+    }
+    p {
+        margin: 0;
+        padding-bottom: 10px;
+        &:last-child {
+            padding: 0;
+        }
+    }
+}
+
+
 .site-footer {
     background-color: $color_blue;
     .footer-links {
@@ -1168,7 +1182,7 @@ ul {
         }
         ul {
             li {
-                padding-bottom: 12px;
+                padding-bottom: 5px;
                 &:last-child {
                     padding-bottom: 0;
                 }
