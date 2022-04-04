@@ -832,7 +832,7 @@
           events:{
             click: (e)=>{
               const selected_district=[JSON.parse(sessionStorage.getItem('activeDistrict'))].pop()
-              if(selected_district!=null && selected_district.district_name.toUpperCase()==e.point.name.toUpperCase()){
+              if(selected_district!=null && selected_district.district_id==e.point.id){
                 $('#name').html(selected_district.state_name.toUpperCase());
                 $('.highcharts-title').html(selected_district.state_name.toUpperCase());
                 $('#area-title').html('Area of the State');
