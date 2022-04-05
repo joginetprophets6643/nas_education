@@ -101,7 +101,17 @@
                                                 Total number of teachers in <span class="information_district_name"></span> district.
                                               </h2>
                                             </div>
-                                            <div class="col-xl-4 col-xxl-4">
+                                            <div class="col-xl-4 col-xxl-3">
+                                                <div class="infotab-content light-yellow-bg">
+                                                  <h3 class="title">
+                                                    No. of Teachers
+                                                  </h3>
+                                                  <p class="total-no" id="information_district_total_teacher_class3">
+                                                    15000
+                                                  </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-xxl-3">
                                                 <div class="infotab-content light-yellow-bg">
                                                   <h3 class="title">
                                                     Teacher In State Govt Schools
@@ -111,7 +121,7 @@
                                                   </p>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-xxl-4">
+                                            <div class="col-xl-4 col-xxl-3">
                                                 <div class="infotab-content light-yellow-bg">
                                                   <h3 class="title">
                                                     Teacher In Govt Aided Schools
@@ -121,7 +131,7 @@
                                                   </p>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-xxl-4">
+                                            <div class="col-xl-4 col-xxl-3">
                                                 <div class="infotab-content light-yellow-bg">
                                                   <h3 class="title">
                                                     Teacher In Central Govt Schools

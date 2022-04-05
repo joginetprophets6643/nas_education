@@ -6,13 +6,12 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use App\Models\Src3Datas;
 
-
-class Src3DataImport implements ToModel
+class Src3DataImport implements ToModel,WithStartRow
 {
-    //  public function startRow(): int
-    // {
-    //     return 2;
-    // }
+     public function startRow(): int
+    {
+        return 2;
+    }
     /**
     * @param array $row
     *
@@ -20,6 +19,11 @@ class Src3DataImport implements ToModel
     */
     public function model(array $row)
     {
+        foreach($row as $key=>$item){
+            if($item==" "){
+                $row[$key]=0;
+            }
+        }
         return new Src3Datas([
             'class' =>$row['0'],
             'state_code' =>$row['1'],

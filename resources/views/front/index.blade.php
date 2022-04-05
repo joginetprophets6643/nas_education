@@ -716,7 +716,7 @@
                               $('#select-info').html('Please select a District on the interactive map or search for the name below to continue.');
 
                               const selectedMapData = DISTRICT_MAPS.find(data=> data.name === e.point.name.toUpperCase())
-                              triggerDistrictChart(selectedMapData)                 
+                              triggerDistrictChart(e.point.name,selectedMapData)                 
                               populateDemographicInfo(e.point.value)
                             },
                       }
@@ -781,7 +781,7 @@
     $('#BackToN').css('display','none');
   }
 
-  function triggerDistrictChart(data){
+  function triggerDistrictChart(name,data){
     let demographicInfo = []
     document.getElementById("map-container").style.display = "none";
     if(typeof data  === 'undefined'){
@@ -827,15 +827,27 @@
             select: {
               // color: '#f7941c'
               color: '#006bb6'
-            }
+            },
           },
           events:{
             click: (e)=>{
-              $('#area-title').html('Area of the District');
-              $('#teacher-title').html('Teachers in District');
-              $('#select-info').html('Please proceed to READ MORE.');
-              setActiveDistrict(e.point.id);
-              // e.point.color = '#f7941c';
+              const selected_district=[JSON.parse(sessionStorage.getItem('activeDistrict'))].pop()
+              if(selected_district!=null && selected_district.district_id==e.point.id){
+                $('#name').html(selected_district.state_name.toUpperCase());
+                $('.highcharts-title').html(selected_district.state_name.toUpperCase());
+                $('#area-title').html('Area of the State');
+                $('#teacher-title').html('Teachers in state');
+                $('#select-info').html('Please select a District on the interactive map or search for the name below to continue.');
+                populateDemographicInfo(selected_district.state_id);
+              }
+              else{
+                $('#name').html(e.point.name.toUpperCase());
+                $('.highcharts-title').html(name.toUpperCase()+' ('+e.point.name.toUpperCase()+')');
+                $('#area-title').html('Area of the District');
+                $('#teacher-title').html('Teachers in District');
+                $('#select-info').html('Please proceed to READ MORE.');
+                setActiveDistrict(e.point.id);
+              }
             }
           },
           
@@ -865,7 +877,9 @@
           return states_demographic
         }
       })
-
+      if(sessionStorage.hasOwnProperty('activeDistrict')){
+        sessionStorage.removeItem('activeDistrict');
+      }
     }
     else if(type === 'district'){
       demographic_info = [JSON.parse(sessionStorage.getItem('activeDistrict'))]
@@ -933,7 +947,7 @@
         console.log(selected_state['hc-key'])
         const state_name = selected_state['hc-key'] 
         const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
-        triggerDistrictChart(selectedMapData)
+        triggerDistrictChart(state_name,selectedMapData)
         populateDemographicInfo(parserInt(val))
       }
     }
@@ -946,7 +960,10 @@
       if(value === ''){
         return 0
       }else{
-        return parseInt(value)
+        console.log(value,"Before")
+        console.log(Math.round(value),"After")
+        return Math.round(value)
+        
       }
     }
   }

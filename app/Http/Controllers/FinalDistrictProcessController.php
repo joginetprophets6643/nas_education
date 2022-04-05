@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\request;
 use App\Models\AllGradeParticipationTBL;
 use App\Models\PerformanceMaster;
-use App\Models\districtGradeLevelLearningOutCome;
-use App\Models\PQdistrictLevelFeedback;
+use App\Models\DistrictGradeLevelLearningOutCome;
+use App\Models\PQDistrictLevelFeedback;
 use DB;
 
 class FinalDistrictProcessController extends Controller
@@ -18,7 +18,7 @@ class FinalDistrictProcessController extends Controller
          $grade5PrcoessData = $this->grade5ParticipationData();
          $grade8PrcoessData = $this->grade8ParticipationData();
          $grade10PrcoessData = $this->grade10ParticipationData();
-         return "Participation Table Created";
+         return Redirect()->route('performance');
     }
 
     public function grade3ParticipationData()
@@ -198,7 +198,7 @@ class FinalDistrictProcessController extends Controller
         $grade5PrcoessData = $this->grade5PerformanceData();
         $grade8PrcoessData = $this->grade8PerformanceData();
         $grade10PrcoessData = $this->grade10PerformanceData();
-        return "Performance Table Created";
+        return Redirect()->route('lo');
     }
 
 
@@ -219,19 +219,19 @@ class FinalDistrictProcessController extends Controller
                     'se_state'=>isset($districtlevel->state_la_se)?$districtlevel->state_la_se:'0',
                     'se_national'=>isset($districtlevel->india_la_se)?$districtlevel->india_la_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_transg_pct)?$districtlevel->dist_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_la_boys_pl12)?$districtlevel->dist_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_la_boys_pl34)?$districtlevel->dist_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_la_girls_pl12)?$districtlevel->dist_la_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_la_girls_pl34)?$districtlevel->dist_la_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_la_boys_pct)?$districtlevel->state_la_boys_pct:'0',"girls"=>isset($districtlevel->state_la_girls_pct)?$districtlevel->state_la_girls_pct:'0','trans_gender'=>isset($districtlevel->state_la_trans_pct)?$districtlevel->state_la_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_la_boys_pct)?$districtlevel->state_la_boys_pct:'0',"girls"=>isset($districtlevel->state_la_girls_pct)?$districtlevel->state_la_girls_pct:'0','trans_gender'=>isset($districtlevel->state_la_transg_pct)?$districtlevel->state_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_la_boys_pl12)?$districtlevel->state_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_la_boys_pl34)?$districtlevel->state_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_la_girls_pl12)?$districtlevel->state_la_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_la_girls_pl34)?$districtlevel->state_la_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_la_boys_pct)?$districtlevel->india_la_boys_pct:'0',"girls"=>isset($districtlevel->india_la_girls_pct)?$districtlevel->india_la_girls_pct:'0','trans_gender'=>isset($districtlevel->india_la_trans_pct)?$districtlevel->india_la_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_la_boys_pct)?$districtlevel->india_la_boys_pct:'0',"girls"=>isset($districtlevel->india_la_girls_pct)?$districtlevel->india_la_girls_pct:'0','trans_gender'=>isset($districtlevel->india_la_transg_pct)?$districtlevel->india_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_la_boys_pl12)?$districtlevel->india_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_la_boys_pl34)?$districtlevel->india_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_la_girls_pl12)?$districtlevel->india_la_girls_pl12:'0'
@@ -320,19 +320,19 @@ class FinalDistrictProcessController extends Controller
                     'se_state'=>isset($districtlevel->state_ma_se)?$districtlevel->state_ma_se:'0',
                     'se_national'=>isset($districtlevel->india_ma_se)?$districtlevel->india_ma_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_transg_pct)?$districtlevel->dist_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ma_boys_pl12)?$districtlevel->dist_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_ma_boys_pl34)?$districtlevel->dist_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_ma_girls_pl12)?$districtlevel->dist_ma_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_ma_girls_pl34)?$districtlevel->dist_ma_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_ma_boys_pct)?$districtlevel->state_ma_boys_pct:'0',"girls"=>isset($districtlevel->state_ma_girls_pct)?$districtlevel->state_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ma_trans_pct)?$districtlevel->state_ma_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_ma_boys_pct)?$districtlevel->state_ma_boys_pct:'0',"girls"=>isset($districtlevel->state_ma_girls_pct)?$districtlevel->state_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ma_transg_pct)?$districtlevel->state_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_ma_boys_pl12)?$districtlevel->state_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_ma_boys_pl34)?$districtlevel->state_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_ma_girls_pl12)?$districtlevel->state_ma_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_ma_girls_pl34)?$districtlevel->state_ma_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_ma_boys_pct)?$districtlevel->india_ma_boys_pct:'0',"girls"=>isset($districtlevel->india_ma_girls_pct)?$districtlevel->india_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ma_trans_pct)?$districtlevel->india_ma_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_ma_boys_pct)?$districtlevel->india_ma_boys_pct:'0',"girls"=>isset($districtlevel->india_ma_girls_pct)?$districtlevel->india_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ma_transg_pct)?$districtlevel->india_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_ma_boys_pl12)?$districtlevel->india_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_ma_boys_pl34)?$districtlevel->india_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_ma_girls_pl12)?$districtlevel->india_ma_girls_pl12:'0'
@@ -421,19 +421,19 @@ class FinalDistrictProcessController extends Controller
                     'se_state'=>isset($districtlevel->state_ev_se)?$districtlevel->state_ev_se:'0',
                     'se_national'=>isset($districtlevel->india_ev_se)?$districtlevel->india_ev_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_ev_boys_pct)?$districtlevel->dist_ev_boys_pct:'0',"girls"=>isset($districtlevel->dist_ev_girls_pct)?$districtlevel->dist_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ev_trans_pct)?$districtlevel->dist_ev_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_ev_boys_pct)?$districtlevel->dist_ev_boys_pct:'0',"girls"=>isset($districtlevel->dist_ev_girls_pct)?$districtlevel->dist_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ev_transg_pct)?$districtlevel->dist_ev_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ev_boys_pl12)?$districtlevel->dist_ev_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_ev_boys_pl34)?$districtlevel->dist_ev_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_ev_girls_pl12)?$districtlevel->dist_ev_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_ev_girls_pl34)?$districtlevel->dist_ev_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_ev_boys_pct)?$districtlevel->state_ev_boys_pct:'0',"girls"=>isset($districtlevel->state_ev_girls_pct)?$districtlevel->state_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ev_trans_pct)?$districtlevel->state_ev_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_ev_boys_pct)?$districtlevel->state_ev_boys_pct:'0',"girls"=>isset($districtlevel->state_ev_girls_pct)?$districtlevel->state_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ev_transg_pct)?$districtlevel->state_ev_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_ev_boys_pl12)?$districtlevel->state_ev_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_ev_boys_pl34)?$districtlevel->state_ev_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_ev_girls_pl12)?$districtlevel->state_ev_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_ev_girls_pl34)?$districtlevel->state_ev_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_ev_boys_pct)?$districtlevel->india_ev_boys_pct:'0',"girls"=>isset($districtlevel->india_ev_girls_pct)?$districtlevel->india_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ev_trans_pct)?$districtlevel->india_ev_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_ev_boys_pct)?$districtlevel->india_ev_boys_pct:'0',"girls"=>isset($districtlevel->india_ev_girls_pct)?$districtlevel->india_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ev_transg_pct)?$districtlevel->india_ev_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_ev_boys_pl12)?$districtlevel->india_ev_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_ev_boys_pl34)?$districtlevel->india_ev_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_ev_girls_pl12)?$districtlevel->india_ev_girls_pl12:'0'
@@ -541,19 +541,19 @@ class FinalDistrictProcessController extends Controller
                     'se_state'=>isset($districtlevel->state_la_se)?$districtlevel->state_la_se:'0',
                     'se_national'=>isset($districtlevel->india_la_se)?$districtlevel->india_la_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_transg_pct)?$districtlevel->dist_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_la_boys_pl12)?$districtlevel->dist_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_la_boys_pl34)?$districtlevel->dist_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_la_girls_pl12)?$districtlevel->dist_la_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_la_girls_pl34)?$districtlevel->dist_la_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_la_boys_pct)?$districtlevel->state_la_boys_pct:'0',"girls"=>isset($districtlevel->state_la_girls_pct)?$districtlevel->state_la_girls_pct:'0','trans_gender'=>isset($districtlevel->state_la_trans_pct)?$districtlevel->state_la_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_la_boys_pct)?$districtlevel->state_la_boys_pct:'0',"girls"=>isset($districtlevel->state_la_girls_pct)?$districtlevel->state_la_girls_pct:'0','trans_gender'=>isset($districtlevel->state_la_transg_pct)?$districtlevel->state_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_la_boys_pl12)?$districtlevel->state_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_la_boys_pl34)?$districtlevel->state_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_la_girls_pl12)?$districtlevel->state_la_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_la_girls_pl34)?$districtlevel->state_la_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_la_boys_pct)?$districtlevel->india_la_boys_pct:'0',"girls"=>isset($districtlevel->india_la_girls_pct)?$districtlevel->india_la_girls_pct:'0','trans_gender'=>isset($districtlevel->india_la_trans_pct)?$districtlevel->india_la_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_la_boys_pct)?$districtlevel->india_la_boys_pct:'0',"girls"=>isset($districtlevel->india_la_girls_pct)?$districtlevel->india_la_girls_pct:'0','trans_gender'=>isset($districtlevel->india_la_transg_pct)?$districtlevel->india_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_la_boys_pl12)?$districtlevel->india_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_la_boys_pl34)?$districtlevel->india_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_la_girls_pl12)?$districtlevel->india_la_girls_pl12:'0'
@@ -638,23 +638,23 @@ class FinalDistrictProcessController extends Controller
                     'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'state'=>isset($districtlevel->state_ma_pct)?$districtlevel->state_ma_pct:'0',
                     'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0',
-                    'se_district'=>isset($districtlevel->dist_ma_se)?$districtlevel->dist_ma_se:'0',
-                    'se_state'=>isset($districtlevel->state_ma_se)?$districtlevel->state_ma_se:'0',
-                    'se_national'=>isset($districtlevel->india_ma_se)?$districtlevel->india_ma_se:'0'),
+                    'se_district'=>isset($districtlevel->dist_math_se)?$districtlevel->dist_math_se:'0',
+                    'se_state'=>isset($districtlevel->state_math_se)?$districtlevel->state_math_se:'0',
+                    'se_national'=>isset($districtlevel->india_math_se)?$districtlevel->india_math_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_transg_pct)?$districtlevel->dist_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ma_boys_pl12)?$districtlevel->dist_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_ma_boys_pl34)?$districtlevel->dist_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_ma_girls_pl12)?$districtlevel->dist_ma_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_ma_girls_pl34)?$districtlevel->dist_ma_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_ma_boys_pct)?$districtlevel->state_ma_boys_pct:'0',"girls"=>isset($districtlevel->state_ma_girls_pct)?$districtlevel->state_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ma_trans_pct)?$districtlevel->state_ma_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_ma_boys_pct)?$districtlevel->state_ma_boys_pct:'0',"girls"=>isset($districtlevel->state_ma_girls_pct)?$districtlevel->state_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ma_transg_pct)?$districtlevel->state_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_ma_boys_pl12)?$districtlevel->state_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_ma_boys_pl34)?$districtlevel->state_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_ma_girls_pl12)?$districtlevel->state_ma_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_ma_girls_pl34)?$districtlevel->state_ma_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_ma_boys_pct)?$districtlevel->india_ma_boys_pct:'0',"girls"=>isset($districtlevel->india_ma_girls_pct)?$districtlevel->india_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ma_trans_pct)?$districtlevel->india_ma_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_ma_boys_pct)?$districtlevel->india_ma_boys_pct:'0',"girls"=>isset($districtlevel->india_ma_girls_pct)?$districtlevel->india_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ma_transg_pct)?$districtlevel->india_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_ma_boys_pl12)?$districtlevel->india_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_ma_boys_pl34)?$districtlevel->india_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_ma_girls_pl12)?$districtlevel->india_ma_girls_pl12:'0'
@@ -739,23 +739,23 @@ class FinalDistrictProcessController extends Controller
                     'district'=>isset($districtlevel->dist_ev_pct)?$districtlevel->dist_ev_pct:'0',
                     'state'=>isset($districtlevel->state_ev_pct)?$districtlevel->state_ev_pct:'0',
                     'national'=>isset($districtlevel->india_ev_pct)?$districtlevel->india_ev_pct:'0',
-                    'se_district'=>isset($districtlevel->dist_ev_se)?$districtlevel->dist_ev_se:'0',
-                    'se_state'=>isset($districtlevel->state_ev_se)?$districtlevel->state_ev_se:'0',
-                    'se_national'=>isset($districtlevel->india_ev_se)?$districtlevel->india_ev_se:'0'),
+                    'se_district'=>isset($districtlevel->dist_evs_se)?$districtlevel->dist_evs_se:'0',
+                    'se_state'=>isset($districtlevel->state_evs_se)?$districtlevel->state_evs_se:'0',
+                    'se_national'=>isset($districtlevel->india_evs_se)?$districtlevel->india_evs_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_ev_boys_pct)?$districtlevel->dist_ev_boys_pct:'0',"girls"=>isset($districtlevel->dist_ev_girls_pct)?$districtlevel->dist_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ev_trans_pct)?$districtlevel->dist_ev_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_ev_boys_pct)?$districtlevel->dist_ev_boys_pct:'0',"girls"=>isset($districtlevel->dist_ev_girls_pct)?$districtlevel->dist_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ev_transg_pct)?$districtlevel->dist_ev_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ev_boys_pl12)?$districtlevel->dist_ev_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_ev_boys_pl34)?$districtlevel->dist_ev_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_ev_girls_pl12)?$districtlevel->dist_ev_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_ev_girls_pl34)?$districtlevel->dist_ev_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_ev_boys_pct)?$districtlevel->state_ev_boys_pct:'0',"girls"=>isset($districtlevel->state_ev_girls_pct)?$districtlevel->state_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ev_trans_pct)?$districtlevel->state_ev_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_ev_boys_pct)?$districtlevel->state_ev_boys_pct:'0',"girls"=>isset($districtlevel->state_ev_girls_pct)?$districtlevel->state_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ev_transg_pct)?$districtlevel->state_ev_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_ev_boys_pl12)?$districtlevel->state_ev_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_ev_boys_pl34)?$districtlevel->state_ev_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_ev_girls_pl12)?$districtlevel->state_ev_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_ev_girls_pl34)?$districtlevel->state_ev_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_ev_boys_pct)?$districtlevel->india_ev_boys_pct:'0',"girls"=>isset($districtlevel->india_ev_girls_pct)?$districtlevel->india_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ev_trans_pct)?$districtlevel->india_ev_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_ev_boys_pct)?$districtlevel->india_ev_boys_pct:'0',"girls"=>isset($districtlevel->india_ev_girls_pct)?$districtlevel->india_ev_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ev_transg_pct)?$districtlevel->india_ev_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_ev_boys_pl12)?$districtlevel->india_ev_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_ev_boys_pl34)?$districtlevel->india_ev_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_ev_girls_pl12)?$districtlevel->india_ev_girls_pl12:'0'
@@ -862,19 +862,19 @@ class FinalDistrictProcessController extends Controller
                     'se_state'=>isset($districtlevel->state_la_se)?$districtlevel->state_la_se:'0',
                     'se_national'=>isset($districtlevel->india_la_se)?$districtlevel->india_la_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_transg_pct)?$districtlevel->dist_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_la_boys_pl12)?$districtlevel->dist_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_la_boys_pl34)?$districtlevel->dist_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_la_girls_pl12)?$districtlevel->dist_la_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_la_girls_pl34)?$districtlevel->dist_la_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_la_boys_pct)?$districtlevel->state_la_boys_pct:'0',"girls"=>isset($districtlevel->state_la_girls_pct)?$districtlevel->state_la_girls_pct:'0','trans_gender'=>isset($districtlevel->state_la_trans_pct)?$districtlevel->state_la_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_la_boys_pct)?$districtlevel->state_la_boys_pct:'0',"girls"=>isset($districtlevel->state_la_girls_pct)?$districtlevel->state_la_girls_pct:'0','trans_gender'=>isset($districtlevel->state_la_transg_pct)?$districtlevel->state_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_la_boys_pl12)?$districtlevel->state_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_la_boys_pl34)?$districtlevel->state_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_la_girls_pl12)?$districtlevel->state_la_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_la_girls_pl34)?$districtlevel->state_la_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_la_boys_pct)?$districtlevel->india_la_boys_pct:'0',"girls"=>isset($districtlevel->india_la_girls_pct)?$districtlevel->india_la_girls_pct:'0','trans_gender'=>isset($districtlevel->india_la_trans_pct)?$districtlevel->india_la_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_la_boys_pct)?$districtlevel->india_la_boys_pct:'0',"girls"=>isset($districtlevel->india_la_girls_pct)?$districtlevel->india_la_girls_pct:'0','trans_gender'=>isset($districtlevel->india_la_transg_pct)?$districtlevel->india_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_la_boys_pl12)?$districtlevel->india_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_la_boys_pl34)?$districtlevel->india_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_la_girls_pl12)?$districtlevel->india_la_girls_pl12:'0'
@@ -963,19 +963,19 @@ class FinalDistrictProcessController extends Controller
                     'se_state'=>isset($districtlevel->state_ma_se)?$districtlevel->state_ma_se:'0',
                     'se_national'=>isset($districtlevel->india_ma_se)?$districtlevel->india_ma_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_transg_pct)?$districtlevel->dist_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ma_boys_pl12)?$districtlevel->dist_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_ma_boys_pl34)?$districtlevel->dist_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_ma_girls_pl12)?$districtlevel->dist_ma_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_ma_girls_pl34)?$districtlevel->dist_ma_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_ma_boys_pct)?$districtlevel->state_ma_boys_pct:'0',"girls"=>isset($districtlevel->state_ma_girls_pct)?$districtlevel->state_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ma_trans_pct)?$districtlevel->state_ma_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_ma_boys_pct)?$districtlevel->state_ma_boys_pct:'0',"girls"=>isset($districtlevel->state_ma_girls_pct)?$districtlevel->state_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ma_transg_pct)?$districtlevel->state_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_ma_boys_pl12)?$districtlevel->state_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_ma_boys_pl34)?$districtlevel->state_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_ma_girls_pl12)?$districtlevel->state_ma_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_ma_girls_pl34)?$districtlevel->state_ma_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_ma_boys_pct)?$districtlevel->india_ma_boys_pct:'0',"girls"=>isset($districtlevel->india_ma_girls_pct)?$districtlevel->india_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ma_trans_pct)?$districtlevel->india_ma_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_ma_boys_pct)?$districtlevel->india_ma_boys_pct:'0',"girls"=>isset($districtlevel->india_ma_girls_pct)?$districtlevel->india_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ma_transg_pct)?$districtlevel->india_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_ma_boys_pl12)?$districtlevel->india_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_ma_boys_pl34)?$districtlevel->india_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_ma_girls_pl12)?$districtlevel->india_ma_girls_pl12:'0'
@@ -1064,19 +1064,19 @@ class FinalDistrictProcessController extends Controller
                     'se_state'=>isset($districtlevel->state_sc_se)?$districtlevel->state_sc_se:'0',
                     'se_national'=>isset($districtlevel->india_sc_se)?$districtlevel->india_sc_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_sc_boys_pct)?$districtlevel->dist_sc_boys_pct:'0',"girls"=>isset($districtlevel->dist_sc_girls_pct)?$districtlevel->dist_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_sc_trans_pct)?$districtlevel->dist_sc_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_sc_boys_pct)?$districtlevel->dist_sc_boys_pct:'0',"girls"=>isset($districtlevel->dist_sc_girls_pct)?$districtlevel->dist_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_sc_transg_pct)?$districtlevel->dist_sc_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_sc_boys_pl12)?$districtlevel->dist_sc_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_sc_boys_pl34)?$districtlevel->dist_sc_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_sc_girls_pl12)?$districtlevel->dist_sc_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_sc_girls_pl34)?$districtlevel->dist_sc_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_sc_boys_pct)?$districtlevel->state_sc_boys_pct:'0',"girls"=>isset($districtlevel->state_sc_girls_pct)?$districtlevel->state_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->state_sc_trans_pct)?$districtlevel->state_sc_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_sc_boys_pct)?$districtlevel->state_sc_boys_pct:'0',"girls"=>isset($districtlevel->state_sc_girls_pct)?$districtlevel->state_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->state_sc_transg_pct)?$districtlevel->state_sc_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_sc_boys_pl12)?$districtlevel->state_sc_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_sc_boys_pl34)?$districtlevel->state_sc_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_sc_girls_pl12)?$districtlevel->state_sc_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_sc_girls_pl34)?$districtlevel->state_sc_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_sc_boys_pct)?$districtlevel->india_sc_boys_pct:'0',"girls"=>isset($districtlevel->india_sc_girls_pct)?$districtlevel->india_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->india_sc_trans_pct)?$districtlevel->india_sc_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_sc_boys_pct)?$districtlevel->india_sc_boys_pct:'0',"girls"=>isset($districtlevel->india_sc_girls_pct)?$districtlevel->india_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->india_sc_transg_pct)?$districtlevel->india_sc_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_sc_boys_pl12)?$districtlevel->india_sc_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_sc_boys_pl34)?$districtlevel->india_sc_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_sc_girls_pl12)?$districtlevel->india_sc_girls_pl12:'0'
@@ -1161,23 +1161,23 @@ class FinalDistrictProcessController extends Controller
                     'district'=>isset($districtlevel->dist_ss_pct)?$districtlevel->dist_ss_pct:'0',
                     'state'=>isset($districtlevel->state_ss_pct)?$districtlevel->state_ss_pct:'0',
                     'national'=>isset($districtlevel->india_ss_pct)?$districtlevel->india_ss_pct:'0',
-                    'se_district'=>isset($districtlevel->dist_ss_se)?$districtlevel->dist_ss_se:'0',
-                    'se_state'=>isset($districtlevel->state_ss_se)?$districtlevel->state_ss_se:'0',
-                    'se_national'=>isset($districtlevel->india_ss_se)?$districtlevel->india_ss_se:'0'),
+                    'se_district'=>isset($districtlevel->dist_sst_se)?$districtlevel->dist_sst_se:'0',
+                    'se_state'=>isset($districtlevel->state_sst_se)?$districtlevel->state_sst_se:'0',
+                    'se_national'=>isset($districtlevel->india_sst_se)?$districtlevel->india_sst_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_ss_boys_pct)?$districtlevel->dist_ss_boys_pct:'0',"girls"=>isset($districtlevel->dist_ss_girls_pct)?$districtlevel->dist_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ss_trans_pct)?$districtlevel->dist_ss_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_ss_boys_pct)?$districtlevel->dist_ss_boys_pct:'0',"girls"=>isset($districtlevel->dist_ss_girls_pct)?$districtlevel->dist_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ss_transg_pct)?$districtlevel->dist_ss_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ss_boys_pl12)?$districtlevel->dist_ss_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_ss_boys_pl34)?$districtlevel->dist_ss_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_ss_girls_pl12)?$districtlevel->dist_ss_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_ss_girls_pl34)?$districtlevel->dist_ss_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_ss_boys_pct)?$districtlevel->state_ss_boys_pct:'0',"girls"=>isset($districtlevel->state_ss_girls_pct)?$districtlevel->state_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ss_trans_pct)?$districtlevel->state_ss_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_ss_boys_pct)?$districtlevel->state_ss_boys_pct:'0',"girls"=>isset($districtlevel->state_ss_girls_pct)?$districtlevel->state_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ss_transg_pct)?$districtlevel->state_ss_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_ss_boys_pl12)?$districtlevel->state_ss_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_ss_boys_pl34)?$districtlevel->state_ss_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_ss_girls_pl12)?$districtlevel->state_ss_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_ss_girls_pl34)?$districtlevel->state_ss_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_ss_boys_pct)?$districtlevel->india_ss_boys_pct:'0',"girls"=>isset($districtlevel->india_ss_girls_pct)?$districtlevel->india_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ss_trans_pct)?$districtlevel->india_ss_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_ss_boys_pct)?$districtlevel->india_ss_boys_pct:'0',"girls"=>isset($districtlevel->india_ss_girls_pct)?$districtlevel->india_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ss_transg_pct)?$districtlevel->india_ss_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_ss_boys_pl12)?$districtlevel->india_ss_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_ss_boys_pl34)?$districtlevel->india_ss_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_ss_girls_pl12)?$districtlevel->india_ss_girls_pl12:'0'
@@ -1281,23 +1281,23 @@ class FinalDistrictProcessController extends Controller
                     'district'=>isset($districtlevel->dist_ma_pct)?$districtlevel->dist_ma_pct:'0',
                     'state'=>isset($districtlevel->state_ma_pct)?$districtlevel->state_ma_pct:'0',
                     'national'=>isset($districtlevel->india_ma_pct)?$districtlevel->india_ma_pct:'0',
-                    'se_district'=>isset($districtlevel->dist_ma_se)?$districtlevel->dist_ma_se:'0',
-                    'se_state'=>isset($districtlevel->state_ma_se)?$districtlevel->state_ma_se:'0',
-                    'se_national'=>isset($districtlevel->india_ma_se)?$districtlevel->india_ma_se:'0'),
+                    'se_district'=>isset($districtlevel->dist_math_se)?$districtlevel->dist_math_se:'0',
+                    'se_state'=>isset($districtlevel->state_math_se)?$districtlevel->state_math_se:'0',
+                    'se_national'=>isset($districtlevel->india_math_se)?$districtlevel->india_math_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_trans_pct)?$districtlevel->dist_ma_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_ma_boys_pct)?$districtlevel->dist_ma_boys_pct:'0',"girls"=>isset($districtlevel->dist_ma_girls_pct)?$districtlevel->dist_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ma_transg_pct)?$districtlevel->dist_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ma_boys_pl12)?$districtlevel->dist_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_ma_boys_pl34)?$districtlevel->dist_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_ma_girls_pl12)?$districtlevel->dist_ma_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_ma_girls_pl34)?$districtlevel->dist_ma_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_ma_boys_pct)?$districtlevel->state_ma_boys_pct:'0',"girls"=>isset($districtlevel->state_ma_girls_pct)?$districtlevel->state_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ma_trans_pct)?$districtlevel->state_ma_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_ma_boys_pct)?$districtlevel->state_ma_boys_pct:'0',"girls"=>isset($districtlevel->state_ma_girls_pct)?$districtlevel->state_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ma_transg_pct)?$districtlevel->state_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_ma_boys_pl12)?$districtlevel->state_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_ma_boys_pl34)?$districtlevel->state_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_ma_girls_pl12)?$districtlevel->state_ma_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_ma_girls_pl34)?$districtlevel->state_ma_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_ma_boys_pct)?$districtlevel->india_ma_boys_pct:'0',"girls"=>isset($districtlevel->india_ma_girls_pct)?$districtlevel->india_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ma_trans_pct)?$districtlevel->india_ma_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_ma_boys_pct)?$districtlevel->india_ma_boys_pct:'0',"girls"=>isset($districtlevel->india_ma_girls_pct)?$districtlevel->india_ma_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ma_transg_pct)?$districtlevel->india_ma_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_ma_boys_pl12)?$districtlevel->india_ma_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_ma_boys_pl34)?$districtlevel->india_ma_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_ma_girls_pl12)?$districtlevel->india_ma_girls_pl12:'0'
@@ -1382,23 +1382,23 @@ class FinalDistrictProcessController extends Controller
                     'district'=>isset($districtlevel->dist_sc_pct)?$districtlevel->dist_sc_pct:'0',
                     'state'=>isset($districtlevel->state_sc_pct)?$districtlevel->state_sc_pct:'0',
                     'national'=>isset($districtlevel->india_sc_pct)?$districtlevel->india_sc_pct:'0',
-                    'se_district'=>isset($districtlevel->dist_sc_se)?$districtlevel->dist_sc_se:'0',
-                    'se_state'=>isset($districtlevel->state_sc_se)?$districtlevel->state_sc_se:'0',
-                    'se_national'=>isset($districtlevel->india_sc_se)?$districtlevel->india_sc_se:'0'),
+                    'se_district'=>isset($districtlevel->dist_sci_se)?$districtlevel->dist_sci_se:'0',
+                    'se_state'=>isset($districtlevel->state_sci_se)?$districtlevel->state_sci_se:'0',
+                    'se_national'=>isset($districtlevel->india_sci_se)?$districtlevel->india_sci_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_sc_boys_pct)?$districtlevel->dist_sc_boys_pct:'0',"girls"=>isset($districtlevel->dist_sc_girls_pct)?$districtlevel->dist_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_sc_trans_pct)?$districtlevel->dist_sc_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_sc_boys_pct)?$districtlevel->dist_sc_boys_pct:'0',"girls"=>isset($districtlevel->dist_sc_girls_pct)?$districtlevel->dist_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_sc_transg_pct)?$districtlevel->dist_sc_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_sc_boys_pl12)?$districtlevel->dist_sc_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_sc_boys_pl34)?$districtlevel->dist_sc_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_sc_girls_pl12)?$districtlevel->dist_sc_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_sc_girls_pl34)?$districtlevel->dist_sc_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_sc_boys_pct)?$districtlevel->state_sc_boys_pct:'0',"girls"=>isset($districtlevel->state_sc_girls_pct)?$districtlevel->state_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->state_sc_trans_pct)?$districtlevel->state_sc_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_sc_boys_pct)?$districtlevel->state_sc_boys_pct:'0',"girls"=>isset($districtlevel->state_sc_girls_pct)?$districtlevel->state_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->state_sc_transg_pct)?$districtlevel->state_sc_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_sc_boys_pl12)?$districtlevel->state_sc_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_sc_boys_pl34)?$districtlevel->state_sc_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_sc_girls_pl12)?$districtlevel->state_sc_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_sc_girls_pl34)?$districtlevel->state_sc_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_sc_boys_pct)?$districtlevel->india_sc_boys_pct:'0',"girls"=>isset($districtlevel->india_sc_girls_pct)?$districtlevel->india_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->india_sc_trans_pct)?$districtlevel->india_sc_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_sc_boys_pct)?$districtlevel->india_sc_boys_pct:'0',"girls"=>isset($districtlevel->india_sc_girls_pct)?$districtlevel->india_sc_girls_pct:'0','trans_gender'=>isset($districtlevel->india_sc_transg_pct)?$districtlevel->india_sc_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_sc_boys_pl12)?$districtlevel->india_sc_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_sc_boys_pl34)?$districtlevel->india_sc_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_sc_girls_pl12)?$districtlevel->india_sc_girls_pl12:'0'
@@ -1483,23 +1483,23 @@ class FinalDistrictProcessController extends Controller
                     'district'=>isset($districtlevel->dist_ss_pct)?$districtlevel->dist_ss_pct:'0',
                     'state'=>isset($districtlevel->state_ss_pct)?$districtlevel->state_ss_pct:'0',
                     'national'=>isset($districtlevel->india_ss_pct)?$districtlevel->india_ss_pct:'0',
-                    'se_district'=>isset($districtlevel->dist_ss_se)?$districtlevel->dist_ss_se:'0',
-                    'se_state'=>isset($districtlevel->state_ss_se)?$districtlevel->state_ss_se:'0',
-                    'se_national'=>isset($districtlevel->india_ss_se)?$districtlevel->india_ss_se:'0'),
+                    'se_district'=>isset($districtlevel->dist_sst_se)?$districtlevel->dist_sst_se:'0',
+                    'se_state'=>isset($districtlevel->state_sst_se)?$districtlevel->state_sst_se:'0',
+                    'se_national'=>isset($districtlevel->india_sst_se)?$districtlevel->india_sst_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_ss_boys_pct)?$districtlevel->dist_ss_boys_pct:'0',"girls"=>isset($districtlevel->dist_ss_girls_pct)?$districtlevel->dist_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ss_trans_pct)?$districtlevel->dist_ss_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_ss_boys_pct)?$districtlevel->dist_ss_boys_pct:'0',"girls"=>isset($districtlevel->dist_ss_girls_pct)?$districtlevel->dist_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_ss_transg_pct)?$districtlevel->dist_ss_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_ss_boys_pl12)?$districtlevel->dist_ss_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_ss_boys_pl34)?$districtlevel->dist_ss_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_ss_girls_pl12)?$districtlevel->dist_ss_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_ss_girls_pl34)?$districtlevel->dist_ss_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_ss_boys_pct)?$districtlevel->state_ss_boys_pct:'0',"girls"=>isset($districtlevel->state_ss_girls_pct)?$districtlevel->state_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ss_trans_pct)?$districtlevel->state_ss_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_ss_boys_pct)?$districtlevel->state_ss_boys_pct:'0',"girls"=>isset($districtlevel->state_ss_girls_pct)?$districtlevel->state_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->state_ss_transg_pct)?$districtlevel->state_ss_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_ss_boys_pl12)?$districtlevel->state_ss_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_ss_boys_pl34)?$districtlevel->state_ss_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_ss_girls_pl12)?$districtlevel->state_ss_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_ss_girls_pl34)?$districtlevel->state_ss_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_ss_boys_pct)?$districtlevel->india_ss_boys_pct:'0',"girls"=>isset($districtlevel->india_ss_girls_pct)?$districtlevel->india_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ss_trans_pct)?$districtlevel->india_ss_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_ss_boys_pct)?$districtlevel->india_ss_boys_pct:'0',"girls"=>isset($districtlevel->india_ss_girls_pct)?$districtlevel->india_ss_girls_pct:'0','trans_gender'=>isset($districtlevel->india_ss_transg_pct)?$districtlevel->india_ss_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_ss_boys_pl12)?$districtlevel->india_ss_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_ss_boys_pl34)?$districtlevel->india_ss_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_ss_girls_pl12)?$districtlevel->india_ss_girls_pl12:'0'
@@ -1584,23 +1584,23 @@ class FinalDistrictProcessController extends Controller
                     'district'=>isset($districtlevel->dist_en_pct)?$districtlevel->dist_en_pct:'0',
                     'state'=>isset($districtlevel->state_en_pct)?$districtlevel->state_en_pct:'0',
                     'national'=>isset($districtlevel->india_en_pct)?$districtlevel->india_en_pct:'0',
-                    'se_district'=>isset($districtlevel->dist_en_se)?$districtlevel->dist_en_se:'0',
-                    'se_state'=>isset($districtlevel->state_en_se)?$districtlevel->state_en_se:'0',
-                    'se_national'=>isset($districtlevel->india_en_se)?$districtlevel->india_en_se:'0'),
+                    'se_district'=>isset($districtlevel->dist_eng_se)?$districtlevel->dist_eng_se:'0',
+                    'se_state'=>isset($districtlevel->state_eng_se)?$districtlevel->state_eng_se:'0',
+                    'se_national'=>isset($districtlevel->india_eng_se)?$districtlevel->india_eng_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_en_boys_pct)?$districtlevel->dist_en_boys_pct:'0',"girls"=>isset($districtlevel->dist_en_girls_pct)?$districtlevel->dist_en_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_en_trans_pct)?$districtlevel->dist_en_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_en_boys_pct)?$districtlevel->dist_en_boys_pct:'0',"girls"=>isset($districtlevel->dist_en_girls_pct)?$districtlevel->dist_en_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_en_transg_pct)?$districtlevel->dist_en_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_en_boys_pl12)?$districtlevel->dist_en_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_en_boys_pl34)?$districtlevel->dist_en_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_en_girls_pl12)?$districtlevel->dist_en_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_en_girls_pl34)?$districtlevel->dist_en_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_en_boys_pct)?$districtlevel->state_en_boys_pct:'0',"girls"=>isset($districtlevel->state_en_girls_pct)?$districtlevel->state_en_girls_pct:'0','trans_gender'=>isset($districtlevel->state_en_trans_pct)?$districtlevel->state_en_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_en_boys_pct)?$districtlevel->state_en_boys_pct:'0',"girls"=>isset($districtlevel->state_en_girls_pct)?$districtlevel->state_en_girls_pct:'0','trans_gender'=>isset($districtlevel->state_en_transg_pct)?$districtlevel->state_en_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_en_boys_pl12)?$districtlevel->state_en_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_en_boys_pl34)?$districtlevel->state_en_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_en_girls_pl12)?$districtlevel->state_en_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_en_girls_pl34)?$districtlevel->state_en_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_en_boys_pct)?$districtlevel->india_en_boys_pct:'0',"girls"=>isset($districtlevel->india_en_girls_pct)?$districtlevel->india_en_girls_pct:'0','trans_gender'=>isset($districtlevel->india_en_trans_pct)?$districtlevel->india_en_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_en_boys_pct)?$districtlevel->india_en_boys_pct:'0',"girls"=>isset($districtlevel->india_en_girls_pct)?$districtlevel->india_en_girls_pct:'0','trans_gender'=>isset($districtlevel->india_en_transg_pct)?$districtlevel->india_en_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_en_boys_pl12)?$districtlevel->india_en_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_en_boys_pl34)?$districtlevel->india_en_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_en_girls_pl12)?$districtlevel->india_en_girls_pl12:'0'
@@ -1685,23 +1685,23 @@ class FinalDistrictProcessController extends Controller
                     'district'=>isset($districtlevel->dist_la_pct)?$districtlevel->dist_la_pct:'0',
                     'state'=>isset($districtlevel->state_la_pct)?$districtlevel->state_la_pct:'0',
                     'national'=>isset($districtlevel->india_la_pct)?$districtlevel->india_la_pct:'0',
-                    'se_district'=>isset($districtlevel->dist_la_se)?$districtlevel->dist_la_se:'0',
-                    'se_state'=>isset($districtlevel->state_la_se)?$districtlevel->state_la_se:'0',
-                    'se_national'=>isset($districtlevel->india_la_se)?$districtlevel->india_la_se:'0'),
+                    'se_district'=>isset($districtlevel->dist_lang_se)?$districtlevel->dist_lang_se:'0',
+                    'se_state'=>isset($districtlevel->state_lang_se)?$districtlevel->state_lang_se:'0',
+                    'se_national'=>isset($districtlevel->india_lang_se)?$districtlevel->india_lang_se:'0'),
                 'gender'=>array(
-                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_trans_pct)?$districtlevel->dist_la_trans_pct:'0'
+                    'district'=>array("boys"=>isset($districtlevel->dist_la_boys_pct)?$districtlevel->dist_la_boys_pct:'0',"girls"=>isset($districtlevel->dist_la_girls_pct)?$districtlevel->dist_la_girls_pct:'0','trans_gender'=>isset($districtlevel->dist_la_transg_pct)?$districtlevel->dist_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->dist_la_boys_pl12)?$districtlevel->dist_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->dist_la_boys_pl34)?$districtlevel->dist_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->dist_la_girls_pl12)?$districtlevel->dist_la_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->dist_la_girls_pl34)?$districtlevel->dist_la_girls_pl34:'0'),
 
-                    'state'=>array("boys"=>isset($districtlevel->state_la_boys_pct)?$districtlevel->state_la_boys_pct:'0',"girls"=>isset($districtlevel->state_la_girls_pct)?$districtlevel->state_la_girls_pct:'0','trans_gender'=>isset($districtlevel->state_la_trans_pct)?$districtlevel->state_la_trans_pct:'0'
+                    'state'=>array("boys"=>isset($districtlevel->state_la_boys_pct)?$districtlevel->state_la_boys_pct:'0',"girls"=>isset($districtlevel->state_la_girls_pct)?$districtlevel->state_la_girls_pct:'0','trans_gender'=>isset($districtlevel->state_la_transg_pct)?$districtlevel->state_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->state_la_boys_pl12)?$districtlevel->state_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->state_la_boys_pl34)?$districtlevel->state_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->state_la_girls_pl12)?$districtlevel->state_la_girls_pl12:'0'
                     ,'girls_proficient_and_advance'=>isset($districtlevel->state_la_girls_pl34)?$districtlevel->state_la_girls_pl34:'0'),
                     
-                    'national'=>array("boys"=>isset($districtlevel->india_la_boys_pct)?$districtlevel->india_la_boys_pct:'0',"girls"=>isset($districtlevel->india_la_girls_pct)?$districtlevel->india_la_girls_pct:'0','trans_gender'=>isset($districtlevel->india_la_trans_pct)?$districtlevel->india_la_trans_pct:'0'
+                    'national'=>array("boys"=>isset($districtlevel->india_la_boys_pct)?$districtlevel->india_la_boys_pct:'0',"girls"=>isset($districtlevel->india_la_girls_pct)?$districtlevel->india_la_girls_pct:'0','trans_gender'=>isset($districtlevel->india_la_transg_pct)?$districtlevel->india_la_transg_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($districtlevel->india_la_boys_pl12)?$districtlevel->india_la_boys_pl12:'0'
                     ,'boys_proficient_and_advance'=>isset($districtlevel->india_la_boys_pl34)?$districtlevel->india_la_boys_pl34:'0'
                     ,'girls_basic_and_below_basic'=>isset($districtlevel->india_la_girls_pl12)?$districtlevel->india_la_girls_pl12:'0'
@@ -1811,7 +1811,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG3 as $data){
 
-            PQdistrictLevelFeedback::insert([
+            PQDistrictLevelFeedback::insert([
                     'state_id'=>$data->state_code,
                     'district_id'=>$data->dist_code,
                     'grade'=>3,
@@ -1825,7 +1825,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG5 as $data){
 
-            PQdistrictLevelFeedback::insert([
+            PQDistrictLevelFeedback::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>5,
@@ -1839,7 +1839,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG8 as $data){
 
-            PQdistrictLevelFeedback::insert([
+            PQDistrictLevelFeedback::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>8,
@@ -1853,7 +1853,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG10 as $data){
 
-            PQdistrictLevelFeedback::insert([
+            PQDistrictLevelFeedback::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>10,
@@ -1873,7 +1873,7 @@ class FinalDistrictProcessController extends Controller
         $alldistrictFBPQ = $this->RaqQuery($stringPQdistrict,$wherePQdistrict,$stringGroupBYPQdistrict,$districtTBLPQ);
         $allPQdistrictData = DB::select($alldistrictFBPQ);
         $allPQdistrictData = json_decode(json_encode($allPQdistrictData), true);
-        $allDNLODatadistrictPQ = PQdistrictLevelFeedback::insert($allPQdistrictData);  
+        $allDNLODatadistrictPQ = PQDistrictLevelFeedback::insert($allPQdistrictData);  
 
     // grade 11 tq feedback data insert
         $stringTQdistrict = 'pq_district_level_feedback.district_id,';
@@ -1883,7 +1883,7 @@ class FinalDistrictProcessController extends Controller
         $alldistrictFBTQ = $this->RaqQuery($stringTQdistrict,$whereTQdistrict,$stringGroupBYTQdistrict,$districtTBLTQ);
         $allTQdistrictData = DB::select($alldistrictFBTQ);
         $allTQdistrictData = json_decode(json_encode($allTQdistrictData), true);
-        $alldNLODatadistrictTQ = PQdistrictLevelFeedback::insert($allTQdistrictData);   
+        $alldNLODatadistrictTQ = PQDistrictLevelFeedback::insert($allTQdistrictData);   
 
     // grade 11 sq feedback data insert
         $stringSQdistrict = 'pq_district_level_feedback.district_id,';
@@ -1893,9 +1893,9 @@ class FinalDistrictProcessController extends Controller
         $alldistrictFBSQ = $this->RaqQuery($stringSQdistrict,$whereSQdistrict,$stringGroupBYSQdistrict,$districtTBLSQ);
         $allSQdistrictData = DB::select($alldistrictFBSQ);
         $allSQdistrictData = json_decode(json_encode($allSQdistrictData), true);
-        $allDNLODatadistrictSQ = PQdistrictLevelFeedback::insert($allSQdistrictData); 
+        $allDNLODatadistrictSQ = PQDistrictLevelFeedback::insert($allSQdistrictData); 
 
-        return "Feedback data successfully created.";
+        return "All data successfully created.";
     }
 
     //Query For Feedback DRC data Subject Wise Grade 3
@@ -2254,7 +2254,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG3 as $data){
 
-                districtGradeLevelLearningOutCome::insert([
+                DistrictGradeLevelLearningOutCome::insert([
                     'state_id'=>$data->state_code,
                     'district_id'=>$data->dist_code,
                     'grade'=>3,
@@ -2270,7 +2270,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG5 as $data){
 
-            districtGradeLevelLearningOutCome::insert([
+            DistrictGradeLevelLearningOutCome::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>5,
@@ -2286,7 +2286,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG8 as $data){
 
-            districtGradeLevelLearningOutCome::insert([
+            DistrictGradeLevelLearningOutCome::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>8,
@@ -2302,7 +2302,7 @@ class FinalDistrictProcessController extends Controller
 
         foreach($final_dataG10 as $data){
 
-            districtGradeLevelLearningOutCome::insert([
+            DistrictGradeLevelLearningOutCome::insert([
                 'state_id'=>$data->state_code,
                 'district_id'=>$data->dist_code,
                 'grade'=>10,
@@ -2316,7 +2316,7 @@ class FinalDistrictProcessController extends Controller
             ]);
         }
 
-        return "district Learning Outcome Table Created";
+        return Redirect()->route('feedback');
     }
 
     //Query For LO DRC data Subject Wise Grade 3

@@ -1280,6 +1280,19 @@ ul {
   margin: 0;
 }
 
+.contact-info br {
+  display: none;
+}
+
+.contact-info p {
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.contact-info p:last-child {
+  padding: 0;
+}
+
 .site-footer {
   background-color: #2a6aa9;
 }
@@ -1289,7 +1302,7 @@ ul {
 }
 
 .site-footer .footer-links ul li {
-  padding-bottom: 12px;
+  padding-bottom: 5px;
 }
 
 .site-footer .footer-links ul li:last-child {

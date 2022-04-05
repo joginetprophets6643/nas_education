@@ -1160,6 +1160,20 @@ ul {
     }
 }
 
+.contact-info {
+    br{
+        display: none;
+    }
+    p {
+        margin: 0;
+        padding-bottom: 10px;
+        &:last-child {
+            padding: 0;
+        }
+    }
+}
+
+
 .site-footer {
     background-color: $color_blue;
     .footer-links {
@@ -1168,7 +1182,7 @@ ul {
         }
         ul {
             li {
-                padding-bottom: 12px;
+                padding-bottom: 5px;
                 &:last-child {
                     padding-bottom: 0;
                 }
@@ -5631,69 +5645,13 @@ ul {
 }
 
 
-.icon-color-red {
-    svg {
-        fill: #eb6c69;
-    }
-}   
+// .gender-color-blue{
+//     svg{
+//         fill: #75a9d9;
+//     }
+// }
 
-.icon-color-yellow {
-    svg {
-        fill: #cac55f;
-    }
-} 
 
-.icon-color-green {
-    svg {
-        fill: #72b562;
-    }
-} 
-
-.glimps-table{
-    border: 1px solid #006bb6;
-    border-radius: 5px;
-    margin: 15px 0;
-    .table {
-        margin: 0;
-        tr {
-            border-bottom: 1px solid #006bb6;
-            th {
-                background-color: #006bb6;
-                color: #fff;
-                font-size: 15px;
-                font-weight: 400;
-                text-align: center;
-                &:first-child {
-                    text-align: left;
-                }
-            }
-            
-        }
-        tbody {
-            tr{
-                &:last-child {
-                    border-style: none !important;
-                }
-                td{
-                    text-align: center;
-                    color: #101010;
-                    font-size: 14px;
-                    border: none;
-                    vertical-align: middle;
-                    &:first-child {
-                        text-align: left;
-                    }
-                }
-            }
-            .success-status {
-                background-color: #8bc63e;
-                td {
-                    color: #fff;
-                }
-            }
-        }
-    }
-}
 
 
 // media-query
