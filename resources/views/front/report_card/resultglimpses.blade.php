@@ -8,30 +8,406 @@
                                           </h2>
                                           <div class="glimps-wrap">
                                               <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="glimps-card">
+                                                <div class="col-md-12">
+                                                    <div class="glimps-card light-blue">
                                                       <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
-                                                      <div class="glimps-graph light-blue">
-                                                          <div id="CardsNationalLanguageBarGraph_class3">
-
+                                                      <div class="glimps-graph-wrap">
+                                                          <div class="row">
+                                                            <div class="col-md-12">
+                                                              <div class="glimps-graph">
+                                                                <div id="CardsNationalLanguageBarGraph_class3">
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="glimps-table table-responsive">
+                                                                <table class="table">
+                                                                  <thead>
+                                                                    <tr>
+                                                                      <th scope="col">State/Union Territory</th>
+                                                                      <th scope="col">Mean</th>
+                                                                      <th scope="col">SE</th>
+                                                                      <th scope="col"></th>
+                                                                    </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <td>Andhra Pradesh</td>
+                                                                      <td>238</td>
+                                                                      <td>1</td>
+                                                                      <td>
+                                                                        <div class="icon-status icon-color-red">
+                                                                          <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                                                                        </div>
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td>Arunachal Pradesh</td>
+                                                                      <td>238</td>
+                                                                      <td>2</td>
+                                                                      <td>
+                                                                        <div class="icon-status icon-color-yellow">
+                                                                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                          <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                        </svg>
+                                                                        </div>
+                                                                      </td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr>
+                                                                      <td>Assam</td>
+                                                                      <td>238</td>
+                                                                      <td>2</td>
+                                                                      <td>
+                                                                        <div class="icon-status icon-color-green">
+                                                                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                                          <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                                                                        </svg>
+                                                                        </div>
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td>Delhi</td>
+                                                                      <td>210</td>
+                                                                      <td>1</td>
+                                                                      <td>
+                                                                        <div class="icon-status icon-color-yellow">
+                                                                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                          <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                        </svg>
+                                                                        </div>
+                                                                      </td>
+                                                                    </tr>
+                                                                  </tbody>
+                                                                </table>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="glimps-table table-responsive">
+                                                                <table class="table">
+                                                                  <thead>
+                                                                    <tr>
+                                                                      <th scope="col">State/Union Territory</th>
+                                                                      <th scope="col">Mean</th>
+                                                                      <th scope="col">SE</th>
+                                                                      <th scope="col"></th>
+                                                                    </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <td>Andhra Pradesh</td>
+                                                                      <td>238</td>
+                                                                      <td>1</td>
+                                                                      <td>
+                                                                        <div class="icon-status icon-color-red">
+                                                                          <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                                                                        </div>
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td>Arunachal Pradesh</td>
+                                                                      <td>238</td>
+                                                                      <td>2</td>
+                                                                      <td>
+                                                                        <div class="icon-status icon-color-yellow">
+                                                                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                          <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                        </svg>
+                                                                        </div>
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td>Assam</td>
+                                                                      <td>238</td>
+                                                                      <td>4</td>
+                                                                      <td>
+                                                                        <div class="icon-status icon-color-green">
+                                                                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                                          <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                                                                        </svg>
+                                                                        </div>
+                                                                      </td>
+                                                                    </tr>
+                                                                    <tr class="success-status">
+                                                                      <td>National</td>
+                                                                      <td>250</td>
+                                                                      <td>0.7</td>
+                                                                      <td></td>
+                                                                    </tr>
+                                                                  </tbody>
+                                                                </table>
+                                                              </div>
+                                                            </div>
                                                           </div>
                                                       </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                  <div class="glimps-card">
+                                                <div class="col-md-12">
+                                                  <div class="glimps-card light-pink">
                                                     <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
-                                                    <div class="glimps-graph light-pink">
-                                                        <div id="CardsNationalMathBarGraph_class3"></div>
+                                                    <div class="glimps-graph-wrap">
+                                                      <div class="row">
+                                                        <div class="col-md-12">
+                                                          <div class="glimps-graph">
+                                                              <div id="CardsNationalMathBarGraph_class3"></div>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                          <div class="glimps-table table-responsive">
+                                                            <table class="table">
+                                                              <thead>
+                                                                <tr>
+                                                                  <th scope="col">State/Union Territory</th>
+                                                                  <th scope="col">Mean</th>
+                                                                  <th scope="col">SE</th>
+                                                                  <th scope="col"></th>
+                                                                </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td>Andhra Pradesh</td>
+                                                                  <td>238</td>
+                                                                  <td>1</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-red">
+                                                                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>Arunachal Pradesh</td>
+                                                                  <td>238</td>
+                                                                  <td>2</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-yellow">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                  <td>Assam</td>
+                                                                  <td>238</td>
+                                                                  <td>2</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-green">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>Delhi</td>
+                                                                  <td>210</td>
+                                                                  <td>1</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-yellow">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                          <div class="glimps-table table-responsive">
+                                                            <table class="table">
+                                                              <thead>
+                                                                <tr>
+                                                                  <th scope="col">State/Union Territory</th>
+                                                                  <th scope="col">Mean</th>
+                                                                  <th scope="col">SE</th>
+                                                                  <th scope="col"></th>
+                                                                </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td>Andhra Pradesh</td>
+                                                                  <td>238</td>
+                                                                  <td>1</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-red">
+                                                                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>Arunachal Pradesh</td>
+                                                                  <td>238</td>
+                                                                  <td>2</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-yellow">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>Assam</td>
+                                                                  <td>238</td>
+                                                                  <td>4</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-green">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr class="success-status">
+                                                                  <td>National</td>
+                                                                  <td>250</td>
+                                                                  <td>0.7</td>
+                                                                  <td></td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </div>
+                                                        </div>
+                                                      </div>
                                                     </div>
+                                                   
                                                   </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                  <div class="glimps-card">
+                                                <div class="col-md-12">
+                                                  <div class="glimps-card light-yellow">
                                                     <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
-                                                    <div class="glimps-graph light-yellow">
-                                                        <div id="CardsNationalEvsBarGraph_class3"></div>
-                                                    </div> 
+                                                    <div class="glimps-graph-wrap">
+                                                      <div class="row">
+                                                        <div class="col-md-12">
+                                                          <div class="glimps-graph">
+                                                              <div id="CardsNationalEvsBarGraph_class3"></div>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                          <div class="glimps-table table-responsive">
+                                                            <table class="table">
+                                                              <thead>
+                                                                <tr>
+                                                                  <th scope="col">State/Union Territory</th>
+                                                                  <th scope="col">Mean</th>
+                                                                  <th scope="col">SE</th>
+                                                                  <th scope="col"></th>
+                                                                </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td>Andhra Pradesh</td>
+                                                                  <td>238</td>
+                                                                  <td>1</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-red">
+                                                                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>Arunachal Pradesh</td>
+                                                                  <td>238</td>
+                                                                  <td>2</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-yellow">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                  <td>Assam</td>
+                                                                  <td>238</td>
+                                                                  <td>2</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-green">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>Delhi</td>
+                                                                  <td>210</td>
+                                                                  <td>1</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-yellow">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                          <div class="glimps-table table-responsive">
+                                                            <table class="table">
+                                                              <thead>
+                                                                <tr>
+                                                                  <th scope="col">State/Union Territory</th>
+                                                                  <th scope="col">Mean</th>
+                                                                  <th scope="col">SE</th>
+                                                                  <th scope="col"></th>
+                                                                </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td>Andhra Pradesh</td>
+                                                                  <td>238</td>
+                                                                  <td>1</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-red">
+                                                                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>Arunachal Pradesh</td>
+                                                                  <td>238</td>
+                                                                  <td>2</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-yellow">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                                                                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>Assam</td>
+                                                                  <td>238</td>
+                                                                  <td>4</td>
+                                                                  <td>
+                                                                    <div class="icon-status icon-color-green">
+                                                                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                                                                    </svg>
+                                                                    </div>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr class="success-status">
+                                                                  <td>National</td>
+                                                                  <td>250</td>
+                                                                  <td>0.7</td>
+                                                                  <td></td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                     
                                                   </div>
                                                 </div>
                                               </div>  

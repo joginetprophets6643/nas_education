@@ -98,7 +98,7 @@
                   </div>
                 </div>
               </div> -->
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="line-card line-card-shadow">
                   <div class="line-cardimg">
                   
