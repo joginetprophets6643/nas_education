@@ -92,7 +92,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="name" placeholder="Full Name" value="{{old('name')}}" autocomplete="off">
+                                    <input type="text" class="form-control" onkeypress='preventSymbols(event)' name="name" placeholder="Full Name" value="{{old('name')}}" autocomplete="off">
                                     <label class="form-input-label">Full Name</label>
                                     @error('name')
                                     <span class="text-danger">{{$message}}</span>
@@ -581,4 +581,14 @@ $('form').on('submit', function (e) {
   e.currentTarget.submit();
 })
 
+function preventSymbols(e) {
+  var key = e.keyCode;
+  var regex = /^[A-Za-z]+$/;
+
+  //Validate TextBox value against the Regex.
+  var isValid = regex.test(String.fromCharCode(key))
+  if (!isValid) {
+    e.preventDefault();
+  }
+}
 </script>
