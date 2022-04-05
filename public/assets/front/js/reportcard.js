@@ -1783,6 +1783,7 @@ async function createInformationScreen(data) {
 }
 
 async function createChart(where, data, district_id) {
+  let districts = await JSON.parse(sessionStorage.getItem('districts'))
   data.data[0].data.forEach((item) => {
     if (item.id == district_id) {
       item.color = "#f7941c";
@@ -1820,10 +1821,19 @@ async function createChart(where, data, district_id) {
     },
     plotOptions: {
       series: {
-        name: 'District',
-        allowPointSelect: true,
+        events: {
+          click: function (e) {
+            console.log(e)
+            const index = districts.map(district_data => {
+              return district_data.district_id
+            }).indexOf(parseInt(e.point.id))
+            sessionStorage.setItem('activeDistrict', JSON.stringify(districts[index]))
+            location.href = base_url + 'report-card/nas-2021'
+          }
+
+        }
       }
-    }
+    },
 
   })
 }
@@ -1893,6 +1903,7 @@ function removeItem(item) {
 
 
 async function generateNationalMap(where, data) {
+  let states = await JSON.parse(sessionStorage.getItem('states'))
   await Highcharts.mapChart(where, {
     chart: {
       map: 'countries/in/custom/in-all-disputed'
@@ -1920,7 +1931,21 @@ async function generateNationalMap(where, data) {
     credits: {
       enabled: false
     },
+    plotOptions: {
+      series: {
+        events: {
+          click: function (e) {
+            const index = states.map(state_data => {
+              return state_data.state_id
+            }).indexOf(e.point.value)
+            sessionStorage.setItem('activeState', JSON.stringify(states[index]))
+            removeItem('activeDistrict')
+            location.href = base_url + 'report-card/nas-2021'
+          }
 
+        }
+      }
+    },
     series: [{
       data: data,
       name: 'State',
