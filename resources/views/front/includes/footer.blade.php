@@ -295,7 +295,7 @@
     <script src="{{asset('assets/front/js/lightbox.min.js')}}"></script>
     <script src="{{asset('assets/front/js/scripts.js')}}"></script>
     <script src="{{asset('assets/front/js/select2.min.js')}}"></script>
-    <!-- <script src="{{asset('assets/front/js/all.js')}}" data-auto-replace-svg="nest"></script> -->
+    
     <script src="{{ asset('assets/admin/vendors/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('assets/front/js/dataTable-bootstrap.js')}}"></script>
     <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
