@@ -945,6 +945,9 @@
         $('#name').html(selected_state['hc-key'].toUpperCase());
         }
         console.log(selected_state['hc-key'])
+        $('#area-title').html('Area of the State');
+        $('#teacher-title').html('Teachers in state');
+        $('#select-info').html('Please select a District on the interactive map or search for the name below to continue.');
         const state_name = selected_state['hc-key'] 
         const selectedMapData = DISTRICT_MAPS.find(data=> data.name === state_name.toUpperCase())
         triggerDistrictChart(state_name,selectedMapData)

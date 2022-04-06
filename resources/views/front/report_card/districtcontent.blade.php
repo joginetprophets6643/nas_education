@@ -73,7 +73,7 @@
     const district =JSON.parse(sessionStorage.getItem('activeDistrict'))
     let link = ''
     if(state !== null){
-      console.log(state)
+      // console.log(state)
       const state_id = state.udise_state_code
       // const encrpt_state_id = "{{Crypt::encrypt((".state_id."))}}"
       const encrpt_state_id = btoa(state_id)
@@ -96,7 +96,7 @@
       console.log('national report')
       link = '/download-national-report'
     }
-    console.log(link)
+    // console.log(link)
     $('#report-link').attr('href',link)
 }
 </script>

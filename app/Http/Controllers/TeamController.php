@@ -65,7 +65,6 @@ class TeamController extends Controller
             'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
-            'mobile'=>'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
         ]);
 
         $name="";
