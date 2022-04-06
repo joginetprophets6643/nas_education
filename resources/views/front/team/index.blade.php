@@ -88,7 +88,9 @@
                                         </div>
                                         <div class="content-right">
                                         <h2 class="name-blue">
-                                            {{$mem->name}}
+                                            <?php $name=explode(',',$mem->name)?>
+                                            {{$name[0]}}<br>
+                                            {{isset($name[1])?$name[1]:''}}
                                         </h2>
                                         <p class="title">
                                             {{$mem->designation}} 
