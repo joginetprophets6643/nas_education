@@ -88,14 +88,14 @@
                                 @endforeach
                                
                             </tbody>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <tr class="text-center">
                                     <th>S.NO.</th>
                                     <th>State/UTs</th>
                                     <th>Download Grade(3-5-8)</th>
                                     <th>Download Grade(10)</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> -->
                         </table>
                         </div>
                     </div>
