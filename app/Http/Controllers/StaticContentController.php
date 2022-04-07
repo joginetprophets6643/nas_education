@@ -124,7 +124,7 @@ class StaticContentController extends Controller
     public function destroy($id)
     {
         $id=decode5t($id);
-        Static_Content::find($id)->delete();
+        Static_Content::where('id',$id)->delete();
         return Redirect()->route('content')->with('success','Content Deleted Successfully');
     }
 }

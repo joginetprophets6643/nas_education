@@ -210,7 +210,7 @@ class MasterController extends Controller
     public function destroyDistrict($id)
     {
         $id=decode5t($id);
-        District_Master::find($id)->delete();
+        District_Master::where('id',$id)->delete();
         return Redirect()->route('district')->with('success','District Deleted Successfully');
     }
 
@@ -425,7 +425,7 @@ class MasterController extends Controller
     public function destroyState($id)
     {
         $id=decode5t($id);
-        State_Master::find($id)->delete();
+        State_Master::where('id',$id)->delete();
         return Redirect()->route('state')->with('success','State Deleted Successfully');
     }
 }

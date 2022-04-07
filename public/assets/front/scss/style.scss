@@ -6691,6 +6691,9 @@ ul {
     }
   }
   
+.accordion-button::after {
+    background-image: url(https://nas21.inroad.in/assets/front/images/down-arrow.svg) !important;
+}
   
   
   /*Resize the wrap to see the search bar change!*/

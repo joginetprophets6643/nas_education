@@ -101,7 +101,7 @@ class StaticProgramController extends Controller
     public function destroy($id)
     {
         $id=decode5t($id);
-        Program::find($id)->delete();
+        Program::where('id',$id)->delete();
         return Redirect()->route('program')->with('success','Program Deleted Successfully');
     }
 }
