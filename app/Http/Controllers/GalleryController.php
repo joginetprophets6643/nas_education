@@ -21,7 +21,7 @@ class GalleryController extends Controller
             $image[$event->id]=json_decode($event->images)[0];
         }
         if(empty($count)){
-            return redirect()->back()->with('success','No Image available in this State event');        
+            return redirect()->route('front-gallery')->with('success','No Image available in this State event');        
         }
         else{
             return view('front.gallery.images.index',compact('events','count','image'));        
@@ -39,7 +39,7 @@ class GalleryController extends Controller
         }
 
         if(empty($count)){
-            return redirect()->back()->with('success','No Video available in this State event');        
+            return redirect()->route('front-gallery')->with('success','No Video available in this State event');        
         }
         else{
             return view('front.gallery.vedios.index',compact('videos'));        

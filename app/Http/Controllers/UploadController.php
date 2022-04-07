@@ -436,23 +436,31 @@ class UploadController extends Controller
         $request->validate([
             'drc.*'=>'mimes:csv',
         ]);
-        $files=$request->file('drc');
-        $name=[];
-        foreach($files as $file){
-            $filename = $file->getClientOriginalName();
-            $csv=public_path($filename);
-            if($filename=="G03y21_DistrictReports.csv" || $filename=="G05y21_DistrictReports.csv" || $filename=="G08y21_DistrictReports.csv" || $filename=="G10y21_DistrictReports.csv"){
-                $file->move(public_path(''),$filename);
+        if($request->file('drc'))
+        {
+            $files=$request->file('drc');
+            $name=[];
+            foreach($files as $file){
+                $filename = $file->getClientOriginalName();
+                $csv=public_path($filename);
+                if($filename=="G03y21_DistrictReports.csv" || $filename=="G05y21_DistrictReports.csv" || $filename=="G08y21_DistrictReports.csv" || $filename=="G10y21_DistrictReports.csv"){
+                    $file->move(public_path(''),$filename);
+                }
+                else{
+                    $name[]=$filename;
+                }
+            }
+            if(count($name)>0){
+                dd(implode(",",$name)." Not Allowed");
             }
             else{
-                $name[]=$filename;
+                dd("Uploaded successfully");
             }
-        }
-        if(count($name)>0){
-            dd(implode(",",$name)." Not Allowed");
+
         }
         else{
-            dd("Uploaded successfully");
+            return redirect('/drc-upload-view');
         }
+        
     }
 }
