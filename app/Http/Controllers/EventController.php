@@ -10,6 +10,8 @@ use App\Models\State_Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class EventController extends Controller
 {
@@ -24,10 +26,16 @@ class EventController extends Controller
     
     public function store(Request $request)
     {
-        $validatedData=$request->validate([
+        $validator = Validator::make($request->all(),[
             'name'=>'required|unique:events',
             'state_name'=>'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('events')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $event= new Event;
         $event->name=$request->name;
@@ -46,9 +54,22 @@ class EventController extends Controller
     public function update(Request $request,$id)
     {
         $id=decode5t($id);
+        $validator = Validator::make($request->all(),[
+            'name'=>'required',
+            // 'state_name'=>'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-event',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+
         $event=Event::find($id)->update([
             'name'=>$request->name,
         ]);
+
+
         return Redirect()->route('events')->with('success','Event Updated Successfully');
     }
 
@@ -69,10 +90,16 @@ class EventController extends Controller
     
     public function video_event_store(Request $request)
     {
-        $validatedData=$request->validate([
+        $validator = Validator::make($request->all(),[
             'name'=>'required|unique:video_events',
             'state_name'=>'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('video-events')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $event= new Video_Events;
         $event->name=$request->name;
@@ -91,6 +118,17 @@ class EventController extends Controller
     public function video_event_update(Request $request,$id)
     {
         $id=decode5t($id);
+
+        $validator = Validator::make($request->all(),[
+            'name'=>'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('vedit-event',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        
         $event=Video_Events::find($id)->update([
             'name'=>$request->name,
         ]);
@@ -119,10 +157,16 @@ class EventController extends Controller
 
     public function addImages(Request $request,$id){
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'images'=>'required',
             // 'images.*'=>'mimes:jpeg,jpg,png,JPEG,JPG,PNG',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('getImages',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         $images=$request->file('images');
         $img= [];
         $n_img= [];
@@ -213,12 +257,18 @@ class EventController extends Controller
     public function addVideos(Request $request,$id){
 
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'vedio'=>'required_without_all:url|mimes:mp4,wep',
             'title'=>'required',
             'url'=>'required_without_all:vedio',
             'thumbnail'=>'required_with:vedio|mimes:jpeg,svg,jpg,png,JPEG,JPG,PNG,SVG',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('getVideos',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         $vedio=$request->file('vedio');
         if($request->status){
             $request->status=1;

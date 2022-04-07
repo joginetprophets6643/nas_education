@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\NationalStatistic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class NationalController extends Controller
 {
@@ -19,7 +21,7 @@ class NationalController extends Controller
     public function store(Request $request)
     {
         
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'total_district_area'=>'required|numeric',
             'total_population'=>'required|numeric',
             'rural_population'=>'required|numeric',
@@ -31,6 +33,12 @@ class NationalController extends Controller
             'no_of_teachers'=>'required|numeric',
             'no_of_students'=>'required|numeric'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('add-national')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         
         $national=new NationalStatistic;
         $national->total_district_area=$request->total_district_area;
@@ -58,7 +66,7 @@ class NationalController extends Controller
     public function update(Request $request,$id)
     {
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'total_district_area'=>'required|numeric',
             'total_population'=>'required|numeric',
             'rural_population'=>'required|numeric',
@@ -70,6 +78,12 @@ class NationalController extends Controller
             'no_of_teachers'=>'required|numeric',
             'no_of_students'=>'required|numeric'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-national',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         
         NationalStatistic::where('id',$id)->update([
             'total_district_area'=>$request->total_district_area,

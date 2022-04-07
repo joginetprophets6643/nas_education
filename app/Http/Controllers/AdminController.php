@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\Permission;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ResetLinkMail;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends BaseController
 {
@@ -48,10 +49,16 @@ class AdminController extends BaseController
     }
     public function login(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'email' => 'required',
             'password' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('secure-admin')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         $credentials = $request->only('email', 'password','address');
         foreach($credentials as $key=>$item){
             if($key=="password"){
@@ -83,9 +90,15 @@ class AdminController extends BaseController
     }
 
     public function updateProfile(Request $request){
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('profile')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         $user=Auth::user();
        
         if(!$request->password){        
@@ -110,9 +123,15 @@ class AdminController extends BaseController
    }
 
    public function proceed(Request $request){
-    $request->validate([
+    $validator = Validator::make($request->all(),[
         'email' => 'required',
     ]);
+
+    if ($validator->fails()) {
+        return redirect()->route('forget-password')
+                ->withErrors($validator)
+                ->withInput();
+    }
     $email=encode5t($request->email);
     $date=encode5t(date('Y-m-d'));
     date_default_timezone_set('Asia/Kolkata');
@@ -165,9 +184,15 @@ class AdminController extends BaseController
    }
 
    public function successful(Request $request,$email){
-    $request->validate([
+    $validator = Validator::make($request->all(),[
         'password'=>'required|confirmed|min:5',
     ]);
+    if ($validator->fails()) {
+        return redirect()->route('view-reset')
+                ->withErrors($validator)
+                ->withInput();
+    }
+    
     $email=decode5t($email);
     
     User::where('email',$email)->update([

@@ -62,6 +62,7 @@
               <span class="menu-title">Manage Media</span>
               <!-- <i class="icon-doc menu-icon"></i> -->
               <img class="sidebar-icons" src="{{asset('assets/admin/vendors/images/photo-film-solid.svg')}}" alt="">
+            </a>
             <div class="collapse" id="media">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/secure-admin/event')}}"> Manage Images </a></li>

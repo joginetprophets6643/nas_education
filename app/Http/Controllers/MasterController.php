@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\District_Master;
 use App\Models\State_Master;
+use Illuminate\Support\Facades\Validator;
+
 
 class MasterController extends Controller
 {
@@ -24,7 +26,7 @@ class MasterController extends Controller
 
     public function storeDistrict(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'district_id'=>'required|unique:district_masters',
             'state_id'=>'required',
             'district_name'=>'required|unique:district_masters',
@@ -53,6 +55,13 @@ class MasterController extends Controller
             'teacher_private_unaided_reco_schools'=>'numeric|nullable'
             
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('add-district')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+
         if($request->status){
             $request->status=2;
         }
@@ -114,7 +123,7 @@ class MasterController extends Controller
     public function updateDistrict(Request $request,$id)
     {   
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'district_id'=>'required|numeric',
             'state_id'=>'required|numeric',
             'district_name'=>'required',
@@ -145,6 +154,12 @@ class MasterController extends Controller
             
             
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-district',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         
         if($request->status){
             $request->status=2;
@@ -213,7 +228,7 @@ class MasterController extends Controller
     public function storeState(Request $request)
     {
         
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'state_id'=>'required|unique:state_masters',
             'state_name'=>'required|unique:state_masters',
             'state_code'=>'required|unique:state_masters',
@@ -240,6 +255,12 @@ class MasterController extends Controller
             'teacher_private_unaided_reco_schools'=>'numeric|nullable'
             
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('add-state')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         
         if($request->status){
             $request->status=2;
@@ -310,7 +331,7 @@ class MasterController extends Controller
     {
         
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'state_id'=>'required',
             'state_name'=>'required',
             'state_code'=>'required',
@@ -337,6 +358,12 @@ class MasterController extends Controller
             'teacher_private_unaided_reco_schools'=>'numeric|nullable'
             
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-state',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         
         
         if($request->status){
