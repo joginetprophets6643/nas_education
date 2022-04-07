@@ -47,8 +47,9 @@ class EventController extends Controller
     public function edit($id)
     {
         $id=decode5t($id);
+        $states=State_Master::get();
         $event=DB::table('events')->where('id',$id)->first();
-        return view('admin.events.edit',compact('event'));
+        return view('admin.events.edit',compact('event','states'));
     }
 
     public function update(Request $request,$id)
@@ -56,7 +57,7 @@ class EventController extends Controller
         $id=decode5t($id);
         $validator = Validator::make($request->all(),[
             'name'=>'required',
-            // 'state_name'=>'required',
+            'state_name'=>'required',
         ]);
 
         if ($validator->fails()) {
@@ -64,9 +65,10 @@ class EventController extends Controller
                     ->withErrors($validator)
                     ->withInput();
         }
-
-        $event=Event::find($id)->update([
+        // dd($request->state_name);
+        $event=Event::where('id',$id)->update([
             'name'=>$request->name,
+            'state'=>$request->state_name,
         ]);
 
 
@@ -111,8 +113,9 @@ class EventController extends Controller
     public function video_event_edit($id)
     {
         $id=decode5t($id);
+        $states=State_Master::get();
         $event=DB::table('video_events')->where('id',$id)->first();
-        return view('admin.events.videos.edit',compact('event'));
+        return view('admin.events.videos.edit',compact('event','states'));
     }
 
     public function video_event_update(Request $request,$id)
@@ -121,6 +124,7 @@ class EventController extends Controller
 
         $validator = Validator::make($request->all(),[
             'name'=>'required',
+            'state_name'=>'required',
         ]);
 
         if ($validator->fails()) {
@@ -128,9 +132,10 @@ class EventController extends Controller
                     ->withErrors($validator)
                     ->withInput();
         }
-        
-        $event=Video_Events::find($id)->update([
+        // dd($request->state_name);
+        $event=Video_Events::where('id',$id)->update([
             'name'=>$request->name,
+            'state'=>$request->state_name,
         ]);
         return Redirect()->route('video-events')->with('success','Event Updated Successfully');
     }
@@ -319,7 +324,7 @@ class EventController extends Controller
         }
 
         else{
-            Vedios::find($id)->delete();
+            Vedios::where('id',$id)->delete();
             if($vedio->vedio){
                 // unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
                 // unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
