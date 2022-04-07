@@ -210,7 +210,7 @@ Route::get('secure-admin/forget-password', function () {
 Route::post('proceed', 'App\Http\Controllers\AdminController@proceed')->name('proceed');
 Route::post('login-post', 'App\Http\Controllers\AdminController@login');
 Route::get('register', 'App\Http\Controllers\AdminController@register');
-Route::get('/token={email}/{date}/{time}', 'App\Http\Controllers\AdminController@viewReset');
+Route::get('/token={email}/{date}/{time}', 'App\Http\Controllers\AdminController@viewReset')->name('view-reset');
 Route::post('/succeed/{email}', 'App\Http\Controllers\AdminController@successful')->name('succeed');
 });
 
@@ -238,7 +238,7 @@ Route::get('/secure-admin/query-button', function () {
 
 Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
 Route::post('/secure-admin/add/event', 'App\Http\Controllers\EventController@store')->name('store-event');
-Route::get('/secure-admin/edit/event/{id}', 'App\Http\Controllers\EventController@edit');
+Route::get('/secure-admin/edit/event/{id}', 'App\Http\Controllers\EventController@edit')->name('edit-event');
 Route::post('/secure-admin/update/event/{id}', 'App\Http\Controllers\EventController@update');
 
 //Event Images
@@ -251,7 +251,7 @@ Route::get('/secure-admin/delete/image/{image}/{id}', 'App\Http\Controllers\Even
 
 Route::get('/secure-admin/video_event','App\Http\Controllers\EventController@video_event_index')->name('video-events');
 Route::post('/secure-admin/add/video_event', 'App\Http\Controllers\EventController@video_event_store')->name('store-video-event');
-Route::get('/secure-admin/edit/video_event/{id}', 'App\Http\Controllers\EventController@video_event_edit');
+Route::get('/secure-admin/edit/video_event/{id}', 'App\Http\Controllers\EventController@video_event_edit')->name('vedit-event');
 Route::post('/secure-admin/update/video_event/{id}', 'App\Http\Controllers\EventController@video_event_update');
 
 //Videos Route
@@ -261,7 +261,7 @@ Route::post('/secure-admin/add/videos/{id}', 'App\Http\Controllers\EventControll
 Route::get('/secure-admin/delete/videos/{id}', 'App\Http\Controllers\EventController@deleteVideos');
 
 //Profile
-Route::get('/secure-admin/profile','App\Http\Controllers\AdminController@profile');
+Route::get('/secure-admin/profile','App\Http\Controllers\AdminController@profile')->name('profile');
 Route::post('/secure-admin/update/profile','App\Http\Controllers\AdminController@updateProfile')->name('update-profile');
 
 //Team Routes

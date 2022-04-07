@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Program;
+use Illuminate\Support\Facades\Validator;
+
 
 class StaticProgramController extends Controller
 {
@@ -19,12 +21,18 @@ class StaticProgramController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'language'=>'required|not_in:0',
             'title'=>'required',
             'content'=>'required',
             'image'=>'required|mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('add-program')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $image=$request->file('image');
         $name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -51,12 +59,18 @@ class StaticProgramController extends Controller
     public function update(Request $request,$id)
     {
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'language'=>'required|not_in:0',
             'title'=>'required',
             'content'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-program',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         
         if($request->image)
         {

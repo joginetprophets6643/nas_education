@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Banner;
-
+use Illuminate\Support\Facades\Validator;
 
 class BannerController extends Controller
 {
@@ -14,10 +14,16 @@ class BannerController extends Controller
     }
 
     public function store(Request $request){
-        $validatedData=$request->validate([
+        $validator = Validator::make($request->all(),[
             'description'=>'required',
             'image'=>'required|mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('manage-banner')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $banner=new Banner;
 
@@ -44,10 +50,16 @@ class BannerController extends Controller
     public function update(Request $request,$id)
     {
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'description'=>'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-banner',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         if($request->image){
         $image=$request->file('image');

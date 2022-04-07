@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ClientLogo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ClientLogoController extends Controller
 {
@@ -13,11 +14,17 @@ class ClientLogoController extends Controller
     }
 
     public function store(Request $request){
-        $validatedData=$request->validate([
+        $validator = Validator::make($request->all(),[
             'title'=>'required',
             'url'=>'required',
             'logo'=>'required|mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('client-logo')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $client_logo = new ClientLogo;
 
@@ -45,11 +52,16 @@ class ClientLogoController extends Controller
     public function update(Request $request,$id)
     {
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'title'=>'required',
             'url'=>'required',
             'logo'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
         ]);
+        if ($validator->fails()) {
+            return redirect()->route('edit-logo',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $client_logo = ClientLogo::where('id',$id)->first();
 

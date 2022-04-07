@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Static_Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 
 class StaticContentController extends Controller
@@ -26,7 +27,7 @@ class StaticContentController extends Controller
     
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'language'=>'required|not_in:0',
             'title'=>'required',
             'home_content'=>'required',
@@ -34,6 +35,12 @@ class StaticContentController extends Controller
             'meta_title'=>'required',
             'meta_description'=>'required'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('add-content')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $content=new Static_Content;
         $content->language=$request->language;
@@ -81,7 +88,7 @@ class StaticContentController extends Controller
     public function update(Request $request,$id)
     {
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'language'=>'required|not_in:0',
             'title'=>'required',
             'home_content'=>'required',
@@ -89,6 +96,12 @@ class StaticContentController extends Controller
             'meta_title'=>'required',
             'meta_description'=>'required'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-content',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
         
         Static_Content::where('id',$id)->update([
             'language'=>$request->language,

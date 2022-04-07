@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\RTI;
+use Illuminate\Support\Facades\Validator;
+
 
 class SettingController extends Controller
 {
@@ -24,7 +26,7 @@ class SettingController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'website_title'=>'required',
             'contact_us'=>'required',
             'logo_1'=>'required',
@@ -35,6 +37,11 @@ class SettingController extends Controller
             'twitter'=>'required',
             'insta'=>'required',
         ]);
+        if ($validator->fails()) {
+            return redirect()->route('setting')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $logo1=$request->file('logo_1');
         $logo2=$request->file('logo_2');
@@ -73,7 +80,7 @@ class SettingController extends Controller
 
     public function update(Request $request,$id)
     {
-         $request->validate([
+         $validator = Validator::make($request->all(),[
             'website_title'=>'required',
             'contact_us'=>'required',
             'meta_title'=>'required',
@@ -82,6 +89,12 @@ class SettingController extends Controller
             'twitter'=>'required',
             'insta'=>'required',
         ]);
+        if ($validator->fails()) {
+            return redirect()->route('setting',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+
         Setting::where('id',$id)->update([
         'website_title'=>$request->website_title,
         'contact_us'=>$request->contact_us,
@@ -142,11 +155,18 @@ class SettingController extends Controller
     }
 
     public function storeRTI(Request $request){
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'title'=>'required',
             'files'=>'required',
             'files.*'=>'mimes:pdf'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('manage-rti')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+
         $files=$request->file('files');
         $file= [];
         
@@ -173,12 +193,18 @@ class SettingController extends Controller
     }
 
     public function updateRTI($id,Request $request){
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'title'=>'required',
             'files.*'=>'mimes:pdf'
         ]);
 
         $id=decode5t($id);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-rti',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $rti=RTI::where('id',$id)->first();
         $file=json_decode($rti->file);

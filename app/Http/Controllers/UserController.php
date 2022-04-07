@@ -52,7 +52,7 @@ class UserController extends BaseController
         $ip=$request->ip();
         if($request->country=='India')
         {
-            $request->validate([
+            $validator = Validator::make($request->all(),[
                 'email' => 'required|unique:users',
                 'address' => 'required',
                 'gender' => 'required',
@@ -74,14 +74,20 @@ class UserController extends BaseController
                 // 'mobile_otp2' => 'required',
                 // 'mobile_otp3' => 'required',
                 // 'mobile_otp4' => 'required',
-            ],
-            [
-            'mobile_no.required' => 'The mobile number field is required.',
-            ]
-        );
+                ],
+                [
+                'mobile_no.required' => 'The mobile number field is required.',
+                ]
+            );
+
+            if ($validator->fails()) {
+                return redirect()->route('registered')
+                        ->withErrors($validator)
+                        ->withInput();
+            }
 
             if($request->captcha_code!==$request->captcha){
-                return redirect()->back()->with('captcha','Captcha is not correct');
+                return redirect()->route('registered')->with('captcha','Captcha is not correct');
             }
             
             //$email_otp=$request->email_otp1.$request->email_otp2.$request->email_otp3.$request->email_otp4;
@@ -106,7 +112,7 @@ class UserController extends BaseController
         }
         else{
 
-            $request->validate([
+            $validator = Validator::make($request->all(),[
                 'email' => 'required|unique:users',
                 'address' => 'required',
                 'gender' => 'required',
@@ -127,8 +133,14 @@ class UserController extends BaseController
                 // 'mobile_otp4' => 'required',
             ]);
 
+            if ($validator->fails()) {
+                return redirect()->route('registered')
+                        ->withErrors($validator)
+                        ->withInput();
+            }
+
             if($request->captcha_code!==$request->captcha){
-                return redirect()->back()->with('captcha','Captcha is not correct');
+                return redirect()->route('registered')->with('captcha','Captcha is not correct');
             }
             
             
@@ -179,7 +191,7 @@ class UserController extends BaseController
         return redirect()->route('login')->with('success','Login details are not valid');
     }
     // public function login(Request $request){
-    //     $request->validate([
+    //     $validator = Validator::make($request->all(),[
     //         'mobile_no' => 'required|digits:10',
     //         'password' => 'required',
     //         'captcha_code' => 'required',

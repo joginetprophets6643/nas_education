@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class TeamController extends Controller
 {
@@ -23,12 +25,19 @@ class TeamController extends Controller
     
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
             'mobile'=>'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('add-member')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+
         $name='';
         if($request->image)
         {
@@ -61,11 +70,17 @@ class TeamController extends Controller
     public function update(Request $request,$id)
     {
         $id=decode5t($id);
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-member',encode5t($id))
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $name="";
 
