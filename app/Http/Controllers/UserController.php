@@ -81,13 +81,13 @@ class UserController extends BaseController
             );
 
             if ($validator->fails()) {
-                return redirect()->route('registered')
+                return redirect()->route('registration')
                         ->withErrors($validator)
                         ->withInput();
             }
 
             if($request->captcha_code!==$request->captcha){
-                return redirect()->route('registered')->with('captcha','Captcha is not correct');
+                return redirect()->route('registration')->with('captcha','Captcha is not correct');
             }
             
             //$email_otp=$request->email_otp1.$request->email_otp2.$request->email_otp3.$request->email_otp4;
@@ -134,13 +134,13 @@ class UserController extends BaseController
             ]);
 
             if ($validator->fails()) {
-                return redirect()->route('registered')
+                return redirect()->route('registration')
                         ->withErrors($validator)
                         ->withInput();
             }
 
             if($request->captcha_code!==$request->captcha){
-                return redirect()->route('registered')->with('captcha','Captcha is not correct');
+                return redirect()->route('registration')->with('captcha','Captcha is not correct');
             }
             
             
