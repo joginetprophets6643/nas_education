@@ -145,7 +145,7 @@ class AdminController extends BaseController
         ]);
         Mail::to($request->email)->send(new ResetLinkMail($link));
         
-        return redirect()->back()->with('success','Reset Link sent to the given Email address');
+        return redirect()->route('forget-password')->with('success','Reset Link sent to the given Email address');
     }
     else{
         return redirect('secure-admin')->with('success','Unauthorized User');

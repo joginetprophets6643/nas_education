@@ -41,7 +41,7 @@ class EventController extends Controller
         $event->name=$request->name;
         $event->state=$request->state_name;
         $event->save();
-        return Redirect()->back()->with('success','Event Added Successfully');
+        return Redirect()->route('events')->with('success','Event Added Successfully');
     }
 
     public function edit($id)
@@ -105,7 +105,7 @@ class EventController extends Controller
         $event->name=$request->name;
         $event->state=$request->state_name;
         $event->save();
-        return Redirect()->back()->with('success','Event Added Successfully');
+        return Redirect()->route('video-events')->with('success','Event Added Successfully');
     }
 
     public function video_event_edit($id)

@@ -109,7 +109,8 @@ class Authenticated
 
                 
                 // dd($url);
-                return redirect()->back();
+                $p_url = url()->previous();
+                return redirect($p_url);
             }
             else{
                 return redirect()->route('secure-admin');

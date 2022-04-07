@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Permission;
 use Hash;
 use Auth;
+use Illuminate\Support\Facades\Validator;
+
 
 class PermissionController extends Controller
 {
@@ -22,12 +24,18 @@ class PermissionController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name'=>'required',
             'email'=>'unique:users|required',
             'password'=>'required',
             'role'=>'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('add-user')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $user=new User;
         $user->name=$request->name;
