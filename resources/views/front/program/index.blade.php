@@ -62,7 +62,7 @@
                     @endforeach 
                     </ul>
 
-                    <div class="nasprogram-about">
+                    <!-- <div class="nasprogram-about">
                         <div class="row">
                             @foreach($members as $member)
                             <div class="col-md-3 mb-3">
@@ -75,7 +75,7 @@
                             </div>
                             @endforeach
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                      
                  </div>
