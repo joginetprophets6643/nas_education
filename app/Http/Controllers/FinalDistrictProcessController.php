@@ -2323,76 +2323,76 @@ class FinalDistrictProcessController extends Controller
     public function GetAlldistrictDataSubjectCodeG3()
     {
         $query = "select id, state_code, dist_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, Dist_LA_psub3_1 as district_avg, 'L304' subject_code, 'language' language, 'Reads small texts with comprehension i.e., identifies main ideas, details,sequence and draws conclusions' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_LA_psub3_2 as state_avg, India_LA_psub3_2 as national_avg, Dist_LA_psub3_2 as district_avg, 'L312' subject_code, 'language' language, 'Reads printed scripts on the classroom walls: poems, posters, charts etc.' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, Dist_MA_psub3_1 as district_avg, 'M301' subject_code, 'math' language, 'Reads and writes numbers up to 999 using place value' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, Dist_MA_psub3_2 as district_avg, 'M302' subject_code, 'math' language, 'Compares numbers up to 999 based on their place values' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, Dist_MA_psub3_3 as district_avg, 'M303' subject_code, 'math' language, 'Solves simple daily life problems using addition and subtraction of three digit numbers with and without regrouping' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, Dist_MA_psub3_4 as district_avg, 'M304' subject_code, 'math' language, 'Constructs and uses the multiplication facts (up till 10) in daily life situations' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, Dist_MA_psub3_5 as district_avg, 'M305' subject_code, 'math' language, 'Analyses and applies an appropriate number operation in the situation/ context' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, Dist_MA_psub3_6 as district_avg, 'M306' subject_code, 'math' language, 'Explains the meaning of division facts by equal grouping/sharing and finds it by repeated subtraction' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, Dist_MA_psub3_7 as district_avg, 'M309' subject_code, 'math' language, 'Identifies and makes 2D-shapes by paper folding. paper cutting on the dot grid, using straight lines etc.' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, Dist_MA_psub3_8 as district_avg, 'M311' subject_code, 'math' language, 'Fills a given region leaving no gaps using a tile of a given shape' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, Dist_MA_psub3_9 as district_avg, 'M312' subject_code, 'math' language, 'Estimates and measures length and distance using standard units like centimeters or meters & identifies relationships' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, Dist_MA_psub3_10 as district_avg, 'M317' subject_code, 'math' language, 'Reads the time correctly to the hour using a clock/watch' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, Dist_MA_psub3_11 as district_avg, 'M318' subject_code, 'math' language, 'Extends patterns in simple shapes and numbers' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, Dist_MA_psub3_12 as district_avg, 'M319' subject_code, 'math' language, 'Records data using tally marks, represents pictorially and draws' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_1 as state_avg, India_EV_psub3_1 as national_avg, Dist_EV_psub3_1 as district_avg, 'EVS302' subject_code, 'evs' language, 'Identifies simple features (e.g. movement, at places found/ kept, eating habits, sounds) of animals and birds in the immediate surroundings.' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_2 as state_avg, India_EV_psub3_2 as national_avg, Dist_EV_psub3_2 as district_avg, 'EVS303' subject_code, 'evs' language, 'Identifies relationships with and among family members' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_3 as state_avg, India_EV_psub3_3 as national_avg, Dist_EV_psub3_3 as district_avg, 'EVS304' subject_code, 'evs' language, 'Identifies objects, signs (vessels, stoves, transport, means of communication, transport, signboards etc.), places (types of houses/shelters, bus stand, petrol pump etc.) activities (works people do, cooking processes, etc.) at home/school/ neighborhoods' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_4 as state_avg, India_EV_psub3_4 as national_avg, Dist_EV_psub3_4 as district_avg, 'EVS305' subject_code, 'evs' language, 'Describes need of food for people of different age groups, animals/birds, availability of food and water and use of water at home and surroundings.' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_5 as state_avg, India_EV_psub3_5 as national_avg, Dist_EV_psub3_5 as district_avg, 'EVS307' subject_code, 'evs' language, 'Groups objects, birds, animals, features, activities according to differences/ similarities using different senses. (e.g. appearance/place of living/ food/ movement/ likes-dislikes/ any other features)' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_6 as state_avg, India_EV_psub3_6 as national_avg, Dist_EV_psub3_6 as district_avg, 'EVS309' subject_code, 'evs' language, 'Identifies directions, location of objects/places in simple maps using signs/symbols/ verbally' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_7 as state_avg, India_EV_psub3_7 as national_avg, Dist_EV_psub3_7 as district_avg, 'EVS310' subject_code, 'evs' language, 'Guesses properties, estimates quantities of materials/activities in daily life and verifies using symbols/non-standard units' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_8 as state_avg, India_EV_psub3_8 as national_avg, Dist_EV_psub3_8 as district_avg, 'EVS311' subject_code, 'evs' language, 'Records observations, experiences, information on objects/activities/places visited in different ways and predicts patterns etc' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_9 as state_avg, India_EV_psub3_9 as national_avg, Dist_EV_psub3_9 as district_avg, 'EVS313' subject_code, 'evs' language, 'Observes rules in games (local, indoor, outdoor)' description
-        from grade3Districttable
+        from grade3districttable
         union all
         select id, state_code, dist_code, State_EV_psub3_10 as state_avg, India_EV_psub3_10 as national_avg, Dist_EV_psub3_10 as district_avg, 'EVS314' subject_code, 'evs' language, 'Voices opinion on good/bad touch , stereotypes for tasks/play/food in family w.r.t gender, misuse/wastage of food and water in family and school.' description
-        from grade3Districttable
+        from grade3districttable
         ";
 
         return $query;
