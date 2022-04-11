@@ -1,5 +1,5 @@
 @include('front.includes.header')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" >
+<link href="{{asset('assets/front/scss/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @include('front.includes.nav')
 
 
@@ -173,6 +173,8 @@
 <!-- Modal End -->
 
 @include('front.includes.footer')
+<script src="{{ asset('assets/admin/vendors/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/front/js/dataTable-bootstrap.js')}}"></script>
 
     @if(session('not-found'))
         <script>
