@@ -42,31 +42,31 @@
       @endphp
 
       <img src="http://nas21.inroad.in/report-pdf/assets/images/{{$scImg}}" alt="social_img">
-      <h3 class="per-text-1 text-22 text-pink">
-        {{isset($districtParticipation->sc_social_group  )?$districtParticipation->sc_social_group :'0'}}%
-        <span class="title-text-1 text-20">SC</span>
+      <h3 class="per-text-1 text-22 fw-bolder">
+        {{isset($districtParticipation->sc_social_group  )?round($districtParticipation->sc_social_group, 1) :'0'}}%
+        <span class="title-text-1 text-25">SC</span>
       </h3>
     </div>
     <div class="col-md-6 col-xl-6 social-img-wrap">
       <img src="http://nas21.inroad.in/report-pdf/assets/images/{{$stImg}}" alt="social_img">
-      <h3 class="per-text-3 text-22 text-dark-green">
-        {{isset($districtParticipation->st_social_group  )?$districtParticipation->st_social_group :'0'}}%
-        <span class="title-text-3 text-20">ST</span>
+      <h3 class="per-text-3 text-22 fw-bolder">
+        {{isset($districtParticipation->st_social_group  )?round($districtParticipation->st_social_group, 1) :'0'}}%
+        <span class="title-text-3 text-25">ST</span>
       </h3>
     </div>
     <div class="col-md-6 col-xl-6 social-img-wrap">
       <img src="http://nas21.inroad.in/report-pdf/assets/images/{{$obcImg}}" alt="social_img">
-      <h3 class="per-text-2 text-22 text-yellow">
-        {{isset($districtParticipation->obc_social_group  )?$districtParticipation->obc_social_group :'0'}}%
-        <span class="title-text-2 text-20">OBC</span>
+      <h3 class="per-text-2 text-22 fw-bolder">
+        {{isset($districtParticipation->obc_social_group  )?round($districtParticipation->obc_social_group, 1) :'0'}}%
+        <span class="title-text-2 text-25">OBC</span>
       </h3>
     </div>
     
     <div class="col-md-6 col-xl-6 social-img-wrap">
       <img src="http://nas21.inroad.in/report-pdf/assets/images/{{$genImg}}" alt="social_img">
-      <h3 class="per-text-4 text-22 text-blue">
-        {{isset($districtParticipation->general_social_group  )?$districtParticipation->general_social_group :'0'}}%
-        <span class="title-text-4 text-20">General</span>
+      <h3 class="per-text-4 text-22 fw-bolder">
+        {{isset($districtParticipation->general_social_group  )?round($districtParticipation->general_social_group, 1) :'0'}}%
+        <span class="title-text-4 text-25">General</span>
       </h3>
     </div>
   </div>

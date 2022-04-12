@@ -1,5 +1,5 @@
 <div class="graph-right-wrap">
-  <div class="d-flex dialog-sec justify-content-center w-100">
+  <div class="row">
     @php
     if($districtParticipation->grade==3 || $districtParticipation->grade==5)
     {
@@ -21,30 +21,28 @@
       $girlDialog = 'c10-girl-dialog.jpg';
     }
     @endphp
-    <div class="mx-4">
-      <img src="http://nas21.inroad.in/report-pdf/assets/images/{{$boyDialog}}" alt="dialog_box">
-      <h5 class="mb-15 text-white">
-        <span class="">{{isset($districtParticipation->male_gender  )?$districtParticipation->male_gender :'0'}}</span>
-        <span class="">%</span>
-      </h5>
+    
+    <div class="col-md-4">
+      <div class="gender-img-wrap mt-5">
+        <span class="gender-percent male-percent">{{isset($districtParticipation->male_gender  )?round($districtParticipation->male_gender, 1) :'0'}}%</span>
+        <img src="http://nas21.inroad.in/report-pdf/assets/images/male-icon.png" alt="male-icon" class="img-fluid male-img" />
+        <p class="gender-txt">Boys</p>
+      </div>
     </div>
-    <div class="mx-4">
-      <img src="http://nas21.inroad.in/report-pdf/assets/images/{{$girlDialog}}" alt="dialog_box">
-      <h5 class="mb-15 text-white">
-        <span class="">{{isset($districtParticipation->female_gender  )?$districtParticipation->female_gender :'0'}}</span>
-        <span class="">%</span>
-      </h5>
+    <div class="col-md-4">
+      <div class="gender-img-wrap mt-5">
+        <span class="gender-percent female-percent">{{isset($districtParticipation->female_gender  )?round($districtParticipation->female_gender, 1) :'0'}}%</span>
+        <img src="http://nas21.inroad.in/report-pdf/assets/images/female-icon.png" alt="female-icon" class="img-fluid female-img" />
+        <p class="gender-txt">Girls</p>
+      </div>
     </div>
-  </div>
-  <div class="gender-img">
-    <img src="http://nas21.inroad.in/report-pdf/assets/images/{{$genderImg}}" class="mb-1" alt="gender_image">
-  </div>
-  <div class="d-flex justify-content-center w-100">
-    <div class="mx-4 pe-2">
-      <p class="gender-txt">Boys</p>
+    <div class="col-md-4">
+      <div class="gender-img-wrap mt-5">
+        <span class="gender-percent trans-percent">{{isset($districtParticipation->trans_gender  )?round($districtParticipation->trans_gender, 1) :'0'}}%</span>
+        <img src="http://nas21.inroad.in/report-pdf/assets/images/trans-icon.png" alt="trans-icon" class="img-fluid trans-img" />
+        <p class="gender-txt">Transgender</p>
+      </div>
     </div>
-    <div class="mx-4 ps-2">
-      <p class="gender-txt">Girls</p>
-    </div>
+    
   </div>
 </div>

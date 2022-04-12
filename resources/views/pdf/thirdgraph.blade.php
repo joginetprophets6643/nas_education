@@ -6,7 +6,7 @@
         chart: {
           height: {{($districtParticipation->grade==8 || $districtParticipation->grade==10)?'320':'425'}},
           // width: 200,
-          width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "400";}elseif($districtParticipation->grade==8){ echo "330";}elseif($districtParticipation->grade==10){ echo "260";}?>,
+          width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "480";}elseif($districtParticipation->grade==8){ echo "350";}elseif($districtParticipation->grade==10){ echo "290";}?>,
           type: "column",
           margin: [40, 0, 60, 40],
         },
@@ -20,8 +20,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -55,12 +60,12 @@
         series: [
           {
             name: "Rural",
-            color: "#A3536F",
+            color: "#fbad3c",
             data: [<?php echo (int)$dataLocationArr['math']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['math']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['math']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#E9769F",
+            color: "#fff685",
             data: [<?php echo (int)$dataLocationArr['math']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['math']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['math']['location']['national']['urban']; ?>],
           },
         ],
@@ -70,7 +75,7 @@
     Highcharts.chart("rc3-languageBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
           height: {{($districtParticipation->grade==8)?'320':'425'}},
-          width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "370";}elseif($districtParticipation->grade==8){ echo "300";}?>,
+          width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "450";}elseif($districtParticipation->grade==8){ echo "350";}?>,
           type: "column",
           margin: [40, 0, 60, 0],
         },
@@ -84,8 +89,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -119,12 +129,12 @@
         series: [
           {
             name: "Rural",
-            color: "#527698",
+            color: "#fbad3c",
             data: [<?php echo (int)$dataLocationArr['language']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['language']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['language']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#75A9D9",
+            color: "#fff685",
             data: [<?php echo (int)$dataLocationArr['language']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['language']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['language']['location']['national']['urban']; ?>],
           },
         ],
@@ -136,7 +146,7 @@
     Highcharts.chart("rc3-evsBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
           height: 425,
-          width: 370,
+          width: 450,
           type: "column",
           margin: [40, 0, 60, 0],
         },
@@ -150,8 +160,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -185,12 +200,12 @@
         series: [
           {
             name: "Rural",
-            color: "#8D8A43",
+            color: "#fbad3c",
             data: [<?php echo (int)$dataLocationArr['evs']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['evs']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['evs']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#CAC55F",
+            color: "#fff685",
             data: [<?php echo (int)$dataLocationArr['evs']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['evs']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['evs']['location']['national']['urban']; ?>],
           },
         ],
@@ -201,7 +216,7 @@
         chart: {
           height: 320,
           // width: 170,
-          width: <?php if($districtParticipation->grade==8){ echo "300";}elseif($districtParticipation->grade==10){ echo "230";}?>,
+          width: <?php if($districtParticipation->grade==8){ echo "350";}elseif($districtParticipation->grade==10){ echo "290";}?>,
           type: "column",
           margin: [40, 0, 60, 0],
         },
@@ -215,8 +230,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -250,12 +270,12 @@
         series: [
           {
             name: "Rural",
-            color: "#369b9d",
+            color: "#fbad3c",
             data: [<?php echo (int)$dataLocationArr['sci']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['sci']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['sci']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#63bdbe",
+            color: "#fff685",
             data: [<?php echo (int)$dataLocationArr['sci']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['sci']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['sci']['location']['national']['urban']; ?>],
           },
         ],
@@ -266,7 +286,7 @@
         chart: {
           height: 320,
           // width: 170,
-          width: <?php if($districtParticipation->grade==8){ echo "300";}elseif($districtParticipation->grade==10){ echo "230";}?>,
+          width: <?php if($districtParticipation->grade==8){ echo "350";}elseif($districtParticipation->grade==10){ echo "290";}?>,
           type: "column",
           margin: [40, 0, 60, 0],
         },
@@ -280,8 +300,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -315,12 +340,12 @@
         series: [
           {
             name: "Rural",
-            color: "#68a358",
+            color: "#fbad3c",
             data: [<?php echo (int)$dataLocationArr['sst']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['sst']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['sst']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#8fc481",
+            color: "#fff685",
             data: [<?php echo (int)$dataLocationArr['sst']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['sst']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['sst']['location']['national']['urban']; ?>],
           },
         ],
@@ -330,7 +355,7 @@
     Highcharts.chart("rc3-milBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
           height: 320,
-          width: 230,
+          width: 290,
           type: "column",
           margin: [40, 0, 60, 0],
         },
@@ -344,8 +369,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -379,12 +409,12 @@
         series: [
           {
             name: "Rural",
-            color: "#d4605f",
+            color: "#fbad3c",
             data: [<?php echo (int)$dataLocationArr['mil']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['mil']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['mil']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#ef8987",
+            color: "#fff685",
             data: [<?php echo (int)$dataLocationArr['mil']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['mil']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['mil']['location']['national']['urban']; ?>],
           },
         ],
@@ -394,7 +424,7 @@
     Highcharts.chart("rc3-englishBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
           height: 320,
-          width: 230,
+          width: 290,
           type: "column",
           margin: [40, 0, 60, 0],
         },
@@ -408,8 +438,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -443,12 +478,12 @@
         series: [
           {
             name: "Rural",
-            color: "#b168ad",
+            color: "#fbad3c",
             data: [<?php echo (int)$dataLocationArr['eng']['location']['district']['rural']; ?>, <?php echo (int)$dataLocationArr['eng']['location']['state']['rural']; ?>, <?php echo (int)$dataLocationArr['eng']['location']['national']['rural']; ?>],
           },
           {
             name: "Urban",
-            color: "#d190cd",
+            color: "#fff685",
             data: [<?php echo (int)$dataLocationArr['eng']['location']['district']['urban']; ?>, <?php echo (int)$dataLocationArr['eng']['location']['state']['urban']; ?>, <?php echo (int)$dataLocationArr['eng']['location']['national']['urban']; ?>],
           },
         ],
