@@ -433,17 +433,15 @@ class UploadController extends Controller
     }
 
     public function district(Request $request){
-        $request->validate([
-            'drc.*'=>'mimes:csv',
-        ]);
-        if($request->file('drc'))
+        
+        if($request->file('final'))
         {
-            $files=$request->file('drc');
+            $files=$request->file('final');
             $name=[];
             foreach($files as $file){
                 $filename = $file->getClientOriginalName();
                 $csv=public_path($filename);
-                if($filename=="G03y21_DistrictReports.csv" || $filename=="G05y21_DistrictReports.csv" || $filename=="G08y21_DistrictReports.csv" || $filename=="G10y21_DistrictReports.csv"){
+                if($filename=="G03y21_DistrictReports.csv" || $filename=="G05y21_DistrictReports.csv" || $filename=="G08y21_DistrictReports.csv" || $filename=="G10y21_StateReports.csv" || $filename=="G03y21_StateReports.csv" || $filename=="G05y21_StateReports.csv" || $filename=="G08y21_StateReports.csv" || $filename=="G10y21_StateReports.csv"){
                     $file->move(public_path(''),$filename);
                 }
                 else{
@@ -459,7 +457,7 @@ class UploadController extends Controller
 
         }
         else{
-            return redirect('/drc-upload-view');
+            return redirect('/final-upload-view');
         }
         
     }
