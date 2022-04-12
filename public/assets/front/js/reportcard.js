@@ -69,7 +69,7 @@ const geography_wise_screen = {
 }
 const category_filter_screen = ['participation', 'performance', 'glimpses']
 
-let screens = ['information', 'participation', 'performance', 'learning', 'feedback', 'glimpses', 'achievement']
+let screens = ['information', 'participation', 'performance', 'learning', 'feedback', 'glimpses', 'achievement','notconducted']
 
 let selected_geography = ''
 let global_filters = {}     // added for new change
@@ -470,8 +470,17 @@ function changePageDataViaSideFilter(value) {
 
 //  setting screens for geographies
 async function setScreen(screen_type = 'information', load_data = true) {
+
+  // not conducted check
+  const active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
+  if(active_district !== null ){
+    if(active_district.is_active === 2 ){
+      screen_type = 'notconducted'
+    }
+  }
+  
   window.scrollTo(0, 0)
-  const exceptions = ['participation', 'learning']
+  const exceptions = ['participation', 'learning','notconducted']
   const current_demography = (selected_geography === 'district' || exceptions.includes(screen_type) ? '' : selected_geography)
   const demographics = ['', 'state', 'national']
 
@@ -496,7 +505,7 @@ async function setScreen(screen_type = 'information', load_data = true) {
     if (grade === classType) {
       $('#' + screen_type + current_demography + '_class' + grade + '').addClass('show active')
     } else {
-      if (screen_type === 'feedback' || screen_type === 'information' || screen_type === 'achievement') {
+      if (screen_type === 'feedback' || screen_type === 'information' || screen_type === 'achievement' || screen_type === 'notconducted') {
         $('#' + screen_type + current_demography + '_class3').addClass('show active')
       } else {
         $('#' + screen_type + current_demography + '_class' + grade + '').removeClass('show active')
@@ -833,54 +842,61 @@ async function getData() {
       district: 'all_grade_participation_tbl',
     }
   }
-  let table = ''
-  if (typeof screenType === 'undefined') {
-    table = screen_wise_table['information'][selected_geography]
 
-  } else {
-    table = screen_wise_table[screenType][selected_geography]
-    if (screenType === 'performance' && selected_geography === 'national') {
-      limit = 1
-    }
-  }
-  if (screenType === 'information') {
-    global_filters = {}
-  }
-  await $.ajax({
-    type: "GET",
-    url: api_url + table + '?limit=' + limit + '&filter=' + JSON.stringify(global_filters),
-    headers: {
-      "Authorization": "Bearer " + token
-    },
-    beforeSend: () => {
-      $('#screen-loader').show()
-      $('tab-pane fade').hide()
-    },
-  }).done(res => {
-    if (screenType === 'participation') {
-      sessionStorage.setItem('participation_data', JSON.stringify(res.data))
-    }
-    if (screenType === 'performance') {
-      sessionStorage.setItem('performance_data', JSON.stringify(res.data))
-    }
-    if (screenType === 'learning') {
-      sessionStorage.setItem('learning_data', JSON.stringify(res.data))
-    }
-    if (screenType === 'feedback') {
-      sessionStorage.setItem('feedback_data', JSON.stringify(res.data))
+  if(screenType !== 'notconducted'){
+    let table = ''
+    if (typeof screenType === 'undefined') {
+      table = screen_wise_table['information'][selected_geography]
+  
+    } else {
+      table = screen_wise_table[screenType][selected_geography]
+      if (screenType === 'performance' && selected_geography === 'national') {
+        limit = 1
+      }
     }
     if (screenType === 'information') {
-      sessionStorage.setItem('information_data', JSON.stringify(res.data))
+      global_filters = {}
     }
-    if (screenType === 'glimpses') {
-      sessionStorage.setItem('glimpses_data', JSON.stringify(res.data))
-    }
-    setInformation()
+    await $.ajax({
+      type: "GET",
+      url: api_url + table + '?limit=' + limit + '&filter=' + JSON.stringify(global_filters),
+      headers: {
+        "Authorization": "Bearer " + token
+      },
+      beforeSend: () => {
+        $('#screen-loader').show()
+        $('tab-pane fade').hide()
+      },
+    }).done(res => {
+      if (screenType === 'participation') {
+        sessionStorage.setItem('participation_data', JSON.stringify(res.data))
+      }
+      if (screenType === 'performance') {
+        sessionStorage.setItem('performance_data', JSON.stringify(res.data))
+      }
+      if (screenType === 'learning') {
+        sessionStorage.setItem('learning_data', JSON.stringify(res.data))
+      }
+      if (screenType === 'feedback') {
+        sessionStorage.setItem('feedback_data', JSON.stringify(res.data))
+      }
+      if (screenType === 'information') {
+        sessionStorage.setItem('information_data', JSON.stringify(res.data))
+      }
+      if (screenType === 'glimpses') {
+        sessionStorage.setItem('glimpses_data', JSON.stringify(res.data))
+      }
+      setInformation()
+      $('#screen-loader').hide()
+      $('tab-pane fade').show()
+  
+    });
+    updateReportCardLink()
+  }else{
     $('#screen-loader').hide()
     $('tab-pane fade').show()
+  }
 
-  });
-  updateReportCardLink()
 }
 
 // removed for new change
