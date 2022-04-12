@@ -10,6 +10,7 @@
 @include('front.report_card.information')
 @include('front.report_card.resultglimpses')
 @include('front.report_card.achievement')
+@include('front.report_card.notconducted')
 <div class="tab-content tablayertwo-content">
   <div class="tab-pane fade show active" id="class3" role="tabpanel" aria-labelledby="class3-tab">
                               <ul class="nav nav-tabs sticky-nav scroll-top tablayerthree"  id="scrollTab2"  role="tablist" >
@@ -51,6 +52,7 @@
                                 @yield('feedback')
                                 @yield('result-glimpses')
                                 @yield('achievement')
+                                @yield('notconducted')
                             </div>
                             </div>
                             <!-- <div class="tab-pane fade" id="class5" role="tabpanel" aria-labelledby="class5-tab">...</div>
