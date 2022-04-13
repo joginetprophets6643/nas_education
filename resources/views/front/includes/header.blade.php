@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{asset('assets/front/scss/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/front/scss/css2.css')}}" rel="stylesheet">
+    <!-- <link href="{{asset('assets/front/scss/css2.css')}}" rel="stylesheet"> -->
     <link href="{{asset('assets/front/scss/font-css2.css')}}" rel="stylesheet">
     
     <!-- Material Icons -->

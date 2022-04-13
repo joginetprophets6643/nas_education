@@ -115,10 +115,15 @@
 @include('admin.includes.footer')
 @if(count($errors)>0)
 <script>
-  $('#staticBackdrop').modal({
-    backdrop: 'static',
-    keyboard: false
+  $(window).on('load', function() {
+    $('#staticBackdrop').modal('show');
   });
+</script>
+<script>
+  // $('#staticBackdrop').modal({
+  //   backdrop: 'static',
+  //   keyboard: false
+  // });
   
   $('.btn-close').click(()=>{
     $('#staticBackdrop').removeClass('show')

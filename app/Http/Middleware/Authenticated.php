@@ -103,14 +103,8 @@ class Authenticated
                             }
                         }
                     }
-
-
-                
-
-                
-                // dd($url);
-                $p_url = url()->previous();
-                return redirect($p_url);
+               
+                return redirect()->route('dashboard');
             }
             else{
                 return redirect()->route('secure-admin');

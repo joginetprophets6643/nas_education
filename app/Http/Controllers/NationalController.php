@@ -103,7 +103,7 @@ class NationalController extends Controller
 
     public function destroy($id){
         $id=decode5t($id);
-        NationalStatistic::find($id)->delete();
+        NationalStatistic::where('id',$id)->delete();
         return Redirect()->route('national')->with('success','National Deleted Successfully');
     }
 
