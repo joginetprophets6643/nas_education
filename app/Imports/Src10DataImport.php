@@ -23,6 +23,9 @@ class Src10DataImport implements ToModel,WithStartRow
             if($item==" "){
                 $row[$key]=0;
             }
+            if(str_contains($item,'%')){
+                $row[$key]=str_replace("%","",$item);
+            }
         }
         return new Src10Datas([
             "class"=>$row['0'],
