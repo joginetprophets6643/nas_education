@@ -193,8 +193,22 @@ class FinalParticipationstateController extends Controller
         $grade3PrcoessData = $this->grade3PerformanceData();
         $grade5PrcoessData = $this->grade5PerformanceData();
         $grade8PrcoessData = $this->grade8PerformanceData();
-        // $grade10PrcoessData = $this->grade10PerformanceData();
+        $grade10PrcoessData = $this->grade10PerformanceData();
         return "Performance Table Created";
+    }
+
+    public function comparisionDataof2021($grade,$sub,$id){
+        $var='c'.$grade.'_'.$sub.'_ss_2021';        
+        
+        $data=DB::table('state_comparison_data')->where('state_code',$id)->select($var)->first();
+        return $data->$var?$data->$var:'0';
+    }
+
+    public function comparisionDataof2017($grade,$sub,$id){
+        $var='c'.$grade.'_'.$sub.'_ss_2017';        
+        
+        $data=DB::table('state_comparison_data')->where('state_code',$id)->select($var)->first();
+        return $data->$var?$data->$var:'0';
     }
 
 
@@ -209,7 +223,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['language'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_la_pct)?$statelevel->state_la_pct:'0',
-                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0'),
+                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('3','lang',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('3','lang',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_la_boys_pl12)?$statelevel->state_la_boys_pl12:'0'
@@ -276,7 +293,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['math'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ma_pct)?$statelevel->state_ma_pct:'0',
-                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0'),
+                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('3','math',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('3','math',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_ma_boys_pl12)?$statelevel->state_ma_boys_pl12:'0'
@@ -343,7 +363,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['evs'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ev_pct)?$statelevel->state_ev_pct:'0',
-                    'national'=>isset($statelevel->india_ev_pct)?$statelevel->india_ev_pct:'0'),
+                    'national'=>isset($statelevel->india_ev_pct)?$statelevel->india_ev_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('3','evs',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('3','evs',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_ev_boys_pct)?$statelevel->state_ev_boys_pct:'0',"girls"=>isset($statelevel->state_ev_girls_pct)?$statelevel->state_ev_girls_pct:'0','trans_gender'=>isset($statelevel->state_ev_trans_pct)?$statelevel->state_ev_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_ev_boys_pl12)?$statelevel->state_ev_boys_pl12:'0'
@@ -428,7 +451,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['language'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_la_pct)?$statelevel->state_la_pct:'0',
-                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0'),
+                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('5','lang',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('5','lang',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_la_boys_pl12)?$statelevel->state_la_boys_pl12:'0'
@@ -495,7 +521,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['math'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ma_pct)?$statelevel->state_ma_pct:'0',
-                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0'),
+                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('5','math',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('5','math',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_ma_boys_pl12)?$statelevel->state_ma_boys_pl12:'0'
@@ -562,7 +591,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['evs'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ev_pct)?$statelevel->state_ev_pct:'0',
-                    'national'=>isset($statelevel->india_ev_pct)?$statelevel->india_ev_pct:'0'),
+                    'national'=>isset($statelevel->india_ev_pct)?$statelevel->india_ev_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('5','evs',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('5','evs',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_ev_boys_pct)?$statelevel->state_ev_boys_pct:'0',"girls"=>isset($statelevel->state_ev_girls_pct)?$statelevel->state_ev_girls_pct:'0','trans_gender'=>isset($statelevel->state_ev_trans_pct)?$statelevel->state_ev_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_ev_boys_pl12)?$statelevel->state_ev_boys_pl12:'0'
@@ -646,7 +678,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['language'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_la_pct)?$statelevel->state_la_pct:'0',
-                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0'),
+                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('8','lang',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('8','lang',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_la_boys_pl12)?$statelevel->state_la_boys_pl12:'0'
@@ -713,7 +748,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['math'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ma_pct)?$statelevel->state_ma_pct:'0',
-                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0'),
+                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('8','math',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('8','math',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_ma_boys_pl12)?$statelevel->state_ma_boys_pl12:'0'
@@ -780,7 +818,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['sci'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_sc_pct)?$statelevel->state_sc_pct:'0',
-                    'national'=>isset($statelevel->india_sc_pct)?$statelevel->india_sc_pct:'0'),
+                    'national'=>isset($statelevel->india_sc_pct)?$statelevel->india_sc_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('8','sc',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('8','sc',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_sc_boys_pct)?$statelevel->state_sc_boys_pct:'0',"girls"=>isset($statelevel->state_sc_girls_pct)?$statelevel->state_sc_girls_pct:'0','trans_gender'=>isset($statelevel->state_sc_trans_pct)?$statelevel->state_sc_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_sc_boys_pl12)?$statelevel->state_sc_boys_pl12:'0'
@@ -847,7 +888,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['sst'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ss_pct)?$statelevel->state_ss_pct:'0',
-                    'national'=>isset($statelevel->india_ss_pct)?$statelevel->india_ss_pct:'0'),
+                    'national'=>isset($statelevel->india_ss_pct)?$statelevel->india_ss_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('8','ss',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('8','ss',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_ss_boys_pct)?$statelevel->state_ss_boys_pct:'0',"girls"=>isset($statelevel->state_ss_girls_pct)?$statelevel->state_ss_girls_pct:'0','trans_gender'=>isset($statelevel->state_ss_trans_pct)?$statelevel->state_ss_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_ss_boys_pl12)?$statelevel->state_ss_boys_pl12:'0'
@@ -932,7 +976,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['math'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ma_pct)?$statelevel->state_ma_pct:'0',
-                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0'),
+                    'national'=>isset($statelevel->india_ma_pct)?$statelevel->india_ma_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('10','math',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('10','math',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_ma_boys_pct)?$statelevel->state_ma_boys_pct:'0',"girls"=>isset($statelevel->state_ma_girls_pct)?$statelevel->state_ma_girls_pct:'0','trans_gender'=>isset($statelevel->state_ma_trans_pct)?$statelevel->state_ma_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_ma_boys_pl12)?$statelevel->state_ma_boys_pl12:'0'
@@ -999,7 +1046,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['sci'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_sc_pct)?$statelevel->state_sc_pct:'0',
-                    'national'=>isset($statelevel->india_sc_pct)?$statelevel->india_sc_pct:'0'),
+                    'national'=>isset($statelevel->india_sc_pct)?$statelevel->india_sc_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('10','sc',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('10','sc',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_sc_boys_pct)?$statelevel->state_sc_boys_pct:'0',"girls"=>isset($statelevel->state_sc_girls_pct)?$statelevel->state_sc_girls_pct:'0','trans_gender'=>isset($statelevel->state_sc_trans_pct)?$statelevel->state_sc_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_sc_boys_pl12)?$statelevel->state_sc_boys_pl12:'0'
@@ -1066,7 +1116,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['sst'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_ss_pct)?$statelevel->state_ss_pct:'0',
-                    'national'=>isset($statelevel->india_ss_pct)?$statelevel->india_ss_pct:'0'),
+                    'national'=>isset($statelevel->india_ss_pct)?$statelevel->india_ss_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('10','ss',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('10','ss',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_ss_boys_pct)?$statelevel->state_ss_boys_pct:'0',"girls"=>isset($statelevel->state_ss_girls_pct)?$statelevel->state_ss_girls_pct:'0','trans_gender'=>isset($statelevel->state_ss_trans_pct)?$statelevel->state_ss_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_ss_boys_pl12)?$statelevel->state_ss_boys_pl12:'0'
@@ -1133,7 +1186,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['eng'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_en_pct)?$statelevel->state_en_pct:'0',
-                    'national'=>isset($statelevel->india_en_pct)?$statelevel->india_en_pct:'0'),
+                    'national'=>isset($statelevel->india_en_pct)?$statelevel->india_en_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('10','eng',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('10','eng',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_en_boys_pct)?$statelevel->state_en_boys_pct:'0',"girls"=>isset($statelevel->state_en_girls_pct)?$statelevel->state_en_girls_pct:'0','trans_gender'=>isset($statelevel->state_en_trans_pct)?$statelevel->state_en_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_en_boys_pl12)?$statelevel->state_en_boys_pl12:'0'
@@ -1200,7 +1256,10 @@ class FinalParticipationstateController extends Controller
             $newstateArray['mil'] =array(
                 'cards'=>array(
                     'state'=>isset($statelevel->state_la_pct)?$statelevel->state_la_pct:'0',
-                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0'),
+                    'national'=>isset($statelevel->india_la_pct)?$statelevel->india_la_pct:'0',
+                    'comp_2021'=>$this->comparisionDataof2021('10','lang',$statelevel->state_code),
+                    'comp_2017'=>$this->comparisionDataof2017('10','lang',$statelevel->state_code)
+                ),
                 'gender'=>array(
                     'state'=>array("boys"=>isset($statelevel->state_la_boys_pct)?$statelevel->state_la_boys_pct:'0',"girls"=>isset($statelevel->state_la_girls_pct)?$statelevel->state_la_girls_pct:'0','trans_gender'=>isset($statelevel->state_la_trans_pct)?$statelevel->state_la_trans_pct:'0'
                     ,'boys_basic_and_below_basic'=>isset($statelevel->state_la_boys_pl12)?$statelevel->state_la_boys_pl12:'0'
