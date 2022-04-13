@@ -1044,7 +1044,13 @@ class Src10DataImport implements ToModel,WithStartRow
             "state_pq_q32"=>$row['1016'],
             "state_pq_q18"=>$row['1017'],
             "state_pq_q29f" =>$row['1018'],
-
+            'state_pq_q26'=>$row['1019'],
+            'state_pq_q27_a_d'=>$row['1020'],
+            'state_pq_q27_e_g'=>$row['1021'],
+            'state_pq_q27f'=>$row['1022'],
+            'state_pq_q28a'=>$row['1023'],
+            'state_pq_q28c'=>$row['1024'],
+            'state_pq_q28f'	=>$row['1025'],
         ]);
     }
 }
