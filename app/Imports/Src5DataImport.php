@@ -653,6 +653,13 @@ class Src5DataImport implements ToModel,WithStartRow
             "india_ev_ews_ss_sd"=>$row['625'],
             "india_ev_ews_pl12"=>$row['626'],
             "india_ev_ews_pl34"=>$row['627'],
+            'state_pq_q26'=>$row['628'],
+            'state_pq_q27_a_d'=>$row['629'],
+            'state_pq_q27_e_g'=>$row['630'],
+            'state_pq_q27f'=>$row['631'],
+            'state_pq_q28a'=>$row['632'],
+            'state_pq_q28c'=>$row['633'],
+            'state_pq_q28f'	=>$row['634'],
         ]);
     }
 }

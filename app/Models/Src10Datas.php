@@ -1030,6 +1030,13 @@ class Src10Datas extends Model
         "state_pq_q17",
         "state_pq_q32",
         "state_pq_q18",
-        "state_pq_q29f", 
+        "state_pq_q29f",
+        'state_pq_q26',
+        'state_pq_q27_a_d',
+        'state_pq_q27_e_g',
+        'state_pq_q27f',
+        'state_pq_q28a',
+        'state_pq_q28c',
+        'state_pq_q28f',
     ];
 }

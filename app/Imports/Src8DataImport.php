@@ -901,6 +901,13 @@ class Src8DataImport implements ToModel,WithStartRow
             "state_pq_q32"=>$row['873'],
             "state_pq_q18"=>$row['874'],
             "state_pq_q29f"=>$row['875'],
+            'state_pq_q26'=>$row['676'],
+            'state_pq_q27_a_d'=>$row['677'],
+            'state_pq_q27_e_g'=>$row['678'],
+            'state_pq_q27f'=>$row['679'],
+            'state_pq_q28a'=>$row['680'],
+            'state_pq_q28c'=>$row['681'],
+            'state_pq_q28f'	=>$row['682'],
 
         ]);
     }

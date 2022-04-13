@@ -640,5 +640,12 @@ class Src5Datas extends Model
     "india_ev_ews_ss_sd",
     "india_ev_ews_pl12",
     "india_ev_ews_pl34",
+    'state_pq_q26',
+    'state_pq_q27_a_d',
+    'state_pq_q27_e_g',
+    'state_pq_q27f',
+    'state_pq_q28a',
+    'state_pq_q28c',
+    'state_pq_q28f',
     ];
 }
