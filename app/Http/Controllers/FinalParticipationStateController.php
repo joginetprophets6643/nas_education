@@ -1479,6 +1479,34 @@ class FinalParticipationstateController extends Controller
         select id, state_code, state_tq_q16
         as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
+        union all
+        select id, state_code, State_pq_q26
+        as state_avg, 'pq1' level, 'I learn Many things during the pandemic like' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
+        union all
+        select id, state_code, State_pq_q27_a_d
+        as state_avg, 'pq2' level, 'Learning from pandemic ' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
+        union all
+        select id, state_code, State_pq_q27_e_g
+        as state_avg, 'pq3' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
+        union all
+        select id, state_code, State_pq_q27f
+        as state_avg, 'pq2' level, 'No Digital Device at Home' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
+        union all
+        select id, state_code, State_pq_q28a
+        as state_avg, 'pq2' level, 'Follow the Covid-19 hygiene protocols' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
+        union all
+        select id, state_code, State_pq_q28c
+        as state_avg, 'pq2' level, 'Experienced worry anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
+        union all
+        select id, state_code, State_pq_q28f
+        as state_avg, 'pq2' level, 'Happy to spend time at home with my own self' question_desc, 0 question_code, 0 total_parent
+        from grade3statetable
         ";
         return $query;
     }
@@ -1568,6 +1596,34 @@ class FinalParticipationstateController extends Controller
         union all
         select id, state_code, state_tq_q16
         as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
+        union all
+        select id, state_code, State_pq_q26
+        as state_avg, 'pq1' level, 'I learn Many things during the pandemic like' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
+        union all
+        select id, state_code, State_pq_q27_a_d
+        as state_avg, 'pq2' level, 'Learning from pandemic ' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
+        union all
+        select id, state_code, State_pq_q27_e_g
+        as state_avg, 'pq3' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
+        union all
+        select id, state_code, State_pq_q27f
+        as state_avg, 'pq2' level, 'No Digital Device at Home' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
+        union all
+        select id, state_code, State_pq_q28a
+        as state_avg, 'pq2' level, 'Follow the Covid-19 hygiene protocols' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
+        union all
+        select id, state_code, State_pq_q28c
+        as state_avg, 'pq2' level, 'Experienced worry anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
+        from grade5statetable
+        union all
+        select id, state_code, State_pq_q28f
+        as state_avg, 'pq2' level, 'Happy to spend time at home with my own self' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         ";
         return $query;
@@ -1659,6 +1715,34 @@ class FinalParticipationstateController extends Controller
         select id, state_code, state_tq_q16
         as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
+        union all
+        select id, state_code, State_pq_q26
+        as state_avg, 'pq1' level, 'I learn Many things during the pandemic like' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
+        union all
+        select id, state_code, State_pq_q27_a_d
+        as state_avg, 'pq2' level, 'Learning from pandemic ' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
+        union all
+        select id, state_code, State_pq_q27_e_g
+        as state_avg, 'pq3' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
+        union all
+        select id, state_code, State_pq_q27f
+        as state_avg, 'pq2' level, 'No Digital Device at Home' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
+        union all
+        select id, state_code, State_pq_q28a
+        as state_avg, 'pq2' level, 'Follow the Covid-19 hygiene protocols' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
+        union all
+        select id, state_code, State_pq_q28c
+        as state_avg, 'pq2' level, 'Experienced worry anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
+        union all
+        select id, state_code, State_pq_q28f
+        as state_avg, 'pq2' level, 'Happy to spend time at home with my own self' question_desc, 0 question_code, 0 total_parent
+        from grade8statetable
         ";
         return $query;
     }
@@ -1748,6 +1832,34 @@ class FinalParticipationstateController extends Controller
         union all
         select id, state_code, state_tq_q16
         as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
+        union all
+        select id, state_code, State_pq_q26
+        as state_avg, 'pq1' level, 'I learn Many things during the pandemic like' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
+        union all
+        select id, state_code, State_pq_q27_a_d
+        as state_avg, 'pq2' level, 'Learning from pandemic ' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
+        union all
+        select id, state_code, State_pq_q27_e_g
+        as state_avg, 'pq3' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
+        union all
+        select id, state_code, State_pq_q27f
+        as state_avg, 'pq2' level, 'No Digital Device at Home' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
+        union all
+        select id, state_code, State_pq_q28a
+        as state_avg, 'pq2' level, 'Follow the Covid-19 hygiene protocols' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
+        union all
+        select id, state_code, State_pq_q28c
+        as state_avg, 'pq2' level, 'Experienced worry anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
+        from grade10statetable
+        union all
+        select id, state_code, State_pq_q28f
+        as state_avg, 'pq2' level, 'Happy to spend time at home with my own self' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         ";
         return $query;
