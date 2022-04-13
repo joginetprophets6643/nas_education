@@ -19,9 +19,14 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 10,
-	      },
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
+          },
 	    },
 	    yAxis: {
 	      max: 100,
@@ -54,22 +59,22 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#A3536F",
+	        color: "#d26a8e",
 	        data: [<?php echo (int)$datasclgrpArr['math']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['national']['sc']; ?>],
 	      },
-	      {
-	        name: "OBC",
-	        color: "#D26A8E",
-	        data: [<?php echo (int)$datasclgrpArr['math']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['national']['obc']; ?>],
-	      },
-	      {
+		  {
 	        name: "ST",
-	        color: "#E9769F",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$datasclgrpArr['math']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
+	        name: "OBC",
+	        color: "#dad68f",
+	        data: [<?php echo (int)$datasclgrpArr['math']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['national']['obc']; ?>],
+	      },
+	      {
 	        name: "General",
-	        color: "#F09FBB",
+	        color: "#bad4ec",
 	        data: [<?php echo (int)$datasclgrpArr['math']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['math']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -94,9 +99,14 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 10,
-	      },
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
+          },
 	    },
 	    yAxis: {
 	      max: 100,
@@ -129,22 +139,23 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#527698",
+	        color: "#d26a8e",
 	        data: [<?php echo (int)$datasclgrpArr['language']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['national']['sc']; ?>],
 	      },
-	      {
-	        name: "OBC",
-	        color: "#6997C3",
-	        data: [<?php echo (int)$datasclgrpArr['language']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['national']['obc']; ?>],
-	      },
-	      {
+		  {
 	        name: "ST",
-	        color: "#75A9D9",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$datasclgrpArr['language']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
+	        name: "OBC",
+	        color: "#dad68f",
+	        data: [<?php echo (int)$datasclgrpArr['language']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['national']['obc']; ?>],
+	      },
+	      
+	      {
 	        name: "General",
-	        color: "#9EC2E4",
+	        color: "#bad4ec",
 	        data: [<?php echo (int)$datasclgrpArr['language']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['language']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -170,9 +181,14 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 10,
-	      },
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
+          },
 	    },
 	    yAxis: {
 	      max: 100,
@@ -205,22 +221,23 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#8D8A43",
+	        color: "#d26a8e",
 	        data: [<?php echo (int)$datasclgrpArr['evs']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['national']['sc']; ?>],
 	      },
-	      {
-	        name: "OBC",
-	        color: "#B6B156",
-	        data: [<?php echo (int)$datasclgrpArr['evs']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['national']['obc']; ?>],
-	      },
-	      {
+		  {
 	        name: "ST",
-	        color: "#CAC55F",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$datasclgrpArr['evs']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
+	        name: "OBC",
+	        color: "#dad68f",
+	        data: [<?php echo (int)$datasclgrpArr['evs']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['national']['obc']; ?>],
+	      },
+	      
+	      {
 	        name: "General",
-	        color: "#DAD68F",
+	        color: "#bad4ec",
 	        data: [<?php echo (int)$datasclgrpArr['evs']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['evs']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -244,9 +261,14 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 10,
-	      },
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
+          },
 	    },
 	    yAxis: {
 	      max: 100,
@@ -279,22 +301,23 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#369b9d",
+	        color: "#d26a8e",
 	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['sc']; ?>],
 	      },
-	      {
-	        name: "OBC",
-	        color: "#63bdbe",
-	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['obc']; ?>],
-	      },
-	      {
+		  {
 	        name: "ST",
-	        color: "#8acdce",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
+	        name: "OBC",
+	        color: "#dad68f",
+	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['obc']; ?>],
+	      },
+	      
+	      {
 	        name: "General",
-	        color: "#b1dedf",
+	        color: "#bad4ec",
 	        data: [<?php echo (int)$datasclgrpArr['sci']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['sci']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -319,9 +342,14 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 10,
-	      },
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
+          },
 	    },
 	    yAxis: {
 	      max: 100,
@@ -354,22 +382,23 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#d4605f",
+	        color: "#d26a8e",
 	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['sc']; ?>],
 	      },
-	      {
-	        name: "OBC",
-	        color: "#ef8987",
-	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['obc']; ?>],
-	      },
-	      {
+		  {
 	        name: "ST",
-	        color: "#f3a6a5",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
+	        name: "OBC",
+	        color: "#dad68f",
+	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['obc']; ?>],
+	      },
+	      
+	      {
 	        name: "General",
-	        color: "#f7c4c3",
+	        color: "#bad4ec",
 	        data: [<?php echo (int)$datasclgrpArr['mil']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['mil']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -395,9 +424,14 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 10,
-	      },
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
+          },
 	    },
 	    yAxis: {
 	      max: 100,
@@ -430,22 +464,23 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#68a358",
+	        color: "#d26a8e",
 	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['sc']; ?>],
 	      },
-	      {
-	        name: "OBC",
-	        color: "#8fc481",
-	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['obc']; ?>],
-	      },
-	      {
+		  {
 	        name: "ST",
-	        color: "#abd3a1",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
+	        name: "OBC",
+	        color: "#dad68f",
+	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['obc']; ?>],
+	      },
+	      
+	      {
 	        name: "General",
-	        color: "#c7e1c0",
+	        color: "#bad4ec",
 	        data: [<?php echo (int)$datasclgrpArr['sst']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['sst']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],
@@ -470,9 +505,14 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 10,
-	      },
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
+          },
 	    },
 	    yAxis: {
 	      max: 100,
@@ -505,22 +545,23 @@
 	    series: [
 	      {
 	        name: "SC",
-	        color: "#b168ad",
+	        color: "#d26a8e",
 	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['sc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['sc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['sc']; ?>],
 	      },
-	      {
-	        name: "OBC",
-	        color: "#d190cd",
-	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['obc']; ?>],
-	      },
-	      {
+		  {
 	        name: "ST",
-	        color: "#dcacd9",
+	        color: "#63bdbe",
 	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['st']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['st']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['st']; ?>],
 	      },
 	      {
+	        name: "OBC",
+	        color: "#dad68f",
+	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['obc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['obc']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['obc']; ?>],
+	      },
+	      
+	      {
 	        name: "General",
-	        color: "#e8c7e6",
+	        color: "#bad4ec",
 	        data: [<?php echo (int)$datasclgrpArr['eng']['socialgroup']['district']['general']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['state']['general']; ?>, <?php echo (int)$datasclgrpArr['eng']['socialgroup']['national']['general']; ?>],
 	      },
 	    ],

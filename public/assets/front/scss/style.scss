@@ -6704,3 +6704,7 @@ ul {
 //     left: 50%;
 //     transform: translate(-50%, -50%);
 //   }
+
+.accordion-button::after {
+    background-image: url(https://nas21.inroad.in/assets/front/images/down-arrow.svg) !important;
+}

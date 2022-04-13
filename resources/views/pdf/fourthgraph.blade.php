@@ -19,8 +19,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -54,22 +59,22 @@
         series: [
           {
             name: "Govt.",
-            color: "#A3536F",
+            color: "#0d5d84",
             data: [<?php echo (int)$dataMgtArr['math']['management']['district']['govt']; ?>, <?php echo (int)$dataMgtArr['math']['management']['state']['govt']; ?>, <?php echo (int)$dataMgtArr['math']['management']['national']['govt']; ?>],
           },
           {
             name: "Govt. Aided",
-            color: "#D26A8E",
+            color: "#0077c7",
             data: [<?php echo (int)$dataMgtArr['math']['management']['district']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['math']['management']['state']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['math']['management']['national']['govt_aided']; ?>],
           },
           {
             name: "Private",
-            color: "#E9769F",
+            color: "#10b3e4",
             data: [<?php echo (int)$dataMgtArr['math']['management']['district']['private']; ?>, <?php echo (int)$dataMgtArr['math']['management']['state']['private']; ?>, <?php echo (int)$dataMgtArr['math']['management']['national']['private']; ?>],
           },
           {
             name: "Central Govt",
-            color: "#F09FBB",
+            color: "#9fe2f7",
             data: [<?php echo (int)$dataMgtArr['math']['management']['district']['central_govt']; ?>, <?php echo (int)$dataMgtArr['math']['management']['state']['central_govt']; ?>, <?php echo (int)$dataMgtArr['math']['management']['national']['central_govt']; ?>],
           },
         ],
@@ -93,8 +98,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
           
         },
@@ -129,22 +139,22 @@
         series: [
           {
             name: "Govt.",
-            color: "#527698",
+            color: "#0d5d84",
             data: [<?php echo (int)$dataMgtArr['language']['management']['district']['govt']; ?>, <?php echo (int)$dataMgtArr['language']['management']['state']['govt']; ?>, <?php echo (int)$dataMgtArr['language']['management']['national']['govt']; ?>],
           },
           {
             name: "Govt. Aided",
-            color: "#6997C3",
+            color: "#0077c7",
             data: [<?php echo (int)$dataMgtArr['language']['management']['district']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['language']['management']['state']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['language']['management']['national']['govt_aided']; ?>],
           },
           {
             name: "Private",
-            color: "#75A9D9",
+            color: "#10b3e4",
             data: [<?php echo (int)$dataMgtArr['language']['management']['district']['private']; ?>, <?php echo (int)$dataMgtArr['language']['management']['state']['private']; ?>, <?php echo (int)$dataMgtArr['language']['management']['national']['private']; ?>],
           },
           {
             name: "Central Govt",
-            color: "#9EC2E4",
+            color: "#9fe2f7",
             data: [<?php echo (int)$dataMgtArr['language']['management']['district']['central_govt']; ?>, <?php echo (int)$dataMgtArr['language']['management']['state']['central_govt']; ?>, <?php echo (int)$dataMgtArr['language']['management']['national']['central_govt']; ?>],
           },
         ],
@@ -168,8 +178,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -203,22 +218,22 @@
         series: [
           {
             name: "Govt.",
-            color: "#8D8A43",
+            color: "#0d5d84",
             data: [<?php echo (int)$dataMgtArr['evs']['management']['district']['govt']; ?>, <?php echo (int)$dataMgtArr['evs']['management']['state']['govt']; ?>, <?php echo (int)$dataMgtArr['evs']['management']['national']['govt']; ?>],
           },
           {
             name: "Govt. Aided",
-            color: "#B6B156",
+            color: "#0077c7",
             data: [<?php echo (int)$dataMgtArr['evs']['management']['district']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['evs']['management']['state']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['evs']['management']['national']['govt_aided']; ?>],
           },
           {
             name: "Private",
-            color: "#CAC55F",
+            color: "#10b3e4",
             data: [<?php echo (int)$dataMgtArr['evs']['management']['district']['private']; ?>, <?php echo (int)$dataMgtArr['evs']['management']['state']['private']; ?>, <?php echo (int)$dataMgtArr['evs']['management']['national']['private']; ?>],
           },
           {
             name: "Central Govt",
-            color: "#DAD68F",
+            color: "#9fe2f7",
             data: [<?php echo (int)$dataMgtArr['evs']['management']['district']['central_govt']; ?>, <?php echo (int)$dataMgtArr['evs']['management']['state']['central_govt']; ?>, <?php echo (int)$dataMgtArr['evs']['management']['national']['central_govt']; ?>],
           },
         ],
@@ -242,8 +257,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -277,22 +297,22 @@
         series: [
           {
             name: "Govt.",
-            color: "#369b9d",
+            color: "#0d5d84",
             data: [<?php echo (int)$dataMgtArr['sci']['management']['district']['govt']; ?>, <?php echo (int)$dataMgtArr['sci']['management']['state']['govt']; ?>, <?php echo (int)$dataMgtArr['sci']['management']['national']['govt']; ?>],
           },
           {
             name: "Govt. Aided",
-            color: "#63bdbe",
+            color: "#0077c7",
             data: [<?php echo (int)$dataMgtArr['sci']['management']['district']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['sci']['management']['state']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['sci']['management']['national']['govt_aided']; ?>],
           },
           {
             name: "Private",
-            color: "#8acdce",
+            color: "#10b3e4",
             data: [<?php echo (int)$dataMgtArr['sci']['management']['district']['private']; ?>, <?php echo (int)$dataMgtArr['sci']['management']['state']['private']; ?>, <?php echo (int)$dataMgtArr['sci']['management']['national']['private']; ?>],
           },
           {
             name: "Central Govt",
-            color: "#b1dedf",
+            color: "#9fe2f7",
             data: [<?php echo (int)$dataMgtArr['sci']['management']['district']['central_govt']; ?>, <?php echo (int)$dataMgtArr['sci']['management']['state']['central_govt']; ?>, <?php echo (int)$dataMgtArr['sci']['management']['national']['central_govt']; ?>],
           },
         ],
@@ -316,8 +336,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -351,22 +376,22 @@
         series: [
           {
             name: "Govt.",
-            color: "#d4605f",
+            color: "#0d5d84",
             data: [<?php echo (int)$dataMgtArr['mil']['management']['district']['govt']; ?>, <?php echo (int)$dataMgtArr['mil']['management']['state']['govt']; ?>, <?php echo (int)$dataMgtArr['mil']['management']['national']['govt']; ?>],
           },
           {
             name: "Govt. Aided",
-            color: "#ef8987",
+            color: "#0077c7",
             data: [<?php echo (int)$dataMgtArr['mil']['management']['district']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['mil']['management']['state']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['mil']['management']['national']['govt_aided']; ?>],
           },
           {
             name: "Private",
-            color: "#f3a6a5",
+            color: "#10b3e4",
             data: [<?php echo (int)$dataMgtArr['mil']['management']['district']['private']; ?>, <?php echo (int)$dataMgtArr['mil']['management']['state']['private']; ?>, <?php echo (int)$dataMgtArr['mil']['management']['national']['private']; ?>],
           },
           {
             name: "Central Govt",
-            color: "#f7c4c3",
+            color: "#9fe2f7",
             data: [<?php echo (int)$dataMgtArr['mil']['management']['district']['central_govt']; ?>, <?php echo (int)$dataMgtArr['mil']['management']['state']['central_govt']; ?>, <?php echo (int)$dataMgtArr['mil']['management']['national']['central_govt']; ?>],
           },
         ],
@@ -390,8 +415,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
           
         },
@@ -426,22 +456,22 @@
         series: [
           {
             name: "Govt.",
-            color: "#68a358",
+            color: "#0d5d84",
             data: [<?php echo (int)$dataMgtArr['sst']['management']['district']['govt']; ?>, <?php echo (int)$dataMgtArr['sst']['management']['state']['govt']; ?>, <?php echo (int)$dataMgtArr['sst']['management']['national']['govt']; ?>],
           },
           {
             name: "Govt. Aided",
-            color: "#8fc481",
+            color: "#0077c7",
             data: [<?php echo (int)$dataMgtArr['sst']['management']['district']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['sst']['management']['state']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['sst']['management']['national']['govt_aided']; ?>],
           },
           {
             name: "Private",
-            color: "#abd3a1",
+            color: "#10b3e4",
             data: [<?php echo (int)$dataMgtArr['sst']['management']['district']['private']; ?>, <?php echo (int)$dataMgtArr['sst']['management']['state']['private']; ?>, <?php echo (int)$dataMgtArr['sst']['management']['national']['private']; ?>],
           },
           {
             name: "Central Govt",
-            color: "#c7e1c0",
+            color: "#9fe2f7",
             data: [<?php echo (int)$dataMgtArr['sst']['management']['district']['central_govt']; ?>, <?php echo (int)$dataMgtArr['sst']['management']['state']['central_govt']; ?>, <?php echo (int)$dataMgtArr['sst']['management']['national']['central_govt']; ?>],
           },
         ],
@@ -465,8 +495,13 @@
           categories: ["District", "State", "National"],
           crosshair: true,
           labels: {
-            rotation: -90,
-            y: 10,
+	        // rotation: -90,
+	        // y: 7,
+            style: {
+              fontSize: '17px',
+              fontWeight: 'bold',
+              color: '#000'
+            },
           },
         },
         yAxis: {
@@ -500,22 +535,22 @@
         series: [
           {
             name: "Govt.",
-            color: "#b168ad",
+            color: "#0d5d84",
             data: [<?php echo (int)$dataMgtArr['eng']['management']['district']['govt']; ?>, <?php echo (int)$dataMgtArr['eng']['management']['state']['govt']; ?>, <?php echo (int)$dataMgtArr['eng']['management']['national']['govt']; ?>],
           },
           {
             name: "Govt. Aided",
-            color: "#d190cd",
+            color: "#0077c7",
             data: [<?php echo (int)$dataMgtArr['eng']['management']['district']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['eng']['management']['state']['govt_aided']; ?>, <?php echo (int)$dataMgtArr['eng']['management']['national']['govt_aided']; ?>],
           },
           {
             name: "Private",
-            color: "#dcacd9",
+            color: "#10b3e4",
             data: [<?php echo (int)$dataMgtArr['eng']['management']['district']['private']; ?>, <?php echo (int)$dataMgtArr['eng']['management']['state']['private']; ?>, <?php echo (int)$dataMgtArr['eng']['management']['national']['private']; ?>],
           },
           {
             name: "Central Govt",
-            color: "#e8c7e6",
+            color: "#9fe2f7",
             data: [<?php echo (int)$dataMgtArr['eng']['management']['district']['central_govt']; ?>, <?php echo (int)$dataMgtArr['eng']['management']['state']['central_govt']; ?>, <?php echo (int)$dataMgtArr['eng']['management']['national']['central_govt']; ?>],
           },
         ],

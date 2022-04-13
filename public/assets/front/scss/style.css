@@ -10969,4 +10969,7 @@ ul {
 }
 
 /*Resize the wrap to see the search bar change!*/
+.accordion-button::after {
+  background-image: url(https://nas21.inroad.in/assets/front/images/down-arrow.svg) !important;
+}
 /*# sourceMappingURL=style.css.map */

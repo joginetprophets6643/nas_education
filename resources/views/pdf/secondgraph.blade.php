@@ -5,7 +5,7 @@
 	Highcharts.chart("rc3-mathBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: {{($districtParticipation->grade==8 || $districtParticipation->grade==10)?'320':'425'}},
-	      width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "400";}elseif($districtParticipation->grade==8){ echo "330";}elseif($districtParticipation->grade==10){ echo "260";}?>,
+	      width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "480";}elseif($districtParticipation->grade==8){ echo "350";}elseif($districtParticipation->grade==10){ echo "295";}?>,
 	      type: "column",
 	      margin: [40, 0, 60, 40],
 	    },
@@ -19,8 +19,13 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 7,
+	        // rotation: -90,
+	        // y: 7,
+			style: {
+                fontSize: '17px',
+                fontWeight: 'bold',
+				color: '#000'
+            },
 	      },
 	    },
 	    yAxis: {
@@ -39,7 +44,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "24";}elseif($districtParticipation->grade==8){ echo "18";}elseif($districtParticipation->grade==10){ echo "15";}?>,
+	        pointWidth: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "20";}elseif($districtParticipation->grade==8){ echo "15";}elseif($districtParticipation->grade==10){ echo "11";}?>,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -48,20 +53,30 @@
 	        dataLabels: {
 	          enabled: true,
 	          format: "{point.y}",
+			  style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              }
 	        },
 	      },
 	    },
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#A3536F",
+	        color: "#0d9caa",
 	        data: [<?php echo (int)$dataGenderArr['math']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['math']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['math']['gender']['national']['boys']; ?>],
 	      },
-	      {
+		  {
 	        name: "Girls",
-	        color: "#E9769F",
+	        color: "#fbbb84",
 	        data: [<?php echo (int)$dataGenderArr['math']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['math']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['math']['gender']['national']['girls']; ?>],
 	      },
+		  {
+	        name: "Transgender",
+	        color: "#af69ef",
+	        data: [<?php echo (int)$dataGenderArr['math']['gender']['district']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['math']['gender']['state']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['math']['gender']['national']['trans_gender']; ?>],
+	      },
+	      
 	    ],
 	  });
 
@@ -72,7 +87,7 @@
 	    chart: {
 	      height: {{($districtParticipation->grade==8)?'320':'425'}},
 	      type: "column",
-		  width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "370";}elseif($districtParticipation->grade==8){ echo "300";}?>,
+		  width: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "450";}elseif($districtParticipation->grade==8){ echo "350";}?>,
 	      margin: [40, 0, 60, 0],
 	    },
 	    title: {
@@ -85,8 +100,13 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 7,
+	        // rotation: -90,
+	        // y: 7,
+			style: {
+                fontSize: '17px',
+                fontWeight: 'bold',
+				color: '#000'
+            },
 	      },
 	    },
 	    yAxis: {
@@ -105,7 +125,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "24";}elseif($districtParticipation->grade==8){ echo "18";}?>,
+	        pointWidth: <?php if($districtParticipation->grade==3 || $districtParticipation->grade==5){ echo "20";}elseif($districtParticipation->grade==8){ echo "14";}?>,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -114,20 +134,31 @@
 	        dataLabels: {
 	          enabled: true,
 	          format: "{point.y}",
+			  style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              }
 	        },
 	      },
 	    },
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#527698",
+	        color: "#0d9caa",
 	        data: [<?php echo (int)$dataGenderArr['language']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['language']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['language']['gender']['national']['boys']; ?>],
 	      },
-	      {
+		  {
 	        name: "Girls",
-	        color: "#75A9D9",
+	        color: "#fbbb84",
 	        data: [<?php echo (int)$dataGenderArr['language']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['language']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['language']['gender']['national']['girls']; ?>],
 	      },
+		  {
+	        name: "Transgender",
+	        color: "#af69ef",
+	        data: [<?php echo (int)$dataGenderArr['language']['gender']['district']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['language']['gender']['state']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['language']['gender']['national']['trans_gender']; ?>],
+	      },
+	      
+	      
 	    ],
 	  });
 	// Performance by gender (evs Graph)
@@ -135,7 +166,7 @@
 	Highcharts.chart("rc3-evsBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 425,
-	      width: 370,
+	      width: 450,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -149,8 +180,13 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 7,
+	        // rotation: -90,
+	        // y: 7,
+			style: {
+                fontSize: '17px',
+                fontWeight: 'bold',
+				color: '#000'
+            },
 	      },
 	    },
 	    yAxis: {
@@ -169,7 +205,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 24,
+	        pointWidth: 20,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -178,20 +214,31 @@
 	        dataLabels: {
 	          enabled: true,
 	          format: "{point.y}",
+			  style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              }
 	        },
 	      },
 	    },
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#8D8A43",
+	        color: "#0d9caa",
 	        data: [<?php echo (int)$dataGenderArr['evs']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['evs']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['evs']['gender']['national']['boys']; ?>],
 	      },
-	      {
+		  {
 	        name: "Girls",
-	        color: "#CAC55F",
+	        color: "#fbbb84",
 	        data: [<?php echo (int)$dataGenderArr['evs']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['evs']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['evs']['gender']['national']['girls']; ?>],
 	      },
+		  {
+	        name: "Transgender",
+	        color: "#af69ef",
+	        data: [<?php echo (int)$dataGenderArr['evs']['gender']['district']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['evs']['gender']['state']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['evs']['gender']['national']['trans_gender']; ?>],
+	      },
+	      
+	      
 	    ],
 	  });
 	// Performance by gender (Science Graph)
@@ -199,7 +246,7 @@
 	Highcharts.chart("rc3-scienceBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 320,
-		  width: <?php if($districtParticipation->grade==8){ echo "300";}elseif($districtParticipation->grade==10){ echo "230";}?>,
+		  width: <?php if($districtParticipation->grade==8){ echo "350";}elseif($districtParticipation->grade==10){ echo "295";}?>,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -213,8 +260,13 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 7,
+	        // rotation: -90,
+	        // y: 7,
+			style: {
+                fontSize: '17px',
+                fontWeight: 'bold',
+				color: '#000'
+            },
 	      },
 	    },
 	    yAxis: {
@@ -233,7 +285,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: <?php if($districtParticipation->grade==8){ echo "18";}elseif($districtParticipation->grade==10){ echo "15";}?>,
+	        pointWidth: <?php if($districtParticipation->grade==8){ echo "14";}elseif($districtParticipation->grade==10){ echo "11";}?>,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -242,20 +294,31 @@
 	        dataLabels: {
 	          enabled: true,
 	          format: "{point.y}",
+			  style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              }
 	        },
 	      },
 	    },
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#369b9d",
+	        color: "#0d9caa",
 	        data: [<?php echo (int)$dataGenderArr['sci']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['national']['boys']; ?>],
 	      },
-	      {
+		  {
 	        name: "Girls",
-	        color: "#63bdbe",
+	        color: "#fbbb84",
 	        data: [<?php echo (int)$dataGenderArr['sci']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['national']['girls']; ?>],
 	      },
+		  {
+	        name: "Transgender",
+	        color: "#af69ef",
+	        data: [<?php echo (int)$dataGenderArr['sci']['gender']['district']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['state']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['sci']['gender']['national']['trans_gender']; ?>],
+	      },
+	      
+	      
 	    ],
 	  });
 	// Performance by gender (Social Science Graph)
@@ -263,8 +326,8 @@
 	Highcharts.chart("rc3-socialscienceBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 320,
-	    //   width: 370,
-		  width: <?php if($districtParticipation->grade==8){ echo "300";}elseif($districtParticipation->grade==10){ echo "230";}?>,
+	    //   width: 450,
+		  width: <?php if($districtParticipation->grade==8){ echo "350";}elseif($districtParticipation->grade==10){ echo "295";}?>,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -278,8 +341,13 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 7,
+	        // rotation: -90,
+	        // y: 7,
+			style: {
+                fontSize: '17px',
+                fontWeight: 'bold',
+				color: '#000'
+            },
 	      },
 	    },
 	    yAxis: {
@@ -298,7 +366,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: <?php if($districtParticipation->grade==8){ echo "18";}elseif($districtParticipation->grade==10){ echo "15";}?>,
+	        pointWidth: <?php if($districtParticipation->grade==8){ echo "14";}elseif($districtParticipation->grade==10){ echo "11";}?>,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -307,20 +375,31 @@
 	        dataLabels: {
 	          enabled: true,
 	          format: "{point.y}",
+			  style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              }
 	        },
 	      },
 	    },
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#68a358",
+	        color: "#0d9caa",
 	        data: [<?php echo (int)$dataGenderArr['sst']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['national']['boys']; ?>],
 	      },
-	      {
+		  {
 	        name: "Girls",
-	        color: "#8fc481",
+	        color: "#fbbb84",
 	        data: [<?php echo (int)$dataGenderArr['sst']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['national']['girls']; ?>],
 	      },
+		  {
+	        name: "Transgender",
+	        color: "#af69ef",
+	        data: [<?php echo (int)$dataGenderArr['sst']['gender']['district']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['state']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['sst']['gender']['national']['trans_gender']; ?>],
+	      },
+	      
+	      
 	    ],
 	  });
 
@@ -331,7 +410,7 @@
 	Highcharts.chart("rc3-milBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 320,
-	      width: 230,
+	      width: 295,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -345,8 +424,13 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 7,
+	        // rotation: -90,
+	        // y: 7,
+			style: {
+                fontSize: '17px',
+                fontWeight: 'bold',
+				color: '#000'
+            },
 	      },
 	    },
 	    yAxis: {
@@ -365,7 +449,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 15,
+	        pointWidth: 11,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -374,20 +458,31 @@
 	        dataLabels: {
 	          enabled: true,
 	          format: "{point.y}",
+			  style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              }
 	        },
 	      },
 	    },
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#d4605f",
+	        color: "#0d9caa",
 	        data: [<?php echo (int)$dataGenderArr['mil']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['national']['boys']; ?>],
 	      },
-	      {
+		  {
 	        name: "Girls",
-	        color: "#ef8987",
+	        color: "#fbbb84",
 	        data: [<?php echo (int)$dataGenderArr['mil']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['national']['girls']; ?>],
 	      },
+		  {
+	        name: "Transgender",
+	        color: "#af69ef",
+	        data: [<?php echo (int)$dataGenderArr['mil']['gender']['district']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['state']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['mil']['gender']['national']['trans_gender']; ?>],
+	      },
+	      
+	      
 	    ],
 	  });
 	// Performance by gender (English Graph)
@@ -395,7 +490,7 @@
 	Highcharts.chart("rc3-englishBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
 	    chart: {
 	      height: 320,
-	      width: 230,
+	      width: 295,
 	      type: "column",
 	      margin: [40, 0, 60, 0],
 	    },
@@ -409,8 +504,13 @@
 	      categories: ["District", "State", "National"],
 	      crosshair: true,
 	      labels: {
-	        rotation: -90,
-	        y: 7,
+	        // rotation: -90,
+	        // y: 7,
+			style: {
+                fontSize: '17px',
+                fontWeight: 'bold',
+				color: '#000'
+            },
 	      },
 	    },
 	    yAxis: {
@@ -429,7 +529,7 @@
 	    },
 	    plotOptions: {
 	      column: {
-	        pointWidth: 15,
+	        pointWidth: 11,
 	        pointPadding: 0,
 	        borderWidth: 0,
 	      },
@@ -438,20 +538,31 @@
 	        dataLabels: {
 	          enabled: true,
 	          format: "{point.y}",
+			  style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              }
 	        },
 	      },
 	    },
 	    series: [
 	      {
 	        name: "Boys",
-	        color: "#b168ad",
+	        color: "#0d9caa",
 	        data: [<?php echo (int)$dataGenderArr['eng']['gender']['district']['boys']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['state']['boys']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['national']['boys']; ?>],
 	      },
-	      {
+		  {
 	        name: "Girls",
-	        color: "#d190cd",
+	        color: "#fbbb84",
 	        data: [<?php echo (int)$dataGenderArr['eng']['gender']['district']['girls']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['state']['girls']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['national']['girls']; ?>],
 	      },
+		  {
+	        name: "Transgender",
+	        color: "#af69ef",
+	        data: [<?php echo (int)$dataGenderArr['eng']['gender']['district']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['state']['trans_gender']; ?>, <?php echo (int)$dataGenderArr['eng']['gender']['national']['trans_gender']; ?>],
+	      },
+	      
+	      
 	    ],
 	  });
 	<?php }?>

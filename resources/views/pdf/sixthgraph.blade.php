@@ -3,8 +3,8 @@
       Highcharts.chart("dc3-managementPieGraph{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}", {
         chart: {
           type: "pie",
-          height: 350,
-          width: 300,
+          height: 400,
+          width: 400,
         },
         title: {
           text: "",
@@ -24,14 +24,20 @@
         },
         plotOptions: {
           pie: {
+            size:'70%',
+            height: '70%',
             innerSize: 80,
             depth: 45,
             allowPointSelect: true,
             cursor: "pointer",
             dataLabels: {
               enabled: true,
+              style: {
+                fontWeight: 900,
+                fontSize: '20px',
+              },
               format: "{point.percentage:.0f} %",
-              distance: -50,
+              distance: 5,
               filter: {
                 property: "percentage",
                 operator: ">",
@@ -52,25 +58,25 @@
                 name: "Govt.",
                 y: {{($districtParticipation->govt_school!=0)?round($districtParticipation->govt_school):0}},
                 z: 100,
-                color: "#75A9D9",
+                color: "#0d5d84",
               },
               {
                 name: "Govt. Aided",
                 y: {{($districtParticipation->govt_aided_school!=0)?round($districtParticipation->govt_aided_school):0}},
                 z: 100,
-                color: "#E9769F",
+                color: "#0077c7",
               },
               {
                 name: "Private",
                 y: {{($districtParticipation->private_school!=0)?round($districtParticipation->private_school):0}},
                 z: 100,
-                color: "#CAC55F",
+                color: "#10b3e4",
               },
               {
                 name: "Central Govt.",
                 y: {{($districtParticipation->central_govt_school!=0)?round($districtParticipation->central_govt_school):0}},
                 z: 100,
-                color: "#4CAF50",
+                color: "#9fe2f7",
               },
             ],
           },

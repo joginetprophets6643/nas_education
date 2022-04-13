@@ -1336,8 +1336,6 @@ class FinalParticipationstateController extends Controller
 
 
     /******************************************************************************
-     * Author: Er. Sanjay Kumar
-     * Date: March 25,2022
      * Desc: Create Feedback data for tq,sq and pq for grade 3,5,8 and 10
      *       We are also create data for all grade as 11th grade
      *****************************************************************************/
@@ -1908,76 +1906,76 @@ class FinalParticipationstateController extends Controller
     //Query For LO SRC data Subject Wise Grade 3
     public function GetAllStateDataSubjectCodeG3()
     {
-        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' drc_subject_code, 'L304' subject_code, 'math' language, 'Reads small texts with comprehension i.e., identifies main ideas, details,sequence and draws conclusions' description
+        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' src_subject_code, 'L304' subject_code, 'language' language, 'Reads small texts with comprehension i.e., identifies main ideas, details,sequence and draws conclusions' description
         from grade3Statetable
         union all
-        select id, state_code, State_LA_psub3_2 as state_avg, India_LA_psub3_2 as national_avg, 'State_LA_psub3_2' drc_subject_code, 'L312' subject_code, 'math' language, 'Reads printed scripts on the classroom walls: poems, posters, charts etc.' description
+        select id, state_code, State_LA_psub3_2 as state_avg, India_LA_psub3_2 as national_avg, 'State_LA_psub3_2' src_subject_code, 'L312' subject_code, 'language' language, 'Reads printed scripts on the classroom walls: poems, posters, charts etc.' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M301' subject_code, 'math' language, 'Reads and writes numbers up to 999 using place value' description
+        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' src_subject_code, 'M301' subject_code, 'math' language, 'Reads and writes numbers up to 999 using place value' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' drc_subject_code, 'M302' subject_code, 'math' language, 'Compares numbers up to 999 based on their place values' description
+        select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' src_subject_code, 'M302' subject_code, 'math' language, 'Compares numbers up to 999 based on their place values' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, 'State_MA_psub3_3' drc_subject_code, 'M303' subject_code, 'math' language, 'Solves simple daily life problems using addition and subtraction of three digit numbers with and without regrouping' description
+        select id, state_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, 'State_MA_psub3_3' src_subject_code, 'M303' subject_code, 'math' language, 'Solves simple daily life problems using addition and subtraction of three digit numbers with and without regrouping' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, 'State_MA_psub3_4' drc_subject_code, 'M304' subject_code, 'math' language, 'Constructs and uses the multiplication facts (up till 10) in daily life situations' description
+        select id, state_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, 'State_MA_psub3_4' src_subject_code, 'M304' subject_code, 'math' language, 'Constructs and uses the multiplication facts (up till 10) in daily life situations' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' drc_subject_code, 'M305' subject_code, 'math' language, 'Analyses and applies an appropriate number operation in the situation/ context' description
+        select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' src_subject_code, 'M305' subject_code, 'math' language, 'Analyses and applies an appropriate number operation in the situation/ context' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' drc_subject_code, 'M306' subject_code, 'math' language, 'Explains the meaning of division facts by equal grouping/sharing and finds it by repeated subtraction' description
+        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' src_subject_code, 'M306' subject_code, 'math' language, 'Explains the meaning of division facts by equal grouping/sharing and finds it by repeated subtraction' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' drc_subject_code, 'M309' subject_code, 'math' language, 'Identifies and makes 2D-shapes by paper folding. paper cutting on the dot grid, using straight lines etc.' description
+        select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' src_subject_code, 'M309' subject_code, 'math' language, 'Identifies and makes 2D-shapes by paper folding. paper cutting on the dot grid, using straight lines etc.' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, 'State_MA_psub3_8' drc_subject_code, 'M311' subject_code, 'math' language, 'Fills a given region leaving no gaps using a tile of a given shape' description
+        select id, state_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, 'State_MA_psub3_8' src_subject_code, 'M311' subject_code, 'math' language, 'Fills a given region leaving no gaps using a tile of a given shape' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, 'State_MA_psub3_9' drc_subject_code, 'M312' subject_code, 'math' language, 'Estimates and measures length and distance using standard units like centimeters or meters & identifies relationships' description
+        select id, state_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, 'State_MA_psub3_9' src_subject_code, 'M312' subject_code, 'math' language, 'Estimates and measures length and distance using standard units like centimeters or meters & identifies relationships' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, 'State_MA_psub3_10' drc_subject_code, 'M317' subject_code, 'math' language, 'Reads the time correctly to the hour using a clock/watch' description
+        select id, state_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, 'State_MA_psub3_10' src_subject_code, 'M317' subject_code, 'math' language, 'Reads the time correctly to the hour using a clock/watch' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' drc_subject_code, 'M318' subject_code, 'math' language, 'Extends patterns in simple shapes and numbers' description
+        select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' src_subject_code, 'M318' subject_code, 'math' language, 'Extends patterns in simple shapes and numbers' description
         from grade3Statetable
         union all
-        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' drc_subject_code, 'M319' subject_code, 'math' language, 'Records data using tally marks, represents pictorially and draws' description
+        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' src_subject_code, 'M319' subject_code, 'math' language, 'Records data using tally marks, represents pictorially and draws' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_1 as state_avg, India_EV_psub3_1 as national_avg, 'State_EV_psub3_1' drc_subject_code, 'EVS302' subject_code, 'evs' language, 'Identifies simple features (e.g. movement, at places found/ kept, eating habits, sounds) of animals and birds in the immediate surroundings.' description
+        select id, state_code, State_EV_psub3_1 as state_avg, India_EV_psub3_1 as national_avg, 'State_EV_psub3_1' src_subject_code, 'EVS302' subject_code, 'evs' language, 'Identifies simple features (e.g. movement, at places found/ kept, eating habits, sounds) of animals and birds in the immediate surroundings.' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_2 as state_avg, India_EV_psub3_2 as national_avg, 'State_EV_psub3_2' drc_subject_code, 'EVS303' subject_code, 'evs' language, 'Identifies relationships with and among family members' description
+        select id, state_code, State_EV_psub3_2 as state_avg, India_EV_psub3_2 as national_avg, 'State_EV_psub3_2' src_subject_code, 'EVS303' subject_code, 'evs' language, 'Identifies relationships with and among family members' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_3 as state_avg, India_EV_psub3_3 as national_avg, 'State_EV_psub3_3' drc_subject_code, 'EVS304' subject_code, 'evs' language, 'Identifies objects, signs (vessels, stoves, transport, means of communication, transport, signboards etc.), places (types of houses/shelters, bus stand, petrol pump etc.) activities (works people do, cooking processes, etc.) at home/school/ neighborhoods' description
+        select id, state_code, State_EV_psub3_3 as state_avg, India_EV_psub3_3 as national_avg, 'State_EV_psub3_3' src_subject_code, 'EVS304' subject_code, 'evs' language, 'Identifies objects, signs (vessels, stoves, transport, means of communication, transport, signboards etc.), places (types of houses/shelters, bus stand, petrol pump etc.) activities (works people do, cooking processes, etc.) at home/school/ neighborhoods' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_4 as state_avg, India_EV_psub3_4 as national_avg, 'State_EV_psub3_4' drc_subject_code, 'EVS305' subject_code, 'evs' language, 'Describes need of food for people of different age groups, animals/birds, availability of food and water and use of water at home and surroundings.' description
+        select id, state_code, State_EV_psub3_4 as state_avg, India_EV_psub3_4 as national_avg, 'State_EV_psub3_4' src_subject_code, 'EVS305' subject_code, 'evs' language, 'Describes need of food for people of different age groups, animals/birds, availability of food and water and use of water at home and surroundings.' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_5 as state_avg, India_EV_psub3_5 as national_avg, 'State_EV_psub3_5' drc_subject_code, 'EVS307' subject_code, 'evs' language, 'Groups objects, birds, animals, features, activities according to differences/ similarities using different senses. (e.g. appearance/place of living/ food/ movement/ likes-dislikes/ any other features)' description
+        select id, state_code, State_EV_psub3_5 as state_avg, India_EV_psub3_5 as national_avg, 'State_EV_psub3_5' src_subject_code, 'EVS307' subject_code, 'evs' language, 'Groups objects, birds, animals, features, activities according to differences/ similarities using different senses. (e.g. appearance/place of living/ food/ movement/ likes-dislikes/ any other features)' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_6 as state_avg, India_EV_psub3_6 as national_avg, 'State_EV_psub3_6' drc_subject_code, 'EVS309' subject_code, 'evs' language, 'Identifies directions, location of objects/places in simple maps using signs/symbols/ verbally' description
+        select id, state_code, State_EV_psub3_6 as state_avg, India_EV_psub3_6 as national_avg, 'State_EV_psub3_6' src_subject_code, 'EVS309' subject_code, 'evs' language, 'Identifies directions, location of objects/places in simple maps using signs/symbols/ verbally' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_7 as state_avg, India_EV_psub3_7 as national_avg, 'State_EV_psub3_7' drc_subject_code, 'EVS310' subject_code, 'evs' language, 'Guesses properties, estimates quantities of materials/activities in daily life and verifies using symbols/non-standard units' description
+        select id, state_code, State_EV_psub3_7 as state_avg, India_EV_psub3_7 as national_avg, 'State_EV_psub3_7' src_subject_code, 'EVS310' subject_code, 'evs' language, 'Guesses properties, estimates quantities of materials/activities in daily life and verifies using symbols/non-standard units' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_8 as state_avg, India_EV_psub3_8 as national_avg, 'State_EV_psub3_8' drc_subject_code, 'EVS311' subject_code, 'evs' language, 'Records observations, experiences, information on objects/activities/places visited in different ways and predicts patterns etc' description
+        select id, state_code, State_EV_psub3_8 as state_avg, India_EV_psub3_8 as national_avg, 'State_EV_psub3_8' src_subject_code, 'EVS311' subject_code, 'evs' language, 'Records observations, experiences, information on objects/activities/places visited in different ways and predicts patterns etc' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_9 as state_avg, India_EV_psub3_9 as national_avg, 'State_EV_psub3_9' drc_subject_code, 'EVS313' subject_code, 'evs' language, 'Observes rules in games (local, indoor, outdoor)' description
+        select id, state_code, State_EV_psub3_9 as state_avg, India_EV_psub3_9 as national_avg, 'State_EV_psub3_9' src_subject_code, 'EVS313' subject_code, 'evs' language, 'Observes rules in games (local, indoor, outdoor)' description
         from grade3Statetable
         union all
-        select id, state_code, State_EV_psub3_10 as state_avg, India_EV_psub3_10 as national_avg, 'State_EV_psub3_10' drc_subject_code, 'EVS314' subject_code, 'evs' language, 'Voices opinion on good/bad touch , stereotypes for tasks/play/food in family w.r.t gender, misuse/wastage of food and water in family and school.' description
+        select id, state_code, State_EV_psub3_10 as state_avg, India_EV_psub3_10 as national_avg, 'State_EV_psub3_10' src_subject_code, 'EVS314' subject_code, 'evs' language, 'Voices opinion on good/bad touch , stereotypes for tasks/play/food in family w.r.t gender, misuse/wastage of food and water in family and school.' description
         from grade3Statetable
         ";
 
@@ -1988,91 +1986,91 @@ class FinalParticipationstateController extends Controller
     //Query For LO SRC data Subject Wise Grade 5
     public function GetAllStateDataSubjectCodeG5()
     {
-        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' drc_subject_code, 'L508' subject_code, 'language' language, 'Reads text with comprehension, locates details and sequence of events' description
+        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' src_subject_code, 'L508' subject_code, 'language' language, 'Reads text with comprehension, locates details and sequence of events' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M401' subject_code, 'math' language, 'Applies operations of numbers in daily life situations' description
+        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' src_subject_code, 'M401' subject_code, 'math' language, 'Applies operations of numbers in daily life situations' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' drc_subject_code, 'M412' subject_code, 'math' language, 'Explores the area and perimeter of simple geometrical shapes (triangle, rectangle, square) in terms of given shape as a unit' description
+        select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' src_subject_code, 'M412' subject_code, 'math' language, 'Explores the area and perimeter of simple geometrical shapes (triangle, rectangle, square) in terms of given shape as a unit' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, 'State_MA_psub3_3' drc_subject_code, 'M418' subject_code, 'math' language, 'Calculates time intervals/duration of familiar daily life events by using forward or backward counting/addition and subtraction' description
+        select id, state_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, 'State_MA_psub3_3' src_subject_code, 'M418' subject_code, 'math' language, 'Calculates time intervals/duration of familiar daily life events by using forward or backward counting/addition and subtraction' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, 'State_MA_psub3_4' drc_subject_code, 'M421' subject_code, 'math' language, 'Represent the collected information in tables and bar graphs and draws inferences from these' description
+        select id, state_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, 'State_MA_psub3_4' src_subject_code, 'M421' subject_code, 'math' language, 'Represent the collected information in tables and bar graphs and draws inferences from these' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' drc_subject_code, 'M501' subject_code, 'math' language, 'Reads and writes numbers bigger than 1000 being used in her/his surroundings' description
+        select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' src_subject_code, 'M501' subject_code, 'math' language, 'Reads and writes numbers bigger than 1000 being used in her/his surroundings' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' drc_subject_code, 'M504' subject_code, 'math' language, 'Estimates sum. difference, product and quotient of numbers and verifies the same using different strategies like using standard algorithms or breaking a number and then using operation' description
+        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' src_subject_code, 'M504' subject_code, 'math' language, 'Estimates sum. difference, product and quotient of numbers and verifies the same using different strategies like using standard algorithms or breaking a number and then using operation' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' drc_subject_code, 'M505' subject_code, 'math' language, 'Finds the number corresponding to part of a collection' description
+        select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' src_subject_code, 'M505' subject_code, 'math' language, 'Finds the number corresponding to part of a collection' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, 'State_MA_psub3_8' drc_subject_code, 'M506' subject_code, 'math' language, 'Identifies and forms equivalent fractions of a given fraction' description
+        select id, state_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, 'State_MA_psub3_8' src_subject_code, 'M506' subject_code, 'math' language, 'Identifies and forms equivalent fractions of a given fraction' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, 'State_MA_psub3_9' drc_subject_code, 'M508' subject_code, 'math' language, 'Converts fractions into decimals and vice versa' description
+        select id, state_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, 'State_MA_psub3_9' src_subject_code, 'M508' subject_code, 'math' language, 'Converts fractions into decimals and vice versa' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, 'State_MA_psub3_10' drc_subject_code, 'M509' subject_code, 'math' language, 'Classifies angles into right angle, acute angle, obtuse angle and represents the same by drawing and tracing' description
+        select id, state_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, 'State_MA_psub3_10' src_subject_code, 'M509' subject_code, 'math' language, 'Classifies angles into right angle, acute angle, obtuse angle and represents the same by drawing and tracing' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' drc_subject_code, 'M512' subject_code, 'math' language, 'Relates different commonly used larger and smaller units of length, weight and volume and converts larger units to smaller units and vice versa' description
+        select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' src_subject_code, 'M512' subject_code, 'math' language, 'Relates different commonly used larger and smaller units of length, weight and volume and converts larger units to smaller units and vice versa' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' drc_subject_code, 'M513' subject_code, 'math' language, 'Estimates the volume of a solid body in known units.' description
+        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' src_subject_code, 'M513' subject_code, 'math' language, 'Estimates the volume of a solid body in known units.' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_13 as state_avg, India_MA_psub3_13 as national_avg, 'State_MA_psub3_13' drc_subject_code, 'M514' subject_code, 'math' language, 'Applies the four fundamental arithmetic operations in solving problems involving money, length, mass, capacity and time intervals' description
+        select id, state_code, State_MA_psub3_13 as state_avg, India_MA_psub3_13 as national_avg, 'State_MA_psub3_13' src_subject_code, 'M514' subject_code, 'math' language, 'Applies the four fundamental arithmetic operations in solving problems involving money, length, mass, capacity and time intervals' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_14 as state_avg, India_MA_psub3_14 as national_avg, 'State_MA_psub3_14' drc_subject_code, 'M515' subject_code, 'math' language, 'Identifies the pattern in triangular numbers and square number' description
+        select id, state_code, State_MA_psub3_14 as state_avg, India_MA_psub3_14 as national_avg, 'State_MA_psub3_14' src_subject_code, 'M515' subject_code, 'math' language, 'Identifies the pattern in triangular numbers and square number' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_15 as state_avg, India_MA_psub3_15 as national_avg, 'State_MA_psub3_15' drc_subject_code, 'M516' subject_code, 'math' language, 'Collects data related to various daily life situations. represents it in tabular form and as bar graphs and interprets it' description
+        select id, state_code, State_MA_psub3_15 as state_avg, India_MA_psub3_15 as national_avg, 'State_MA_psub3_15' src_subject_code, 'M516' subject_code, 'math' language, 'Collects data related to various daily life situations. represents it in tabular form and as bar graphs and interprets it' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_1 as state_avg, India_EV_psub3_1 as national_avg, 'State_EV_psub3_1' drc_subject_code, 'EVS403' subject_code, 'evs' language, 'Identifies relationship with and among family members in extended family' description
+        select id, state_code, State_EV_psub3_1 as state_avg, India_EV_psub3_1 as national_avg, 'State_EV_psub3_1' src_subject_code, 'EVS403' subject_code, 'evs' language, 'Identifies relationship with and among family members in extended family' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_2 as state_avg, India_EV_psub3_2 as national_avg, 'State_EV_psub3_2' drc_subject_code, 'EVS410' subject_code, 'evs' language, 'Records observations/experiences/information for objects, activities, phenomena, places visited in different ways and predicts patterns and activities/ phenomena' description
+        select id, state_code, State_EV_psub3_2 as state_avg, India_EV_psub3_2 as national_avg, 'State_EV_psub3_2' src_subject_code, 'EVS410' subject_code, 'evs' language, 'Records observations/experiences/information for objects, activities, phenomena, places visited in different ways and predicts patterns and activities/ phenomena' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_3 as state_avg, India_EV_psub3_3 as national_avg, 'State_EV_psub3_3' drc_subject_code, 'EVS501' subject_code, 'evs' language, 'Explains the super senses and unusual features (sight, smell, hear, sleep, sound, etc.) of animals and their responses to light, sound, food etc.' description
+        select id, state_code, State_EV_psub3_3 as state_avg, India_EV_psub3_3 as national_avg, 'State_EV_psub3_3' src_subject_code, 'EVS501' subject_code, 'evs' language, 'Explains the super senses and unusual features (sight, smell, hear, sleep, sound, etc.) of animals and their responses to light, sound, food etc.' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_4 as state_avg, India_EV_psub3_4 as national_avg, 'State_EV_psub3_4' drc_subject_code, 'EVS503' subject_code, 'evs' language, 'Describes the interdependence among animals, plants and humans' description
+        select id, state_code, State_EV_psub3_4 as state_avg, India_EV_psub3_4 as national_avg, 'State_EV_psub3_4' src_subject_code, 'EVS503' subject_code, 'evs' language, 'Describes the interdependence among animals, plants and humans' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_5 as state_avg, India_EV_psub3_5 as national_avg, 'State_EV_psub3_5' drc_subject_code, 'EVS504' subject_code, 'evs' language, 'Explains the role and functions of different institutions in daily life (Bank, Panchayat, cooperatives. police station, etc.)' description
+        select id, state_code, State_EV_psub3_5 as state_avg, India_EV_psub3_5 as national_avg, 'State_EV_psub3_5' src_subject_code, 'EVS504' subject_code, 'evs' language, 'Explains the role and functions of different institutions in daily life (Bank, Panchayat, cooperatives. police station, etc.)' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_6 as state_avg, India_EV_psub3_6 as national_avg, 'State_EV_psub3_6' drc_subject_code, 'EVS505' subject_code, 'evs' language, 'Establishes linkages among terrain, climate, resources (food, water, shelter, livelihood) and cultural life. (e.g. life in distant/difficult areas like hot/cold deserts)' description
+        select id, state_code, State_EV_psub3_6 as state_avg, India_EV_psub3_6 as national_avg, 'State_EV_psub3_6' src_subject_code, 'EVS505' subject_code, 'evs' language, 'Establishes linkages among terrain, climate, resources (food, water, shelter, livelihood) and cultural life. (e.g. life in distant/difficult areas like hot/cold deserts)' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_7 as state_avg, India_EV_psub3_7 as national_avg, 'State_EV_psub3_7' drc_subject_code, 'EVS506' subject_code, 'evs' language, 'Groups objects, materials, activities for features/properties such as shape, taste, color , texture, sound, traits etc.' description
+        select id, state_code, State_EV_psub3_7 as state_avg, India_EV_psub3_7 as national_avg, 'State_EV_psub3_7' src_subject_code, 'EVS506' subject_code, 'evs' language, 'Groups objects, materials, activities for features/properties such as shape, taste, color , texture, sound, traits etc.' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_8 as state_avg, India_EV_psub3_8 as national_avg, 'State_EV_psub3_8' drc_subject_code, 'EVS507' subject_code, 'evs' language, 'Traces the changes in practices, customs, techniques of past and present through coins, paintings, monuments, museum etc. and interacting with elders' description
+        select id, state_code, State_EV_psub3_8 as state_avg, India_EV_psub3_8 as national_avg, 'State_EV_psub3_8' src_subject_code, 'EVS507' subject_code, 'evs' language, 'Traces the changes in practices, customs, techniques of past and present through coins, paintings, monuments, museum etc. and interacting with elders' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_9 as state_avg, India_EV_psub3_9 as national_avg, 'State_EV_psub3_9' drc_subject_code, 'EVS508' subject_code, 'evs' language, 'Guesses (properties, conditions of phenomena), estimates spatial quantities (distance, area, volume, weight etc. ) and time in simple standard units and verifies using simple tools/set ups' description
+        select id, state_code, State_EV_psub3_9 as state_avg, India_EV_psub3_9 as national_avg, 'State_EV_psub3_9' src_subject_code, 'EVS508' subject_code, 'evs' language, 'Guesses (properties, conditions of phenomena), estimates spatial quantities (distance, area, volume, weight etc. ) and time in simple standard units and verifies using simple tools/set ups' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_10 as state_avg, India_EV_psub3_10 as national_avg, 'State_EV_psub3_10' drc_subject_code, 'EVS509' subject_code, 'evs' language, 'Records observations/experiences/information in an organized manner (e.g. in tables/ sketches/ bar graphs/ pie charts) and predicts patterns in activities/ phenomena (e.g. floating, sinking, mixing, evaporation , germination, spoilage) to establish relation between cause and effect.' description
+        select id, state_code, State_EV_psub3_10 as state_avg, India_EV_psub3_10 as national_avg, 'State_EV_psub3_10' src_subject_code, 'EVS509' subject_code, 'evs' language, 'Records observations/experiences/information in an organized manner (e.g. in tables/ sketches/ bar graphs/ pie charts) and predicts patterns in activities/ phenomena (e.g. floating, sinking, mixing, evaporation , germination, spoilage) to establish relation between cause and effect.' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_11 as state_avg, India_EV_psub3_11 as national_avg, 'State_EV_psub3_11' drc_subject_code, 'EVS510' subject_code, 'evs' language, 'Identifies signs, directions, location of different objects/landmarks of a locality / place visited in maps and predicts directions w.r.t. positions at different places for a location' description
+        select id, state_code, State_EV_psub3_11 as state_avg, India_EV_psub3_11 as national_avg, 'State_EV_psub3_11' src_subject_code, 'EVS510' subject_code, 'evs' language, 'Identifies signs, directions, location of different objects/landmarks of a locality / place visited in maps and predicts directions w.r.t. positions at different places for a location' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_12 as state_avg, India_EV_psub3_12 as national_avg, 'State_EV_psub3_12' drc_subject_code, 'EVS512' subject_code, 'evs' language, 'Voices opinions on issues observed/experienced and relates practices/happenings to larger issues of society' description
+        select id, state_code, State_EV_psub3_12 as state_avg, India_EV_psub3_12 as national_avg, 'State_EV_psub3_12' src_subject_code, 'EVS512' subject_code, 'evs' language, 'Voices opinions on issues observed/experienced and relates practices/happenings to larger issues of society' description
         from grade5statetable
         union all
-        select id, state_code, State_EV_psub3_13 as state_avg, India_EV_psub3_13 as national_avg, 'State_EV_psub3_13' drc_subject_code, 'EVS513' subject_code, 'evs' language, 'Suggests ways for hygiene, health, managing waste. disaster/emergency situations and protecting/saving resources' description
+        select id, state_code, State_EV_psub3_13 as state_avg, India_EV_psub3_13 as national_avg, 'State_EV_psub3_13' src_subject_code, 'EVS513' subject_code, 'evs' language, 'Suggests ways for hygiene, health, managing waste. disaster/emergency situations and protecting/saving resources' description
         from grade5statetable";
 
         return $query;
@@ -2082,169 +2080,169 @@ class FinalParticipationstateController extends Controller
     //Query For LO SRC data Subject Wise Grade 8
     public function GetAllStateDataSubjectCodeG8()
     {
-        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' drc_subject_code, 'L813' subject_code, 'language' language, 'Read textual/non-textual materials with comprehension and identifies the details, characters, main idea and sequence of ideas and events while reading' description
+        $query = "select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' src_subject_code, 'L813' subject_code, 'language' language, 'Read textual/non-textual materials with comprehension and identifies the details, characters, main idea and sequence of ideas and events while reading' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M601' subject_code, 'math' language, 'Solves problems involving large numbers by applying appropriate operations' description
+        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' src_subject_code, 'M601' subject_code, 'math' language, 'Solves problems involving large numbers by applying appropriate operations' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' drc_subject_code, 'M606' subject_code, 'math' language, 'Solves problems on daily life situations involving addition and subtraction of fractions / decimals' description
+        select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' src_subject_code, 'M606' subject_code, 'math' language, 'Solves problems on daily life situations involving addition and subtraction of fractions / decimals' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, 'State_MA_psub3_3' drc_subject_code, 'M620' subject_code, 'math' language, 'Finds out the perimeter and area of rectangular objects in the surroundings like floor of the class room, surfaces of a chalk box etc.' description
+        select id, state_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, 'State_MA_psub3_3' src_subject_code, 'M620' subject_code, 'math' language, 'Finds out the perimeter and area of rectangular objects in the surroundings like floor of the class room, surfaces of a chalk box etc.' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, 'State_MA_psub3_4' drc_subject_code, 'M621' subject_code, 'math' language, 'Arranges given/collected information in the form of table, pictograph and bar graph and interprets them' description
+        select id, state_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, 'State_MA_psub3_4' src_subject_code, 'M621' subject_code, 'math' language, 'Arranges given/collected information in the form of table, pictograph and bar graph and interprets them' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' drc_subject_code, 'M702' subject_code, 'math' language, 'Interprets the division and multiplication of fractions' description
+        select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' src_subject_code, 'M702' subject_code, 'math' language, 'Interprets the division and multiplication of fractions' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' drc_subject_code, 'M705' subject_code, 'math' language, 'Solves problems related to daily life situations involving rational numbers' description
+        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' src_subject_code, 'M705' subject_code, 'math' language, 'Solves problems related to daily life situations involving rational numbers' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' drc_subject_code, 'M706' subject_code, 'math' language, 'Uses exponential form of numbers to simplify problems involving multiplication and division of large numbers' description
+        select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' src_subject_code, 'M706' subject_code, 'math' language, 'Uses exponential form of numbers to simplify problems involving multiplication and division of large numbers' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, 'State_MA_psub3_8' drc_subject_code, 'M707' subject_code, 'math' language, 'Adds/subtracts algebraic expressions' description
+        select id, state_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, 'State_MA_psub3_8' src_subject_code, 'M707' subject_code, 'math' language, 'Adds/subtracts algebraic expressions' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, 'State_MA_psub3_9' drc_subject_code, 'M710' subject_code, 'math' language, 'Solves problems related to conversion of percentage to fraction and decimal and vice versa' description
+        select id, state_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, 'State_MA_psub3_9' src_subject_code, 'M710' subject_code, 'math' language, 'Solves problems related to conversion of percentage to fraction and decimal and vice versa' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, 'State_MA_psub3_10' drc_subject_code, 'M717' subject_code, 'math' language, 'Finds out approximate area of closed shapes by using unit square grid/graph sheet' description
+        select id, state_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, 'State_MA_psub3_10' src_subject_code, 'M717' subject_code, 'math' language, 'Finds out approximate area of closed shapes by using unit square grid/graph sheet' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' drc_subject_code, 'M719' subject_code, 'math' language, 'Finds various representative values for simple data from her/his daily life contexts like mean, median and mode' description
+        select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' src_subject_code, 'M719' subject_code, 'math' language, 'Finds various representative values for simple data from her/his daily life contexts like mean, median and mode' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' drc_subject_code, 'M721' subject_code, 'math' language, 'Interprets data using bar graph' description
+        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' src_subject_code, 'M721' subject_code, 'math' language, 'Interprets data using bar graph' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_13 as state_avg, India_MA_psub3_13 as national_avg, 'State_MA_psub3_13' drc_subject_code, 'M801' subject_code, 'math' language, 'Generalizes properties of addition, subtraction, multiplication and division of rational numbers through patterns' description
+        select id, state_code, State_MA_psub3_13 as state_avg, India_MA_psub3_13 as national_avg, 'State_MA_psub3_13' src_subject_code, 'M801' subject_code, 'math' language, 'Generalizes properties of addition, subtraction, multiplication and division of rational numbers through patterns' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_14 as state_avg, India_MA_psub3_14 as national_avg, 'State_MA_psub3_14' drc_subject_code, 'M802' subject_code, 'math' language, 'Finds rational numbers between two given rational numbers' description
+        select id, state_code, State_MA_psub3_14 as state_avg, India_MA_psub3_14 as national_avg, 'State_MA_psub3_14' src_subject_code, 'M802' subject_code, 'math' language, 'Finds rational numbers between two given rational numbers' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_15 as state_avg, India_MA_psub3_15 as national_avg, 'State_MA_psub3_15' drc_subject_code, 'M803' subject_code, 'math' language, 'Proves divisibility rules of 2, 3,4, 5, 6, 9 and 11' description
+        select id, state_code, State_MA_psub3_15 as state_avg, India_MA_psub3_15 as national_avg, 'State_MA_psub3_15' src_subject_code, 'M803' subject_code, 'math' language, 'Proves divisibility rules of 2, 3,4, 5, 6, 9 and 11' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_16 as state_avg, India_MA_psub3_16 as national_avg, 'State_MA_psub3_16' drc_subject_code, 'M804' subject_code, 'math' language, 'Finds squares,cubes,square roots and cube roots of numbers using different methods' description
+        select id, state_code, State_MA_psub3_16 as state_avg, India_MA_psub3_16 as national_avg, 'State_MA_psub3_16' src_subject_code, 'M804' subject_code, 'math' language, 'Finds squares,cubes,square roots and cube roots of numbers using different methods' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_17 as state_avg, India_MA_psub3_17 as national_avg, 'State_MA_psub3_17' drc_subject_code, 'M808' subject_code, 'math' language, 'uses various algebric identities in solving problem of daily life.' description
+        select id, state_code, State_MA_psub3_17 as state_avg, India_MA_psub3_17 as national_avg, 'State_MA_psub3_17' src_subject_code, 'M808' subject_code, 'math' language, 'uses various algebric identities in solving problem of daily life.' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_18 as state_avg, India_MA_psub3_18 as national_avg, 'State_MA_psub3_18' drc_subject_code, 'M812' subject_code, 'math' language, 'Verifies properties of parallelogram and establishes the relationship between them through reasoning' description
+        select id, state_code, State_MA_psub3_18 as state_avg, India_MA_psub3_18 as national_avg, 'State_MA_psub3_18' src_subject_code, 'M812' subject_code, 'math' language, 'Verifies properties of parallelogram and establishes the relationship between them through reasoning' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_19 as state_avg, India_MA_psub3_19 as national_avg, 'State_MA_psub3_19' drc_subject_code, 'M818' subject_code, 'math' language, 'Verifies properties of parallelogram and establishes the relationship between them through reasoning' description
+        select id, state_code, State_MA_psub3_19 as state_avg, India_MA_psub3_19 as national_avg, 'State_MA_psub3_19' src_subject_code, 'M818' subject_code, 'math' language, 'Verifies properties of parallelogram and establishes the relationship between them through reasoning' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_20 as state_avg, India_MA_psub3_20 as national_avg, 'State_MA_psub3_20' drc_subject_code, 'M819' subject_code, 'math' language, 'Draws and interprets bar charts and pie charts' description
+        select id, state_code, State_MA_psub3_20 as state_avg, India_MA_psub3_20 as national_avg, 'State_MA_psub3_20' src_subject_code, 'M819' subject_code, 'math' language, 'Draws and interprets bar charts and pie charts' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_1 as state_avg, India_SC_psub3_1 as national_avg, 'State_SC_psub3_1' drc_subject_code, 'SCI703' subject_code, 'sci' language, 'Classifies materials and organisms based on properties/characteristics' description
+        select id, state_code, State_SC_psub3_1 as state_avg, India_SC_psub3_1 as national_avg, 'State_SC_psub3_1' src_subject_code, 'SCI703' subject_code, 'sci' language, 'Classifies materials and organisms based on properties/characteristics' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_2 as state_avg, India_SC_psub3_2 as national_avg, 'State_SC_psub3_2' drc_subject_code, 'SCI704' subject_code, 'sci' language, 'Conducts simple investigation to seek answers to queries' description
+        select id, state_code, State_SC_psub3_2 as state_avg, India_SC_psub3_2 as national_avg, 'State_SC_psub3_2' src_subject_code, 'SCI704' subject_code, 'sci' language, 'Conducts simple investigation to seek answers to queries' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_3 as state_avg, India_SC_psub3_3 as national_avg, 'State_SC_psub3_3' drc_subject_code, 'SCI705' subject_code, 'sci' language, 'Relates processes and phenomenon with causes' description
+        select id, state_code, State_SC_psub3_3 as state_avg, India_SC_psub3_3 as national_avg, 'State_SC_psub3_3' src_subject_code, 'SCI705' subject_code, 'sci' language, 'Relates processes and phenomenon with causes' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_4 as state_avg, India_SC_psub3_4 as national_avg, 'State_SC_psub3_4' drc_subject_code, 'SCI708' subject_code, 'sci' language, 'Measures and calculates e.g.. temperature; pulse rate; speed of moving objects; time period of a simple pendulum, etc.' description
+        select id, state_code, State_SC_psub3_4 as state_avg, India_SC_psub3_4 as national_avg, 'State_SC_psub3_4' src_subject_code, 'SCI708' subject_code, 'sci' language, 'Measures and calculates e.g.. temperature; pulse rate; speed of moving objects; time period of a simple pendulum, etc.' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_5 as state_avg, India_SC_psub3_5 as national_avg, 'State_SC_psub3_5' drc_subject_code, 'SCI710' subject_code, 'sci' language, 'Plots and interprets graphs' description
+        select id, state_code, State_SC_psub3_5 as state_avg, India_SC_psub3_5 as national_avg, 'State_SC_psub3_5' src_subject_code, 'SCI710' subject_code, 'sci' language, 'Plots and interprets graphs' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_6 as state_avg, India_SC_psub3_6 as national_avg, 'State_SC_psub3_6' drc_subject_code, 'SCI711' subject_code, 'sci' language, 'Constructs models using materials from surroundings and explains their working' description
+        select id, state_code, State_SC_psub3_6 as state_avg, India_SC_psub3_6 as national_avg, 'State_SC_psub3_6' src_subject_code, 'SCI711' subject_code, 'sci' language, 'Constructs models using materials from surroundings and explains their working' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_7 as state_avg, India_SC_psub3_7 as national_avg, 'State_SC_psub3_7' drc_subject_code, 'SCI801' subject_code, 'sci' language, 'Differentiates materials, organism and processes' description
+        select id, state_code, State_SC_psub3_7 as state_avg, India_SC_psub3_7 as national_avg, 'State_SC_psub3_7' src_subject_code, 'SCI801' subject_code, 'sci' language, 'Differentiates materials, organism and processes' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_8 as state_avg, India_SC_psub3_8 as national_avg, 'State_SC_psub3_8' drc_subject_code, 'SCI804' subject_code, 'sci' language, 'Relates processes and phenomenon with causes' description
+        select id, state_code, State_SC_psub3_8 as state_avg, India_SC_psub3_8 as national_avg, 'State_SC_psub3_8' src_subject_code, 'SCI804' subject_code, 'sci' language, 'Relates processes and phenomenon with causes' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_9 as state_avg, India_SC_psub3_9 as national_avg, 'State_SC_psub3_9' drc_subject_code, 'SCI805' subject_code, 'sci' language, 'Explains processes and phenomenon' description
+        select id, state_code, State_SC_psub3_9 as state_avg, India_SC_psub3_9 as national_avg, 'State_SC_psub3_9' src_subject_code, 'SCI805' subject_code, 'sci' language, 'Explains processes and phenomenon' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_10 as state_avg, India_SC_psub3_10 as national_avg, 'State_SC_psub3_10' drc_subject_code, 'SCI807' subject_code, 'sci' language, 'Measures angles of incidence and reflection, etc.' description
+        select id, state_code, State_SC_psub3_10 as state_avg, India_SC_psub3_10 as national_avg, 'State_SC_psub3_10' src_subject_code, 'SCI807' subject_code, 'sci' language, 'Measures angles of incidence and reflection, etc.' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_11 as state_avg, India_SC_psub3_11 as national_avg, 'State_SC_psub3_11' drc_subject_code, 'SCI811' subject_code, 'sci' language, 'Applies learning of scientific concepts in day-to-day life' description
+        select id, state_code, State_SC_psub3_11 as state_avg, India_SC_psub3_11 as national_avg, 'State_SC_psub3_11' src_subject_code, 'SCI811' subject_code, 'sci' language, 'Applies learning of scientific concepts in day-to-day life' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_12 as state_avg, India_SC_psub3_12 as national_avg, 'State_SC_psub3_12' drc_subject_code, 'SCI813' subject_code, 'sci' language, 'Makes efforts to protect environment' description
+        select id, state_code, State_SC_psub3_12 as state_avg, India_SC_psub3_12 as national_avg, 'State_SC_psub3_12' src_subject_code, 'SCI813' subject_code, 'sci' language, 'Makes efforts to protect environment' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_1 as state_avg, India_SS_psub3_1 as national_avg, 'State_SS_psub3_1' drc_subject_code, 'SST605' subject_code, 'sst' language, 'Identifies latitudes and longitudes, e.g., poles, equator, tropics, States /Ws of India and other neighboring countries on globe and the world map' description
+        select id, state_code, State_SS_psub3_1 as state_avg, India_SS_psub3_1 as national_avg, 'State_SS_psub3_1' src_subject_code, 'SST605' subject_code, 'sst' language, 'Identifies latitudes and longitudes, e.g., poles, equator, tropics, States /Ws of India and other neighboring countries on globe and the world map' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_2 as state_avg, India_SS_psub3_2 as national_avg, 'State_SS_psub3_2' drc_subject_code, 'SST610' subject_code, 'sst' language, 'Locates important historical sites, places on an outline map of India.' description
+        select id, state_code, State_SS_psub3_2 as state_avg, India_SS_psub3_2 as national_avg, 'State_SS_psub3_2' src_subject_code, 'SST610' subject_code, 'sst' language, 'Locates important historical sites, places on an outline map of India.' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_3 as state_avg, India_SS_psub3_3 as national_avg, 'State_SS_psub3_3' drc_subject_code, 'SST625' subject_code, 'sst' language, 'Describes the functioning of rural and urban local government bodies in sectors like health and education' description
+        select id, state_code, State_SS_psub3_3 as state_avg, India_SS_psub3_3 as national_avg, 'State_SS_psub3_3' src_subject_code, 'SST625' subject_code, 'sst' language, 'Describes the functioning of rural and urban local government bodies in sectors like health and education' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_4 as state_avg, India_SS_psub3_4 as national_avg, 'State_SS_psub3_4' drc_subject_code, 'SST703' subject_code, 'sst' language, 'Explains preventive actions to be undertaken in the event of disasters' description
+        select id, state_code, State_SS_psub3_4 as state_avg, India_SS_psub3_4 as national_avg, 'State_SS_psub3_4' src_subject_code, 'SST703' subject_code, 'sst' language, 'Explains preventive actions to be undertaken in the event of disasters' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, 'State_SS_psub3_5' drc_subject_code, 'SST704' subject_code, 'sst' language, 'Describes formation of landforms due to various factors' description
+        select id, state_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, 'State_SS_psub3_5' src_subject_code, 'SST704' subject_code, 'sst' language, 'Describes formation of landforms due to various factors' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_6 as state_avg, India_SS_psub3_6 as national_avg, 'State_SS_psub3_6' drc_subject_code, 'SST722' subject_code, 'sst' language, 'Explains the significance of equality in democracy' description
+        select id, state_code, State_SS_psub3_6 as state_avg, India_SS_psub3_6 as national_avg, 'State_SS_psub3_6' src_subject_code, 'SST722' subject_code, 'sst' language, 'Explains the significance of equality in democracy' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_7 as state_avg, India_SS_psub3_7 as national_avg, 'State_SS_psub3_7' drc_subject_code, 'SST726' subject_code, 'sst' language, 'Describes the process of election to the legislative assembly' description
+        select id, state_code, State_SS_psub3_7 as state_avg, India_SS_psub3_7 as national_avg, 'State_SS_psub3_7' src_subject_code, 'SST726' subject_code, 'sst' language, 'Describes the process of election to the legislative assembly' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_8 as state_avg, India_SS_psub3_8 as national_avg, 'State_SS_psub3_8' drc_subject_code, 'SST731' subject_code, 'sst' language, 'Explains the functioning of media with appropriate examples from newspapers' description
+        select id, state_code, State_SS_psub3_8 as state_avg, India_SS_psub3_8 as national_avg, 'State_SS_psub3_8' src_subject_code, 'SST731' subject_code, 'sst' language, 'Explains the functioning of media with appropriate examples from newspapers' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_9 as state_avg, India_SS_psub3_9 as national_avg, 'State_SS_psub3_9' drc_subject_code, 'SST733' subject_code, 'sst' language, 'Differentiates between different kinds of markets' description
+        select id, state_code, State_SS_psub3_9 as state_avg, India_SS_psub3_9 as national_avg, 'State_SS_psub3_9' src_subject_code, 'SST733' subject_code, 'sst' language, 'Differentiates between different kinds of markets' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_10 as state_avg, India_SS_psub3_10 as national_avg, 'State_SS_psub3_10' drc_subject_code, 'SST734' subject_code, 'sst' language, 'Traces how goods travel through various market places' description
+        select id, state_code, State_SS_psub3_10 as state_avg, India_SS_psub3_10 as national_avg, 'State_SS_psub3_10' src_subject_code, 'SST734' subject_code, 'sst' language, 'Traces how goods travel through various market places' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_11 as state_avg, India_SS_psub3_11 as national_avg, 'State_SS_psub3_11' drc_subject_code, 'SST802' subject_code, 'sst' language, 'Describes major crops, types of farming and agricultural practices in her/his own areaistate' description
+        select id, state_code, State_SS_psub3_11 as state_avg, India_SS_psub3_11 as national_avg, 'State_SS_psub3_11' src_subject_code, 'SST802' subject_code, 'sst' language, 'Describes major crops, types of farming and agricultural practices in her/his own areaistate' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_12 as state_avg, India_SS_psub3_12 as national_avg, 'State_SS_psub3_12' drc_subject_code, 'SST805' subject_code, 'sst' language, 'Locates distribution of important minerals e.g. coal and mineral oil on the world map' description
+        select id, state_code, State_SS_psub3_12 as state_avg, India_SS_psub3_12 as national_avg, 'State_SS_psub3_12' src_subject_code, 'SST805' subject_code, 'sst' language, 'Locates distribution of important minerals e.g. coal and mineral oil on the world map' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_13 as state_avg, India_SS_psub3_13 as national_avg, 'State_SS_psub3_13' drc_subject_code, 'SST807' subject_code, 'sst' language, 'Justifies judicious use of natural resources' description
+        select id, state_code, State_SS_psub3_13 as state_avg, India_SS_psub3_13 as national_avg, 'State_SS_psub3_13' src_subject_code, 'SST807' subject_code, 'sst' language, 'Justifies judicious use of natural resources' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_14 as state_avg, India_SS_psub3_14 as national_avg, 'State_SS_psub3_14' drc_subject_code, 'SST809' subject_code, 'sst' language, 'Draws interrelationship between types of farming and development in different regions of the world' description
+        select id, state_code, State_SS_psub3_14 as state_avg, India_SS_psub3_14 as national_avg, 'State_SS_psub3_14' src_subject_code, 'SST809' subject_code, 'sst' language, 'Draws interrelationship between types of farming and development in different regions of the world' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_15 as state_avg, India_SS_psub3_15 as national_avg, 'State_SS_psub3_15' drc_subject_code, 'SST810' subject_code, 'sst' language, 'Distinguishes the modern period from the medieval and the ancient periods through the use of sources' description
+        select id, state_code, State_SS_psub3_15 as state_avg, India_SS_psub3_15 as national_avg, 'State_SS_psub3_15' src_subject_code, 'SST810' subject_code, 'sst' language, 'Distinguishes the modern period from the medieval and the ancient periods through the use of sources' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_16 as state_avg, India_SS_psub3_16 as national_avg, 'State_SS_psub3_16' drc_subject_code, 'SST815' subject_code, 'sst' language, 'Explains the origin, nature and spread of the revolt of 1857 and the lessons learned from it.' description
+        select id, state_code, State_SS_psub3_16 as state_avg, India_SS_psub3_16 as national_avg, 'State_SS_psub3_16' src_subject_code, 'SST815' subject_code, 'sst' language, 'Explains the origin, nature and spread of the revolt of 1857 and the lessons learned from it.' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_17 as state_avg, India_SS_psub3_17 as national_avg, 'State_SS_psub3_17' drc_subject_code, 'SST816' subject_code, 'sst' language, 'Analyses the decline of pre-existing urban centers and handicraft industries and the development of new urban centers and industries in India during the colonial period' description
+        select id, state_code, State_SS_psub3_17 as state_avg, India_SS_psub3_17 as national_avg, 'State_SS_psub3_17' src_subject_code, 'SST816' subject_code, 'sst' language, 'Analyses the decline of pre-existing urban centers and handicraft industries and the development of new urban centers and industries in India during the colonial period' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_18 as state_avg, India_SS_psub3_18 as national_avg, 'State_SS_psub3_18' drc_subject_code, 'SST818' subject_code, 'sst' language, 'Analyses the issues related to caste, women, widow remarriage, child marriage, social reforms and the laws and policies of colonial administration towards these issues' description
+        select id, state_code, State_SS_psub3_18 as state_avg, India_SS_psub3_18 as national_avg, 'State_SS_psub3_18' src_subject_code, 'SST818' subject_code, 'sst' language, 'Analyses the issues related to caste, women, widow remarriage, child marriage, social reforms and the laws and policies of colonial administration towards these issues' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_19 as state_avg, India_SS_psub3_19 as national_avg, 'State_SS_psub3_19' drc_subject_code, 'SST823' subject_code, 'sst' language, 'Applies the knowledge of the Fundamental Rights to find out about their violation. protection and promotion in a given situation' description
+        select id, state_code, State_SS_psub3_19 as state_avg, India_SS_psub3_19 as national_avg, 'State_SS_psub3_19' src_subject_code, 'SST823' subject_code, 'sst' language, 'Applies the knowledge of the Fundamental Rights to find out about their violation. protection and promotion in a given situation' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_20 as state_avg, India_SS_psub3_20 as national_avg, 'State_SS_psub3_20' drc_subject_code, 'SST827' subject_code, 'sst' language, 'Describes the process of making a taw. (e.g. Domestic Violence Act, RTI Act, RTE Act)' description
+        select id, state_code, State_SS_psub3_20 as state_avg, India_SS_psub3_20 as national_avg, 'State_SS_psub3_20' src_subject_code, 'SST827' subject_code, 'sst' language, 'Describes the process of making a taw. (e.g. Domestic Violence Act, RTI Act, RTE Act)' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_21 as state_avg, India_SS_psub3_21 as national_avg, 'State_SS_psub3_21' drc_subject_code, 'SST831' subject_code, 'sst' language, 'Identifies the role of Government in providing public facilities such as water, sanitation, road, electricity etc, and recognizes their availability' description
+        select id, state_code, State_SS_psub3_21 as state_avg, India_SS_psub3_21 as national_avg, 'State_SS_psub3_21' src_subject_code, 'SST831' subject_code, 'sst' language, 'Identifies the role of Government in providing public facilities such as water, sanitation, road, electricity etc, and recognizes their availability' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_22 as state_avg, India_SS_psub3_22 as national_avg, 'State_SS_psub3_22' drc_subject_code, 'SST833' subject_code, 'sst' language, 'Draws bar diagram to show population of different countries/India/states' description
+        select id, state_code, State_SS_psub3_22 as state_avg, India_SS_psub3_22 as national_avg, 'State_SS_psub3_22' src_subject_code, 'SST833' subject_code, 'sst' language, 'Draws bar diagram to show population of different countries/India/states' description
         from grade8statetable";
 
         return $query;
@@ -2254,113 +2252,113 @@ class FinalParticipationstateController extends Controller
     //Query For LO SRC data Subject Wise Grade 10
     public function GetAllStateDataSubjectCodeG10()
     {
-        $query = "select id, state_code, State_EN_psub3_1 as state_avg, India_EN_psub3_1 as national_avg, 'State_EN_psub3_1' drc_subject_code, 'E1007' subject_code, 'eng' language, 'Reads, comprehends and responds to complex texts independently.' description
+        $query = "select id, state_code, State_EN_psub3_1 as state_avg, India_EN_psub3_1 as national_avg, 'State_EN_psub3_1' src_subject_code, 'E1007' subject_code, 'eng' language, 'Reads, comprehends and responds to complex texts independently.' description
         from grade10statetable
         union all
-        select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' drc_subject_code, 'MIL1011' subject_code, 'mil' language, 'पपपपपपपपपप पपप पपपपप पपपपपप पप पपपपपपपप पपपप पपपपप, पपपपप, पपपपपप पप पपपपप-पपपपप पप पपपप पपपप पपपप' description
+        select id, state_code, State_LA_psub3_1 as state_avg, India_LA_psub3_1 as national_avg, 'State_LA_psub3_1' src_subject_code, 'MIL1011' subject_code, 'mil' language, 'पाठ्यवस्तु में शामिल रचनाओं के अतिरिक्‍त अन्य कविता, कहानी,एकांकी को पढ़ते-लिखते और मंचन करते हैं।' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' drc_subject_code, 'M1001' subject_code, 'math' language, 'Generalises properties of numbers and relations among them studied earlier to evolve results, such as, Euclid’s division algorithm, Fundamental Theorem of Arithmetic and applies them to solve problems related to real life contexts.' description
+        select id, state_code, State_MA_psub3_1 as state_avg, India_MA_psub3_1 as national_avg, 'State_MA_psub3_1' src_subject_code, 'M1001' subject_code, 'math' language, 'Generalises properties of numbers and relations among them studied earlier to evolve results, such as, Euclid’s division algorithm, Fundamental Theorem of Arithmetic and applies them to solve problems related to real life contexts.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' drc_subject_code, 'M1002' subject_code, 'math' language, 'Develops a relationship between algebraic and graphical methods of finding the zeroes of a polynomial.' description
+        select id, state_code, State_MA_psub3_2 as state_avg, India_MA_psub3_2 as national_avg, 'State_MA_psub3_2' src_subject_code, 'M1002' subject_code, 'math' language, 'Develops a relationship between algebraic and graphical methods of finding the zeroes of a polynomial.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, 'State_MA_psub3_3' drc_subject_code, 'M1003' subject_code, 'math' language, 'Finds solutions of pairs of linear equations in two variables using graphical and different algebraic methods.' description
+        select id, state_code, State_MA_psub3_3 as state_avg, India_MA_psub3_3 as national_avg, 'State_MA_psub3_3' src_subject_code, 'M1003' subject_code, 'math' language, 'Finds solutions of pairs of linear equations in two variables using graphical and different algebraic methods.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, 'State_MA_psub3_4' drc_subject_code, 'M1004' subject_code, 'math' language, 'Demonstrates strategies of finding roots and determining the nature of roots of a quadratic equation.' description
+        select id, state_code, State_MA_psub3_4 as state_avg, India_MA_psub3_4 as national_avg, 'State_MA_psub3_4' src_subject_code, 'M1004' subject_code, 'math' language, 'Demonstrates strategies of finding roots and determining the nature of roots of a quadratic equation.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' drc_subject_code, 'M1005' subject_code, 'math' language, 'Develops strategies to apply the concept of A.P. to daily life situations. Works out ways to differentiate between congruent and similar figures.' description
+        select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' src_subject_code, 'M1005' subject_code, 'math' language, 'Develops strategies to apply the concept of A.P. to daily life situations. Works out ways to differentiate between congruent and similar figures.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' drc_subject_code, 'M1006' subject_code, 'math' language, 'Establishes properties for similarity of two triangles logically using different geometric criteria established earlier such as, Basic Proportionality Theorem, etc.' description
+        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' src_subject_code, 'M1006' subject_code, 'math' language, 'Establishes properties for similarity of two triangles logically using different geometric criteria established earlier such as, Basic Proportionality Theorem, etc.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' drc_subject_code, 'M1007' subject_code, 'math' language, 'Derives formulae to establish relations for geometrical shapes in the context of a coordinate plane, such as, finding the distance between two given points, to determine the coordinates of a point between any two given points, to find the area of a triangle
+        select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' src_subject_code, 'M1007' subject_code, 'math' language, 'Derives formulae to establish relations for geometrical shapes in the context of a coordinate plane, such as, finding the distance between two given points, to determine the coordinates of a point between any two given points, to find the area of a triangle
         etc.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, 'State_MA_psub3_8' drc_subject_code, 'M1008' subject_code, 'math' language, 'Determines all trigonometric ratios with respect to a given acute angle (of a right triangle) and uses them in solving problems in daily life contexts like finding heights of different structures or distance from them.' description
+        select id, state_code, State_MA_psub3_8 as state_avg, India_MA_psub3_8 as national_avg, 'State_MA_psub3_8' src_subject_code, 'M1008' subject_code, 'math' language, 'Determines all trigonometric ratios with respect to a given acute angle (of a right triangle) and uses them in solving problems in daily life contexts like finding heights of different structures or distance from them.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, 'State_MA_psub3_9' drc_subject_code, 'M1009' subject_code, 'math' language, 'Derives proofs of theorems related to the tangents of circles.' description
+        select id, state_code, State_MA_psub3_9 as state_avg, India_MA_psub3_9 as national_avg, 'State_MA_psub3_9' src_subject_code, 'M1009' subject_code, 'math' language, 'Derives proofs of theorems related to the tangents of circles.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, 'State_MA_psub3_10' drc_subject_code, 'M1010' subject_code, 'math' language, 'Examines the steps of geometrical constructions and reason out each step' description
+        select id, state_code, State_MA_psub3_10 as state_avg, India_MA_psub3_10 as national_avg, 'State_MA_psub3_10' src_subject_code, 'M1010' subject_code, 'math' language, 'Examines the steps of geometrical constructions and reason out each step' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' drc_subject_code, 'M1011' subject_code, 'math' language, 'Finds surface areas and volumes of objects in the surroundings by visualising them as a combination of different solids like cylinder and a cone, cylinder and a hemisphere, combination of different cubes, etc.' description
+        select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' src_subject_code, 'M1011' subject_code, 'math' language, 'Finds surface areas and volumes of objects in the surroundings by visualising them as a combination of different solids like cylinder and a cone, cylinder and a hemisphere, combination of different cubes, etc.' description
         from grade10statetable
         union all
-        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' drc_subject_code, 'M1012' subject_code, 'math' language, 'Calculates mean, median and mode for different sets of data related with real life contexts.' description
+        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' src_subject_code, 'M1012' subject_code, 'math' language, 'Calculates mean, median and mode for different sets of data related with real life contexts.' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_1 as state_avg, India_SC_psub3_1 as national_avg, 'State_SC_psub3_1' drc_subject_code, 'SCI1001' subject_code, 'sci' language, 'Differentiates materials, objects, organisms, phenomena, and processes, based on, properties and characteristics.' description
+        select id, state_code, State_SC_psub3_1 as state_avg, India_SC_psub3_1 as national_avg, 'State_SC_psub3_1' src_subject_code, 'SCI1001' subject_code, 'sci' language, 'Differentiates materials, objects, organisms, phenomena, and processes, based on, properties and characteristics.' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_2 as state_avg, India_SC_psub3_2 as national_avg, 'State_SC_psub3_2' drc_subject_code, 'SCI1002' subject_code, 'sci' language, 'Classifies materials, objects, organisms, phenomena, and processes, based on properties and characteristics.' description
+        select id, state_code, State_SC_psub3_2 as state_avg, India_SC_psub3_2 as national_avg, 'State_SC_psub3_2' src_subject_code, 'SCI1002' subject_code, 'sci' language, 'Classifies materials, objects, organisms, phenomena, and processes, based on properties and characteristics.' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_3 as state_avg, India_SC_psub3_3 as national_avg, 'State_SC_psub3_3' drc_subject_code, 'SCI1003' subject_code, 'sci' language, 'Relates processes and phenomena with causes and effects' description
+        select id, state_code, State_SC_psub3_3 as state_avg, India_SC_psub3_3 as national_avg, 'State_SC_psub3_3' src_subject_code, 'SCI1003' subject_code, 'sci' language, 'Relates processes and phenomena with causes and effects' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_4 as state_avg, India_SC_psub3_4 as national_avg, 'State_SC_psub3_4' drc_subject_code, 'SCI1004' subject_code, 'sci' language, 'Explains processes and phenomena.' description
+        select id, state_code, State_SC_psub3_4 as state_avg, India_SC_psub3_4 as national_avg, 'State_SC_psub3_4' src_subject_code, 'SCI1004' subject_code, 'sci' language, 'Explains processes and phenomena.' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_5 as state_avg, India_SC_psub3_5 as national_avg, 'State_SC_psub3_5' drc_subject_code, 'SCI1005' subject_code, 'sci' language, 'Analyses and interprets data, graphs, and figures' description
+        select id, state_code, State_SC_psub3_5 as state_avg, India_SC_psub3_5 as national_avg, 'State_SC_psub3_5' src_subject_code, 'SCI1005' subject_code, 'sci' language, 'Analyses and interprets data, graphs, and figures' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_6 as state_avg, India_SC_psub3_6 as national_avg, 'State_SC_psub3_6' drc_subject_code, 'SCI1006' subject_code, 'sci' language, 'Calculates using the data given' description
+        select id, state_code, State_SC_psub3_6 as state_avg, India_SC_psub3_6 as national_avg, 'State_SC_psub3_6' src_subject_code, 'SCI1006' subject_code, 'sci' language, 'Calculates using the data given' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_7 as state_avg, India_SC_psub3_7 as national_avg, 'State_SC_psub3_7' drc_subject_code, 'SCI1007' subject_code, 'sci' language, 'Uses scientific conventions to represent units of various quantities, symbols, formulae, and equations.' description
+        select id, state_code, State_SC_psub3_7 as state_avg, India_SC_psub3_7 as national_avg, 'State_SC_psub3_7' src_subject_code, 'SCI1007' subject_code, 'sci' language, 'Uses scientific conventions to represent units of various quantities, symbols, formulae, and equations.' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_8 as state_avg, India_SC_psub3_8 as national_avg, 'State_SC_psub3_8' drc_subject_code, 'SCI1008' subject_code, 'sci' language, 'Applies learning to hypothetical situations' description
+        select id, state_code, State_SC_psub3_8 as state_avg, India_SC_psub3_8 as national_avg, 'State_SC_psub3_8' src_subject_code, 'SCI1008' subject_code, 'sci' language, 'Applies learning to hypothetical situations' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_9 as state_avg, India_SC_psub3_9 as national_avg, 'State_SC_psub3_9' drc_subject_code, 'SCI1009' subject_code, 'sci' language, 'Applies scientific concepts in daily life and solving problems' description
+        select id, state_code, State_SC_psub3_9 as state_avg, India_SC_psub3_9 as national_avg, 'State_SC_psub3_9' src_subject_code, 'SCI1009' subject_code, 'sci' language, 'Applies scientific concepts in daily life and solving problems' description
         from grade10statetable
         union all
-        select id, state_code, State_SC_psub3_10 as state_avg, India_SC_psub3_10 as national_avg, 'State_SC_psub3_10' drc_subject_code, 'SCI1010' subject_code, 'sci' language, 'Derives formulae, equations, and laws' description
+        select id, state_code, State_SC_psub3_10 as state_avg, India_SC_psub3_10 as national_avg, 'State_SC_psub3_10' src_subject_code, 'SCI1010' subject_code, 'sci' language, 'Derives formulae, equations, and laws' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_1 as state_avg, India_SS_psub3_1 as national_avg, 'State_SS_psub3_1' drc_subject_code, 'SST1001' subject_code, 'sst' language, 'Recognises and retrieves facts, figures, and narrate processes.' description
+        select id, state_code, State_SS_psub3_1 as state_avg, India_SS_psub3_1 as national_avg, 'State_SS_psub3_1' src_subject_code, 'SST1001' subject_code, 'sst' language, 'Recognises and retrieves facts, figures, and narrate processes.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_2 as state_avg, India_SS_psub3_2 as national_avg, 'State_SS_psub3_2' drc_subject_code, 'SST1002' subject_code, 'sst' language, 'Classifies and compares events, facts, data, and figures.' description
+        select id, state_code, State_SS_psub3_2 as state_avg, India_SS_psub3_2 as national_avg, 'State_SS_psub3_2' src_subject_code, 'SST1002' subject_code, 'sst' language, 'Classifies and compares events, facts, data, and figures.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_3 as state_avg, India_SS_psub3_3 as national_avg, 'State_SS_psub3_3' drc_subject_code, 'SST1003' subject_code, 'sst' language, 'Explains cause and effect relationship between phenomena, events, and their occurrence.' description
+        select id, state_code, State_SS_psub3_3 as state_avg, India_SS_psub3_3 as national_avg, 'State_SS_psub3_3' src_subject_code, 'SST1003' subject_code, 'sst' language, 'Explains cause and effect relationship between phenomena, events, and their occurrence.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_4 as state_avg, India_SS_psub3_4 as national_avg, 'State_SS_psub3_4' drc_subject_code, 'SST1004' subject_code, 'sst' language, 'Analyses and evaluates information.' description
+        select id, state_code, State_SS_psub3_4 as state_avg, India_SS_psub3_4 as national_avg, 'State_SS_psub3_4' src_subject_code, 'SST1004' subject_code, 'sst' language, 'Analyses and evaluates information.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, 'State_SS_psub3_5' drc_subject_code, 'SST1005' subject_code, 'sst' language, 'Interprets.' description
+        select id, state_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, 'State_SS_psub3_5' src_subject_code, 'SST1005' subject_code, 'sst' language, 'Interprets.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_6 as state_avg, India_SS_psub3_6 as national_avg, 'State_SS_psub3_6' drc_subject_code, 'SST1006' subject_code, 'sst' language, 'Draws interlinkages within Social Science.' description
+        select id, state_code, State_SS_psub3_6 as state_avg, India_SS_psub3_6 as national_avg, 'State_SS_psub3_6' src_subject_code, 'SST1006' subject_code, 'sst' language, 'Draws interlinkages within Social Science.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_7 as state_avg, India_SS_psub3_7 as national_avg, 'State_SS_psub3_7' drc_subject_code, 'SST1007' subject_code, 'sst' language, 'Identifies assumptions, biases, prejudices, or stereotypes about various aspects.' description
+        select id, state_code, State_SS_psub3_7 as state_avg, India_SS_psub3_7 as national_avg, 'State_SS_psub3_7' src_subject_code, 'SST1007' subject_code, 'sst' language, 'Identifies assumptions, biases, prejudices, or stereotypes about various aspects.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_8 as state_avg, India_SS_psub3_8 as national_avg, 'State_SS_psub3_8' drc_subject_code, 'SST1008' subject_code, 'sst' language, 'Demonstrates inquisitiveness, enquiry.' description
+        select id, state_code, State_SS_psub3_8 as state_avg, India_SS_psub3_8 as national_avg, 'State_SS_psub3_8' src_subject_code, 'SST1008' subject_code, 'sst' language, 'Demonstrates inquisitiveness, enquiry.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_9 as state_avg, India_SS_psub3_9 as national_avg, 'State_SS_psub3_9' drc_subject_code, 'SST1009' subject_code, 'sst' language, 'Constructs views, arguments, and ideas on the basis of collected or given information.' description
+        select id, state_code, State_SS_psub3_9 as state_avg, India_SS_psub3_9 as national_avg, 'State_SS_psub3_9' src_subject_code, 'SST1009' subject_code, 'sst' language, 'Constructs views, arguments, and ideas on the basis of collected or given information.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_10 as state_avg, India_SS_psub3_10 as national_avg, 'State_SS_psub3_10' drc_subject_code, 'SST1010' subject_code, 'sst' language, 'Extrapolates and predicts events and phenomena.' description
+        select id, state_code, State_SS_psub3_10 as state_avg, India_SS_psub3_10 as national_avg, 'State_SS_psub3_10' src_subject_code, 'SST1010' subject_code, 'sst' language, 'Extrapolates and predicts events and phenomena.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_11 as state_avg, India_SS_psub3_11 as national_avg, 'State_SS_psub3_11' drc_subject_code, 'SST1011' subject_code, 'sst' language, 'Illustrates decision making/problem solving skills.' description
+        select id, state_code, State_SS_psub3_11 as state_avg, India_SS_psub3_11 as national_avg, 'State_SS_psub3_11' src_subject_code, 'SST1011' subject_code, 'sst' language, 'Illustrates decision making/problem solving skills.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_12 as state_avg, India_SS_psub3_12 as national_avg, 'State_SS_psub3_12' drc_subject_code, 'SST1012' subject_code, 'sst' language, 'Shows sensitivity and appreciation skills.' description
+        select id, state_code, State_SS_psub3_12 as state_avg, India_SS_psub3_12 as national_avg, 'State_SS_psub3_12' src_subject_code, 'SST1012' subject_code, 'sst' language, 'Shows sensitivity and appreciation skills.' description
         from grade10statetable";
 
         return $query;
