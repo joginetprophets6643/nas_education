@@ -819,7 +819,7 @@ async function getData() {
       district: 'performance_master',
     },
     learning: {
-      state: 'district_grade_level_learningoutcome',
+      state: 'state_grade_level_learningoutcome',
       national: 'district_grade_level_learningoutcome',
       district: 'district_grade_level_learningoutcome',
     },
@@ -915,7 +915,7 @@ async function getData() {
 //       district: 'performance_master',
 //     },
 //     learning :{
-//       state: 'district_grade_level_learningoutcome',
+//       state: 'state_grade_level_learningoutcome',
 //       national: 'district_grade_level_learningoutcome',
 //       district: 'district_grade_level_learningoutcome',
 //     },
@@ -1429,6 +1429,17 @@ function updateData(data) {
           countPq3 += 1
 
         }
+
+        if (fb.level === 'pq2h') {
+          pq2h = '<span id="feedbackstate_pq2_average_class3">'+ Math.round(percentage) + '%</span>'+ fb.question_desc +''
+          $('.' + current_demography + 'pq2hquestion').html(pq2h)
+
+        }
+        if (fb.level === 'pq3h') {
+          pq3h = '<span id="feedbackstate_pq3_average_class3">'+ Math.round(percentage) + '%</span>'+ fb.question_desc +''
+          $('.' + current_demography + 'pq3hquestion').html(pq3h)
+
+        }
         if (fb.level === 'tqn') {
           let tqn = ''
           if (current_demography === 'national') {
@@ -1437,10 +1448,7 @@ function updateData(data) {
           }
         }
       })
-
-      $('#feedback' + current_demography + '_pq2_average_class3').html(Math.round(pq2Average / 4) + '%')
-      $('#feedback' + current_demography + '_pq3_average_class3').html(Math.round(pq3Average / 3) + '%')
-
+      
     }
 
     if (screenType === 'glimpses') {
