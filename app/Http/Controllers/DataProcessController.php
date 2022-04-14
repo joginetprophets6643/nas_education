@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\District_Master;
+use App\Models\State_Master;
 use App\Models\NationalStatistic;
 use App\Models\AllGradeParticipationTBL;
 use App\Models\PerformanceMaster;
@@ -46,12 +47,108 @@ class DataProcessController extends Controller
                 'teacher_central_govt_schools'=>$data->central_govt_teacher,
                 'teacher_private_unaided_reco_schools'=>$data->private_unaided_teacher
 
-            ]);            
+            ]);  
+            
+            State_Master::where('udise_state_code',$data->state_code)->update([
+
+                // 'total_district_area'=>$data->drc_area_tot,
+                // 'total_population'=>$data->drc_pop_tot,
+                // 'rural_population'=>$data->drc_pop_rur,
+                // 'urban_population'=>$data->drc_pop_urb,
+                // 'density_of_population'=>$data->drc_den_tot,
+                // 'literacy_rate'=>$data->drc_lit_tot,
+                // 'child_sex_ratio'=>$data->drc_csr_tot,
+                'no_of_schools'=>$data->total_schools,
+                'state_govt_schools'=>$data->state_govt_school,
+                'govt_aided_schools'=>$data->govt_aided_school,
+                'central_govt_schools'=>$data->central_govt_school,
+                'private_unaided_reco_schools'=>$data->private_unaided_school,
+                'teacher_state_govt_schools'=>$data->state_govt_teacher,
+                'teacher_govt_aided_schools'=>$data->govt_aided_teacher,
+                'teacher_central_govt_schools'=>$data->central_govt_teacher,
+                'teacher_private_unaided_reco_schools'=>$data->private_unaided_teacher
+
+            ]);  
+
+        }
+        return "District Master Updated Successfully";
+
+    }
+
+     public function stateMaster(){
+        $final_data=DB::table('district_school_teacher')->get();
+        // dd($final_data[0]);
+        $codes=['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','27','28','29','30','31','32','33','34','35','36','37','38'];
+        $temp=array();
+        foreach($codes as $code){
+            $total_schools=0;
+            $state_govt_school=0;
+            $govt_aided_school=0;
+            $central_govt_school=0;
+            $private_unaided_school=0;
+            $state_govt_teacher=0;
+            $govt_aided_teacher=0;
+            $central_govt_teacher=0;
+            $private_unaided_teacher=0;
+            foreach($final_data as $data){
+                if($data->state_code==$code){
+                    $total_schools+=$data->total_schools;
+                    $state_govt_school+=$data->state_govt_school;
+                    $govt_aided_school+=$data->govt_aided_school;
+                    $central_govt_school+=$data->central_govt_school;
+                    $private_unaided_school+=$data->private_unaided_school;
+                    $state_govt_teacher+=$data->state_govt_teacher;
+                    $govt_aided_teacher+=$data->govt_aided_teacher;
+                    $central_govt_teacher+=$data->central_govt_teacher;
+                    $private_unaided_teacher+=$data->private_unaided_teacher;
+                }
+            }
+
+            $temp[$code] = array(
+                        'total_schools'=>$total_schools,
+                        'state_govt_schools'=>$state_govt_school,
+                        'govt_aided_schools'=>$govt_aided_school,
+                        'central_govt_schools'=>$central_govt_school,
+                        'private_unaided_school'=>$private_unaided_school,
+                        'state_govt_teacher'=>$state_govt_teacher,
+                        'govt_aided_teacher'=>$govt_aided_teacher,
+                        'central_govt_teacher'=>$central_govt_teacher,
+                        'private_unaided_teacher'=>$private_unaided_teacher
+            );
+            
+        }
+        // dd($temp);
+
+        foreach($temp as $key=>$value){
+                // dd($key,$value);
+            State_Master::where('udise_state_code',$key)->update([
+                'no_of_schools'=>$value['total_schools'],
+                'state_govt_schools'=>$value['state_govt_schools'],
+                'govt_aided_schools'=>$value['govt_aided_schools'],
+                'central_govt_schools'=>$value['central_govt_schools'],
+                'private_unaided_reco_schools'=>$value['private_unaided_school'],
+                'teacher_state_govt_schools'=>$value['state_govt_teacher'],
+                'teacher_govt_aided_schools'=>$value['govt_aided_teacher'],
+                'teacher_central_govt_schools'=>$value['central_govt_teacher'],
+                'teacher_private_unaided_reco_schools'=>$value['private_unaided_teacher']
+
+            ]);  
 
         }
 
+        return "State Master Updated Successfully";
 
+    }
 
+    public function addStateCode(){
+        $districts=District_Master::all();
+        // dd($districts);
+        foreach($districts as $district){
+            DB::table('district_school_teacher')->where('code',$district->udise_district_code)->update([
+                'state_code'=>$district->udise_state_code
+            ]);
+        }
+        return "State Code Updated";
     }
 
 //  DRC Participation Final Data District Wise insert
