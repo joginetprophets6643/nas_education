@@ -18,7 +18,7 @@ class FinalParticipationstateController extends Controller
          $grade5PrcoessData = $this->grade5ParticipationData();
          $grade8PrcoessData = $this->grade8ParticipationData();
          $grade10PrcoessData = $this->grade10ParticipationData();
-         return "Participation Table Created";
+         return Redirect()->route('src-performance');
     }
 
     public function grade3ParticipationData()
@@ -194,7 +194,7 @@ class FinalParticipationstateController extends Controller
         $grade5PrcoessData = $this->grade5PerformanceData();
         $grade8PrcoessData = $this->grade8PerformanceData();
         $grade10PrcoessData = $this->grade10PerformanceData();
-        return "Performance Table Created";
+        return Redirect()->route('src-lo');
     }
 
     public function comparisionDataof2021($grade,$sub,$id){
@@ -1448,7 +1448,7 @@ class FinalParticipationstateController extends Controller
         $allSQStateData = json_decode(json_encode($allSQStateData), true);
         $allDNLODataStateSQ = PQStateLevelFeedback::insert($allSQStateData); 
 
-        return "Feedback data successfully created.";
+        return "All data successfully created.";
     }
 
     //Query For Feedback SRC data Subject Wise Grade 3
@@ -2012,7 +2012,7 @@ class FinalParticipationstateController extends Controller
             ]);
         }
 
-        return "State Learning Outcome Table Created";
+        return Redirect()->route('src-feedback');
     }
 
     //Query For LO SRC data Subject Wise Grade 3

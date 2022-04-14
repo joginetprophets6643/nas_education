@@ -78,13 +78,19 @@ Route::post('/final-upload-file',[UploadController::class,'district'])->name('fi
 /*********************************
 * State Level Data upload start
 **********************************/
+
+Route::get('/src-final-data',function(){
+    return Redirect()->route('src-participate');
+});
+
+
 // Route::get('/src-final-data/district-master',[FinalParticipationStateController::class,'index']);
-Route::get('/src-final-data/performance',[FinalParticipationStateController::class,'allstatePerformancedata']);
-Route::get('/src-final-data/participation',[FinalParticipationStateController::class,'allStateParticipationData']);
+Route::get('/src-final-data/performance',[FinalParticipationStateController::class,'allstatePerformancedata'])->name('src-performance');
+Route::get('/src-final-data/participation',[FinalParticipationStateController::class,'allStateParticipationData'])->name('src-participate');
 // Route::get('/src-final-data/lo',[FinalParticipationStateController::class,'DRCLO']);
 // Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'DRCFEEDBACK']);
-Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'StateFeedback']);
-Route::get('/src-final-data/state-data-lo',[FinalParticipationStateController::class,'StateWiseLO']);
+Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,'StateFeedback'])->name('src-feedback');
+Route::get('/src-final-data/state-data-lo',[FinalParticipationStateController::class,'StateWiseLO'])->name('src-lo');
 /*********************************
 * State Level Data upload end
 **********************************/
