@@ -3355,7 +3355,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="col-md-12">
+                                          <!-- <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
                                               AVERAGE PERFORMANCE OF THE DISTRICTS
                                             </h2>
@@ -3394,7 +3394,7 @@
                                                 </tbody>
                                               </table>
                                             </div>
-                                          </div>
+                                          </div> -->
                                         </div>
                                     </div>
                                 </div>
