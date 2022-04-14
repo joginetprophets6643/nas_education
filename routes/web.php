@@ -33,11 +33,19 @@ use Illuminate\Support\Facades\DB;
 **********************************/
 Route::get('/data-2017/state-master',[Data2017Controller::class,'state']);
 Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
-Route::get('/allGradesDataImport', function () {
+Route::get('/src/allGradesDataImport', function () {
     DB::table('grade3statetable')->truncate();
     DB::table('grade5statetable')->truncate();
     DB::table('grade8statetable')->truncate();
     DB::table('grade10statetable')->truncate();
+    
+    \Artisan::call('schedule:run');
+
+    dd("All Grades Data Imported Successfully...");
+
+});
+Route::get('/drc/allGradesDataImport', function () {
+    
     DB::table('grade3districttable')->truncate();
     DB::table('grade5districttable')->truncate();
     DB::table('grade8districttable')->truncate();
