@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\DB;
 /*********************************
 * 2017 Data upload start
 **********************************/
+
 Route::get('/data-2017/state-master',[Data2017Controller::class,'state']);
 Route::get('/data-2017/district-master',[Data2017Controller::class,'district']);
 Route::get('/src/allGradesDataImport', function () {
@@ -91,8 +92,8 @@ Route::get('/src-final-data',function(){
     return Redirect()->route('src-participate');
 });
 
-
-// Route::get('/src-final-data/district-master',[FinalParticipationStateController::class,'index']);
+Route::get('/add/state/code',[DataProcessController::class,'addStateCode']);
+Route::get('/src-final-data/state-master',[DataProcessController::class,'stateMaster']);
 Route::get('/src-final-data/performance',[FinalParticipationStateController::class,'allstatePerformancedata'])->name('src-performance');
 Route::get('/src-final-data/participation',[FinalParticipationStateController::class,'allStateParticipationData'])->name('src-participate');
 // Route::get('/src-final-data/lo',[FinalParticipationStateController::class,'DRCLO']);
