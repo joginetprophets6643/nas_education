@@ -41,6 +41,7 @@ class EventController extends Controller
         $event->name=$request->name;
         $event->state=$request->state_name;
         $event->save();
+        get_Date();
         return Redirect()->route('events')->with('success','Event Added Successfully');
     }
 
@@ -70,7 +71,7 @@ class EventController extends Controller
             'name'=>$request->name,
             'state'=>$request->state_name,
         ]);
-
+        get_Date();
 
         return Redirect()->route('events')->with('success','Event Updated Successfully');
     }
@@ -107,6 +108,7 @@ class EventController extends Controller
         $event->name=$request->name;
         $event->state=$request->state_name;
         $event->save();
+        get_Date();
         return Redirect()->route('video-events')->with('success','Event Added Successfully');
     }
 
@@ -137,6 +139,7 @@ class EventController extends Controller
             'name'=>$request->name,
             'state'=>$request->state_name,
         ]);
+        get_Date();
         return Redirect()->route('video-events')->with('success','Event Updated Successfully');
     }
 
@@ -207,7 +210,7 @@ class EventController extends Controller
                 'images'=>$images
             ]);
         }
-
+        get_Date();
         $id=encode5t($id);
         if($n_img){
             $strimg='';
@@ -301,7 +304,7 @@ class EventController extends Controller
             $res->save();
 
         $id=encode5t($id);
-        
+        get_Date();
         return Redirect()->route('getVideos',$id)->with('success','Video Uploaded Successfully');
     }
 

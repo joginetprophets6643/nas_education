@@ -45,7 +45,7 @@ class StaticProgramController extends Controller
         $program->image=$name;
         
         $program->save();
-
+        get_Date();
         return Redirect()->route('program')->with('success','Program Added Successfully');
     }
 
@@ -95,7 +95,7 @@ class StaticProgramController extends Controller
             ]);
         }
         
-
+        get_Date();
         return Redirect()->route('program')->with('success','Program Updated Successfully');
     }
     public function destroy($id)

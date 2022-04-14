@@ -107,7 +107,7 @@ class MasterController extends Controller
         $district->teacher_private_unaided_reco_schools=$request->teacher_private_unaided_reco_schools;
         
         $district->save();
-
+        get_Date();
         return Redirect()->route('district')->with('success','District Added Successfully');
     }
 
@@ -203,7 +203,7 @@ class MasterController extends Controller
             'teacher_private_unaided_reco_schools'=>$request->teacher_private_unaided_reco_schools
             
         ]);
-
+        get_Date();
         return Redirect()->route('district')->with('success','District Updated Successfully');
     }
 
@@ -316,7 +316,7 @@ class MasterController extends Controller
         $state->teacher_private_unaided_reco_schools=$request->teacher_private_unaided_reco_schools;
         
         $state->save();
-
+        get_Date();
         return Redirect()->route('state')->with('success','State Added Successfully');
     }
 
@@ -418,7 +418,7 @@ class MasterController extends Controller
             'teacher_private_unaided_reco_schools'=>$request->teacher_private_unaided_reco_schools
             
         ]);
-
+        get_Date();
         return Redirect()->route('state')->with('success','State Updated Successfully');
     }
 

@@ -50,7 +50,7 @@ class StaticContentController extends Controller
         $content->page_meta_title=$request->meta_title;
         $content->page_meta_description=$request->meta_description;
         $content->save();
-
+        get_Date();
         return Redirect()->route('content')->with('success','Content Added Successfully');
     }
 
@@ -111,7 +111,7 @@ class StaticContentController extends Controller
             'page_meta_title'=>$request->meta_title,
             'page_meta_description'=>$request->meta_description
         ]);
-
+        get_Date();
         return Redirect()->route('content')->with('success','Content Updated Successfully');
     }
 

@@ -52,7 +52,7 @@ class NationalController extends Controller
         $national->no_of_teachers=$request->no_of_teachers;
         $national->no_of_students=$request->no_of_students;
         $national->save();
-
+        get_Date();
         return Redirect()->route('national')->with('success','National Added Successfully');
     }
 
@@ -97,7 +97,7 @@ class NationalController extends Controller
             'no_of_teachers'=>$request->no_of_teachers,
             'no_of_students'=>$request->no_of_students
         ]);
-
+        get_Date();
         return Redirect()->route('national')->with('success','National Updated Successfully');
     }
 

@@ -37,6 +37,7 @@ class ClientLogoController extends Controller
         $client_logo->url   = $request->url;
         $client_logo->logo  = $name;
         $client_logo->save();
+        get_Date();
         return Redirect()->route('client-logo')->with("Success","Client Logo Added Successfully");
     }
 
@@ -80,7 +81,7 @@ class ClientLogoController extends Controller
             'url' =>$request->url,
             'logo'=>$name,
         ]);
-
+        get_Date();
         return Redirect()->route('client-logo')->with('success','Client Logo Updated Successfully');
         
     }

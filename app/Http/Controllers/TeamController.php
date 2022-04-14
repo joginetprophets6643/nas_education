@@ -55,6 +55,7 @@ class TeamController extends Controller
         $member->designation=$request->designation;
         $member->description=$request->description;
         $member->save();
+        get_Date();
         return Redirect()->route('team')->with('success','Member Added Successfully');
     }
 
@@ -104,6 +105,7 @@ class TeamController extends Controller
         'image'=>$name,
         'address'=>$request->address         
         ]);
+        get_Date();
         return Redirect()->route('team')->with('success','Member Updated Successfully');
         
     }
