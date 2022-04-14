@@ -1544,11 +1544,11 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, State_pq_q27_a_d
-        as state_avg, 'pq2' level, 'Learning from pandemic ' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2h' level, 'Learning from pandemic' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, State_pq_q27_e_g
-        as state_avg, 'pq3' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3h' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, State_pq_q27f
@@ -1662,11 +1662,11 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, State_pq_q27_a_d
-        as state_avg, 'pq2' level, 'Learning from pandemic ' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2h' level, 'Learning from pandemic' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, State_pq_q27_e_g
-        as state_avg, 'pq3' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3h' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, State_pq_q27f
@@ -1780,11 +1780,11 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, State_pq_q27_a_d
-        as state_avg, 'pq2' level, 'Learning from pandemic ' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2h' level, 'Learning from pandemic' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, State_pq_q27_e_g
-        as state_avg, 'pq3' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3h' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, State_pq_q27f
@@ -1898,11 +1898,11 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, State_pq_q27_a_d
-        as state_avg, 'pq2' level, 'Learning from pandemic ' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2h' level, 'Learning from pandemic' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, State_pq_q27_e_g
-        as state_avg, 'pq3' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3h' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, State_pq_q27f
