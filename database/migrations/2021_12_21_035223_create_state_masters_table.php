@@ -37,6 +37,7 @@ class CreateStateMastersTable extends Migration
             $table->string('child_sex_ratio')->nullable();
 
             $table->string('no_of_schools')->nullable();
+            $table->string('no_of_students')->nullable();
             $table->string('state_govt_schools')->nullable();
             $table->string('govt_aided_schools')->nullable();
             $table->string('central_govt_schools')->nullable();

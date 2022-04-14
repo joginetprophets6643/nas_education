@@ -135,6 +135,13 @@ class DataProcessController extends Controller
             ]);  
 
         }
+        $final_data=DB::table('state_student')->get();
+
+        foreach($final_data as $data){
+            State_Master::where('udise_state_code',$data->state_code)->update([
+                'no_of_students'=>$data->student,
+            ]);  
+        }
 
         return "State Master Updated Successfully";
 
