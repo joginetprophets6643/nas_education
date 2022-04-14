@@ -66,6 +66,7 @@ class SettingController extends Controller
         $content->twitter=$request->twitter;
         $content->insta=$request->insta;
         $content->save();
+        get_Date();
 
         return Redirect()->route('setting')->with('success','Setting Added Successfully');
     }
@@ -132,6 +133,7 @@ class SettingController extends Controller
             'logo_2'=>$name,      
         ]);        
         }
+        get_Date();
 
         return Redirect()->route('setting')->with('success','Setting Details Updated Successfully');
 
@@ -183,6 +185,7 @@ class SettingController extends Controller
         $rti->title=$request->title;        
         $rti->file=$files;        
         $rti->save();
+        get_Date();
         return Redirect()->route('manage-rti')->with('success','RTI Added Successfully');
     }
 
@@ -230,7 +233,8 @@ class SettingController extends Controller
                 'title'=>$request->title,
             ]);
         }
-        return Redirect()->route('manage-rti')->with('success','RTI Added Successfully');
+        get_Date();
+        return Redirect()->route('manage-rti')->with('success','RTI Updated Successfully');
     }
 
     public function deleteFile($id,$file){

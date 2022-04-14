@@ -35,6 +35,7 @@ class BannerController extends Controller
         $banner->description=$request->description;
         $banner->image=$name;
         $banner->save();
+        get_Date();
         return Redirect()->route('manage-banner')->with("Success","Banner Added Successfully");
     }
 
@@ -60,7 +61,7 @@ class BannerController extends Controller
                     ->withErrors($validator)
                     ->withInput();
         }
-
+        get_Date();
         if($request->image){
         $image=$request->file('image');
         

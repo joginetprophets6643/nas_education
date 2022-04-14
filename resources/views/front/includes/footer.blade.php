@@ -143,7 +143,7 @@
                       {{__('lang.Website Visit Count')}} : <?php echo visit_count() ?>
                     </span>
                     <div class="date">
-                    {{__('lang.Last Modified')}} : 25/11/2021
+                    {{__('lang.Last Modified')}} : <?php echo last_modified_Date() ?>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-8">
