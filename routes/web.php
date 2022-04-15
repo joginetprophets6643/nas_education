@@ -57,6 +57,18 @@ Route::get('/drc/allGradesDataImport', function () {
     dd("All Grades Data Imported Successfully...");
 
 });
+
+Route::get('/nrc/allGradesDataImport', function () {
+    
+    DB::table('grade3nationaltable')->truncate();
+    DB::table('grade5nationaltable')->truncate();
+    DB::table('grade8nationaltable')->truncate();
+    DB::table('grade10nationaltable')->truncate();
+    \Artisan::call('schedule:run');
+
+    dd("All Grades Data Imported Successfully...");
+
+});
 /*********************************
 * 2017 Data upload end
 **********************************/
@@ -108,6 +120,7 @@ Route::get('/src-final-data/state-data-lo',[FinalParticipationStateController::c
 * National Level Data upload start
 **********************************/
 Route::get('/national-final-data/participation',[FinalNationalProcessController::class,'allgradeParticipationData'])->name('national-participate');
+Route::get('/national-final-data/glimpses',[FinalNationalProcessController::class,'glimpes'])->name('national-glimpses');
 
 /*********************************
 * National Level Data upload end
