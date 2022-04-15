@@ -17,6 +17,7 @@ use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
 use App\Http\Controllers\FinalParticipationStateController;
 use App\Http\Controllers\FinalDistrictProcessController;
+use App\Http\Controllers\FinalNationalProcessController;
 use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,14 @@ Route::get('/src-final-data/feedback',[FinalParticipationStateController::class,
 Route::get('/src-final-data/state-data-lo',[FinalParticipationStateController::class,'StateWiseLO'])->name('src-lo');
 /*********************************
 * State Level Data upload end
+**********************************/
+/*********************************
+* National Level Data upload start
+**********************************/
+Route::get('/national-final-data/participation',[FinalNationalProcessController::class,'allgradeParticipationData'])->name('national-participate');
+
+/*********************************
+* National Level Data upload end
 **********************************/
 Route::get('getDRCDataForGrade3',[FinalCalculationController::class,'getDRCDataForGrade3']);
 Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
