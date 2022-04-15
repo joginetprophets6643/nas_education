@@ -912,7 +912,7 @@
     $('.type_of_chart').html(display_name)
     $('#literacy_rate').html(info.literacy_rate ? info.literacy_rate+'%' : 0+'%' )
     $('#total_area').html(info.total_district_area ? info.total_district_area : 0)
-    $('#total_population').html(info.total_population ? info.total_population : 0)
+    $('#total_population').html(info.total_population ? info.total_population+'Crores' : 0)
     $('#population_density').html(info.density_of_population ? info.density_of_population : 0)
     $('#total_teachers').html(total_teachers)
     $('#sex_ratio').html(info.child_sex_ratio ? info.child_sex_ratio : 0)

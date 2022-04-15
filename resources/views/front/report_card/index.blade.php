@@ -11,7 +11,7 @@
   </a>
   <div class="sidebarwrap scrollbar-y">
       <div class="search-bar">
-        <input type="text" class="form-control" id="rc-state-search" placeholder="Search for State" onkeyup='filterList("state")'>
+        <input type="text" class="form-control" id="rc-state-search" placeholder="Search for State" onkeyup='filterList("state")' onkeypress="preventSymbols(event)">
       </div>
       <ul id="rc-state-list">
       @foreach($states as $state)
@@ -251,4 +251,16 @@
           $('.state-select').select2();
           $('.district-select').select2();
       });
+
+      
+    function preventSymbols(e) {
+      var key = e.keyCode;
+      var regex = /^[A-Za-z]+$/;
+
+      //Validate TextBox value against the Regex.
+      var isValid = regex.test(String.fromCharCode(key))
+      if (!isValid) {
+        e.preventDefault();
+      }
+    }
 </script>
