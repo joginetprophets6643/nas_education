@@ -67,8 +67,8 @@
 
         <div class="row">
         <div class="col-6">
-            <label class="form-label">Total District Area</label>
-            <input type="text" name="total_district_area" class="form-control" placeholder="Total District Area" value="{{$national->total_district_area}}">
+            <label class="form-label">Total Area</label>
+            <input type="text" name="total_district_area" class="form-control" placeholder="Total Area" value="{{$national->total_district_area}}">
             @error('total_district_area')
             <span class="text-danger">{{$message}}</span>
             @enderror

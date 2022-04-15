@@ -69,7 +69,7 @@ const geography_wise_screen = {
 }
 const category_filter_screen = ['participation', 'performance', 'glimpses']
 
-let screens = ['information', 'participation', 'performance', 'learning', 'feedback', 'glimpses', 'achievement','notconducted']
+let screens = ['information', 'participation', 'performance', 'learning', 'feedback', 'glimpses', 'achievement', 'notconducted']
 
 let selected_geography = ''
 let global_filters = {}     // added for new change
@@ -473,14 +473,14 @@ async function setScreen(screen_type = 'information', load_data = true) {
 
   // not conducted check
   const active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
-  if(active_district !== null ){
-    if(active_district.is_active === 2 ){
+  if (active_district !== null) {
+    if (active_district.is_active === 2) {
       screen_type = 'notconducted'
     }
   }
-  
+
   window.scrollTo(0, 0)
-  const exceptions = ['participation', 'learning','notconducted']
+  const exceptions = ['participation', 'learning', 'notconducted']
   const current_demography = (selected_geography === 'district' || exceptions.includes(screen_type) ? '' : selected_geography)
   const demographics = ['', 'state', 'national']
 
@@ -843,11 +843,11 @@ async function getData() {
     }
   }
 
-  if(screenType !== 'notconducted'){
+  if (screenType !== 'notconducted') {
     let table = ''
     if (typeof screenType === 'undefined') {
       table = screen_wise_table['information'][selected_geography]
-  
+
     } else {
       table = screen_wise_table[screenType][selected_geography]
       if (screenType === 'performance' && selected_geography === 'national') {
@@ -889,10 +889,10 @@ async function getData() {
       setInformation()
       $('#screen-loader').hide()
       $('tab-pane fade').show()
-  
+
     });
     updateReportCardLink()
-  }else{
+  } else {
     $('#screen-loader').hide()
     $('tab-pane fade').show()
   }
@@ -1431,12 +1431,12 @@ function updateData(data) {
         }
 
         if (fb.level === 'pq2h') {
-          pq2h = '<span id="feedbackstate_pq2_average_class3">'+ Math.round(percentage) + '%</span>'+ fb.question_desc +''
+          pq2h = '<span id="feedbackstate_pq2_average_class3">' + Math.round(percentage) + '%</span>' + fb.question_desc + ''
           $('.' + current_demography + 'pq2hquestion').html(pq2h)
 
         }
         if (fb.level === 'pq3h') {
-          pq3h = '<span id="feedbackstate_pq3_average_class3">'+ Math.round(percentage) + '%</span>'+ fb.question_desc +''
+          pq3h = '<span id="feedbackstate_pq3_average_class3">' + Math.round(percentage) + '%</span>' + fb.question_desc + ''
           $('.' + current_demography + 'pq3hquestion').html(pq3h)
 
         }
@@ -1448,7 +1448,7 @@ function updateData(data) {
           }
         }
       })
-      
+
     }
 
     if (screenType === 'glimpses') {
@@ -1779,11 +1779,11 @@ async function createInformationScreen(data) {
   if (selected_geography !== 'national') {
     $('.information_state_name').html(format_string(state_name))
   }
-  $('#' + prefix + 'area_class3').html(Math.round(dataToShow.total_district_area))
-  $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population))
+  $('#' + prefix + 'area_class3').html(dataToShow.total_district_area)
+  $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population) + ' Crores')
   $('#' + prefix + 'density_class3').html(Math.round(dataToShow.density_of_population))
   $('#' + prefix + 'sex_ratio_class3').html(Math.round(dataToShow.child_sex_ratio))
-  $('#' + prefix + 'literacy_class3').html(Math.round(dataToShow.literacy_rate))
+  $('#' + prefix + 'literacy_class3').html(dataToShow.literacy_rate)
 
   if (selected_geography === 'district') {
     $('.' + prefix + 'name').html(format_string(dataToShow.district_name))
