@@ -220,6 +220,7 @@ class FinalNationalProcessController extends Controller
 
         $glimpesArray = array();
         $subjects=['lang','evs','math'];
+        $real_subjects=['lang'=> 'language','evs'=>'evs','math'=>'math'];
         foreach($subjects as $subject){
 
             $cards=array();
@@ -229,12 +230,12 @@ class FinalNationalProcessController extends Controller
             $social=array();
             foreach($GlimpsesData as $key=>$glimpes){
 
-                if($glimpes->subject==$subject){
+                if($glimpes->subject==$subject && $glimpes->state_code!=0){
                     $cards[]=(object)array(
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
                         'se'=>$glimpes->se,
-                        'category'=>$glimpes->indicator
+                        'category'=>!is_null($glimpes->indicator)?(int)$glimpes->indicator:3
                     );
                     $gender[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -242,7 +243,7 @@ class FinalNationalProcessController extends Controller
                         'boys_se'=>$glimpes->seb,
                         'girls_ss'=>$glimpes->ssg,
                         'girls_se'=>$glimpes->seg,
-                        'category'=>$glimpes->gender_indicator
+                        'category'=>!is_null($glimpes->gender_indicator)?(int)$glimpes->gender_indicator:3
                     );
                     $location[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -250,7 +251,7 @@ class FinalNationalProcessController extends Controller
                         'rural_se'=>$glimpes->rural_se,
                         'urban_ss'=>$glimpes->urban_ss,
                         'urban_se'=>$glimpes->urban_se,
-                        'category'=>$glimpes->area_wise_indicator
+                        'category'=>!is_null($glimpes->area_wise_indicator)?(int)$glimpes->area_wise_indicator:3
                     );
                     $management[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -262,9 +263,9 @@ class FinalNationalProcessController extends Controller
                         'pvt_se'=>$glimpes->se_private,
                         'central_govt__ss'=>$glimpes->central_govt,
                         'central_govt_se'=>$glimpes->se_central_govt,
-                        'govt_category'=>$glimpes->govt_indicator,
-                        'pvt_category'=>$glimpes->prvt_indicator,
-                        'central_govt_category'=>$glimpes->cent_govt_indicator,
+                        'govt_category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
+                        'pvt_category'=>!is_null($glimpes->prvt_indicator)?(int)$glimpes->prvt_indicator:3,
+                        'central_govt_category'=>!is_null($glimpes->cent_govt_indicator)?(int)$glimpes->cent_govt_indicator:3,
 
                     );
                     $social[]=(object)array(
@@ -277,15 +278,15 @@ class FinalNationalProcessController extends Controller
                         'st_se'=>$glimpes->se_st,
                         'obc_ss'=>$glimpes->obc,
                         'obc_se'=>$glimpes->se_obc,
-                        'gen_category'=>$glimpes->gen_indicator,
-                        'st_category'=>$glimpes->st_indicator,
-                        'obc_category'=>$glimpes->obc_indicator	
+                        'gen_category'=>!is_null($glimpes->gen_indicator)?(int)$glimpes->gen_indicator:3,
+                        'st_category'=>!is_null($glimpes->st_indicator)?(int)$glimpes->st_indicator:3,
+                        'obc_category'=>!is_null($glimpes->obc_indicator)?(int)$glimpes->obc_indicator:3	
                     );
                 }
                 
             }
 
-            $glimpesArray[$subject]=array(
+            $glimpesArray[$real_subjects[$subject]]=array(
                 'cards'=>$cards,
                 'gender'=>$gender,
                 'location'=>$location,
@@ -325,7 +326,7 @@ class FinalNationalProcessController extends Controller
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
                         'se'=>$glimpes->se,
-                        'category'=>$glimpes->indicator
+                        'category'=>!is_null($glimpes->indicator)?(int)$glimpes->indicator:3
                     );
                     $gender[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -333,7 +334,7 @@ class FinalNationalProcessController extends Controller
                         'boys_se'=>$glimpes->seb,
                         'girls_ss'=>$glimpes->ssg,
                         'girls_se'=>$glimpes->seg,
-                        'category'=>$glimpes->gender_indicator
+                        'category'=>!is_null($glimpes->gender_indicator)?(int)$glimpes->gender_indicator:3
                     );
                     $location[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -341,7 +342,7 @@ class FinalNationalProcessController extends Controller
                         'rural_se'=>$glimpes->rural_se,
                         'urban_ss'=>$glimpes->urban_ss,
                         'urban_se'=>$glimpes->urban_se,
-                        'category'=>$glimpes->area_wise_indicator
+                        'category'=>!is_null($glimpes->area_wise_indicator)?(int)$glimpes->area_wise_indicator:3
                     );
                     $management[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -353,9 +354,9 @@ class FinalNationalProcessController extends Controller
                         'pvt_se'=>$glimpes->se_private,
                         'central_govt__ss'=>$glimpes->central_govt,
                         'central_govt_se'=>$glimpes->se_central_govt,
-                        'govt_category'=>$glimpes->govt_indicator,
-                        'pvt_category'=>$glimpes->prvt_indicator,
-                        'central_govt_category'=>$glimpes->cent_govt_indicator,
+                        'govt_category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
+                        'pvt_category'=>!is_null($glimpes->prvt_indicator)?(int)$glimpes->prvt_indicator:3,
+                        'central_govt_category'=>!is_null($glimpes->cent_govt_indicator)?(int)$glimpes->cent_govt_indicator:3,
 
                     );
                     $social[]=(object)array(
@@ -368,9 +369,9 @@ class FinalNationalProcessController extends Controller
                         'st_se'=>$glimpes->se_st,
                         'obc_ss'=>$glimpes->obc,
                         'obc_se'=>$glimpes->se_obc,
-                        'gen_category'=>$glimpes->gen_indicator,
-                        'st_category'=>$glimpes->st_indicator,
-                        'obc_category'=>$glimpes->obc_indicator	
+                        'gen_category'=>!is_null($glimpes->gen_indicator)?(int)$glimpes->gen_indicator:3,
+                        'st_category'=>!is_null($glimpes->st_indicator)?(int)$glimpes->st_indicator:3,
+                        'obc_category'=>!is_null($glimpes->obc_indicator)?(int)$glimpes->obc_indicator:3	
                     );
                 }
                 
@@ -416,7 +417,7 @@ class FinalNationalProcessController extends Controller
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
                         'se'=>$glimpes->se,
-                        'category'=>$glimpes->indicator
+                        'category'=>!is_null($glimpes->indicator)?(int)$glimpes->indicator:3
                     );
                     $gender[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -424,7 +425,7 @@ class FinalNationalProcessController extends Controller
                         'boys_se'=>$glimpes->seb,
                         'girls_ss'=>$glimpes->ssg,
                         'girls_se'=>$glimpes->seg,
-                        'category'=>$glimpes->gender_indicator
+                        'category'=>!is_null($glimpes->gender_indicator)?(int)$glimpes->gender_indicator:3
                     );
                     $location[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -432,7 +433,7 @@ class FinalNationalProcessController extends Controller
                         'rural_se'=>$glimpes->rural_se,
                         'urban_ss'=>$glimpes->urban_ss,
                         'urban_se'=>$glimpes->urban_se,
-                        'category'=>$glimpes->area_wise_indicator
+                        'category'=>!is_null($glimpes->area_wise_indicator)?(int)$glimpes->area_wise_indicator:3
                     );
                     $management[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -444,9 +445,9 @@ class FinalNationalProcessController extends Controller
                         'pvt_se'=>$glimpes->se_private,
                         'central_govt__ss'=>$glimpes->central_govt,
                         'central_govt_se'=>$glimpes->se_central_govt,
-                        'govt_category'=>$glimpes->govt_indicator,
-                        'pvt_category'=>$glimpes->prvt_indicator,
-                        'central_govt_category'=>$glimpes->cent_govt_indicator,
+                        'govt_category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
+                        'pvt_category'=>!is_null($glimpes->prvt_indicator)?(int)$glimpes->prvt_indicator:3,
+                        'central_govt_category'=>!is_null($glimpes->cent_govt_indicator)?(int)$glimpes->cent_govt_indicator:3,
 
                     );
                     $social[]=(object)array(
@@ -459,9 +460,9 @@ class FinalNationalProcessController extends Controller
                         'st_se'=>$glimpes->se_st,
                         'obc_ss'=>$glimpes->obc,
                         'obc_se'=>$glimpes->se_obc,
-                        'gen_category'=>$glimpes->gen_indicator,
-                        'st_category'=>$glimpes->st_indicator,
-                        'obc_category'=>$glimpes->obc_indicator	
+                        'gen_category'=>!is_null($glimpes->gen_indicator)?(int)$glimpes->gen_indicator:3,
+                        'st_category'=>!is_null($glimpes->st_indicator)?(int)$glimpes->st_indicator:3,
+                        'obc_category'=>!is_null($glimpes->obc_indicator)?(int)$glimpes->obc_indicator:3	
                     );
                 }
                 
@@ -507,7 +508,7 @@ class FinalNationalProcessController extends Controller
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
                         'se'=>$glimpes->se,
-                        'category'=>$glimpes->indicator
+                        'category'=>!is_null($glimpes->indicator)?(int)$glimpes->indicator:3
                     );
                     $gender[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -515,7 +516,7 @@ class FinalNationalProcessController extends Controller
                         'boys_se'=>$glimpes->seb,
                         'girls_ss'=>$glimpes->ssg,
                         'girls_se'=>$glimpes->seg,
-                        'category'=>$glimpes->gender_indicator
+                        'category'=>!is_null($glimpes->gender_indicator)?(int)$glimpes->gender_indicator:3
                     );
                     $location[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -523,7 +524,7 @@ class FinalNationalProcessController extends Controller
                         'rural_se'=>$glimpes->rural_se,
                         'urban_ss'=>$glimpes->urban_ss,
                         'urban_se'=>$glimpes->urban_se,
-                        'category'=>$glimpes->area_wise_indicator
+                        'category'=>!is_null($glimpes->area_wise_indicator)?(int)$glimpes->area_wise_indicator:3
                     );
                     $management[]=(object)array(
                         'state_id'=>$glimpes->state_code,
@@ -535,9 +536,9 @@ class FinalNationalProcessController extends Controller
                         'pvt_se'=>$glimpes->se_private,
                         'central_govt__ss'=>$glimpes->central_govt,
                         'central_govt_se'=>$glimpes->se_central_govt,
-                        'govt_category'=>$glimpes->govt_indicator,
-                        'pvt_category'=>$glimpes->prvt_indicator,
-                        'central_govt_category'=>$glimpes->cent_govt_indicator,
+                        'govt_category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
+                        'pvt_category'=>!is_null($glimpes->prvt_indicator)?(int)$glimpes->prvt_indicator:3,
+                        'central_govt_category'=>!is_null($glimpes->cent_govt_indicator)?(int)$glimpes->cent_govt_indicator:3,
 
                     );
                     $social[]=(object)array(
@@ -550,9 +551,9 @@ class FinalNationalProcessController extends Controller
                         'st_se'=>$glimpes->se_st,
                         'obc_ss'=>$glimpes->obc,
                         'obc_se'=>$glimpes->se_obc,
-                        'gen_category'=>$glimpes->gen_indicator,
-                        'st_category'=>$glimpes->st_indicator,
-                        'obc_category'=>$glimpes->obc_indicator	
+                        'gen_category'=>!is_null($glimpes->gen_indicator)?(int)$glimpes->gen_indicator:3,
+                        'st_category'=>!is_null($glimpes->st_indicator)?(int)$glimpes->st_indicator:3,
+                        'obc_category'=>!is_null($glimpes->obc_indicator)?(int)$glimpes->obc_indicator:3	
                     );
                 }
                 

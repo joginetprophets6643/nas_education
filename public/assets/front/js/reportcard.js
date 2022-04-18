@@ -2067,7 +2067,7 @@ function createGlimpsesScreen(data) {
   let graphs = []
 
   // sections for performance screen
-  const sections = ['Cards', 'Location', 'Gender', 'Management']
+  const sections = ['Cards', 'Location', 'Gender']
 
 
   const data_b = data[0]
@@ -2125,12 +2125,12 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
   let category2 = []
   let category3 = []
   await states.map((state, index) => {
-    const type_of_state = getColourOfState(req_colors, state.state_id, section_data)
+    const type_of_state = getColourOfState(req_colors, state.udise_state_code, section_data)
     let required_data = []
     if (state.state_name === 'Delhi') {
-      required_data = ['nct of delhi', state.state_id]
+      required_data = ['nct of delhi', state.udise_state_code]
     } else {
-      required_data = [state.state_name.toLowerCase(), state.state_id]
+      required_data = [state.state_name.toLowerCase(), state.udise_state_code]
     }
     if (type_of_state.category === 0) {
       category1.push(required_data)
