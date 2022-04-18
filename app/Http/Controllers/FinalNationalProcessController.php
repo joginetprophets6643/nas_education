@@ -321,7 +321,7 @@ class FinalNationalProcessController extends Controller
             $social=array();
             foreach($GlimpsesData as $key=>$glimpes){
 
-                if($glimpes->subject==$subject){
+                if($glimpes->subject==$subject && $glimpes->state_code!=0){
                     $cards[]=(object)array(
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
@@ -412,7 +412,7 @@ class FinalNationalProcessController extends Controller
             $social=array();
             foreach($GlimpsesData as $key=>$glimpes){
 
-                if($glimpes->subject==$subject){
+                if($glimpes->subject==$subject && $glimpes->state_code!=0){
                     $cards[]=(object)array(
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
@@ -503,7 +503,7 @@ class FinalNationalProcessController extends Controller
             $social=array();
             foreach($GlimpsesData as $key=>$glimpes){
 
-                if($glimpes->subject==$subject){
+                if($glimpes->subject==$subject && $glimpes->state_code!=0){
                     $cards[]=(object)array(
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
