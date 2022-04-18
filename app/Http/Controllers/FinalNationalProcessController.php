@@ -312,6 +312,7 @@ class FinalNationalProcessController extends Controller
 
         $glimpesArray = array();
         $subjects=['lang','evs','math'];
+        $real_subjects=['lang'=> 'language','evs'=>'evs','math'=>'math'];
         foreach($subjects as $subject){
 
             $cards=array();
@@ -377,7 +378,7 @@ class FinalNationalProcessController extends Controller
                 
             }
 
-            $glimpesArray[$subject]=array(
+            $glimpesArray[$real_subjects[$subject]]=array(
                 'cards'=>$cards,
                 'gender'=>$gender,
                 'location'=>$location,
@@ -403,6 +404,7 @@ class FinalNationalProcessController extends Controller
 
         $glimpesArray = array();
         $subjects=['lang','math','sci','sst'];
+        $real_subjects=['lang'=> 'language','sci'=>'sci','sst'=>'sst','math'=>'math'];
         foreach($subjects as $subject){
 
             $cards=array();
@@ -468,7 +470,7 @@ class FinalNationalProcessController extends Controller
                 
             }
 
-            $glimpesArray[$subject]=array(
+            $glimpesArray[$real_subjects[$subject]]=array(
                 'cards'=>$cards,
                 'gender'=>$gender,
                 'location'=>$location,
@@ -494,6 +496,7 @@ class FinalNationalProcessController extends Controller
 
         $glimpesArray = array();
         $subjects=['mil','math','sci','sst','eng'];
+        $real_subjects=['mil'=>'mil','math'=>'math','sci'=>'sci','sst'=>'sst','eng'=>'eng'];
         foreach($subjects as $subject){
 
             $cards=array();
@@ -559,7 +562,7 @@ class FinalNationalProcessController extends Controller
                 
             }
 
-            $glimpesArray[$subject]=array(
+            $glimpesArray[$real_subjects[$subject]]=array(
                 'cards'=>$cards,
                 'gender'=>$gender,
                 'location'=>$location,
