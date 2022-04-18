@@ -795,6 +795,44 @@ ul {
           justify-content: space-between;
 }
 
+.site-header #navbarNav .top-link {
+  margin-top: 0.9rem;
+}
+
+.site-header #navbarNav .top-link .select-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.site-header #navbarNav .top-link .select-wrap .form-select {
+  font-size: 13px;
+  background: transparent;
+  border-color: #5e5e5e;
+  color: #5e5e5e;
+  padding: 0 15px 0 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.site-header #navbarNav .top-link .select-wrap .form-select option {
+  color: #5e5e5e;
+}
+
+.site-header #navbarNav .top-link .select-wrap span {
+  color: #5e5e5e;
+  position: absolute;
+  right: -2px;
+  z-index: 1;
+}
+
 .site-header .navbar-nav .nav-item {
   margin-right: 30px;
 }
@@ -3029,6 +3067,10 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.category-wrap .img-wrap svg {
+  height: 100px;
 }
 
 .category-wrap .percentage {
@@ -5322,7 +5364,7 @@ ul {
 }
 
 .progressbar-line .progress-bar {
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px;
   position: relative;
   overflow: unset;
   width: 0;
@@ -8347,27 +8389,31 @@ ul {
 }
 
 .activity-wrap .progressbar-circle-sm .progress {
-  width: 125px;
-  height: 125px;
-  line-height: 125px;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
 }
 
 .activity-wrap .progressbar-circle-sm .progress:after {
-  border: 14px solid #fff;
+  border: 12px solid #fff;
 }
 
-.activity-wrap .progressbar-circle-sm .progress .progress-right .progress-bar,
+.activity-wrap .progressbar-circle-sm .progress .progress-right .progress-bar {
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+}
+
 .activity-wrap .progressbar-circle-sm .progress .progress-left .progress-bar {
-  border-top-left-radius: 125px;
-  border-bottom-left-radius: 125px;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
 }
 
 .activity-wrap .progressbar-circle-sm .progress .progress-bar {
-  border-width: 14px;
+  border-width: 12px;
 }
 
 .activity-wrap .progressbar-circle-sm .progress .progress-value {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .activity-list-content {
@@ -8442,6 +8488,7 @@ ul {
   -webkit-box-orient: vertical;
   white-space: normal;
   overflow: hidden;
+  min-height: 40px;
 }
 
 .glimps-wrap {
