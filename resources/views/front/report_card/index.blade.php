@@ -240,6 +240,7 @@
 <script>
       $(document).on('click','.stateopen', function(e) {
         $('.sidebaroverlay,#statesidebar').addClass('opened');
+        $('#rc-state-search').focus()
       });
       $(document).on('click','.districtopen', function(e) {
         $('.sidebaroverlay,#districtsidebar').addClass('opened');
@@ -252,6 +253,9 @@
           $('.district-select').select2();
       });
 
+      $(document).on('select2:open', () => {
+          document.querySelector('.select2-search__field').focus();
+      });
       
     function preventSymbols(e) {
       var key = e.keyCode;
