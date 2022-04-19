@@ -80,7 +80,6 @@ class AdminController extends BaseController
     public function logout()
     {
             Auth::logout();
-            Session::flush();
             return redirect('secure-admin')->with('success','Logout Sucessfully');
     }
 
