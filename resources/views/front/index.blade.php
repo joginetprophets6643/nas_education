@@ -189,7 +189,7 @@
                   </ul>
                 </div> -->
 
-                <div class="info-wrap">
+                <div class="info-wrap" id="demographics_details">
                   <div class="infotab-content-wrap">
                     <div class="row">
                       <div class="col-md-12 col-lg-6">
@@ -908,7 +908,14 @@
     // console.log(info)
     
     // populating demographics
-
+    if(type==='district' && info.literacy_rate==null){
+      $('#demographics_details').addClass('otp-dis');
+    }
+    else{
+      if($('#demographics_details').hasClass('otp-dis')){
+        $('#demographics_details').removeClass('otp-dis');
+      }
+    }
     $('.type_of_chart').html(display_name)
     $('#literacy_rate').html(info.literacy_rate ? info.literacy_rate+'%' : 0+'%' )
     $('#total_area').html(info.total_district_area ? info.total_district_area : 0)

@@ -1913,16 +1913,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_pq_q10 as dist_avg, 'pq' level, 'Students go out and play during games period' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to any digital device of class 3, 5 and 8 avail computer in the school' question_desc, 0 question_code, 0 total_parent
-        from grade3districttable
-        union all
-        select id, state_code, dist_code, Dist_pq_q30 as dist_avg, 'pq' level, 'students of class 10 have laboratory facility in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to digital device avail computer in the school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
         select id, state_code, dist_code, Dist_pq_q27g as dist_avg, 'pq' level, 'Students have internet connectivity at home' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Student get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
         select id, state_code, dist_code, Dist_tq_q30 as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
@@ -1967,13 +1964,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_sq_q09 as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Teachers know the protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
         select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers know school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         ";
         return $query;
@@ -1994,16 +1991,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_pq_q10 as dist_avg, 'pq' level, 'Students go out and play during games period' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to any digital device of class 3, 5 and 8 avail computer in the school' question_desc, 0 question_code, 0 total_parent
-        from grade5districttable
-        union all
-        select id, state_code, dist_code, Dist_pq_q30 as dist_avg, 'pq' level, 'Students of class 10 have laboratory facility in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to digital device avail computer in the school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
         select id, state_code, dist_code, Dist_pq_q27g as dist_avg, 'pq' level, 'Students have internet connectivity at home' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Student get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
         select id, state_code, dist_code, Dist_tq_q30 as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
@@ -2048,13 +2042,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_sq_q09 as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Teachers know the protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
         select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers know school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         ";
         return $query;
@@ -2074,16 +2068,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_pq_q10 as dist_avg, 'pq' level, 'Students go out and play during games period' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to any digital device of class 3, 5 and 8 avail computer in the school' question_desc, 0 question_code, 0 total_parent
-        from grade8districttable
-        union all
-        select id, state_code, dist_code, Dist_pq_q30 as dist_avg, 'pq' level, 'Students of class 10 have laboratory facility in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to digital device avail computer in the school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
         select id, state_code, dist_code, Dist_pq_q27g as dist_avg, 'pq' level, 'Students have internet connectivity at home' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Student get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
         select id, state_code, dist_code, Dist_tq_q30 as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
@@ -2128,13 +2119,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_sq_q09 as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Teachers know the protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
         select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers know school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         ";
         return $query;
@@ -2154,7 +2145,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_pq_q10 as dist_avg, 'pq' level, 'Students go out and play during games period' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to any digital device of class 3, 5 and 8 avail computer in the school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q08 as dist_avg, 'pq' level, 'Students have access to digital device avail computer in the school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
         select id, state_code, dist_code, Dist_pq_q30 as dist_avg, 'pq' level, 'students of class 10 have laboratory facility in school' question_desc, 0 question_code, 0 total_parent
@@ -2163,7 +2154,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_pq_q27g as dist_avg, 'pq' level, 'Students have internet connectivity at home' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_pq_q29f as dist_avg, 'pq' level, 'Student get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
         select id, state_code, dist_code, Dist_tq_q30 as dist_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
@@ -2208,13 +2199,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_sq_q09 as dist_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q18 as dist_avg, 'tq' level, 'Teachers know the protocal for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
         select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers know school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         ";
         return $query;
