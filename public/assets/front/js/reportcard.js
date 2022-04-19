@@ -1788,7 +1788,7 @@ async function createInformationScreen(data) {
     }
   }
   $('#' + prefix + 'area_class3').html(dataToShow.total_district_area)
-  $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population) + ' Crores')
+  $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population))
   $('#' + prefix + 'density_class3').html(Math.round(dataToShow.density_of_population))
   $('#' + prefix + 'sex_ratio_class3').html(Math.round(dataToShow.child_sex_ratio))
   $('#' + prefix + 'literacy_class3').html(dataToShow.literacy_rate)
