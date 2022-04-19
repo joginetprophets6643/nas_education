@@ -158,7 +158,7 @@ class FrontController extends Controller
     }
 
     public function logout(){
-        Session::flush();
+        Session::forget('auth-user');
         return redirect()->route('user-login');
     }
 }
