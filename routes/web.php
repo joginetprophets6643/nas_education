@@ -403,7 +403,7 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
 
 
 //Front Routes
-// Route::group(["middleware" => ["authCheck"]], function(){
+Route::group(["middleware" => ["authCheck"]], function(){
 
     Route::group(["middleware" => ["language"]], function(){
         Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
@@ -474,13 +474,13 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
     });
 
     Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
-    // Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
+    Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
 
-// });
+});
 
-// Route::group(["middleware" => ["loggedCheck"]], function(){
+Route::group(["middleware" => ["loggedCheck"]], function(){
 
-//     Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
-//     Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
+    Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
+    Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
 
-// });
+});
