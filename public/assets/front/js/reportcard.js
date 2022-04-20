@@ -73,7 +73,6 @@ let screens = ['information', 'participation', 'performance', 'learning', 'feedb
 
 let selected_geography = ''
 let global_filters = {}     // added for new change
-
 $(document).ready(() => {
   $.ajax({
     type: "GET",
@@ -2075,7 +2074,7 @@ function createGlimpsesScreen(data) {
   let graphs = []
 
   // sections for performance screen
-  const sections = ['Cards', 'Location', 'Gender']
+  const sections = ['Cards', 'Location', 'Gender', 'Management']
 
 
   const data_b = data[0]
@@ -2429,4 +2428,158 @@ function preventSymbols(e) {
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function getGlimpsesData(subject, legend, type = 'card') {
+  glimpses_data = JSON.parse(sessionStorage.getItem('glimpses_data'))
+  getGlimpsesSubjectData(JSON.parse(glimpses_data[0].data), subject, legend, type)
+}
+
+function getGlimpsesSubjectData(data, subject, legend, type) {
+  Object.keys(data).forEach((sub) => {
+    if (sub == subject) {
+      getGlimpsesLegendData(data[sub], legend, type)
+    }
+  })
+}
+
+function getGlimpsesLegendData(data, legend, type) {
+  Object.keys(data).forEach((legends) => {
+    if (legends == legend) {
+      generateGlimpsesTable(data[legend], type)
+    }
+  })
+}
+
+function generateGlimpsesTable(data, type) {
+  innerHtml = ''
+  let states = JSON.parse(sessionStorage.getItem('states'))
+  let current_state = ''
+  data.forEach((actual_data) => {
+    current_state = states.filter((state) => {
+      if (state.udise_state_code == actual_data.state_id) {
+        return state.state_name
+      }
+    })
+    state_name = current_state.length != 0 ? current_state[0].state_name : 'N/A'
+    if (actual_data.category == 0) {
+
+      if (type == 'card') {
+        innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data.ss}</td>
+                  <td>${actual_data.se}</td>
+                  <td>
+                    <div class="icon-status icon-color-red">
+                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                    </div>
+                  </td>
+                </tr>`
+      }
+      else {
+        console.log(type)
+        innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data[type + '_ss']}</td>
+                  <td>${actual_data[type + '_se']}</td>
+                  <td>
+                    <div class="icon-status icon-color-red">
+                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                    </div>
+                  </td>
+                </tr>`
+      }
+
+    }
+    else if (actual_data.category == 1) {
+
+      if (type == 'card') {
+        innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data.ss}</td>
+                  <td>${actual_data.se}</td>
+                  <td>
+                    <div class="icon-status icon-color-yellow">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                    </svg>
+                    </div>
+                  </td>
+                </tr>`
+      } 
+      else {
+        innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data[type + '_ss']}</td>
+                  <td>${actual_data[type + '_se']}</td>
+                  <td>
+                    <div class="icon-status icon-color-yellow">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                    </svg>
+                    </div>
+                  </td>
+                </tr>`
+      }
+
+    }
+    else if (actual_data.category == 2) {
+
+      if (type == 'card') {
+        innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data.ss}</td>
+                  <td>${actual_data.se}</td>
+                  <td>
+                    <div class="icon-status icon-color-green">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                    </svg>
+                    </div>
+                  </td>
+                </tr>`
+      } 
+      else {
+        innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data[type + '_ss']}</td>
+                  <td>${actual_data[type + '_se']}</td>
+                  <td>
+                    <div class="icon-status icon-color-green">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                    </svg>
+                    </div>
+                  </td>
+                </tr>`
+      }
+
+    }
+    else {
+
+      if (type == 'card') {
+        innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data.ss}</td>
+                  <td>${actual_data.se}</td>
+                  <td>
+                    N/A
+                  </td>
+                </tr>`
+      } 
+      else {
+        innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data[type + '_ss']}</td>
+                  <td>${actual_data[type + '_se']}</td>
+                  <td>
+                    N/A
+                  </td>
+                </tr>`
+      }
+
+    }
+
+  })
+  $('#display_data').html(innerHtml)
 }
