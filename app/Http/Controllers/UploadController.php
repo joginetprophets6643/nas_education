@@ -441,7 +441,7 @@ class UploadController extends Controller
             foreach($files as $file){
                 $filename = $file->getClientOriginalName();
                 $csv=public_path($filename);
-                if($filename=="G03y21_DistrictReports.csv" || $filename=="G05y21_DistrictReports.csv" || $filename=="G08y21_DistrictReports.csv" || $filename=="G10y21_StateReports.csv" || $filename=="G03y21_StateReports.csv" || $filename=="G05y21_StateReports.csv" || $filename=="G08y21_StateReports.csv" || $filename=="G10y21_StateReports.csv"){
+                if($filename=="G03y21_DistrictReports.csv" || $filename=="G05y21_DistrictReports.csv" || $filename=="G08y21_DistrictReports.csv" || $filename=="G10y21_DistrictReports.csv" || $filename=="G03y21_StateReports.csv" || $filename=="G05y21_StateReports.csv" || $filename=="G08y21_StateReports.csv" || $filename=="G10y21_StateReports.csv"){
                     $file->move(public_path(''),$filename);
                 }
                 else{
