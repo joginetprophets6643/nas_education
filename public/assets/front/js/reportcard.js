@@ -1208,7 +1208,7 @@ function updateData(data) {
         mil: 0,
         eng: 0,
       }
-      // console.log(data)
+      
       $('.state-header').hide()
       $('.district-header').hide()
       $('.national-header').hide()
