@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuthTable extends Migration
+class CreateLastModifiedTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,6 +27,6 @@ class CreateAuthTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auth');
+        Schema::dropIfExists('last_modified');
     }
 }
