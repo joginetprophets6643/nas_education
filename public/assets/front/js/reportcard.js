@@ -2347,6 +2347,7 @@ function createCumulativeCardsForPerformance(data) {
       national: 0
     },
   }
+  
 
   const divisor = {
     evs: 2,
@@ -2396,7 +2397,7 @@ function createCumulativeCardsForPerformance(data) {
           val = Math.round(cumulative_subject_count[subject][demo] / divisor[subject])
         }
         if (selected_geography === 'national') {
-          val = Math.round(cumulative_subject_count[subject][demo])
+          val = Math.round(cumulative_subject_count[subject][demo] / divisor[subject])
           where = screenType + selected_geography + '_' + subject + '_' + demo + '_class' + classType
         }
         updateCards(where, val)
