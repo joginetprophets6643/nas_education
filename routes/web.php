@@ -119,7 +119,8 @@ Route::get('/src-final-data/state-data-lo',[FinalParticipationStateController::c
 /*********************************
 * National Level Data upload start
 **********************************/
-Route::get('/national-final-data/participation',[FinalNationalProcessController::class,'allgradeParticipationData'])->name('national-participate');
+Route::get('/national-final-data/participation',[FinalNationalProcessController::class,'allnationalParticipationData'])->name('national-participate');
+Route::get('/national-final-data/performance',[FinalNationalProcessController::class,'allnationalPerformancedata'])->name('national-performance');
 Route::get('/national-final-data/glimpses',[FinalNationalProcessController::class,'glimpes'])->name('national-glimpses');
 
 /*********************************

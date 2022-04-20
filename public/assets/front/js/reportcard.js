@@ -815,12 +815,12 @@ async function getData() {
     },
     performance: {
       state: 'state_grade_level_performance',
-      national: 'performance_master',
+      national: 'national_grade_level_performance',
       district: 'performance_master',
     },
     learning: {
       state: 'state_grade_level_learningoutcome',
-      national: 'district_grade_level_learningoutcome',
+      national: 'national_grade_level_learningoutcome',
       district: 'district_grade_level_learningoutcome',
     },
     feedback: {
@@ -851,12 +851,20 @@ async function getData() {
     } else {
       table = screen_wise_table[screenType][selected_geography]
       if (screenType === 'performance' && selected_geography === 'national') {
-        limit = 1
+        //console.log(global_filters.grade._eq)
+        if(global_filters.grade){
+          limit = 1
+        }
+        else{
+          limit = 4
+        }
+        
       }
     }
     if (screenType === 'information') {
       global_filters = {}
     }
+    
     await $.ajax({
       type: "GET",
       url: api_url + table + '?limit=' + limit + '&filter=' + JSON.stringify(global_filters),
@@ -1146,7 +1154,7 @@ function updateData(data) {
           empty = false
         }
         if (!empty) {
-          if (selected_geography === 'national') {
+          if (selected_geography === 'national' && classType != 'all') {
             data = [data.pop()]
           }
           if (classType === 'all') {

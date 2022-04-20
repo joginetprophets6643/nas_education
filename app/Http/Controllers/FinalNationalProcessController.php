@@ -11,11 +11,8 @@ use DB;
 
 class FinalNationalProcessController extends Controller
 {
-    public function allgradeParticipationData()
+    public function allnationalParticipationData()
     {    
-        $nationalLevelPerfomanceData =DB::table('grade3nationaltable')->get();
-        dd($nationalLevelPerfomanceData);
-        
          DB::table('all_grade_national_participation_tbl')->truncate();
          $grade3PrcoessData = $this->grade3ParticipationData();
          $grade5PrcoessData = $this->grade5ParticipationData();
@@ -31,7 +28,7 @@ class FinalNationalProcessController extends Controller
         $national_data= $this->selectData(3);
 
         foreach($final_data as $data){
-            AllGradeStateParticipationTBL::insert([
+            AllGradeNationalParticipationTBL::insert([
                 "state_id" =>$data->state_code,
                 "grade"  =>3,
                 "total_school" =>$national_data->total_school,
@@ -75,7 +72,7 @@ class FinalNationalProcessController extends Controller
         $final_data=DB::table('grade5nationaltable')->get();
         $national_data= $this->selectData(5);
         foreach($final_data as $data){
-            AllGradeStateParticipationTBL::insert([
+            AllGradeNationalParticipationTBL::insert([
                 "state_id" =>$data->state_code,
                 "grade"  =>5,
                 "total_school" =>$national_data->total_school,
@@ -115,7 +112,7 @@ class FinalNationalProcessController extends Controller
         $final_data=DB::table('grade8nationaltable')->get();
         $national_data= $this->selectData(8);
         foreach($final_data as $data){
-            AllGradeStateParticipationTBL::insert([
+            AllGradeNationalParticipationTBL::insert([
                 "state_id" =>$data->state_code,
                 "grade"  =>8,
                 "total_school" =>$national_data->total_school,
@@ -155,7 +152,7 @@ class FinalNationalProcessController extends Controller
         $final_data=DB::table('grade10nationaltable')->get();
         $national_data= $this->selectData(10);
         foreach($final_data as $data){
-            AllGradeStateParticipationTBL::insert([
+            AllGradeNationalParticipationTBL::insert([
                 "state_id" =>$data->state_code,
                 "grade"  =>10,
                 "total_school" =>$national_data->total_school,
@@ -200,9 +197,152 @@ class FinalNationalProcessController extends Controller
         return($data);
     }
 
-    public function performance(){
-        $nationalLevelPerfomanceData =DB::table('grade3nationaltable')->get();
-        dd($nationalLevelPerfomanceData);
+    public function allnationalPerformancedata()
+    {
+        DB::table('national_grade_level_performance')->truncate();
+        $grade3PrcoessData = $this->grade3PerformanceData();
+        $grade5PrcoessData = $this->grade5PerformanceData();
+        $grade8PrcoessData = $this->grade8PerformanceData();
+        $grade10PrcoessData = $this->grade10PerformanceData();
+    }
+
+    public function grade3PerformanceData()
+    {
+            $newnationalArray = array();
+            $newnationalArray['language'] =array(
+                'cards'=>array(
+                    'national'=>323
+                )
+            );
+            
+            $newnationalArray['math'] =array(
+                'cards'=>array(
+                    'national'=>306
+                )
+            );
+            
+            $newnationalArray['evs'] =array(
+                'cards'=>array(
+                    'national'=>307
+                )
+            );
+                
+            $nationalArr['grade'] = 3;
+            $nationalArr['data'] = json_encode($newnationalArray);
+            $nationalArr['created_at'] = now();
+            $nationalArr['updated_at'] = now();
+            
+            $nationalPerformaceData[]=$nationalArr;
+        NationalGradeLevelPerformance::insert($nationalPerformaceData);
+    }
+
+    public function grade5PerformanceData()
+    {
+            $newnationalArray = array();
+            $newnationalArray['language'] =array(
+                'cards'=>array(
+                    'national'=>309
+                )
+            );
+            
+            $newnationalArray['math'] =array(
+                'cards'=>array(
+                    'national'=>284
+                )
+            );
+            
+            $newnationalArray['evs'] =array(
+                'cards'=>array(
+                    'national'=>283
+                )
+            );
+        
+        $nationalArr['grade'] = 5;
+        $nationalArr['data'] = json_encode($newnationalArray);
+        $nationalArr['created_at'] = now();
+        $nationalArr['updated_at'] = now();
+        
+        $nationalPerformaceData[]=$nationalArr;
+        NationalGradeLevelPerformance::insert($nationalPerformaceData);
+    }
+
+    public function grade8PerformanceData()
+    {
+            $newnationalArray = array();
+            $newnationalArray['language'] =array(
+                'cards'=>array(
+                    'national'=>302
+                )
+            );
+            
+            $newnationalArray['math'] =array(
+                'cards'=>array(
+                    'national'=>255
+                )
+            );
+            
+            $newnationalArray['sci'] =array(
+                'cards'=>array(
+                    'national'=>250
+                )
+            );
+
+            $newnationalArray['sst'] =array(
+                'cards'=>array(
+                    'national'=>255
+                )
+            );
+
+        
+        $nationalArr['grade'] = 8;
+        $nationalArr['data'] = json_encode($newnationalArray);
+        $nationalArr['created_at'] = now();
+        $nationalArr['updated_at'] = now();
+        
+        $nationalPerformaceData[]=$nationalArr;
+        NationalGradeLevelPerformance::insert($nationalPerformaceData);
+    }
+
+    public function grade10PerformanceData()
+    {
+            $newnationalArray = array();
+            $newnationalArray['math'] =array(
+                'cards'=>array(
+                    'national'=>220
+                )
+            );
+            
+            $newnationalArray['sci'] =array(
+                'cards'=>array(
+                    'national'=>206
+                )
+            );
+
+            $newnationalArray['sst'] =array(
+                'cards'=>array(
+                    'national'=>231
+                )
+            );
+
+            $newnationalArray['eng'] =array(
+                'cards'=>array(
+                    'national'=>277
+                )
+            );
+
+            $newnationalArray['mil'] =array(
+                'cards'=>array(
+                    'national'=>260
+                )
+            );
+
+        $nationalArr['grade'] = 10;
+        $nationalArr['data'] = json_encode($newnationalArray);
+        $nationalArr['created_at'] = now();
+        $nationalArr['updated_at'] = now();
+        
+        $nationalePerformaceData[]=$nationalArr;
+        NationalGradeLevelPerformance::insert($nationalePerformaceData);
     }
 
     public function glimpes(){
