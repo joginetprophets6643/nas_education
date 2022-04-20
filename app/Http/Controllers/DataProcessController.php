@@ -20,6 +20,7 @@ class DataProcessController extends Controller
 
         $final_data=DB::table('district_school_teacher')->get();
         // dd($final_data[0]);
+        $demog_data=DB::table('district_demographic_details')->get();
 
         NationalStatistic::where('id',1)->update([
             'no_of_schools'=>$final_data[0]->total_schools,
@@ -49,26 +50,25 @@ class DataProcessController extends Controller
 
             ]);  
             
-            State_Master::where('udise_state_code',$data->state_code)->update([
+            
 
-                // 'total_district_area'=>$data->drc_area_tot,
-                // 'total_population'=>$data->drc_pop_tot,
-                // 'rural_population'=>$data->drc_pop_rur,
-                // 'urban_population'=>$data->drc_pop_urb,
-                // 'density_of_population'=>$data->drc_den_tot,
-                // 'literacy_rate'=>$data->drc_lit_tot,
-                // 'child_sex_ratio'=>$data->drc_csr_tot,
-                'no_of_schools'=>$data->total_schools,
-                'state_govt_schools'=>$data->state_govt_school,
-                'govt_aided_schools'=>$data->govt_aided_school,
-                'central_govt_schools'=>$data->central_govt_school,
-                'private_unaided_reco_schools'=>$data->private_unaided_school,
-                'teacher_state_govt_schools'=>$data->state_govt_teacher,
-                'teacher_govt_aided_schools'=>$data->govt_aided_teacher,
-                'teacher_central_govt_schools'=>$data->central_govt_teacher,
-                'teacher_private_unaided_reco_schools'=>$data->private_unaided_teacher
+        }
+
+        foreach($demog_data as $data){
+
+            District_Master::where('udise_district_code',$data->dist_code)->update([
+
+                'total_district_area'=>round($data->total_area,2),
+                'total_population'=>$data->total_population,
+                'rural_population'=>$data->rural_population,
+                'urban_population'=>$data->urban_population,
+                'density_of_population'=>round($data->population_density,2),
+                'literacy_rate'=>$data->literacy_rate,
+                'child_sex_ratio'=>$data->child_sex_ration,
 
             ]);  
+            
+            
 
         }
         return "District Master Updated Successfully";
@@ -77,6 +77,7 @@ class DataProcessController extends Controller
 
      public function stateMaster(){
         $final_data=DB::table('district_school_teacher')->get();
+        $demog_data=DB::table('district_demographic_details')->get();
         // dd($final_data[0]);
         $codes=['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','27','28','29','30','31','32','33','34','35','36','37','38'];
         $temp=array();
@@ -90,6 +91,13 @@ class DataProcessController extends Controller
             $govt_aided_teacher=0;
             $central_govt_teacher=0;
             $private_unaided_teacher=0;
+            $total_area=0;
+            $total_population=0;
+            $rural_population=0;
+            $urban_population=0;
+            $density_of_population=0;
+            $literacy_rate=0;
+            $child_sex_ratio=0;
             foreach($final_data as $data){
                 if($data->state_code==$code){
                     $total_schools+=$data->total_schools;
@@ -104,7 +112,26 @@ class DataProcessController extends Controller
                 }
             }
 
+            foreach($demog_data as $data){
+                if($data->state_code==$code){
+                    $total_area+=$data->total_area;
+                    $total_population+=$data->total_population;
+                    $rural_population+=$data->rural_population;
+                    $urban_population+=$data->urban_population;
+                    $density_of_population+=$data->population_density;
+                    $literacy_rate+=$data->literacy_rate;
+                    $child_sex_ratio+=$data->child_sex_ration;
+                }
+            }
+
             $temp[$code] = array(
+                        'total_area'=>$total_area,
+                        'total_population'=>$total_population,
+                        'rural_population'=>$rural_population,
+                        'urban_population'=>$urban_population,
+                        'density_of_population'=>$density_of_population,
+                        'literacy_rate'=>$literacy_rate,
+                        'child_sex_ratio'=>$child_sex_ratio,
                         'total_schools'=>$total_schools,
                         'state_govt_schools'=>$state_govt_school,
                         'govt_aided_schools'=>$govt_aided_school,
@@ -122,6 +149,14 @@ class DataProcessController extends Controller
         foreach($temp as $key=>$value){
                 // dd($key,$value);
             State_Master::where('udise_state_code',$key)->update([
+                'total_district_area'=>round($value['total_area'],2),
+                'total_population'=>$value['total_population'],
+                'rural_population'=>$value['rural_population'],
+                'urban_population'=>$value['urban_population'],
+                'density_of_population'=>round($value['density_of_population'],2),
+                'literacy_rate'=>$value['literacy_rate'],
+                'child_sex_ratio'=>$value['child_sex_ratio'],
+
                 'no_of_schools'=>$value['total_schools'],
                 'state_govt_schools'=>$value['state_govt_schools'],
                 'govt_aided_schools'=>$value['govt_aided_schools'],
@@ -152,6 +187,11 @@ class DataProcessController extends Controller
         // dd($districts);
         foreach($districts as $district){
             DB::table('district_school_teacher')->where('code',$district->udise_district_code)->update([
+                'state_code'=>$district->udise_state_code
+            ]);
+        }
+        foreach($districts as $district){
+            DB::table('district_demographic_details')->where('dist_code',$district->udise_district_code)->update([
                 'state_code'=>$district->udise_state_code
             ]);
         }

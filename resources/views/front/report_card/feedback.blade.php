@@ -5,7 +5,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-black text-left">
-                                              What children say about schools?
+                                              What students have to say about schools?
                                             </h2>
                                             <div class="row" id="feedback_pq_class3">
                                             </div>

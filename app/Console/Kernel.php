@@ -41,22 +41,22 @@ class Kernel extends ConsoleKernel
         // ->everyMinute();
         // $schedule->command('Src10:cron')
         // ->everyMinute();
-        $schedule->command('Nrc3:cron')
-        ->everyMinute();
-        $schedule->command('Nrc5:cron')
-        ->everyMinute();
-        $schedule->command('Nrc8:cron')
-        ->everyMinute();
-        $schedule->command('Nrc10:cron')
-        ->everyMinute();
-        // $schedule->command('Drc3:cron')
+        // $schedule->command('Nrc3:cron')
         // ->everyMinute();
-        // $schedule->command('Drc5:cron')
+        // $schedule->command('Nrc5:cron')
         // ->everyMinute();
-        // $schedule->command('Drc8:cron')
+        // $schedule->command('Nrc8:cron')
         // ->everyMinute();
-        // $schedule->command('Drc10:cron')
+        // $schedule->command('Nrc10:cron')
         // ->everyMinute();
+        $schedule->command('Drc3:cron')
+        ->everyMinute();
+        $schedule->command('Drc5:cron')
+        ->everyMinute();
+        $schedule->command('Drc8:cron')
+        ->everyMinute();
+        $schedule->command('Drc10:cron')
+        ->everyMinute();
         
     }
 

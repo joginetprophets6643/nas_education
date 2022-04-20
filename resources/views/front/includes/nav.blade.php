@@ -48,9 +48,9 @@
                       </div>
                     </a>
                   </li>
-                  <!-- <li>
-                    <a href="">Logout</a>
-                  </li> -->
+                  <li>
+                    <a href="{{route('user-logout')}}">Logout</a>
+                  </li>
                 </ul>
               </div>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,11 +86,22 @@
               @endif
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
+                <li class="nav-item d-flex justify-content-between">
                     <a class="nav-link home-link {{ Request::is('/') ? 'active' : '' }}" href="{{url('/')}}">
                       <span class="material-icons">
                         home
                       </span>
+                    </a>
+                    <a href="javascript:void(0)"  class="d-lg-none top-link">
+                      <div class="select-wrap">
+                        <select class="form-select Langchange">
+                          <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
+                          <option value="hi" {{ session()->get('locale') == 'hi' ? 'selected' : '' }}>Hindi</option>
+                        </select>
+                        <span class="material-icons">
+                          arrow_drop_down
+                        </span>
+                      </div>
                     </a>
                   </li>
                   <li class="nav-item">

@@ -161,6 +161,7 @@
                                               <span class="information_district_name"></span> district is one of the thirteen districts in the Indian state of <span class="information_state_name"></span>. It is also one of the four districts in the Rayalaseema region of the state.
                                               </h2>
                                             </div>
+                                            <div class="row" id="report_demographics_details">
                                             <div class="col-xl-4 col-xxl-3">
                                                 <div class="infotab-content light-blue-bg">
                                                   <h3 class="title">
@@ -230,6 +231,7 @@
                                                     918 girls per 1000 boys
                                                   </p>
                                                 </div>
+                                            </div>
                                             </div>
                                           </div>
                                         </div>

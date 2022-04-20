@@ -1,4 +1,4 @@
-@include('admin.includes.header')
+<link href="{{asset('assets/front-login/css/style.css')}}" rel="stylesheet">
 
 <body>
     <div class="container-scroller">
@@ -10,7 +10,7 @@
                 <div class="brand-logo">
                 <div class="row">
                 <div class="col-2">
-                <img src="{{asset('assets/admin/vendors/images/NAS_Icon.svg')}}" style="width:100%">
+                <img src="{{asset('assets/front-login/images/NAS_Icon.svg')}}" style="width:100%">
                 </div>
                 <div class="col-10">
                 <img src="{{asset('assets/front/images/logo.png')}}" style="width:100%">
@@ -53,9 +53,9 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    @include('admin.includes.footer')
   </body>
-
+  <script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
+  <script src="{{asset('assets/front/js/bootstrap.bundle.min.js')}}"></script>
   <script>
       $('#admin-title').html('NAS')
       $(function () {

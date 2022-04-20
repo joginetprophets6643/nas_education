@@ -57,6 +57,18 @@ Route::get('/drc/allGradesDataImport', function () {
     dd("All Grades Data Imported Successfully...");
 
 });
+
+Route::get('/nrc/allGradesDataImport', function () {
+    
+    DB::table('grade3nationaltable')->truncate();
+    DB::table('grade5nationaltable')->truncate();
+    DB::table('grade8nationaltable')->truncate();
+    DB::table('grade10nationaltable')->truncate();
+    \Artisan::call('schedule:run');
+
+    dd("All Grades Data Imported Successfully...");
+
+});
 /*********************************
 * 2017 Data upload end
 **********************************/
@@ -109,6 +121,7 @@ Route::get('/src-final-data/state-data-lo',[FinalParticipationStateController::c
 **********************************/
 Route::get('/national-final-data/participation',[FinalNationalProcessController::class,'allnationalParticipationData'])->name('national-participate');
 Route::get('/national-final-data/performance',[FinalNationalProcessController::class,'allnationalPerformancedata'])->name('national-performance');
+Route::get('/national-final-data/glimpses',[FinalNationalProcessController::class,'glimpes'])->name('national-glimpses');
 
 /*********************************
 * National Level Data upload end
@@ -391,7 +404,7 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
 
 
 //Front Routes
-// Route::group(["middleware" => ["authCheck"]], function(){
+Route::group(["middleware" => ["authCheck"]], function(){
 
     Route::group(["middleware" => ["language"]], function(){
         Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
@@ -462,13 +475,13 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
     });
 
     Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
-    // Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
+    Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
 
-// });
+});
 
-// Route::group(["middleware" => ["loggedCheck"]], function(){
+Route::group(["middleware" => ["loggedCheck"]], function(){
 
-//     Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
-//     Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
+    Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
+    Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
 
-// });
+});
