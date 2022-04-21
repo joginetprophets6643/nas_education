@@ -22,10 +22,18 @@ class DataProcessController extends Controller
         // dd($final_data[0]);
         $demog_data=DB::table('district_demographic_details')->get();
 
-        NationalStatistic::where('id',1)->update([
-            'no_of_schools'=>$final_data[0]->total_schools,
-            'no_of_teachers'=>$final_data[0]->total_teacher,
-        ]);
+        // $updated_demog_data=DB::table('literacy_ratio')->get();
+        // NationalStatistic::where('id',1)->update([
+        //     'no_of_schools'=>$final_data[0]->total_schools,
+        //     'no_of_teachers'=>$final_data[0]->total_teacher,
+        // ]);
+
+        // foreach($updated_demog_data as $data){
+        //     DB::table('district_demographic_details')->where('dist_code',$data->dist_code)->update([
+        //         'literacy_rate'=>$data->literacy_rate,
+        //         'child_sex_ration'=>$data->number_of_girls_per_1000_boys
+        //     ]);
+        // }
 
         foreach($final_data as $data){
 
@@ -58,13 +66,13 @@ class DataProcessController extends Controller
 
             District_Master::where('udise_district_code',$data->dist_code)->update([
 
-                'total_district_area'=>round($data->total_area,2),
-                'total_population'=>$data->total_population,
-                'rural_population'=>$data->rural_population,
+                'total_district_area'=>$data->area_in_sq_km,
+                'total_population'=>$data->persons,
+                'rural_population'=>$data->rural_polulation,
                 'urban_population'=>$data->urban_population,
-                'density_of_population'=>round($data->population_density,2),
+                'density_of_population'=>$data->population_density,
                 'literacy_rate'=>$data->literacy_rate,
-                'child_sex_ratio'=>$data->child_sex_ration,
+                'child_sex_ratio'=>$data->child_sex_ration_06_age,
 
             ]);  
             

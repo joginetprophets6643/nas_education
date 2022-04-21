@@ -908,7 +908,7 @@
     // console.log(info)
     
     // populating demographics
-    if(type==='district' && info.literacy_rate==null){
+    if(type==='district' && (info.total_district_area==null || info.total_district_area==0)){
       $('#demographics_details').addClass('otp-dis');
     }
     else{
