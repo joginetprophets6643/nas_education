@@ -591,4 +591,38 @@ function preventSymbols(e) {
     e.preventDefault();
   }
 }
+
+$(document).ready(function () {    
+    
+    $('#mobile').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (String.fromCharCode(charCode).match(/[^0-9]/g) || e.currentTarget.value.length == 10)    
+
+            return false;                        
+
+    });   
+    
+    $('#passw').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (e.currentTarget.value.length == 6)    
+
+            return false;                        
+
+    });
+
+    $('#conf_passw').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (e.currentTarget.value.length == 6)    
+
+            return false;                        
+
+    });   
+
+});
 </script>

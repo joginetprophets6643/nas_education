@@ -27,7 +27,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" autocomplete="off" required>
+                    <input type="password" name="password" class="form-control form-control-lg" id="passw" placeholder="Password" autocomplete="off" required>
                     @error('password')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -85,6 +85,19 @@
             }
 
           })
+
+        });
+
+      });
+
+      $(document).ready(function () {     
+    
+        $('#passw').keypress(function (e) {    
+            var charCode = (e.which) ? e.which : event.keyCode    
+
+            if (e.currentTarget.value.length == 11)    
+
+                return false;                        
 
         });
 

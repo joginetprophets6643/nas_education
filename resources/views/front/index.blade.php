@@ -201,7 +201,7 @@
                                   </h3>
                                   <p class="total-no">
                                   <span id="total_area">3.287</span>
-                                  <small>million km<sup>2</sup></small>
+                                  <small id="total_area_text">km<sup>2</sup></small>
                                   </p>
                                 </div>
                                 <div class="img">
@@ -892,16 +892,22 @@
 
     const info =  demographic_info.pop()
     if(type === 'state'){
+      $('#total_population').html(info.total_population ? parseInt(info.total_population).toLocaleString() : 0)
+      $('#total_area_text').html(`km<sup>2</sup>`)
       total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
                           + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
       display_name = info.state_name
       }
     else if(type === 'district'){
+      $('#total_population').html(info.total_population ? parseInt(info.total_population).toLocaleString() : 0)
+      $('#total_area_text').html(`km<sup>2</sup>`)
       total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
                           + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
       display_name = info.district_name
     }
     else{
+      $('#total_area_text').html(`million km<sup>2</sup>`)
+      $('#total_population').html(info.total_population ? parseInt(info.total_population).toLocaleString() + ' Crore': 0)
       total_teachers = info.no_of_teachers
       display_name = 'National'
     }
@@ -917,12 +923,11 @@
       }
     }
     $('.type_of_chart').html(display_name)
-    $('#literacy_rate').html(info.literacy_rate ? info.literacy_rate+'%' : 0+'%' )
-    $('#total_area').html(info.total_district_area ? info.total_district_area : 0)
-    $('#total_population').html(info.total_population ? info.total_population : 0)
-    $('#population_density').html(info.density_of_population ? info.density_of_population : 0)
-    $('#total_teachers').html(total_teachers)
-    $('#sex_ratio').html(info.child_sex_ratio ? info.child_sex_ratio : 0)
+    $('#literacy_rate').html(info.literacy_rate ? parseFloat(info.literacy_rate).toLocaleString()+'%' : 0+'%' )
+    $('#total_area').html(info.total_district_area ? (parseFloat(info.total_district_area)).toLocaleString() : 0)
+    $('#population_density').html(info.density_of_population ? parseFloat(info.density_of_population).toLocaleString() : 0)
+    $('#total_teachers').html(parseInt(total_teachers).toLocaleString())
+    $('#sex_ratio').html(info.child_sex_ratio ? parseFloat(info.child_sex_ratio).toLocaleString() : 0)
 
   }
 
