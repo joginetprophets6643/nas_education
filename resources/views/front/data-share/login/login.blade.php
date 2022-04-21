@@ -406,7 +406,17 @@ $(document).ready(function () {
 
             return false;                        
 
-    });    
+    });  
+    
+    $('#pass_log_id').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (e.currentTarget.value.length == 6)    
+
+            return false;                        
+
+    });
 
 });
 

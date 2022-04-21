@@ -96,7 +96,7 @@
                                 <form id="password-form" class="otp-dis" method="POST">
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
+                                            <input type="password" class="form-control" name="password" id="passw" placeholder="Password" autocomplete="off">
                                             <label class="form-input-label">Password</label>
                                             <span class="text-danger" id="conf_pass"></span>
                                         </div>
@@ -104,7 +104,7 @@
                                     <input type="hidden" name="user" id="user_mobile">
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" autocomplete="off">
+                                            <input type="password" class="form-control" name="password_confirmation" id="conf_passw" placeholder="Confirm Password" autocomplete="off">
                                             <label class="form-input-label">Confirm Password</label>
                                         </div>
                                     </div>
@@ -364,5 +364,39 @@ $('.s-btn').click(()=>{
     
     
 })
+
+$(document).ready(function () {    
+    
+    $('#mobile').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (String.fromCharCode(charCode).match(/[^0-9]/g) || e.currentTarget.value.length == 10)    
+
+            return false;                        
+
+    });   
+    
+    $('#passw').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (e.currentTarget.value.length == 6)    
+
+            return false;                        
+
+    });
+
+    $('#conf_passw').keypress(function (e) {    
+
+        var charCode = (e.which) ? e.which : event.keyCode    
+
+        if (e.currentTarget.value.length == 6)    
+
+            return false;                        
+
+    });   
+
+});
 
 </script>

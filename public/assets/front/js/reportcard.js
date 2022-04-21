@@ -395,7 +395,7 @@ async function createSidebarStates(data) {
     })
     // console.log(filteredDistrict)
 
-    state_list += '<div class="district-list" id="state_' + state.udise_state_code + '"><div class="d-flex align-items-center justify-content-between pb-15"><h2>' + state.state_name + '</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList(' + state.udise_state_code + ',false)"><span class="material-icons-round">highlight_off</span></button></div><ul id="district_' + state.udise_state_code + '_list">'
+    state_list += '<div class="district-list" id="state_' + state.udise_state_code + '"><div class="d-flex align-items-center justify-content-between pb-15"><h2>' + state.state_name + '</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList(' + state.udise_state_code + ',false)"><span class="material-icons-round">keyboard_backspace</span ></button></div><ul id="district_' + state.udise_state_code + '_list">'
     state_list += createDistrictForStates(filteredDistrict, state.state_name, state.udise_state_code)
     state_list += '</ul></div>'
     state_list += '</li>'
@@ -1795,26 +1795,35 @@ async function createInformationScreen(data) {
       $('#report_demographics_details').removeClass('otp-dis');
     }
   }
-  $('#' + prefix + 'area_class3').html(dataToShow.total_district_area)
-  $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population))
-  $('#' + prefix + 'density_class3').html(Math.round(dataToShow.density_of_population))
-  $('#' + prefix + 'sex_ratio_class3').html(dataToShow.child_sex_ratio)
-  $('#' + prefix + 'literacy_class3').html(dataToShow.literacy_rate)
+
+  if (selected_geography === 'national') {
+    $('#' + prefix + 'area_class3').html(dataToShow.total_district_area + ' million ')
+    $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population) + ' Crore')
+  }
+  else {
+    $('#' + prefix + 'area_class3').html(parseInt(dataToShow.total_district_area).toLocaleString())
+    $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population).toLocaleString())
+  }
+
+
+  $('#' + prefix + 'density_class3').html(Math.round(dataToShow.density_of_population).toLocaleString())
+  $('#' + prefix + 'sex_ratio_class3').html(parseFloat(dataToShow.child_sex_ratio).toLocaleString())
+  $('#' + prefix + 'literacy_class3').html(parseFloat(dataToShow.literacy_rate).toLocaleString())
 
   if (selected_geography === 'district') {
     $('.' + prefix + 'name').html(format_string(dataToShow.district_name))
-    $('#' + prefix + 'rural_class3').html(dataToShow.rural_population)
-    $('#' + prefix + 'urban_class3').html(dataToShow.urban_population)
-    $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools))
-    $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools))
-    $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools))
-    $('#' + prefix + 'govt_school_class3').html(Math.round(dataToShow.central_govt_schools))
-    $('#' + prefix + 'private_school_class3').html(Math.round(dataToShow.private_unaided_reco_schools))
-    $('#' + prefix + 'total_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools) + Math.round(dataToShow.teacher_central_govt_schools) + Math.round(dataToShow.teacher_govt_aided_schools) + Math.round(dataToShow.teacher_private_unaided_reco_schools))
-    $('#' + prefix + 'state_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools))
-    $('#' + prefix + 'govt_teacher_class3').html(Math.round(dataToShow.teacher_central_govt_schools))
-    $('#' + prefix + 'govt_aided_teacher_class3').html(Math.round(dataToShow.teacher_govt_aided_schools))
-    $('#' + prefix + 'private_teacher_class3').html(Math.round(dataToShow.teacher_private_unaided_reco_schools))
+    $('#' + prefix + 'rural_class3').html(Math.round(dataToShow.rural_population).toLocaleString())
+    $('#' + prefix + 'urban_class3').html(Math.round(dataToShow.urban_population).toLocaleString())
+    $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools).toLocaleString())
+    $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools).toLocaleString())
+    $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools).toLocaleString())
+    $('#' + prefix + 'govt_school_class3').html(Math.round(dataToShow.central_govt_schools).toLocaleString())
+    $('#' + prefix + 'private_school_class3').html(Math.round(dataToShow.private_unaided_reco_schools).toLocaleString())
+    $('#' + prefix + 'total_teacher_class3').html((Math.round(dataToShow.teacher_state_govt_schools) + Math.round(dataToShow.teacher_central_govt_schools) + Math.round(dataToShow.teacher_govt_aided_schools) + Math.round(dataToShow.teacher_private_unaided_reco_schools)).toLocaleString())
+    $('#' + prefix + 'state_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools).toLocaleString())
+    $('#' + prefix + 'govt_teacher_class3').html(Math.round(dataToShow.teacher_central_govt_schools).toLocaleString())
+    $('#' + prefix + 'govt_aided_teacher_class3').html(Math.round(dataToShow.teacher_govt_aided_schools).toLocaleString())
+    $('#' + prefix + 'private_teacher_class3').html(Math.round(dataToShow.teacher_private_unaided_reco_schools).toLocaleString())
     $('#' + prefix + 'description_class3').html(dataToShow.description)
   }
 
