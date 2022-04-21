@@ -852,19 +852,19 @@ async function getData() {
       table = screen_wise_table[screenType][selected_geography]
       if (screenType === 'performance' && selected_geography === 'national') {
         //console.log(global_filters.grade._eq)
-        if(global_filters.grade){
+        if (global_filters.grade) {
           limit = 1
         }
-        else{
+        else {
           limit = 4
         }
-        
+
       }
     }
     if (screenType === 'information') {
       global_filters = {}
     }
-    
+
     await $.ajax({
       type: "GET",
       url: api_url + table + '?limit=' + limit + '&filter=' + JSON.stringify(global_filters),
@@ -1208,7 +1208,7 @@ function updateData(data) {
         mil: 0,
         eng: 0,
       }
-      
+
       $('.state-header').hide()
       $('.district-header').hide()
       $('.national-header').hide()
@@ -1798,13 +1798,13 @@ async function createInformationScreen(data) {
   $('#' + prefix + 'area_class3').html(dataToShow.total_district_area)
   $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population))
   $('#' + prefix + 'density_class3').html(Math.round(dataToShow.density_of_population))
-  $('#' + prefix + 'sex_ratio_class3').html(Math.round(dataToShow.child_sex_ratio))
+  $('#' + prefix + 'sex_ratio_class3').html(dataToShow.child_sex_ratio)
   $('#' + prefix + 'literacy_class3').html(dataToShow.literacy_rate)
 
   if (selected_geography === 'district') {
     $('.' + prefix + 'name').html(format_string(dataToShow.district_name))
-    $('#' + prefix + 'rural_class3').html(Math.round(dataToShow.rural_population))
-    $('#' + prefix + 'urban_class3').html(Math.round(dataToShow.urban_population))
+    $('#' + prefix + 'rural_class3').html(dataToShow.rural_population)
+    $('#' + prefix + 'urban_class3').html(dataToShow.urban_population)
     $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools))
     $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools))
     $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools))
@@ -2347,7 +2347,7 @@ function createCumulativeCardsForPerformance(data) {
       national: 0
     },
   }
-  
+
 
   const divisor = {
     evs: 2,
