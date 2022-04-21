@@ -2744,7 +2744,11 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, State_SS_psub3_4 as state_avg, India_SS_psub3_4 as national_avg, Dist_SS_psub3_4 as district_avg, 'SST1004' subject_code, 'sst' language, 'Analyses and evaluates information.' description
         from grade10districttable
         union all
-        select id, state_code, dist_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, Dist_SS_psub3_5 as district_avg, 'SST1005' subject_code, 'sst' language, 'Interprets.' description
+        select id, state_code, dist_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, Dist_SS_psub3_5 as district_avg, 'SST1005' subject_code, 'sst' language, 'Interprets: Maps, texts, symbols, cartoons, photographs, posters, newspaper clippings, climatic
+        regions, changes in maps brought out by various treaties in Europe, sea, and land links of the
+        trade from India to West Asia, South East Asia and other parts of the world, pie and bar diagrams
+        related to gross domestic product, production in different sectors and industries, employment and
+        population in India' description
         from grade10districttable
         union all
         select id, state_code, dist_code, State_SS_psub3_6 as state_avg, India_SS_psub3_6 as national_avg, Dist_SS_psub3_6 as district_avg, 'SST1006' subject_code, 'sst' language, 'Draws interlinkages within Social Science.' description
