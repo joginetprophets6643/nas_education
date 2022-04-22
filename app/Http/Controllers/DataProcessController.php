@@ -34,7 +34,18 @@ class DataProcessController extends Controller
         //         'child_sex_ration'=>$data->number_of_girls_per_1000_boys
         //     ]);
         // }
+        District_Master::where('udise_district_code')->update([
 
+            'total_district_area'=>0,
+            'total_population'=>0,
+            'rural_population'=>0,
+            'urban_population'=>0,
+            'density_of_population'=>0,
+            'literacy_rate'=>0,
+            'child_sex_ratio'=>0,
+
+        ]);  
+        
         foreach($final_data as $data){
 
             District_Master::where('udise_district_code',$data->code)->update([
@@ -72,7 +83,7 @@ class DataProcessController extends Controller
                 'urban_population'=>$data->urban_population,
                 'density_of_population'=>$data->population_density,
                 'literacy_rate'=>$data->literacy_rate,
-                'child_sex_ratio'=>$data->child_sex_ration_06_age,
+                'child_sex_ratio'=>$data->child_sex_ratio_06_age,
 
             ]);  
             
