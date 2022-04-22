@@ -1797,7 +1797,7 @@ async function createInformationScreen(data) {
   // }
 
   if (selected_geography === 'national') {
-    $('#' + prefix + 'area_class3').html(dataToShow.total_district_area ? dataToShow.total_district_area + ' million' : '-')
+    $('#' + prefix + 'area_class3').html(dataToShow.total_district_area ? dataToShow.total_district_area + ' million sq. km.' : '-')
     $('#' + prefix + 'population_class3').html(dataToShow.total_population ? dataToShow.total_population + ' Crore' : '-')
   }
   else {
