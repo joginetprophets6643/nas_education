@@ -907,7 +907,7 @@
       }
     else if(type === 'district'){
       $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString() + ` km<sup>2</sup>` : '-')
-      $('#total_population').html(parseInt(info.total_population) ? info.total_population.toLocaleString() : '-')
+      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString() : '-')
       total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
                           + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
       display_name = info.district_name
@@ -929,10 +929,10 @@
     //     $('#demographics_details').removeClass('otp-dis');
     //   }
     // }
-
+      
     $('.type_of_chart').html(display_name)
     $('#literacy_rate').html(parseFloat(info.literacy_rate) ? parseFloat(info.literacy_rate).toLocaleString()+'%' : '-' )
-    $('#population_density').html(parseInt(info.density_of_population) ? parseFloat(info.density_of_population).toLocaleString() : '-')
+    $('#population_density').html(parseInt(info.density_of_population) ? parseFloat(info.density_of_population).toLocaleString()+` per km<sup>2</sup>` : '-')
     $('#total_teachers').html(parseInt(total_teachers).toLocaleString())
     $('#sex_ratio').html(parseFloat(info.child_sex_ratio) ? parseFloat(info.child_sex_ratio).toLocaleString() : '-')
 

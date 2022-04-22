@@ -34,7 +34,7 @@ class PdfGenerateController extends Controller
                             'DistrictFeedback'=>function($feedback){
                                 $feedback->orderBy('grade','asc');
                             }])
-                            ->whereIn('udise_district_code',['710'])
+                            ->whereIn('udise_district_code',['2601'])
                             ->get();
         // dd($districtData);
         if(count($districtData)>0)
