@@ -201,7 +201,7 @@
                                   </h3>
                                   <p class="total-no">
                                   <span id="total_area">3.287</span>
-                                  <small id="total_area_text">km<sup>2</sup></small>
+                                  <!-- <small id="total_area_text">km<sup>2</sup></small> -->
                                   </p>
                                 </div>
                                 <div class="img">
@@ -237,7 +237,7 @@
                                 </h3>
                                 <p class="total-no">
                                 <span id="population_density">464</span>
-                                <small>per km<sup>2</sup></small>
+                                <!-- <small>per km<sup>2</sup></small> -->
                                 </p>
                               </div>
                               <div class="img">
@@ -681,7 +681,7 @@
         },
 
         title: {
-            text: ''
+            text: '',
         },
 
         subtitle: {
@@ -800,7 +800,14 @@
 
     const chart1 = Highcharts.mapChart('district-map-container',{
       title: {
-          text: data.name
+          text: data.name,
+          useHTML:true,
+          style: {
+            color: '#006bb6',
+            fontWeight: '600',
+            'text-shadow': '2px 2px #006bb6',
+            padding: '5px 10px',
+          }
       },
       legend: {
         enabled: false
@@ -892,42 +899,42 @@
 
     const info =  demographic_info.pop()
     if(type === 'state'){
-      $('#total_population').html(info.total_population ? parseInt(info.total_population).toLocaleString() : 0)
-      $('#total_area_text').html(`km<sup>2</sup>`)
+      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString() + ` km<sup>2</sup>` : '-')
+      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString() : '-')
       total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
                           + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
       display_name = info.state_name
       }
     else if(type === 'district'){
-      $('#total_population').html(info.total_population ? parseInt(info.total_population).toLocaleString() : 0)
-      $('#total_area_text').html(`km<sup>2</sup>`)
+      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString() + ` km<sup>2</sup>` : '-')
+      $('#total_population').html(parseInt(info.total_population) ? info.total_population.toLocaleString() : '-')
       total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
                           + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
       display_name = info.district_name
     }
     else{
-      $('#total_area_text').html(`million km<sup>2</sup>`)
-      $('#total_population').html(info.total_population ? parseInt(info.total_population).toLocaleString() + ' Crore': 0)
+      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString() + ` million km<sup>2</sup>` : '-')
+      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString() + ' Crore': '-')
       total_teachers = info.no_of_teachers
       display_name = 'National'
     }
     // console.log(info)
     
     // populating demographics
-    if(type==='district' && (info.total_district_area==null || info.total_district_area==0)){
-      $('#demographics_details').addClass('otp-dis');
-    }
-    else{
-      if($('#demographics_details').hasClass('otp-dis')){
-        $('#demographics_details').removeClass('otp-dis');
-      }
-    }
+    // if(type==='district' && (info.total_district_area==null || info.total_district_area==0)){
+    //   $('#demographics_details').addClass('otp-dis');
+    // }
+    // else{
+    //   if($('#demographics_details').hasClass('otp-dis')){
+    //     $('#demographics_details').removeClass('otp-dis');
+    //   }
+    // }
+
     $('.type_of_chart').html(display_name)
-    $('#literacy_rate').html(info.literacy_rate ? parseFloat(info.literacy_rate).toLocaleString()+'%' : 0+'%' )
-    $('#total_area').html(info.total_district_area ? (parseFloat(info.total_district_area)).toLocaleString() : 0)
-    $('#population_density').html(info.density_of_population ? parseFloat(info.density_of_population).toLocaleString() : 0)
+    $('#literacy_rate').html(parseFloat(info.literacy_rate) ? parseFloat(info.literacy_rate).toLocaleString()+'%' : '-' )
+    $('#population_density').html(parseInt(info.density_of_population) ? parseFloat(info.density_of_population).toLocaleString() : '-')
     $('#total_teachers').html(parseInt(total_teachers).toLocaleString())
-    $('#sex_ratio').html(info.child_sex_ratio ? parseFloat(info.child_sex_ratio).toLocaleString() : 0)
+    $('#sex_ratio').html(parseFloat(info.child_sex_ratio) ? parseFloat(info.child_sex_ratio).toLocaleString() : '-')
 
   }
 

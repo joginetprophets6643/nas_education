@@ -1787,33 +1787,33 @@ async function createInformationScreen(data) {
   if (selected_geography !== 'national') {
     $('.information_state_name').html(format_string(state_name))
   }
-  if (selected_geography === 'district' && dataToShow.total_district_area == 0) {
-    $('#report_demographics_details').addClass('otp-dis');
-  }
-  else {
-    if ($('#report_demographics_details').hasClass('otp-dis')) {
-      $('#report_demographics_details').removeClass('otp-dis');
-    }
-  }
+  // if (selected_geography === 'district' && dataToShow.total_district_area == 0) {
+  //   $('#report_demographics_details').addClass('otp-dis');
+  // }
+  // else {
+  //   if ($('#report_demographics_details').hasClass('otp-dis')) {
+  //     $('#report_demographics_details').removeClass('otp-dis');
+  //   }
+  // }
 
   if (selected_geography === 'national') {
-    $('#' + prefix + 'area_class3').html(dataToShow.total_district_area + ' million ')
-    $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population) + ' Crore')
+    $('#' + prefix + 'area_class3').html(dataToShow.total_district_area ? dataToShow.total_district_area + ' million sq. km.' : '-')
+    $('#' + prefix + 'population_class3').html(dataToShow.total_population ? dataToShow.total_population + ' Crore' : '-')
   }
   else {
-    $('#' + prefix + 'area_class3').html(parseInt(dataToShow.total_district_area).toLocaleString())
-    $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population).toLocaleString())
+    $('#' + prefix + 'area_class3').html(parseInt(dataToShow.total_district_area) ? parseInt(dataToShow.total_district_area).toLocaleString() + ' sq. km.' : '-')
+    $('#' + prefix + 'population_class3').html(parseInt(dataToShow.total_population) ? dataToShow.total_population.toLocaleString() : '-')
   }
 
 
-  $('#' + prefix + 'density_class3').html(Math.round(dataToShow.density_of_population).toLocaleString())
-  $('#' + prefix + 'sex_ratio_class3').html(parseFloat(dataToShow.child_sex_ratio).toLocaleString())
-  $('#' + prefix + 'literacy_class3').html(parseFloat(dataToShow.literacy_rate).toLocaleString())
+  $('#' + prefix + 'density_class3').html(parseInt(dataToShow.density_of_population) ? Math.round(dataToShow.density_of_population).toLocaleString() + ' per sq. km' : '-')
+  $('#' + prefix + 'sex_ratio_class3').html(parseFloat(dataToShow.child_sex_ratio) ? parseFloat(dataToShow.child_sex_ratio).toLocaleString() : '-')
+  $('#' + prefix + 'literacy_class3').html(parseFloat(dataToShow.literacy_rate) ? parseFloat(dataToShow.literacy_rate).toLocaleString() + '%' : '-')
 
   if (selected_geography === 'district') {
     $('.' + prefix + 'name').html(format_string(dataToShow.district_name))
-    $('#' + prefix + 'rural_class3').html(Math.round(dataToShow.rural_population).toLocaleString())
-    $('#' + prefix + 'urban_class3').html(Math.round(dataToShow.urban_population).toLocaleString())
+    $('#' + prefix + 'rural_class3').html(parseInt(dataToShow.rural_population) ? dataToShow.rural_population.toLocaleString() : '-')
+    $('#' + prefix + 'urban_class3').html(parseInt(dataToShow.urban_population) ? dataToShow.urban_population.toLocaleString() : '-')
     $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools).toLocaleString())
     $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools).toLocaleString())
     $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools).toLocaleString())
