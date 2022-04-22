@@ -33,14 +33,14 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         // $schedule->command('Drc:cron')
         // ->everyMinute();
-        // $schedule->command('Src3:cron')
-        // ->everyMinute();
-        // $schedule->command('Src5:cron')
-        // ->everyMinute();
-        // $schedule->command('Src8:cron')
-        // ->everyMinute();
-        // $schedule->command('Src10:cron')
-        // ->everyMinute();
+        $schedule->command('Src3:cron')
+        ->everyMinute();
+        $schedule->command('Src5:cron')
+        ->everyMinute();
+        $schedule->command('Src8:cron')
+        ->everyMinute();
+        $schedule->command('Src10:cron')
+        ->everyMinute();
         // $schedule->command('Nrc3:cron')
         // ->everyMinute();
         // $schedule->command('Nrc5:cron')
@@ -49,14 +49,14 @@ class Kernel extends ConsoleKernel
         // ->everyMinute();
         // $schedule->command('Nrc10:cron')
         // ->everyMinute();
-        $schedule->command('Drc3:cron')
-        ->everyMinute();
-        $schedule->command('Drc5:cron')
-        ->everyMinute();
-        $schedule->command('Drc8:cron')
-        ->everyMinute();
-        $schedule->command('Drc10:cron')
-        ->everyMinute();
+        // $schedule->command('Drc3:cron')
+        // ->everyMinute();
+        // $schedule->command('Drc5:cron')
+        // ->everyMinute();
+        // $schedule->command('Drc8:cron')
+        // ->everyMinute();
+        // $schedule->command('Drc10:cron')
+        // ->everyMinute();
         
     }
 
