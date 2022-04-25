@@ -48,7 +48,7 @@ const entities = {
   girls: 'Girls',
   govt: 'State Govt.',
   govt_aided: 'Govt. Aided',
-  private: 'Private Recognised',
+  private: 'Private Recognized',
   central_govt: 'Central Govt.',
   sc: 'SC',
   st: 'ST',
@@ -170,7 +170,9 @@ function createColumnChart(where, data, type = '') {
         borderWidth: 0,
         dataLabels: {
           enabled: true,
-          format: '{point.y}'
+          formatter: function () {
+            return (this.y != 0) ? this.y : "";
+          }
         }
       }
     }
@@ -189,7 +191,9 @@ function createColumnChart(where, data, type = '') {
         borderWidth: 0,
         dataLabels: {
           enabled: true,
-          format: '{point.y}'
+          formatter: function () {
+            return (this.y != 0) ? this.y : "";
+          }
         }
       }
     }
@@ -207,7 +211,7 @@ function createColumnChart(where, data, type = '') {
       text: ''
     },
     yAxis: {
-      min: 0,
+      max: 100,
       title: false
     },
     exporting: { enabled: false },
@@ -355,7 +359,7 @@ function createManagementPieChart(chart, colors) {
         z: 100,
         color: colors.gov_aided
       }, {
-        name: 'Private Recognised',
+        name: 'Private Recognized',
         y: chart.private,
         z: 100,
         color: colors.private
@@ -1054,9 +1058,9 @@ function updateData(data) {
       priv = priv > 0 ? priv / Object.keys(data).length : 0
       gov = gov > 0 ? gov / Object.keys(data).length : 0
 
-      $('#participation_school_class' + classType).html(Math.round(total_school))
-      $('#participation_teachers_class' + classType).html(Math.round(total_teacher))
-      $('#participation_students_class' + classType).html(Math.round(total_student))
+      $('#participation_school_class' + classType).html(Math.round(total_school).toLocaleString())
+      $('#participation_teachers_class' + classType).html(Math.round(total_teacher).toLocaleString())
+      $('#participation_students_class' + classType).html(Math.round(total_student).toLocaleString())
       $('#paricipation_gender_male_class' + classType).html((Math.round(total_male * 10) / 10).toFixed(1) + '%')
       $('#paricipation_gender_trans_class' + classType).html((Math.round(total_trans * 10) / 10).toFixed(1) + '%')
       $('#paricipation_gender_female_class' + classType).html((Math.round(total_female * 10) / 10).toFixed(1) + '%')
