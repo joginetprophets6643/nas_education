@@ -192,7 +192,7 @@ class DataProcessController extends Controller
                 'total_population'=>$data->person,
                 'rural_population'=>$data->rural,
                 'urban_population'=>$data->urban,
-                'density_of_population'=>0,
+                'density_of_population'=>$data->density_of_population,
                 'literacy_rate'=>$data->person_lr,
                 'child_sex_ratio'=>$data->child_sex_ratio,
             ]);
