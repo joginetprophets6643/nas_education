@@ -173,7 +173,7 @@
 <!-- Modal End -->
 
 @include('front.includes.footer')
-<script src="{{ asset('assets/admin/vendors/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('assets/front/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/front/js/dataTable-bootstrap.js')}}"></script>
 
     @if(session('not-found'))
