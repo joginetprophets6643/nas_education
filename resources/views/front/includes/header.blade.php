@@ -15,7 +15,7 @@
     <!-- AOS CSS -->
 
     
-    <link rel="icon" type="image/svg+xml" href="{{asset('assets/admin/vendors/images/NAS_Icon.svg')}}">
+    <link rel="icon" type="image/svg+xml" href="{{asset('assets/front-login/images/NAS_Icon.svg')}}">
     
     
     <link href="{{asset('assets/front/scss/aos.css')}}" rel="stylesheet">
