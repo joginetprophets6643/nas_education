@@ -116,7 +116,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title" style="color:red;">File Not Exist!</h4>
+          <h4 class="modal-title" style="color:red;">Report Not Available!</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
