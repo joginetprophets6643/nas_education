@@ -1302,22 +1302,59 @@
                         <div class="row align-items-center overall-box">
                           <div class="col-md-6 text-center">
                             <p class="fw-bold">National Average</p>
-                            <h2 class="blue-txt">250</h2>
+                            <h2 class="blue-txt">{{count($stateParticipationFinal['AchievementScoreNational'])>0?$stateParticipationFinal['AchievementScoreNational'][0]->ssm:0}}</h2>
                           </div>
+                          @php 
+                            $higher =0 ;
+                            $middle = 0;
+                            $lower = 0;
+                            $stateCount = 0;
+                            $ssmCount = 0;
+                            $seCount = 0;
+                            $pl12Count = 0;
+                            $pl34Count = 0;
+                          @endphp
+                          
+                          @if(count($stateAchievementScore)>0)
+                            @foreach($stateAchievementScore as $countScore)
+                              @if($stateParticipationFinal->grade==$countScore->grade)
+                                @php
+                                  if($countScore->indicator==0)
+                                  {
+                                    $lower++;
+                                  }
+                                  elseif($countScore->indicator==1)
+                                  {
+                                    $middle++;
+                                  }
+                                  elseif($countScore->indicator==2)
+                                  {
+                                    $higher++;
+                                  }
+                                  $stateCount++;
+                                  $ssmCount = $ssmCount+$countScore->ssm;
+                                  $seCount = $seCount+$countScore->se;
+                                  $pl12Count = $pl12Count+$countScore->pl12;
+                                  $pl34Count = $pl34Count+$countScore->pl34;
+
+                                @endphp  
+                              @endif
+                            @endforeach
+                          @endif
                           <div class="col-md-2 text-center light-green">
-                            <h3>14</h3>
+                            <h3>{{$higher}}</h3>
                             <div><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></div>
                             <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
                           </div>
                           <div class="col-md-2 text-center bg-orange">
-                            <h3>14</h3>
+                            <h3>{{$middle}}</h3>
                             <div><img src="https://nas21.inroad.in/report-pdf/assets/images/double-arrow.png" alt="double-arrow"></div>
-                            <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
+                            <p class="mb-0 fw-bold text-center">not significantly different than National average</p>
                           </div>
                           <div class="col-md-2 text-center light-red">
-                            <h3>14</h3>
+                            <h3>{{$lower}}</h3>
                             <div><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></div>
-                            <p class="mb-0 fw-bold text-center">performed significantly higher than National average</p>
+                            <p class="mb-0 fw-bold text-center">performed significantly lower than National average</p>
                           </div>
                         </div>
                       </div>
@@ -1331,197 +1368,51 @@
                               </th>
                               <th scope="col">SE</th>
                               <th scope="col">Significant difference with State Mean</th>
+                              <th scope="col">At basic and below basic level</th>
                               <th scope="col">At proficient and advance level</th>
                             </tr>
                           </thead>
                           <tbody>
                                 <!-- light-green sec -->
-                                <tr class="light-green fw-bold">
-                                  <td>Moga</td>
-                                  <td>267</td>
-                                  <td>3</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>45</td>
-                                  <td>55</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Fatehgarh Sahib</td>
-                                  <td>263</td>
-                                  <td>1</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>40</td>
-                                  <td>60</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Jalandhar</td>
-                                  <td>262</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>30</td>
-                                  <td>70</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Faridkot</td>
-                                  <td>259</td>
-                                  <td>3</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>35</td>
-                                  <td>65</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Pathankot</td>
-                                  <td>259</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>55</td>
-                                  <td>45</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Muktsar</td>
-                                  <td>258</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>60</td>
-                                  <td>40</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Fazilka</td>
-                                  <td>253</td>
-                                  <td>3</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>51</td>
-                                  <td>49</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Barnala</td>
-                                  <td>251</td>
-                                  <td>3</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>57</td>
-                                  <td>43</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Sangrur</td>
-                                  <td>248</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>62</td>
-                                  <td>38</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Mohali</td>
-                                  <td>248</td>
-                                  <td>1</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>59</td>
-                                  <td>41</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Kapurthala</td>
-                                  <td>245</td>
-                                  <td>1</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>64</td>
-                                  <td>36</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Ludhiana</td>
-                                  <td>245</td>
-                                  <td>1</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>66</td>
-                                  <td>34</td>
-                                </tr>
-                                <tr class="light-green fw-bold">
-                                  <td>Firozpur</td>
-                                  <td>245</td>
-                                  <td>1</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png" alt="up-arrow"></td>
-                                  <td>53</td>
-                                  <td>47</td>
-                                </tr>
-                                <!-- bg-orange sec -->
-                                <tr class="bg-orange fw-bold">
-                                  <td>Bathinda</td>
-                                  <td>244</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/double-arrow.png" alt="double-arrow"></td>
-                                  <td>50</td>
-                                  <td>50</td>
-                                </tr>
-                                <!-- light-red sec -->
-                                <tr class="light-red fw-bold">
-                                  <td>Taran Taran</td>
-                                  <td>241</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
-                                  <td>41</td>
-                                  <td>59</td>
-                                </tr>
-                                <tr class="light-red fw-bold">
-                                  <td>Hoshiarpur</td>
-                                  <td>236</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
-                                  <td>40</td>
-                                  <td>60</td>
-                                </tr>
-                                <tr class="light-red fw-bold">
-                                  <td>Mansa</td>
-                                  <td>234</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
-                                  <td>45</td>
-                                  <td>55</td>
-                                </tr>
-                                <tr class="light-red fw-bold">
-                                  <td>Nawanshahr</td>
-                                  <td>231</td>
-                                  <td>3</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
-                                  <td>49</td>
-                                  <td>51</td>
-                                </tr>
-                                <tr class="light-red fw-bold">
-                                  <td>Gurdaspur</td>
-                                  <td>223</td>
-                                  <td>2</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
-                                  <td>59</td>
-                                  <td>41</td>
-                                </tr>
-                                <tr class="light-red fw-bold">
-                                  <td>Amritsar</td>
-                                  <td>221</td>
-                                  <td>1</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
-                                  <td>53</td>
-                                  <td>47</td>
-                                </tr>
-                                <tr class="light-red fw-bold">
-                                  <td>Rupnagar</td>
-                                  <td>218</td>
-                                  <td>5</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
-                                  <td>50</td>
-                                  <td>50</td>
-                                </tr>
-                                <tr class="light-red fw-bold">
-                                  <td>Patiala</td>
-                                  <td>217</td>
-                                  <td>3</td>
-                                  <td><img src="https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png" alt="down-arrow"></td>
-                                  <td>38</td>
-                                  <td>62</td>
-                                </tr>
+                                @if(count($stateAchievementScore)>0)
+                                  @foreach($stateAchievementScore as $score)
+                                    @if($stateParticipationFinal->grade==$score->grade)
+                                      @php
+                                        if($score->indicator==0)
+                                        {
+                                          $cls = 'light-red';
+                                          $img = 'https://nas21.inroad.in/report-pdf/assets/images/down-arrow.png';
+                                        }
+                                        elseif($score->indicator==1)
+                                        {
+                                          $cls = 'bg-orange';
+                                          $img = 'https://nas21.inroad.in/report-pdf/assets/images/double-arrow.png';
+                                        }
+                                        elseif($score->indicator==2)
+                                        {
+                                          $cls = 'light-green';
+                                          $img = 'https://nas21.inroad.in/report-pdf/assets/images/up-arrow.png';
+                                        }
+                                      @endphp                             
+                                      <tr class="{{$cls}} fw-bold">
+                                        <td>{{$score->dist_name}}</td>
+                                        <td>{{$score->ssm}}</td>
+                                        <td>{{$score->se}}</td>
+                                        <td><img src="{{$img}}" alt="up-arrow"></td>
+                                        <td>{{$score->pl12}}</td>
+                                        <td>{{$score->pl34}}</td>
+                                      </tr>
+                                    @endif
+                                  @endforeach
+                                @endif
                                 <!-- green sec -->
                                 <tr class="card-green fw-bold">
                                   <td>State Average</td>
-                                  <td>244</td>
+                                  <td>{{($stateCount!=0)?round($ssmCount/$stateCount,2):0}}</td>
+                                  <td>{{($stateCount!=0)?round($seCount/$stateCount,2):0}}</td>
                                   <td></td>
-                                  <td></td>
-                                  <td>55</td>
-                                  <td>45</td>
+                                  <td>{{($stateCount!=0)?round($pl12Count/$stateCount,2):0}}</td>
+                                  <td>{{($stateCount!=0)?round($pl34Count/$stateCount,2):0}}</td>
                                 </tr>
                           </tbody>
                         </table>
@@ -1777,7 +1668,7 @@
                                       @endforeach
                                     @endif
 
-                                  <span>{{(count($stateFeedbackData)>0)?round($sum/$pq2count):0}}%</span> Learning from pandemic
+                                  <span>{{(count($stateFeedbackData)>0 && $pq2count!=0)?round($sum/$pq2count):0}}%</span> Learning from pandemic
                                 </h3>
                                 <div class="pendamic-progressbar-list">
                                   <div class="row">

@@ -16,4 +16,9 @@ class AllGradeStateParticipationTBL extends Model
     {
         return $this->hasMany(StateGradeLevelPerformance::class,'state_id','state_id');
     }  
+    public function AchievementScoreNational()
+    {
+        return $this->hasMany(StateAchievementScore::class,'grade','grade');
+    }   
+
 }

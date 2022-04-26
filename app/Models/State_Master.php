@@ -35,4 +35,9 @@ class State_Master extends Model
     {
         return $this->hasMany(AllGradeStateParticipationTBL::class,'state_id','udise_state_code');
     } 
+    public function StateAchievementScore()
+    {
+        return $this->hasMany(StateAchievementScore::class,'state_code','udise_state_code');
+    } 
+
 }

@@ -11,7 +11,8 @@ use App\Models\NationalStatistic;
 use DB;
 use App\Models\StateGradeLevelPerformance;
 use Illuminate\Support\Facades\Log;
-
+use App\Models\AllGradeNationalParticipationTBL;
+use App\Models\NationalGradeLevelPerformance;
 
 class PdfGenerateController extends Controller
 {
@@ -24,7 +25,7 @@ class PdfGenerateController extends Controller
     {
         $districtData = District_Master::select('id','state_name','district_name','district_id','udise_district_code','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
                             ->with(['DistrictParticipation'=>function($participation){
-                                $participation->select('id','state_id','district_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
+                                $participation->select('id','state_id','district_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender','trans_gender');
                                 $participation->with(['DistrictPerformance']);
                                 $participation->orderBy('grade','asc');
                             },
@@ -34,7 +35,7 @@ class PdfGenerateController extends Controller
                             'DistrictFeedback'=>function($feedback){
                                 $feedback->orderBy('grade','asc');
                             }])
-                            ->whereIn('udise_district_code',['2601'])
+                            ->whereIn('udise_district_code',['2501'])
                             ->get();
         // dd($districtData);
         if(count($districtData)>0)
@@ -56,9 +57,11 @@ class PdfGenerateController extends Controller
      */
     public function dwn()
     {
+        // foreach($array as $value) {
+
         $districtData = District_Master::select('id','state_name','district_name','udise_district_code','district_id','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
                             ->with(['DistrictParticipation'=>function($participation){
-                                $participation->select('id','state_id','district_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
+                                $participation->select('id','state_id','district_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender','trans_gender');
                                 $participation->with(['DistrictPerformance']);
                                 $participation->orderBy('grade','asc');
                             },
@@ -68,17 +71,19 @@ class PdfGenerateController extends Controller
                             'DistrictFeedback'=>function($feedback){
                                 $feedback->orderBy('grade','asc');
                             }])
-                            ->whereIn('udise_district_code',['710','721'])
+                            ->whereIn('udise_district_code',['2501'])
                             ->get();
         // dd($districtData);
+                            // , , 
                             //,'721','715'
         if(count($districtData)>0)
         {
-            foreach($districtData as $dk=>$districtVal)
+            foreach($districtData as $districtVal)
             {
                 $districtParticipationData = $districtVal['DistrictParticipation'];
                 $districtLOData = $districtVal['DistrictLO'];
                 $districtFeedbackData = $districtVal['DistrictFeedback'];
+                // dd($districtVal);
                 $folderPath = public_path('nas_pdf/national/'.$districtVal->udise_state_code.'/'.$districtVal->udise_district_code.'/');
 
                 if(File::isDirectory($folderPath)){
@@ -101,8 +106,7 @@ class PdfGenerateController extends Controller
                 // Storage::put('public/pdf/report.pdf', $pdf->output());
 
                 $pdf->saveAs($file_path);            
-                // return response()->download($file_path);
-                Log::channel('naspdf')->info("district-pdf : District ID- ".$districtVal->udise_district_code." ,District Name-".$districtVal->district_name." ,State Name-".$districtVal->state_name.' , count-'.$dk+1);
+                return response()->download($file_path);
             }
         }
 
@@ -204,105 +208,6 @@ class PdfGenerateController extends Controller
     }
 
     /**
-    * State Pdf View
-    *
-    * Date : 28/03/2022
-    */
-    public function StateIndexPDFNewDraft()
-    {
-        $stateData = State_Master::select('id','state_name','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
-                            ->with(['StateParticipation'=>function($participation){
-                                $participation->select('id','state_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
-                                $participation->with(['StatePerformance']);
-                                $participation->orderBy('grade','asc');
-                            },'StatePerformance'=>function($lo){
-                                $lo->orderBy('grade','asc');
-                            },
-                            'StateLO'=>function($lo){
-                                $lo->orderBy('grade','asc');
-                            },
-                            'StateFeedback'=>function($feedback){
-                                $feedback->orderBy('grade','asc');
-                            }])
-                            ->whereIn('udise_state_code',['7'])
-                            ->get();
-        if(count($stateData)>0)
-        {
-            foreach($stateData as $stateVal)
-            {
-                $stateParticipationDataAll = $stateVal['StateParticipation'];
-                $stateFeedbackData = $stateVal['StateFeedback'];
-                $stateLOData = $stateVal['StateLO'];
-
-                return view('statepdf.index2',compact('stateVal','stateLOData','stateParticipationDataAll','stateFeedbackData'));
-            }
-        }  
-    }
-    /**
-    * Download State Pdf 
-    *
-    * Date : 28/03/2022
-    */    
-    public function StatedwnNew()
-    {
-        $stateData = State_Master::select('id','state_name','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
-                            ->with(['StateParticipation'=>function($participation){
-                                $participation->select('id','state_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
-                                $participation->with(['StatePerformance']);
-                                $participation->orderBy('grade','asc');
-                            },'StatePerformance'=>function($lo){
-                                $lo->orderBy('grade','asc');
-                            },
-                            'StateLO'=>function($lo){
-                                $lo->orderBy('grade','asc');
-                            },
-                            'StateFeedback'=>function($feedback){
-                                $feedback->orderBy('grade','asc');
-                            }])
-                            ->whereIn('udise_state_code',['7','8'])
-                            ->get();
-                            //,'721','715'
-        if(count($stateData)>0)
-        {
-            foreach($stateData as $sk=>$stateVal)
-            {
-                $stateParticipationDataAll = $stateVal['StateParticipation'];
-                $stateFeedbackData = $stateVal['StateFeedback'];
-                $stateLOData = $stateVal['StateLO'];
-
-                $folderPath = public_path('nas_pdf/national/'.$stateVal->udise_state_code.'/');
-
-                $fileName='nas-state';
-                $file_path = $folderPath.''.$fileName.'-report.pdf';
-
-                if(File::isDirectory($folderPath)){
-                    // File::deleteDirectory($folderPath);
-                    if(File::exists($file_path))
-                    {
-                        File::delete($file_path);
-                    }
-                }
-                if(!File::isDirectory($folderPath)){
-                    File::makeDirectory($folderPath, 0777, true, true);
-                }
-               
-                $render = view('statepdf.index2',compact('stateVal','stateLOData','stateParticipationDataAll','stateFeedbackData'))->render();
-                $pdf = new Pdf;
-                $pdf->addPage($render);
-                $pdf->setOptions(['javascript-delay' => 5000,'page-size'=>'a4']);
-                // ,'page-size'=>'a3'
-                // Storage::put('public/pdf/report.pdf', $pdf->output());
-
-                $pdf->saveAs($file_path);            
-                Log::channel('naspdf')->info("state-pdf : State ID- ".$stateVal->udise_state_code." ,State Name-".$stateVal->state_name.' , count-'.$sk+1);
-
-                return response()->download($file_path);
-            }
-        }
-
-        echo 'State Level Pdf generate successfully.';
-    }
-    /**
     * Download State Pdf 
     *
     * Date : 15/02/2021
@@ -321,7 +226,7 @@ class PdfGenerateController extends Controller
                             //,'721','715'
         if(count($stateData)>0)
         {
-            foreach($stateData as $sk=>$stateVal)
+            foreach($stateData as $stateVal)
             {
                 $performanceData = $stateVal['StatePerformance'];
                 $stateParticipationQuery = $this->StateParticipationGroupByQuery($stateVal->udise_state_code);
@@ -434,9 +339,123 @@ class PdfGenerateController extends Controller
                 // Storage::put('public/pdf/report.pdf', $pdf->output());
 
                 $pdf->saveAs($file_path);            
+                // return response()->download($file_path);
+            }
+        }
+
+        echo 'State Level Pdf generate successfully.';
+    }
+
+    /**
+    * State Pdf View
+    *
+    * Date : 28/03/2022
+    */
+    public function StateIndexPDFNewDraft()
+    {
+        $stateData = State_Master::select('id','state_name','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
+                            ->with(['StateParticipation'=>function($participation){
+                                $participation->select('id','state_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
+                                $participation->with(['StatePerformance','AchievementScoreNational'=>function($nationalAchScore){
+                                    $nationalAchScore->where('state_code','0');
+                                    $nationalAchScore->select('state_name','grade','ssm');
+                                    // $nationalAchScore->first();
+                                }]);
+                                $participation->orderBy('grade','asc');
+                            },'StatePerformance'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'StateLO'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'StateFeedback'=>function($feedback){
+                                $feedback->orderBy('grade','asc');
+                            },
+                            'StateAchievementScore'=>function($achievementscore){
+                                $achievementscore->orderby('indicator','desc');
+                            }])
+                            ->whereIn('udise_state_code',['18'])
+                            ->get();
+        if(count($stateData)>0)
+        {
+            foreach($stateData as $stateVal)
+            {
+                $stateParticipationDataAll = $stateVal['StateParticipation'];
+                $stateFeedbackData = $stateVal['StateFeedback'];
+                $stateLOData = $stateVal['StateLO'];
+                $stateAchievementScore = $stateVal['StateAchievementScore'];
+
+                return view('statepdf.index2',compact('stateVal','stateLOData','stateParticipationDataAll','stateFeedbackData','stateAchievementScore'));
+            }
+        }  
+    }
+    /**
+    * Download State Pdf 
+    *
+    * Date : 28/03/2022
+    */    
+    public function StatedwnNew()
+    {
+        $stateData = State_Master::select('id','state_name','udise_state_code','is_active','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio','no_of_schools','state_govt_schools','govt_aided_schools','central_govt_schools','private_unaided_reco_schools','teacher_state_govt_schools','teacher_govt_aided_schools','teacher_central_govt_schools','teacher_private_unaided_reco_schools')
+                            ->with(['StateParticipation'=>function($participation){
+                                $participation->select('id','state_id','grade','total_school','total_student','total_teacher','rural_location','urban_location','govt_school','govt_aided_school','private_school','central_govt_school','sc_social_group','obc_social_group','st_social_group','general_social_group','male_gender','female_gender');
+                                $participation->with(['StatePerformance','AchievementScoreNational'=>function($nationalAchScore){
+                                    $nationalAchScore->where('state_code','0');
+                                    $nationalAchScore->select('state_name','grade','ssm');
+                                    // $nationalAchScore->first();
+                                }]);
+                                $participation->orderBy('grade','asc');
+                            },'StatePerformance'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'StateLO'=>function($lo){
+                                $lo->orderBy('grade','asc');
+                            },
+                            'StateFeedback'=>function($feedback){
+                                $feedback->orderBy('grade','asc');
+                            },
+                            'StateAchievementScore'=>function($achievementscore){
+                                $achievementscore->orderby('indicator','desc');
+                            }])
+                            ->whereIn('udise_state_code',['10'])
+                            ->get();
+                            //,'721','715'
+        if(count($stateData)>0)
+        {
+            foreach($stateData as $sk=>$stateVal)
+            {
+                $stateParticipationDataAll = $stateVal['StateParticipation'];
+                $stateFeedbackData = $stateVal['StateFeedback'];
+                $stateLOData = $stateVal['StateLO'];
+                $stateAchievementScore = $stateVal['StateAchievementScore'];
+
+                $folderPath = public_path('nas_pdf/national/'.$stateVal->udise_state_code.'/');
+
+                $fileName='nas-state';
+                $file_path = $folderPath.''.$fileName.'-report.pdf';
+
+                if(File::isDirectory($folderPath)){
+                    // File::deleteDirectory($folderPath);
+                    if(File::exists($file_path))
+                    {
+                        File::delete($file_path);
+                    }
+                }
+                if(!File::isDirectory($folderPath)){
+                    File::makeDirectory($folderPath, 0777, true, true);
+                }
+               
+                $render = view('statepdf.index2',compact('stateVal','stateLOData','stateParticipationDataAll','stateFeedbackData','stateAchievementScore'))->render();
+                $pdf = new Pdf;
+                $pdf->addPage($render);
+                $pdf->setOptions(['javascript-delay' => 5000,'page-size'=>'a4']);
+                // ,'page-size'=>'a3'
+                // Storage::put('public/pdf/report.pdf', $pdf->output());
+
+                $pdf->saveAs($file_path);            
                 Log::channel('naspdf')->info("state-pdf : State ID- ".$stateVal->udise_state_code." ,State Name-".$stateVal->state_name.' , count-'.$sk+1);
 
-                // return response()->download($file_path);
+                return response()->download($file_path);
             }
         }
 
@@ -458,9 +477,10 @@ class PdfGenerateController extends Controller
                             // 'StateLO'=>function($lo){
                             //     $lo->orderBy('grade','asc');
                             // }])
-                            // ->whereIn('udise_state_code',['7'])
                             ->first();
-        $nationalPerformance = StateGradeLevelPerformance::distinct('grade')->orderBy('grade','asc')->get();
+        $nationalParticipation = AllGradeNationalParticipationTBL::where('grade',11)->first();
+        // dd($nationalParticipation);
+        $nationalPerformance = NationalGradeLevelPerformance::orderBy('grade','asc')->get();
 
         // PQ data
         $whereConditionpq = "where level='pq'";
@@ -504,7 +524,7 @@ class PdfGenerateController extends Controller
         $nationalFeedbackQuerypq3 = $this->NationalFeedbackGroupByQuery($whereConditionpq3);
         $nationalFeedbackDatapq3 = DB::select($nationalFeedbackQuerypq3);
 
-        return view('nationalpdf.index',compact('nationalData','nationalPerformance','nationalFeedbackDatapq','nationalFeedbackDatapq2','nationalFeedbackDatapq3','nationalFeedbackDatasq','nationalFeedbackDatasqn1','nationalFeedbackDatasqn2','nationalFeedbackDatatq','nationalFeedbackDatatqn'));
+        return view('nationalpdf.index',compact('nationalData','nationalPerformance','nationalFeedbackDatapq','nationalFeedbackDatapq2','nationalFeedbackDatapq3','nationalFeedbackDatasq','nationalFeedbackDatasqn1','nationalFeedbackDatasqn2','nationalFeedbackDatatq','nationalFeedbackDatatqn','nationalParticipation'));
     }
 
     /*****************************************
@@ -517,7 +537,8 @@ class PdfGenerateController extends Controller
     {
         $nationalData = NationalStatistic::select('id','total_district_area','total_population','rural_population','urban_population','density_of_population','literacy_rate','child_sex_ratio')
                             ->first();
-        $nationalPerformance = StateGradeLevelPerformance::distinct('grade')->orderBy('grade','asc')->get();
+        $nationalParticipation = AllGradeNationalParticipationTBL::where('grade',11)->first();
+        $nationalPerformance = NationalGradeLevelPerformance::orderBy('grade','asc')->get();
         // PQ data
         $whereConditionpq = "where level='pq'";
         $nationalFeedbackQuerypq = $this->NationalFeedbackGroupByQuery($whereConditionpq);
@@ -566,7 +587,7 @@ class PdfGenerateController extends Controller
             File::makeDirectory($folderPath, 0777, true, true);
         }
        
-        $render = view('nationalpdf.index',compact('nationalData','nationalPerformance','nationalFeedbackDatapq','nationalFeedbackDatapq2','nationalFeedbackDatapq3','nationalFeedbackDatasq','nationalFeedbackDatasqn1','nationalFeedbackDatasqn2','nationalFeedbackDatatq','nationalFeedbackDatatqn'))->render();
+        $render = view('nationalpdf.index',compact('nationalData','nationalPerformance','nationalFeedbackDatapq','nationalFeedbackDatapq2','nationalFeedbackDatapq3','nationalFeedbackDatasq','nationalFeedbackDatasqn1','nationalFeedbackDatasqn2','nationalFeedbackDatatq','nationalFeedbackDatatqn','nationalParticipation'))->render();
 
         $pdf = new Pdf;
         $pdf->addPage($render);
@@ -620,11 +641,11 @@ class PdfGenerateController extends Controller
       {
         return $scImg = 'sg-0.png';
       }
-      elseif($value>=1 && $value<=25)
+      elseif($value>0 && $value<=25)
       {
         return $scImg = 'sg-'.$color.'-1.png';
       }
-      elseif($value>=26 && $value<=49)
+      elseif($value>25 && $value<50)
       {
         return $scImg = 'sg-'.$color.'-2.png';
       }
@@ -632,11 +653,11 @@ class PdfGenerateController extends Controller
       {
         return $scImg = 'sg-'.$color.'-3.png';
       }
-      elseif($value>=51 && $value<=75) 
+      elseif($value>50 && $value<=75) 
       {
         return $scImg = 'sg-'.$color.'-4.png';
       }
-      elseif($value>=76 && $value<=99)
+      elseif($value>75 && $value<=99)
       {
         return $scImg = 'sg-'.$color.'-5.png';
       }

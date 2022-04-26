@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Bootstrap CSS -->
-    <link href="http://nas21.inroad.in/report-pdf/assets/scss/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://nas21.inroad.in/report-pdf/assets/scss/bootstrap.min.css" rel="stylesheet" />
     <link  href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"  rel="stylesheet" />
     <link  href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
     <!-- Material Icons -->
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/material-icons.css" />
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/style.css" />
-    <link rel="stylesheet" href="http://nas21.inroad.in/report-pdf/assets/scss/pdf.css" />
+    <link rel="stylesheet" href="https://nas21.inroad.in/report-pdf/assets/scss/material-icons.css" />
+    <link rel="stylesheet" href="https://nas21.inroad.in/report-pdf/assets/scss/style.css" />
+    <link rel="stylesheet" href="https://nas21.inroad.in/report-pdf/assets/scss/pdf.css" />
     <title>NAS| National PDF</title>
     <style>
       .col-md-1 {
@@ -64,10 +64,10 @@
     </style>
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="http://nas21.inroad.in/report-pdf/assets/js/jquery-3.6.0.min.js"></script>
-    <script src="http://nas21.inroad.in/report-pdf/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="http://nas21.inroad.in/assets/front/js/highmaps.js"></script>
-    <script src="http://nas21.inroad.in/assets/front/js/in-all-disputed.js"></script>
+    <script src="https://nas21.inroad.in/report-pdf/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="https://nas21.inroad.in/report-pdf/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://nas21.inroad.in/assets/front/js/highmaps.js"></script>
+    <script src="https://nas21.inroad.in/assets/front/js/in-all-disputed.js"></script>
 
         <!-- Highcharts JS -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -82,17 +82,17 @@
             <div class="col-md-12">
               <div class="reportview-container mb-0">
                 <div class="reportview-content-wrap national-heading">
-                  <img src="http://nas21.inroad.in/report-pdf/assets/images/national-header-img.png" alt="img" class="img-fluid" />
+                  <img src="https://nas21.inroad.in/report-pdf/assets/images/national-header-front.png" alt="img" class="img-fluid" />
                   <div class="heading-img-wrap text-white fw-bold">
-                    <img src="http://nas21.inroad.in/report-pdf/assets/images/moe-white.png" alt="img" class="img-fluid" />
+                    <img src="https://nas21.inroad.in/report-pdf/assets/images/moe_new.png" alt="img" class="img-fluid" />
                   </div>
-                  <div class="heading-wrap text-white fw-bold">
+                  <div class="heading-wrap text-white fw-bold w-50">
                     <h2>
-                      NATIONAL<br />
-                      ACHIEVEMENT<br />
+                      NATIONAL<br>
+                      ACHIEVEMENT<br>
                       SURVEY
                     </h2>
-                    <p>NATIONAL REPORT NAS 2022-23<br />
+                    <p>NATIONAL REPORT NAS 2020-21<br>
                     CLASS III, V, VIII & X</p>
                   </div>
                 </div>
@@ -115,7 +115,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                   </div>
                   <div class="reportview-class-content white-bg">
                     <!-- content -->
@@ -132,7 +132,7 @@
                           <div class="wrap">
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/area-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/area-icon.png"
                                 alt="area-icon"
                                 width="43"
                               />
@@ -144,7 +144,7 @@
                             </div>
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/population-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/population-icon.png"
                                 alt="population-icon"
                                 width="58"
                               />
@@ -155,7 +155,7 @@
                             </div>
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/density-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/density-icon.png"
                                 alt="density-icon"
                                 width="43"
                               />
@@ -167,7 +167,7 @@
                             </div>
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/literacy-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/literacy-icon.png"
                                 alt="area-icon"
                                 width="43"
                               />
@@ -178,7 +178,7 @@
                             </div>
                             <div class="img-wrapper">
                               <img
-                                src="http://nas21.inroad.in/report-pdf/assets/images/child-sex-ratio-icon.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/child-sex-ratio-icon.png"
                                 alt="area-icon"
                                 width="43"
                               />
@@ -192,63 +192,63 @@
                         </div>
                       </div>
                       <!-- right sec -->
-                      <div class="col-md-7 right-sec p-5 bg-orange">
+                      <div class="col-md-7 right-sec p-5 bg-sky-light">
                         <div class="row text-white text-center pad-4">
                           <div class="col-md-12 mb-60 px-4">
-                            <h2 class="fw-bold">
+                            <h2 class="fw-bold text-start">
                               PARTICIPATION OF CLASS 3, 5, 8 AND 10
                             </h2>
                           </div>
                           <!-- schools -->
-                          <div class="col-md-12 light-blue-bg report-card-head">
-                            <h3 class="text-dark fw-bold text-center p-4">
+                          <div class="col-md-12 bg-school pdf-report-card-head">
+                            <h3 class="text-white fw-bold text-center p-4">
                               NUMBER OF SCHOOLS
                             </h3>
                             <div class="container white-bg"></div>
-                            <div class="img-tile dark-blue-bg align-items-center">
+                            <div class="img-tile bg-school align-items-center">
                               <img
                                 class="school-img"
-                                src="http://nas21.inroad.in/report-pdf/assets/images/school.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/school.png"
                                 alt="school"
                               />
                             </div>
                           </div>
                           <div class="col-md-12 text-center mb-4">
-                            <h1>1272</h1>
+                            <h1>{{isset($nationalParticipation)?$nationalParticipation->total_school:0}}</h1>
                           </div>
                           <!-- teachers -->
-                          <div class="col-md-12 light-blue-bg report-card-head">
-                            <h3 class="text-dark fw-bold text-center p-4">
+                          <div class="col-md-12 bg-teacher pdf-report-card-head">
+                            <h3 class="text-white fw-bold text-center p-4">
                               NUMBER OF TEACHERS
                             </h3>
                             <div class="container white-bg"></div>
-                            <div class="img-tile dark-blue-bg align-items-center">
+                            <div class="img-tile bg-teacher align-items-center">
                               <img
                                 class="teacher-img"
-                                src="http://nas21.inroad.in/report-pdf/assets/images/teacher.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/teacher.png"
                                 alt="school"
                               />
                             </div>
                           </div>
                           <div class="col-md-12 text-center mb-4">
-                            <h1>5143</h1>
+                            <h1>{{isset($nationalParticipation)?$nationalParticipation->total_teacher:0}}</h1>
                           </div>
                           <!-- students -->
-                          <div class="col-md-12 light-blue-bg report-card-head">
-                            <h3 class="text-dark fw-bold text-center p-4">
+                          <div class="col-md-12 bg-student pdf-report-card-head">
+                            <h3 class="text-white fw-bold text-center p-4">
                               NUMBER OF STUDENTS
                             </h3>
                             <div class="container white-bg"></div>
-                            <div class="img-tile dark-blue-bg align-items-center">
+                            <div class="img-tile bg-student align-items-center">
                               <img
                                 class="student-img"
-                                src="http://nas21.inroad.in/report-pdf/assets/images/students.png"
+                                src="https://nas21.inroad.in/report-pdf/assets/images/students.png"
                                 alt="school"
                               />
                             </div>
                           </div>
                           <div class="col-md-12 text-center">
-                            <h1>31471</h1>
+                            <h1>{{isset($nationalParticipation)?$nationalParticipation->total_student:0}}</h1>
                           </div>
                         </div>
                       </div>
@@ -278,24 +278,25 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                   </div>
                   <!-- content -->
-                  <div class="mb-4 white-bg">
+                  <div class="white-bg">
                     <div class="row">
-                      <div class="col-md-12 mt-2">
+                      <div class="col-md-12 mtb-15">
                         <h3 class="text-center heading-black-main">
-                          Average Performance of Students
+                          Average performance of students (National)
                         </h3>
                       </div>  
                     </div>
-                    <div class="row justify-content-center mb-4">
+                    
                     @if(count($nationalPerformance)>0)
                       @foreach($nationalPerformance as $avgPerformance)
+                        <div class="row justify-content-center bg-greylight mb-4">
                         @php 
                           $dataArr = json_decode($avgPerformance->data,true);
                         @endphp
-                        <div class="col-md-12 mtb-30">
+                        <div class="col-md-12 mtb-15">
                             <div class="nac-lo-classtitle-wrap">
                                 <h2 class="nac-lo-classtitle title-blue">
                                     CLASS {{$avgPerformance->grade}}
@@ -303,36 +304,36 @@
                             </div>
                         </div>
                         @if($avgPerformance->grade==3 || $avgPerformance->grade==5 ||$avgPerformance->grade==8)
-                          <div class="col-md-2 p-0">
+                          <div class="col-md-2 p-0 mb-3">
                             <div class="graph-wrap">
                               <figure class="highcharts-figure">
                                 <div id="nc{{$avgPerformance->grade}}-ap-language"></div>
                                 <div class="category text-center card-blue">
-                                  <span class="text-white">Language</span>
+                                  <span class="fw-bold text-white">Language</span>
                                 </div>
                               </figure>
                             </div>
                           </div>
                         @endif
                         @if($avgPerformance->grade==3 || $avgPerformance->grade==5 || $avgPerformance->grade==8 ||$avgPerformance->grade==10)
-                          <div class="col-md-2 p-0">
+                          <div class="col-md-2 p-0 mb-3">
                             <div class="graph-wrap">
                               <figure class="highcharts-figure">
                                 <div id="nc{{$avgPerformance->grade}}-ap-math"></div>
                                 <div class="category text-center card-pink">
-                                  <span class="text-white">Mathematics</span>
+                                  <span class="fw-bold text-white">Mathematics</span>
                                 </div>
                               </figure>
                             </div>
                           </div>
                         @endif
                         @if($avgPerformance->grade==3 || $avgPerformance->grade==5)
-                          <div class="col-md-2 p-0">
+                          <div class="col-md-2 p-0 mb-3">
                             <div class="graph-wrap">
                               <figure class="highcharts-figure">
                                 <div id="nc{{$avgPerformance->grade}}-ap-evs"></div>
                                 <div class="category text-center card-yellow">
-                                  <span class="text-white">EVS</span>
+                                  <span class="fw-bold text-white">EVS</span>
                                 </div>
                               </figure>
                             </div>
@@ -340,59 +341,60 @@
                         @endif
                               <!-- added -->
                         @if($avgPerformance->grade==8 ||$avgPerformance->grade==10)
-                          <div class="col-md-2 p-0">
+                          <div class="col-md-2 p-0 mb-3">
                             <div class="graph-wrap">
                               <figure class="highcharts-figure">
                                 <div id="nc{{$avgPerformance->grade}}-ap-sci"></div>
                                 <div class="category text-center card-sagegreen">
-                                  <span class="text-white">Science</span>
+                                  <span class="fw-bold text-white">Science</span>
                                 </div>
                               </figure>
                             </div>
                           </div>
                         @endif
                         @if($avgPerformance->grade==8 ||$avgPerformance->grade==10)
-                          <div class="col-md-2 p-0">
+                          <div class="col-md-2 p-0 mb-3">
                             <div class="graph-wrap">
                               <figure class="highcharts-figure">
                                 <div id="nc{{$avgPerformance->grade}}-ap-socialsci"></div>
                                 <div class="category text-center card-green">
-                                  <span class="text-white">Social Science</span>
+                                  <span class="fw-bold text-white">Social Science</span>
                                 </div>
                               </figure>
                             </div>
                           </div>
                         @endif
                         @if($avgPerformance->grade==10)
-                          <div class="col-md-2 p-0">
+                          <div class="col-md-2 p-0 mb-3">
                             <div class="graph-wrap">
                               <figure class="highcharts-figure">
                                 <div id="nc{{$avgPerformance->grade}}-ap-mil"></div>
                                 <div class="category text-center card-red">
-                                  <span class="text-white">MIL</span>
+                                  <span class="fw-bold text-white">MIL</span>
                                 </div>
                               </figure>
                             </div>
                           </div>
                         @endif
                         @if($avgPerformance->grade==10)
-                          <div class="col-md-2 p-0">
+                          <div class="col-md-2 p-0 mb-3">
                             <div class="graph-wrap">
                               <figure class="highcharts-figure">
                                 <div id="nc{{$avgPerformance->grade}}-ap-english"></div>
                                 <div class="category text-center card-purple">
-                                  <span class="text-white">English</span>
+                                  <span class="fw-bold text-white">English</span>
                                 </div>
                               </figure>
                             </div>
                           </div>
                         @endif
                         @include('nationalpdf.firstgraph')
+                        </div>
                       @endforeach
                     @endif
-                    </div>
+                    
                   </div>
-                  <div class="report-footer-wrap mt-5 nrc-pg3">
+                  <div class="report-footer-wrap mt-2 nrc-pg3">
                     <div class="reportview-footer">
                       <span class="page-no">3</span>
                     </div>
@@ -416,20 +418,20 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                   </div>
                   <!-- content -->
                   <div class="p-3 white-bg">
                     <div class="row">
                       <div class="col-md-12 mtb-30">
-                        <h3 class="text-center heading-black-main">
+                        <h3 class="heading-black-main text-dark-blue  text-start">
                           Profile of sampled students at the National level
                         </h3>
                       </div>
                     </div>
                     <div class="row justify-content-center mb-60">
                       <div class="col-md-12 mtb-15">
-                        <h2 class="title-black-main">
+                        <h2 class="text-start title-black-main">
                           Educational status of mother
                         </h2>
                       </div>
@@ -451,7 +453,7 @@
                     </div>
                     <div class="row justify-content-center mb-60">
                       <div class="col-md-12 mtb-15">
-                        <h2 class="title-black-main">
+                        <h2 class="text-start title-black-main">
                           How students commute to school
                         </h2>
                       </div>
@@ -520,13 +522,13 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                   </div>
                   <!-- content -->
                   <div class="p-4 white-bg">
                     <div class="row">
                       <div class="col-md-12 mtb-30">
-                        <h3 class="text-center heading-black-main">
+                        <h3 class="text-dark-blue  text-start heading-black-main">
                           Profile of sampled teachers at the National level
                         </h3>
                       </div>
@@ -554,9 +556,9 @@
                     </div>
                     <div class="row justify-content-center mb-60">
                       <div class="col-md-12 mtb-30">
-                        <h3 class="text-center heading-black-main">
+                        <h3 class="heading-black-main">
                           Percentage of teacher doing the following activities
-                          in school
+                          in school :
                         </h3>
                       </div>
                       <div class="row justify-content-center negative-margin">
@@ -602,13 +604,13 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                   </div>
                   <!-- content -->
                   <div class="p-4 white-bg">
                     <div class="row">
                       <div class="col-md-12 mtb-30">
-                        <h3 class="text-center heading-black-main">
+                        <h3 class="text-dark-blue  text-start heading-black-main">
                           Profile of sampled schools at the National level
                         </h3>
                       </div>
@@ -659,7 +661,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                   </div>
                   <!-- content -->
                   <div class="p-4 white-bg">
@@ -668,28 +670,28 @@
                         <div class="virus-icon-top">
                           <div class="virus-icon1">
                             <img
-                              src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                              src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                               alt="virus"
                               class="img-fluid"
                             />
                           </div>
                           <div class="virus-icon2">
                             <img
-                              src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                              src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                               alt="virus"
                               class="img-fluid"
                             />
                           </div>
                           <div class="virus-icon3">
                             <img
-                              src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                              src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                               alt="virus"
                               class="img-fluid"
                             />
                           </div>
                           <div class="virus-icon4">
                             <img
-                              src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                              src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                               alt="virus"
                               class="img-fluid"
                             />
@@ -806,49 +808,49 @@
                     <div class="virus-icon-bottom">
                       <div class="virus-icon1">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                           alt="virus"
                           class="img-fluid"
                         />
                       </div>
                       <div class="virus-icon2">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                           alt="virus"
                           class="img-fluid"
                         />
                       </div>
                       <div class="virus-icon3">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                           alt="virus"
                           class="img-fluid"
                         />
                       </div>
                       <div class="virus-icon4">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                           alt="virus"
                           class="img-fluid"
                         />
                       </div>
                       <div class="virus-icon5">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                           alt="virus"
                           class="img-fluid"
                         />
                       </div>
                       <div class="virus-icon6">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                           alt="virus"
                           class="img-fluid"
                         />
                       </div>
                       <div class="virus-icon7">
                         <img
-                          src="http://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
+                          src="https://nas21.inroad.in/report-pdf/assets/images/virus-pink.png"
                           alt="virus"
                           class="img-fluid"
                         />
@@ -879,7 +881,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -899,12 +901,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational3LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -936,7 +938,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -949,12 +951,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational3MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -986,7 +988,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -999,12 +1001,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-yellow">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
                                   EVS
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational3EvsBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1036,7 +1038,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -1049,12 +1051,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational5LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1086,7 +1088,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -1099,12 +1101,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational5MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1136,7 +1138,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -1149,12 +1151,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-yellow">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
                                   EVS
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational5EvsBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1185,7 +1187,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -1198,12 +1200,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational8LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1234,7 +1236,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -1247,12 +1249,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-green">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
                                   Social Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational8SocialBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1281,7 +1283,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -1294,12 +1296,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-sagegreen">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
                                   Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational8ScienceBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1328,7 +1330,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -1341,12 +1343,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational8MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1377,7 +1379,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -1390,12 +1392,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-red">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/mil-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/mil-icon.png" alt="img" class="img-fluid" /> 
                                   MIL
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational10MilBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1424,7 +1426,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -1437,12 +1439,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-green">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
                                   Social Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational10SocialBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1471,7 +1473,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -1484,12 +1486,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-sagegreen">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
                                   Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational10ScienceBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1519,7 +1521,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -1532,12 +1534,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-purple">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="img" class="img-fluid" /> 
                                   English
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational10EnglishBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1566,7 +1568,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -1579,12 +1581,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="CardsNational10MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1617,7 +1619,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -1630,12 +1632,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational3LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1667,7 +1669,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -1680,12 +1682,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational3MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1717,7 +1719,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -1730,12 +1732,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-yellow">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
                                   EVS
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational3EvsBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1767,7 +1769,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -1780,12 +1782,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational5LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1817,7 +1819,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -1830,12 +1832,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational5MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1867,7 +1869,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -1880,12 +1882,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-yellow">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
                                   EVS
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational5EvsBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1916,7 +1918,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -1929,12 +1931,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational8LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -1965,7 +1967,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -1978,12 +1980,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-green">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
                                   Social Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational8SocialBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2012,7 +2014,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -2025,12 +2027,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-sagegreen">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
                                   Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational8ScienceBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2059,7 +2061,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -2072,12 +2074,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational8MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2108,7 +2110,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2121,12 +2123,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-red">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/mil-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/mil-icon.png" alt="img" class="img-fluid" /> 
                                   MIL
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational10MilBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2155,7 +2157,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2168,12 +2170,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-green">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
                                   Social Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational10SocialBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2202,7 +2204,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2215,12 +2217,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-sagegreen">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
                                   Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational10ScienceBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2250,7 +2252,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2263,12 +2265,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-purple">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="img" class="img-fluid" /> 
                                   English
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational10EnglishBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2297,7 +2299,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2310,12 +2312,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="GenderNational10MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2348,7 +2350,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -2361,12 +2363,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational3LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2398,7 +2400,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -2411,12 +2413,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational3MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2448,7 +2450,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 3</span>
                   </div>
                   <!-- content -->
@@ -2461,12 +2463,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-yellow">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
                                   EVS
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational3EvsBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2498,7 +2500,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -2511,12 +2513,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational5LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2548,7 +2550,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -2561,12 +2563,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational5MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/math-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2598,7 +2600,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 5</span>
                   </div>
                   <!-- content -->
@@ -2611,12 +2613,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-yellow">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="img" class="img-fluid" /> 
                                   EVS
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational5EvsBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2647,7 +2649,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -2660,12 +2662,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-blue">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="img" class="img-fluid" /> 
                                   Language
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational8LanguageBarGraph_classall">
-                              <!-- img src="http://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- img src="https://nas21.inroad.in/report-pdf/assets/images/language-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2696,7 +2698,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -2709,12 +2711,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-green">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
                                   Social Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational8SocialBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2743,7 +2745,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -2756,12 +2758,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-sagegreen">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
                                   Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational8ScienceBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2790,7 +2792,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 8</span>
                   </div>
                   <!-- content -->
@@ -2803,12 +2805,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational8MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2839,7 +2841,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2852,12 +2854,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-red">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/mil-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/mil-icon.png" alt="img" class="img-fluid" /> 
                                   MIL
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational10MilBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2886,7 +2888,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2899,12 +2901,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-green">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="img" class="img-fluid" /> 
                                   Social Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational10SocialBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2933,7 +2935,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2946,12 +2948,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-sagegreen">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="img" class="img-fluid" /> 
                                   Science
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational10ScienceBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -2981,7 +2983,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -2994,12 +2996,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-purple">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="img" class="img-fluid" /> 
                                   English
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational10EnglishBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
@@ -3028,7 +3030,7 @@
                 <div class="reportview-class-wrap">
                   <!-- header -->
                   <div class="reportview-header">
-                    <h2>National Report Card</h2>
+                    <h2>National Report Card 2021</h2>
                     <span class="class">CLASS 10</span>
                   </div>
                   <!-- content -->
@@ -3041,12 +3043,12 @@
                             </h2>
                             <div class="subject-map-iconname">
                                 <span class="col-md-4 card-pink">
-                                  <img src="http://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
+                                  <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="img" class="img-fluid" /> 
                                   Mathematics
                                 </span>
                             </div>
                             <div class="subject-map-graph mtb-30" id="LocationNational10MathBarGraph_classall">
-                              <!-- <img src="http://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
+                              <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-map.png" alt="img" class="img-fluid" /> -->
                             </div>
                         </div>
                       </div>
