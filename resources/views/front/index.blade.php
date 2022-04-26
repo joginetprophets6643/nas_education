@@ -805,7 +805,6 @@
           style: {
             color: '#006bb6',
             fontWeight: '600',
-            'text-shadow': '2px 2px #006bb6',
             padding: '5px 10px',
           }
       },
