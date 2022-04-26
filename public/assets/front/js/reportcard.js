@@ -834,7 +834,7 @@ async function getData() {
     },
     participation: {
       state: 'all_grade_state_participation_tbl',
-      national: 'all_grade_participation_tbl',
+      national: 'all_grade_national_participation_tbl',
       district: 'all_grade_participation_tbl',
     },
     glimpses: {
