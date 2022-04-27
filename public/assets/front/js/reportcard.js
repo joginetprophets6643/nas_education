@@ -48,7 +48,7 @@ const entities = {
   girls: 'Girls',
   govt: 'State Govt.',
   govt_aided: 'Govt. Aided',
-  private: 'Private Recognised',
+  private: 'Private Recognized',
   central_govt: 'Central Govt.',
   sc: 'SC',
   st: 'ST',
@@ -169,7 +169,9 @@ function createColumnChart(where, data, type = '') {
         borderWidth: 0,
         dataLabels: {
           enabled: true,
-          format: '{point.y}'
+          formatter: function () {
+            return (this.y != 0) ? this.y : "";
+          }
         }
       }
     }
@@ -188,7 +190,9 @@ function createColumnChart(where, data, type = '') {
         borderWidth: 0,
         dataLabels: {
           enabled: true,
-          format: '{point.y}'
+          formatter: function () {
+            return (this.y != 0) ? this.y : "";
+          }
         }
       }
     }
@@ -206,7 +210,7 @@ function createColumnChart(where, data, type = '') {
       text: ''
     },
     yAxis: {
-      min: 0,
+      max: 100,
       title: false
     },
     exporting: { enabled: false },
@@ -354,7 +358,7 @@ function createManagementPieChart(chart, colors) {
         z: 100,
         color: colors.gov_aided
       }, {
-        name: 'Private Recognised',
+        name: 'Private Recognized',
         y: chart.private,
         z: 100,
         color: colors.private
@@ -394,7 +398,7 @@ async function createSidebarStates(data) {
     })
     // console.log(filteredDistrict)
 
-    state_list += '<div class="district-list" id="state_' + state.udise_state_code + '"><div class="d-flex align-items-center justify-content-between pb-15"><h2>' + state.state_name + '</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList(' + state.udise_state_code + ',false)"><span class="material-icons-round">highlight_off</span></button></div><ul id="district_' + state.udise_state_code + '_list">'
+    state_list += '<div class="district-list" id="state_' + state.udise_state_code + '"><div class="d-flex align-items-center justify-content-between pb-15"><h2>' + state.state_name + '</h2><button class="close-btn" id="close_btn" onClick="toggleDistrictList(' + state.udise_state_code + ',false)"><span class="material-icons-round">keyboard_backspace</span ></button></div><ul id="district_' + state.udise_state_code + '_list">'
     state_list += createDistrictForStates(filteredDistrict, state.state_name, state.udise_state_code)
     state_list += '</ul></div>'
     state_list += '</li>'
@@ -814,12 +818,12 @@ async function getData() {
     },
     performance: {
       state: 'state_grade_level_performance',
-      national: 'performance_master',
+      national: 'national_grade_level_performance',
       district: 'performance_master',
     },
     learning: {
       state: 'state_grade_level_learningoutcome',
-      national: 'district_grade_level_learningoutcome',
+      national: 'national_grade_level_learningoutcome',
       district: 'district_grade_level_learningoutcome',
     },
     feedback: {
@@ -829,7 +833,7 @@ async function getData() {
     },
     participation: {
       state: 'all_grade_state_participation_tbl',
-      national: 'all_grade_participation_tbl',
+      national: 'all_grade_national_participation_tbl',
       district: 'all_grade_participation_tbl',
     },
     glimpses: {
@@ -850,12 +854,20 @@ async function getData() {
     } else {
       table = screen_wise_table[screenType][selected_geography]
       if (screenType === 'performance' && selected_geography === 'national') {
-        limit = 1
+        //console.log(global_filters.grade._eq)
+        if (global_filters.grade) {
+          limit = 1
+        }
+        else {
+          limit = 4
+        }
+
       }
     }
     if (screenType === 'information') {
       global_filters = {}
     }
+
     await $.ajax({
       type: "GET",
       url: api_url + table + '?limit=' + limit + '&filter=' + JSON.stringify(global_filters),
@@ -1045,9 +1057,9 @@ function updateData(data) {
       priv = priv > 0 ? priv / Object.keys(data).length : 0
       gov = gov > 0 ? gov / Object.keys(data).length : 0
 
-      $('#participation_school_class' + classType).html(Math.round(total_school))
-      $('#participation_teachers_class' + classType).html(Math.round(total_teacher))
-      $('#participation_students_class' + classType).html(Math.round(total_student))
+      $('#participation_school_class' + classType).html(Math.round(total_school).toLocaleString())
+      $('#participation_teachers_class' + classType).html(Math.round(total_teacher).toLocaleString())
+      $('#participation_students_class' + classType).html(Math.round(total_student).toLocaleString())
       $('#paricipation_gender_male_class' + classType).html((Math.round(total_male * 10) / 10).toFixed(1) + '%')
       $('#paricipation_gender_trans_class' + classType).html((Math.round(total_trans * 10) / 10).toFixed(1) + '%')
       $('#paricipation_gender_female_class' + classType).html((Math.round(total_female * 10) / 10).toFixed(1) + '%')
@@ -1145,7 +1157,7 @@ function updateData(data) {
           empty = false
         }
         if (!empty) {
-          if (selected_geography === 'national') {
+          if (selected_geography === 'national' && classType != 'all') {
             data = [data.pop()]
           }
           if (classType === 'all') {
@@ -1199,7 +1211,7 @@ function updateData(data) {
         mil: 0,
         eng: 0,
       }
-      // console.log(data)
+
       $('.state-header').hide()
       $('.district-header').hide()
       $('.national-header').hide()
@@ -1778,34 +1790,43 @@ async function createInformationScreen(data) {
   if (selected_geography !== 'national') {
     $('.information_state_name').html(format_string(state_name))
   }
-  if (selected_geography === 'district' && dataToShow.total_district_area == 0) {
-    $('#report_demographics_details').addClass('otp-dis');
+  // if (selected_geography === 'district' && dataToShow.total_district_area == 0) {
+  //   $('#report_demographics_details').addClass('otp-dis');
+  // }
+  // else {
+  //   if ($('#report_demographics_details').hasClass('otp-dis')) {
+  //     $('#report_demographics_details').removeClass('otp-dis');
+  //   }
+  // }
+
+  if (selected_geography === 'national') {
+    $('#' + prefix + 'area_class3').html(dataToShow.total_district_area ? dataToShow.total_district_area + ' million sq. km.' : '-')
+    $('#' + prefix + 'population_class3').html(dataToShow.total_population ? dataToShow.total_population + ' Crore' : '-')
   }
   else {
-    if ($('#report_demographics_details').hasClass('otp-dis')) {
-      $('#report_demographics_details').removeClass('otp-dis');
-    }
+    $('#' + prefix + 'area_class3').html(parseInt(dataToShow.total_district_area) ? parseInt(dataToShow.total_district_area).toLocaleString() + ' sq. km.' : '-')
+    $('#' + prefix + 'population_class3').html(parseInt(dataToShow.total_population) ? parseInt(dataToShow.total_population).toLocaleString() : '-')
   }
-  $('#' + prefix + 'area_class3').html(dataToShow.total_district_area)
-  $('#' + prefix + 'population_class3').html(Math.round(dataToShow.total_population))
-  $('#' + prefix + 'density_class3').html(Math.round(dataToShow.density_of_population))
-  $('#' + prefix + 'sex_ratio_class3').html(Math.round(dataToShow.child_sex_ratio))
-  $('#' + prefix + 'literacy_class3').html(dataToShow.literacy_rate)
+
+
+  $('#' + prefix + 'density_class3').html(parseInt(dataToShow.density_of_population) ? parseFloat(dataToShow.density_of_population).toLocaleString() + ' per sq. km' : '-')
+  $('#' + prefix + 'sex_ratio_class3').html(parseFloat(dataToShow.child_sex_ratio) ? parseFloat(dataToShow.child_sex_ratio).toLocaleString() : '-')
+  $('#' + prefix + 'literacy_class3').html(parseFloat(dataToShow.literacy_rate) ? parseFloat(dataToShow.literacy_rate).toLocaleString() + '%' : '-')
 
   if (selected_geography === 'district') {
     $('.' + prefix + 'name').html(format_string(dataToShow.district_name))
-    $('#' + prefix + 'rural_class3').html(Math.round(dataToShow.rural_population))
-    $('#' + prefix + 'urban_class3').html(Math.round(dataToShow.urban_population))
-    $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools))
-    $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools))
-    $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools))
-    $('#' + prefix + 'govt_school_class3').html(Math.round(dataToShow.central_govt_schools))
-    $('#' + prefix + 'private_school_class3').html(Math.round(dataToShow.private_unaided_reco_schools))
-    $('#' + prefix + 'total_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools) + Math.round(dataToShow.teacher_central_govt_schools) + Math.round(dataToShow.teacher_govt_aided_schools) + Math.round(dataToShow.teacher_private_unaided_reco_schools))
-    $('#' + prefix + 'state_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools))
-    $('#' + prefix + 'govt_teacher_class3').html(Math.round(dataToShow.teacher_central_govt_schools))
-    $('#' + prefix + 'govt_aided_teacher_class3').html(Math.round(dataToShow.teacher_govt_aided_schools))
-    $('#' + prefix + 'private_teacher_class3').html(Math.round(dataToShow.teacher_private_unaided_reco_schools))
+    $('#' + prefix + 'rural_class3').html(parseInt(dataToShow.rural_population) ? parseInt(dataToShow.rural_population).toLocaleString() : '-')
+    $('#' + prefix + 'urban_class3').html(parseInt(dataToShow.urban_population) ? parseInt(dataToShow.urban_population).toLocaleString() : '-')
+    $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools).toLocaleString())
+    $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools).toLocaleString())
+    $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools).toLocaleString())
+    $('#' + prefix + 'govt_school_class3').html(Math.round(dataToShow.central_govt_schools).toLocaleString())
+    $('#' + prefix + 'private_school_class3').html(Math.round(dataToShow.private_unaided_reco_schools).toLocaleString())
+    $('#' + prefix + 'total_teacher_class3').html((Math.round(dataToShow.teacher_state_govt_schools) + Math.round(dataToShow.teacher_central_govt_schools) + Math.round(dataToShow.teacher_govt_aided_schools) + Math.round(dataToShow.teacher_private_unaided_reco_schools)).toLocaleString())
+    $('#' + prefix + 'state_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools).toLocaleString())
+    $('#' + prefix + 'govt_teacher_class3').html(Math.round(dataToShow.teacher_central_govt_schools).toLocaleString())
+    $('#' + prefix + 'govt_aided_teacher_class3').html(Math.round(dataToShow.teacher_govt_aided_schools).toLocaleString())
+    $('#' + prefix + 'private_teacher_class3').html(Math.round(dataToShow.teacher_private_unaided_reco_schools).toLocaleString())
     $('#' + prefix + 'description_class3').html(dataToShow.description)
   }
 
@@ -2339,6 +2360,7 @@ function createCumulativeCardsForPerformance(data) {
     },
   }
 
+
   const divisor = {
     evs: 2,
     language: 3,
@@ -2387,7 +2409,7 @@ function createCumulativeCardsForPerformance(data) {
           val = Math.round(cumulative_subject_count[subject][demo] / divisor[subject])
         }
         if (selected_geography === 'national') {
-          val = Math.round(cumulative_subject_count[subject][demo])
+          val = Math.round(cumulative_subject_count[subject][demo] / divisor[subject])
           where = screenType + selected_geography + '_' + subject + '_' + demo + '_class' + classType
         }
         updateCards(where, val)

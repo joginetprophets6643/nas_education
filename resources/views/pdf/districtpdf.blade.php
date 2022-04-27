@@ -81,8 +81,9 @@
           {
             $stateName = strtoupper($districtVal->state_name);
           }
+          // dd($stateName);
         ?>
-        const selectedMapData = DISTRICT_MAPS.find(data=> data.name === '{{$stateName}}')
+        const selectedMapData = DISTRICT_MAPS.find(data=> data.name === '<?php echo $stateName ?>')
         // console.log(selectedMapData);
         triggerDistrictChart(selectedMapData)  
       });

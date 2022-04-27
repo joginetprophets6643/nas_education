@@ -11,184 +11,218 @@ use DB;
 
 class FinalNationalProcessController extends Controller
 {
-    public function allgradeParticipationData()
+    public function allnationalParticipationData()
     {    
-        $nationalLevelPerfomanceData =DB::table('grade3nationaltable')->get();
-        dd($nationalLevelPerfomanceData);
-        
          DB::table('all_grade_national_participation_tbl')->truncate();
          $grade3PrcoessData = $this->grade3ParticipationData();
          $grade5PrcoessData = $this->grade5ParticipationData();
          $grade8PrcoessData = $this->grade8ParticipationData();
          $grade10PrcoessData = $this->grade10ParticipationData();
+         $grade11PrcoessData = $this->grade11ParticipationData();
+
+         return "National Participation Data Successfully Created";
     }
 
     public function grade3ParticipationData()
     {
-        
-        $final_data=DB::table('grade3nationaltable')->get();
-
+        $participation_data = DB::table('national_participation')->where('grade',3)->first();
         $national_data= $this->selectData(3);
 
-        foreach($final_data as $data){
-            AllGradeStateParticipationTBL::insert([
-                "state_id" =>$data->state_code,
+            AllGradeNationalParticipationTBL::insert([
+                
                 "grade"  =>3,
                 "total_school" =>$national_data->total_school,
                 "total_student" =>$national_data->total_student,
                 "total_teacher" =>$national_data->total_teacher,
-                "rural_location" =>$data->state_rural_n,
+                "rural_location" =>$participation_data->rural,
                 "rural_location_count" =>'0',
-                "urban_location" =>$data->state_urban_n,
+                "urban_location" =>$participation_data->urban,
                 "urban_location_count" =>'0',
-                "govt_school" =>$data->state_govt_n,
+                "govt_school" =>$participation_data->govt,
                 "govt_school_count" =>'0',
-                "govt_aided_school" =>$data->state_govtaid_n,
+                "govt_aided_school" =>$participation_data->govt_aided,
                 "govt_aided_school_count" =>'0',
-                "private_school" =>$data->state_private_n,
+                "private_school" =>$participation_data->private,
                 "private_school_count" =>'0',
-                "central_govt_school" =>$data->state_centgovt_n,
+                "central_govt_school" =>$participation_data->central_govt_,
                 "central_govt_school_count" =>'0',
-                "sc_social_group" =>$data->state_sc_n,
+                "sc_social_group" =>$participation_data->sc,
                 "sc_social_group_count" =>'0',
-                "obc_social_group" =>$data->state_obc_n,
+                "obc_social_group" =>$participation_data->obc,
                 "obc_social_group_count" =>'0',
-                "st_social_group" =>$data->state_st_n,
+                "st_social_group" =>$participation_data->st,
                 "st_social_group_count" =>'0',
-                "general_social_group" =>$data->state_general_n,
+                "general_social_group" =>$participation_data->general,
                 "general_social_group_count" =>'0',
-                "male_gender" =>$data->state_boy_n,
+                "male_gender" =>$participation_data->boys,
                 "male_gender_count" =>'0',
-                "female_gender" =>$data->state_girl_n,
+                "female_gender" =>$participation_data->girls,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->state_trans_n,
+                "trans_gender" =>$participation_data->transgender,
                 "trans_gender_count" =>'0',
             ]);
-
-
-    
-        }
     }
 
     public function grade5ParticipationData()
     {
-        $final_data=DB::table('grade5nationaltable')->get();
+        $participation_data = DB::table('national_participation')->where('grade',5)->first();
         $national_data= $this->selectData(5);
-        foreach($final_data as $data){
-            AllGradeStateParticipationTBL::insert([
-                "state_id" =>$data->state_code,
+        
+            AllGradeNationalParticipationTBL::insert([
+                
                 "grade"  =>5,
                 "total_school" =>$national_data->total_school,
                 "total_student" =>$national_data->total_student,
                 "total_teacher" =>$national_data->total_teacher,
-                "rural_location" =>$data->state_rural_n,
+                "rural_location" =>$participation_data->rural,
                 "rural_location_count" =>'0',
-                "urban_location" =>$data->state_urban_n,
+                "urban_location" =>$participation_data->urban,
                 "urban_location_count" =>'0',
-                "govt_school" =>$data->state_govt_n,
+                "govt_school" =>$participation_data->govt,
                 "govt_school_count" =>'0',
-                "govt_aided_school" =>$data->state_govtaid_n,
+                "govt_aided_school" =>$participation_data->govt_aided,
                 "govt_aided_school_count" =>'0',
-                "private_school" =>$data->state_private_n,
+                "private_school" =>$participation_data->private,
                 "private_school_count" =>'0',
-                "central_govt_school" =>$data->state_centgovt_n,
+                "central_govt_school" =>$participation_data->central_govt_,
                 "central_govt_school_count" =>'0',
-                "sc_social_group" =>$data->state_sc_n,
+                "sc_social_group" =>$participation_data->sc,
                 "sc_social_group_count" =>'0',
-                "obc_social_group" =>$data->state_obc_n,
+                "obc_social_group" =>$participation_data->obc,
                 "obc_social_group_count" =>'0',
-                "st_social_group" =>$data->state_st_n,
+                "st_social_group" =>$participation_data->st,
                 "st_social_group_count" =>'0',
-                "general_social_group" =>$data->state_general_n,
+                "general_social_group" =>$participation_data->general,
                 "general_social_group_count" =>'0',
-                "male_gender" =>$data->state_boy_n,
+                "male_gender" =>$participation_data->boys,
                 "male_gender_count" =>'0',
-                "female_gender" =>$data->state_girl_n,
+                "female_gender" =>$participation_data->girls,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->state_trans_n,
+                "trans_gender" =>$participation_data->transgender,
                 "trans_gender_count" =>'0',
             ]);
-        }
     }
     public function grade8ParticipationData()
     {
-        $final_data=DB::table('grade8nationaltable')->get();
+        $participation_data = DB::table('national_participation')->where('grade',8)->first();
         $national_data= $this->selectData(8);
-        foreach($final_data as $data){
-            AllGradeStateParticipationTBL::insert([
-                "state_id" =>$data->state_code,
+        
+            AllGradeNationalParticipationTBL::insert([
+                
                 "grade"  =>8,
                 "total_school" =>$national_data->total_school,
                 "total_student" =>$national_data->total_student,
                 "total_teacher" =>$national_data->total_teacher,
-                "rural_location" =>$data->state_rural_n,
+                "rural_location" =>$participation_data->rural,
                 "rural_location_count" =>'0',
-                "urban_location" =>$data->state_urban_n,
+                "urban_location" =>$participation_data->urban,
                 "urban_location_count" =>'0',
-                "govt_school" =>$data->state_govt_n,
+                "govt_school" =>$participation_data->govt,
                 "govt_school_count" =>'0',
-                "govt_aided_school" =>$data->state_govtaid_n,
+                "govt_aided_school" =>$participation_data->govt_aided,
                 "govt_aided_school_count" =>'0',
-                "private_school" =>$data->state_private_n,
+                "private_school" =>$participation_data->private,
                 "private_school_count" =>'0',
-                "central_govt_school" =>$data->state_centgovt_n,
+                "central_govt_school" =>$participation_data->central_govt_,
                 "central_govt_school_count" =>'0',
-                "sc_social_group" =>$data->state_sc_n,
+                "sc_social_group" =>$participation_data->sc,
                 "sc_social_group_count" =>'0',
-                "obc_social_group" =>$data->state_obc_n,
+                "obc_social_group" =>$participation_data->obc,
                 "obc_social_group_count" =>'0',
-                "st_social_group" =>$data->state_st_n,
+                "st_social_group" =>$participation_data->st,
                 "st_social_group_count" =>'0',
-                "general_social_group" =>$data->state_general_n,
+                "general_social_group" =>$participation_data->general,
                 "general_social_group_count" =>'0',
-                "male_gender" =>$data->state_boy_n,
+                "male_gender" =>$participation_data->boys,
                 "male_gender_count" =>'0',
-                "female_gender" =>$data->state_girl_n,
+                "female_gender" =>$participation_data->girls,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->state_trans_n,
+                "trans_gender" =>$participation_data->transgender,
                 "trans_gender_count" =>'0',
             ]);
-        }
     }
     public function grade10ParticipationData()
     {
-        $final_data=DB::table('grade10nationaltable')->get();
+        $participation_data = DB::table('national_participation')->where('grade',10)->first();
         $national_data= $this->selectData(10);
-        foreach($final_data as $data){
-            AllGradeStateParticipationTBL::insert([
-                "state_id" =>$data->state_code,
+        
+            AllGradeNationalParticipationTBL::insert([
+                
                 "grade"  =>10,
                 "total_school" =>$national_data->total_school,
                 "total_student" =>$national_data->total_student,
                 "total_teacher" =>$national_data->total_teacher,
-                "rural_location" =>$data->state_rural_n,
+                "rural_location" =>$participation_data->rural,
                 "rural_location_count" =>'0',
-                "urban_location" =>$data->state_urban_n,
+                "urban_location" =>$participation_data->urban,
                 "urban_location_count" =>'0',
-                "govt_school" =>$data->state_govt_n,
+                "govt_school" =>$participation_data->govt,
                 "govt_school_count" =>'0',
-                "govt_aided_school" =>$data->state_govtaid_n,
+                "govt_aided_school" =>$participation_data->govt_aided,
                 "govt_aided_school_count" =>'0',
-                "private_school" =>$data->state_private_n,
+                "private_school" =>$participation_data->private,
                 "private_school_count" =>'0',
-                "central_govt_school" =>$data->state_centgovt_n,
+                "central_govt_school" =>$participation_data->central_govt_,
                 "central_govt_school_count" =>'0',
-                "sc_social_group" =>$data->state_sc_n,
+                "sc_social_group" =>$participation_data->sc,
                 "sc_social_group_count" =>'0',
-                "obc_social_group" =>$data->state_obc_n,
+                "obc_social_group" =>$participation_data->obc,
                 "obc_social_group_count" =>'0',
-                "st_social_group" =>$data->state_st_n,
+                "st_social_group" =>$participation_data->st,
                 "st_social_group_count" =>'0',
-                "general_social_group" =>$data->state_general_n,
+                "general_social_group" =>$participation_data->general,
                 "general_social_group_count" =>'0',
-                "male_gender" =>$data->state_boy_n,
+                "male_gender" =>$participation_data->boys,
                 "male_gender_count" =>'0',
-                "female_gender" =>$data->state_girl_n,
+                "female_gender" =>$participation_data->girls,
                 "female_gender_count" =>'0',
-                "trans_gender" =>$data->state_trans_n,
+                "trans_gender" =>$participation_data->transgender,
                 "trans_gender_count" =>'0',
             ]);
-        }
+    }
+
+    public function grade11ParticipationData()
+    {
+        $participation_data = DB::table('national_participation')->where('grade',11)->first();
+        $national_data= DB::table('all_grade_state_participation_tbl')
+                        ->select(DB::raw('sum(cast(total_school as double precision)) as total_school'),
+                        DB::raw('sum(cast(total_student as double precision)) as total_student'),
+                        DB::raw('sum(cast(total_teacher as double precision)) as total_teacher'))->first();
+
+        
+            AllGradeNationalParticipationTBL::insert([
+                
+                "grade"  =>11,
+                "total_school" =>$national_data->total_school,
+                "total_student" =>$national_data->total_student,
+                "total_teacher" =>$national_data->total_teacher,
+                "rural_location" =>$participation_data->rural,
+                "rural_location_count" =>'0',
+                "urban_location" =>$participation_data->urban,
+                "urban_location_count" =>'0',
+                "govt_school" =>$participation_data->govt,
+                "govt_school_count" =>'0',
+                "govt_aided_school" =>$participation_data->govt_aided,
+                "govt_aided_school_count" =>'0',
+                "private_school" =>$participation_data->private,
+                "private_school_count" =>'0',
+                "central_govt_school" =>$participation_data->central_govt_,
+                "central_govt_school_count" =>'0',
+                "sc_social_group" =>$participation_data->sc,
+                "sc_social_group_count" =>'0',
+                "obc_social_group" =>$participation_data->obc,
+                "obc_social_group_count" =>'0',
+                "st_social_group" =>$participation_data->st,
+                "st_social_group_count" =>'0',
+                "general_social_group" =>$participation_data->general,
+                "general_social_group_count" =>'0',
+                "male_gender" =>$participation_data->boys,
+                "male_gender_count" =>'0',
+                "female_gender" =>$participation_data->girls,
+                "female_gender_count" =>'0',
+                "trans_gender" =>$participation_data->transgender,
+                "trans_gender_count" =>'0',
+            ]);
     }
 
     public function selectData($grade){
@@ -200,9 +234,152 @@ class FinalNationalProcessController extends Controller
         return($data);
     }
 
-    public function performance(){
-        $nationalLevelPerfomanceData =DB::table('grade3nationaltable')->get();
-        dd($nationalLevelPerfomanceData);
+    public function allnationalPerformancedata()
+    {
+        DB::table('national_grade_level_performance')->truncate();
+        $grade3PrcoessData = $this->grade3PerformanceData();
+        $grade5PrcoessData = $this->grade5PerformanceData();
+        $grade8PrcoessData = $this->grade8PerformanceData();
+        $grade10PrcoessData = $this->grade10PerformanceData();
+    }
+
+    public function grade3PerformanceData()
+    {
+            $newnationalArray = array();
+            $newnationalArray['language'] =array(
+                'cards'=>array(
+                    'national'=>323
+                )
+            );
+            
+            $newnationalArray['math'] =array(
+                'cards'=>array(
+                    'national'=>306
+                )
+            );
+            
+            $newnationalArray['evs'] =array(
+                'cards'=>array(
+                    'national'=>307
+                )
+            );
+                
+            $nationalArr['grade'] = 3;
+            $nationalArr['data'] = json_encode($newnationalArray);
+            $nationalArr['created_at'] = now();
+            $nationalArr['updated_at'] = now();
+            
+            $nationalPerformaceData[]=$nationalArr;
+        NationalGradeLevelPerformance::insert($nationalPerformaceData);
+    }
+
+    public function grade5PerformanceData()
+    {
+            $newnationalArray = array();
+            $newnationalArray['language'] =array(
+                'cards'=>array(
+                    'national'=>309
+                )
+            );
+            
+            $newnationalArray['math'] =array(
+                'cards'=>array(
+                    'national'=>284
+                )
+            );
+            
+            $newnationalArray['evs'] =array(
+                'cards'=>array(
+                    'national'=>283
+                )
+            );
+        
+        $nationalArr['grade'] = 5;
+        $nationalArr['data'] = json_encode($newnationalArray);
+        $nationalArr['created_at'] = now();
+        $nationalArr['updated_at'] = now();
+        
+        $nationalPerformaceData[]=$nationalArr;
+        NationalGradeLevelPerformance::insert($nationalPerformaceData);
+    }
+
+    public function grade8PerformanceData()
+    {
+            $newnationalArray = array();
+            $newnationalArray['language'] =array(
+                'cards'=>array(
+                    'national'=>302
+                )
+            );
+            
+            $newnationalArray['math'] =array(
+                'cards'=>array(
+                    'national'=>255
+                )
+            );
+            
+            $newnationalArray['sci'] =array(
+                'cards'=>array(
+                    'national'=>250
+                )
+            );
+
+            $newnationalArray['sst'] =array(
+                'cards'=>array(
+                    'national'=>255
+                )
+            );
+
+        
+        $nationalArr['grade'] = 8;
+        $nationalArr['data'] = json_encode($newnationalArray);
+        $nationalArr['created_at'] = now();
+        $nationalArr['updated_at'] = now();
+        
+        $nationalPerformaceData[]=$nationalArr;
+        NationalGradeLevelPerformance::insert($nationalPerformaceData);
+    }
+
+    public function grade10PerformanceData()
+    {
+            $newnationalArray = array();
+            $newnationalArray['math'] =array(
+                'cards'=>array(
+                    'national'=>220
+                )
+            );
+            
+            $newnationalArray['sci'] =array(
+                'cards'=>array(
+                    'national'=>206
+                )
+            );
+
+            $newnationalArray['sst'] =array(
+                'cards'=>array(
+                    'national'=>231
+                )
+            );
+
+            $newnationalArray['eng'] =array(
+                'cards'=>array(
+                    'national'=>277
+                )
+            );
+
+            $newnationalArray['mil'] =array(
+                'cards'=>array(
+                    'national'=>260
+                )
+            );
+
+        $nationalArr['grade'] = 10;
+        $nationalArr['data'] = json_encode($newnationalArray);
+        $nationalArr['created_at'] = now();
+        $nationalArr['updated_at'] = now();
+        
+        $nationalePerformaceData[]=$nationalArr;
+        NationalGradeLevelPerformance::insert($nationalePerformaceData);
     }
 
     public function glimpes(){
@@ -261,9 +438,9 @@ class FinalNationalProcessController extends Controller
                         'govt_aided_se'=>$glimpes->se_govt_aided,
                         'pvt_ss'=>$glimpes->private,
                         'pvt_se'=>$glimpes->se_private,
-                        'central_govt__ss'=>$glimpes->central_govt,
+                        'central_govt_ss'=>$glimpes->central_govt,
                         'central_govt_se'=>$glimpes->se_central_govt,
-                        'govt_category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
+                        'category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
                         'pvt_category'=>!is_null($glimpes->prvt_indicator)?(int)$glimpes->prvt_indicator:3,
                         'central_govt_category'=>!is_null($glimpes->cent_govt_indicator)?(int)$glimpes->cent_govt_indicator:3,
 
@@ -353,9 +530,9 @@ class FinalNationalProcessController extends Controller
                         'govt_aided_se'=>$glimpes->se_govt_aided,
                         'pvt_ss'=>$glimpes->private,
                         'pvt_se'=>$glimpes->se_private,
-                        'central_govt__ss'=>$glimpes->central_govt,
+                        'central_govt_ss'=>$glimpes->central_govt,
                         'central_govt_se'=>$glimpes->se_central_govt,
-                        'govt_category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
+                        'category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
                         'pvt_category'=>!is_null($glimpes->prvt_indicator)?(int)$glimpes->prvt_indicator:3,
                         'central_govt_category'=>!is_null($glimpes->cent_govt_indicator)?(int)$glimpes->cent_govt_indicator:3,
 
@@ -445,9 +622,9 @@ class FinalNationalProcessController extends Controller
                         'govt_aided_se'=>$glimpes->se_govt_aided,
                         'pvt_ss'=>$glimpes->private,
                         'pvt_se'=>$glimpes->se_private,
-                        'central_govt__ss'=>$glimpes->central_govt,
+                        'central_govt_ss'=>$glimpes->central_govt,
                         'central_govt_se'=>$glimpes->se_central_govt,
-                        'govt_category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
+                        'category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
                         'pvt_category'=>!is_null($glimpes->prvt_indicator)?(int)$glimpes->prvt_indicator:3,
                         'central_govt_category'=>!is_null($glimpes->cent_govt_indicator)?(int)$glimpes->cent_govt_indicator:3,
 
@@ -537,9 +714,9 @@ class FinalNationalProcessController extends Controller
                         'govt_aided_se'=>$glimpes->se_govt_aided,
                         'pvt_ss'=>$glimpes->private,
                         'pvt_se'=>$glimpes->se_private,
-                        'central_govt__ss'=>$glimpes->central_govt,
+                        'central_govt_ss'=>$glimpes->central_govt,
                         'central_govt_se'=>$glimpes->se_central_govt,
-                        'govt_category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
+                        'category'=>!is_null($glimpes->govt_indicator)?(int)$glimpes->govt_indicator:3,
                         'pvt_category'=>!is_null($glimpes->prvt_indicator)?(int)$glimpes->prvt_indicator:3,
                         'central_govt_category'=>!is_null($glimpes->cent_govt_indicator)?(int)$glimpes->cent_govt_indicator:3,
 

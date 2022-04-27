@@ -168,7 +168,7 @@
                                                     Total District Area
                                                   </h3>
                                                   <p class="total-no" id="information_district_area_class3">
-                                                    15,359 sq. km.
+                                                    15,359
                                                   </p>
                                                 </div>
                                             </div>
@@ -208,7 +208,7 @@
                                                     Density of Population
                                                   </h3>
                                                   <p class="total-no" id="information_district_density_class3">
-                                                    188 per sq. km.
+                                                    188
                                                   </p>
                                                 </div>
                                             </div>
@@ -283,7 +283,7 @@
                                                           Area of <span class="information_state_name"></span>
                                                         </h3>
                                                         <p class="total-no">
-                                                          <span id="information_state_area_class3"> 0 </span> sq. km.
+                                                          <span id="information_state_area_class3"> 0 </span>
                                                         </p>
                                                       </div>
                                                       <div class="img">
@@ -318,7 +318,7 @@
                                                         Density of population
                                                       </h3>
                                                       <p class="total-no">
-                                                        <span id="information_state_density_class3">0</span> per sq. km.
+                                                        <span id="information_state_density_class3">0</span>
                                                       </p>
                                                     </div>
                                                     <div class="img">
@@ -336,7 +336,7 @@
                                                         Literacy Rate
                                                       </h3>
                                                       <p class="total-no">
-                                                        <span id="information_state_literacy_class3"></span>%
+                                                        <span id="information_state_literacy_class3"></span>
                                                       </p>
                                                     </div>
                                                     <div class="img">
@@ -397,7 +397,7 @@
                                                           Area of Nation
                                                         </h3>
                                                         <p class="total-no">
-                                                          <span id="information_national_area_class3"> 0 </span> sq. km.
+                                                          <span id="information_national_area_class3"> 0 </span>
                                                         </p>
                                                       </div>
                                                       <div class="img">
@@ -432,7 +432,7 @@
                                                         Density of population
                                                       </h3>
                                                       <p class="total-no">
-                                                        <span id="information_national_density_class3">0</span> per sq. km.
+                                                        <span id="information_national_density_class3">0</span>
                                                       </p>
                                                     </div>
                                                     <div class="img">
@@ -450,7 +450,7 @@
                                                         Literacy Rate
                                                       </h3>
                                                       <p class="total-no">
-                                                        <span id="information_national_literacy_class3"></span>%
+                                                        <span id="information_national_literacy_class3"></span>
                                                       </p>
                                                     </div>
                                                     <div class="img">
