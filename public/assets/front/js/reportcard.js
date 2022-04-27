@@ -649,7 +649,9 @@ function setFilters() {
   const state = JSON.parse(sessionStorage.getItem('activeState'))
   const district = JSON.parse(sessionStorage.getItem('activeDistrict'))
   if (state === null && district === null && classType === 'all') {
-    global_filters = {}
+    if (screenType === 'participation') {
+      global_filters = { ...global_filters, grade: { _eq: "11" } }
+    }  
   } else {
     if (state !== '' && state !== null) {
       global_filters = { ...global_filters, state_id: { _eq: state.udise_state_code } }
@@ -668,7 +670,7 @@ function setFilters() {
           }
         }
       } else {
-        if (screenType === 'feedback') {
+        if (screenType === 'feedback' || screenType === 'participation') {
           global_filters = { ...global_filters, grade: { _eq: "11" } }
         }
         else {

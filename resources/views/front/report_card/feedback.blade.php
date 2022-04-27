@@ -381,8 +381,8 @@
                                                               </p>
                                                             </div> -->
                                                           </div>
-                                                          <div class="col-md-6" id="feedbacknational_pq2_4_class3">
-                                                            <!-- <div class="pendamic-progrssbar-content ptb-15">
+                                                          <!-- <div class="col-md-6" id="feedbacknational_pq2_4_class3">
+                                                             <div class="pendamic-progrssbar-content ptb-15">
                                                               <div class="progressbar-circle-sm progressbar-blue">
                                                                 <div class="progress" data-percentage="22">
                                                                   <span class="progress-left">
@@ -400,8 +400,8 @@
                                                                 Lot of time to learn new<br />
                                                                 things
                                                               </p>
-                                                            </div> -->
-                                                          </div>
+                                                            </div>
+                                                          </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
