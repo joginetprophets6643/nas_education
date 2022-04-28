@@ -703,6 +703,9 @@ async function setInformation() {
     if (screenType === 'glimpses') {
       data = await JSON.parse(sessionStorage.getItem('glimpses_data'))
     }
+    if (screenType === 'achievement') {
+      data = await JSON.parse(sessionStorage.getItem('achievement_data'))
+    }
     await updateData(data)
 
   } catch (exceptions) {
@@ -843,7 +846,7 @@ async function getData() {
       national: 'national_result_glimpses',
     },
     achievement: {
-      state: 'all_grade_participation_tbl',
+      state: 'achievement_src',
       national: 'all_grade_participation_tbl',
       district: 'all_grade_participation_tbl',
     }
@@ -899,6 +902,9 @@ async function getData() {
       }
       if (screenType === 'glimpses') {
         sessionStorage.setItem('glimpses_data', JSON.stringify(res.data))
+      }
+      if (screenType === 'achievement') {
+        sessionStorage.setItem('achievement_data', JSON.stringify(res.data))
       }
       setInformation()
       $('#screen-loader').hide()
@@ -1473,6 +1479,211 @@ function updateData(data) {
       } else {
         createGlimpsesScreen(data)
       }
+    }
+    if (screenType === 'achievement'){
+      const current_demography = (selected_geography === 'district' ? '' : selected_geography)
+      //console.log(data)
+      achievement_data = '';
+      current_grade = ''
+      direction_gender_header = `<div class="card ach-card">
+      <div class="ach-table"><table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Factors</th>
+                                  <th class="dark-blue"><span class="category-item">A</span></th>
+                                  <th class="dark-blue"><span class="category-item">B</span></th>
+                                  <th class="dark-blue"><span class="category-item">C</span></th>
+                                  <th class="dark-blue"><span class="category-item">D</span></th>
+                                  <th class="dark-blue"><span class="category-item">E</span></th>
+                                  <th class="dark-blue"><span class="category-item">F</span></th>
+                                  <th class="dark-blue"><span class="category-item">G</span></th>
+                                  <th class="dark-blue"><span class="category-item">H</span></th>
+                                  <th class="dark-blue"><span class="category-item">I</span></th>
+                                  <th class="dark-blue"><span class="category-item">J</span></th>
+                                  <th class="dark-blue"><span class="category-item">K</span></th>
+                                </tr>
+                              </thead>
+                              <tbody id="add_achievementstate">`
+      data.forEach((ach,index) => {
+        if(index % 6 === 0){  
+          if(classType == 'all'){
+          achievement_data += '</tbody></table></div></div><br><h5 style="text-align: center;"><b>Grade' +ach.grade+'</b></h5>' + direction_gender_header
+          }
+          else{
+          achievement_data += '</tbody></table></div></div><br>' + direction_gender_header
+          }
+        }else{
+          if(index === 0){
+            achievement_data += direction_gender_header
+          }
+        }
+
+        if (current_demography === 'state') {
+          if(ach.direction_gender == 0){
+            direction_gender = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_gender == 1){
+            direction_gender = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_gender == -1){
+            direction_gender = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_gender == 2){
+            direction_gender = '<td class="card-status card-sagegreen"></td>';
+          }
+
+          if(ach.direction_location == 0){
+            direction_location = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_location == 1){
+            direction_location = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_location == -1){
+            direction_location = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_location == 2){
+            direction_location = '<td class="card-status card-sagegreen"></td>';
+          }
+
+          if(ach.direction_sch_mgmt_gov == 0){
+            direction_sch_mgmt_gov = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_sch_mgmt_gov == 1){
+            direction_sch_mgmt_gov = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_sch_mgmt_gov == -1){
+            direction_sch_mgmt_gov = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_sch_mgmt_gov == 2){
+            direction_sch_mgmt_gov = '<td class="card-status card-sagegreen"></td>';
+          }
+        
+          if(ach.direction_sch_mgmt_govaid == 0){
+            direction_sch_mgmt_govaid = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_sch_mgmt_govaid == 1){
+            direction_sch_mgmt_govaid = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_sch_mgmt_govaid == -1){
+            direction_sch_mgmt_govaid = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_sch_mgmt_govaid == 2){
+            direction_sch_mgmt_govaid = '<td class="card-status card-sagegreen"></td>';
+          }
+        
+          if(ach.direction_sch_mgmt_priv	 == 0){
+            direction_sch_mgmt_priv	 = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_sch_mgmt_priv	 == 1){
+            direction_sch_mgmt_priv	 = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_sch_mgmt_priv	 == -1){
+            direction_sch_mgmt_priv	 = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_sch_mgmt_priv	 == 2){
+            direction_sch_mgmt_priv	 = '<td class="card-status card-sagegreen"></td>';
+          }
+        
+          if(ach.direction_sch_mgmt_centgov == 0){
+            direction_sch_mgmt_centgov = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_sch_mgmt_centgov == 1){
+            direction_sch_mgmt_centgov = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_sch_mgmt_centgov == -1){
+            direction_sch_mgmt_centgov = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_sch_mgmt_centgov == 2){
+            direction_sch_mgmt_centgov = '<td class="card-status card-sagegreen"></td>';
+          }
+        
+          if(ach.direction_category_sc == 0){
+            direction_category_sc = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_category_sc == 1){
+            direction_category_sc = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_category_sc == -1){
+            direction_category_sc = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_category_sc == 2){
+            direction_category_sc = '<td class="card-status card-sagegreen"></td>';
+          }
+        
+          if(ach.direction_category_st == 0){
+            direction_category_st = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_category_st == 1){
+            direction_category_st = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_category_st == -1){
+            direction_category_st = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_category_st == 2){
+            direction_category_st = '<td class="card-status card-sagegreen"></td>';
+          }
+        
+          if(ach.direction_category_obc == 0){
+            direction_category_obc = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_category_obc == 1){
+            direction_category_obc = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_category_obc == -1){
+            direction_category_obc = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_category_obc == 2){
+            direction_category_obc = '<td class="card-status card-sagegreen"></td>';
+          }
+        
+          if(ach.direction_category_gen == 0){
+            direction_category_gen = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_category_gen == 1){
+            direction_category_gen = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_category_gen == -1){
+            direction_category_gen = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_category_gen == 2){
+            direction_category_gen = '<td class="card-status card-sagegreen"></td>';
+          }
+        
+          if(ach.direction_category_ews == 0){
+            direction_category_ews = '<td class="card-status card-grey"></td>';
+          }
+          if(ach.direction_category_ews == 1){
+            direction_category_ews = '<td class="card-status card-green"></td>';
+          }
+          if(ach.direction_category_ews == -1){
+            direction_category_ews = '<td class="card-status card-red"></td>';
+          }
+          if(ach.direction_category_ews == 2){
+            direction_category_ews = '<td class="card-status card-sagegreen"></td>';
+          }
+
+          // if(classType == 'all'){
+          //   if(index % 6 === 0){
+          // achievement_data += '<h5 style="text-align: center;"><b>Grade' +ach.grade+'</b></h5>'
+
+          //   }
+          // }
+
+          
+          achievement_data += '<tr><td>'+ach.factor+'</td>'+direction_gender+direction_location+direction_sch_mgmt_gov+direction_sch_mgmt_govaid+direction_sch_mgmt_priv+direction_sch_mgmt_centgov+direction_category_sc+direction_category_st+direction_category_obc+direction_category_gen+direction_category_ews+'</tr>'
+          
+
+          
+
+
+        } else {
+          achievement_data = '<tr><td>No Data Available</td></tr>'
+        }
+        
+        $('#add_achievement' + current_demography).html(achievement_data);
+        
+      })
+
     }
   } else {
     console.log('no data ')
