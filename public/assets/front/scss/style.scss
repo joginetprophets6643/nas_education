@@ -4638,8 +4638,7 @@ ul {
 
         thead {
             tr {
-                background: #f1f1f1;
-
+                background: #fff;
                 th {
                     padding: 12px 5px;
 
@@ -4669,8 +4668,7 @@ ul {
 
         tbody {
             tr {
-                background: #f1f1f1;
-
+                background: #ebf3fb;
                 &:last-child {
                     border-bottom: hidden;
 
@@ -4703,15 +4701,29 @@ ul {
         th:nth-child(2),
         th:nth-child(3),
         th:nth-child(4),
+        th:nth-child(5),
+        th:nth-child(6),
+        th:nth-child(7),
+        th:nth-child(8),
+        th:nth-child(9),
+        th:nth-child(10),
+        th:nth-child(11),
         td:nth-child(2),
         td:nth-child(3),
-        td:nth-child(4) {
+        td:nth-child(4),
+        td:nth-child(5),
+        td:nth-child(6),
+        td:nth-child(7),
+        td:nth-child(8),
+        td:nth-child(9),
+        td:nth-child(10),
+        td:nth-child(11)
+         {
             border-right: 2px solid #f1f1f1;
             border-bottom: 2px solid #f1f1f1;
         }
-
-        th:nth-child(5),
-        td:nth-child(5) {
+        th:nth-child(12),
+        td:nth-child(12) {
             border-bottom: 2px solid #f1f1f1;
         }
 

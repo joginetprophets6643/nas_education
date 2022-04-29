@@ -8291,7 +8291,7 @@ ul {
 }
 
 .ach-table .table thead tr {
-  background: #f1f1f1;
+  background: #fff;
 }
 
 .ach-table .table thead tr th {
@@ -8320,7 +8320,7 @@ ul {
 }
 
 .ach-table .table tbody tr {
-  background: #f1f1f1;
+  background: #ebf3fb;
 }
 
 .ach-table .table tbody tr:last-child {
@@ -8351,15 +8351,29 @@ ul {
 .ach-table .table th:nth-child(2),
 .ach-table .table th:nth-child(3),
 .ach-table .table th:nth-child(4),
+.ach-table .table th:nth-child(5),
+.ach-table .table th:nth-child(6),
+.ach-table .table th:nth-child(7),
+.ach-table .table th:nth-child(8),
+.ach-table .table th:nth-child(9),
+.ach-table .table th:nth-child(10),
+.ach-table .table th:nth-child(11),
 .ach-table .table td:nth-child(2),
 .ach-table .table td:nth-child(3),
-.ach-table .table td:nth-child(4) {
+.ach-table .table td:nth-child(4),
+.ach-table .table td:nth-child(5),
+.ach-table .table td:nth-child(6),
+.ach-table .table td:nth-child(7),
+.ach-table .table td:nth-child(8),
+.ach-table .table td:nth-child(9),
+.ach-table .table td:nth-child(10),
+.ach-table .table td:nth-child(11) {
   border-right: 2px solid #f1f1f1;
   border-bottom: 2px solid #f1f1f1;
 }
 
-.ach-table .table th:nth-child(5),
-.ach-table .table td:nth-child(5) {
+.ach-table .table th:nth-child(12),
+.ach-table .table td:nth-child(12) {
   border-bottom: 2px solid #f1f1f1;
 }
 
