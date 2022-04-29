@@ -3,6 +3,7 @@ return[
     'about nas' => 'About NAS',
     'DATA SHARE'=>'DATA SHARE',
     'Data Share'=>'Data Share',
+    'Feedback'=>'Feedback',
     'ANALYTICS'=>'ANALYTICS',
     'VISUALIZATION'=>'VISUALIZATION',
     'Visualization'=>'Visualization',

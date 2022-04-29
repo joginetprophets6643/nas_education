@@ -15,7 +15,10 @@ use App\Models\Team;
 use App\Models\Program;
 use App\Models\ClientLogo;
 use DB;
+use Carbon\Carbon;
 use Hash;
+use Illuminate\Support\Facades\Validator;
+
 
 class FrontController extends Controller
 {
@@ -57,7 +60,7 @@ class FrontController extends Controller
     }
 
     public function team(){
-        $members=Team::all();
+        $members=Team::orderBy('id')->get();
         $members=$members->groupBy('description');
         return view('front.team.index',compact('members'));
     }
@@ -160,5 +163,36 @@ class FrontController extends Controller
     public function logout(){
         Session::forget('auth-user');
         return redirect()->route('user-login');
+    }
+
+    public function feedback(){
+        return view('front.feedback.index');
+    }
+
+    public function storeFeedback(Request $request){
+        $validator = Validator::make($request->all(),[
+            'feedback'=>'required|min:35',
+            'name'=>'required',
+            'email'=>'required',
+            'content'=>'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('front-feedback')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        
+        DB::table('feedback')->insert([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'content'=>$request->content,
+            'rating'=>$request->rating,
+            'feedback'=>$request->feedback,
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()
+        ]);
+
+        return redirect()->route('front-feedback')->with('success','Your feedback is submitted successfully');
     }
 }

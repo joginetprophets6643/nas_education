@@ -31,6 +31,21 @@
           <div class="col-6 col-md-2">
             <div class="footer-links">
               <h2 class="heading-white-xs">
+                {{__('lang.Feedback')}}
+              </h2>
+              <ul>
+                <li>
+                  <a href="{{url('/feedback')}}" target="_blank">
+                    <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                    {{__('lang.Feedback')}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="col-6 col-md-2">
+            <div class="footer-links">
+              <h2 class="heading-white-xs">
                 {{__('lang.DATA SHARE')}}
               </h2>
               <ul>
@@ -48,7 +63,7 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> -->
           <div class="col-6 col-md-2">
             <div class="footer-links">
               <h2 class="heading-white-xs">

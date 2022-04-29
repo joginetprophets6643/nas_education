@@ -126,8 +126,11 @@
                       <li><a class="dropdown-item" href="{{url('/report-card')}}">{{__('lang.NAS 2021')}}</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link {{ Request::is('data-share') || Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}" target="_blank">{{__('lang.DATA SHARE')}}</a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link {{ Request::is('feedback') ? 'active' : '' }}" href="{{url('/feedback')}}" target="_blank">{{__('lang.Feedback')}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('visualization') || Request::is('visualization/*') ? 'active' : '' }}" href="{{url('/visualization')}}" target="_blank">{{__('lang.VISUALIZATION')}}</a>

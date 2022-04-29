@@ -238,6 +238,8 @@ function setClass(value) {
 
 // create bar graph with data for participation only
 function createSocialBarGraph(bar, colors) {
+  const value = Object.values(bar)
+  const max = Math.max(...value)
   Highcharts.chart('socialBarGraph_class' + classType, {
     chart: {
       type: 'column'
@@ -255,6 +257,7 @@ function createSocialBarGraph(bar, colors) {
       type: 'category'
     },
     yAxis: {
+      max: Math.round(max) + 5,
       title: {
         text: ''
       }
@@ -332,11 +335,11 @@ function createManagementPieChart(chart, colors) {
         dataLabels: {
           enabled: true,
           format: '{point.y}%',
-          distance: -50,
+          distance: 5,
           filter: {
             property: 'percentage',
             operator: '>',
-            value: 4
+            value: 0
           }
         },
         showInLegend: true
@@ -2095,8 +2098,8 @@ function createGlimpsesScreen(data) {
   let graphs = []
 
   // sections for performance screen
-  const sections = ['Cards', 'Location', 'Gender', 'Management']
-
+  const sections = ['Cards', 'Location', 'Gender', 'Management', 'Social']
+  const table_sections = ['Management', 'Social']
 
   const data_b = data[0]
 
@@ -2140,7 +2143,12 @@ function createGlimpsesScreen(data) {
       }
       const section_data = category_data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()]
       const required_colors = colorCode[sub.toLowerCase()]
-      generateGlimpsesMap(where, required_colors, section_data, section_legends[section.toLowerCase()])
+      if (table_sections.includes(section)) {
+        getGlimpsesData(subjects_short_codes[sub.toLowerCase()], section.toLowerCase(), 'type', where)
+      } else {
+        generateGlimpsesMap(where, required_colors, section_data, section_legends[section.toLowerCase()])
+
+      }
 
     })
   })
@@ -2452,31 +2460,110 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function getGlimpsesData(subject, legend, type = 'card') {
-  glimpses_data = JSON.parse(sessionStorage.getItem('glimpses_data'))
-  getGlimpsesSubjectData(JSON.parse(glimpses_data[0].data), subject, legend, type)
+function setColorCode(sub) {
+  const codes = {
+    'language': ['#75a9d9', '#e8f0f9'],
+    'math': ['#e9769f', '#fee5ee'],
+    'evs': ['#cac55f', '#f4f3df'],
+    'sci': ['#3cacae', '#d8eeef'],
+    'sst': ['#72b562', '#e3f0e0'],
+    'eng': ['#c574bf', '#f3e3f2'],
+    'mil': ['#eb6c69', '#fbe1e1']
+  }
+
+  $('.glimpse-header').css('background-color', codes[sub][0])
+  $('.glimpse-body').css('background-color', codes[sub][1])
+  $('.glimpse-header').css('color', '#fff')
+  $('.glimpse-table .table').css('color', '#5e5e5e')
 }
 
-function getGlimpsesSubjectData(data, subject, legend, type) {
+function setModalHeader(data, sub, legend) {
+
+  const subject = {
+    'language': 'Language',
+    'math': 'Mathematics',
+    'evs': 'Evs',
+    'sci': 'Science',
+    'sst': 'Social Science',
+    'eng': 'English',
+    'mil': 'Mil'
+  }
+  if (data.grade == 3) {
+    if (legend == 'cards') {
+      $('#data-header').html('Performance of States in Class III : ' + subject[sub].toUpperCase())
+    }
+    else {
+      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class III : ' + subject[sub].toUpperCase())
+    }
+
+  }
+  else if (data.grade == 5) {
+    if (legend == 'cards') {
+      $('#data-header').html('Performance of States in Class V : ' + subject[sub].toUpperCase())
+    }
+    else {
+      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class V : ' + subject[sub].toUpperCase())
+    }
+
+  }
+  else if (data.grade == 8) {
+    if (legend == 'cards') {
+      $('#data-header').html('Performance of States in Class VIII : ' + subject[sub].toUpperCase())
+    }
+    else {
+      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class VIII : ' + subject[sub].toUpperCase())
+    }
+
+  }
+  else {
+    if (legend == 'cards') {
+      $('#data-header').html('Performance of States in Class X : ' + subject[sub].toUpperCase())
+    }
+    else {
+      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class X : ' + subject[sub].toUpperCase())
+    }
+
+  }
+}
+
+function getGlimpsesData(subject, legend, clas = 'type', where) {
+  glimpses_data = JSON.parse(sessionStorage.getItem('glimpses_data'))
+
+  if (clas != 'type') {
+    glimpses_data = glimpses_data.filter((data) => {
+      return data.grade == clas
+    })
+  }
+
+  setModalHeader(glimpses_data[0], subject, legend)
+  setColorCode(subject)
+  getGlimpsesSubjectData(JSON.parse(glimpses_data[0].data), subject, legend, where)
+
+}
+
+function getGlimpsesSubjectData(data, subject, legend, where) {
   Object.keys(data).forEach((sub) => {
     if (sub == subject) {
-      getGlimpsesLegendData(data[sub], legend, type)
+      getGlimpsesLegendData(data[sub], legend, where)
     }
   })
 }
 
-function getGlimpsesLegendData(data, legend, type) {
+function getGlimpsesLegendData(data, legend, where) {
   Object.keys(data).forEach((legends) => {
     if (legends == legend) {
-      generateGlimpsesTable(data[legend], type)
+      generateGlimpsesTable(data[legend], legend, where)
     }
   })
 }
 
-function generateGlimpsesTable(data, type) {
+function generateGlimpsesTable(data, legend, where) {
   innerHtml = ''
   let states = JSON.parse(sessionStorage.getItem('states'))
   let current_state = ''
+  let exceptions = ['management', 'social']
+
+  innerHtml = setTableHead(legend)
   data.forEach((actual_data) => {
     current_state = states.filter((state) => {
       if (state.udise_state_code == actual_data.state_id) {
@@ -2484,124 +2571,506 @@ function generateGlimpsesTable(data, type) {
       }
     })
     state_name = current_state.length != 0 ? current_state[0].state_name : 'N/A'
-    if (actual_data.category == 0) {
 
-      if (type == 'card') {
-        innerHtml += `<tr>
+    if (legend == 'cards') {
+
+      innerHtml += `<tr>
                   <td>${state_name}</td>
-                  <td>${actual_data.ss}</td>
-                  <td>${actual_data.se}</td>
-                  <td>
-                    <div class="icon-status icon-color-red">
-                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                    </div>
-                  </td>
-                </tr>`
-      }
-      else {
-        console.log(type)
-        innerHtml += `<tr>
-                  <td>${state_name}</td>
-                  <td>${actual_data[type + '_ss']}</td>
-                  <td>${actual_data[type + '_se']}</td>
-                  <td>
-                    <div class="icon-status icon-color-red">
-                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                    </div>
-                  </td>
-                </tr>`
-      }
+                  <td>${actual_data['ss'] != 0 ? Math.round(actual_data['ss']) : '-'}</td>
+                  <td>${actual_data['se'] != 0 ? Math.round(actual_data['se'] * 100) / 100 : '-'}</td>`
+      innerHtml += generateIndictor(actual_data, legend)
 
     }
-    else if (actual_data.category == 1) {
+    else if (legend == 'gender') {
 
-      if (type == 'card') {
-        innerHtml += `<tr>
+      innerHtml += `<tr>
                   <td>${state_name}</td>
-                  <td>${actual_data.ss}</td>
-                  <td>${actual_data.se}</td>
-                  <td>
-                    <div class="icon-status icon-color-yellow">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                    </svg>
-                    </div>
-                  </td>
-                </tr>`
-      } 
-      else {
-        innerHtml += `<tr>
-                  <td>${state_name}</td>
-                  <td>${actual_data[type + '_ss']}</td>
-                  <td>${actual_data[type + '_se']}</td>
-                  <td>
-                    <div class="icon-status icon-color-yellow">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                    </svg>
-                    </div>
-                  </td>
-                </tr>`
-      }
+                  <td>${actual_data['boys_ss'] != 0 ? Math.round(actual_data['boys_ss']) : '-'}</td>
+                  <td>${actual_data['boys_se'] != 0 ? Math.round(actual_data['boys_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['girls_ss'] != 0 ? Math.round(actual_data['girls_ss']) : '-'}</td>
+                  <td>${actual_data['girls_se'] != 0 ? Math.round(actual_data['girls_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data, legend)
 
     }
-    else if (actual_data.category == 2) {
+    else if (legend == 'location') {
 
-      if (type == 'card') {
-        innerHtml += `<tr>
+      innerHtml += `<tr>
                   <td>${state_name}</td>
-                  <td>${actual_data.ss}</td>
-                  <td>${actual_data.se}</td>
-                  <td>
-                    <div class="icon-status icon-color-green">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                    </svg>
-                    </div>
-                  </td>
-                </tr>`
-      } 
-      else {
-        innerHtml += `<tr>
+                  <td>${actual_data['rural_ss'] != 0 ? Math.round(actual_data['rural_ss']) : '-'}</td>
+                  <td>${actual_data['rural_se'] != 0 ? Math.round(actual_data['rural_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['urban_ss'] != 0 ? Math.round(actual_data['urban_ss']) : '-'}</td>
+                  <td>${actual_data['urban_se'] != 0 ? Math.round(actual_data['urban_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data, legend)
+
+    }
+    else if (legend == 'management') {
+      // innerHtml += `<tr>
+      //             <td>${state_name}</td>
+      //             <td>${actual_data['govt_ss']}</td>
+      //             <td>${actual_data['govt_se']}</td>
+      //             <td>${actual_data['govt_aided_ss']}</td>
+      //             <td>${actual_data['govt_aided_se']}</td>`
+
+      innerHtml += `<tr>
                   <td>${state_name}</td>
-                  <td>${actual_data[type + '_ss']}</td>
-                  <td>${actual_data[type + '_se']}</td>
-                  <td>
-                    <div class="icon-status icon-color-green">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                    </svg>
-                    </div>
-                  </td>
-                </tr>`
-      }
+                  <td>${actual_data['govt_ss'] != 0 ? Math.round(actual_data['govt_ss']) : '-'}</td>
+                  <td>${actual_data['govt_se'] != 0 ? Math.round(actual_data['govt_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['govt_aided_ss'] != 0 ? Math.round(actual_data['govt_aided_ss']) : '-'}</td>
+                  <td>${actual_data['govt_aided_se'] != 0 ? Math.round(actual_data['govt_aided_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['pvt_ss'] != 0 ? Math.round(actual_data['pvt_ss']) : '-'}</td>
+                  <td>${actual_data['pvt_se'] != 0 ? Math.round(actual_data['pvt_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>
+                  <td>${actual_data['central_govt_se'] != 0 ? Math.round(actual_data['central_govt_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data, legend)
 
     }
     else {
+      innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data['gen_ss'] != 0 ? Math.round(actual_data['gen_ss']) : '-'}</td>
+                  <td>${actual_data['gen_se'] != 0 ? Math.round(actual_data['gen_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['sc_ss'] != 0 ? Math.round(actual_data['sc_ss']) : '-'}</td>
+                  <td>${actual_data['sc_se'] != 0 ? Math.round(actual_data['sc_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['st_ss'] != 0 ? Math.round(actual_data['st_ss']) : '-'}</td>
+                  <td>${actual_data['st_se'] != 0 ? Math.round(actual_data['st_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>
+                  <td>${actual_data['obc_se'] != 0 ? Math.round(actual_data['obc_se'] * 100) / 100 : '-'}</td>`
 
-      if (type == 'card') {
-        innerHtml += `<tr>
-                  <td>${state_name}</td>
-                  <td>${actual_data.ss}</td>
-                  <td>${actual_data.se}</td>
-                  <td>
-                    N/A
-                  </td>
-                </tr>`
-      } 
-      else {
-        innerHtml += `<tr>
-                  <td>${state_name}</td>
-                  <td>${actual_data[type + '_ss']}</td>
-                  <td>${actual_data[type + '_se']}</td>
-                  <td>
-                    N/A
-                  </td>
-                </tr>`
-      }
+      innerHtml += generateIndictor(actual_data, legend)
 
     }
 
   })
-  $('#display_data').html(innerHtml)
+
+  innerHtml += `</tbody>`
+  if (exceptions.includes(legend)) {
+    innerHtml += `</table>`
+    $('#' + where).html(innerHtml)
+
+  } else {
+    $('#display_data').html(innerHtml)
+
+  }
+}
+
+function setTableHead(legend) {
+
+  if (legend == 'cards') {
+
+    return `<thead>
+                  <tr>
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean</th>
+                    <th scope="col">SE</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>`
+
+  }
+  else if (legend == 'gender') {
+
+    return `<thead>
+                  <tr>
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean(Boys)</th>
+                    <th scope="col">SE(Boys)</th>
+                    <th scope="col">Mean(Girls)</th>
+                    <th scope="col">SE(Girls)</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>`
+
+  }
+  else if (legend == 'location') {
+
+    return `<thead>
+                  <tr class="align-middle">
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean(Rural)</th>
+                    <th scope="col">SE(Rural)</th>
+                    <th scope="col">Mean(Urban)</th>
+                    <th scope="col">SE(Urban)</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>`
+
+  }
+  else if (legend == 'management') {
+    // return `<thead>
+    //               <tr>
+    //                 <th scope="col">State/Union Territory</th>
+    //                 <th scope="col">Mean(Govt.)</th>
+    //                 <th scope="col">SE(Govt.)</th>
+    //                 <th scope="col">Mean(Govt. Aided)</th>
+    //                 <th scope="col">SE(Govt. Aided)</th>
+    //                 <th scope="col"></th>
+    //               </tr>
+    //             </thead>
+    //             <tbody>`
+    return `<table class="ms_table table"><thead>
+                  <tr class="align-middle">
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean(Govt.)</th>
+                    <th scope="col">SE(Govt.)</th>
+                    <th scope="col">Mean(Govt. Aided)</th>
+                    <th scope="col">SE(Govt. Aided)</th>
+                    <th scope="col">Mean(Private)</th>
+                    <th scope="col">SE(Private)</th>
+                    <th scope="col">Mean(Central Govt.)</th>
+                    <th scope="col">SE(central Govt.)</th>
+                    <th scope="col">Govt.</th>
+                    <th scope="col">Private</th>
+                    <th scope="col">central Govt.</th>
+                  </tr>
+                </thead>
+                <tbody>`
+  }
+  else {
+
+    return `<table class="ms_table table"><thead>
+                  <tr class="align-middle">
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean(General)</th>
+                    <th scope="col">SE(General)</th>
+                    <th scope="col">Mean(SC)</th>
+                    <th scope="col">SE(SC)</th>
+                    <th scope="col">Mean(ST)</th>
+                    <th scope="col">SE(ST)</th>
+                    <th scope="col">Mean(OBC)</th>
+                    <th scope="col">SE(OBC)</th>
+                    <th scope="col">General</th>
+                    <th scope="col">ST</th>
+                    <th scope="col">OBC</th>
+                  </tr>
+                </thead>
+                <tbody>`
+
+  }
+
+}
+
+function generateIndictor(actual_data, legend) {
+
+  innerHtml = ''
+  if (legend == 'cards') {
+    if (actual_data.category == 0) {
+      innerHtml += `<td>
+                    <div class="icon-status icon-color-red">
+                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                    </div>
+                  </td>
+                </tr>`
+    }
+    else if (actual_data.category == 1) {
+      innerHtml += `<td>
+                    <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                    </svg>
+                    </div>
+                  </td>
+                </tr>`
+    }
+    else if (actual_data.category == 2) {
+      innerHtml += `<td>
+                    <div class="icon-status icon-color-green">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                    </svg>
+                    </div>
+                  </td>
+                </tr>`
+    }
+    else {
+      innerHtml += `<td>
+                    N/A
+                  </td>
+                </tr>`
+    }
+  }
+  else if (legend == 'gender') {
+    if (actual_data.category == 0) {
+      innerHtml += `<td>
+                    <div class="icon-status icon-color-red">
+                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                    </div>
+                  </td>
+                </tr>`
+    }
+    else if (actual_data.category == 1) {
+      innerHtml += `<td>
+                    <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                    </svg>
+                    </div>
+                  </td>
+                </tr>`
+    }
+    else if (actual_data.category == 2) {
+      innerHtml += `<td>
+                    <div class="icon-status icon-color-green">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                    </svg>
+                    </div>
+                  </td>
+                </tr>`
+    }
+    else {
+      innerHtml += `<td>
+                    N/A
+                  </td>
+                </tr>`
+    }
+  }
+  else if (legend == 'location') {
+    if (actual_data.category == 0) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                </div>
+                </td>
+            </tr>`
+    }
+    else if (actual_data.category == 1) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                </svg>
+                </div>
+                </td>
+            </tr>`
+    }
+    else if (actual_data.category == 2) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-green">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                </svg>
+                </div>
+                </td>
+            </tr>`
+    }
+    else {
+      innerHtml += `<td>
+                N/A
+                </td>
+            </tr>`
+    }
+  }
+  else if (legend == 'management') {
+    if (actual_data.category == 0) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                </div>
+                </td>
+                `
+    }
+    else if (actual_data.category == 1) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                </svg>
+                </div>
+                </td>
+                `
+    }
+    else if (actual_data.category == 2) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-green">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                </svg>
+                </div>
+                </td>
+                `
+    }
+    else {
+      innerHtml += `<td>
+                N/A
+                </td>
+                `
+    }
+
+    if (actual_data.pvt_category == 0) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                </div>
+                </td>`
+    }
+    else if (actual_data.pvt_category == 1) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                </svg>
+                </div>
+                </td>`
+    }
+    else if (actual_data.pvt_category == 2) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-green">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                </svg>
+                </div>
+                </td>`
+    }
+    else {
+      innerHtml += `<td>
+                N/A
+                </td>`
+    }
+
+    if (actual_data.central_govt_category == 0) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                </div>
+                </td>
+                </tr>`
+    }
+    else if (actual_data.central_govt_category == 1) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                </svg>
+                </div>
+                </td>
+                </tr>`
+    }
+    else if (actual_data.central_govt_category == 2) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-green">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                </svg>
+                </div>
+                </td>
+                </tr>`
+    }
+    else {
+      innerHtml += `<td>
+                N/A
+                </td>
+                </tr>`
+    }
+  }
+  else {
+    if (actual_data.gen_category == 0) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                </div>
+                </td>
+                `
+    }
+    else if (actual_data.gen_category == 1) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                </svg>
+                </div>
+                </td>
+                `
+    }
+    else if (actual_data.gen_category == 2) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-green">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                </svg>
+                </div>
+                </td>
+                `
+    }
+    else {
+      innerHtml += `<td>
+                N/A
+                </td>
+                `
+    }
+
+    if (actual_data.st_category == 0) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                </div>
+                </td>`
+    }
+    else if (actual_data.st_category == 1) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                </svg>
+                </div>
+                </td>`
+    }
+    else if (actual_data.st_category == 2) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-green">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                </svg>
+                </div>
+                </td>`
+    }
+    else {
+      innerHtml += `<td>
+                N/A
+                </td>`
+    }
+
+    if (actual_data.obc_category == 0) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                </div>
+                </td>
+                </tr>`
+    }
+    else if (actual_data.obc_category == 1) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-blue">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                </svg>
+                </div>
+                </td>
+                </tr>`
+    }
+    else if (actual_data.obc_category == 2) {
+      innerHtml += `<td>
+                <div class="icon-status icon-color-green">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                </svg>
+                </div>
+                </td>
+                </tr>`
+    }
+    else {
+      innerHtml += `<td>
+                N/A
+                </td>
+                </tr>`
+    }
+  }
+
+  return innerHtml;
+
 }

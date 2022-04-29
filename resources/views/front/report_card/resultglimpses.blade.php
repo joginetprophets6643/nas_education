@@ -431,8 +431,7 @@
                                                       <div class="glimps-card">
                                                         <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> 
                                                         Language
-                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender','boys')">Boys</button>
-                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender','girls')">Girls</button>
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
                                                         </h2>
                                                         <div class="glimps-graph light-blue">
                                                           <div id="GenderNationalLanguageBarGraph_class3">
@@ -445,8 +444,7 @@
                                                     <div class="glimps-card">
                                                       <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> 
                                                       Mathematics
-                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender','boys')">Boys</button>
-                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender','girls')">Girls</button>
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
                                                       </h2>
                                                       <div class="glimps-graph light-pink">
                                                         <div id="GenderNationalMathBarGraph_class3">
@@ -459,8 +457,7 @@
                                                     <div class="glimps-card">
                                                       <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> 
                                                       EVS
-                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender','boys')">Boys</button>
-                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender','girls')">Girls</button>
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender')">Data</button>
                                                       </h2>
                                                       <div class="glimps-graph light-yellow">
                                                         <div id="GenderNationalEvsBarGraph_class3">
@@ -487,8 +484,7 @@
                                                       <div class="glimps-card">
                                                         <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> 
                                                         Language
-                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location','rural')">Rural</button>
-                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location','urban')">Urban</button>
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
                                                         </h2>
                                                         <div class="glimps-graph light-blue">
                                                           <div id="LocationNationalLanguageBarGraph_class3">
@@ -501,8 +497,7 @@
                                                     <div class="glimps-card">
                                                       <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> 
                                                       Mathematics
-                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location','rural')">Rural</button>
-                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location','urban')">Urban</button>
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
                                                       </h2>
                                                       <div class="glimps-graph light-pink">
                                                       <div id="LocationNationalMathBarGraph_class3">
@@ -515,8 +510,7 @@
                                                     <div class="glimps-card">
                                                       <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> 
                                                       EVS
-                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','location','rural')">Rural</button>
-                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','location','urban')">Urban</button>
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','location')">Data</button>
                                                       </h2>
                                                       <div class="glimps-graph light-yellow">
                                                         <div id="LocationNationalEvsBarGraph_class3">
@@ -530,7 +524,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <!-- <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class3">
+                                            <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class3">
                                               <h2 class="accordion-header" id="nc3-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc3-perAccordioncollapseThree">
                                                   Performance of States by School Management
@@ -543,13 +537,9 @@
                                                       <div class="glimps-card">
                                                         <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> 
                                                         Language
-                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','management','govt')">State Govt.</button>
-                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','management','govt_aided')">Govt. Aided</button>
-                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','management','pvt')">Private Recognised</button>
-                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','management','central_govt')">Central Govt.</button>
                                                         </h2>
                                                         <div class="glimps-graph light-blue">
-                                                          <div id="ManagementNationalLanguageBarGraph_class3">
+                                                          <div class="glimpse-table table-responsive" id="ManagementNationalLanguageBarGraph_class3">
 
                                                           </div>    
                                                         </div>
@@ -557,9 +547,11 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics<button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','management')">Data</button></h2>
+                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> 
+                                                      Mathematics
+                                                    </h2>
                                                       <div class="glimps-graph light-pink">
-                                                          <div id="ManagementNationalMathBarGraph_class3">
+                                                          <div class="glimpse-table table-responsive" id="ManagementNationalMathBarGraph_class3">
 
                                                           </div>     
                                                       </div>
@@ -567,9 +559,11 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS<button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','management')">Data</button></h2>
+                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> 
+                                                      EVS
+                                                    </h2>
                                                       <div class="glimps-graph light-yellow">
-                                                        <div id="ManagementNationalEvsBarGraph_class3">
+                                                        <div class="glimpse-table table-responsive" id="ManagementNationalEvsBarGraph_class3">
 
                                                         </div>
                                                       </div>
@@ -579,8 +573,8 @@
                                                   
                                                 </div>
                                               </div>
-                                            </div> -->
-                                            <!-- <div class="accordion-item mtb-30">
+                                            </div>
+                                            <div class="accordion-item mtb-30">
                                               <h2 class="accordion-header" id="nc3-perAccordionfour">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapsefour" aria-expanded="true" aria-controls="nc3-perAccordioncollapsefour">
                                                   Performance by Social Group
@@ -591,9 +585,11 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> 
+                                                        Language
+                                                      </h2>
                                                         <div class="glimps-graph light-blue">
-                                                          <div id="SocialGroupNationalLanguageBarGraph_class3">
+                                                          <div class="glimpse-table table-responsive" id="SocialNationalLanguageBarGraph_class3">
 
                                                           </div>
                                                         </div>
@@ -601,9 +597,11 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> 
+                                                      Mathematics
+                                                    </h2>
                                                       <div class="glimps-graph light-pink">
-                                                        <div id="SocialGroupNationalMathBarGraph_class3">
+                                                        <div class="glimpse-table table-responsive" id="SocialNationalMathBarGraph_class3">
 
                                                         </div>
                                                       </div>
@@ -611,9 +609,11 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
+                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> 
+                                                      EVS
+                                                    </h2>
                                                       <div class="glimps-graph light-yellow">
-                                                      <div id="SocialGroupNationalEvsBarGraph_class3">
+                                                      <div class="glimpse-table table-responsive" id="SocialNationalEvsBarGraph_class3">
 
                                                       </div>   
                                                       </div>
@@ -622,7 +622,7 @@
                                                   </div> 
                                                 </div>
                                               </div>
-                                            </div> -->
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
@@ -640,7 +640,10 @@
                                               <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language<button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button></h2>
+                                                      <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                       Language
+                                                       <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-blue">
                                                           <div id="CardsNationalLanguageBarGraph_class5">
 
@@ -650,7 +653,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                   <div class="glimps-card">
-                                                    <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics<button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button></h2>
+                                                    <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                     Mathematics
+                                                     <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                                                    </h2>
                                                     <div class="glimps-graph light-pink">
                                                         <div id="CardsNationalMathBarGraph_class5"></div>
                                                     </div>
@@ -658,7 +664,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                   <div class="glimps-card">
-                                                    <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS<button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards')">Data</button></h2>
+                                                    <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid">
+                                                     EVS
+                                                     <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards')">Data</button>
+                                                    </h2>
                                                     <div class="glimps-graph light-yellow">
                                                         <div id="CardsNationalEvsBarGraph_class5"></div>
                                                     </div>
@@ -680,7 +689,10 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language<button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button></h2>
+                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> 
+                                                        Language
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
+                                                      </h2>
                                                         <div class="glimps-graph light-blue">
                                                           <div id="GenderNationalLanguageBarGraph_class5">
 
@@ -690,7 +702,10 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics<button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button></h2>
+                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                       Mathematics
+                                                       <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-pink">
                                                         <div id="GenderNationalMathBarGraph_class5">
 
@@ -700,7 +715,10 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS<button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender')">Data</button></h2>
+                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid">
+                                                       EVS
+                                                       <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-yellow">
                                                         <div id="GenderNationalEvsBarGraph_class5">
 
@@ -724,7 +742,10 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                         Language
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-blue">
                                                           <div id="LocationNationalLanguageBarGraph_class5">
 
@@ -734,7 +755,10 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                       Mathematics
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-pink">
                                                       <div id="LocationNationalMathBarGraph_class5">
 
@@ -744,7 +768,10 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
+                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid">
+                                                       EVS
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','location')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-yellow">
                                                         <div id="LocationNationalEvsBarGraph_class5">
 
@@ -757,7 +784,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <!-- <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class5">
+                                            <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class5">
                                               <h2 class="accordion-header" id="nc5-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc5-perAccordioncollapseThree">
                                                 Performance of States by School Management
@@ -768,9 +795,12 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                         Language
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','management')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-blue">
-                                                          <div id="ManagementNationalLanguageBarGraph_class5">
+                                                          <div class="glimpse-table table-responsive" id="ManagementNationalLanguageBarGraph_class5">
 
                                                           </div>    
                                                         </div>
@@ -778,9 +808,12 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                       Mathematics
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','management')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-pink">
-                                                          <div id="ManagementNationalMathBarGraph_class5">
+                                                          <div class="glimpse-table table-responsive" id="ManagementNationalMathBarGraph_class5">
 
                                                           </div>     
                                                       </div>
@@ -788,9 +821,12 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
+                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid">
+                                                       EVS
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','management')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-yellow">
-                                                        <div id="ManagementNationalEvsBarGraph_class5">
+                                                        <div class="glimpse-table table-responsive" id="ManagementNationalEvsBarGraph_class5">
 
                                                         </div>
                                                       </div>
@@ -800,8 +836,8 @@
                                                   
                                                 </div>
                                               </div>
-                                            </div> -->
-                                            <!-- <div class="accordion-item mtb-30">
+                                            </div>
+                                            <div class="accordion-item mtb-30">
                                               <h2 class="accordion-header" id="nc5-perAccordionfour">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapsefour" aria-expanded="true" aria-controls="nc5-perAccordioncollapsefour">
                                                   Performance by Social Group
@@ -812,9 +848,11 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                         Language
+                                                        </h2>
                                                         <div class="glimps-graph light-blue">
-                                                          <div id="SocialGroupNationalLanguageBarGraph_class5">
+                                                          <div class="glimpse-table table-responsive" id="SocialNationalLanguageBarGraph_class5">
 
                                                           </div>
                                                         </div>
@@ -822,9 +860,11 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                       Mathematics
+                                                      </h2>
                                                       <div class="glimps-graph light-pink">
-                                                        <div id="SocialGroupNationalMathBarGraph_class5">
+                                                        <div class="glimpse-table table-responsive" id="SocialNationalMathBarGraph_class5">
 
                                                         </div>
                                                       </div>
@@ -832,9 +872,11 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid"> EVS</h2>
+                                                      <h2 class="card-yellow"><img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="icon" class="img-fluid">
+                                                       EVS
+                                                      </h2>
                                                       <div class="glimps-graph light-yellow">
-                                                      <div id="SocialGroupNationalEvsBarGraph_class5">
+                                                      <div class="glimpse-table table-responsive" id="SocialNationalEvsBarGraph_class5">
 
                                                       </div>   
                                                       </div>
@@ -843,14 +885,12 @@
                                                   </div> 
                                                 </div>
                                               </div>
-                                            </div> -->
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
                                   </div>
                                 </div>
-
-
 
                                 <div class="tab-pane fade" id="glimpsesnational_class8" role="tabpanel" aria-labelledby="nc8-result-tab">
                                     <div class="nc8-result-wrap">
@@ -863,7 +903,10 @@
                                                 <div class="row">
                                                   <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                        <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                         Language
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-blue">
                                                           <div id="CardsNationalLanguageBarGraph_class8">
 
@@ -873,7 +916,10 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                      <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                       Social Science
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-green">
                                                         <div id="CardsNationalSocialBarGraph_class8">
 
@@ -883,7 +929,10 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                      <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                       Science
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-sagegreen">
                                                         <div id="CardsNationalScienceBarGraph_class8">
 
@@ -893,7 +942,10 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                      <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                       Mathematics
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-pink">
                                                         <div id="CardsNationalMathBarGraph_class8">
 
@@ -917,7 +969,10 @@
                                                     <div class="row">
                                                       <div class="col-md-6">
                                                           <div class="glimps-card">
-                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                             Language
+                                                            <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
+                                                            </h2>
                                                             <div class="glimps-graph light-blue">
                                                               <div id="GenderNationalLanguageBarGraph_class8">
 
@@ -927,7 +982,10 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                           Social Science
+                                                          <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','gender')">Data</button>
+                                                          </h2>
                                                           <div class="glimps-graph light-green">
                                                             <div id="GenderNationalSocialBarGraph_class8">
 
@@ -937,7 +995,10 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                           Science
+                                                          <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','gender')">Data</button>
+                                                          </h2>
                                                           <div class="glimps-graph light-sagegreen">
                                                             <div id="GenderNationalScienceBarGraph_class8">
 
@@ -947,7 +1008,10 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                           Mathematics
+                                                          <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                                                          </h2>
                                                           <div class="glimps-graph light-pink">
                                                             <div id="GenderNationalMathBarGraph_class8">
 
@@ -971,7 +1035,10 @@
                                                     <div class="row">
                                                       <div class="col-md-6">
                                                           <div class="glimps-card">
-                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                             Language
+                                                            <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
+                                                            </h2>
                                                             <div class="glimps-graph light-blue">
                                                               <div id="LocationNationalLanguageBarGraph_class8">
 
@@ -981,7 +1048,10 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                           Social Science
+                                                          <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','location')">Data</button>
+                                                          </h2>
                                                           <div class="glimps-graph light-green">
                                                             <div id="LocationNationalSocialBarGraph_class8">
 
@@ -991,7 +1061,10 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                           Science
+                                                          <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','location')">Data</button>
+                                                          </h2>
                                                           <div class="glimps-graph light-sagegreen">
                                                             <div id="LocationNationalScienceBarGraph_class8">
 
@@ -1001,7 +1074,10 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                           Mathematics
+                                                          <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                                                          </h2>
                                                           <div class="glimps-graph light-pink">
                                                             <div id="LocationNationalMathBarGraph_class8">
 
@@ -1014,7 +1090,7 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                              <!-- <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class8">
+                                              <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class8">
                                                 <h2 class="accordion-header" id="nc8-perAccordionThree">
                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc8-perAccordioncollapseThree">
                                                   Performance of States by School Management
@@ -1025,9 +1101,11 @@
                                                     <div class="row">
                                                       <div class="col-md-6">
                                                           <div class="glimps-card">
-                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                             Language
+                                                            </h2>
                                                             <div class="glimps-graph light-blue">
-                                                              <div id="ManagementNationalLanguageBarGraph_class8">
+                                                              <div class="glimpse-table table-responsive" id="ManagementNationalLanguageBarGraph_class8">
 
                                                               </div> 
                                                             </div>
@@ -1035,9 +1113,11 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                           Social Science
+                                                          </h2>
                                                           <div class="glimps-graph light-green">
-                                                            <div id="ManagementNationalSocialBarGraph_class8">
+                                                            <div class="glimpse-table table-responsive" id="ManagementNationalSocialBarGraph_class8">
 
                                                             </div> 
                                                           </div>
@@ -1045,9 +1125,11 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                           Science
+                                                          </h2>
                                                           <div class="glimps-graph light-sagegreen">
-                                                            <div id="ManagementNationalScienceBarGraph_class8">
+                                                            <div class="glimpse-table table-responsive" id="ManagementNationalScienceBarGraph_class8">
 
                                                             </div> 
                                                           </div>
@@ -1055,9 +1137,11 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                           Mathematics
+                                                          </h2>
                                                           <div class="glimps-graph light-pink">
-                                                            <div id="ManagementNationalMathBarGraph_class8">
+                                                            <div class="glimpse-table table-responsive" id="ManagementNationalMathBarGraph_class8">
 
                                                             </div> 
                                                           </div>
@@ -1067,8 +1151,8 @@
                                                     
                                                   </div>
                                                 </div>
-                                              </div> -->
-                                              <!-- <div class="accordion-item mtb-30">
+                                              </div>
+                                              <div class="accordion-item mtb-30">
                                                 <h2 class="accordion-header" id="nc8-perAccordionfour">
                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapsefour" aria-expanded="true" aria-controls="nc8-perAccordioncollapsefour">
                                                     Performance by Social Group
@@ -1079,9 +1163,11 @@
                                                     <div class="row">
                                                       <div class="col-md-6">
                                                           <div class="glimps-card">
-                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid"> Language</h2>
+                                                            <h2 class="card-blue"><img src="{{asset('assets/front/images/globe-icon.svg')}}" alt="icon" class="img-fluid">
+                                                             Language
+                                                            </h2>
                                                             <div class="glimps-graph light-blue">
-                                                              <div id="SocialGroupNationalLanguageBarGraph_class8">
+                                                              <div class="glimpse-table table-responsive" id="SocialNationalLanguageBarGraph_class8">
 
                                                               </div> 
                                                             </div>
@@ -1089,9 +1175,11 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                          <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                           Social Science
+                                                          </h2>
                                                           <div class="glimps-graph light-green">
-                                                            <div id="SocialGroupNationalSocialBarGraph_class8">
+                                                            <div class="glimpse-table table-responsive" id="SocialNationalSocialBarGraph_class8">
 
                                                             </div> 
                                                           </div>
@@ -1099,9 +1187,11 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                          <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                           Science
+                                                          </h2>
                                                           <div class="glimps-graph light-sagegreen">
-                                                            <div id="SocialGroupNationalScienceBarGraph_class8">
+                                                            <div class="glimpse-table table-responsive" id="SocialNationalScienceBarGraph_class8">
 
                                                             </div> 
                                                           </div>
@@ -1109,9 +1199,11 @@
                                                       </div>
                                                       <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                          <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                           Mathematics
+                                                          </h2>
                                                           <div class="glimps-graph light-pink">
-                                                            <div id="SocialGroupNationalMathBarGraph_class8">
+                                                            <div class="glimpse-table table-responsive" id="SocialNationalMathBarGraph_class8">
 
                                                             </div> 
                                                           </div>
@@ -1120,7 +1212,7 @@
                                                     </div> 
                                                   </div>
                                                 </div>
-                                              </div> -->
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -1138,7 +1230,10 @@
                                               <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="glimps-card">
-                                                      <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                      <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid">
+                                                       MIL
+                                                      <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','cards')">Data</button>
+                                                      </h2>
                                                       <div class="glimps-graph light-red">
                                                           <div id="CardsNationalMilBarGraph_class10"></div>
                                                       </div>
@@ -1146,7 +1241,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                   <div class="glimps-card">
-                                                    <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                    <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                     Social Science
+                                                    <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards')">Data</button>
+                                                    </h2>
                                                     <div class="glimps-graph light-green">
                                                         <div id="CardsNationalSocialBarGraph_class10"></div>
                                                     </div>
@@ -1154,7 +1252,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                   <div class="glimps-card">
-                                                    <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                    <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid">
+                                                     English
+                                                    <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','cards')">Data</button>
+                                                    </h2>
                                                     <div class="glimps-graph light-purple">
                                                     <div id="CardsNationalEnglishBarGraph_class10"></div>
 
@@ -1163,7 +1264,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                   <div class="glimps-card">
-                                                    <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                    <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                     Science
+                                                    <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards')">Data</button>
+                                                    </h2>
                                                     <div class="glimps-graph light-sagegreen">
                                                         <div id="CardsNationalScienceBarGraph_class10"></div>
                                                     </div>
@@ -1171,7 +1275,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                   <div class="glimps-card">
-                                                    <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                    <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                     Mathematics
+                                                    <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                                                    </h2>
                                                     <div class="glimps-graph light-pink">
                                                       <div id="CardsNationalMathBarGraph_class10"></div>
 
@@ -1195,7 +1302,10 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid">
+                                                           MIL
+                                                          <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','gender')">Data</button>
+                                                          </h2>
                                                           <div class="glimps-graph light-red">
                                                               <div id="GenderNationalMilBarGraph_class10">
                                                                 
@@ -1205,7 +1315,10 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                         Social Science
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','gender')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-green">
                                                           <div id="GenderNationalSocialBarGraph_class10">
                                                                 
@@ -1215,7 +1328,10 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                        <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid">
+                                                         English
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','gender')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-purple">
                                                           <div id="GenderNationalEnglishBarGraph_class10">
                                                                   
@@ -1225,7 +1341,10 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                        <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                         Science
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','gender')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-sagegreen">
                                                           <div id="GenderNationalScienceBarGraph_class10">
                                                                   
@@ -1235,7 +1354,10 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                        <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                         Mathematics
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-pink">
                                                           <div id="GenderNationalMathBarGraph_class10">
                                                                   
@@ -1259,7 +1381,10 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid">
+                                                           MIL
+                                                          <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','location')">Data</button>
+                                                          </h2>
                                                           <div class="glimps-graph light-red">
                                                           <div id="LocationNationalMilBarGraph_class10">
                                                                 
@@ -1269,7 +1394,10 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                         Social Science
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','location')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-green">
                                                         <div id="LocationNationalSocialBarGraph_class10">
                                                                 
@@ -1279,7 +1407,10 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                        <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid">
+                                                         English
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','location')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-purple">
                                                         <div id="LocationNationalEnglishBarGraph_class10">
                                                                 
@@ -1289,7 +1420,10 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                        <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                         Science
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','location')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-sagegreen">
                                                           <div id="LocationNationalScienceBarGraph_class10">
                                                                   
@@ -1299,7 +1433,10 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                        <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                         Mathematics
+                                                        <button class="btn btn-sm org-btn m-2 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                                                        </h2>
                                                         <div class="glimps-graph light-pink">
                                                           <div id="LocationNationalMathBarGraph_class10">
                                                                   
@@ -1312,7 +1449,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <!-- <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class10">
+                                            <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class10">
                                               <h2 class="accordion-header" id="nc10-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapseThree" aria-expanded="false" aria-controls="nc10-perAccordioncollapseThree">
                                                 Performance of States by School Management
@@ -1323,9 +1460,11 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid">
+                                                           MIL
+                                                          </h2>
                                                           <div class="glimps-graph light-red">
-                                                            <div id="ManagementNationalMilBarGraph_class10">
+                                                            <div class="glimpse-table table-responsive" id="ManagementNationalMilBarGraph_class10">
                                                                   
                                                             </div>
                                                           </div>
@@ -1333,9 +1472,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                         Social Science
+                                                        </h2>
                                                         <div class="glimps-graph light-green">
-                                                          <div id="ManagementNationalSocialBarGraph_class10">
+                                                          <div class="glimpse-table table-responsive" id="ManagementNationalSocialBarGraph_class10">
                                                                     
                                                           </div>
                                                         </div>
@@ -1343,9 +1484,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                        <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid">
+                                                         English
+                                                        </h2>
                                                         <div class="glimps-graph light-purple">
-                                                          <div id="ManagementNationalEnglishBarGraph_class10">
+                                                          <div class="glimpse-table table-responsive" id="ManagementNationalEnglishBarGraph_class10">
                                                                     
                                                           </div>
                                                         </div>
@@ -1353,9 +1496,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                        <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                         Science
+                                                        </h2>
                                                         <div class="glimps-graph light-sagegreen">
-                                                          <div id="ManagementNationalScienceBarGraph_class10">
+                                                          <div class="glimpse-table table-responsive" id="ManagementNationalScienceBarGraph_class10">
                                                                     
                                                           </div>
                                                         </div>
@@ -1363,9 +1508,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                        <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                         Mathematics
+                                                        </h2>
                                                         <div class="glimps-graph light-pink">
-                                                          <div id="ManagementNationalMathBarGraph_class10">
+                                                          <div class="glimpse-table table-responsive" id="ManagementNationalMathBarGraph_class10">
                                                                     
                                                           </div>
                                                         </div>
@@ -1375,8 +1522,8 @@
                                                   
                                                 </div>
                                               </div>
-                                            </div> -->
-                                            <!-- <div class="accordion-item mtb-30">
+                                            </div>
+                                            <div class="accordion-item mtb-30">
                                               <h2 class="accordion-header" id="nc10-perAccordionfour">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapsefour" aria-expanded="false" aria-controls="nc10-perAccordioncollapsefour">
                                                   Performance by Social Group
@@ -1387,9 +1534,11 @@
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="glimps-card">
-                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid"> MIL</h2>
+                                                          <h2 class="card-red"><img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="icon" class="img-fluid">
+                                                           MIL
+                                                          </h2>
                                                           <div class="glimps-graph light-red">
-                                                          <div id="SocialGroupNationalMilBarGraph_class10">
+                                                          <div class="glimpse-table table-responsive" id="SocialNationalMilBarGraph_class10">
                                                                   
                                                           </div>
                                                           </div>
@@ -1397,9 +1546,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid"> Social Science</h2>
+                                                        <h2 class="card-green"><img src="{{asset('assets/front/images/social-sci.svg')}}" alt="icon" class="img-fluid">
+                                                         Social Science
+                                                        </h2>
                                                         <div class="glimps-graph light-green">
-                                                        <div id="SocialGroupNationalSocialBarGraph_class10">
+                                                        <div class="glimpse-table table-responsive" id="SocialNationalSocialBarGraph_class10">
                                                                   
                                                         </div>
                                                         </div>
@@ -1407,9 +1558,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid"> English</h2>
+                                                        <h2 class="card-purple"><img src="{{asset('assets/front/images/english-icon.svg')}}" alt="icon" class="img-fluid">
+                                                         English
+                                                        </h2>
                                                         <div class="glimps-graph light-purple">
-                                                        <div id="SocialGroupNationalEnglishBarGraph_class10">
+                                                        <div class="glimpse-table table-responsive" id="SocialNationalEnglishBarGraph_class10">
                                                                   
                                                         </div>
                                                         </div>
@@ -1417,9 +1570,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid"> Science</h2>
+                                                        <h2 class="card-sagegreen"><img src="{{asset('assets/front/images/science.svg')}}" alt="icon" class="img-fluid">
+                                                         Science
+                                                        </h2>
                                                         <div class="glimps-graph light-sagegreen">
-                                                          <div id="SocialGroupNationalScienceBarGraph_class10">
+                                                          <div class="glimpse-table table-responsive" id="SocialNationalScienceBarGraph_class10">
                                                                     
                                                           </div>
                                                         </div>
@@ -1427,9 +1582,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="glimps-card">
-                                                        <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35"> Mathematics</h2>
+                                                        <h2 class="card-pink"><img src="{{asset('assets/front/images/math-icon.svg')}}" alt="icon" class="img-fluid" width="35">
+                                                         Mathematics
+                                                        </h2>
                                                         <div class="glimps-graph light-pink">
-                                                          <div id="SocialGroupNationalMathBarGraph_class10">
+                                                          <div class="glimpse-table table-responsive" id="SocialNationalMathBarGraph_class10">
                                                                     
                                                           </div>
                                                         </div>
@@ -1438,7 +1595,7 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                            </div> -->
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
@@ -2100,7 +2257,7 @@
                                                                     </div>
                                                                     <div class="glimps-card">
                                                                       <div class="glimps-graph light-blue">
-                                                                      <div id="ManagementNational3LanguageBarGraph_classall"></div>
+                                                                      <div class="glimpse-table table-responsive" id="ManagementNational3LanguageBarGraph_classall"></div>
 
                                                                       </div>
                                                                     </div>  
@@ -2113,7 +2270,7 @@
                                                                     </div>
                                                                     <div class="glimps-card">
                                                                       <div class="glimps-graph light-blue">
-                                                                      <div id="ManagementNational5LanguageBarGraph_classall"></div>
+                                                                      <div class="glimpse-table table-responsive" id="ManagementNational5LanguageBarGraph_classall"></div>
 
                                                                       </div>
                                                                     </div>
@@ -2129,7 +2286,7 @@
                                                                     </div>
                                                                     <div class="glimps-card">
                                                                       <div class="glimps-graph light-blue">
-                                                                      <div id="ManagementNational8LanguageBarGraph_classall"></div>
+                                                                      <div class="glimpse-table table-responsive" id="ManagementNational8LanguageBarGraph_classall"></div>
                                                                       </div>
                                                                     </div>
                                                                   </div>
@@ -2150,7 +2307,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-pink">
-                                                                      <div id="ManagementNational3MathBarGraph_classall"></div>
+                                                                      <div class="glimpse-table table-responsive" id="ManagementNational3MathBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>  
@@ -2163,7 +2320,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-pink">
-                                                                    <div id="ManagementNational5MathBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational5MathBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2179,7 +2336,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-pink">
-                                                                    <div id="ManagementNational8MathBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational8MathBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2192,7 +2349,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-pink">
-                                                                    <div id="ManagementNational10MathBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational10MathBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2214,7 +2371,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-yellow">
-                                                                    <div id="ManagementNational3EvsBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational3EvsBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div> 
@@ -2227,7 +2384,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-yellow">
-                                                                    <div id="ManagementNational5EvsBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational5EvsBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2249,7 +2406,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-sagegreen">
-                                                                    <div id="ManagementNational8ScienceBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational8ScienceBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>  
@@ -2262,7 +2419,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-sagegreen">
-                                                                    <div id="ManagementNational10ScienceBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational10ScienceBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2284,7 +2441,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-green">
-                                                                    <div id="ManagementNational8SocialBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational8SocialBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>  
@@ -2297,7 +2454,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-green">
-                                                                    <div id="ManagementNational10SocialBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational10SocialBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2319,7 +2476,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-red">
-                                                                    <div id="ManagementNational10MilBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational10MilBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2341,7 +2498,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-purple">
-                                                                    <div id="ManagementNational10EnglishBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="ManagementNational10EnglishBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2378,7 +2535,7 @@
                                                                     </div>
                                                                     <div class="glimps-card">
                                                                       <div class="glimps-graph light-blue">
-                                                                      <div id="SocialGroupNational3LanguageBarGraph_classall"></div>
+                                                                      <div class="glimpse-table table-responsive" id="SocialNational3LanguageBarGraph_classall"></div>
 
                                                                       </div>
                                                                     </div>  
@@ -2391,7 +2548,7 @@
                                                                     </div>
                                                                     <div class="glimps-card">
                                                                       <div class="glimps-graph light-blue">
-                                                                      <div id="SocialGroupNational5LanguageBarGraph_classall"></div>
+                                                                      <div class="glimpse-table table-responsive" id="SocialNational5LanguageBarGraph_classall"></div>
 
                                                                       </div>
                                                                     </div>
@@ -2407,7 +2564,7 @@
                                                                     </div>
                                                                     <div class="glimps-card">
                                                                       <div class="glimps-graph light-blue">
-                                                                      <div id="SocialGroupNational8LanguageBarGraph_classall"></div>
+                                                                      <div class="glimpse-table table-responsive" id="SocialNational8LanguageBarGraph_classall"></div>
 
                                                                       </div>
                                                                     </div>
@@ -2429,7 +2586,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-pink">
-                                                                    <div id="SocialGroupNational3MathBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational3MathBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>  
@@ -2442,7 +2599,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-pink">
-                                                                    <div id="SocialGroupNational5MathBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational5MathBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2458,7 +2615,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-pink">
-                                                                    <div id="SocialGroupNational8MathBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational8MathBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2471,7 +2628,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-pink">
-                                                                    <div id="SocialGroupNational10MathBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational10MathBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2493,7 +2650,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-yellow">
-                                                                    <div id="SocialGroupNational3EvsBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational3EvsBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div> 
@@ -2506,7 +2663,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-yellow">
-                                                                    <div id="SocialGroupNational5EvsBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational5EvsBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2528,7 +2685,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-sagegreen">
-                                                                    <div id="SocialGroupNational8ScienceBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational8ScienceBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>  
@@ -2541,7 +2698,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-sagegreen">
-                                                                    <div id="SocialGroupNational10ScienceBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational10ScienceBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2563,7 +2720,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-green">
-                                                                    <div id="SocialGroupNational8SocialBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational8SocialBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>  
@@ -2576,7 +2733,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-green">
-                                                                    <div id="SocialGroupNational10SocialBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational10SocialBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2598,7 +2755,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-red">
-                                                                    <div id="SocialGroupNational10MilBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational10MilBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2620,7 +2777,7 @@
                                                                   </div>
                                                                   <div class="glimps-card">
                                                                     <div class="glimps-graph light-purple">
-                                                                    <div id="SocialGroupNational10EnglishBarGraph_classall"></div>
+                                                                    <div class="glimpse-table table-responsive" id="SocialNational10EnglishBarGraph_classall"></div>
 
                                                                     </div>
                                                                   </div>
@@ -2650,12 +2807,13 @@
 
       <div class="">
         <div class="card">
-          <div class="card-header">Display Data
+          <div class="card-header glimpse-header d-flex justify-content-between">
+          <div id="data-header">Display Data</div>
           <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="card-body">
-          <div class="glimps-table table-responsive">
-            <table class="table">
+          <div class="card-body glimpse-body">
+          <div class="glimpse-table table-responsive">
+            <table class="table" id="display_data">
               <thead>
                 <tr>
                   <th scope="col">State/Union Territory</th>
@@ -2664,7 +2822,7 @@
                   <th scope="col"></th>
                 </tr>
               </thead>
-              <tbody id="display_data">
+              <tbody>
                 <tr>
                   <td>Andhra Pradesh</td>
                   <td>238</td>

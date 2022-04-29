@@ -26,7 +26,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'name'=>'required',
+            // 'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
             'mobile'=>'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
@@ -72,7 +72,7 @@ class TeamController extends Controller
     {
         $id=decode5t($id);
         $validator = Validator::make($request->all(),[
-            'name'=>'required',
+            // 'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
             'designation'=>'required',
         ]);

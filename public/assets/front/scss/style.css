@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .card-blue {
   background: #75a9d9;
 }
@@ -8498,6 +8499,10 @@ ul {
   margin: 30px 0;
 }
 
+.glimps-graph .table-responsive {
+  height: 490px;
+}
+
 .glimps-card {
   margin-bottom: 15px;
 }
@@ -10066,19 +10071,23 @@ ul {
   width: 22px;
 }
 
-.photogallery-content .gallery-card .gallery-content, .videogallery-content .gallery-card .gallery-content {
+.photogallery-content .gallery-card .gallery-content,
+.videogallery-content .gallery-card .gallery-content {
   padding: 10px 15px;
 }
 
-.photogallery-content .gallery-card .gallery-content .gallery-title, .videogallery-content .gallery-card .gallery-content .gallery-title {
+.photogallery-content .gallery-card .gallery-content .gallery-title,
+.videogallery-content .gallery-card .gallery-content .gallery-title {
   font-size: 15px;
 }
 
-.photogallery-content .gallery-card .gallery-img-wrap, .videogallery-content .gallery-card .gallery-img-wrap {
+.photogallery-content .gallery-card .gallery-img-wrap,
+.videogallery-content .gallery-card .gallery-img-wrap {
   height: 150px;
 }
 
-.photogallery-content .gallery-search-wrap #search, .videogallery-content .gallery-search-wrap #search {
+.photogallery-content .gallery-search-wrap #search,
+.videogallery-content .gallery-search-wrap #search {
   letter-spacing: 0px;
   color: #777777;
   font-size: 13px;
@@ -10086,13 +10095,17 @@ ul {
   margin-bottom: 10px;
 }
 
-.photogallery-content .gallery-search-wrap input, .videogallery-content .gallery-search-wrap input {
+.photogallery-content .gallery-search-wrap input,
+.videogallery-content .gallery-search-wrap input {
   border-radius: 4px;
   padding: 4px 10px;
   border: 1px solid #ccc;
 }
 
-.photogallery-content #i_found, .photogallery-content #v_found, .videogallery-content #i_found, .videogallery-content #v_found {
+.photogallery-content #i_found,
+.photogallery-content #v_found,
+.videogallery-content #i_found,
+.videogallery-content #v_found {
   width: 100%;
   display: block;
   text-align: center;
@@ -10802,7 +10815,11 @@ ul {
   .heading-grey {
     font-size: 15px;
   }
-  .feedback-wrap .virus-icon1, .feedback-wrap .virus-icon2, .feedback-wrap .virus-icon3, .feedback-wrap .virus-icon4, .feedback-wrap .virus-icon5 {
+  .feedback-wrap .virus-icon1,
+  .feedback-wrap .virus-icon2,
+  .feedback-wrap .virus-icon3,
+  .feedback-wrap .virus-icon4,
+  .feedback-wrap .virus-icon5 {
     display: none;
   }
   .dataTables_wrapper .dataTables_length {
@@ -11009,6 +11026,118 @@ ul {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
+}
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+.ms_table {
+  color: #5e5e5e;
+}
+
+.icon-color-red svg {
+  fill: #eb6c69;
+}
+
+.icon-color-blue svg {
+  fill: #75A9D9;
+}
+
+.icon-color-green svg {
+  fill: #72b562;
+}
+
+.glimpse-table {
+  border: 1px solid #101010;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+
+.glimpse-table .table {
+  margin: 0;
+}
+
+.glimpse-table .table tr {
+  border-bottom: 1px solid #101010;
+}
+
+.glimpse-table .table tr th {
+  background-color: #101010;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.glimpse-table .table tr th:first-child {
+  text-align: left;
+}
+
+.glimpse-table .table tbody tr:last-child {
+  border-style: none !important;
+}
+
+.glimpse-table .table tbody tr td {
+  text-align: center;
+  color: #101010;
+  font-size: 14px;
+  border: none;
+  vertical-align: middle;
+}
+
+.glimpse-table .table tbody tr td:first-child {
+  text-align: left;
+}
+
+.glimpse-table .table tbody .success-status {
+  background-color: #8bc63e;
+}
+
+.glimpse-table .table tbody .success-status td {
+  color: #fff;
+}
+
+.modal-dialog {
+  max-width: 600px !important;
 }
 
 .accordion-button::after {
