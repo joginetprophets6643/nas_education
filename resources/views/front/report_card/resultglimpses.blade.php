@@ -574,13 +574,13 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="socialnational_section_glimpses_class3">
                                               <h2 class="accordion-header" id="nc3-perAccordionfour">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapsefour" aria-expanded="true" aria-controls="nc3-perAccordioncollapsefour">
                                                   Performance by Social Group
                                                 </button>
                                               </h2>
-                                              <div id="nc3-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionfour">
+                                              <div id="nc3-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionfour" data-bs-parent="#nc3-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -837,13 +837,13 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="accordion-item mtb-30">
+                                            <div class="accordion-item mtb-30" id="socialnational_section_glimpses_class5">
                                               <h2 class="accordion-header" id="nc5-perAccordionfour">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapsefour" aria-expanded="true" aria-controls="nc5-perAccordioncollapsefour">
                                                   Performance by Social Group
                                                 </button>
                                               </h2>
-                                              <div id="nc5-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionfour">
+                                              <div id="nc5-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionfour" data-bs-parent="#nc5-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">
@@ -1158,7 +1158,7 @@
                                                     Performance by Social Group
                                                   </button>
                                                 </h2>
-                                                <div id="nc8-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionfour">
+                                                <div id="nc8-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionfour" data-bs-parent="#nc8-perAccordion">
                                                   <div class="accordion-body">
                                                     <div class="row">
                                                       <div class="col-md-6">
@@ -1529,7 +1529,7 @@
                                                   Performance by Social Group
                                                 </button>
                                               </h2>
-                                              <div id="nc10-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionfour">
+                                              <div id="nc10-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionfour" data-bs-parent="#nc10-perAccordion">
                                                 <div class="accordion-body">
                                                   <div class="row">
                                                     <div class="col-md-6">

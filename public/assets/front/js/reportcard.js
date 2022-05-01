@@ -2791,7 +2791,8 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${state_name}</td>
                   <td>${actual_data['ss'] != 0 ? Math.round(actual_data['ss']) : '-'}</td>
                   <td>${actual_data['se'] != 0 ? Math.round(actual_data['se'] * 100) / 100 : '-'}</td>`
-      innerHtml += generateIndictor(actual_data, legend)
+      innerHtml += generateIndictor(actual_data.category)
+      innerHtml +='<tr>'
 
     }
     else if (legend == 'gender') {
@@ -2803,7 +2804,8 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['girls_ss'] != 0 ? Math.round(actual_data['girls_ss']) : '-'}</td>
                   <td>${actual_data['girls_se'] != 0 ? Math.round(actual_data['girls_se'] * 100) / 100 : '-'}</td>`
 
-      innerHtml += generateIndictor(actual_data, legend)
+      innerHtml += generateIndictor(actual_data.category)
+      innerHtml +='<tr>'
 
     }
     else if (legend == 'location') {
@@ -2815,7 +2817,8 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['urban_ss'] != 0 ? Math.round(actual_data['urban_ss']) : '-'}</td>
                   <td>${actual_data['urban_se'] != 0 ? Math.round(actual_data['urban_se'] * 100) / 100 : '-'}</td>`
 
-      innerHtml += generateIndictor(actual_data, legend)
+      innerHtml += generateIndictor(actual_data.category)
+      innerHtml +='<tr>'
 
     }
     else if (legend == 'management') {
@@ -2831,13 +2834,20 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['govt_ss'] != 0 ? Math.round(actual_data['govt_ss']) : '-'}</td>
                   <td>${actual_data['govt_se'] != 0 ? Math.round(actual_data['govt_se'] * 100) / 100 : '-'}</td>
                   <td>${actual_data['govt_aided_ss'] != 0 ? Math.round(actual_data['govt_aided_ss']) : '-'}</td>
-                  <td>${actual_data['govt_aided_se'] != 0 ? Math.round(actual_data['govt_aided_se'] * 100) / 100 : '-'}</td>
-                  <td>${actual_data['pvt_ss'] != 0 ? Math.round(actual_data['pvt_ss']) : '-'}</td>
-                  <td>${actual_data['pvt_se'] != 0 ? Math.round(actual_data['pvt_se'] * 100) / 100 : '-'}</td>
-                  <td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>
+                  <td>${actual_data['govt_aided_se'] != 0 ? Math.round(actual_data['govt_aided_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.category)
+
+      innerHtml +=`<td>${actual_data['pvt_ss'] != 0 ? Math.round(actual_data['pvt_ss']) : '-'}</td>
+                  <td>${actual_data['pvt_se'] != 0 ? Math.round(actual_data['pvt_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.pvt_category)
+
+      innerHtml +=  `<td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>
                   <td>${actual_data['central_govt_se'] != 0 ? Math.round(actual_data['central_govt_se'] * 100) / 100 : '-'}</td>`
 
-      innerHtml += generateIndictor(actual_data, legend)
+      innerHtml += generateIndictor(actual_data.central_govt_category)
+      innerHtml +='<tr>'
 
     }
     else {
@@ -2846,13 +2856,20 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['gen_ss'] != 0 ? Math.round(actual_data['gen_ss']) : '-'}</td>
                   <td>${actual_data['gen_se'] != 0 ? Math.round(actual_data['gen_se'] * 100) / 100 : '-'}</td>
                   <td>${actual_data['sc_ss'] != 0 ? Math.round(actual_data['sc_ss']) : '-'}</td>
-                  <td>${actual_data['sc_se'] != 0 ? Math.round(actual_data['sc_se'] * 100) / 100 : '-'}</td>
-                  <td>${actual_data['st_ss'] != 0 ? Math.round(actual_data['st_ss']) : '-'}</td>
-                  <td>${actual_data['st_se'] != 0 ? Math.round(actual_data['st_se'] * 100) / 100 : '-'}</td>
-                  <td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>
-                  <td>${actual_data['obc_se'] != 0 ? Math.round(actual_data['obc_se'] * 100) / 100 : '-'}</td>`
+                  <td>${actual_data['sc_se'] != 0 ? Math.round(actual_data['sc_se'] * 100) / 100 : '-'}</td>`
 
-      innerHtml += generateIndictor(actual_data, legend)
+      innerHtml += generateIndictor(actual_data.gen_category)
+
+      innerHtml += `<td>${actual_data['st_ss'] != 0 ? Math.round(actual_data['st_ss']) : '-'}</td>
+      <td>${actual_data['st_se'] != 0 ? Math.round(actual_data['st_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.st_category)
+
+      innerHtml += `<td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>
+      <td>${actual_data['obc_se'] != 0 ? Math.round(actual_data['obc_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.obc_category)
+      innerHtml +='<tr>'
 
     }
 
@@ -2933,13 +2950,13 @@ function setTableHead(legend) {
                     <th scope="col">SE(Govt.)</th>
                     <th scope="col">Mean(Govt. Aided)</th>
                     <th scope="col">SE(Govt. Aided)</th>
+                    <th scope="col"></th>
                     <th scope="col">Mean(Private)</th>
                     <th scope="col">SE(Private)</th>
+                    <th scope="col"></th>
                     <th scope="col">Mean(Central Govt.)</th>
                     <th scope="col">SE(central Govt.)</th>
-                    <th scope="col">Govt.</th>
-                    <th scope="col">Private</th>
-                    <th scope="col">central Govt.</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -2953,13 +2970,13 @@ function setTableHead(legend) {
                     <th scope="col">SE(General)</th>
                     <th scope="col">Mean(SC)</th>
                     <th scope="col">SE(SC)</th>
+                    <th scope="col"></th>
                     <th scope="col">Mean(ST)</th>
                     <th scope="col">SE(ST)</th>
+                    <th scope="col"></th>
                     <th scope="col">Mean(OBC)</th>
                     <th scope="col">SE(OBC)</th>
-                    <th scope="col">General</th>
-                    <th scope="col">ST</th>
-                    <th scope="col">OBC</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -2968,320 +2985,38 @@ function setTableHead(legend) {
 
 }
 
-function generateIndictor(actual_data, legend) {
+function generateIndictor(category) {
 
   innerHtml = ''
-  if (legend == 'cards') {
-    if (actual_data.category == 0) {
-      innerHtml += `<td>
-                    <div class="icon-status icon-color-red">
-                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                    </div>
-                  </td>
-                </tr>`
-    }
-    else if (actual_data.category == 1) {
-      innerHtml += `<td>
-                    <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                    </svg>
-                    </div>
-                  </td>
-                </tr>`
-    }
-    else if (actual_data.category == 2) {
-      innerHtml += `<td>
-                    <div class="icon-status icon-color-green">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                    </svg>
-                    </div>
-                  </td>
-                </tr>`
-    }
-    else {
-      innerHtml += `<td>
-                    N/A
-                  </td>
-                </tr>`
-    }
+  if (category == 0) {
+    innerHtml = `<td>
+                  <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                  </div>
+                </td>`
   }
-  else if (legend == 'gender') {
-    if (actual_data.category == 0) {
-      innerHtml += `<td>
-                    <div class="icon-status icon-color-red">
-                      <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                    </div>
-                  </td>
-                </tr>`
-    }
-    else if (actual_data.category == 1) {
-      innerHtml += `<td>
-                    <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                      <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                    </svg>
-                    </div>
-                  </td>
-                </tr>`
-    }
-    else if (actual_data.category == 2) {
-      innerHtml += `<td>
-                    <div class="icon-status icon-color-green">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                      <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                    </svg>
-                    </div>
-                  </td>
-                </tr>`
-    }
-    else {
-      innerHtml += `<td>
-                    N/A
-                  </td>
-                </tr>`
-    }
+  else if (category == 1) {
+    innerHtml = `<td>
+                  <div class="icon-status icon-color-blue">
+                  <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                  </svg>
+                  </div>
+                </td>`
   }
-  else if (legend == 'location') {
-    if (actual_data.category == 0) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-red">
-                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                </div>
-                </td>
-            </tr>`
-    }
-    else if (actual_data.category == 1) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                </svg>
-                </div>
-                </td>
-            </tr>`
-    }
-    else if (actual_data.category == 2) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-green">
-                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  else if (category == 2) {
+    innerHtml = `<td>
+                  <div class="icon-status icon-color-green">
+                  <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                </svg>
-                </div>
-                </td>
-            </tr>`
-    }
-    else {
-      innerHtml += `<td>
-                N/A
-                </td>
-            </tr>`
-    }
-  }
-  else if (legend == 'management') {
-    if (actual_data.category == 0) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-red">
-                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                </div>
-                </td>
-                `
-    }
-    else if (actual_data.category == 1) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                </svg>
-                </div>
-                </td>
-                `
-    }
-    else if (actual_data.category == 2) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-green">
-                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                </svg>
-                </div>
-                </td>
-                `
-    }
-    else {
-      innerHtml += `<td>
-                N/A
-                </td>
-                `
-    }
-
-    if (actual_data.pvt_category == 0) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-red">
-                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                </div>
+                  </svg>
+                  </div>
                 </td>`
-    }
-    else if (actual_data.pvt_category == 1) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                </svg>
-                </div>
-                </td>`
-    }
-    else if (actual_data.pvt_category == 2) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-green">
-                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                </svg>
-                </div>
-                </td>`
-    }
-    else {
-      innerHtml += `<td>
-                N/A
-                </td>`
-    }
-
-    if (actual_data.central_govt_category == 0) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-red">
-                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                </div>
-                </td>
-                </tr>`
-    }
-    else if (actual_data.central_govt_category == 1) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                </svg>
-                </div>
-                </td>
-                </tr>`
-    }
-    else if (actual_data.central_govt_category == 2) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-green">
-                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                </svg>
-                </div>
-                </td>
-                </tr>`
-    }
-    else {
-      innerHtml += `<td>
-                N/A
-                </td>
-                </tr>`
-    }
   }
   else {
-    if (actual_data.gen_category == 0) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-red">
-                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                </div>
-                </td>
-                `
-    }
-    else if (actual_data.gen_category == 1) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                </svg>
-                </div>
-                </td>
-                `
-    }
-    else if (actual_data.gen_category == 2) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-green">
-                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                </svg>
-                </div>
-                </td>
-                `
-    }
-    else {
-      innerHtml += `<td>
-                N/A
-                </td>
-                `
-    }
-
-    if (actual_data.st_category == 0) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-red">
-                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                </div>
+    innerHtml = `<td>
+                  N/A
                 </td>`
-    }
-    else if (actual_data.st_category == 1) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                </svg>
-                </div>
-                </td>`
-    }
-    else if (actual_data.st_category == 2) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-green">
-                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                </svg>
-                </div>
-                </td>`
-    }
-    else {
-      innerHtml += `<td>
-                N/A
-                </td>`
-    }
-
-    if (actual_data.obc_category == 0) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-red">
-                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
-                </div>
-                </td>
-                </tr>`
-    }
-    else if (actual_data.obc_category == 1) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-blue">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
-                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
-                </svg>
-                </div>
-                </td>
-                </tr>`
-    }
-    else if (actual_data.obc_category == 2) {
-      innerHtml += `<td>
-                <div class="icon-status icon-color-green">
-                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
-                </svg>
-                </div>
-                </td>
-                </tr>`
-    }
-    else {
-      innerHtml += `<td>
-                N/A
-                </td>
-                </tr>`
-    }
   }
 
   return innerHtml;
