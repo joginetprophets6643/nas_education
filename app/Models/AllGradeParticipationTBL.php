@@ -16,5 +16,8 @@ class AllGradeParticipationTBL extends Model
     {
         return $this->hasMany(PerformanceMaster::class,'district_id','district_id');
     }    
-
+    public function LearningDuringPandemicdrcData()
+    {
+        return $this->hasMany(LearningDuringPandemicdrcData::class,'dist_code','district_id');
+    }
 }
