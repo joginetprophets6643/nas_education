@@ -81,9 +81,8 @@
           {
             $stateName = strtoupper($districtVal->state_name);
           }
-          // dd($stateName);
         ?>
-        const selectedMapData = DISTRICT_MAPS.find(data=> data.name === '<?php echo $stateName ?>')
+        const selectedMapData = DISTRICT_MAPS.find(data=> data.name === '<?php echo $stateName?>')
         // console.log(selectedMapData);
         triggerDistrictChart(selectedMapData)  
       });
@@ -172,6 +171,28 @@
 </head>
 
 <body class="p-0">
+<div class="page">
+    <section class="reportview-wrap drc-cover">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="reportview-container mb-0 p-0">
+              <div class="reportview-content-wrap">
+                <img src="https://nas21.inroad.in/report-pdf/assets/images/drc-front.jpg" alt="drc-front" class="img-fluid">
+                <div class="drc-name">
+                  <h2 class="heading-black-xl">
+                    {{isset($districtVal->district_name)?$districtVal->district_name:'-'}}
+                    <small class="">({{isset($districtVal->state_name)?$districtVal->state_name:'-'}})</small>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <div class="footer dark-blue-bg p-3 m-0 report-footer-wrap"></div> -->
+  </div>
   <!-- Page 1 -->
   <div class="page">
     <section class="reportview-wrap drc-front">
@@ -180,39 +201,13 @@
           <div class="col-md-12">
             <div class="reportview-container mb-0 p-0">
               <div class="reportview-content-wrap">
-                <div class="reportview-content bg-white">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="imgwrap text-start">
-                        <img src="https://nas21.inroad.in/report-pdf/assets/images/ncert-view.png" alt="img" class="drc-logo" />
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="imgwrap text-center">
-                        <img src="https://nas21.inroad.in/report-pdf/assets/images/ministry-view.png" alt="img" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="imgwrap text-end">
-                        <img src="https://nas21.inroad.in/report-pdf/assets/images/cbse-view.png" alt="img" class="drc-logo" />
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
+                
                 <!-- added -->
-                <div class="reportview-content nas-heading p-2 text-center">
-                  <h1 class="text-white fw-bold">National Achievement Survey (NAS)</h1>
-                  <h6 class="fw-bold">2021</h6>
-                </div>
+                
                 <!--  -->
-                <div class="reportview-content dark-blue-bg">
+                <div class="reportview-content dark-blue-bg custom-drc">
                   <div class="row align-items-center">
-                    <div class="col-md-12">
-                      <h2 class="heading-blue-xl text-center ptb-30">
-                        District Report Card
-                      </h2>
-                    </div>
+                    
                     <div class="col-md-5">
                       <div class="map-content text-center">
                         <h2 class="heading-black-xl text-white ptb-15">
@@ -243,49 +238,50 @@
                     <div class="row">
                       <div class="col-md-12">
                         <h2 class="drc-front-h2">
-                          Demographic and educational profile of the district:
+                          Demographic profile of the district <span class="fw-normal text-30">(Source: Census of India, 2011)</span>
                         </h2>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Total District Area</h3>
-                          <p class="total-no text-white">{{isset($districtVal->total_district_area)&&$districtVal->total_district_area!=''?$districtVal->total_district_area:'0'}} sq. km.</p>
+                          <p class="total-no text-white">{{isset($districtVal->total_district_area)&&$districtVal->total_district_area!=''?number_format((float)$districtVal->total_district_area):'0'}} sq. km.</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Total Population</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->total_population)&&$districtVal->total_population!='')?$districtVal->total_population:'0'}}</p>
+                          <p class="total-no text-white">{{(isset($districtVal->total_population)&&$districtVal->total_population!='')?number_format((float)$districtVal->total_population):'0'}}</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Rural Population</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->rural_population)&&$districtVal->rural_population!='')?$districtVal->rural_population:'0'}}</p>
+                          <p class="total-no text-white">{{(isset($districtVal->rural_population)&&$districtVal->rural_population!='')?number_format((float)$districtVal->rural_population):'0'}}</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Urban Population</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->urban_population)&&$districtVal->urban_population!='')?$districtVal->urban_population:'0'}}</p>
+                          <p class="total-no text-white">{{(isset($districtVal->urban_population)&&$districtVal->urban_population!='')?number_format((float)$districtVal->urban_population):'0'}}</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Density of Population</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->density_of_population)&&$districtVal->density_of_population!='')?$districtVal->density_of_population:'0'}} per sq. km.</p>
+                          <p class="total-no text-white">{{(isset($districtVal->density_of_population)&&$districtVal->density_of_population!='')?number_format((float)$districtVal->density_of_population):'0'}} per sq. km.</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Literacy Rate</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->literacy_rate)&&$districtVal->literacy_rate!='')?$districtVal->literacy_rate:'0'}}%</p>
+                          <p class="total-no text-white">{{(isset($districtVal->literacy_rate)&&$districtVal->literacy_rate!='')?number_format((float)$districtVal->literacy_rate):'0'}}%</p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Child Sex Ratio (0-6 Age)</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->child_sex_ratio)&&$districtVal->child_sex_ratio!='')?$districtVal->child_sex_ratio:'0'}} girls per 1000 boys</p>
+                          <p class="total-no text-white">{{(isset($districtVal->child_sex_ratio)&&$districtVal->child_sex_ratio!='')?number_format((float)$districtVal->child_sex_ratio):'0'}}</p>
+                          <!-- <p class="total-no text-white">{{(isset($districtVal->child_sex_ratio)&&$districtVal->child_sex_ratio!='')?$districtVal->child_sex_ratio:'0'}} girls per 1000 boys</p> -->
                         </div>
                       </div>
                     </div>
@@ -365,73 +361,78 @@
                   
                   <div class="infotab-content-wrap fixed">
                     <div class="row">
+                      <div class="col-md-12">
+                        <h2 class="drc-front-h2">
+                          Educational profile of the district <span class="fw-normal text-30">(Source: UDISE+ 2020-21)</span>
+                        </h2>
+                      </div>
                       <div class="col-md-6">
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Total Number of Schools</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->no_of_schools)&&$districtVal->no_of_schools!='')?$districtVal->no_of_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->no_of_schools)&&$districtVal->no_of_schools!='')?number_format((float)$districtVal->no_of_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">State Govt. Schools</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->state_govt_schools)&&$districtVal->state_govt_schools!='')?$districtVal->state_govt_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->state_govt_schools)&&$districtVal->state_govt_schools!='')?number_format((float)$districtVal->state_govt_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Govt. Aided Schools</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->govt_aided_schools)&&$districtVal->govt_aided_schools!='')?$districtVal->govt_aided_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->govt_aided_schools)&&$districtVal->govt_aided_schools!='')?number_format((float)$districtVal->govt_aided_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Central Govt. Schools</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->central_govt_schools)&&$districtVal->central_govt_schools!='')?$districtVal->central_govt_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->central_govt_schools)&&$districtVal->central_govt_schools!='')?number_format((float)$districtVal->central_govt_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">
                               Private Un-aided Recognized Schools
                             </h3>
-                            <p class="total-no text-white">{{(isset($districtVal->private_unaided_reco_schools)&&$districtVal->private_unaided_reco_schools!='')?$districtVal->private_unaided_reco_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->private_unaided_reco_schools)&&$districtVal->private_unaided_reco_schools!='')?number_format((float)$districtVal->private_unaided_reco_schools):'0'}}</p>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Total Number of Teachers</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_state_govt_schools)&&($districtVal->teacher_state_govt_schools!='' || $districtVal->teacher_govt_aided_schools!='' || $districtVal->teacher_central_govt_schools!='' || $districtVal->teacher_private_unaided_reco_schools!=''))?$districtVal->teacher_state_govt_schools + $districtVal->teacher_govt_aided_schools +  $districtVal->teacher_central_govt_schools + $districtVal->teacher_private_unaided_reco_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_state_govt_schools)&&($districtVal->teacher_state_govt_schools!='' || $districtVal->teacher_govt_aided_schools!='' || $districtVal->teacher_central_govt_schools!='' || $districtVal->teacher_private_unaided_reco_schools!=''))?number_format((float)$districtVal->teacher_state_govt_schools + $districtVal->teacher_govt_aided_schools +  $districtVal->teacher_central_govt_schools + $districtVal->teacher_private_unaided_reco_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">State Govt. Teachers</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_state_govt_schools)&&$districtVal->teacher_state_govt_schools!='')?$districtVal->teacher_state_govt_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_state_govt_schools)&&$districtVal->teacher_state_govt_schools!='')?number_format((float)$districtVal->teacher_state_govt_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Govt. Aided Teachers</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_govt_aided_schools)&&$districtVal->teacher_govt_aided_schools!='')?$districtVal->teacher_govt_aided_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_govt_aided_schools)&&$districtVal->teacher_govt_aided_schools!='')?number_format((float)$districtVal->teacher_govt_aided_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">
                               Central Govt. Teachers
                             </h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_central_govt_schools)&&$districtVal->teacher_central_govt_schools!='')?$districtVal->teacher_central_govt_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_central_govt_schools)&&$districtVal->teacher_central_govt_schools!='')?number_format((float)$districtVal->teacher_central_govt_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                          <div class="infotab-content dark-blue-bg">
+                          <div class="infotab-content nas-heading">
                             <h3 class="title text-white">
                               Teachers In Private Un-aided Recognized Schools
                             </h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_private_unaided_reco_schools)&&$districtVal->teacher_private_unaided_reco_schools!='')?$districtVal->teacher_private_unaided_reco_schools:'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_private_unaided_reco_schools)&&$districtVal->teacher_private_unaided_reco_schools!='')?number_format((float)$districtVal->teacher_private_unaided_reco_schools):'0'}}</p>
                           </div>
                         </div>
                       </div>
@@ -456,16 +457,16 @@
               <div class="reportview-container mb-0 highlights-container">
                 <div class="reportview-class-wrap">
                   
-                  <div class="reportview-class-content white-bg m-5">
+                  <div class="reportview-class-content white-bg m-1">
                     <!-- content -->
                     <div class="row justify-content-center">
                       <div class="col-md-12">
                         <h1 class="text-center fw-bold">About NAS</h1>
                       </div>
-                      <div class="col-md-7 top-card">
+                      <div class="col-md-8 top-card">
                         <div class="bg-sky-blue text-white text-center">
                           <h4 class="fw-light">
-                            The NAS is a system level assessment i.e. it summarizes students achievement at National, State/UT and District levels. NAS does not provide scores for individual student/school.
+                          NAS is a system level assessment i.e. it summarizes students achievement at National, State/UT and District levels. NAS does not provide scores for individual student/school.
                           </h4>
                         </div>
                       </div>
@@ -474,16 +475,28 @@
                           <div class="row">
                             <div class="col-md-6 pe-4">
                               <p>
-                                NAS is a national-level large scale assessment study conducted to provide information about the learning achievement of students studying in government, government-aided and private unaided schools. NAS is a standardized method to tests students of Classes III, V, VIII and X. 
-                                NAS has contributed several new elements and given remarkable momentum to the development of competency based assessment. One of the main virtues of NAS is that it is embedded in an extremely rich system of background variables. The results help to accurately discover the students’ performance in different learning outcomes vis-à-vis the contextual variables. The very aim of this national assessment is to compare the performance across spectrum and across population in order to find the desirable direction for the changes and provide a basis for the necessary decisions. The synthesis of the results of the national level provides a rich  repository of evidences 
+                                NAS is a national level large-scale assessment conducted to provide information about the learning achievement of students of Classes III, V, VIII and X studying in State Govt. schools, Govt. Aided schools, Private Unaided and Central Govt. schools.
+                              </p>
+                              <p>
+                                It is a nationally representative survey that gives a system level reflection on effectiveness of school education. NAS findings help compare the performance across the spectrum and across population in order to find the desirable direction and areas for remedial interventions.
+                              </p>
+                              <p>
+                                NAS is embedded in an extremely rich system of background variables. This survey correlates student's performance with contextual variables. NAS is useful for educational planners, policy makers including researchers in understanding the interdependence of assessment, pedagogical process and learning outcome. NAS 2021 focused on competency-based assessment. It was conducted in Language, Mathematics & EVS for class III & V; Language, Mathematics, Science & Social Science for class VIII and Language, Mathematics, Science, Social Science and English for class X.
+                              </p>
+                              <p>For effective monitoring and nation-wide coordination, a National Steering Committee was constituted by the Ministry. While the NCERT was entrusted with the task of development of Assessment Framework, the administration of NAS 2021 was entrusted to the CBSE. Grade-wise subject specific Learning Outcomes were identified by the NCERT. Sampling being a crucial aspect, the NAS-2021 sampling design intended to support the predefined objectives of the assessment. The States, Districts and School level samples were based on UDISE+2019-20 data.</p>
+                              <p>
+                              Nearly, 3.4 million students from approx 1.18 lakh schools were administered the survey. A dedicated Portal (https://nas.education.gov.in) was launched by the NIC 
                               </p>
                             </div>
                             <div class="col-md-6 ps-4">
-                              <p>for developing and designing the future course of action for the Indian education system.</p>
                               <p>
-                                This NAS report presents the findings of National Achievement Survey conducted on students studying in Class III, V, VIII and X. Selecting a representative sample in India is a challenging and arduous task.
-                                 For selecting the representative sample of NAS, government, government aided, and private unaided schools were included in the sample frame.  School level samples from each district were drawn for NAS conducted in November 2021 which was administered in 720 Districts of 36 States and UTs. Nearly 3.4 million students were tested in the learning outcomes developed by the NCERT. 
-                                 NAS is led by the NAS Cell, National Council of Educational Research and Training (NCERT) and Central Board of Secondary Education (CBSE), under the aegis of Department of School Education and Literacy (DoSEL), Ministry of Education (MoE).
+                                with login access for functionaries and role-based functionality for managing resources, activity monitoring, reporting & documentation etc. Extensive training and capacity building was done for field operatives using short and self-narrative videos in a blended mode. For a hassle-free and fair conduct of NAS, an integrated framework with operational salience was in place. Survey was conducted in a monitored environment.
+                              </p>
+                              <p>
+                                Around 2 lakh Field Investigators (FIs), 1.24 lakh Observers, 36 State Nodal Officers, 735 District Level Coordinators and District Nodal Officers were engaged. Board Representatives were appointed for ensuring fair conduct of NAS. The pre-mapping of Test and background questionnaire tools using UDISE code, confidentiality at all stages, Just-in-Time delivery of papers in sealed trunk, school specific packing for transit security, self-learning materials for functionaries in login, 3-tier supervision, machine-based random deployment, documentations in the form of Control Sheet, Field Note for FI and Observer, District Note and update on Portal were some of the strategic arrangements that were in place for smooth administration of NAS. Out of 735 targeted Districts, the NAS-2021 was conducted in 720 Districts on 12th November 2021 barring 12 districts of Tamil Nadu and 3 districts of Andhra Pradesh due to natural calamity. Results of these 15 districts of Tamil Nadu and Andhra Pradesh has been interpolated as per the result of the rest of districts of respective states.
+                              </p>
+                              <p>
+                                This report would help diagnose learning gaps and determine interventions required in education policies, teaching practices and learning. The synthesis of the results at the national level would prove to be a rich repository of evidence for developing and designing the future course of action for the Indian education system.
                               </p>
                             </div>
                           </div>
@@ -514,13 +527,170 @@
                 <div class="reportview-class-wrap">
                   <div class="reportview-class-content bg-sky-blue">
                     <div class="row align-items-center">
-                      <div class="col-md-12">
-                          <div class="text-white class-card pt-5 pb-4 text-center">
-                            <h2 class="mb-0 fw-bold">NAS 2021</h2>
-                            <h3 class="mb-0 fw-bold">RESULTS FOR</h3>
-                            <h1 class="mb-0 fw-bold">Class {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</h1>
-                          </div>
+                      <div class="col-md-12 d-flex justify-content-end">
+                        <div class="text-white class-card pt-5 pb-4 text-center">
+                          <h2 class="mb-0 fw-bold">NAS 2021</h2>
+                          <h3 class="mb-0 fw-bold">RESULTS FOR</h3>
+                          <h1 class="mb-0 fw-bold">Class {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</h1>
+                        </div>
                       </div>
+                      @if(isset($districtParticipation['LearningDuringPandemicdrcData']) && count($districtParticipation['LearningDuringPandemicdrcData'])>0)
+                        @foreach($districtParticipation['LearningDuringPandemicdrcData'] as $learningDuringPandemic)
+                      @if($districtParticipation->grade==3)
+                      <div class="col-md-12">
+                        <div class="covid-act">
+                          <img src="https://nas21.inroad.in/report-pdf/assets/images/info.png" class="w-100" alt="covid-bg">
+                          <div class="covid-head">
+                            <h1>I LEARNT MANY <br> THINGS DURING <br> THE PANDEMIC</h1>
+                          </div>
+                          <div class="covid-content">
+                            <div class="sec  sec-1">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/singing.png" alt="singing" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_3_painting_singing_dancing_playing_musicalinstrument)?round($learningDuringPandemic->grade_3_painting_singing_dancing_playing_musicalinstrument):'0'}}%</h1>
+                              <h6>Painting/ Singing/ Dancing/ Playing Musical Instrument</h6>
+                            </div>
+                            <div class="sec sec-2">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/yoga.png" alt="yoga" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_3_yoga)?round($learningDuringPandemic->grade_3_yoga):'0'}}%</h1>
+                              <h6>Yoga</h6>
+                            </div>
+                            <div class="sec sec-3">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/indoor-game.png" alt="indoor-game" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_3_indoor_games)?round($learningDuringPandemic->grade_3_indoor_games):'0'}}%</h1>
+                              <h6>Indoor Game</h6>
+                            </div>
+                            <div class="sec sec-4">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/cooking.png" alt="cooking" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_3_cooking)?round($learningDuringPandemic->grade_3_cooking):'0'}}%</h1>
+                              <h6>Cooking</h6>
+                            </div>
+                            <div class="sec sec-5">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/parents.png" alt="parents" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_3_spenttime_with_parents__grandparents_siblings)?round($learningDuringPandemic->grade_3_spenttime_with_parents__grandparents_siblings):'0'}}%</h1>
+                              <h6>Spend time with my parents/ grandparents/ siblings</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      @endif
+                      @if($districtParticipation->grade==5)
+                      <div class="col-md-12">
+                        <div class="covid-act">
+                          <img src="https://nas21.inroad.in/report-pdf/assets/images/info.png" class="w-100" alt="covid-bg">
+                          <div class="covid-head">
+                            <h1>I LEARNT MANY <br> THINGS DURING <br> THE PANDEMIC</h1>
+                          </div>
+                          <div class="covid-content">
+                            <div class="sec  sec-1">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/singing.png" alt="singing" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_5_painting_singing_dancing_playing_musicalinstrument)?round($learningDuringPandemic->grade_5_painting_singing_dancing_playing_musicalinstrument):'0'}}%</h1>
+                              <h6>Painting/ Singing/ Dancing/ Playing Musical Instrument</h6>
+                            </div>
+                            <div class="sec sec-2">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/yoga.png" alt="yoga" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_5_yoga)?round($learningDuringPandemic->grade_5_yoga):'0'}}%</h1>
+                              <h6>Yoga</h6>
+                            </div>
+                            <div class="sec sec-3">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/indoor-game.png" alt="indoor-game" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_5_indoor_games)?round($learningDuringPandemic->grade_5_indoor_games):'0'}}%</h1>
+                              <h6>Indoor Game</h6>
+                            </div>
+                            <div class="sec sec-4">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/cooking.png" alt="cooking" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_5_cooking)?round($learningDuringPandemic->grade_5_cooking):'0'}}%</h1>
+                              <h6>Cooking</h6>
+                            </div>
+                            <div class="sec sec-5">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/parents.png" alt="parents" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_5_spenttime_with_parents__grandparents_siblings)?round($learningDuringPandemic->grade_5_spenttime_with_parents__grandparents_siblings):'0'}}%</h1>
+                              <h6>Spend time with my parents/ grandparents/ siblings</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      @endif
+                      @if($districtParticipation->grade==8)
+                      <div class="col-md-12">
+                        <div class="covid-act">
+                          <img src="https://nas21.inroad.in/report-pdf/assets/images/info.png" class="w-100" alt="covid-bg">
+                          <div class="covid-head">
+                            <h1>I LEARNT MANY <br> THINGS DURING <br> THE PANDEMIC</h1>
+                          </div>
+                          <div class="covid-content">
+                            <div class="sec  sec-1">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/singing.png" alt="singing" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_8_painting_singing_dancing_playing_musicalinstrument)?round($learningDuringPandemic->grade_8_painting_singing_dancing_playing_musicalinstrument):'0'}}%</h1>
+                              <h6>Painting/ Singing/ Dancing/ Playing Musical Instrument</h6>
+                            </div>
+                            <div class="sec sec-2">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/yoga.png" alt="yoga" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_8_yoga)?round($learningDuringPandemic->grade_8_yoga):'0'}}%</h1>
+                              <h6>Yoga</h6>
+                            </div>
+                            <div class="sec sec-3">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/indoor-game.png" alt="indoor-game" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_8_indoor_games)?round($learningDuringPandemic->grade_8_indoor_games):'0'}}%</h1>
+                              <h6>Indoor Game</h6>
+                            </div>
+                            <div class="sec sec-4">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/cooking.png" alt="cooking" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_8_cooking)?round($learningDuringPandemic->grade_8_cooking):'0'}}%</h1>
+                              <h6>Cooking</h6>
+                            </div>
+                            <div class="sec sec-5">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/parents.png" alt="parents" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_8_spenttime_with_parents__grandparents_siblings)?round($learningDuringPandemic->grade_8_spenttime_with_parents__grandparents_siblings):'0'}}%</h1>
+                              <h6>Spend time with my parents/ grandparents/ siblings</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      @endif
+                      @if($districtParticipation->grade==10)
+                      <div class="col-md-12">
+                        <div class="covid-act">
+                          <img src="https://nas21.inroad.in/report-pdf/assets/images/info.png" class="w-100" alt="covid-bg">
+                          <div class="covid-head">
+                            <h1>I LEARNT MANY <br> THINGS DURING <br> THE PANDEMIC</h1>
+                          </div>
+                          <div class="covid-content">
+                            <div class="sec  sec-1">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/singing.png" alt="singing" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_10_painting_singing_dancing_playing_musicalinstrument)?round($learningDuringPandemic->grade_10_painting_singing_dancing_playing_musicalinstrument):'0'}}%</h1>
+                              <h6>Painting/ Singing/ Dancing/ Playing Musical Instrument</h6>
+                            </div>
+                            <div class="sec sec-2">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/yoga.png" alt="yoga" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_10_yoga)?round($learningDuringPandemic->grade_10_yoga):'0'}}%</h1>
+                              <h6>Yoga</h6>
+                            </div>
+                            <div class="sec sec-3">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/indoor-game.png" alt="indoor-game" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_10_indoor_games)?round($learningDuringPandemic->grade_10_indoor_games):'0'}}%</h1>
+                              <h6>Indoor Game</h6>
+                            </div>
+                            <div class="sec sec-4">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/cooking.png" alt="cooking" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_10_cooking)?round($learningDuringPandemic->grade_10_cooking):'0'}}%</h1>
+                              <h6>Cooking</h6>
+                            </div>
+                            <div class="sec sec-5">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/parents.png" alt="parents" height='53'>
+                              <h1>{{isset($learningDuringPandemic->grade_10_spenttime_with_parents__grandparents_siblings)?round($learningDuringPandemic->grade_10_spenttime_with_parents__grandparents_siblings):'0'}}%</h1>
+                              <h6>Spend time with my parents/ grandparents/ siblings</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      @endif
+                      @endforeach
+                      @endif
+                    </div>
+                  </div>
+                  <div class="report-footer-wrap pg d-none">
+                    <div class="reportview-footer">
+                      <span class="page-no">@php $pageNo = $pageNo+1; echo $pageNo; @endphp</span>
                     </div>
                   </div>
                 </div>
@@ -529,7 +699,7 @@
           </div>
         </div>
       </section>
-    </div>
+  </div>
   <!-- new-page 3 class start -->
 
   <!-- Page 2 -->
@@ -541,7 +711,7 @@
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg">
@@ -595,9 +765,12 @@
                     </div>
                     <!-- graph section -->
                     <div class="col-md-12 av-student-graph py-0">
-                      <h3 class="heading-38 heading-black-bold mb-3">
-                        District Performance of Students vis-a-vis State and National <span class="fw-light">(in percent correct)</span>
+                      <h3 class="heading-38 heading-black-bold mb-0">
+                        District Performance of Students vis-a-vis State and National
                       </h3>
+                      <h5 class="text-38 heading-black-bold mb-3">
+                        in percent correct (standard error)
+                      </h5>
                       <div class="d-flex flex-wrap justify-content-center graph-mark">
                         @if(isset($districtParticipation['DistrictPerformance']) && count($districtParticipation['DistrictPerformance'])>0)
                         @foreach($districtParticipation['DistrictPerformance'] as $avgPerformance)
@@ -618,14 +791,13 @@
                         }
                         @endphp
 
-                        @if($avgPerformance->grade==3 || $avgPerformance->grade==5 || $avgPerformance->grade==8 ||$avgPerformance->grade==10)
-                        <!-- added ended -->
+                        @if($avgPerformance->grade==10)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
                             <figure class="highcharts-figure">
-                              <div id="maths{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                              <div id="mil{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
                               <div class="category text-center dark-blue-bg p-1">
-                                <span class="text-white text-28">Mathematics</span>
+                                <span class="text-white text-28">MIL</span>
                               </div>
                             </figure>
                           </div>
@@ -644,7 +816,21 @@
                           </div>
                         </div>
                         @endif
-                        
+
+                        @if($avgPerformance->grade==3 || $avgPerformance->grade==5 || $avgPerformance->grade==8 ||$avgPerformance->grade==10)
+                        <!-- added ended -->
+                        <div class="p-0" style="width: {{$fcol}}%">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure">
+                              <div id="maths{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                              <div class="category text-center dark-blue-bg p-1">
+                                <span class="text-white text-28">Mathematics</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        @endif
+
                         @if($avgPerformance->grade==3 || $avgPerformance->grade==5)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
@@ -682,18 +868,7 @@
                           </div>
                         </div>
                         @endif
-                        @if($avgPerformance->grade==10)
-                        <div class="p-0" style="width: {{$fcol}}%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure">
-                              <div id="mil{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
-                              <div class="category text-center dark-blue-bg p-1">
-                                <span class="text-white text-28">MIL</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        @endif
+                        
                         @if($avgPerformance->grade==10)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
@@ -741,52 +916,10 @@
                               @if($districtParticipation->grade==3 || $districtParticipation->grade==5 ||$districtParticipation->grade==8)
                               <tr>
                                 <th scope="row">Language</th>
-                                <td>{{(int)$dataArr['language']['performance_level']['district']['below_basic']}}</td>
-                                <td>{{(int)$dataArr['language']['performance_level']['district']['basic']}}</td>
-                                <td>{{(int)$dataArr['language']['performance_level']['district']['proficient']}}</td>
-                                <td>{{(int)$dataArr['language']['performance_level']['district']['advanced']}}</td>
-                              </tr>
-                              @endif
-                              @if($districtParticipation->grade==3 || $districtParticipation->grade==5 || $districtParticipation->grade==8 ||$districtParticipation->grade==10)
-                              <tr>
-                                <th scope="row">Mathematics</th>
-                                <td>{{(int)$dataArr['math']['performance_level']['district']['below_basic']}}</td>
-                                <td>{{(int)$dataArr['math']['performance_level']['district']['basic']}}</td>
-                                <td>{{(int)$dataArr['math']['performance_level']['district']['proficient']}}</td>
-                                <td>{{(int)$dataArr['math']['performance_level']['district']['advanced']}}</td>
-                              </tr>
-                              @endif
-                              @if($districtParticipation->grade==3 || $districtParticipation->grade==5)
-                              <tr>
-                                <th>
-                                  EVS
-                                </th>
-                                <td>{{(int)$dataArr['evs']['performance_level']['district']['below_basic']}}</td>
-                                <td>{{(int)$dataArr['evs']['performance_level']['district']['basic']}}</td>
-                                <td>{{(int)$dataArr['evs']['performance_level']['district']['proficient']}}</td>
-                                <td>{{(int)$dataArr['evs']['performance_level']['district']['advanced']}}</td>
-                              </tr>
-                              @endif
-                              @if($districtParticipation->grade==8 ||$districtParticipation->grade==10)
-                              <tr>
-                                <th>
-                                  Science
-                                </th>
-                                <td>{{(int)$dataArr['sci']['performance_level']['district']['below_basic']}}</td>
-                                <td>{{(int)$dataArr['sci']['performance_level']['district']['basic']}}</td>
-                                <td>{{(int)$dataArr['sci']['performance_level']['district']['proficient']}}</td>
-                                <td>{{(int)$dataArr['sci']['performance_level']['district']['advanced']}}</td>
-                              </tr>
-                              @endif
-                              @if($districtParticipation->grade==8 ||$districtParticipation->grade==10)
-                              <tr>
-                                <th>
-                                  Social Science
-                                </th>
-                                <td>{{(int)$dataArr['sst']['performance_level']['district']['below_basic']}}</td>
-                                <td>{{(int)$dataArr['sst']['performance_level']['district']['basic']}}</td>
-                                <td>{{(int)$dataArr['sst']['performance_level']['district']['proficient']}}</td>
-                                <td>{{(int)$dataArr['sst']['performance_level']['district']['advanced']}}</td>
+                                <td>{{round((float)$dataArr['language']['performance_level']['district']['below_basic'])}}</td>
+                                <td>{{round((float)$dataArr['language']['performance_level']['district']['basic'])}}</td>
+                                <td>{{round((float)$dataArr['language']['performance_level']['district']['proficient'])}}</td>
+                                <td>{{round((float)$dataArr['language']['performance_level']['district']['advanced'])}}</td>
                               </tr>
                               @endif
                               @if($districtParticipation->grade==10)
@@ -794,21 +927,64 @@
                                 <th>
                                   MIL
                                 </th>
-                                <td>{{(int)$dataArr['mil']['performance_level']['district']['below_basic']}}</td>
-                                <td>{{(int)$dataArr['mil']['performance_level']['district']['basic']}}</td>
-                                <td>{{(int)$dataArr['mil']['performance_level']['district']['proficient']}}</td>
-                                <td>{{(int)$dataArr['mil']['performance_level']['district']['advanced']}}</td>
+                                <td>{{round((float)$dataArr['mil']['performance_level']['district']['below_basic'])}}</td>
+                                <td>{{round((float)$dataArr['mil']['performance_level']['district']['basic'])}}</td>
+                                <td>{{round((float)$dataArr['mil']['performance_level']['district']['proficient'])}}</td>
+                                <td>{{round((float)$dataArr['mil']['performance_level']['district']['advanced'])}}</td>
                               </tr>
                               @endif
+                              @if($districtParticipation->grade==3 || $districtParticipation->grade==5 || $districtParticipation->grade==8 ||$districtParticipation->grade==10)
+                              <tr>
+                                <th scope="row">Mathematics</th>
+                                <td>{{round((float)$dataArr['math']['performance_level']['district']['below_basic'])}}</td>
+                                <td>{{round((float)$dataArr['math']['performance_level']['district']['basic'])}}</td>
+                                <td>{{round((float)$dataArr['math']['performance_level']['district']['proficient'])}}</td>
+                                <td>{{round((float)$dataArr['math']['performance_level']['district']['advanced'])}}</td>
+                              </tr>
+                              @endif
+                              @if($districtParticipation->grade==3 || $districtParticipation->grade==5)
+                              <tr>
+                                <th>
+                                  EVS
+                                </th>
+                                <td>{{round((float)$dataArr['evs']['performance_level']['district']['below_basic'])}}</td>
+                                <td>{{round((float)$dataArr['evs']['performance_level']['district']['basic'])}}</td>
+                                <td>{{round((float)$dataArr['evs']['performance_level']['district']['proficient'])}}</td>
+                                <td>{{round((float)$dataArr['evs']['performance_level']['district']['advanced'])}}</td>
+                              </tr>
+                              @endif
+                              @if($districtParticipation->grade==8 ||$districtParticipation->grade==10)
+                              <tr>
+                                <th>
+                                  Science
+                                </th>
+                                <td>{{round((float)$dataArr['sci']['performance_level']['district']['below_basic'])}}</td>
+                                <td>{{round((float)$dataArr['sci']['performance_level']['district']['basic'])}}</td>
+                                <td>{{round((float)$dataArr['sci']['performance_level']['district']['proficient'])}}</td>
+                                <td>{{round((float)$dataArr['sci']['performance_level']['district']['advanced'])}}</td>
+                              </tr>
+                              @endif
+                              @if($districtParticipation->grade==8 ||$districtParticipation->grade==10)
+                              <tr>
+                                <th>
+                                  Social Science
+                                </th>
+                                <td>{{round((float)$dataArr['sst']['performance_level']['district']['below_basic'])}}</td>
+                                <td>{{round((float)$dataArr['sst']['performance_level']['district']['basic'])}}</td>
+                                <td>{{round((float)$dataArr['sst']['performance_level']['district']['proficient'])}}</td>
+                                <td>{{round((float)$dataArr['sst']['performance_level']['district']['advanced'])}}</td>
+                              </tr>
+                              @endif
+                              
                               @if($districtParticipation->grade==10)
                               <tr>
                                 <th>
                                   English
                                 </th>
-                                <td>{{(int)$dataArr['eng']['performance_level']['district']['below_basic']}}</td>
-                                <td>{{(int)$dataArr['eng']['performance_level']['district']['basic']}}</td>
-                                <td>{{(int)$dataArr['eng']['performance_level']['district']['proficient']}}</td>
-                                <td>{{(int)$dataArr['eng']['performance_level']['district']['advanced']}}</td>
+                                <td>{{round((float)$dataArr['eng']['performance_level']['district']['below_basic'])}}</td>
+                                <td>{{round((float)$dataArr['eng']['performance_level']['district']['basic'])}}</td>
+                                <td>{{round((float)$dataArr['eng']['performance_level']['district']['proficient'])}}</td>
+                                <td>{{round((float)$dataArr['eng']['performance_level']['district']['advanced'])}}</td>
                               </tr>
                               @endif
                               @endif
@@ -823,7 +999,7 @@
                           <div class="col-md-12 per-sec my-2 light-blue">
                             <div class="row px-1 align-items-center">
                               <div class="col-md-2 left-per-sec p-4 my-1 bg-pink text-center">
-                                <h4 class="fw-bold my-3 text-white">
+                                <h4 class="fw-bold my-3 text-start text-white">
                                   Below Basic
                                 </h4>
                               </div>
@@ -832,25 +1008,25 @@
                               </div>
                               <hr>
                               <div class="col-md-2 left-per-sec p-4 my-1 bg-orange text-center">
-                                <h4 class="fw-bold my-3 text-white">
+                                <h4 class="fw-bold my-3 text-start text-white">
                                   Basic
                                 </h4>
                               </div>
                               <div class="col-md-10 my-3">
-                                <p class="mb-0">Learners at this level demonstrate a minimum level of skills related to the curriculum learning outcomes. They can follow simple instructions and apply simple rules to achieve expected performance. They have some good ideas which often lack coherence. They need guidance at many stages of learning. They can solve problems using simple logic, and can also express themselves using simple language.</p>
+                                <p class="mb-0">Learners at this level demonstrate a minimum level of skills related to the curriculum learning outcomes. They can follow simple instructions and apply simple rules to achieve expected performance. They have some good ideas which often lack coherence. They can solve problems using simple logic, and can also express themselves using simple language. They need guidance at many stages of learning.</p>
                               </div>
                               <hr>
                               <div class="col-md-2 left-per-sec p-4 my-1 bg-green text-center">
-                                <h4 class="fw-bold my-3 text-white">
+                                <h4 class="fw-bold my-3 text-start text-white">
                                   Proficient
                                 </h4>
                               </div>
                               <div class="col-md-10 my-3">
-                                <p class="mb-0">Learners at this level have acquired most of the learning outcomes and skills required by the curriculum. They can work independently with minimum supervision. They have a systematic methodology to solve problems. They can communicate their ideas clearly. They can also connect different ideas and create meaning with minimum guidance and supervision. They can analyze situations and interpret information for application to new situations.</p>
+                                <p class="mb-0">Learners are required to attain the proficient level and above. Learners at this level have acquired most of the learning outcomes and skills required by the curriculum. They can work independently with minimum supervision. They have a systematic methodology to solve problems. They can communicate their ideas clearly. They can also connect different ideas and create meaning with minimum guidance and supervision. They can analyze situations and interpret information for application to new situations. </p>
                               </div>
                               <hr>
                               <div class="col-md-2 left-per-sec p-4 my-1 bg-skyblue text-center">
-                                <h4 class="fw-bold my-3 text-white">
+                                <h4 class="fw-bold my-3 text-start text-white">
                                   Advanced
                                 </h4>
                               </div>
@@ -886,7 +1062,7 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg px-4 py-2">
@@ -940,6 +1116,30 @@
                         $fcol = 20;
                         }
                         @endphp
+                        @if($performanceByGender->grade==10)
+                        <div class="p-0" style="width: {{$fcol}}%">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level">
+                              <div id="rc3-milBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                              <div class="category text-center dark-blue-bg">
+                                <span class="text-white text-17">MIL</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        @endif
+                        @if($performanceByGender->grade==3 || $performanceByGender->grade==5 ||$performanceByGender->grade==8)
+                        <div class="p-0" style="width: {{$fcol}}%">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level">
+                              <div id="rc3-languageBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                              <div class="category text-center dark-blue-bg">
+                                <span class="text-white text-17">Language</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        @endif
                         @if($performanceByGender->grade==3 || $performanceByGender->grade==5 || $performanceByGender->grade==8 ||$performanceByGender->grade==10)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
@@ -952,18 +1152,7 @@
                           </div>
                         </div>
                         @endif
-                        @if($performanceByGender->grade==3 || $performanceByGender->grade==5 ||$performanceByGender->grade==8)
-                        <div class="p-0" style="width: {{$fcol}}%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-languageBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
-                              <div class="category text-center dark-blue-bg">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        @endif
+                        
                         @if($performanceByGender->grade==3 || $performanceByGender->grade==5)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
@@ -1000,18 +1189,7 @@
                           </div>
                         </div>
                         @endif
-                        @if($performanceByGender->grade==10)
-                        <div class="p-0" style="width: {{$fcol}}%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-milBarGraph1{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
-                              <div class="category text-center dark-blue-bg">
-                                <span class="text-white text-17">MIL</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        @endif
+                        
                         @if($performanceByGender->grade==10)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
@@ -1080,6 +1258,30 @@
                         $fcol = 20;
                         }
                         @endphp
+                        @if($performanceByLocation->grade==10)
+                        <div class="p-0" style="width: {{$fcol}}%">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level">
+                              <div id="rc3-milBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                              <div class="category text-center dark-blue-bg">
+                                <span class="text-white text-17">MIL</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        @endif
+                        @if($performanceByLocation->grade==3 || $performanceByLocation->grade==5 || $performanceByLocation->grade==8)
+                        <div class="p-0" style="width: {{$fcol}}%">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level">
+                              <div id="rc3-languageBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                              <div class="category text-center dark-blue-bg">
+                                <span class="text-white text-17">Language</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        @endif
                         @if($performanceByLocation->grade==3 || $performanceByLocation->grade==5 || $performanceByLocation->grade==8 ||$performanceByLocation->grade==10)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
@@ -1092,18 +1294,7 @@
                           </div>
                         </div>
                         @endif
-                        @if($performanceByLocation->grade==3 || $performanceByLocation->grade==5 || $performanceByLocation->grade==8)
-                        <div class="p-0" style="width: {{$fcol}}%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-languageBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
-                              <div class="category text-center dark-blue-bg">
-                                <span class="text-white text-17">Language</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        @endif
+                        
                         @if($performanceByLocation->grade==3 || $performanceByLocation->grade==5)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
@@ -1140,18 +1331,7 @@
                           </div>
                         </div>
                         @endif
-                        @if($performanceByLocation->grade==10)
-                        <div class="p-0" style="width: {{$fcol}}%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-milBarGraph2{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
-                              <div class="category text-center dark-blue-bg">
-                                <span class="text-white text-17">MIL</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        @endif
+                        
                         @if($performanceByLocation->grade==10)
                         <div class="p-0" style="width: {{$fcol}}%">
                           <div class="graph-wrap">
@@ -1185,7 +1365,7 @@
                                   <li>
                                     <div class="graph-label">
                                         <span class="graph-label-box legend-color-blue1"></span>
-                                        <p class="graph-label-text">Govt.</p>
+                                        <p class="graph-label-text">State Govt.</p>
                                     </div>
                                   </li>
                                   <li>
@@ -1197,7 +1377,7 @@
                                   <li>
                                     <div class="graph-label">
                                         <span class="graph-label-box legend-color-blue3"></span>
-                                        <p class="graph-label-text">Private</p>
+                                        <p class="graph-label-text">Private Recognized</p>
                                     </div>
                                   </li>
                                   <li>
@@ -1218,13 +1398,13 @@
                           $dataMgtArr = json_decode($performanceByMgt->data,true);
                           @endphp
 
-                          @if($performanceByMgt->grade==3 || $performanceByMgt->grade==5 || $performanceByMgt->grade==8 ||$performanceByMgt->grade==10)
+                          @if($performanceByMgt->grade==10)
                           <div class="p-0" style="width:33.33%;">
                             <div class="graph-wrap">
-                              <figure class="highcharts-figure graph-level1">
-                                <div id="rc3-mathBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                              <figure class="highcharts-figure graph-level3">
+                                <div id="rc3-milBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
                                 <div class="category text-center dark-blue-bg">
-                                  <span class="text-white text-17">Mathematics</span>
+                                  <span class="text-white text-17">MIL</span>
                                 </div>
                               </figure>
                             </div>
@@ -1242,6 +1422,20 @@
                             </div>
                           </div>
                           @endif
+
+                          @if($performanceByMgt->grade==3 || $performanceByMgt->grade==5 || $performanceByMgt->grade==8 ||$performanceByMgt->grade==10)
+                          <div class="p-0" style="width:33.33%;">
+                            <div class="graph-wrap">
+                              <figure class="highcharts-figure graph-level1">
+                                <div id="rc3-mathBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                                <div class="category text-center dark-blue-bg">
+                                  <span class="text-white text-17">Mathematics</span>
+                                </div>
+                              </figure>
+                            </div>
+                          </div>
+                          @endif
+                          
                           @if($performanceByMgt->grade==3 || $performanceByMgt->grade==5)
                           <div class="p-0" style="width:33.33%;">
                             <div class="graph-wrap">
@@ -1266,18 +1460,7 @@
                             </div>
                           </div>
                           @endif
-                          @if($performanceByMgt->grade==10)
-                          <div class="p-0" style="width:33.33%;">
-                            <div class="graph-wrap">
-                              <figure class="highcharts-figure graph-level3">
-                                <div id="rc3-milBarGraph3{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
-                                <div class="category text-center dark-blue-bg">
-                                  <span class="text-white text-17">MIL</span>
-                                </div>
-                              </figure>
-                            </div>
-                          </div>
-                          @endif
+                          
                           @if($performanceByMgt->grade==8 ||$performanceByMgt->grade==10)
                           <div class="p-0" style="width:33.33%;">
                             <div class="graph-wrap">
@@ -1317,7 +1500,7 @@
                     <!-- Social -->
                     <div class="col-md-9 left">
                     <div class="d-flex justify-content-between">
-                          <h4 class="">Performance by Management <span class="fw-light">(in percent correct)</span></h4>
+                          <h4 class="">Performance by Social Group <span class="fw-light">(in percent correct)</span></h4>
                           <div class="graph-label-list">
                               <ul>
                                 <li>
@@ -1356,13 +1539,13 @@
                         $datasclgrpArr = json_decode($performanceBysclgrp->data,true);
                         @endphp
 
-                        @if($performanceBysclgrp->grade==3 || $performanceBysclgrp->grade==5 || $performanceBysclgrp->grade==8 ||$performanceBysclgrp->grade==10)
+                        @if($performanceBysclgrp->grade==10)
                         <div class="p-0" style="width: 33.33%">
                           <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level1">
-                              <div id="rc3-mathBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                            <figure class="highcharts-figure graph-level2">
+                              <div id="rc3-milBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
                               <div class="category text-center dark-blue-bg">
-                                <span class="text-white text-17">Mathematics</span>
+                                <span class="text-white text-17">MIL</span>
                               </div>
                             </figure>
                           </div>
@@ -1380,6 +1563,19 @@
                           </div>
                         </div>
                         @endif
+                        @if($performanceBysclgrp->grade==3 || $performanceBysclgrp->grade==5 || $performanceBysclgrp->grade==8 ||$performanceBysclgrp->grade==10)
+                        <div class="p-0" style="width: 33.33%">
+                          <div class="graph-wrap">
+                            <figure class="highcharts-figure graph-level1">
+                              <div id="rc3-mathBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
+                              <div class="category text-center dark-blue-bg">
+                                <span class="text-white text-17">Mathematics</span>
+                              </div>
+                            </figure>
+                          </div>
+                        </div>
+                        @endif
+                        
                         @if($performanceBysclgrp->grade==3 || $performanceBysclgrp->grade==5)
                         <div class="p-0" style="width: 33.33%">
                           <div class="graph-wrap">
@@ -1404,18 +1600,7 @@
                           </div>
                         </div>
                         @endif
-                        @if($performanceBysclgrp->grade==10)
-                        <div class="p-0" style="width: 33.33%">
-                          <div class="graph-wrap">
-                            <figure class="highcharts-figure graph-level2">
-                              <div id="rc3-milBarGraph4{{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}"></div>
-                              <div class="category text-center dark-blue-bg">
-                                <span class="text-white text-17">MIL</span>
-                              </div>
-                            </figure>
-                          </div>
-                        </div>
-                        @endif
+                        
                         @if($performanceBysclgrp->grade==8 ||$performanceBysclgrp->grade==10)
                         <div class="p-0" style="width: 33.33%">
                           <div class="graph-wrap">
@@ -1478,7 +1663,7 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg pb-0">
@@ -1522,7 +1707,7 @@
                                 {{($languageLO->question!=''&&$languageLO->question!=0)?$languageLO->question:'-'}}
                               </td>
                               <td>
-                              @if(isset($languageLO->avg) && $languageLO->avg<50)
+                              @if(isset($languageLO->avg) && round($languageLO->avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($languageLO->avg)?round($languageLO->avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1538,7 +1723,7 @@
                                 @endif
                               </td>
                               <td>
-                              @if(isset($languageLO->state_avg) && $languageLO->state_avg<50)
+                              @if(isset($languageLO->state_avg) && round($languageLO->state_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($languageLO->state_avg)?round($languageLO->state_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1554,7 +1739,7 @@
                                 @endif
                               </td>
                               <td>
-                                @if(isset($languageLO->national_avg) && $languageLO->national_avg<50)
+                                @if(isset($languageLO->national_avg) && round($languageLO->national_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($languageLO->national_avg)?round($languageLO->national_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1595,7 +1780,7 @@
                                 <img src="https://nas21.inroad.in/report-pdf/assets/images/mil1011.png" alt="" class="" style="width: 48rem;">
                               </td>
                               <td>
-                              @if(isset($milLO->avg) && $milLO->avg<50)
+                              @if(isset($milLO->avg) && round($milLO->avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($milLO->avg)?round($milLO->avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1611,7 +1796,7 @@
                                 @endif
                               </td>
                               <td>
-                              @if(isset($milLO->state_avg) && $milLO->state_avg<50)
+                              @if(isset($milLO->state_avg) && round($milLO->state_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($milLO->state_avg)?round($milLO->state_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1627,7 +1812,7 @@
                                 @endif
                               </td>
                               <td>
-                                @if(isset($milLO->national_avg) && $milLO->national_avg<50)
+                                @if(isset($milLO->national_avg) && round($milLO->national_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($milLO->national_avg)?round($milLO->national_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1668,7 +1853,7 @@
                                 {{($mathLO->question!=''&&$mathLO->question!=0)?$mathLO->question:'-'}}
                               </td>
                               <td>
-                              @if(isset($mathLO->avg) && $mathLO->avg<50)
+                              @if(isset($mathLO->avg) && round($mathLO->avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($mathLO->avg)?round($mathLO->avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1684,7 +1869,7 @@
                                 @endif
                               </td>
                               <td>
-                              @if(isset($mathLO->state_avg) && $mathLO->state_avg<50)
+                              @if(isset($mathLO->state_avg) && round($mathLO->state_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($mathLO->state_avg)?round($mathLO->state_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1700,7 +1885,7 @@
                                 @endif
                               </td>
                               <td>
-                                @if(isset($mathLO->national_avg) && $mathLO->national_avg<50)
+                                @if(isset($mathLO->national_avg) && round($mathLO->national_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($mathLO->national_avg)?round($mathLO->national_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1756,7 +1941,7 @@
                                 {{($evsLO->question!=''&&$evsLO->question!=0)?$evsLO->question:'-'}}
                               </td>
                               <td>
-                              @if(isset($evsLO->avg) && $evsLO->avg<50)
+                              @if(isset($evsLO->avg) && round($evsLO->avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($evsLO->avg)?round($evsLO->avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1772,7 +1957,7 @@
                                 @endif
                               </td>
                               <td>
-                              @if(isset($evsLO->state_avg) && $evsLO->state_avg<50)
+                              @if(isset($evsLO->state_avg) && round($evsLO->state_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($evsLO->state_avg)?round($evsLO->state_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1788,7 +1973,7 @@
                                 @endif
                               </td>
                               <td>
-                                @if(isset($evsLO->national_avg) && $evsLO->national_avg<50)
+                                @if(isset($evsLO->national_avg) && round($evsLO->national_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($evsLO->national_avg)?round($evsLO->national_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1843,7 +2028,7 @@
                                   {{($sciLO->question!=''&&$sciLO->question!=0)?$sciLO->question:'-'}}
                                 </td>
                                 <td>
-                              @if(isset($sciLO->avg) && $sciLO->avg<50)
+                              @if(isset($sciLO->avg) && round($sciLO->avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sciLO->avg)?round($sciLO->avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1859,7 +2044,7 @@
                                 @endif
                               </td>
                               <td>
-                              @if(isset($sciLO->state_avg) && $sciLO->state_avg<50)
+                              @if(isset($sciLO->state_avg) && round($sciLO->state_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sciLO->state_avg)?round($sciLO->state_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1875,7 +2060,7 @@
                                 @endif
                               </td>
                               <td>
-                                @if(isset($sciLO->national_avg) && $sciLO->national_avg<50)
+                                @if(isset($sciLO->national_avg) && round($sciLO->national_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sciLO->national_avg)?round($sciLO->national_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -1898,78 +2083,7 @@
                             @endif
 
                             
-                            @if(count($districtLOData)>0)
-                            @php $eng=1;@endphp
-                            @foreach($districtLOData as $engLO)
-                            @if($districtParticipation->grade==$engLO->grade)
-                            @if($engLO->language=='eng')
-                            @if($eng==1)
-                            <tr class="bg-bluegreen text-white">
-                              <td class="text" colspan="5">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="" />
-                                English
-                              </td>
-                            </tr>
-                            @endif
-                            <tr class={{(($eng)%2==0)?'"light-yellow-bg"':''}}>
-                              <th class="bg-bluegreen" scope="row">{{isset($engLO->subject_code)?$engLO->subject_code:'-'}}</th>
-                              <td class="text-sm-start">
-                                {{($engLO->question!=''&&$engLO->question!=0)?$engLO->question:'-'}}
-                              </td>
-                              <td>
-                              @if(isset($engLO->avg) && $engLO->avg<50)
-                                <div class="d-flex warning-table justify-content-center">
-                                  <div class="no fw-bold">{{isset($engLO->avg)?round($engLO->avg):'-'}}</div>
-                                  <div class="warn-img">
-                                    <img src="https://nas21.inroad.in/report-pdf/assets/images/warning-icon.png" alt="warning" width="25" height="25">
-                                  </div>
-                                </div>
-                                @else
-                                <div class="d-flex warning-table justify-content-center">
-                                  <div class="no">{{isset($engLO->avg)?round($engLO->avg):'-'}}</div>
-                                  <div class="warn-img">
-                                  </div>
-                                </div>
-                                @endif
-                              </td>
-                              <td>
-                              @if(isset($engLO->state_avg) && $engLO->state_avg<50)
-                                <div class="d-flex warning-table justify-content-center">
-                                  <div class="no fw-bold">{{isset($engLO->state_avg)?round($engLO->state_avg):'-'}}</div>
-                                  <div class="warn-img">
-                                    <img src="https://nas21.inroad.in/report-pdf/assets/images/warning-icon.png" alt="warning" width="25" height="25">
-                                  </div>
-                                </div>
-                                @else
-                                <div class="d-flex warning-table justify-content-center">
-                                  <div class="no">{{isset($engLO->state_avg)?round($engLO->state_avg):'-'}}</div>
-                                  <div class="warn-img">
-                                  </div>
-                                </div>
-                                @endif
-                              </td>
-                              <td>
-                                @if(isset($engLO->national_avg) && $engLO->national_avg<50)
-                                <div class="d-flex warning-table justify-content-center">
-                                  <div class="no fw-bold">{{isset($engLO->national_avg)?round($engLO->national_avg):'-'}}</div>
-                                  <div class="warn-img">
-                                    <img src="https://nas21.inroad.in/report-pdf/assets/images/warning-icon.png" alt="warning" width="25" height="25">
-                                  </div>
-                                </div>
-                                @else
-                                <div class="d-flex warning-table justify-content-center">
-                                  <div class="no">{{isset($engLO->national_avg)?round($engLO->national_avg):'-'}}</div>
-                                  <div class="warn-img">
-                                  </div>
-                                </div>
-                                @endif
-                              </td>
-                            </tr>
-                            @php $eng++;@endphp
-                            @endif
-                            @endif
-                            @endforeach
-                            @endif
+                            
                           </tbody>
                         </table>
 
@@ -2005,7 +2119,7 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg pb-0">
@@ -2043,7 +2157,7 @@
                                 {{($evsLO->question!=''&&$evsLO->question!=0)?$evsLO->question:'-'}}
                               </td>
                               <td>
-                              @if(isset($evsLO->avg) && $evsLO->avg<50)
+                              @if(isset($evsLO->avg) && round($evsLO->avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($evsLO->avg)?round($evsLO->avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2059,7 +2173,7 @@
                                 @endif
                               </td>
                               <td>
-                              @if(isset($evsLO->state_avg) && $evsLO->state_avg<50)
+                              @if(isset($evsLO->state_avg) && round($evsLO->state_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($evsLO->state_avg)?round($evsLO->state_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2075,7 +2189,7 @@
                                 @endif
                               </td>
                               <td>
-                                @if(isset($evsLO->national_avg) && $evsLO->national_avg<50)
+                                @if(isset($evsLO->national_avg) && round($evsLO->national_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($evsLO->national_avg)?round($evsLO->national_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2111,7 +2225,7 @@
                                   {{($sciLO->question!=''&&$sciLO->question!=0)?$sciLO->question:'-'}}
                                 </td>
                                 <td>
-                              @if(isset($sciLO->avg) && $sciLO->avg<50)
+                              @if(isset($sciLO->avg) && round($sciLO->avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sciLO->avg)?round($sciLO->avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2127,7 +2241,7 @@
                                 @endif
                               </td>
                               <td>
-                              @if(isset($sciLO->state_avg) && $sciLO->state_avg<50)
+                              @if(isset($sciLO->state_avg) && round($sciLO->state_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sciLO->state_avg)?round($sciLO->state_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2143,7 +2257,7 @@
                                 @endif
                               </td>
                               <td>
-                                @if(isset($sciLO->national_avg) && $sciLO->national_avg<50)
+                                @if(isset($sciLO->national_avg) && round($sciLO->national_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sciLO->national_avg)?round($sciLO->national_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2185,7 +2299,7 @@
                                 {{($sstLO->question!=''&&$sstLO->question!=0)?$sstLO->question:'-'}}
                               </td>
                               <td>
-                              @if(isset($sstLO->avg) && $sstLO->avg<50)
+                              @if(isset($sstLO->avg) && round($sstLO->avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sstLO->avg)?round($sstLO->avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2201,7 +2315,7 @@
                                 @endif
                               </td>
                               <td>
-                              @if(isset($sstLO->state_avg) && $sstLO->state_avg<50)
+                              @if(isset($sstLO->state_avg) && round($sstLO->state_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sstLO->state_avg)?round($sstLO->state_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2217,7 +2331,7 @@
                                 @endif
                               </td>
                               <td>
-                                @if(isset($sstLO->national_avg) && $sstLO->national_avg<50)
+                                @if(isset($sstLO->national_avg) && round($sstLO->national_avg)<50)
                                 <div class="d-flex warning-table justify-content-center">
                                   <div class="no fw-bold">{{isset($sstLO->national_avg)?round($sstLO->national_avg):'-'}}</div>
                                   <div class="warn-img">
@@ -2234,6 +2348,79 @@
                               </td>
                             </tr>
                             @php $sst++;@endphp
+                            @endif
+                            @endif
+                            @endforeach
+                            @endif
+
+                            @if(count($districtLOData)>0)
+                            @php $eng=1;@endphp
+                            @foreach($districtLOData as $engLO)
+                            @if($districtParticipation->grade==$engLO->grade)
+                            @if($engLO->language=='eng')
+                            @if($eng==1)
+                            <tr class="bg-bluegreen text-white">
+                              <td class="text" colspan="5">
+                                <img src="https://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="" />
+                                English
+                              </td>
+                            </tr>
+                            @endif
+                            <tr class={{(($eng)%2==0)?'"light-yellow-bg"':''}}>
+                              <th class="bg-bluegreen" scope="row">{{isset($engLO->subject_code)?$engLO->subject_code:'-'}}</th>
+                              <td class="text-sm-start">
+                                {{($engLO->question!=''&&$engLO->question!=0)?$engLO->question:'-'}}
+                              </td>
+                              <td>
+                              @if(isset($engLO->avg) && round($engLO->avg)<50)
+                                <div class="d-flex warning-table justify-content-center">
+                                  <div class="no fw-bold">{{isset($engLO->avg)?round($engLO->avg):'-'}}</div>
+                                  <div class="warn-img">
+                                    <img src="https://nas21.inroad.in/report-pdf/assets/images/warning-icon.png" alt="warning" width="25" height="25">
+                                  </div>
+                                </div>
+                                @else
+                                <div class="d-flex warning-table justify-content-center">
+                                  <div class="no">{{isset($engLO->avg)?round($engLO->avg):'-'}}</div>
+                                  <div class="warn-img">
+                                  </div>
+                                </div>
+                                @endif
+                              </td>
+                              <td>
+                              @if(isset($engLO->state_avg) && round($engLO->state_avg)<50)
+                                <div class="d-flex warning-table justify-content-center">
+                                  <div class="no fw-bold">{{isset($engLO->state_avg)?round($engLO->state_avg):'-'}}</div>
+                                  <div class="warn-img">
+                                    <img src="https://nas21.inroad.in/report-pdf/assets/images/warning-icon.png" alt="warning" width="25" height="25">
+                                  </div>
+                                </div>
+                                @else
+                                <div class="d-flex warning-table justify-content-center">
+                                  <div class="no">{{isset($engLO->state_avg)?round($engLO->state_avg):'-'}}</div>
+                                  <div class="warn-img">
+                                  </div>
+                                </div>
+                                @endif
+                              </td>
+                              <td>
+                                @if(isset($engLO->national_avg) && round($engLO->national_avg)<50)
+                                <div class="d-flex warning-table justify-content-center">
+                                  <div class="no fw-bold">{{isset($engLO->national_avg)?round($engLO->national_avg):'-'}}</div>
+                                  <div class="warn-img">
+                                    <img src="https://nas21.inroad.in/report-pdf/assets/images/warning-icon.png" alt="warning" width="25" height="25">
+                                  </div>
+                                </div>
+                                @else
+                                <div class="d-flex warning-table justify-content-center">
+                                  <div class="no">{{isset($engLO->national_avg)?round($engLO->national_avg):'-'}}</div>
+                                  <div class="warn-img">
+                                  </div>
+                                </div>
+                                @endif
+                              </td>
+                            </tr>
+                            @php $eng++;@endphp
                             @endif
                             @endif
                             @endforeach
@@ -2274,14 +2461,14 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:0}}</span>
                 </div>
                 <div class="reportview-class-content light-blue-bg children-testimony mt-1">
                   <div class="row pt-3 justify-content-center pb-30">
                     <div class="col-md-12">
                       <h4 class="heading-30 heading-black-bold text-center p-5">
-                        What children say about schools?
+                        What students have to say?
                       </h4>
                     </div>
                     @if(count($districtFeedbackData)>0)
@@ -2291,7 +2478,7 @@
                     <div class="col-md-3">
                       <div class="infotab-content white-bg text-center">
                         <h2 class="text-dark-blue pt-2">{{isset($pqfeedback->avg)?round($pqfeedback->avg):0}}%</h2>
-                        <p class="total-no">{{isset($pqfeedback->question_desc)?$pqfeedback->question_desc:'-'}}</p>
+                        <p class="total-no">{{isset($pqfeedback->question_desc)?ucfirst($pqfeedback->question_desc):'-'}}</p>
                       </div>
                     </div>
                     @endif
@@ -2305,7 +2492,7 @@
                     <!-- left sec -->
                     <div class="col-md-8 light-green-bg teacher-left">
                       <h4 class="heading-black-bold heading-30 text-center p-4">
-                        What teachers responded about school?
+                        What teachers have to say ?
                       </h4>
 
                       @if(count($districtFeedbackData)>0)
@@ -2331,7 +2518,7 @@
                               <!-- .infotab-content ----class -->
                               <h2 class="text-green">{{isset($tqfeedback->avg)?round($tqfeedback->avg):0}}%</h2>
                               <p class="total-no">
-                                {{isset($tqfeedback->question_desc)?$tqfeedback->question_desc:'-'}}
+                                {{isset($tqfeedback->question_desc)?ucfirst($tqfeedback->question_desc):'-'}}
                               </p>
                             </div>
                           </div>
@@ -2352,7 +2539,7 @@
                           <div class="octagon-card {{isset($octoganCardbgColor[$tq3])?$octoganCardbgColor[$tq3]:''}} {{isset($octoganCardbgColor[$tq3])&& $octoganCardbgColor[$tq3]!='o-color-white'?'text-white':''}} text-center">
                             <h2 class="title">{{isset($tqfeedback2->avg)?round($tqfeedback2->avg):0}}%</h2>
                             <p class="total-no">
-                              {{isset($tqfeedback2->question_desc)?$tqfeedback2->question_desc:'-'}}
+                              {{isset($tqfeedback2->question_desc)?ucfirst($tqfeedback2->question_desc):'-'}}
                             </p>
                           </div>
                         </div>
@@ -2374,7 +2561,7 @@
                     <!-- right sec -->
                     <div class="col-md-4 light-pink teacher-right">
                       <h4 class="heading-black-bold heading-30 text-center p-4">
-                        What head teachers responded about school?
+                        What head teacher have to say ?
                       </h4>
                       <div class="container">
                         <div class="row">
@@ -2385,8 +2572,8 @@
                           <div class="col-md-12">
                             <div class="infotab-content white-bg text-center">
                               <h2 class="text-dark-pink">{{isset($sqfeedback->avg)?round($sqfeedback->avg):0}}%</h2>
-                              <p class="total-no">
-                                {{isset($sqfeedback->question_desc)?$sqfeedback->question_desc:'-'}}
+                              <p class="total-no">of head teachers responded that 
+                                {{isset($sqfeedback->question_desc)?substr(strstr($sqfeedback->question_desc, " "),1):'-'}}
                               </p>
                             </div>
                           </div>
@@ -2411,11 +2598,230 @@
       </div>
     </section>
   </div>
+  <!-- page 5 ends -->
+
+  
 
   @include('pdf.sixthgraph')
 
   @endforeach
   @endif
+  <!-- glossary page starts -->
+  <div class="page">
+      <section class="reportview-wrap committee">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="reportview-container">
+                <div class="reportview-class-wrap">
+                  <div class="reportview-class-content">
+                    <div class="row align-items-center">
+                      <div class="col-md-12">
+                        <h1 class="text-center">Commitee</h1>
+                      </div>
+                      <div class="col-md-12">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr class="dark-blue-bg text-white">
+                              <th scope="col" colspan="2">National Steering Committee (NAS-2021)</th>
+                            </tr>
+                          </thead>
+                          <tbody class="align-middle">
+                            <tr>
+                              <th scope="row">Chairman</th>
+                              <td>
+                                Dr. Vineet Joshi, IAS (Current Chairman, CBSE)
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Jt. Secretary, DoSEL, Min. of Education</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Prof. Dinesh Prasad Saklani, Director, NCERT
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row" rowspan="2">Member</th>
+                              <td>DDG</td>
+                            </tr>
+                            <tr>
+                              
+                              <td>Shri V. Hegde, DDG (Stats) Min. of Education</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Prof. (Dr.) Indrani Bhaduri, Head, ESD, Head NAS Cell, NCERT</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri J.P. Pandey, Director, DoSEL, Min. of Education</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri Manoj Kr. Srivastava, Director (PE) Head NAS Cell-CBSE	</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri Saba Akhtar, Scientist F, NIC</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Dr. Ganesh Nigam, Education Specialists, UNICEF	</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>  
+                      <div class="col-md-12">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr class="dark-blue-bg text-white">
+                              <th scope="col" colspan="2">Sub-Committee - Data Analysis, Reporting and Dissemination</th>
+                            </tr>
+                          </thead>
+                          <tbody class="align-middle">
+                            <tr>
+                              <th scope="row">Chairman</th>
+                              <td>Prof. Dinesh Prasad Saklani, Director, NCERT
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Prof. (Dr.) Sridhar Srivastava, Joint Director</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri J.P. Pandey, Director, DoSEL, Min. of Education</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri V. Hegde, DDG (Stats) Min. of Education</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri Manoj Kr. Srivastava, Director (PE), Head NAS Cell, CBSE</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Prof. (Dr.) Indrani Bhaduri, Head, ESD, Head NAS Cell, NCERT</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri Saba Akhtar, Scientist F, NIC	</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Dr. Ganesh Nigam, Education Specialists, UNICEF</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>  
+                  </div>
+                  <div class="report-footer-wrap pg-26">
+                    <div class="reportview-footer">
+                      <span class="page-no">@php $pageNo = $pageNo+1; echo $pageNo; @endphp</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  <!-- glossary page ends -->
+  <!-- our partners page starts -->
+  <div class="page">
+      <section class="reportview-wrap drc-partner">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="reportview-container">
+                <div class="reportview-class-wrap">
+                  <div class="reportview-class-content p-5">
+                    <div class="row justify-content-center">
+                      <div class="col-md-12">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div class="imgwrap">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/ministry-view.png" alt="img" class="" height="150"/>
+                          </div>
+                          <div class="imgwrap">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/aazadi.png" alt="img" height="200" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <h1 class="text-center">Our Partners</h1>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="row logos align-items-center text-center justify-content-center">
+                          <div class="col-md-4 logo-box">
+                            <div class="imgwrap">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/cbsc-view.png" alt="img" class="" height="350"/>
+                            </div>
+                          </div>
+                          <div class="col-md-4 logo-box">
+                            <div class="imgwrap">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/niti-aayog.png" alt="img" height="270" />
+                            </div> 
+                          </div>
+                          <div class="col-md-4 logo-box">
+                            <div class="imgwrap">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/ncert-view.png" alt="img" class="" height="300"/> 
+                            </div>  
+                          </div>
+                          <div class="col-md-4 logo-box">
+                            <div class="imgwrap">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/UNICEF_LOGO_CYAN.png" alt="img" class="" height="120"/>
+                              
+                            </div>
+                          </div>
+                          <div class="col-md-4 logo-box">
+                            <div class="imgwrap">
+                              <img src="https://nas21.inroad.in/report-pdf/assets/images/nic-logo-new.jpg" alt="img" class="" height="150"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row qr-box align-items-center text-center justify-content-center">
+                          <div class="col-md-6 p-5 dark-blue-bg rt-border">
+                            <div class="d-flex align-items-center justify-content-center">
+                              <div class="imgwrap">
+                                <img src="https://nas21.inroad.in/report-pdf/assets/images/website-qr.png" alt="img" class="" height="250"/>
+                              </div>
+                              <div class="qr-content mx-2 text-start text-white">
+                                <h6>SCAN QR CODE TO DOWNLOAD THE MOBILE APP</h6>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 p-5 dark-blue-bg">
+                            <div class="d-flex align-items-center justify-content-center">
+                              <div class="qr-content mx-2 text-start text-white">
+                                <h6>SCAN QR CODE TO DOWNLOAD THE WEBSITE</h6>
+                              </div>
+                              <div class="imgwrap">
+                                <img src="https://nas21.inroad.in/report-pdf/assets/images/website-qr.png" alt="img" class="" height="250"/>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="report-footer-wrap pg-27">
+                    <div class="reportview-footer">
+                      <span class="page-no">@php $pageNo = $pageNo+1; echo $pageNo; @endphp</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  <!-- our partners page ends -->
 </body>
 
 </html>
