@@ -51,7 +51,7 @@
                                         <select class="form-select form-control" name="content" id="content">
                                             <option value="">Select</option>
                                             <option value='report_card' {{ (old("content") == "report_card" ? "selected":"") }}>Report Card</option>
-                                            <option value='visualization' {{ (old("content") == "visualization" ? "selected":"") }}>Visualization</option>
+                                            <!-- <option value='visualization' {{ (old("content") == "visualization" ? "selected":"") }}>Visualization</option> -->
                                         </select>
                                         @error('content')
                                         <span class="text-danger">{{$message}}</span>

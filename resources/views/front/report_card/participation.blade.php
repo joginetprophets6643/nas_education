@@ -283,7 +283,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                               <div class="category-wrap">
                                                 <div class="card-round card-blue">
-                                                  <span class="percentage" id="participation_urban_class5">0%</span>
+                                                  <span class="percentage" id="participation_rural_class5">0%</span>
                                                   <small class="title">Rural</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -304,7 +304,7 @@
                                               </div>
                                               <div class="category-wrap">
                                                 <div class="card-round card-pink">
-                                                  <span class="percentage" id="participation_rural_class5">0%</span>
+                                                  <span class="percentage" id="participation_urban_class5">0%</span>
                                                   <small class="title">Urban</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -663,7 +663,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                               <div class="category-wrap">
                                                 <div class="card-round card-sagegreen">
-                                                  <span class="percentage" id="participation_urban_class10">0%</span>
+                                                  <span class="percentage" id="participation_rural_class10">0%</span>
                                                   <small class="title">Rural</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -684,7 +684,7 @@
                                               </div>
                                               <div class="category-wrap">
                                                 <div class="card-round card-red">
-                                                  <span class="percentage" id="participation_rural_class10">0%</span>
+                                                  <span class="percentage" id="participation_urban_class10">0%</span>
                                                   <small class="title">Urban</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -839,7 +839,7 @@
                                             <div class="d-flex justify-content-evenly align-items-end">
                                               <div class="category-wrap">
                                                 <div class="card-round card-sagegreen">
-                                                  <span class="percentage" id="participation_urban_classall">0%</span>
+                                                  <span class="percentage" id="participation_rural_classall">0%</span>
                                                   <small class="title">Rural</small>
                                                 </div>
                                                 <div class="img-wrap">
@@ -860,7 +860,7 @@
                                               </div>
                                               <div class="category-wrap">
                                                 <div class="card-round card-red">
-                                                  <span class="percentage" id="participation_rural_classall">0%</span>
+                                                  <span class="percentage" id="participation_urban_classall">0%</span>
                                                   <small class="title">Urban</small>
                                                 </div>
                                                 <div class="img-wrap">

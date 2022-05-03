@@ -132,9 +132,9 @@
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('feedback') ? 'active' : '' }}" href="{{url('/feedback')}}" target="_blank">{{__('lang.Feedback')}}</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link {{ Request::is('visualization') || Request::is('visualization/*') ? 'active' : '' }}" href="{{url('/visualization')}}" target="_blank">{{__('lang.VISUALIZATION')}}</a>
-                  </li>
+                  </li> -->
 
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('gallery') || Request::is('gallery/*') ? 'active' : '' }}" href="{{url('gallery')}}">{{__('lang.GALLERY')}}</a>

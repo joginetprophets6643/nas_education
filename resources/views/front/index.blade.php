@@ -379,7 +379,7 @@
               </a>
           </div>
           <div class="col-md-6">
-            <a href="{{url('visualization')}}" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
+            <a href="" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -397,16 +397,16 @@
                 </div>
               </div>
               
-              <div class="btn-wrap">
+              <!-- <div class="btn-wrap">
                 <button class="white-link btn">
                   {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
                 </button>
-              </div>
+              </div> -->
             </a>
-            <a href="{{url('/data-share')}}" target="_blank" class="links-card data-bg" data-aos="fade-up">
+            <a href="" target="_blank" class="links-card data-bg" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -424,14 +424,14 @@
               </div>
               </div>
               
-              <div class="btn-wrap">
+              <!-- <div class="btn-wrap">
                 <button class="white-link btn">
                   {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
                 </button>
-              </div>
+              </div> -->
             </a>
           </div>
         </div>

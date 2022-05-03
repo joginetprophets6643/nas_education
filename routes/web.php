@@ -453,7 +453,7 @@ Route::group(["middleware" => ["authCheck"]], function(){
         Route::get('/nas-team','App\Http\Controllers\FrontController@team');
         // Route::get('/data-share','App\Http\Controllers\FrontController@data');
         Route::get('/gallery','App\Http\Controllers\FrontController@gallery')->name('front-gallery');
-        Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
+        // Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
         // Route::get('/visualization/nas-2021','App\Http\Controllers\VisualizationController@details');
 
         Route::get('/mobile-app','App\Http\Controllers\VisualizationController@mobile');
@@ -472,9 +472,9 @@ Route::group(["middleware" => ["authCheck"]], function(){
 
     });
     Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
-    Route::get('/visualization/nas-2021',function(){
-        return view('front.visualization.visualization_new');
-    });
+    // Route::get('/visualization/nas-2021',function(){
+    //     return view('front.visualization.visualization_new');
+    // });
 
     Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
     Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
