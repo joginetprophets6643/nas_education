@@ -672,7 +672,7 @@ function setFilters() {
           }
         }
       } else {
-        if (screenType === 'feedback' || screenType === 'participation') {
+        if (screenType === 'feedback') {
           global_filters = { ...global_filters, grade: { _eq: "11" } }
         }
         else {
