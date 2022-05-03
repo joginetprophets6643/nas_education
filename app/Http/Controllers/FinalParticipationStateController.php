@@ -1468,7 +1468,7 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, state_pq_q29f
-        as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq' level, 'Students get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q30
@@ -1586,7 +1586,7 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, state_pq_q29f
-        as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq' level, 'Students get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q30
@@ -1704,7 +1704,7 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, state_LA_pq_q29f
-        as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq' level, 'Students get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q30
@@ -1822,7 +1822,7 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, state_LA_pq_q29f
-        as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq' level, 'Students get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q30
