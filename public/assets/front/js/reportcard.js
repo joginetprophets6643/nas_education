@@ -73,7 +73,6 @@ let screens = ['information', 'participation', 'performance', 'learning', 'feedb
 
 let selected_geography = ''
 let global_filters = {}     // added for new change
-
 $(document).ready(() => {
   $.ajax({
     type: "GET",
@@ -239,6 +238,8 @@ function setClass(value) {
 
 // create bar graph with data for participation only
 function createSocialBarGraph(bar, colors) {
+  // const value = Object.values(bar)
+  // const max = Math.max(...value)
   Highcharts.chart('socialBarGraph_class' + classType, {
     chart: {
       type: 'column'
@@ -256,6 +257,7 @@ function createSocialBarGraph(bar, colors) {
       type: 'category'
     },
     yAxis: {
+      max: 100,
       title: {
         text: ''
       }
@@ -333,11 +335,11 @@ function createManagementPieChart(chart, colors) {
         dataLabels: {
           enabled: true,
           format: '{point.y}%',
-          distance: -50,
+          distance: 5,
           filter: {
             property: 'percentage',
             operator: '>',
-            value: 4
+            value: 0
           }
         },
         showInLegend: true
@@ -651,7 +653,7 @@ function setFilters() {
   if (state === null && district === null && classType === 'all') {
     if (screenType === 'participation') {
       global_filters = { ...global_filters, grade: { _eq: "11" } }
-    }  
+    }
   } else {
     if (state !== '' && state !== null) {
       global_filters = { ...global_filters, state_id: { _eq: state.udise_state_code } }
@@ -1480,7 +1482,7 @@ function updateData(data) {
         createGlimpsesScreen(data)
       }
     }
-    if (screenType === 'achievement'){
+    if (screenType === 'achievement') {
       const current_demography = (selected_geography === 'district' ? '' : selected_geography)
       //console.log(data)
       achievement_data = '';
@@ -1504,161 +1506,161 @@ function updateData(data) {
                                 </tr>
                               </thead>
                               <tbody id="add_achievementstate">`
-      data.forEach((ach,index) => {
-        if(index % 6 === 0){  
-          if(classType == 'all'){
-          achievement_data += '</tbody></table></div></div><br><h5 style="text-align: center;"><b>Grade' +ach.grade+'</b></h5>' + direction_gender_header
+      data.forEach((ach, index) => {
+        if (index % 6 === 0) {
+          if (classType == 'all') {
+            achievement_data += '</tbody></table></div></div><br><h5 style="text-align: center;"><b>Grade' + ach.grade + '</b></h5>' + direction_gender_header
           }
-          else{
-          achievement_data += '</tbody></table></div></div><br>' + direction_gender_header
+          else {
+            achievement_data += '</tbody></table></div></div><br>' + direction_gender_header
           }
-        }else{
-          if(index === 0){
+        } else {
+          if (index === 0) {
             achievement_data += direction_gender_header
           }
         }
 
         if (current_demography === 'state') {
-          if(ach.direction_gender == 0){
+          if (ach.direction_gender == 0) {
             direction_gender = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_gender == 1){
+          if (ach.direction_gender == 1) {
             direction_gender = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_gender == -1){
+          if (ach.direction_gender == -1) {
             direction_gender = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_gender == 2){
+          if (ach.direction_gender == 2) {
             direction_gender = '<td class="card-status card-sagegreen"></td>';
           }
 
-          if(ach.direction_location == 0){
+          if (ach.direction_location == 0) {
             direction_location = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_location == 1){
+          if (ach.direction_location == 1) {
             direction_location = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_location == -1){
+          if (ach.direction_location == -1) {
             direction_location = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_location == 2){
+          if (ach.direction_location == 2) {
             direction_location = '<td class="card-status card-sagegreen"></td>';
           }
 
-          if(ach.direction_sch_mgmt_gov == 0){
+          if (ach.direction_sch_mgmt_gov == 0) {
             direction_sch_mgmt_gov = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_sch_mgmt_gov == 1){
+          if (ach.direction_sch_mgmt_gov == 1) {
             direction_sch_mgmt_gov = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_sch_mgmt_gov == -1){
+          if (ach.direction_sch_mgmt_gov == -1) {
             direction_sch_mgmt_gov = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_sch_mgmt_gov == 2){
+          if (ach.direction_sch_mgmt_gov == 2) {
             direction_sch_mgmt_gov = '<td class="card-status card-sagegreen"></td>';
           }
-        
-          if(ach.direction_sch_mgmt_govaid == 0){
+
+          if (ach.direction_sch_mgmt_govaid == 0) {
             direction_sch_mgmt_govaid = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_sch_mgmt_govaid == 1){
+          if (ach.direction_sch_mgmt_govaid == 1) {
             direction_sch_mgmt_govaid = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_sch_mgmt_govaid == -1){
+          if (ach.direction_sch_mgmt_govaid == -1) {
             direction_sch_mgmt_govaid = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_sch_mgmt_govaid == 2){
+          if (ach.direction_sch_mgmt_govaid == 2) {
             direction_sch_mgmt_govaid = '<td class="card-status card-sagegreen"></td>';
           }
-        
-          if(ach.direction_sch_mgmt_priv	 == 0){
-            direction_sch_mgmt_priv	 = '<td class="card-status card-grey"></td>';
+
+          if (ach.direction_sch_mgmt_priv == 0) {
+            direction_sch_mgmt_priv = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_sch_mgmt_priv	 == 1){
-            direction_sch_mgmt_priv	 = '<td class="card-status card-green"></td>';
+          if (ach.direction_sch_mgmt_priv == 1) {
+            direction_sch_mgmt_priv = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_sch_mgmt_priv	 == -1){
-            direction_sch_mgmt_priv	 = '<td class="card-status card-red"></td>';
+          if (ach.direction_sch_mgmt_priv == -1) {
+            direction_sch_mgmt_priv = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_sch_mgmt_priv	 == 2){
-            direction_sch_mgmt_priv	 = '<td class="card-status card-sagegreen"></td>';
+          if (ach.direction_sch_mgmt_priv == 2) {
+            direction_sch_mgmt_priv = '<td class="card-status card-sagegreen"></td>';
           }
-        
-          if(ach.direction_sch_mgmt_centgov == 0){
+
+          if (ach.direction_sch_mgmt_centgov == 0) {
             direction_sch_mgmt_centgov = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_sch_mgmt_centgov == 1){
+          if (ach.direction_sch_mgmt_centgov == 1) {
             direction_sch_mgmt_centgov = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_sch_mgmt_centgov == -1){
+          if (ach.direction_sch_mgmt_centgov == -1) {
             direction_sch_mgmt_centgov = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_sch_mgmt_centgov == 2){
+          if (ach.direction_sch_mgmt_centgov == 2) {
             direction_sch_mgmt_centgov = '<td class="card-status card-sagegreen"></td>';
           }
-        
-          if(ach.direction_category_sc == 0){
+
+          if (ach.direction_category_sc == 0) {
             direction_category_sc = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_category_sc == 1){
+          if (ach.direction_category_sc == 1) {
             direction_category_sc = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_category_sc == -1){
+          if (ach.direction_category_sc == -1) {
             direction_category_sc = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_category_sc == 2){
+          if (ach.direction_category_sc == 2) {
             direction_category_sc = '<td class="card-status card-sagegreen"></td>';
           }
-        
-          if(ach.direction_category_st == 0){
+
+          if (ach.direction_category_st == 0) {
             direction_category_st = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_category_st == 1){
+          if (ach.direction_category_st == 1) {
             direction_category_st = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_category_st == -1){
+          if (ach.direction_category_st == -1) {
             direction_category_st = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_category_st == 2){
+          if (ach.direction_category_st == 2) {
             direction_category_st = '<td class="card-status card-sagegreen"></td>';
           }
-        
-          if(ach.direction_category_obc == 0){
+
+          if (ach.direction_category_obc == 0) {
             direction_category_obc = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_category_obc == 1){
+          if (ach.direction_category_obc == 1) {
             direction_category_obc = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_category_obc == -1){
+          if (ach.direction_category_obc == -1) {
             direction_category_obc = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_category_obc == 2){
+          if (ach.direction_category_obc == 2) {
             direction_category_obc = '<td class="card-status card-sagegreen"></td>';
           }
-        
-          if(ach.direction_category_gen == 0){
+
+          if (ach.direction_category_gen == 0) {
             direction_category_gen = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_category_gen == 1){
+          if (ach.direction_category_gen == 1) {
             direction_category_gen = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_category_gen == -1){
+          if (ach.direction_category_gen == -1) {
             direction_category_gen = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_category_gen == 2){
+          if (ach.direction_category_gen == 2) {
             direction_category_gen = '<td class="card-status card-sagegreen"></td>';
           }
-        
-          if(ach.direction_category_ews == 0){
+
+          if (ach.direction_category_ews == 0) {
             direction_category_ews = '<td class="card-status card-grey"></td>';
           }
-          if(ach.direction_category_ews == 1){
+          if (ach.direction_category_ews == 1) {
             direction_category_ews = '<td class="card-status card-green"></td>';
           }
-          if(ach.direction_category_ews == -1){
+          if (ach.direction_category_ews == -1) {
             direction_category_ews = '<td class="card-status card-red"></td>';
           }
-          if(ach.direction_category_ews == 2){
+          if (ach.direction_category_ews == 2) {
             direction_category_ews = '<td class="card-status card-sagegreen"></td>';
           }
 
@@ -1669,19 +1671,19 @@ function updateData(data) {
           //   }
           // }
 
-          
-          achievement_data += '<tr><td>'+ach.factor+'</td>'+direction_gender+direction_location+direction_sch_mgmt_gov+direction_sch_mgmt_govaid+direction_sch_mgmt_priv+direction_sch_mgmt_centgov+direction_category_sc+direction_category_st+direction_category_obc+direction_category_gen+direction_category_ews+'</tr>'
-          
 
-          
+          achievement_data += '<tr><td>' + ach.factor + '</td>' + direction_gender + direction_location + direction_sch_mgmt_gov + direction_sch_mgmt_govaid + direction_sch_mgmt_priv + direction_sch_mgmt_centgov + direction_category_sc + direction_category_st + direction_category_obc + direction_category_gen + direction_category_ews + '</tr>'
+
+
+
 
 
         } else {
           achievement_data = '<tr><td>No Data Available</td></tr>'
         }
-        
+
         $('#add_achievement' + current_demography).html(achievement_data);
-        
+
       })
 
     }
@@ -2050,6 +2052,7 @@ async function createInformationScreen(data) {
 
 async function createChart(where, data, district_id) {
   let districts = await JSON.parse(sessionStorage.getItem('districts'))
+  console.log(data)
   data.data[0].data.forEach((item) => {
     if (item.id == district_id) {
       item.color = "#f7941c";
@@ -2309,8 +2312,8 @@ function createGlimpsesScreen(data) {
   let graphs = []
 
   // sections for performance screen
-  const sections = ['Cards', 'Location', 'Gender']
-
+  const sections = ['Cards', 'Location', 'Gender', 'Management', 'Social']
+  const table_sections = ['Management', 'Social']
 
   const data_b = data[0]
 
@@ -2347,14 +2350,24 @@ function createGlimpsesScreen(data) {
         where = section + 'National' + sub + 'BarGraph_class' + classType
       } else {
         if (section === 'Cards') {
-          where = section + 'National' + sub + 'BarGraph_class' + classType
+          where = section + 'National' + data_b.grade + sub + 'BarGraph_class' + classType
         } else {
           where = section + 'National' + data[0].grade + sub + 'BarGraph_class' + classType
         }
       }
       const section_data = category_data[subjects_short_codes[sub.toLowerCase()]][section.toLowerCase()]
       const required_colors = colorCode[sub.toLowerCase()]
-      generateGlimpsesMap(where, required_colors, section_data, section_legends[section.toLowerCase()])
+      if (table_sections.includes(section)) {
+        if (classType !== 'all') {
+          getGlimpsesData(subjects_short_codes[sub.toLowerCase()], section.toLowerCase(), 'type', where)
+        }
+        else {
+          getGlimpsesData(subjects_short_codes[sub.toLowerCase()], section.toLowerCase(), data_b.grade, where)
+        }
+      } else {
+        generateGlimpsesMap(where, required_colors, section_data, section_legends[section.toLowerCase()])
+
+      }
 
     })
   })
@@ -2664,4 +2677,351 @@ function preventSymbols(e) {
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function setColorCode(sub) {
+  const codes = {
+    'language': ['#75a9d9', '#e8f0f9'],
+    'math': ['#e9769f', '#fee5ee'],
+    'evs': ['#cac55f', '#f4f3df'],
+    'sci': ['#3cacae', '#d8eeef'],
+    'sst': ['#72b562', '#e3f0e0'],
+    'eng': ['#c574bf', '#f3e3f2'],
+    'mil': ['#eb6c69', '#fbe1e1']
+  }
+
+  $('.glimpse-header').css('background-color', codes[sub][0])
+  $('.glimpse-body').css('background-color', codes[sub][1])
+  $('.glimpse-header').css('color', '#fff')
+  $('.glimpse-table .table').css('color', '#5e5e5e')
+}
+
+function setModalHeader(data, sub, legend) {
+
+  const subject = {
+    'language': 'Language',
+    'math': 'Mathematics',
+    'evs': 'Evs',
+    'sci': 'Science',
+    'sst': 'Social Science',
+    'eng': 'English',
+    'mil': 'Mil'
+  }
+  if (data.grade == 3) {
+    if (legend == 'cards') {
+      $('#data-header').html('Performance of States in Class III : ' + subject[sub].toUpperCase())
+    }
+    else {
+      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class III : ' + subject[sub].toUpperCase())
+    }
+
+  }
+  else if (data.grade == 5) {
+    if (legend == 'cards') {
+      $('#data-header').html('Performance of States in Class V : ' + subject[sub].toUpperCase())
+    }
+    else {
+      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class V : ' + subject[sub].toUpperCase())
+    }
+
+  }
+  else if (data.grade == 8) {
+    if (legend == 'cards') {
+      $('#data-header').html('Performance of States in Class VIII : ' + subject[sub].toUpperCase())
+    }
+    else {
+      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class VIII : ' + subject[sub].toUpperCase())
+    }
+
+  }
+  else {
+    if (legend == 'cards') {
+      $('#data-header').html('Performance of States in Class X : ' + subject[sub].toUpperCase())
+    }
+    else {
+      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class X : ' + subject[sub].toUpperCase())
+    }
+
+  }
+}
+
+function getGlimpsesData(subject, legend, clas = 'type', where) {
+  glimpses_data = JSON.parse(sessionStorage.getItem('glimpses_data'))
+  if (clas != 'type') {
+    glimpses_data = glimpses_data.filter((data) => {
+      return data.grade == clas
+    })
+  }
+  setModalHeader(glimpses_data[0], subject, legend)
+  setColorCode(subject)
+  getGlimpsesSubjectData(JSON.parse(glimpses_data[0].data), subject, legend, where)
+
+}
+
+function getGlimpsesSubjectData(data, subject, legend, where) {
+  Object.keys(data).forEach((sub) => {
+    if (sub == subject) {
+      getGlimpsesLegendData(data[sub], legend, where)
+    }
+  })
+}
+
+function getGlimpsesLegendData(data, legend, where) {
+  Object.keys(data).forEach((legends) => {
+    if (legends == legend) {
+      generateGlimpsesTable(data[legend], legend, where)
+    }
+  })
+}
+
+function generateGlimpsesTable(data, legend, where) {
+  innerHtml = ''
+  let states = JSON.parse(sessionStorage.getItem('states'))
+  let current_state = ''
+  let exceptions = ['management', 'social']
+  innerHtml = setTableHead(legend)
+  data.forEach((actual_data) => {
+    current_state = states.filter((state) => {
+      if (state.udise_state_code == actual_data.state_id) {
+        return state.state_name
+      }
+    })
+    state_name = current_state.length != 0 ? current_state[0].state_name : 'N/A'
+
+    if (legend == 'cards') {
+
+      innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data['ss'] != 0 ? Math.round(actual_data['ss']) : '-'}</td>
+                  <td>${actual_data['se'] != 0 ? Math.round(actual_data['se'] * 100) / 100 : '-'}</td>`
+      innerHtml += generateIndictor(actual_data.category)
+      innerHtml += '<tr>'
+
+    }
+    else if (legend == 'gender') {
+
+      innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data['boys_ss'] != 0 ? Math.round(actual_data['boys_ss']) : '-'}</td>
+                  <td>${actual_data['boys_se'] != 0 ? Math.round(actual_data['boys_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['girls_ss'] != 0 ? Math.round(actual_data['girls_ss']) : '-'}</td>
+                  <td>${actual_data['girls_se'] != 0 ? Math.round(actual_data['girls_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.category)
+      innerHtml += '<tr>'
+
+    }
+    else if (legend == 'location') {
+
+      innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data['rural_ss'] != 0 ? Math.round(actual_data['rural_ss']) : '-'}</td>
+                  <td>${actual_data['rural_se'] != 0 ? Math.round(actual_data['rural_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['urban_ss'] != 0 ? Math.round(actual_data['urban_ss']) : '-'}</td>
+                  <td>${actual_data['urban_se'] != 0 ? Math.round(actual_data['urban_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.category)
+      innerHtml += '<tr>'
+
+    }
+    else if (legend == 'management') {
+      // innerHtml += `<tr>
+      //             <td>${state_name}</td>
+      //             <td>${actual_data['govt_ss']}</td>
+      //             <td>${actual_data['govt_se']}</td>
+      //             <td>${actual_data['govt_aided_ss']}</td>
+      //             <td>${actual_data['govt_aided_se']}</td>`
+
+      innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data['govt_ss'] != 0 ? Math.round(actual_data['govt_ss']) : '-'}</td>
+                  <td>${actual_data['govt_se'] != 0 ? Math.round(actual_data['govt_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['govt_aided_ss'] != 0 ? Math.round(actual_data['govt_aided_ss']) : '-'}</td>
+                  <td>${actual_data['govt_aided_se'] != 0 ? Math.round(actual_data['govt_aided_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.category)
+
+      innerHtml += `<td>${actual_data['pvt_ss'] != 0 ? Math.round(actual_data['pvt_ss']) : '-'}</td>
+                  <td>${actual_data['pvt_se'] != 0 ? Math.round(actual_data['pvt_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.pvt_category)
+
+      innerHtml += `<td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>
+                  <td>${actual_data['central_govt_se'] != 0 ? Math.round(actual_data['central_govt_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.central_govt_category)
+      innerHtml += '<tr>'
+
+    }
+    else {
+      innerHtml += `<tr>
+                  <td>${state_name}</td>
+                  <td>${actual_data['gen_ss'] != 0 ? Math.round(actual_data['gen_ss']) : '-'}</td>
+                  <td>${actual_data['gen_se'] != 0 ? Math.round(actual_data['gen_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['sc_ss'] != 0 ? Math.round(actual_data['sc_ss']) : '-'}</td>
+                  <td>${actual_data['sc_se'] != 0 ? Math.round(actual_data['sc_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.gen_category)
+
+      innerHtml += `<td>${actual_data['st_ss'] != 0 ? Math.round(actual_data['st_ss']) : '-'}</td>
+      <td>${actual_data['st_se'] != 0 ? Math.round(actual_data['st_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.st_category)
+
+      innerHtml += `<td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>
+      <td>${actual_data['obc_se'] != 0 ? Math.round(actual_data['obc_se'] * 100) / 100 : '-'}</td>`
+
+      innerHtml += generateIndictor(actual_data.obc_category)
+      innerHtml += '<tr>'
+
+    }
+
+  })
+
+  innerHtml += `</tbody>`
+  if (exceptions.includes(legend)) {
+    innerHtml += `</table>`
+    $('#' + where).html(innerHtml)
+
+  } else {
+    $('#display_data').html(innerHtml)
+
+  }
+}
+
+function setTableHead(legend) {
+
+  if (legend == 'cards') {
+
+    return `<thead>
+                  <tr>
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean</th>
+                    <th scope="col">SE</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>`
+
+  }
+  else if (legend == 'gender') {
+
+    return `<thead>
+                  <tr>
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean(Boys)</th>
+                    <th scope="col">SE(Boys)</th>
+                    <th scope="col">Mean(Girls)</th>
+                    <th scope="col">SE(Girls)</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>`
+
+  }
+  else if (legend == 'location') {
+
+    return `<thead>
+                  <tr class="align-middle">
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean(Rural)</th>
+                    <th scope="col">SE(Rural)</th>
+                    <th scope="col">Mean(Urban)</th>
+                    <th scope="col">SE(Urban)</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>`
+
+  }
+  else if (legend == 'management') {
+    // return `<thead>
+    //               <tr>
+    //                 <th scope="col">State/Union Territory</th>
+    //                 <th scope="col">Mean(Govt.)</th>
+    //                 <th scope="col">SE(Govt.)</th>
+    //                 <th scope="col">Mean(Govt. Aided)</th>
+    //                 <th scope="col">SE(Govt. Aided)</th>
+    //                 <th scope="col"></th>
+    //               </tr>
+    //             </thead>
+    //             <tbody>`
+    return `<table class="ms_table table"><thead>
+                  <tr class="align-middle">
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean(Govt.)</th>
+                    <th scope="col">SE(Govt.)</th>
+                    <th scope="col">Mean(Govt. Aided)</th>
+                    <th scope="col">SE(Govt. Aided)</th>
+                    <th scope="col"></th>
+                    <th scope="col">Mean(Private)</th>
+                    <th scope="col">SE(Private)</th>
+                    <th scope="col"></th>
+                    <th scope="col">Mean(Central Govt.)</th>
+                    <th scope="col">SE(central Govt.)</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>`
+  }
+  else {
+
+    return `<table class="ms_table table"><thead>
+                  <tr class="align-middle">
+                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">Mean(General)</th>
+                    <th scope="col">SE(General)</th>
+                    <th scope="col">Mean(SC)</th>
+                    <th scope="col">SE(SC)</th>
+                    <th scope="col"></th>
+                    <th scope="col">Mean(ST)</th>
+                    <th scope="col">SE(ST)</th>
+                    <th scope="col"></th>
+                    <th scope="col">Mean(OBC)</th>
+                    <th scope="col">SE(OBC)</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>`
+
+  }
+
+}
+
+function generateIndictor(category) {
+
+  innerHtml = ''
+  if (category == 0) {
+    innerHtml = `<td>
+                  <div class="icon-status icon-color-red">
+                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path class="heroicon-ui" d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z"/></svg>
+                  </div>
+                </td>`
+  }
+  else if (category == 1) {
+    innerHtml = `<td>
+                  <div class="icon-status icon-color-blue">
+                  <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="32" height="16">
+                    <path id="Arrows_Left_x2F_Right" class="s0" d="m0.3 8.7c-0.4-0.4-0.4-1 0-1.4l6.9-7c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-5.2 5.3h25.2l-5.2-5.3c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l6.9 7c0.4 0.4 0.4 1 0 1.4l-6.9 7c-0.4 0.4-1 0.4-1.4 0-0.4-0.4-0.4-1 0-1.4l5.2-5.3h-25.2l5.2 5.3c0.4 0.4 0.4 1 0 1.4-0.4 0.4-1 0.4-1.4 0z"/>
+                  </svg>
+                  </div>
+                </td>`
+  }
+  else if (category == 2) {
+    innerHtml = `<td>
+                  <div class="icon-status icon-color-green">
+                  <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path id="Layer" class="s0" d="m5.7 10.7q-0.3 0.3-0.7 0.2-0.4 0-0.7-0.3-0.2-0.2-0.2-0.6-0.1-0.4 0.2-0.7l7-7q0.1-0.1 0.3-0.2 0.2-0.1 0.4-0.1 0.2 0 0.4 0.1 0.2 0.1 0.3 0.2l7 7q0.3 0.3 0.2 0.7 0 0.4-0.2 0.6-0.3 0.3-0.7 0.3-0.4 0.1-0.7-0.2l-5.3-5.3v15.6q0 0.4-0.3 0.7-0.3 0.3-0.7 0.3-0.4 0-0.7-0.3-0.3-0.3-0.3-0.7v-15.6z"/>
+                  </svg>
+                  </div>
+                </td>`
+  }
+  else {
+    innerHtml = `<td>
+                  N/A
+                </td>`
+  }
+
+  return innerHtml;
+
 }

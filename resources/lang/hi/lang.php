@@ -3,6 +3,7 @@ return[
     'about nas' => 'एनएएस के बारे में',
     'DATA SHARE' => 'डेटा शेयर',
     'Data Share' => 'डेटा शेयर',
+    'Feedback'=>'प्रतिपुष्टि',
     'ANALYTICS'=>'एनालिटिक्स',
     'VISUALIZATION'=>'दृश्यकरण',
     'Visualization'=>'दृश्यकरण',

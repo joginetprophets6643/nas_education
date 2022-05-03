@@ -379,7 +379,7 @@
               </a>
           </div>
           <div class="col-md-6">
-            <a href="{{url('visualization')}}" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
+            <a href="" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -397,16 +397,16 @@
                 </div>
               </div>
               
-              <div class="btn-wrap">
+              <!-- <div class="btn-wrap">
                 <button class="white-link btn">
                   {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
                 </button>
-              </div>
+              </div> -->
             </a>
-            <a href="{{url('/data-share')}}" target="_blank" class="links-card data-bg" data-aos="fade-up">
+            <a href="" target="_blank" class="links-card data-bg" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -424,14 +424,14 @@
               </div>
               </div>
               
-              <div class="btn-wrap">
+              <!-- <div class="btn-wrap">
                 <button class="white-link btn">
                   {{ __('lang.Explore') }}
                   <span class="material-icons-round">
                     east
                   </span>
                 </button>
-              </div>
+              </div> -->
             </a>
           </div>
         </div>
@@ -933,7 +933,7 @@
     $('#literacy_rate').html(parseFloat(info.literacy_rate) ? parseFloat(info.literacy_rate).toLocaleString()+'%' : '-' )
     $('#population_density').html(parseInt(info.density_of_population) ? parseFloat(info.density_of_population).toLocaleString()+` per km<sup>2</sup>` : '-')
     $('#total_teachers').html(parseInt(total_teachers).toLocaleString())
-    $('#sex_ratio').html(parseFloat(info.child_sex_ratio) ? parseFloat(info.child_sex_ratio).toLocaleString() : '-')
+    $('#sex_ratio').html(parseFloat(info.child_sex_ratio) ? parseFloat(info.child_sex_ratio).toLocaleString()+' per 1000 boys' : '-')
 
   }
 

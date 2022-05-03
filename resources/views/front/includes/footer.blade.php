@@ -1,7 +1,7 @@
 <footer class="site-footer">
       <div class="container">
         <div class="row ptb-60">
-          <div class="col-6 col-md-2">
+          <div class="col-6 col-md-3">
               <div class="footer-links">
                 <h2 class="heading-white-xs">
                   {{__('lang.REPORT CARD')}}
@@ -28,7 +28,22 @@
                 </ul>
               </div>
           </div>
-          <div class="col-6 col-md-2">
+          <div class="col-6 col-md-3">
+            <div class="footer-links">
+              <h2 class="heading-white-xs">
+                {{__('lang.Feedback')}}
+              </h2>
+              <ul>
+                <li>
+                  <a href="{{url('/feedback')}}" target="_blank">
+                    <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                    {{__('lang.Feedback')}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="col-6 col-md-2">
             <div class="footer-links">
               <h2 class="heading-white-xs">
                 {{__('lang.DATA SHARE')}}
@@ -48,25 +63,13 @@
                 </li>
               </ul>
             </div>
-          </div>
-          <div class="col-6 col-md-2">
+          </div> -->
+          <!-- <div class="col-6 col-md-2">
             <div class="footer-links">
               <h2 class="heading-white-xs">
                 {{__('lang.VISUALIZATION')}}
               </h2>
               <ul>
-                  <!-- <li>
-                    <a href="{{url('/visualization')}}">
-                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
-                      {{__('lang.National')}}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{url('/visualization')}}">
-                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
-                      {{__('lang.State')}}
-                    </a>
-                  </li> -->
                   <li>
                     <a href="{{url('/visualization')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
@@ -75,8 +78,8 @@
                   </li>
               </ul>
             </div>
-          </div>
-          <div class="col-6 col-md-2">
+          </div> -->
+          <div class="col-6 col-md-3">
             <div class="footer-links">
               <h2 class="heading-white-xs">
                 {{__('lang.GALLERY')}}
@@ -99,7 +102,7 @@
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-3">
               <div class="footer-links contact-info">
                 <h2 class="heading-white-xs">
                   <?php $setting=get_setting();
