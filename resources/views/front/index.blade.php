@@ -946,6 +946,7 @@
 
     if(val === ''){
       populateDemographicInfo('','')
+      generateNationalMap(fetchedStateData)
       $('#name').html('NATIONAL');
       $('#area-title').html('Area of the Nation');
       $('#teacher-title').html('Teachers in Nation');
