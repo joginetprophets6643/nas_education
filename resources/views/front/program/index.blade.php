@@ -87,7 +87,7 @@
                         
                         <div class="nasprogram-content">
                             <div class="nasprogram-img">
-                                <img src="{{asset('assets/uploads/program/'.$programs[0]->image)}}" alt="img" />
+                                <img class="img-fluid" src="{{asset('assets/uploads/program/'.$programs[0]->image)}}" alt="img" />
                             </div>
                             {!!$programs[0]->content!!}
                         </div>
