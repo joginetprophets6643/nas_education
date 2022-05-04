@@ -1523,10 +1523,6 @@ class FinalParticipationstateController extends Controller
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
-        select id, state_code, state_sq_q09
-        as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
-        from grade3statetable
-        union all
         select id, state_code, state_tq_q18
         as state_avg, 'pq3' level, 'Protocol for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
@@ -1639,10 +1635,6 @@ class FinalParticipationstateController extends Controller
         union all
         select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from grade5statetable
-        union all
-        select id, state_code, state_sq_q09
-        as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q18
@@ -1759,10 +1751,6 @@ class FinalParticipationstateController extends Controller
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
-        select id, state_code, state_sq_q09
-        as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
-        from grade8statetable
-        union all
         select id, state_code, state_tq_q18
         as state_avg, 'pq3' level, 'Protocol for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
@@ -1875,10 +1863,6 @@ class FinalParticipationstateController extends Controller
         union all
         select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from grade10statetable
-        union all
-        select id, state_code, state_sq_q09
-        as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q18

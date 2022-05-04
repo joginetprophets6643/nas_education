@@ -1,6 +1,6 @@
 <footer class="site-footer">
       <div class="container">
-        <div class="row ptb-60">
+        <div class="row ptb-30">
           <div class="col-6 col-md-3">
               <div class="footer-links">
                 <h2 class="heading-white-xs">

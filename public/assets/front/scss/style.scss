@@ -1366,7 +1366,7 @@ ul {
 
     .footer-links {
         .heading-white-xs {
-            padding-bottom: 20px;
+            padding-bottom: 10px;
         }
 
         ul {
@@ -2118,7 +2118,7 @@ ul {
                             width: 100%;
                             display: flex;
                             align-items: center;
-                            padding: 10px 10px 10px 30px;
+                            padding: 10px 10px 10px 20px;
 
                             &.active,
                             &:hover {
@@ -2136,12 +2136,12 @@ ul {
     }
 
     .state-list {
-        padding: 20px;
+        padding: 15px;
         position: relative;
 
         ul {
             overflow-y: auto;
-            height: 240px;
+            max-height: 240px;
 
             /* width */
             &::-webkit-scrollbar {
@@ -4877,9 +4877,28 @@ ul {
     margin: 30px 0;
 }
 
-.glimps-graph, .glimps-graph-wrap{
+.glimps-graph,
+.glimps-graph-wrap {
     .table-responsive {
-        height: 490px;
+        height: 450px;
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #dbe3ee;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #101010;
+            border-radius: 10px;
+        }
     }
 }
 
@@ -7730,7 +7749,7 @@ ul {
 .rate {
     float: left;
     height: 46px;
-    padding: 0 10px;
+    // padding: 0 10px;
 }
 
 .rate:not(:checked)>input {
@@ -7773,6 +7792,13 @@ ul {
     color: #5e5e5e;
 }
 
+.icon-status {
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
 .icon-color-red {
     svg {
         fill: #eb6c69;
@@ -7811,9 +7837,10 @@ ul {
             th {
                 background-color: #101010;
                 color: #fff;
-                font-size: 15px;
+                font-size: 12px;
                 font-weight: 400;
                 text-align: center;
+                min-width: 130px;
 
                 &:first-child {
                     text-align: left;
@@ -7831,7 +7858,7 @@ ul {
                 td {
                     text-align: center;
                     color: #101010;
-                    font-size: 14px;
+                    font-size: 12px;
                     border: none;
                     vertical-align: middle;
 
@@ -7872,4 +7899,27 @@ ul {
 
 .accordion-button::after {
     background-image: url(https://nas21.inroad.in/assets/front/images/down-arrow.svg) !important;
+}
+
+.glimpses-close-btn {
+    cursor: pointer;
+}
+
+
+.nasprogram-content {
+    .nasprogram-img {
+        float: left;
+        margin: 0 15px 15px 0;
+        img{
+            border-radius: 6px;
+        }
+    }
+    p {
+        letter-spacing: 0.07px;
+        color: #5e5e5e;
+        font-size: 15px;
+        padding: 15px 0;
+        margin: 0;
+        text-align: justify;
+    }
 }

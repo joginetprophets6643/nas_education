@@ -1341,7 +1341,7 @@ ul {
 }
 
 .site-footer .footer-links .heading-white-xs {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .site-footer .footer-links ul li {
@@ -2180,7 +2180,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 10px 10px 30px;
+  padding: 10px 10px 10px 20px;
 }
 
 .sidebar-accordion .accordion-item .accordion-body .side-navlist ul li a.active, .sidebar-accordion .accordion-item .accordion-body .side-navlist ul li a:hover {
@@ -2192,13 +2192,13 @@ ul {
 }
 
 .sidebar-accordion .state-list {
-  padding: 20px;
+  padding: 15px;
   position: relative;
 }
 
 .sidebar-accordion .state-list ul {
   overflow-y: auto;
-  height: 240px;
+  max-height: 240px;
   /* width */
   /* Track */
   /* Handle */
@@ -8517,8 +8517,30 @@ ul {
   margin: 30px 0;
 }
 
-.glimps-graph .table-responsive, .glimps-graph-wrap .table-responsive {
-  height: 490px;
+.glimps-graph .table-responsive,
+.glimps-graph-wrap .table-responsive {
+  height: 450px;
+  /* width */
+  /* Track */
+  /* Handle */
+}
+
+.glimps-graph .table-responsive::-webkit-scrollbar,
+.glimps-graph-wrap .table-responsive::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.glimps-graph .table-responsive::-webkit-scrollbar-track,
+.glimps-graph-wrap .table-responsive::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #dbe3ee;
+}
+
+.glimps-graph .table-responsive::-webkit-scrollbar-thumb,
+.glimps-graph-wrap .table-responsive::-webkit-scrollbar-thumb {
+  background: #101010;
+  border-radius: 10px;
 }
 
 .glimps-card {
@@ -11049,7 +11071,6 @@ ul {
 .rate {
   float: left;
   height: 46px;
-  padding: 0 10px;
 }
 
 .rate:not(:checked) > input {
@@ -11092,6 +11113,11 @@ ul {
   color: #5e5e5e;
 }
 
+.icon-status svg {
+  width: 25px;
+  height: 25px;
+}
+
 .icon-color-red svg {
   fill: #eb6c69;
 }
@@ -11121,9 +11147,10 @@ ul {
 .glimpse-table .table tr th {
   background-color: #101010;
   color: #fff;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 400;
   text-align: center;
+  min-width: 130px;
 }
 
 .glimpse-table .table tr th:first-child {
@@ -11137,7 +11164,7 @@ ul {
 .glimpse-table .table tbody tr td {
   text-align: center;
   color: #101010;
-  font-size: 14px;
+  font-size: 12px;
   border: none;
   vertical-align: middle;
 }
@@ -11165,5 +11192,27 @@ ul {
 /*Resize the wrap to see the search bar change!*/
 .accordion-button::after {
   background-image: url(https://nas21.inroad.in/assets/front/images/down-arrow.svg) !important;
+}
+
+.glimpses-close-btn {
+  cursor: pointer;
+}
+
+.nasprogram-content .nasprogram-img {
+  float: left;
+  margin: 0 15px 15px 0;
+}
+
+.nasprogram-content .nasprogram-img img {
+  border-radius: 6px;
+}
+
+.nasprogram-content p {
+  letter-spacing: 0.07px;
+  color: #5e5e5e;
+  font-size: 15px;
+  padding: 15px 0;
+  margin: 0;
+  text-align: justify;
 }
 /*# sourceMappingURL=style.css.map */
