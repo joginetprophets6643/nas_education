@@ -2069,7 +2069,7 @@ async function createChart(where, data, district_id) {
       backgroundColor: 'transparent',
     },
     title: {
-      text: data.name
+      text: ''
     },
     legend: {
       enabled: false

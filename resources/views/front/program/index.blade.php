@@ -24,7 +24,7 @@
     <section class="nasprogram-main-wrap bg-grey ptb-60">
       <div class="container">
           <div class="row">
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
                  <div class="card-white">
                       <div class="nasprogram-content">
                     <?php $i=0?>
@@ -62,7 +62,7 @@
                     @endforeach 
                     </ul>
 
-                    <!-- <div class="nasprogram-about">
+                    <div class="nasprogram-about">
                         <div class="row">
                             @foreach($members as $member)
                             <div class="col-md-3 mb-3">
@@ -75,10 +75,24 @@
                             </div>
                             @endforeach
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                      
                  </div>
+            </div> -->
+
+            <div class="col-md-12">
+                <div class="card-white">
+                    <!-- <div class="nasprogram-content"> -->
+                        
+                        <div class="nasprogram-content">
+                            <div class="nasprogram-img">
+                                <img src="{{asset('assets/uploads/program/'.$programs[0]->image)}}" alt="img" />
+                            </div>
+                            {!!$programs[0]->content!!}
+                        </div>
+                    </div>
+                <!-- </div> -->
             </div>
           </div>
       </div>

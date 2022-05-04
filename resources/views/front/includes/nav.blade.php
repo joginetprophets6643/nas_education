@@ -40,7 +40,7 @@
                       <div class="select-wrap">
                         <select class="form-select Langchange">
                           <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
-                          <option value="hi" {{ session()->get('locale') == 'hi' ? 'selected' : '' }}>Hindi</option>
+                          <option value="hi" {{ session()->get('locale') == 'hi' ? 'selected' : '' }}>हिन्दी</option>
                         </select>
                         <span class="material-icons">
                           arrow_drop_down

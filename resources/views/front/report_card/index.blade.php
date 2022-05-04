@@ -88,7 +88,7 @@
                     <div class="col-lg-4 col-xl-3">
                     <div class="line-card line-card-pink">
                         <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/national.png')}}" alt="national" class="img-fluid" />
+                        <img src="{{asset('assets/front/images/national1.jpg')}}" alt="national" class="img-fluid" />
                         </div>
                         <div class="btn-wrap">
                         <a href="javascript:void(0);" onClick="goToNationalReport();"class="line-cardbtn w-100 btn-pink">National Report Card</a>
@@ -98,7 +98,7 @@
                     <div class="col-lg-4 col-xl-3">
                     <div class="line-card line-card-green">
                         <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/state.png')}}" alt="state" class="img-fluid" />
+                        <img src="{{asset('assets/front/images/state1.jpg')}}" alt="state" class="img-fluid" />
                         </div>
                         <div class="btn-wrap">
                         <a class="line-cardbtn w-100 btn-green stateopen" href="javascript:void(0);" >State Report Card</a>
@@ -108,7 +108,7 @@
                     <div class="col-lg-4 col-xl-3">
                     <div class="line-card line-card-blue">
                         <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/district.png')}}" alt="district" class="img-fluid" />
+                        <img src="{{asset('assets/front/images/district1.jpg')}}" alt="district" class="img-fluid" />
                         </div>
                         <div class="btn-wrap">
                         <a class="line-cardbtn w-100 btn-blue districtopen" href="javascript:void(0);">District Report Card</a>
