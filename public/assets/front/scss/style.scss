@@ -4310,6 +4310,12 @@ ul {
         background: #e8f0f9;
     }
 
+    .nasteam-subheading {
+        h2 {
+            background-color: #4f83b2;
+        }
+    }
+
     .name-blue {
         color: #4f83b2;
     }
@@ -4321,8 +4327,24 @@ ul {
         background: #fee5ee;
     }
 
+    .nasteam-subheading {
+        h2 {
+            background-color: #be4e76;
+        }
+    }
+
     .name-blue {
         color: #be4e76;
+    }
+}
+
+.nasteam-subheading {
+    h2 {
+        font-size: 18px;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+        margin: 0;
     }
 }
 
@@ -4335,7 +4357,7 @@ ul {
     }
 
     .nasteam-content {
-        padding: 15px 0;
+        padding: 15px;
         display: flex;
         align-items: flex-start;
 
@@ -7910,10 +7932,12 @@ ul {
     .nasprogram-img {
         float: left;
         margin: 0 15px 15px 0;
-        img{
+
+        img {
             border-radius: 6px;
         }
     }
+
     p {
         letter-spacing: 0.07px;
         color: #5e5e5e;
@@ -7921,5 +7945,15 @@ ul {
         padding: 15px 0;
         margin: 0;
         text-align: justify;
+    }
+}
+
+.glimpse-table-modal {
+    .table {
+        tr {
+            th {
+                min-width: auto !important;
+            }
+        }
     }
 }

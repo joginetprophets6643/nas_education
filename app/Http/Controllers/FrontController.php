@@ -61,8 +61,8 @@ class FrontController extends Controller
 
     public function team(){
         $members=Team::orderBy('id')->get();
-        $members=$members->groupBy('description');
-        return view('front.team.index',compact('members'));
+        $members=$members->groupBy('title');
+        return view('front.team.index1',compact('members'));
     }
 
     public function data(){
