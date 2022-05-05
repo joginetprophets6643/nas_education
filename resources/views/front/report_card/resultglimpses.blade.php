@@ -2860,7 +2860,7 @@
           </span>
           </div>
           <div class="card-body glimpse-body">
-          <div class="glimpse-table table-responsive">
+          <div class="glimpse-table glimpse-table-modal table-responsive">
             <table class="table" id="display_data">
               <thead>
                 <tr>

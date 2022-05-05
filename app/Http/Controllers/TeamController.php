@@ -28,8 +28,9 @@ class TeamController extends Controller
         $validator = Validator::make($request->all(),[
             // 'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
-            'designation'=>'required',
-            'mobile'=>'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
+            // 'designation'=>'required',
+            'title'=>'required',
+            'mobile'=>'nullable'
         ]);
 
         if ($validator->fails()) {
@@ -53,7 +54,8 @@ class TeamController extends Controller
         $member->date=$request->date;        
         $member->image=$name;
         $member->designation=$request->designation;
-        $member->description=$request->description;
+        $member->title=$request->title;
+        $member->sub_title=$request->sub_title;
         $member->save();
         get_Date();
         return Redirect()->route('team')->with('success','Member Added Successfully');
@@ -74,7 +76,7 @@ class TeamController extends Controller
         $validator = Validator::make($request->all(),[
             // 'name'=>'required',
             'image'=>'mimes:jpeg,jpg,png,svg,JPEG,JPG,PNG,SVG',
-            'designation'=>'required',
+            'title'=>'required',
         ]);
 
         if ($validator->fails()) {
@@ -98,7 +100,8 @@ class TeamController extends Controller
 
         Team::where('id',$id)->update([
         'name'=>$request->name,
-        'description'=>$request->description,
+        'title'=>$request->title,
+        'sub_title'=>$request->sub_title,
         'designation'=>$request->designation,
         'mobile'=>$request->mobile,
         'date'=>$request->date,

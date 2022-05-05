@@ -7975,6 +7975,10 @@ ul {
   background: #e8f0f9;
 }
 
+.team-blue .nasteam-subheading h2 {
+  background-color: #4f83b2;
+}
+
 .team-blue .name-blue {
   color: #4f83b2;
 }
@@ -7985,8 +7989,20 @@ ul {
   background: #fee5ee;
 }
 
+.team-pink .nasteam-subheading h2 {
+  background-color: #be4e76;
+}
+
 .team-pink .name-blue {
   color: #be4e76;
+}
+
+.nasteam-subheading h2 {
+  font-size: 18px;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  margin: 0;
 }
 
 .nasteam-container {
@@ -7999,7 +8015,7 @@ ul {
 }
 
 .nasteam-container .nasteam-content {
-  padding: 15px 0;
+  padding: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11214,5 +11230,9 @@ ul {
   padding: 15px 0;
   margin: 0;
   text-align: justify;
+}
+
+.glimpse-table-modal .table tr th {
+  min-width: auto !important;
 }
 /*# sourceMappingURL=style.css.map */
