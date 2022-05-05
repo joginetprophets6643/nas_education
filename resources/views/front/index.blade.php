@@ -946,7 +946,11 @@
 
     if(val === ''){
       populateDemographicInfo('','')
+      generateNationalMap(fetchedStateData)
       $('#name').html('NATIONAL');
+      $('#area-title').html('Area of the Nation');
+      $('#teacher-title').html('Teachers in Nation');
+      $('#select-info').html('Please select a State on the interactive map or search for the name below to continue.');
       document.getElementById("map-container").style.display = "";
       document.getElementById("district-map-container").style.display = "none";
       $('#BackToN').css('display','none');

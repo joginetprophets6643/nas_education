@@ -96,7 +96,8 @@ class FrontController extends Controller
             }
         }
         
-        $programs=Program::where('language',$lang,)->orderBy('id')->get();
+        // $programs=Program::where('language',$lang)->orderBy('id')->get();
+        $programs=Program::where('language',$lang)->where('title','NAS PROGRAM')->orderBy('id')->get();
         $members=Team::whereIn('name',['Hrushikesh Senapaty','Euphrates Efosi Wose'])->get();
         return view('front.program.index',compact('programs','members'));
     }

@@ -4112,28 +4112,54 @@ Highcharts.maps["countries/in/custom/in-all-disputed"] = {
         "hc-middle-y": 0.5
       },
       "geometry": {
-        "type": "Polygon",
+        "type": "MultiPolygon",
         "coordinates": [
           [
             [
-              879,
-              769
-            ],
+              [
+                679,
+                469
+              ],
+              [
+                673,
+                610
+              ],
+              [
+                617,
+                555
+              ],
+              [
+                504,
+                455
+              ],
+              [
+                579,
+                469
+              ]
+            ]
+          ],
+          [
             [
-              1073,
-              910
-            ],
-            [
-              917,
-              875
-            ],
-            [
-              804,
-              555
-            ],
-            [
-              779,
-              569
+              [
+                479,
+                249
+              ],
+              [
+                573,
+                440
+              ],
+              [
+                507,
+                455
+              ],
+              [
+                504,
+                340
+              ],
+              [
+                679,
+                369
+              ]
             ]
           ]
         ]
@@ -4141,12 +4167,12 @@ Highcharts.maps["countries/in/custom/in-all-disputed"] = {
     },
     {
       "type": "Feature",
-      "id": "Andaman and Nicobar",
+      "id": "Andaman and Nicobar Islands",
       "properties": {
         "hc-group": "admin1",
-        "hc-key": "andaman and nicobar",
+        "hc-key": "andaman and nicobar islands",
         "hc-a2": "AA",
-        "name": "andaman and nicobar",
+        "name": "andaman and nicobar islands",
         "hc-middle-x": 0.5,
         "hc-middle-y": 0.5
       },

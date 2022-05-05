@@ -1468,11 +1468,11 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, state_pq_q29f
-        as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq' level, 'Students get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q30
-        as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q33
@@ -1484,7 +1484,7 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, state_tq_q32
-        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q34
@@ -1504,7 +1504,7 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, state_sq_q31
-        as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_sq_q32
@@ -1521,10 +1521,6 @@ class FinalParticipationstateController extends Controller
         union all
         select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from grade3statetable
-        union all
-        select id, state_code, state_sq_q09
-        as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q18
@@ -1560,7 +1556,7 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, State_pq_q28c
-        as state_avg, 'pq2' level, 'Experienced worry anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2' level, 'Experienced worry, anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, State_pq_q28f
@@ -1586,11 +1582,11 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, state_pq_q29f
-        as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq' level, 'Students get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q30
-        as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q33
@@ -1602,7 +1598,7 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, state_tq_q32
-        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q34
@@ -1622,7 +1618,7 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, state_sq_q31
-        as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_sq_q32
@@ -1639,10 +1635,6 @@ class FinalParticipationstateController extends Controller
         union all
         select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from grade5statetable
-        union all
-        select id, state_code, state_sq_q09
-        as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q18
@@ -1678,7 +1670,7 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, State_pq_q28c
-        as state_avg, 'pq2' level, 'Experienced worry anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2' level, 'Experienced worry, anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, State_pq_q28f
@@ -1704,11 +1696,11 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, state_LA_pq_q29f
-        as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq' level, 'Students get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q30
-        as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q33
@@ -1720,7 +1712,7 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, state_tq_q32
-        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q34
@@ -1740,7 +1732,7 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, state_sq_q31
-        as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_sq_q32
@@ -1757,10 +1749,6 @@ class FinalParticipationstateController extends Controller
         union all
         select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from grade8statetable
-        union all
-        select id, state_code, state_sq_q09
-        as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q18
@@ -1796,7 +1784,7 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, State_pq_q28c
-        as state_avg, 'pq2' level, 'Experienced worry anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2' level, 'Experienced worry, anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, State_pq_q28f
@@ -1822,11 +1810,11 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, state_LA_pq_q29f
-        as state_avg, 'pq' level, 'Children get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq' level, 'Students get parental support for their educational achievement' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q30
-        as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have adequate instructional material and supplies' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q33
@@ -1838,7 +1826,7 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, state_tq_q32
-        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q34
@@ -1858,7 +1846,7 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, state_sq_q31
-        as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff.' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'sq' level, 'of schools have adequate qualified teaching staff' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_sq_q32
@@ -1875,10 +1863,6 @@ class FinalParticipationstateController extends Controller
         union all
         select id, state_code, state_sq_q14
         as state_avg, 'sq' level, 'of schools participate in sports activities' question_desc, 0 question_code, 0 total_parent
-        from grade10statetable
-        union all
-        select id, state_code, state_sq_q09
-        as state_avg, 'sq' level, 'of schools have library facility' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q18
@@ -1914,7 +1898,7 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, State_pq_q28c
-        as state_avg, 'pq2' level, 'Experienced worry anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2' level, 'Experienced worry, anxiety and fear during pandemic' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, State_pq_q28f
