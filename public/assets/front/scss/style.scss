@@ -4902,7 +4902,7 @@ ul {
 .glimps-graph,
 .glimps-graph-wrap {
     .table-responsive {
-        height: 450px;
+        height: 400px;
 
         /* width */
         &::-webkit-scrollbar {
@@ -7853,26 +7853,35 @@ ul {
     .table {
         margin: 0;
 
-        tr {
-            border-bottom: 1px solid #101010;
+        thead {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
 
-            th {
-                background-color: #101010;
-                color: #fff;
-                font-size: 12px;
-                font-weight: 400;
-                text-align: center;
-                min-width: 130px;
+            tr {
+                border-bottom: 1px solid #101010;
 
-                &:first-child {
-                    text-align: left;
+                th {
+                    background-color: #101010;
+                    color: #fff;
+                    font-size: 12px;
+                    font-weight: 400;
+                    text-align: center;
+
+                    &:first-child {
+                        text-align: left;
+                        min-width: 180px;
+                    }
                 }
             }
-
         }
 
         tbody {
             tr {
+                border-bottom: 1px solid #101010;
+
                 &:last-child {
                     border-style: none !important;
                 }
@@ -7886,6 +7895,9 @@ ul {
 
                     &:first-child {
                         text-align: left;
+                        // position: sticky;
+                        // left: 0;
+                        // border-bottom: 1px solid;
                     }
                 }
             }
@@ -7900,6 +7912,10 @@ ul {
         }
     }
 }
+
+
+
+
 
 .modal-dialog {
     max-width: 600px !important;
@@ -7952,7 +7968,9 @@ ul {
     .table {
         tr {
             th {
-                min-width: auto !important;
+                &:first-child {
+                    min-width: auto !important;
+                }
             }
         }
     }

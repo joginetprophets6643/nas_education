@@ -8535,7 +8535,7 @@ ul {
 
 .glimps-graph .table-responsive,
 .glimps-graph-wrap .table-responsive {
-  height: 450px;
+  height: 400px;
   /* width */
   /* Track */
   /* Handle */
@@ -11156,21 +11156,34 @@ ul {
   margin: 0;
 }
 
-.glimpse-table .table tr {
+.glimpse-table .table thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.glimpse-table .table thead tr {
   border-bottom: 1px solid #101010;
 }
 
-.glimpse-table .table tr th {
+.glimpse-table .table thead tr th {
   background-color: #101010;
   color: #fff;
   font-size: 12px;
   font-weight: 400;
   text-align: center;
-  min-width: 130px;
 }
 
-.glimpse-table .table tr th:first-child {
+.glimpse-table .table thead tr th:first-child {
   text-align: left;
+  min-width: 180px;
+}
+
+.glimpse-table .table tbody tr {
+  border-bottom: 1px solid #101010;
 }
 
 .glimpse-table .table tbody tr:last-child {
@@ -11232,7 +11245,7 @@ ul {
   text-align: justify;
 }
 
-.glimpse-table-modal .table tr th {
+.glimpse-table-modal .table tr th:first-child {
   min-width: auto !important;
 }
 /*# sourceMappingURL=style.css.map */
