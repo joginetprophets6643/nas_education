@@ -898,22 +898,22 @@
 
     const info =  demographic_info.pop()
     if(type === 'state'){
-      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString() + ` km<sup>2</sup>` : '-')
-      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString() : '-')
+      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString('en-IN') + ` km<sup>2</sup>` : '-')
+      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString('en-IN') : '-')
       total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
                           + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
       display_name = info.state_name
       }
     else if(type === 'district'){
-      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString() + ` km<sup>2</sup>` : '-')
-      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString() : '-')
+      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString('en-IN') + ` km<sup>2</sup>` : '-')
+      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString('en-IN') : '-')
       total_teachers = parserInt(info.teacher_central_govt_schools) + parserInt(info.teacher_govt_aided_schools)
                           + parserInt(info.teacher_private_unaided_reco_schools) + parserInt(info.teacher_state_govt_schools) 
       display_name = info.district_name
     }
     else{
-      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString() + ` million km<sup>2</sup>` : '-')
-      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString() + ' Crore': '-')
+      $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString('en-IN') + ` million km<sup>2</sup>` : '-')
+      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString('en-IN') + ' Crore': '-')
       total_teachers = info.no_of_teachers
       display_name = 'National'
     }
@@ -930,10 +930,10 @@
     // }
       
     $('.type_of_chart').html(display_name)
-    $('#literacy_rate').html(parseFloat(info.literacy_rate) ? parseFloat(info.literacy_rate).toLocaleString()+'%' : '-' )
-    $('#population_density').html(parseInt(info.density_of_population) ? parseFloat(info.density_of_population).toLocaleString()+` per km<sup>2</sup>` : '-')
-    $('#total_teachers').html(parseInt(total_teachers).toLocaleString())
-    $('#sex_ratio').html(parseFloat(info.child_sex_ratio) ? parseFloat(info.child_sex_ratio).toLocaleString()+' per 1000 boys' : '-')
+    $('#literacy_rate').html(parseFloat(info.literacy_rate) ? parseFloat(info.literacy_rate).toLocaleString('en-IN')+'%' : '-' )
+    $('#population_density').html(parseInt(info.density_of_population) ? parseFloat(info.density_of_population).toLocaleString('en-IN')+` per km<sup>2</sup>` : '-')
+    $('#total_teachers').html(parseInt(total_teachers).toLocaleString('en-IN'))
+    $('#sex_ratio').html(parseFloat(info.child_sex_ratio) ? parseFloat(info.child_sex_ratio).toLocaleString('en-IN')+' per 1000 boys' : '-')
 
   }
 

@@ -1068,9 +1068,9 @@ function updateData(data) {
       priv = priv > 0 ? priv / Object.keys(data).length : 0
       gov = gov > 0 ? gov / Object.keys(data).length : 0
 
-      $('#participation_school_class' + classType).html(Math.round(total_school).toLocaleString())
-      $('#participation_teachers_class' + classType).html(Math.round(total_teacher).toLocaleString())
-      $('#participation_students_class' + classType).html(Math.round(total_student).toLocaleString())
+      $('#participation_school_class' + classType).html(Math.round(total_school).toLocaleString('en-IN'))
+      $('#participation_teachers_class' + classType).html(Math.round(total_teacher).toLocaleString('en-IN'))
+      $('#participation_students_class' + classType).html(Math.round(total_student).toLocaleString('en-IN'))
       $('#paricipation_gender_male_class' + classType).html((Math.round(total_male * 10) / 10).toFixed(1) + '%')
       $('#paricipation_gender_trans_class' + classType).html((Math.round(total_trans * 10) / 10).toFixed(1) + '%')
       $('#paricipation_gender_female_class' + classType).html((Math.round(total_female * 10) / 10).toFixed(1) + '%')
@@ -2020,29 +2020,29 @@ async function createInformationScreen(data) {
     $('#' + prefix + 'population_class3').html(dataToShow.total_population ? dataToShow.total_population + ' Crore' : '-')
   }
   else {
-    $('#' + prefix + 'area_class3').html(parseInt(dataToShow.total_district_area) ? parseInt(dataToShow.total_district_area).toLocaleString() + ' sq. km.' : '-')
-    $('#' + prefix + 'population_class3').html(parseInt(dataToShow.total_population) ? parseInt(dataToShow.total_population).toLocaleString() : '-')
+    $('#' + prefix + 'area_class3').html(parseInt(dataToShow.total_district_area) ? parseInt(dataToShow.total_district_area).toLocaleString('en-IN') + ' sq. km.' : '-')
+    $('#' + prefix + 'population_class3').html(parseInt(dataToShow.total_population) ? parseInt(dataToShow.total_population).toLocaleString('en-IN') : '-')
   }
 
 
-  $('#' + prefix + 'density_class3').html(parseInt(dataToShow.density_of_population) ? parseFloat(dataToShow.density_of_population).toLocaleString() + ' per sq. km' : '-')
-  $('#' + prefix + 'sex_ratio_class3').html(parseFloat(dataToShow.child_sex_ratio) ? parseFloat(dataToShow.child_sex_ratio).toLocaleString() : '-')
-  $('#' + prefix + 'literacy_class3').html(parseFloat(dataToShow.literacy_rate) ? parseFloat(dataToShow.literacy_rate).toLocaleString() + '%' : '-')
+  $('#' + prefix + 'density_class3').html(parseInt(dataToShow.density_of_population) ? parseFloat(dataToShow.density_of_population).toLocaleString('en-IN') + ' per sq. km' : '-')
+  $('#' + prefix + 'sex_ratio_class3').html(parseFloat(dataToShow.child_sex_ratio) ? parseFloat(dataToShow.child_sex_ratio).toLocaleString('en-IN') : '-')
+  $('#' + prefix + 'literacy_class3').html(parseFloat(dataToShow.literacy_rate) ? parseFloat(dataToShow.literacy_rate).toLocaleString('en-IN') + '%' : '-')
 
   if (selected_geography === 'district') {
     $('.' + prefix + 'name').html(format_string(dataToShow.district_name))
-    $('#' + prefix + 'rural_class3').html(parseInt(dataToShow.rural_population) ? parseInt(dataToShow.rural_population).toLocaleString() : '-')
-    $('#' + prefix + 'urban_class3').html(parseInt(dataToShow.urban_population) ? parseInt(dataToShow.urban_population).toLocaleString() : '-')
-    $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools).toLocaleString())
-    $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools).toLocaleString())
-    $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools).toLocaleString())
-    $('#' + prefix + 'govt_school_class3').html(Math.round(dataToShow.central_govt_schools).toLocaleString())
-    $('#' + prefix + 'private_school_class3').html(Math.round(dataToShow.private_unaided_reco_schools).toLocaleString())
-    $('#' + prefix + 'total_teacher_class3').html((Math.round(dataToShow.teacher_state_govt_schools) + Math.round(dataToShow.teacher_central_govt_schools) + Math.round(dataToShow.teacher_govt_aided_schools) + Math.round(dataToShow.teacher_private_unaided_reco_schools)).toLocaleString())
-    $('#' + prefix + 'state_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools).toLocaleString())
-    $('#' + prefix + 'govt_teacher_class3').html(Math.round(dataToShow.teacher_central_govt_schools).toLocaleString())
-    $('#' + prefix + 'govt_aided_teacher_class3').html(Math.round(dataToShow.teacher_govt_aided_schools).toLocaleString())
-    $('#' + prefix + 'private_teacher_class3').html(Math.round(dataToShow.teacher_private_unaided_reco_schools).toLocaleString())
+    $('#' + prefix + 'rural_class3').html(parseInt(dataToShow.rural_population) ? parseInt(dataToShow.rural_population).toLocaleString('en-IN') : '-')
+    $('#' + prefix + 'urban_class3').html(parseInt(dataToShow.urban_population) ? parseInt(dataToShow.urban_population).toLocaleString('en-IN') : '-')
+    $('#' + prefix + 'total_school_class3').html(Math.round(dataToShow.no_of_schools).toLocaleString('en-IN'))
+    $('#' + prefix + 'state_school_class3').html(Math.round(dataToShow.state_govt_schools).toLocaleString('en-IN'))
+    $('#' + prefix + 'govt_aided_school_class3').html(Math.round(dataToShow.govt_aided_schools).toLocaleString('en-IN'))
+    $('#' + prefix + 'govt_school_class3').html(Math.round(dataToShow.central_govt_schools).toLocaleString('en-IN'))
+    $('#' + prefix + 'private_school_class3').html(Math.round(dataToShow.private_unaided_reco_schools).toLocaleString('en-IN'))
+    $('#' + prefix + 'total_teacher_class3').html((Math.round(dataToShow.teacher_state_govt_schools) + Math.round(dataToShow.teacher_central_govt_schools) + Math.round(dataToShow.teacher_govt_aided_schools) + Math.round(dataToShow.teacher_private_unaided_reco_schools)).toLocaleString('en-IN'))
+    $('#' + prefix + 'state_teacher_class3').html(Math.round(dataToShow.teacher_state_govt_schools).toLocaleString('en-IN'))
+    $('#' + prefix + 'govt_teacher_class3').html(Math.round(dataToShow.teacher_central_govt_schools).toLocaleString('en-IN'))
+    $('#' + prefix + 'govt_aided_teacher_class3').html(Math.round(dataToShow.teacher_govt_aided_schools).toLocaleString('en-IN'))
+    $('#' + prefix + 'private_teacher_class3').html(Math.round(dataToShow.teacher_private_unaided_reco_schools).toLocaleString('en-IN'))
     $('#' + prefix + 'description_class3').html(dataToShow.description)
   }
 
@@ -2786,14 +2786,13 @@ function generateGlimpsesTable(data, legend, where) {
         return state.state_name
       }
     })
-    state_name = current_state.length != 0 ? current_state[0].state_name : 'N/A'
-
+    state_name = current_state.length != 0 ? current_state[0].state_name : 'National'
+    console.log(actual_data['sc_se'])
     if (legend == 'cards') {
-
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['ss'] != 0 ? Math.round(actual_data['ss']) : '-'}</td>
-                  <td>${actual_data['se'] != 0 ? Math.round(actual_data['se'] * 100) / 100 : '-'}</td>`
+                  <td>${actual_data['se'] != 0 ? (Math.round(parseFloat(actual_data['se']) * 100) / 100).toFixed(1) : '-'}</td>`
       innerHtml += generateIndictor(actual_data.category)
       innerHtml += '<tr>'
 
@@ -2802,10 +2801,10 @@ function generateGlimpsesTable(data, legend, where) {
 
       innerHtml += `<tr>
                   <td>${state_name}</td>
-                  <td>${actual_data['boys_ss'] != 0 ? Math.round(actual_data['boys_ss']) : '-'}</td>
-                  <td>${actual_data['boys_se'] != 0 ? Math.round(actual_data['boys_se'] * 100) / 100 : '-'}</td>
                   <td>${actual_data['girls_ss'] != 0 ? Math.round(actual_data['girls_ss']) : '-'}</td>
-                  <td>${actual_data['girls_se'] != 0 ? Math.round(actual_data['girls_se'] * 100) / 100 : '-'}</td>`
+                  <td>${actual_data['girls_se'] != 0 ? (Math.round(actual_data['girls_se'] * 100) / 100).toFixed(1) : '-'}</td>
+                  <td>${actual_data['boys_ss'] != 0 ? Math.round(actual_data['boys_ss']) : '-'}</td>
+                  <td>${actual_data['boys_se'] != 0 ? (Math.round(actual_data['boys_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
       innerHtml += '<tr>'
@@ -2816,9 +2815,9 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['rural_ss'] != 0 ? Math.round(actual_data['rural_ss']) : '-'}</td>
-                  <td>${actual_data['rural_se'] != 0 ? Math.round(actual_data['rural_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['rural_se'] != 0 ? (Math.round(actual_data['rural_se'] * 100) / 100).toFixed(1) : '-'}</td>
                   <td>${actual_data['urban_ss'] != 0 ? Math.round(actual_data['urban_ss']) : '-'}</td>
-                  <td>${actual_data['urban_se'] != 0 ? Math.round(actual_data['urban_se'] * 100) / 100 : '-'}</td>`
+                  <td>${actual_data['urban_se'] != 0 ? (Math.round(actual_data['urban_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
       innerHtml += '<tr>'
@@ -2835,19 +2834,19 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['govt_ss'] != 0 ? Math.round(actual_data['govt_ss']) : '-'}</td>
-                  <td>${actual_data['govt_se'] != 0 ? Math.round(actual_data['govt_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['govt_se'] != 0 ? (Math.round(actual_data['govt_se'] * 100) / 100).toFixed(1) : '-'}</td>
                   <td>${actual_data['govt_aided_ss'] != 0 ? Math.round(actual_data['govt_aided_ss']) : '-'}</td>
-                  <td>${actual_data['govt_aided_se'] != 0 ? Math.round(actual_data['govt_aided_se'] * 100) / 100 : '-'}</td>`
+                  <td>${actual_data['govt_aided_se'] != 0 ? (Math.round(actual_data['govt_aided_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
 
       innerHtml += `<td>${actual_data['pvt_ss'] != 0 ? Math.round(actual_data['pvt_ss']) : '-'}</td>
-                  <td>${actual_data['pvt_se'] != 0 ? Math.round(actual_data['pvt_se'] * 100) / 100 : '-'}</td>`
+                  <td>${actual_data['pvt_se'] != 0 ? (Math.round(actual_data['pvt_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.pvt_category)
 
       innerHtml += `<td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>
-                  <td>${actual_data['central_govt_se'] != 0 ? Math.round(actual_data['central_govt_se'] * 100) / 100 : '-'}</td>`
+                  <td>${actual_data['central_govt_se'] != 0 ? (Math.round(actual_data['central_govt_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.central_govt_category)
       innerHtml += '<tr>'
@@ -2857,19 +2856,19 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['gen_ss'] != 0 ? Math.round(actual_data['gen_ss']) : '-'}</td>
-                  <td>${actual_data['gen_se'] != 0 ? Math.round(actual_data['gen_se'] * 100) / 100 : '-'}</td>
+                  <td>${actual_data['gen_se'] != 0 ? (Math.round(actual_data['gen_se'] * 100) / 100).toFixed(1) : '-'}</td>
                   <td>${actual_data['sc_ss'] != 0 ? Math.round(actual_data['sc_ss']) : '-'}</td>
-                  <td>${actual_data['sc_se'] != 0 ? Math.round(actual_data['sc_se'] * 100) / 100 : '-'}</td>`
+                  <td>${actual_data['sc_se'] != 0 ? (Math.round(actual_data['sc_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.gen_category)
 
       innerHtml += `<td>${actual_data['st_ss'] != 0 ? Math.round(actual_data['st_ss']) : '-'}</td>
-      <td>${actual_data['st_se'] != 0 ? Math.round(actual_data['st_se'] * 100) / 100 : '-'}</td>`
+      <td>${actual_data['st_se'] != 0 ? (Math.round(actual_data['st_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.st_category)
 
       innerHtml += `<td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>
-      <td>${actual_data['obc_se'] != 0 ? Math.round(actual_data['obc_se'] * 100) / 100 : '-'}</td>`
+      <td>${actual_data['obc_se'] != 0 ? (Math.round(actual_data['obc_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.obc_category)
       innerHtml += '<tr>'
@@ -2898,7 +2897,7 @@ function setTableHead(legend) {
                     <th scope="col">State/Union Territory</th>
                     <th scope="col">Mean</th>
                     <th scope="col">SE</th>
-                    <th scope="col"></th>
+                    <th scope="col">SIG</th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -2909,11 +2908,11 @@ function setTableHead(legend) {
     return `<thead>
                   <tr>
                     <th scope="col">State/Union Territory</th>
-                    <th scope="col">Mean(Boys)</th>
-                    <th scope="col">SE(Boys)</th>
                     <th scope="col">Mean(Girls)</th>
                     <th scope="col">SE(Girls)</th>
-                    <th scope="col"></th>
+                    <th scope="col">Mean(Boys)</th>
+                    <th scope="col">SE(Boys)</th>
+                    <th scope="col">SIG</th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -2928,7 +2927,7 @@ function setTableHead(legend) {
                     <th scope="col">SE(Rural)</th>
                     <th scope="col">Mean(Urban)</th>
                     <th scope="col">SE(Urban)</th>
-                    <th scope="col"></th>
+                    <th scope="col">SIG</th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -2949,17 +2948,17 @@ function setTableHead(legend) {
     return `<table class="ms_table table"><thead>
                   <tr class="align-middle">
                     <th scope="col">State/Union Territory</th>
-                    <th scope="col">Mean(Govt.)</th>
-                    <th scope="col">SE(Govt.)</th>
+                    <th scope="col">Mean(State Govt.)</th>
+                    <th scope="col">SE(State Govt.)</th>
                     <th scope="col">Mean(Govt. Aided)</th>
                     <th scope="col">SE(Govt. Aided)</th>
-                    <th scope="col"></th>
-                    <th scope="col">Mean(Private)</th>
-                    <th scope="col">SE(Private)</th>
-                    <th scope="col"></th>
+                    <th scope="col">SIG</th>
+                    <th scope="col">Mean(Private Rec.)</th>
+                    <th scope="col">SE(Private Rec.)</th>
+                    <th scope="col">SIG</th>
                     <th scope="col">Mean(Central Govt.)</th>
-                    <th scope="col">SE(central Govt.)</th>
-                    <th scope="col"></th>
+                    <th scope="col">SE(Central Govt.)</th>
+                    <th scope="col">SIG</th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -2973,13 +2972,13 @@ function setTableHead(legend) {
                     <th scope="col">SE(General)</th>
                     <th scope="col">Mean(SC)</th>
                     <th scope="col">SE(SC)</th>
-                    <th scope="col"></th>
+                    <th scope="col">SIG</th>
                     <th scope="col">Mean(ST)</th>
                     <th scope="col">SE(ST)</th>
-                    <th scope="col"></th>
+                    <th scope="col">SIG</th>
                     <th scope="col">Mean(OBC)</th>
                     <th scope="col">SE(OBC)</th>
-                    <th scope="col"></th>
+                    <th scope="col">SIG</th>
                   </tr>
                 </thead>
                 <tbody>`
@@ -3018,7 +3017,7 @@ function generateIndictor(category) {
   }
   else {
     innerHtml = `<td>
-                  N/A
+                  -
                 </td>`
   }
 

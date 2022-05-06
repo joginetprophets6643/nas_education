@@ -393,7 +393,7 @@ class FinalNationalProcessController extends Controller
 
     public function grade3GlimpesData()
     {
-        $GlimpsesData =DB::table('grade3nationaltable')->orderBy('state_name')->get();
+        $GlimpsesData =DB::table('grade3nationaltable')->get();
         // dd($GlimpsesData);
         $glimpesArray = array();
         $subjects=['lang','evs','math'];
@@ -407,7 +407,7 @@ class FinalNationalProcessController extends Controller
             $social=array();
             foreach($GlimpsesData as $key=>$glimpes){
 
-                if($glimpes->subject==$subject && $glimpes->state_code!=0){
+                if($glimpes->subject==$subject){
                     $cards[]=(object)array(
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
@@ -485,7 +485,7 @@ class FinalNationalProcessController extends Controller
 
     public function grade5GlimpesData()
     {
-        $GlimpsesData =DB::table('grade5nationaltable')->orderBy('state_name')->get();
+        $GlimpsesData =DB::table('grade5nationaltable')->get();
 
         $glimpesArray = array();
         $subjects=['lang','evs','math'];
@@ -499,7 +499,7 @@ class FinalNationalProcessController extends Controller
             $social=array();
             foreach($GlimpsesData as $key=>$glimpes){
 
-                if($glimpes->subject==$subject && $glimpes->state_code!=0){
+                if($glimpes->subject==$subject){
                     $cards[]=(object)array(
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
@@ -577,7 +577,7 @@ class FinalNationalProcessController extends Controller
 
     public function grade8GlimpesData()
     {
-        $GlimpsesData =DB::table('grade8nationaltable')->orderBy('state_name')->get();
+        $GlimpsesData =DB::table('grade8nationaltable')->get();
 
         $glimpesArray = array();
         $subjects=['lang','math','sci','sst'];
@@ -591,7 +591,7 @@ class FinalNationalProcessController extends Controller
             $social=array();
             foreach($GlimpsesData as $key=>$glimpes){
 
-                if($glimpes->subject==$subject && $glimpes->state_code!=0){
+                if($glimpes->subject==$subject){
                     $cards[]=(object)array(
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,
@@ -669,7 +669,7 @@ class FinalNationalProcessController extends Controller
 
     public function grade10GlimpesData()
     {
-        $GlimpsesData =DB::table('grade10nationaltable')->orderBy('state_name')->get();
+        $GlimpsesData =DB::table('grade10nationaltable')->get();
 
         $glimpesArray = array();
         $subjects=['mil','math','sci','sst','eng'];
@@ -683,7 +683,7 @@ class FinalNationalProcessController extends Controller
             $social=array();
             foreach($GlimpsesData as $key=>$glimpes){
 
-                if($glimpes->subject==$subject && $glimpes->state_code!=0){
+                if($glimpes->subject==$subject){
                     $cards[]=(object)array(
                         'state_id'=>$glimpes->state_code,
                         'ss'=>$glimpes->ss,

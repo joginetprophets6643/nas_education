@@ -20,7 +20,7 @@ class Nrc8DataImport implements ToModel,WithStartRow
     public function model(array $row)
     {
         foreach($row as $key=>$item){
-            if($item==" "){
+            if($item==" " || $item==null){
                 $row[$key]=0;
             }
         }
