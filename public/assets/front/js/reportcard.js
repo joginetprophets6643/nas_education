@@ -2090,6 +2090,7 @@ async function createChart(where, data, district_id) {
     },
     plotOptions: {
       series: {
+        name: 'District',
         events: {
           click: function (e) {
             console.log(e)
@@ -2379,6 +2380,7 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
   let category1 = []
   let category2 = []
   let category3 = []
+  let category4 = []
   await states.map((state, index) => {
     const type_of_state = getColourOfState(req_colors, state.udise_state_code, section_data)
     let required_data = []
@@ -2390,11 +2392,14 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
     if (type_of_state.category === 0) {
       category1.push(required_data)
     }
-    if (type_of_state.category === 1) {
+    else if (type_of_state.category === 1) {
       category2.push(required_data)
     }
-    if (type_of_state.category === 2) {
+    else if (type_of_state.category === 2) {
       category3.push(required_data)
+    }
+    else{
+      category4.push(required_data)
     }
     return required_data
   })
@@ -2504,6 +2509,28 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
             format: '{point.name}'
           },
         },
+        {
+          data: category4,
+          name: legends[3],
+          color: req_colors[3],
+
+          allowPointSelect: true,
+          allAreas: false,
+          cursor: 'pointer',
+          borderColor: "#6e6f70",
+          states: {
+            hover: {
+              color: '#f7941c'
+            },
+            select: {
+              color: '#9ec2e4'
+            }
+          },
+          dataLabels: {
+            enabled: false,
+            format: '{point.name}'
+          },
+        }
       ]
     });
     if (Object.keys(states_chart).length !== 0) {
@@ -2525,6 +2552,9 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
         },
         {
           data: states_chart.series[2].data
+        },
+        {
+          data: states_chart.series[3].data
         }]
       })
     }
@@ -2802,9 +2832,7 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['girls_ss'] != 0 ? Math.round(actual_data['girls_ss']) : '-'}</td>
-                  <td>${actual_data['girls_se'] != 0 ? (Math.round(actual_data['girls_se'] * 100) / 100).toFixed(1) : '-'}</td>
-                  <td>${actual_data['boys_ss'] != 0 ? Math.round(actual_data['boys_ss']) : '-'}</td>
-                  <td>${actual_data['boys_se'] != 0 ? (Math.round(actual_data['boys_se'] * 100) / 100).toFixed(1) : '-'}</td>`
+                  <td>${actual_data['boys_ss'] != 0 ? Math.round(actual_data['boys_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
       innerHtml += '<tr>'
@@ -2815,38 +2843,26 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['rural_ss'] != 0 ? Math.round(actual_data['rural_ss']) : '-'}</td>
-                  <td>${actual_data['rural_se'] != 0 ? (Math.round(actual_data['rural_se'] * 100) / 100).toFixed(1) : '-'}</td>
-                  <td>${actual_data['urban_ss'] != 0 ? Math.round(actual_data['urban_ss']) : '-'}</td>
-                  <td>${actual_data['urban_se'] != 0 ? (Math.round(actual_data['urban_se'] * 100) / 100).toFixed(1) : '-'}</td>`
+                  <td>${actual_data['urban_ss'] != 0 ? Math.round(actual_data['urban_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
       innerHtml += '<tr>'
 
     }
     else if (legend == 'management') {
-      // innerHtml += `<tr>
-      //             <td>${state_name}</td>
-      //             <td>${actual_data['govt_ss']}</td>
-      //             <td>${actual_data['govt_se']}</td>
-      //             <td>${actual_data['govt_aided_ss']}</td>
-      //             <td>${actual_data['govt_aided_se']}</td>`
 
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['govt_ss'] != 0 ? Math.round(actual_data['govt_ss']) : '-'}</td>
-                  <td>${actual_data['govt_se'] != 0 ? (Math.round(actual_data['govt_se'] * 100) / 100).toFixed(1) : '-'}</td>
-                  <td>${actual_data['govt_aided_ss'] != 0 ? Math.round(actual_data['govt_aided_ss']) : '-'}</td>
-                  <td>${actual_data['govt_aided_se'] != 0 ? (Math.round(actual_data['govt_aided_se'] * 100) / 100).toFixed(1) : '-'}</td>`
+                  <td>${actual_data['govt_aided_ss'] != 0 ? Math.round(actual_data['govt_aided_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
 
-      innerHtml += `<td>${actual_data['pvt_ss'] != 0 ? Math.round(actual_data['pvt_ss']) : '-'}</td>
-                  <td>${actual_data['pvt_se'] != 0 ? (Math.round(actual_data['pvt_se'] * 100) / 100).toFixed(1) : '-'}</td>`
+      innerHtml += `<td>${actual_data['pvt_ss'] != 0 ? Math.round(actual_data['pvt_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.pvt_category)
 
-      innerHtml += `<td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>
-                  <td>${actual_data['central_govt_se'] != 0 ? (Math.round(actual_data['central_govt_se'] * 100) / 100).toFixed(1) : '-'}</td>`
+      innerHtml += `<td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.central_govt_category)
       innerHtml += '<tr>'
@@ -2856,19 +2872,15 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['gen_ss'] != 0 ? Math.round(actual_data['gen_ss']) : '-'}</td>
-                  <td>${actual_data['gen_se'] != 0 ? (Math.round(actual_data['gen_se'] * 100) / 100).toFixed(1) : '-'}</td>
-                  <td>${actual_data['sc_ss'] != 0 ? Math.round(actual_data['sc_ss']) : '-'}</td>
-                  <td>${actual_data['sc_se'] != 0 ? (Math.round(actual_data['sc_se'] * 100) / 100).toFixed(1) : '-'}</td>`
+                  <td>${actual_data['sc_ss'] != 0 ? Math.round(actual_data['sc_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.gen_category)
 
-      innerHtml += `<td>${actual_data['st_ss'] != 0 ? Math.round(actual_data['st_ss']) : '-'}</td>
-      <td>${actual_data['st_se'] != 0 ? (Math.round(actual_data['st_se'] * 100) / 100).toFixed(1) : '-'}</td>`
+      innerHtml += `<td>${actual_data['st_ss'] != 0 ? Math.round(actual_data['st_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.st_category)
 
-      innerHtml += `<td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>
-      <td>${actual_data['obc_se'] != 0 ? (Math.round(actual_data['obc_se'] * 100) / 100).toFixed(1) : '-'}</td>`
+      innerHtml += `<td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.obc_category)
       innerHtml += '<tr>'
@@ -2893,92 +2905,70 @@ function setTableHead(legend) {
   if (legend == 'cards') {
 
     return `<thead>
-                  <tr>
-                    <th scope="col">State/Union Territory</th>
-                    <th scope="col">Mean</th>
-                    <th scope="col">SE</th>
-                    <th scope="col">SIG</th>
-                  </tr>
-                </thead>
-                <tbody>`
+              <tr>
+                <th scope="col">State/Union Territory</th>
+                <th scope="col">Mean</th>
+                <th scope="col">SE</th>
+                <th scope="col">Significance</th>
+              </tr>
+            </thead>
+            <tbody>`
 
   }
   else if (legend == 'gender') {
 
     return `<thead>
-                  <tr>
-                    <th scope="col">State/Union Territory</th>
-                    <th scope="col">Mean(Girls)</th>
-                    <th scope="col">SE(Girls)</th>
-                    <th scope="col">Mean(Boys)</th>
-                    <th scope="col">SE(Boys)</th>
-                    <th scope="col">SIG</th>
-                  </tr>
-                </thead>
-                <tbody>`
+              <tr>
+                <th scope="col">State/Union Territory</th>
+                <th scope="col">Girls</th>
+                <th scope="col">Boys</th>
+                <th scope="col">Significance</th>
+              </tr>
+            </thead>
+            <tbody>`
 
   }
   else if (legend == 'location') {
 
     return `<thead>
-                  <tr class="align-middle">
-                    <th scope="col">State/Union Territory</th>
-                    <th scope="col">Mean(Rural)</th>
-                    <th scope="col">SE(Rural)</th>
-                    <th scope="col">Mean(Urban)</th>
-                    <th scope="col">SE(Urban)</th>
-                    <th scope="col">SIG</th>
-                  </tr>
-                </thead>
-                <tbody>`
+              <tr>
+                <th scope="col">State/Union Territory</th>
+                <th scope="col">Rural</th>
+                <th scope="col">Urban</th>
+                <th scope="col">Significance</th>
+              </tr>
+            </thead>
+            <tbody>`
 
   }
   else if (legend == 'management') {
-    // return `<thead>
-    //               <tr>
-    //                 <th scope="col">State/Union Territory</th>
-    //                 <th scope="col">Mean(Govt.)</th>
-    //                 <th scope="col">SE(Govt.)</th>
-    //                 <th scope="col">Mean(Govt. Aided)</th>
-    //                 <th scope="col">SE(Govt. Aided)</th>
-    //                 <th scope="col"></th>
-    //               </tr>
-    //             </thead>
-    //             <tbody>`
-    return `<table class="ms_table table"><thead>
-                  <tr class="align-middle">
+
+    return `<thead>
+                  <tr>
                     <th scope="col">State/Union Territory</th>
-                    <th scope="col">Mean(State Govt.)</th>
-                    <th scope="col">SE(State Govt.)</th>
-                    <th scope="col">Mean(Govt. Aided)</th>
-                    <th scope="col">SE(Govt. Aided)</th>
-                    <th scope="col">SIG</th>
-                    <th scope="col">Mean(Private Rec.)</th>
-                    <th scope="col">SE(Private Rec.)</th>
-                    <th scope="col">SIG</th>
-                    <th scope="col">Mean(Central Govt.)</th>
-                    <th scope="col">SE(Central Govt.)</th>
-                    <th scope="col">SIG</th>
+                    <th scope="col">State Govt.</th>
+                    <th scope="col">Govt. Aided</th>
+                    <th scope="col">Significance</th>
+                    <th scope="col">Private Rec.</th>
+                    <th scope="col">Significance</th>
+                    <th scope="col">Central Govt.</th>
+                    <th scope="col">Significance</th>
                   </tr>
                 </thead>
                 <tbody>`
   }
   else {
 
-    return `<table class="ms_table table"><thead>
-                  <tr class="align-middle">
+    return `<thead>
+                  <tr>
                     <th scope="col">State/Union Territory</th>
-                    <th scope="col">Mean(General)</th>
-                    <th scope="col">SE(General)</th>
-                    <th scope="col">Mean(SC)</th>
-                    <th scope="col">SE(SC)</th>
-                    <th scope="col">SIG</th>
-                    <th scope="col">Mean(ST)</th>
-                    <th scope="col">SE(ST)</th>
-                    <th scope="col">SIG</th>
-                    <th scope="col">Mean(OBC)</th>
-                    <th scope="col">SE(OBC)</th>
-                    <th scope="col">SIG</th>
+                    <th scope="col">General</th>
+                    <th scope="col">SC</th>
+                    <th scope="col">Significance</th>
+                    <th scope="col">ST</th>
+                    <th scope="col">Significance</th>
+                    <th scope="col">OBC</th>
+                    <th scope="col">Significance</th>
                   </tr>
                 </thead>
                 <tbody>`
