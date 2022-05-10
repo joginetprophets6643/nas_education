@@ -11245,7 +11245,15 @@ ul {
   text-align: justify;
 }
 
+.ms_table tbody tr:last-child {
+  background-color: #8bc63e;
+}
+
 .glimpse-table-modal .table tr th:first-child {
   min-width: auto !important;
+}
+
+.glimpse-table-modal .table tbody tr:last-child {
+  background-color: #8bc63e;
 }
 /*# sourceMappingURL=style.css.map */
