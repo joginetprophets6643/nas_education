@@ -2398,7 +2398,7 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
     else if (type_of_state.category === 2) {
       category3.push(required_data)
     }
-    else{
+    else {
       category4.push(required_data)
     }
     return required_data
@@ -2420,7 +2420,10 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
       legend: {
         enabled: true
       },
-      tooltip: { enabled: true },
+      tooltip: {
+        enabled: true,
+        pointFormat: '{point.name}'
+      },
       navigation: {
         buttonOptions: {
           enabled: false
@@ -2513,7 +2516,7 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
           data: category4,
           name: legends[3],
           color: req_colors[3],
-
+          showInLegend: false,
           allowPointSelect: true,
           allAreas: false,
           cursor: 'pointer',
@@ -2541,7 +2544,6 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
           return el
         })
       })
-
 
       states_chart.update({
         series: [{
@@ -2727,7 +2729,6 @@ function setColorCode(sub) {
 }
 
 function setModalHeader(data, sub, legend) {
-
   const subject = {
     'language': 'Language',
     'math': 'Mathematics',
@@ -2817,14 +2818,13 @@ function generateGlimpsesTable(data, legend, where) {
       }
     })
     state_name = current_state.length != 0 ? current_state[0].state_name : 'National'
-    console.log(actual_data['sc_se'])
     if (legend == 'cards') {
       innerHtml += `<tr>
                   <td>${state_name}</td>
                   <td>${actual_data['ss'] != 0 ? Math.round(actual_data['ss']) : '-'}</td>
                   <td>${actual_data['se'] != 0 ? (Math.round(parseFloat(actual_data['se']) * 100) / 100).toFixed(1) : '-'}</td>`
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'gender') {
@@ -2835,7 +2835,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['boys_ss'] != 0 ? Math.round(actual_data['boys_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'location') {
@@ -2846,7 +2846,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['urban_ss'] != 0 ? Math.round(actual_data['urban_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'management') {
@@ -2865,7 +2865,7 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.central_govt_category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else {
@@ -2883,7 +2883,7 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.obc_category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
 
@@ -2943,7 +2943,7 @@ function setTableHead(legend) {
   }
   else if (legend == 'management') {
 
-    return `<thead>
+    return `<table class="ms_table table"><thead>
                   <tr>
                     <th scope="col">State/Union Territory</th>
                     <th scope="col">State Govt.</th>
@@ -2959,7 +2959,7 @@ function setTableHead(legend) {
   }
   else {
 
-    return `<thead>
+    return `<table class="ms_table table"><thead>
                   <tr>
                     <th scope="col">State/Union Territory</th>
                     <th scope="col">General</th>

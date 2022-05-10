@@ -1943,7 +1943,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Teachers have responded that the parents take interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
         select id, state_code, dist_code, Dist_sq_q31 as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff' question_desc, 0 question_code, 0 total_parent
@@ -2018,7 +2018,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Teachers have responded that the parents take interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
         select id, state_code, dist_code, Dist_sq_q31 as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff' question_desc, 0 question_code, 0 total_parent
@@ -2092,7 +2092,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Teachers have responded that the parents take interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
         select id, state_code, dist_code, Dist_sq_q31 as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff' question_desc, 0 question_code, 0 total_parent
@@ -2169,7 +2169,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Parents interest in school activities' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q28 as dist_avg, 'tq' level, 'Teachers have responded that the parents take interest in school activities' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
         select id, state_code, dist_code, Dist_sq_q31 as dist_avg, 'sq' level, 'of schools have adequate qualified teaching staff' question_desc, 0 question_code, 0 total_parent
