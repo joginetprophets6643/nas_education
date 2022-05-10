@@ -2398,7 +2398,7 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
     else if (type_of_state.category === 2) {
       category3.push(required_data)
     }
-    else{
+    else {
       category4.push(required_data)
     }
     return required_data
@@ -2943,7 +2943,7 @@ function setTableHead(legend) {
   }
   else if (legend == 'management') {
 
-    return `<thead>
+    return `<table class="ms_table table"><thead>
                   <tr>
                     <th scope="col">State/Union Territory</th>
                     <th scope="col">State Govt.</th>
@@ -2959,7 +2959,7 @@ function setTableHead(legend) {
   }
   else {
 
-    return `<thead>
+    return `<table class="ms_table table"><thead>
                   <tr>
                     <th scope="col">State/Union Territory</th>
                     <th scope="col">General</th>
