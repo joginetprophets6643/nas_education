@@ -2420,7 +2420,10 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
       legend: {
         enabled: true
       },
-      tooltip: { enabled: true },
+      tooltip: {
+        enabled: true,
+        pointFormat: '{point.name}'
+      },
       navigation: {
         buttonOptions: {
           enabled: false
@@ -2513,7 +2516,7 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
           data: category4,
           name: legends[3],
           color: req_colors[3],
-
+          showInLegend: false,
           allowPointSelect: true,
           allAreas: false,
           cursor: 'pointer',
@@ -2541,7 +2544,6 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
           return el
         })
       })
-
 
       states_chart.update({
         series: [{
@@ -2727,7 +2729,6 @@ function setColorCode(sub) {
 }
 
 function setModalHeader(data, sub, legend) {
-
   const subject = {
     'language': 'Language',
     'math': 'Mathematics',
@@ -2817,7 +2818,6 @@ function generateGlimpsesTable(data, legend, where) {
       }
     })
     state_name = current_state.length != 0 ? current_state[0].state_name : 'National'
-    console.log(actual_data['sc_se'])
     if (legend == 'cards') {
       innerHtml += `<tr>
                   <td>${state_name}</td>
