@@ -11256,4 +11256,8 @@ ul {
 .glimpse-table-modal .table tbody tr:last-child {
   background-color: #8bc63e;
 }
+
+div #all-state-list {
+  min-height: 300px;
+}
 /*# sourceMappingURL=style.css.map */
