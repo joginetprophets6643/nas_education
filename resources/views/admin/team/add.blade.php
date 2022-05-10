@@ -144,6 +144,7 @@
       $('select[name=sub_title]').append('<option value="Central Board of Secondary Education (CBSE)">Central Board of Secondary Education (CBSE)</option>')
       $('select[name=sub_title]').append('<option value="National Council of Educational Research & Training (NCERT)">National Council of Educational Research & Training (NCERT)</option>')
       $('select[name=sub_title]').append('<option value="National Informatics Centre (NIC)">National Informatics Centre (NIC)</option>')
+      $('select[name=sub_title]').append('<option value="Central Square Foundation (CSF)">Central Square Foundation (CSF)</option>')
       $('select[name=sub_title]').attr('disabled',false)
     }
   })

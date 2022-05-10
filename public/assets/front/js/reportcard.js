@@ -2398,7 +2398,7 @@ async function generateGlimpsesMap(where, req_colors, section_data, legends) {
     else if (type_of_state.category === 2) {
       category3.push(required_data)
     }
-    else{
+    else {
       category4.push(required_data)
     }
     return required_data
@@ -2824,7 +2824,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['ss'] != 0 ? Math.round(actual_data['ss']) : '-'}</td>
                   <td>${actual_data['se'] != 0 ? (Math.round(parseFloat(actual_data['se']) * 100) / 100).toFixed(1) : '-'}</td>`
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'gender') {
@@ -2835,7 +2835,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['boys_ss'] != 0 ? Math.round(actual_data['boys_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'location') {
@@ -2846,7 +2846,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['urban_ss'] != 0 ? Math.round(actual_data['urban_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'management') {
@@ -2865,7 +2865,7 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<td>${actual_data['central_govt_ss'] != 0 ? Math.round(actual_data['central_govt_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.central_govt_category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else {
@@ -2883,7 +2883,7 @@ function generateGlimpsesTable(data, legend, where) {
       innerHtml += `<td>${actual_data['obc_ss'] != 0 ? Math.round(actual_data['obc_ss']) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.obc_category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
 
@@ -2943,7 +2943,7 @@ function setTableHead(legend) {
   }
   else if (legend == 'management') {
 
-    return `<thead>
+    return `<table class="ms_table table"><thead>
                   <tr>
                     <th scope="col">State/Union Territory</th>
                     <th scope="col">State Govt.</th>
@@ -2959,7 +2959,7 @@ function setTableHead(legend) {
   }
   else {
 
-    return `<thead>
+    return `<table class="ms_table table"><thead>
                   <tr>
                     <th scope="col">State/Union Territory</th>
                     <th scope="col">General</th>
