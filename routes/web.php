@@ -477,6 +477,7 @@ Route::group(["middleware" => ["authCheck"]], function(){
     // });
 
     Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
+    Route::get('/achievements','App\Http\Controllers\ReportCardController@achievementwebView');
     Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
 
 });

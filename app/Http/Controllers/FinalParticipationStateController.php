@@ -2212,7 +2212,7 @@ class FinalParticipationstateController extends Controller
         select id, state_code, State_MA_psub3_11 as state_avg, India_MA_psub3_11 as national_avg, 'State_MA_psub3_11' src_subject_code, 'M719' subject_code, 'math' language, 'Finds various representative values for simple data from her/his daily life contexts like mean, median and mode' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' src_subject_code, 'M721' subject_code, 'math' language, 'Interprets data using bar graph' description
+        select id, state_code, State_MA_psub3_12 as state_avg, India_MA_psub3_12 as national_avg, 'State_MA_psub3_12' src_subject_code, 'M721' subject_code, 'math' language, 'Interprets data using bar graph such as consumption of electricity is more in winters than summer' description
         from grade8statetable
         union all
         select id, state_code, State_MA_psub3_13 as state_avg, India_MA_psub3_13 as national_avg, 'State_MA_psub3_13' src_subject_code, 'M801' subject_code, 'math' language, 'Generalizes properties of addition, subtraction, multiplication and division of rational numbers through patterns' description
@@ -2233,7 +2233,7 @@ class FinalParticipationstateController extends Controller
         select id, state_code, State_MA_psub3_18 as state_avg, India_MA_psub3_18 as national_avg, 'State_MA_psub3_18' src_subject_code, 'M812' subject_code, 'math' language, 'Verifies properties of parallelogram and establishes the relationship between them through reasoning' description
         from grade8statetable
         union all
-        select id, state_code, State_MA_psub3_19 as state_avg, India_MA_psub3_19 as national_avg, 'State_MA_psub3_19' src_subject_code, 'M818' subject_code, 'math' language, 'Verifies properties of parallelogram and establishes the relationship between them through reasoning' description
+        select id, state_code, State_MA_psub3_19 as state_avg, India_MA_psub3_19 as national_avg, 'State_MA_psub3_19' src_subject_code, 'M818' subject_code, 'math' language, 'Find surface area and volume of cuboidal and cylindrical object' description
         from grade8statetable
         union all
         select id, state_code, State_MA_psub3_20 as state_avg, India_MA_psub3_20 as national_avg, 'State_MA_psub3_20' src_subject_code, 'M819' subject_code, 'math' language, 'Draws and interprets bar charts and pie charts' description
