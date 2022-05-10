@@ -2794,7 +2794,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['ss'] != 0 ? Math.round(actual_data['ss']) : '-'}</td>
                   <td>${actual_data['se'] != 0 ? (Math.round(parseFloat(actual_data['se']) * 100) / 100).toFixed(1) : '-'}</td>`
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'gender') {
@@ -2807,7 +2807,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['boys_se'] != 0 ? (Math.round(actual_data['boys_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'location') {
@@ -2820,7 +2820,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['urban_se'] != 0 ? (Math.round(actual_data['urban_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else if (legend == 'management') {
@@ -2849,7 +2849,7 @@ function generateGlimpsesTable(data, legend, where) {
                   <td>${actual_data['central_govt_se'] != 0 ? (Math.round(actual_data['central_govt_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.central_govt_category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
     else {
@@ -2871,7 +2871,7 @@ function generateGlimpsesTable(data, legend, where) {
       <td>${actual_data['obc_se'] != 0 ? (Math.round(actual_data['obc_se'] * 100) / 100).toFixed(1) : '-'}</td>`
 
       innerHtml += generateIndictor(actual_data.obc_category)
-      innerHtml += '<tr>'
+      innerHtml += '</tr>'
 
     }
 

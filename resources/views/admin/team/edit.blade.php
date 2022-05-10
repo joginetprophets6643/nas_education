@@ -130,21 +130,31 @@
                         <option value="Central Board of Secondary Education (CBSE)" >Central Board of Secondary Education (CBSE)</option>
                         <option value="National Council of Educational Research & Training (NCERT)" >National Council of Educational Research & Training (NCERT)</option>
                         <option value="National Informatics Centre (NIC)">National Informatics Centre (NIC)</option>
+                        <option value="Central Square Foundation (CSF)">Central Square Foundation (CSF)</option>
                       @elseif($member->sub_title=="Central Board of Secondary Education (CBSE)")
                         <option value="Ministry of Education">Ministry of Education</option>
                         <option value="Central Board of Secondary Education (CBSE)" selected>Central Board of Secondary Education (CBSE)</option>
                         <option value="National Council of Educational Research & Training (NCERT)" >National Council of Educational Research & Training (NCERT)</option>
                         <option value="National Informatics Centre (NIC)">National Informatics Centre (NIC)</option>
+                        <option value="Central Square Foundation (CSF)">Central Square Foundation (CSF)</option>
                       @elseif($member->sub_title=="National Council of Educational Research & Training (NCERT)")
                         <option value="Ministry of Education">Ministry of Education</option>
                         <option value="Central Board of Secondary Education (CBSE)" >Central Board of Secondary Education (CBSE)</option>
                         <option value="National Council of Educational Research & Training (NCERT)" selected>National Council of Educational Research & Training (NCERT)</option>
                         <option value="National Informatics Centre (NIC)">National Informatics Centre (NIC)</option>
-                      @else
+                        <option value="Central Square Foundation (CSF)">Central Square Foundation (CSF)</option>
+                      @elseif($member->sub_title=="National Informatics Centre (NIC)")
                         <option value="Ministry of Education">Ministry of Education</option>
                         <option value="Central Board of Secondary Education (CBSE)" >Central Board of Secondary Education (CBSE)</option>
                         <option value="National Council of Educational Research & Training (NCERT)" >National Council of Educational Research & Training (NCERT)</option>
                         <option value="National Informatics Centre (NIC)" selected>National Informatics Centre (NIC)</option>
+                        <option value="Central Square Foundation (CSF)">Central Square Foundation (CSF)</option>
+                      @else
+                        <option value="Ministry of Education">Ministry of Education</option>
+                        <option value="Central Board of Secondary Education (CBSE)" >Central Board of Secondary Education (CBSE)</option>
+                        <option value="National Council of Educational Research & Training (NCERT)" >National Council of Educational Research & Training (NCERT)</option>
+                        <option value="National Informatics Centre (NIC)">National Informatics Centre (NIC)</option>
+                        <option value="Central Square Foundation (CSF)" selected>Central Square Foundation (CSF)</option>
                       @endif
                     @endif
                 </select>
