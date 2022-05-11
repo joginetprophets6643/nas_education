@@ -279,27 +279,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_la_private_pl34)?$districtlevel->india_la_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_la_centgovt_pl34)?$districtlevel->india_la_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_la_obc_pl12)?$districtlevel->dist_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_la_obc_pl34)?$districtlevel->dist_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_la_st_pl12)?$districtlevel->dist_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_la_general_pl12)?$districtlevel->dist_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_la_st_pl34)?$districtlevel->dist_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_la_general_pl34)?$districtlevel->dist_la_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_la_sc_pct)?$districtlevel->state_la_sc_pct:'0',"obc"=>isset($districtlevel->state_la_obc_pct)?$districtlevel->state_la_obc_pct:'0',"st"=>isset($districtlevel->state_la_st_pct)?$districtlevel->state_la_st_pct:'0',"general"=>isset($districtlevel->state_la_general_pct)?$districtlevel->state_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_la_sc_pl34)?$districtlevel->state_la_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_la_sc_pct)?$districtlevel->state_la_sc_pct:'0',"obc"=>isset($districtlevel->state_la_obc_pct)?$districtlevel->state_la_obc_pct:'0',"st"=>isset($districtlevel->state_la_st_pct)?$districtlevel->state_la_st_pct:'0',"general"=>isset($districtlevel->state_la_general_pct)?$districtlevel->state_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_la_sc_pl34)?$districtlevel->state_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_la_obc_pl12)?$districtlevel->state_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_la_sc_pl12)?$districtlevel->state_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_la_sc_pl12)?$districtlevel->state_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_la_obc_pl34)?$districtlevel->state_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_la_st_pl12)?$districtlevel->state_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_la_general_pl12)?$districtlevel->state_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_la_st_pl34)?$districtlevel->state_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_la_general_pl34)?$districtlevel->state_la_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_la_sc_pct)?$districtlevel->india_la_sc_pct:'0',"obc"=>isset($districtlevel->india_la_obc_pct)?$districtlevel->india_la_obc_pct:'0',"st"=>isset($districtlevel->india_la_st_pct)?$districtlevel->india_la_st_pct:'0',"general"=>isset($districtlevel->india_la_general_pct)?$districtlevel->india_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_la_sc_pl34)?$districtlevel->india_la_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_la_sc_pct)?$districtlevel->india_la_sc_pct:'0',"obc"=>isset($districtlevel->india_la_obc_pct)?$districtlevel->india_la_obc_pct:'0',"st"=>isset($districtlevel->india_la_st_pct)?$districtlevel->india_la_st_pct:'0',"general"=>isset($districtlevel->india_la_general_pct)?$districtlevel->india_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_la_sc_pl34)?$districtlevel->india_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_la_obc_pl12)?$districtlevel->india_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_la_sc_pl12)?$districtlevel->india_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_la_sc_pl12)?$districtlevel->india_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_la_obc_pl34)?$districtlevel->india_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_la_st_pl12)?$districtlevel->india_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_la_general_pl12)?$districtlevel->india_la_general_pl12:'0' 
@@ -380,27 +380,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_ma_private_pl34)?$districtlevel->india_ma_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_ma_centgovt_pl34)?$districtlevel->india_ma_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_ma_obc_pl12)?$districtlevel->dist_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ma_obc_pl34)?$districtlevel->dist_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ma_st_pl12)?$districtlevel->dist_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ma_general_pl12)?$districtlevel->dist_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_ma_st_pl34)?$districtlevel->dist_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_ma_general_pl34)?$districtlevel->dist_ma_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_ma_sc_pct)?$districtlevel->state_ma_sc_pct:'0',"obc"=>isset($districtlevel->state_ma_obc_pct)?$districtlevel->state_ma_obc_pct:'0',"st"=>isset($districtlevel->state_ma_st_pct)?$districtlevel->state_ma_st_pct:'0',"general"=>isset($districtlevel->state_ma_general_pct)?$districtlevel->state_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_ma_sc_pl34)?$districtlevel->state_ma_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_ma_sc_pct)?$districtlevel->state_ma_sc_pct:'0',"obc"=>isset($districtlevel->state_ma_obc_pct)?$districtlevel->state_ma_obc_pct:'0',"st"=>isset($districtlevel->state_ma_st_pct)?$districtlevel->state_ma_st_pct:'0',"general"=>isset($districtlevel->state_ma_general_pct)?$districtlevel->state_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_ma_sc_pl34)?$districtlevel->state_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_ma_obc_pl12)?$districtlevel->state_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_ma_sc_pl12)?$districtlevel->state_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_ma_sc_pl12)?$districtlevel->state_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_ma_obc_pl34)?$districtlevel->state_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_ma_st_pl12)?$districtlevel->state_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_ma_general_pl12)?$districtlevel->state_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_ma_st_pl34)?$districtlevel->state_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_ma_general_pl34)?$districtlevel->state_ma_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_ma_sc_pct)?$districtlevel->india_ma_sc_pct:'0',"obc"=>isset($districtlevel->india_ma_obc_pct)?$districtlevel->india_ma_obc_pct:'0',"st"=>isset($districtlevel->india_ma_st_pct)?$districtlevel->india_ma_st_pct:'0',"general"=>isset($districtlevel->india_ma_general_pct)?$districtlevel->india_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_ma_sc_pl34)?$districtlevel->india_ma_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_ma_sc_pct)?$districtlevel->india_ma_sc_pct:'0',"obc"=>isset($districtlevel->india_ma_obc_pct)?$districtlevel->india_ma_obc_pct:'0',"st"=>isset($districtlevel->india_ma_st_pct)?$districtlevel->india_ma_st_pct:'0',"general"=>isset($districtlevel->india_ma_general_pct)?$districtlevel->india_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_ma_sc_pl34)?$districtlevel->india_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_ma_obc_pl12)?$districtlevel->india_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_ma_sc_pl12)?$districtlevel->india_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_ma_sc_pl12)?$districtlevel->india_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_ma_obc_pl34)?$districtlevel->india_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_ma_st_pl12)?$districtlevel->india_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_ma_general_pl12)?$districtlevel->india_ma_general_pl12:'0' 
@@ -481,27 +481,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_ev_private_pl34)?$districtlevel->india_ev_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_ev_centgovt_pl34)?$districtlevel->india_ev_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_ev_sc_pct)?$districtlevel->dist_ev_sc_pct:'0',"obc"=>isset($districtlevel->dist_ev_obc_pct)?$districtlevel->dist_ev_obc_pct:'0',"st"=>isset($districtlevel->dist_ev_st_pct)?$districtlevel->dist_ev_st_pct:'0',"general"=>isset($districtlevel->dist_ev_general_pct)?$districtlevel->dist_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ev_sc_pl34)?$districtlevel->dist_ev_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_ev_sc_pct)?$districtlevel->dist_ev_sc_pct:'0',"obc"=>isset($districtlevel->dist_ev_obc_pct)?$districtlevel->dist_ev_obc_pct:'0',"st"=>isset($districtlevel->dist_ev_st_pct)?$districtlevel->dist_ev_st_pct:'0',"general"=>isset($districtlevel->dist_ev_general_pct)?$districtlevel->dist_ev_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_ev_sc_pl34)?$districtlevel->dist_ev_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_ev_obc_pl12)?$districtlevel->dist_ev_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ev_sc_pl12)?$districtlevel->dist_ev_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_ev_sc_pl12)?$districtlevel->dist_ev_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ev_obc_pl34)?$districtlevel->dist_ev_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ev_st_pl12)?$districtlevel->dist_ev_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ev_general_pl12)?$districtlevel->dist_ev_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_ev_st_pl34)?$districtlevel->dist_ev_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_ev_general_pl34)?$districtlevel->dist_ev_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_ev_sc_pct)?$districtlevel->state_ev_sc_pct:'0',"obc"=>isset($districtlevel->state_ev_obc_pct)?$districtlevel->state_ev_obc_pct:'0',"st"=>isset($districtlevel->state_ev_st_pct)?$districtlevel->state_ev_st_pct:'0',"general"=>isset($districtlevel->state_ev_general_pct)?$districtlevel->state_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_ev_sc_pl34)?$districtlevel->state_ev_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_ev_sc_pct)?$districtlevel->state_ev_sc_pct:'0',"obc"=>isset($districtlevel->state_ev_obc_pct)?$districtlevel->state_ev_obc_pct:'0',"st"=>isset($districtlevel->state_ev_st_pct)?$districtlevel->state_ev_st_pct:'0',"general"=>isset($districtlevel->state_ev_general_pct)?$districtlevel->state_ev_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_ev_sc_pl34)?$districtlevel->state_ev_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_ev_obc_pl12)?$districtlevel->state_ev_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_ev_sc_pl12)?$districtlevel->state_ev_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_ev_sc_pl12)?$districtlevel->state_ev_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_ev_obc_pl34)?$districtlevel->state_ev_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_ev_st_pl12)?$districtlevel->state_ev_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_ev_general_pl12)?$districtlevel->state_ev_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_ev_st_pl34)?$districtlevel->state_ev_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_ev_general_pl34)?$districtlevel->state_ev_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_ev_sc_pct)?$districtlevel->india_ev_sc_pct:'0',"obc"=>isset($districtlevel->india_ev_obc_pct)?$districtlevel->india_ev_obc_pct:'0',"st"=>isset($districtlevel->india_ev_st_pct)?$districtlevel->india_ev_st_pct:'0',"general"=>isset($districtlevel->india_ev_general_pct)?$districtlevel->india_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_ev_sc_pl34)?$districtlevel->india_ev_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_ev_sc_pct)?$districtlevel->india_ev_sc_pct:'0',"obc"=>isset($districtlevel->india_ev_obc_pct)?$districtlevel->india_ev_obc_pct:'0',"st"=>isset($districtlevel->india_ev_st_pct)?$districtlevel->india_ev_st_pct:'0',"general"=>isset($districtlevel->india_ev_general_pct)?$districtlevel->india_ev_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_ev_sc_pl34)?$districtlevel->india_ev_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_ev_obc_pl12)?$districtlevel->india_ev_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_ev_sc_pl12)?$districtlevel->india_ev_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_ev_sc_pl12)?$districtlevel->india_ev_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_ev_obc_pl34)?$districtlevel->india_ev_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_ev_st_pl12)?$districtlevel->india_ev_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_ev_general_pl12)?$districtlevel->india_ev_general_pl12:'0' 
@@ -601,27 +601,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_la_private_pl34)?$districtlevel->india_la_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_la_centgovt_pl34)?$districtlevel->india_la_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_la_obc_pl12)?$districtlevel->dist_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_la_obc_pl34)?$districtlevel->dist_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_la_st_pl12)?$districtlevel->dist_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_la_general_pl12)?$districtlevel->dist_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_la_st_pl34)?$districtlevel->dist_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_la_general_pl34)?$districtlevel->dist_la_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_la_sc_pct)?$districtlevel->state_la_sc_pct:'0',"obc"=>isset($districtlevel->state_la_obc_pct)?$districtlevel->state_la_obc_pct:'0',"st"=>isset($districtlevel->state_la_st_pct)?$districtlevel->state_la_st_pct:'0',"general"=>isset($districtlevel->state_la_general_pct)?$districtlevel->state_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_la_sc_pl34)?$districtlevel->state_la_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_la_sc_pct)?$districtlevel->state_la_sc_pct:'0',"obc"=>isset($districtlevel->state_la_obc_pct)?$districtlevel->state_la_obc_pct:'0',"st"=>isset($districtlevel->state_la_st_pct)?$districtlevel->state_la_st_pct:'0',"general"=>isset($districtlevel->state_la_general_pct)?$districtlevel->state_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_la_sc_pl34)?$districtlevel->state_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_la_obc_pl12)?$districtlevel->state_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_la_sc_pl12)?$districtlevel->state_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_la_sc_pl12)?$districtlevel->state_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_la_obc_pl34)?$districtlevel->state_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_la_st_pl12)?$districtlevel->state_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_la_general_pl12)?$districtlevel->state_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_la_st_pl34)?$districtlevel->state_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_la_general_pl34)?$districtlevel->state_la_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_la_sc_pct)?$districtlevel->india_la_sc_pct:'0',"obc"=>isset($districtlevel->india_la_obc_pct)?$districtlevel->india_la_obc_pct:'0',"st"=>isset($districtlevel->india_la_st_pct)?$districtlevel->india_la_st_pct:'0',"general"=>isset($districtlevel->india_la_general_pct)?$districtlevel->india_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_la_sc_pl34)?$districtlevel->india_la_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_la_sc_pct)?$districtlevel->india_la_sc_pct:'0',"obc"=>isset($districtlevel->india_la_obc_pct)?$districtlevel->india_la_obc_pct:'0',"st"=>isset($districtlevel->india_la_st_pct)?$districtlevel->india_la_st_pct:'0',"general"=>isset($districtlevel->india_la_general_pct)?$districtlevel->india_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_la_sc_pl34)?$districtlevel->india_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_la_obc_pl12)?$districtlevel->india_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_la_sc_pl12)?$districtlevel->india_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_la_sc_pl12)?$districtlevel->india_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_la_obc_pl34)?$districtlevel->india_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_la_st_pl12)?$districtlevel->india_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_la_general_pl12)?$districtlevel->india_la_general_pl12:'0' 
@@ -702,27 +702,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_ma_private_pl34)?$districtlevel->india_ma_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_ma_centgovt_pl34)?$districtlevel->india_ma_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_ma_obc_pl12)?$districtlevel->dist_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ma_obc_pl34)?$districtlevel->dist_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ma_st_pl12)?$districtlevel->dist_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ma_general_pl12)?$districtlevel->dist_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_ma_st_pl34)?$districtlevel->dist_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_ma_general_pl34)?$districtlevel->dist_ma_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_ma_sc_pct)?$districtlevel->state_ma_sc_pct:'0',"obc"=>isset($districtlevel->state_ma_obc_pct)?$districtlevel->state_ma_obc_pct:'0',"st"=>isset($districtlevel->state_ma_st_pct)?$districtlevel->state_ma_st_pct:'0',"general"=>isset($districtlevel->state_ma_general_pct)?$districtlevel->state_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_ma_sc_pl34)?$districtlevel->state_ma_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_ma_sc_pct)?$districtlevel->state_ma_sc_pct:'0',"obc"=>isset($districtlevel->state_ma_obc_pct)?$districtlevel->state_ma_obc_pct:'0',"st"=>isset($districtlevel->state_ma_st_pct)?$districtlevel->state_ma_st_pct:'0',"general"=>isset($districtlevel->state_ma_general_pct)?$districtlevel->state_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_ma_sc_pl34)?$districtlevel->state_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_ma_obc_pl12)?$districtlevel->state_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_ma_sc_pl12)?$districtlevel->state_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_ma_sc_pl12)?$districtlevel->state_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_ma_obc_pl34)?$districtlevel->state_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_ma_st_pl12)?$districtlevel->state_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_ma_general_pl12)?$districtlevel->state_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_ma_st_pl34)?$districtlevel->state_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_ma_general_pl34)?$districtlevel->state_ma_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_ma_sc_pct)?$districtlevel->india_ma_sc_pct:'0',"obc"=>isset($districtlevel->india_ma_obc_pct)?$districtlevel->india_ma_obc_pct:'0',"st"=>isset($districtlevel->india_ma_st_pct)?$districtlevel->india_ma_st_pct:'0',"general"=>isset($districtlevel->india_ma_general_pct)?$districtlevel->india_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_ma_sc_pl34)?$districtlevel->india_ma_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_ma_sc_pct)?$districtlevel->india_ma_sc_pct:'0',"obc"=>isset($districtlevel->india_ma_obc_pct)?$districtlevel->india_ma_obc_pct:'0',"st"=>isset($districtlevel->india_ma_st_pct)?$districtlevel->india_ma_st_pct:'0',"general"=>isset($districtlevel->india_ma_general_pct)?$districtlevel->india_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_ma_sc_pl34)?$districtlevel->india_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_ma_obc_pl12)?$districtlevel->india_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_ma_sc_pl12)?$districtlevel->india_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_ma_sc_pl12)?$districtlevel->india_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_ma_obc_pl34)?$districtlevel->india_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_ma_st_pl12)?$districtlevel->india_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_ma_general_pl12)?$districtlevel->india_ma_general_pl12:'0' 
@@ -803,27 +803,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_ev_private_pl34)?$districtlevel->india_ev_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_ev_centgovt_pl34)?$districtlevel->india_ev_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_ev_sc_pct)?$districtlevel->dist_ev_sc_pct:'0',"obc"=>isset($districtlevel->dist_ev_obc_pct)?$districtlevel->dist_ev_obc_pct:'0',"st"=>isset($districtlevel->dist_ev_st_pct)?$districtlevel->dist_ev_st_pct:'0',"general"=>isset($districtlevel->dist_ev_general_pct)?$districtlevel->dist_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ev_sc_pl34)?$districtlevel->dist_ev_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_ev_sc_pct)?$districtlevel->dist_ev_sc_pct:'0',"obc"=>isset($districtlevel->dist_ev_obc_pct)?$districtlevel->dist_ev_obc_pct:'0',"st"=>isset($districtlevel->dist_ev_st_pct)?$districtlevel->dist_ev_st_pct:'0',"general"=>isset($districtlevel->dist_ev_general_pct)?$districtlevel->dist_ev_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_ev_sc_pl34)?$districtlevel->dist_ev_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_ev_obc_pl12)?$districtlevel->dist_ev_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ev_sc_pl12)?$districtlevel->dist_ev_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_ev_sc_pl12)?$districtlevel->dist_ev_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ev_obc_pl34)?$districtlevel->dist_ev_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ev_st_pl12)?$districtlevel->dist_ev_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ev_general_pl12)?$districtlevel->dist_ev_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_ev_st_pl34)?$districtlevel->dist_ev_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_ev_general_pl34)?$districtlevel->dist_ev_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_ev_sc_pct)?$districtlevel->state_ev_sc_pct:'0',"obc"=>isset($districtlevel->state_ev_obc_pct)?$districtlevel->state_ev_obc_pct:'0',"st"=>isset($districtlevel->state_ev_st_pct)?$districtlevel->state_ev_st_pct:'0',"general"=>isset($districtlevel->state_ev_general_pct)?$districtlevel->state_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_ev_sc_pl34)?$districtlevel->state_ev_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_ev_sc_pct)?$districtlevel->state_ev_sc_pct:'0',"obc"=>isset($districtlevel->state_ev_obc_pct)?$districtlevel->state_ev_obc_pct:'0',"st"=>isset($districtlevel->state_ev_st_pct)?$districtlevel->state_ev_st_pct:'0',"general"=>isset($districtlevel->state_ev_general_pct)?$districtlevel->state_ev_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_ev_sc_pl34)?$districtlevel->state_ev_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_ev_obc_pl12)?$districtlevel->state_ev_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_ev_sc_pl12)?$districtlevel->state_ev_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_ev_sc_pl12)?$districtlevel->state_ev_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_ev_obc_pl34)?$districtlevel->state_ev_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_ev_st_pl12)?$districtlevel->state_ev_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_ev_general_pl12)?$districtlevel->state_ev_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_ev_st_pl34)?$districtlevel->state_ev_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_ev_general_pl34)?$districtlevel->state_ev_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_ev_sc_pct)?$districtlevel->india_ev_sc_pct:'0',"obc"=>isset($districtlevel->india_ev_obc_pct)?$districtlevel->india_ev_obc_pct:'0',"st"=>isset($districtlevel->india_ev_st_pct)?$districtlevel->india_ev_st_pct:'0',"general"=>isset($districtlevel->india_ev_general_pct)?$districtlevel->india_ev_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_ev_sc_pl34)?$districtlevel->india_ev_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_ev_sc_pct)?$districtlevel->india_ev_sc_pct:'0',"obc"=>isset($districtlevel->india_ev_obc_pct)?$districtlevel->india_ev_obc_pct:'0',"st"=>isset($districtlevel->india_ev_st_pct)?$districtlevel->india_ev_st_pct:'0',"general"=>isset($districtlevel->india_ev_general_pct)?$districtlevel->india_ev_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_ev_sc_pl34)?$districtlevel->india_ev_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_ev_obc_pl12)?$districtlevel->india_ev_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_ev_sc_pl12)?$districtlevel->india_ev_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_ev_sc_pl12)?$districtlevel->india_ev_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_ev_obc_pl34)?$districtlevel->india_ev_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_ev_st_pl12)?$districtlevel->india_ev_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_ev_general_pl12)?$districtlevel->india_ev_general_pl12:'0' 
@@ -922,27 +922,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_la_private_pl34)?$districtlevel->india_la_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_la_centgovt_pl34)?$districtlevel->india_la_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_la_obc_pl12)?$districtlevel->dist_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_la_obc_pl34)?$districtlevel->dist_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_la_st_pl12)?$districtlevel->dist_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_la_general_pl12)?$districtlevel->dist_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_la_st_pl34)?$districtlevel->dist_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_la_general_pl34)?$districtlevel->dist_la_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_la_sc_pct)?$districtlevel->state_la_sc_pct:'0',"obc"=>isset($districtlevel->state_la_obc_pct)?$districtlevel->state_la_obc_pct:'0',"st"=>isset($districtlevel->state_la_st_pct)?$districtlevel->state_la_st_pct:'0',"general"=>isset($districtlevel->state_la_general_pct)?$districtlevel->state_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_la_sc_pl34)?$districtlevel->state_la_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_la_sc_pct)?$districtlevel->state_la_sc_pct:'0',"obc"=>isset($districtlevel->state_la_obc_pct)?$districtlevel->state_la_obc_pct:'0',"st"=>isset($districtlevel->state_la_st_pct)?$districtlevel->state_la_st_pct:'0',"general"=>isset($districtlevel->state_la_general_pct)?$districtlevel->state_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_la_sc_pl34)?$districtlevel->state_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_la_obc_pl12)?$districtlevel->state_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_la_sc_pl12)?$districtlevel->state_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_la_sc_pl12)?$districtlevel->state_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_la_obc_pl34)?$districtlevel->state_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_la_st_pl12)?$districtlevel->state_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_la_general_pl12)?$districtlevel->state_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_la_st_pl34)?$districtlevel->state_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_la_general_pl34)?$districtlevel->state_la_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_la_sc_pct)?$districtlevel->india_la_sc_pct:'0',"obc"=>isset($districtlevel->india_la_obc_pct)?$districtlevel->india_la_obc_pct:'0',"st"=>isset($districtlevel->india_la_st_pct)?$districtlevel->india_la_st_pct:'0',"general"=>isset($districtlevel->india_la_general_pct)?$districtlevel->india_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_la_sc_pl34)?$districtlevel->india_la_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_la_sc_pct)?$districtlevel->india_la_sc_pct:'0',"obc"=>isset($districtlevel->india_la_obc_pct)?$districtlevel->india_la_obc_pct:'0',"st"=>isset($districtlevel->india_la_st_pct)?$districtlevel->india_la_st_pct:'0',"general"=>isset($districtlevel->india_la_general_pct)?$districtlevel->india_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_la_sc_pl34)?$districtlevel->india_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_la_obc_pl12)?$districtlevel->india_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_la_sc_pl12)?$districtlevel->india_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_la_sc_pl12)?$districtlevel->india_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_la_obc_pl34)?$districtlevel->india_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_la_st_pl12)?$districtlevel->india_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_la_general_pl12)?$districtlevel->india_la_general_pl12:'0' 
@@ -1023,27 +1023,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_ma_private_pl34)?$districtlevel->india_ma_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_ma_centgovt_pl34)?$districtlevel->india_ma_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_ma_obc_pl12)?$districtlevel->dist_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ma_obc_pl34)?$districtlevel->dist_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ma_st_pl12)?$districtlevel->dist_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ma_general_pl12)?$districtlevel->dist_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_ma_st_pl34)?$districtlevel->dist_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_ma_general_pl34)?$districtlevel->dist_ma_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_ma_sc_pct)?$districtlevel->state_ma_sc_pct:'0',"obc"=>isset($districtlevel->state_ma_obc_pct)?$districtlevel->state_ma_obc_pct:'0',"st"=>isset($districtlevel->state_ma_st_pct)?$districtlevel->state_ma_st_pct:'0',"general"=>isset($districtlevel->state_ma_general_pct)?$districtlevel->state_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_ma_sc_pl34)?$districtlevel->state_ma_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_ma_sc_pct)?$districtlevel->state_ma_sc_pct:'0',"obc"=>isset($districtlevel->state_ma_obc_pct)?$districtlevel->state_ma_obc_pct:'0',"st"=>isset($districtlevel->state_ma_st_pct)?$districtlevel->state_ma_st_pct:'0',"general"=>isset($districtlevel->state_ma_general_pct)?$districtlevel->state_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_ma_sc_pl34)?$districtlevel->state_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_ma_obc_pl12)?$districtlevel->state_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_ma_sc_pl12)?$districtlevel->state_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_ma_sc_pl12)?$districtlevel->state_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_ma_obc_pl34)?$districtlevel->state_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_ma_st_pl12)?$districtlevel->state_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_ma_general_pl12)?$districtlevel->state_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_ma_st_pl34)?$districtlevel->state_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_ma_general_pl34)?$districtlevel->state_ma_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_ma_sc_pct)?$districtlevel->india_ma_sc_pct:'0',"obc"=>isset($districtlevel->india_ma_obc_pct)?$districtlevel->india_ma_obc_pct:'0',"st"=>isset($districtlevel->india_ma_st_pct)?$districtlevel->india_ma_st_pct:'0',"general"=>isset($districtlevel->india_ma_general_pct)?$districtlevel->india_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_ma_sc_pl34)?$districtlevel->india_ma_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_ma_sc_pct)?$districtlevel->india_ma_sc_pct:'0',"obc"=>isset($districtlevel->india_ma_obc_pct)?$districtlevel->india_ma_obc_pct:'0',"st"=>isset($districtlevel->india_ma_st_pct)?$districtlevel->india_ma_st_pct:'0',"general"=>isset($districtlevel->india_ma_general_pct)?$districtlevel->india_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_ma_sc_pl34)?$districtlevel->india_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_ma_obc_pl12)?$districtlevel->india_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_ma_sc_pl12)?$districtlevel->india_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_ma_sc_pl12)?$districtlevel->india_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_ma_obc_pl34)?$districtlevel->india_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_ma_st_pl12)?$districtlevel->india_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_ma_general_pl12)?$districtlevel->india_ma_general_pl12:'0' 
@@ -1124,27 +1124,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_sc_private_pl34)?$districtlevel->india_sc_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_sc_centgovt_pl34)?$districtlevel->india_sc_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_sc_sc_pct)?$districtlevel->dist_sc_sc_pct:'0',"obc"=>isset($districtlevel->dist_sc_obc_pct)?$districtlevel->dist_sc_obc_pct:'0',"st"=>isset($districtlevel->dist_sc_st_pct)?$districtlevel->dist_sc_st_pct:'0',"general"=>isset($districtlevel->dist_sc_general_pct)?$districtlevel->dist_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_sc_sc_pl34)?$districtlevel->dist_sc_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_sc_sc_pct)?$districtlevel->dist_sc_sc_pct:'0',"obc"=>isset($districtlevel->dist_sc_obc_pct)?$districtlevel->dist_sc_obc_pct:'0',"st"=>isset($districtlevel->dist_sc_st_pct)?$districtlevel->dist_sc_st_pct:'0',"general"=>isset($districtlevel->dist_sc_general_pct)?$districtlevel->dist_sc_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_sc_sc_pl34)?$districtlevel->dist_sc_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_sc_obc_pl12)?$districtlevel->dist_sc_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_sc_sc_pl12)?$districtlevel->dist_sc_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_sc_sc_pl12)?$districtlevel->dist_sc_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_sc_obc_pl34)?$districtlevel->dist_sc_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_sc_st_pl12)?$districtlevel->dist_sc_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_sc_general_pl12)?$districtlevel->dist_sc_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_sc_st_pl34)?$districtlevel->dist_sc_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_sc_general_pl34)?$districtlevel->dist_sc_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_sc_sc_pct)?$districtlevel->state_sc_sc_pct:'0',"obc"=>isset($districtlevel->state_sc_obc_pct)?$districtlevel->state_sc_obc_pct:'0',"st"=>isset($districtlevel->state_sc_st_pct)?$districtlevel->state_sc_st_pct:'0',"general"=>isset($districtlevel->state_sc_general_pct)?$districtlevel->state_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_sc_sc_pl34)?$districtlevel->state_sc_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_sc_sc_pct)?$districtlevel->state_sc_sc_pct:'0',"obc"=>isset($districtlevel->state_sc_obc_pct)?$districtlevel->state_sc_obc_pct:'0',"st"=>isset($districtlevel->state_sc_st_pct)?$districtlevel->state_sc_st_pct:'0',"general"=>isset($districtlevel->state_sc_general_pct)?$districtlevel->state_sc_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_sc_sc_pl34)?$districtlevel->state_sc_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_sc_obc_pl12)?$districtlevel->state_sc_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_sc_sc_pl12)?$districtlevel->state_sc_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_sc_sc_pl12)?$districtlevel->state_sc_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_sc_obc_pl34)?$districtlevel->state_sc_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_sc_st_pl12)?$districtlevel->state_sc_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_sc_general_pl12)?$districtlevel->state_sc_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_sc_st_pl34)?$districtlevel->state_sc_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_sc_general_pl34)?$districtlevel->state_sc_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_sc_sc_pct)?$districtlevel->india_sc_sc_pct:'0',"obc"=>isset($districtlevel->india_sc_obc_pct)?$districtlevel->india_sc_obc_pct:'0',"st"=>isset($districtlevel->india_sc_st_pct)?$districtlevel->india_sc_st_pct:'0',"general"=>isset($districtlevel->india_sc_general_pct)?$districtlevel->india_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_sc_sc_pl34)?$districtlevel->india_sc_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_sc_sc_pct)?$districtlevel->india_sc_sc_pct:'0',"obc"=>isset($districtlevel->india_sc_obc_pct)?$districtlevel->india_sc_obc_pct:'0',"st"=>isset($districtlevel->india_sc_st_pct)?$districtlevel->india_sc_st_pct:'0',"general"=>isset($districtlevel->india_sc_general_pct)?$districtlevel->india_sc_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_sc_sc_pl34)?$districtlevel->india_sc_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_sc_obc_pl12)?$districtlevel->india_sc_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_sc_sc_pl12)?$districtlevel->india_sc_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_sc_sc_pl12)?$districtlevel->india_sc_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_sc_obc_pl34)?$districtlevel->india_sc_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_sc_st_pl12)?$districtlevel->india_sc_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_sc_general_pl12)?$districtlevel->india_sc_general_pl12:'0' 
@@ -1225,27 +1225,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_ss_private_pl34)?$districtlevel->india_ss_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_ss_centgovt_pl34)?$districtlevel->india_ss_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_ss_sc_pct)?$districtlevel->dist_ss_sc_pct:'0',"obc"=>isset($districtlevel->dist_ss_obc_pct)?$districtlevel->dist_ss_obc_pct:'0',"st"=>isset($districtlevel->dist_ss_st_pct)?$districtlevel->dist_ss_st_pct:'0',"general"=>isset($districtlevel->dist_ss_general_pct)?$districtlevel->dist_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ss_sc_pl34)?$districtlevel->dist_ss_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_ss_sc_pct)?$districtlevel->dist_ss_sc_pct:'0',"obc"=>isset($districtlevel->dist_ss_obc_pct)?$districtlevel->dist_ss_obc_pct:'0',"st"=>isset($districtlevel->dist_ss_st_pct)?$districtlevel->dist_ss_st_pct:'0',"general"=>isset($districtlevel->dist_ss_general_pct)?$districtlevel->dist_ss_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_ss_sc_pl34)?$districtlevel->dist_ss_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_ss_obc_pl12)?$districtlevel->dist_ss_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ss_sc_pl12)?$districtlevel->dist_ss_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_ss_sc_pl12)?$districtlevel->dist_ss_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ss_obc_pl34)?$districtlevel->dist_ss_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ss_st_pl12)?$districtlevel->dist_ss_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ss_general_pl12)?$districtlevel->dist_ss_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_ss_st_pl34)?$districtlevel->dist_ss_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_ss_general_pl34)?$districtlevel->dist_ss_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_ss_sc_pct)?$districtlevel->state_ss_sc_pct:'0',"obc"=>isset($districtlevel->state_ss_obc_pct)?$districtlevel->state_ss_obc_pct:'0',"st"=>isset($districtlevel->state_ss_st_pct)?$districtlevel->state_ss_st_pct:'0',"general"=>isset($districtlevel->state_ss_general_pct)?$districtlevel->state_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_ss_sc_pl34)?$districtlevel->state_ss_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_ss_sc_pct)?$districtlevel->state_ss_sc_pct:'0',"obc"=>isset($districtlevel->state_ss_obc_pct)?$districtlevel->state_ss_obc_pct:'0',"st"=>isset($districtlevel->state_ss_st_pct)?$districtlevel->state_ss_st_pct:'0',"general"=>isset($districtlevel->state_ss_general_pct)?$districtlevel->state_ss_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_ss_sc_pl34)?$districtlevel->state_ss_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_ss_obc_pl12)?$districtlevel->state_ss_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_ss_sc_pl12)?$districtlevel->state_ss_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_ss_sc_pl12)?$districtlevel->state_ss_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_ss_obc_pl34)?$districtlevel->state_ss_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_ss_st_pl12)?$districtlevel->state_ss_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_ss_general_pl12)?$districtlevel->state_ss_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_ss_st_pl34)?$districtlevel->state_ss_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_ss_general_pl34)?$districtlevel->state_ss_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_ss_sc_pct)?$districtlevel->india_ss_sc_pct:'0',"obc"=>isset($districtlevel->india_ss_obc_pct)?$districtlevel->india_ss_obc_pct:'0',"st"=>isset($districtlevel->india_ss_st_pct)?$districtlevel->india_ss_st_pct:'0',"general"=>isset($districtlevel->india_ss_general_pct)?$districtlevel->india_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_ss_sc_pl34)?$districtlevel->india_ss_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_ss_sc_pct)?$districtlevel->india_ss_sc_pct:'0',"obc"=>isset($districtlevel->india_ss_obc_pct)?$districtlevel->india_ss_obc_pct:'0',"st"=>isset($districtlevel->india_ss_st_pct)?$districtlevel->india_ss_st_pct:'0',"general"=>isset($districtlevel->india_ss_general_pct)?$districtlevel->india_ss_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_ss_sc_pl34)?$districtlevel->india_ss_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_ss_obc_pl12)?$districtlevel->india_ss_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_ss_sc_pl12)?$districtlevel->india_ss_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_ss_sc_pl12)?$districtlevel->india_ss_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_ss_obc_pl34)?$districtlevel->india_ss_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_ss_st_pl12)?$districtlevel->india_ss_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_ss_general_pl12)?$districtlevel->india_ss_general_pl12:'0' 
@@ -1345,27 +1345,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_ma_private_pl34)?$districtlevel->india_ma_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_ma_centgovt_pl34)?$districtlevel->india_ma_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_ma_sc_pct)?$districtlevel->dist_ma_sc_pct:'0',"obc"=>isset($districtlevel->dist_ma_obc_pct)?$districtlevel->dist_ma_obc_pct:'0',"st"=>isset($districtlevel->dist_ma_st_pct)?$districtlevel->dist_ma_st_pct:'0',"general"=>isset($districtlevel->dist_ma_general_pct)?$districtlevel->dist_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl34)?$districtlevel->dist_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_ma_obc_pl12)?$districtlevel->dist_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_ma_sc_pl12)?$districtlevel->dist_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ma_obc_pl34)?$districtlevel->dist_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ma_st_pl12)?$districtlevel->dist_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ma_general_pl12)?$districtlevel->dist_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_ma_st_pl34)?$districtlevel->dist_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_ma_general_pl34)?$districtlevel->dist_ma_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_ma_sc_pct)?$districtlevel->state_ma_sc_pct:'0',"obc"=>isset($districtlevel->state_ma_obc_pct)?$districtlevel->state_ma_obc_pct:'0',"st"=>isset($districtlevel->state_ma_st_pct)?$districtlevel->state_ma_st_pct:'0',"general"=>isset($districtlevel->state_ma_general_pct)?$districtlevel->state_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_ma_sc_pl34)?$districtlevel->state_ma_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_ma_sc_pct)?$districtlevel->state_ma_sc_pct:'0',"obc"=>isset($districtlevel->state_ma_obc_pct)?$districtlevel->state_ma_obc_pct:'0',"st"=>isset($districtlevel->state_ma_st_pct)?$districtlevel->state_ma_st_pct:'0',"general"=>isset($districtlevel->state_ma_general_pct)?$districtlevel->state_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_ma_sc_pl34)?$districtlevel->state_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_ma_obc_pl12)?$districtlevel->state_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_ma_sc_pl12)?$districtlevel->state_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_ma_sc_pl12)?$districtlevel->state_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_ma_obc_pl34)?$districtlevel->state_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_ma_st_pl12)?$districtlevel->state_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_ma_general_pl12)?$districtlevel->state_ma_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_ma_st_pl34)?$districtlevel->state_ma_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_ma_general_pl34)?$districtlevel->state_ma_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_ma_sc_pct)?$districtlevel->india_ma_sc_pct:'0',"obc"=>isset($districtlevel->india_ma_obc_pct)?$districtlevel->india_ma_obc_pct:'0',"st"=>isset($districtlevel->india_ma_st_pct)?$districtlevel->india_ma_st_pct:'0',"general"=>isset($districtlevel->india_ma_general_pct)?$districtlevel->india_ma_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_ma_sc_pl34)?$districtlevel->india_ma_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_ma_sc_pct)?$districtlevel->india_ma_sc_pct:'0',"obc"=>isset($districtlevel->india_ma_obc_pct)?$districtlevel->india_ma_obc_pct:'0',"st"=>isset($districtlevel->india_ma_st_pct)?$districtlevel->india_ma_st_pct:'0',"general"=>isset($districtlevel->india_ma_general_pct)?$districtlevel->india_ma_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_ma_sc_pl34)?$districtlevel->india_ma_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_ma_obc_pl12)?$districtlevel->india_ma_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_ma_sc_pl12)?$districtlevel->india_ma_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_ma_sc_pl12)?$districtlevel->india_ma_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_ma_obc_pl34)?$districtlevel->india_ma_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_ma_st_pl12)?$districtlevel->india_ma_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_ma_general_pl12)?$districtlevel->india_ma_general_pl12:'0' 
@@ -1446,27 +1446,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_sc_private_pl34)?$districtlevel->india_sc_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_sc_centgovt_pl34)?$districtlevel->india_sc_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_sc_sc_pct)?$districtlevel->dist_sc_sc_pct:'0',"obc"=>isset($districtlevel->dist_sc_obc_pct)?$districtlevel->dist_sc_obc_pct:'0',"st"=>isset($districtlevel->dist_sc_st_pct)?$districtlevel->dist_sc_st_pct:'0',"general"=>isset($districtlevel->dist_sc_general_pct)?$districtlevel->dist_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_sc_sc_pl34)?$districtlevel->dist_sc_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_sc_sc_pct)?$districtlevel->dist_sc_sc_pct:'0',"obc"=>isset($districtlevel->dist_sc_obc_pct)?$districtlevel->dist_sc_obc_pct:'0',"st"=>isset($districtlevel->dist_sc_st_pct)?$districtlevel->dist_sc_st_pct:'0',"general"=>isset($districtlevel->dist_sc_general_pct)?$districtlevel->dist_sc_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_sc_sc_pl34)?$districtlevel->dist_sc_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_sc_obc_pl12)?$districtlevel->dist_sc_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_sc_sc_pl12)?$districtlevel->dist_sc_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_sc_sc_pl12)?$districtlevel->dist_sc_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_sc_obc_pl34)?$districtlevel->dist_sc_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_sc_st_pl12)?$districtlevel->dist_sc_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_sc_general_pl12)?$districtlevel->dist_sc_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_sc_st_pl34)?$districtlevel->dist_sc_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_sc_general_pl34)?$districtlevel->dist_sc_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_sc_sc_pct)?$districtlevel->state_sc_sc_pct:'0',"obc"=>isset($districtlevel->state_sc_obc_pct)?$districtlevel->state_sc_obc_pct:'0',"st"=>isset($districtlevel->state_sc_st_pct)?$districtlevel->state_sc_st_pct:'0',"general"=>isset($districtlevel->state_sc_general_pct)?$districtlevel->state_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_sc_sc_pl34)?$districtlevel->state_sc_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_sc_sc_pct)?$districtlevel->state_sc_sc_pct:'0',"obc"=>isset($districtlevel->state_sc_obc_pct)?$districtlevel->state_sc_obc_pct:'0',"st"=>isset($districtlevel->state_sc_st_pct)?$districtlevel->state_sc_st_pct:'0',"general"=>isset($districtlevel->state_sc_general_pct)?$districtlevel->state_sc_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_sc_sc_pl34)?$districtlevel->state_sc_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_sc_obc_pl12)?$districtlevel->state_sc_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_sc_sc_pl12)?$districtlevel->state_sc_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_sc_sc_pl12)?$districtlevel->state_sc_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_sc_obc_pl34)?$districtlevel->state_sc_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_sc_st_pl12)?$districtlevel->state_sc_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_sc_general_pl12)?$districtlevel->state_sc_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_sc_st_pl34)?$districtlevel->state_sc_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_sc_general_pl34)?$districtlevel->state_sc_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_sc_sc_pct)?$districtlevel->india_sc_sc_pct:'0',"obc"=>isset($districtlevel->india_sc_obc_pct)?$districtlevel->india_sc_obc_pct:'0',"st"=>isset($districtlevel->india_sc_st_pct)?$districtlevel->india_sc_st_pct:'0',"general"=>isset($districtlevel->india_sc_general_pct)?$districtlevel->india_sc_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_sc_sc_pl34)?$districtlevel->india_sc_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_sc_sc_pct)?$districtlevel->india_sc_sc_pct:'0',"obc"=>isset($districtlevel->india_sc_obc_pct)?$districtlevel->india_sc_obc_pct:'0',"st"=>isset($districtlevel->india_sc_st_pct)?$districtlevel->india_sc_st_pct:'0',"general"=>isset($districtlevel->india_sc_general_pct)?$districtlevel->india_sc_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_sc_sc_pl34)?$districtlevel->india_sc_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_sc_obc_pl12)?$districtlevel->india_sc_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_sc_sc_pl12)?$districtlevel->india_sc_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_sc_sc_pl12)?$districtlevel->india_sc_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_sc_obc_pl34)?$districtlevel->india_sc_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_sc_st_pl12)?$districtlevel->india_sc_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_sc_general_pl12)?$districtlevel->india_sc_general_pl12:'0' 
@@ -1547,27 +1547,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_ss_private_pl34)?$districtlevel->india_ss_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_ss_centgovt_pl34)?$districtlevel->india_ss_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_ss_sc_pct)?$districtlevel->dist_ss_sc_pct:'0',"obc"=>isset($districtlevel->dist_ss_obc_pct)?$districtlevel->dist_ss_obc_pct:'0',"st"=>isset($districtlevel->dist_ss_st_pct)?$districtlevel->dist_ss_st_pct:'0',"general"=>isset($districtlevel->dist_ss_general_pct)?$districtlevel->dist_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_ss_sc_pl34)?$districtlevel->dist_ss_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_ss_sc_pct)?$districtlevel->dist_ss_sc_pct:'0',"obc"=>isset($districtlevel->dist_ss_obc_pct)?$districtlevel->dist_ss_obc_pct:'0',"st"=>isset($districtlevel->dist_ss_st_pct)?$districtlevel->dist_ss_st_pct:'0',"general"=>isset($districtlevel->dist_ss_general_pct)?$districtlevel->dist_ss_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_ss_sc_pl34)?$districtlevel->dist_ss_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_ss_obc_pl12)?$districtlevel->dist_ss_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_ss_sc_pl12)?$districtlevel->dist_ss_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_ss_sc_pl12)?$districtlevel->dist_ss_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_ss_obc_pl34)?$districtlevel->dist_ss_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_ss_st_pl12)?$districtlevel->dist_ss_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_ss_general_pl12)?$districtlevel->dist_ss_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_ss_st_pl34)?$districtlevel->dist_ss_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_ss_general_pl34)?$districtlevel->dist_ss_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_ss_sc_pct)?$districtlevel->state_ss_sc_pct:'0',"obc"=>isset($districtlevel->state_ss_obc_pct)?$districtlevel->state_ss_obc_pct:'0',"st"=>isset($districtlevel->state_ss_st_pct)?$districtlevel->state_ss_st_pct:'0',"general"=>isset($districtlevel->state_ss_general_pct)?$districtlevel->state_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_ss_sc_pl34)?$districtlevel->state_ss_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_ss_sc_pct)?$districtlevel->state_ss_sc_pct:'0',"obc"=>isset($districtlevel->state_ss_obc_pct)?$districtlevel->state_ss_obc_pct:'0',"st"=>isset($districtlevel->state_ss_st_pct)?$districtlevel->state_ss_st_pct:'0',"general"=>isset($districtlevel->state_ss_general_pct)?$districtlevel->state_ss_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_ss_sc_pl34)?$districtlevel->state_ss_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_ss_obc_pl12)?$districtlevel->state_ss_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_ss_sc_pl12)?$districtlevel->state_ss_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_ss_sc_pl12)?$districtlevel->state_ss_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_ss_obc_pl34)?$districtlevel->state_ss_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_ss_st_pl12)?$districtlevel->state_ss_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_ss_general_pl12)?$districtlevel->state_ss_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_ss_st_pl34)?$districtlevel->state_ss_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_ss_general_pl34)?$districtlevel->state_ss_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_ss_sc_pct)?$districtlevel->india_ss_sc_pct:'0',"obc"=>isset($districtlevel->india_ss_obc_pct)?$districtlevel->india_ss_obc_pct:'0',"st"=>isset($districtlevel->india_ss_st_pct)?$districtlevel->india_ss_st_pct:'0',"general"=>isset($districtlevel->india_ss_general_pct)?$districtlevel->india_ss_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_ss_sc_pl34)?$districtlevel->india_ss_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_ss_sc_pct)?$districtlevel->india_ss_sc_pct:'0',"obc"=>isset($districtlevel->india_ss_obc_pct)?$districtlevel->india_ss_obc_pct:'0',"st"=>isset($districtlevel->india_ss_st_pct)?$districtlevel->india_ss_st_pct:'0',"general"=>isset($districtlevel->india_ss_general_pct)?$districtlevel->india_ss_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_ss_sc_pl34)?$districtlevel->india_ss_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_ss_obc_pl12)?$districtlevel->india_ss_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_ss_sc_pl12)?$districtlevel->india_ss_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_ss_sc_pl12)?$districtlevel->india_ss_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_ss_obc_pl34)?$districtlevel->india_ss_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_ss_st_pl12)?$districtlevel->india_ss_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_ss_general_pl12)?$districtlevel->india_ss_general_pl12:'0' 
@@ -1648,27 +1648,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_en_private_pl34)?$districtlevel->india_en_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_en_centgovt_pl34)?$districtlevel->india_en_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_en_sc_pct)?$districtlevel->dist_en_sc_pct:'0',"obc"=>isset($districtlevel->dist_en_obc_pct)?$districtlevel->dist_en_obc_pct:'0',"st"=>isset($districtlevel->dist_en_st_pct)?$districtlevel->dist_en_st_pct:'0',"general"=>isset($districtlevel->dist_en_general_pct)?$districtlevel->dist_en_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_en_sc_pl34)?$districtlevel->dist_en_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_en_sc_pct)?$districtlevel->dist_en_sc_pct:'0',"obc"=>isset($districtlevel->dist_en_obc_pct)?$districtlevel->dist_en_obc_pct:'0',"st"=>isset($districtlevel->dist_en_st_pct)?$districtlevel->dist_en_st_pct:'0',"general"=>isset($districtlevel->dist_en_general_pct)?$districtlevel->dist_en_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_en_sc_pl34)?$districtlevel->dist_en_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_en_obc_pl12)?$districtlevel->dist_en_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_en_sc_pl12)?$districtlevel->dist_en_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_en_sc_pl12)?$districtlevel->dist_en_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_en_obc_pl34)?$districtlevel->dist_en_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_en_st_pl12)?$districtlevel->dist_en_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_en_general_pl12)?$districtlevel->dist_en_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_en_st_pl34)?$districtlevel->dist_en_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_en_general_pl34)?$districtlevel->dist_en_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_en_sc_pct)?$districtlevel->state_en_sc_pct:'0',"obc"=>isset($districtlevel->state_en_obc_pct)?$districtlevel->state_en_obc_pct:'0',"st"=>isset($districtlevel->state_en_st_pct)?$districtlevel->state_en_st_pct:'0',"general"=>isset($districtlevel->state_en_general_pct)?$districtlevel->state_en_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_en_sc_pl34)?$districtlevel->state_en_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_en_sc_pct)?$districtlevel->state_en_sc_pct:'0',"obc"=>isset($districtlevel->state_en_obc_pct)?$districtlevel->state_en_obc_pct:'0',"st"=>isset($districtlevel->state_en_st_pct)?$districtlevel->state_en_st_pct:'0',"general"=>isset($districtlevel->state_en_general_pct)?$districtlevel->state_en_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_en_sc_pl34)?$districtlevel->state_en_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_en_obc_pl12)?$districtlevel->state_en_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_en_sc_pl12)?$districtlevel->state_en_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_en_sc_pl12)?$districtlevel->state_en_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_en_obc_pl34)?$districtlevel->state_en_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_en_st_pl12)?$districtlevel->state_en_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_en_general_pl12)?$districtlevel->state_en_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_en_st_pl34)?$districtlevel->state_en_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_en_general_pl34)?$districtlevel->state_en_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_en_sc_pct)?$districtlevel->india_en_sc_pct:'0',"obc"=>isset($districtlevel->india_en_obc_pct)?$districtlevel->india_en_obc_pct:'0',"st"=>isset($districtlevel->india_en_st_pct)?$districtlevel->india_en_st_pct:'0',"general"=>isset($districtlevel->india_en_general_pct)?$districtlevel->india_en_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_en_sc_pl34)?$districtlevel->india_en_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_en_sc_pct)?$districtlevel->india_en_sc_pct:'0',"obc"=>isset($districtlevel->india_en_obc_pct)?$districtlevel->india_en_obc_pct:'0',"st"=>isset($districtlevel->india_en_st_pct)?$districtlevel->india_en_st_pct:'0',"general"=>isset($districtlevel->india_en_general_pct)?$districtlevel->india_en_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_en_sc_pl34)?$districtlevel->india_en_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_en_obc_pl12)?$districtlevel->india_en_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_en_sc_pl12)?$districtlevel->india_en_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_en_sc_pl12)?$districtlevel->india_en_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_en_obc_pl34)?$districtlevel->india_en_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_en_st_pl12)?$districtlevel->india_en_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_en_general_pl12)?$districtlevel->india_en_general_pl12:'0' 
@@ -1749,27 +1749,27 @@ class FinalDistrictProcessController extends Controller
                     ,'private_proficient_and_advance'=>isset($districtlevel->india_la_private_pl34)?$districtlevel->india_la_private_pl34:'0'
                     ,'central_govt_proficient_and_advance'=>isset($districtlevel->india_la_centgovt_pl34)?$districtlevel->india_la_centgovt_pl34:'0')),
                 'socialgroup'=>array(
-                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
+                    'district'=>array("sc"=>isset($districtlevel->dist_la_sc_pct)?$districtlevel->dist_la_sc_pct:'0',"obc"=>isset($districtlevel->dist_la_obc_pct)?$districtlevel->dist_la_obc_pct:'0',"st"=>isset($districtlevel->dist_la_st_pct)?$districtlevel->dist_la_st_pct:'0',"general"=>isset($districtlevel->dist_la_general_pct)?$districtlevel->dist_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl34)?$districtlevel->dist_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->dist_la_obc_pl12)?$districtlevel->dist_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->dist_la_sc_pl12)?$districtlevel->dist_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->dist_la_obc_pl34)?$districtlevel->dist_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->dist_la_st_pl12)?$districtlevel->dist_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->dist_la_general_pl12)?$districtlevel->dist_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->dist_la_st_pl34)?$districtlevel->dist_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->dist_la_general_pl34)?$districtlevel->dist_la_general_pl34:'0'),
                     
-                    'state'=>array("sc"=>isset($districtlevel->state_la_sc_pct)?$districtlevel->state_la_sc_pct:'0',"obc"=>isset($districtlevel->state_la_obc_pct)?$districtlevel->state_la_obc_pct:'0',"st"=>isset($districtlevel->state_la_st_pct)?$districtlevel->state_la_st_pct:'0',"general"=>isset($districtlevel->state_la_general_pct)?$districtlevel->state_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->state_la_sc_pl34)?$districtlevel->state_la_sc_pl34:'0' 
+                    'state'=>array("sc"=>isset($districtlevel->state_la_sc_pct)?$districtlevel->state_la_sc_pct:'0',"obc"=>isset($districtlevel->state_la_obc_pct)?$districtlevel->state_la_obc_pct:'0',"st"=>isset($districtlevel->state_la_st_pct)?$districtlevel->state_la_st_pct:'0',"general"=>isset($districtlevel->state_la_general_pct)?$districtlevel->state_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->state_la_sc_pl34)?$districtlevel->state_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->state_la_obc_pl12)?$districtlevel->state_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->state_la_sc_pl12)?$districtlevel->state_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->state_la_sc_pl12)?$districtlevel->state_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->state_la_obc_pl34)?$districtlevel->state_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->state_la_st_pl12)?$districtlevel->state_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->state_la_general_pl12)?$districtlevel->state_la_general_pl12:'0' 
                     ,'st_proficient_and_advance'=>isset($districtlevel->state_la_st_pl34)?$districtlevel->state_la_st_pl34:'0'
                     ,'general_proficient_and_advance'=>isset($districtlevel->state_la_general_pl34)?$districtlevel->state_la_general_pl34:'0'),
                     
-                    'national'=>array("sc"=>isset($districtlevel->india_la_sc_pct)?$districtlevel->india_la_sc_pct:'0',"obc"=>isset($districtlevel->india_la_obc_pct)?$districtlevel->india_la_obc_pct:'0',"st"=>isset($districtlevel->india_la_st_pct)?$districtlevel->india_la_st_pct:'0',"general"=>isset($districtlevel->india_la_general_pct)?$districtlevel->india_la_general_pct:'0','sc_basic_and_below_basic'=>isset($districtlevel->india_la_sc_pl34)?$districtlevel->india_la_sc_pl34:'0' 
+                    'national'=>array("sc"=>isset($districtlevel->india_la_sc_pct)?$districtlevel->india_la_sc_pct:'0',"obc"=>isset($districtlevel->india_la_obc_pct)?$districtlevel->india_la_obc_pct:'0',"st"=>isset($districtlevel->india_la_st_pct)?$districtlevel->india_la_st_pct:'0',"general"=>isset($districtlevel->india_la_general_pct)?$districtlevel->india_la_general_pct:'0','sc_proficient_and_advance'=>isset($districtlevel->india_la_sc_pl34)?$districtlevel->india_la_sc_pl34:'0' 
                     ,'obc_basic_and_below_basic'=>isset($districtlevel->india_la_obc_pl12)?$districtlevel->india_la_obc_pl12:'0' 
-                    ,'sc_proficient_and_advance'=>isset($districtlevel->india_la_sc_pl12)?$districtlevel->india_la_sc_pl12:'0'
+                    ,'sc_basic_and_below_basic'=>isset($districtlevel->india_la_sc_pl12)?$districtlevel->india_la_sc_pl12:'0'
                     ,'obc_proficient_and_advance'=>isset($districtlevel->india_la_obc_pl34)?$districtlevel->india_la_obc_pl34:'0'
                     ,'st_basic_and_below_basic'=>isset($districtlevel->india_la_st_pl12)?$districtlevel->india_la_st_pl12:'0'  
                     ,'general_basic_and_below_basic'=>isset($districtlevel->india_la_general_pl12)?$districtlevel->india_la_general_pl12:'0' 

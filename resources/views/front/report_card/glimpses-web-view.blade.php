@@ -12,7 +12,7 @@
             <div class="row">
             <div class="col-md-12">
                 <h2 class="heading-grey text-center">
-                PERFORMANCE OF STATES
+                Performance of States/UTs
                 </h2>
                 <div class="glimps-wrap">
                     <div class="row">
@@ -80,7 +80,7 @@
                 <div class="accordion-item mtb-30" id="gendernational_section_glimpses_class3">
                     <h2 class="accordion-header" id="nc3-perAccordionOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapseOne" aria-expanded="true" aria-controls="nc3-perAccordioncollapseOne">
-                        Performance of States by Gender
+                        Performance of States/UTs by Gender
                     </button>
                     </h2>
                     <div id="nc3-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc3-perAccordionOne" data-bs-parent="#nc3-perAccordion">
@@ -133,7 +133,7 @@
                 <div class="accordion-item mtb-30" id="locationnational_section_glimpses_class3">
                     <h2 class="accordion-header" id="nc3-perAccordionTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapseTwo" aria-expanded="true" aria-controls="nc3-perAccordioncollapseTwo">
-                        Performance of States by Location
+                        Performance of States/UTs by Location
                     </button>
                     </h2>
                     <div id="nc3-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionTwo" data-bs-parent="#nc3-perAccordion">
@@ -186,7 +186,7 @@
                 <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class3">
                     <h2 class="accordion-header" id="nc3-perAccordionThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc3-perAccordioncollapseThree">
-                        Performance of States by School Management
+                        Performance of States/UTs by School Management
                     </button>
                     </h2>
                     <div id="nc3-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionThree" data-bs-parent="#nc3-perAccordion">
@@ -236,7 +236,7 @@
                 <div class="accordion-item mtb-30" id="socialnational_section_glimpses_class3">
                     <h2 class="accordion-header" id="nc3-perAccordionfour">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc3-perAccordioncollapsefour" aria-expanded="true" aria-controls="nc3-perAccordioncollapsefour">
-                        Performance by Social Group
+                        Performance of States/UTs by Social Group
                     </button>
                     </h2>
                     <div id="nc3-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc3-perAccordionfour" data-bs-parent="#nc3-perAccordion">
@@ -293,7 +293,7 @@
             <div class="row">
             <div class="col-md-12">
                 <h2 class="heading-grey text-center">
-                PERFORMANCE OF STATES
+                Performance of States/UTs
                 </h2>
                 <div class="glimps-wrap">
                     <div class="row">
@@ -340,7 +340,7 @@
                 <div class="accordion-item mtb-30" id="gendernational_section_glimpses_class5">
                     <h2 class="accordion-header" id="nc5-perAccordionOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapseOne" aria-expanded="true" aria-controls="nc5-perAccordioncollapseOne">
-                    Performance of States by Gender
+                    Performance of States/UTs by Gender
                     </button>
                     </h2>
                     <div id="nc5-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc5-perAccordionOne" data-bs-parent="#nc5-perAccordion">
@@ -393,7 +393,7 @@
                 <div class="accordion-item mtb-30" id="locationnational_section_glimpses_class5">
                     <h2 class="accordion-header" id="nc5-perAccordionTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapseTwo" aria-expanded="true" aria-controls="nc5-perAccordioncollapseTwo">
-                    Performance of States by Location
+                    Performance of States/UTs by Location
                     </button>
                     </h2>
                     <div id="nc5-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionTwo" data-bs-parent="#nc5-perAccordion">
@@ -446,7 +446,7 @@
                 <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class5">
                     <h2 class="accordion-header" id="nc5-perAccordionThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc5-perAccordioncollapseThree">
-                    Performance of States by School Management
+                    Performance of States/UTs by School Management
                     </button>
                     </h2>
                     <div id="nc5-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionThree" data-bs-parent="#nc5-perAccordion">
@@ -496,7 +496,7 @@
                 <div class="accordion-item mtb-30" id="socialnational_section_glimpses_class5">
                     <h2 class="accordion-header" id="nc5-perAccordionfour">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc5-perAccordioncollapsefour" aria-expanded="true" aria-controls="nc5-perAccordioncollapsefour">
-                        Performance by Social Group
+                        Performance of States/UTs by Social Group
                     </button>
                     </h2>
                     <div id="nc5-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc5-perAccordionfour" data-bs-parent="#nc5-perAccordion">
@@ -553,7 +553,7 @@
             <div class="row">
                 <div class="col-md-12">
                 <h2 class="heading-grey text-center">
-                    PERFORMANCE OF STATES
+                    Performance of States/UTs
                 </h2>
                 <div class="glimps-wrap">
                     <div class="row">
@@ -617,7 +617,7 @@
                     <div class="accordion-item mtb-30" id="gendernational_section_glimpses_class8">
                     <h2 class="accordion-header" id="nc8-perAccordionOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapseOne" aria-expanded="true" aria-controls="nc8-perAccordioncollapseOne">
-                        Performance of States by Gender
+                        Performance of States/UTs by Gender
                         </button>
                     </h2>
                     <div id="nc8-perAccordioncollapseOne" class="accordion-collapse collapse show" aria-labelledby="nc8-perAccordionOne" data-bs-parent="#nc8-perAccordion">
@@ -683,7 +683,7 @@
                     <div class="accordion-item mtb-30" id="locationnational_section_glimpses_class8">
                     <h2 class="accordion-header" id="nc8-perAccordionTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapseTwo" aria-expanded="true" aria-controls="nc8-perAccordioncollapseTwo">
-                        Performance of States by Location
+                        Performance of States/UTs by Location
                         </button>
                     </h2>
                     <div id="nc8-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionTwo" data-bs-parent="#nc8-perAccordion">
@@ -749,7 +749,7 @@
                     <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class8">
                     <h2 class="accordion-header" id="nc8-perAccordionThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapseThree" aria-expanded="true" aria-controls="nc8-perAccordioncollapseThree">
-                        Performance of States by School Management
+                        Performance of States/UTs by School Management
                         </button>
                     </h2>
                     <div id="nc8-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionThree" data-bs-parent="#nc8-perAccordion">
@@ -811,7 +811,7 @@
                     <div class="accordion-item mtb-30">
                     <h2 class="accordion-header" id="nc8-perAccordionfour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc8-perAccordioncollapsefour" aria-expanded="true" aria-controls="nc8-perAccordioncollapsefour">
-                        Performance by Social Group
+                        Performance of States/UTs by Social Group
                         </button>
                     </h2>
                     <div id="nc8-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc8-perAccordionfour" data-bs-parent="#nc8-perAccordion">
@@ -880,7 +880,7 @@
             <div class="row">
             <div class="col-md-12">
                 <h2 class="heading-grey text-center">
-                PERFORMANCE OF STATES
+                Performance of States/UTs
                 </h2>
                 <div class="glimps-wrap">
                     <div class="row">
@@ -949,7 +949,7 @@
                 <div class="accordion-item mtb-30" id="gendernational_section_glimpses_class10">
                     <h2 class="accordion-header" id="nc10-perAccordionOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapseOne" aria-expanded="true" aria-controls="nc10-perAccordioncollapseOne">
-                    Performance of States by Gender
+                    Performance of States/UTs by Gender
 
                     </button>
                     </h2>
@@ -1029,7 +1029,7 @@
                 <div class="accordion-item mtb-30" id="locationnational_section_glimpses_class10">
                     <h2 class="accordion-header" id="nc10-perAccordionTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapseTwo" aria-expanded="false" aria-controls="nc10-perAccordioncollapseTwo">
-                    Performance of States by Location
+                    Performance of States/UTs by Location
                     </button>
                     </h2>
                     <div id="nc10-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionTwo" data-bs-parent="#nc10-perAccordion">
@@ -1108,7 +1108,7 @@
                 <div class="accordion-item mtb-30" id="managementnational_section_glimpses_class10">
                     <h2 class="accordion-header" id="nc10-perAccordionThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapseThree" aria-expanded="false" aria-controls="nc10-perAccordioncollapseThree">
-                    Performance of States by School Management
+                    Performance of States/UTs by School Management
                     </button>
                     </h2>
                     <div id="nc10-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionThree" data-bs-parent="#nc10-perAccordion">
@@ -1182,7 +1182,7 @@
                 <div class="accordion-item mtb-30">
                     <h2 class="accordion-header" id="nc10-perAccordionfour">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nc10-perAccordioncollapsefour" aria-expanded="false" aria-controls="nc10-perAccordioncollapsefour">
-                        Performance by Social Group
+                        Performance of States/UTs by Social Group
                     </button>
                     </h2>
                     <div id="nc10-perAccordioncollapsefour" class="accordion-collapse collapse" aria-labelledby="nc10-perAccordionfour" data-bs-parent="#nc10-perAccordion">
@@ -1263,7 +1263,7 @@
             <div class="row">
             <div class="col-md-12">
                 <h2 class="heading-grey text-center">
-                PERFORMANCE OF STATES
+                Performance of States/UTs
                 </h2>
                 <div class="graph-card-container graph-linecard-container mtb-30">
                         <div class="row">
@@ -1554,7 +1554,7 @@
                     <h2 class="accordion-header" id="One">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsetestOne"
                             aria-expanded="true" aria-controls="collapsetestOne">
-                            Performance of States by Gender
+                            Performance of States/UTs by Gender
                         </button>
                     </h2>
                     <div id="collapsetestOne" class="accordion-collapse collapse show" aria-labelledby="One" data-bs-parent="#test">
@@ -1899,7 +1899,7 @@
                     <h2 class="accordion-header" id="Two">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapsetestTwo" aria-expanded="false" aria-controls="collapsetestTwo">
-                            Performance of States by Location
+                            Performance of States/UTs by Location
                         </button>
                     </h2>
                     <div id="collapsetestTwo" class="accordion-collapse collapse" aria-labelledby="Two" data-bs-parent="#test">
@@ -2246,7 +2246,7 @@
                     <h2 class="accordion-header" id="Three">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapsetestThree" aria-expanded="false" aria-controls="collapsetestThree">
-                            Performance of States by School Management
+                            Performance of States/UTs by School Management
                         </button>
                     </h2>
                     <div id="collapsetestThree" class="accordion-collapse collapse" aria-labelledby="Three" data-bs-parent="#test">
@@ -2547,7 +2547,7 @@
                     <h2 class="accordion-header" id="four">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapsetestfour" aria-expanded="false" aria-controls="collapsetestfour">
-                            Performance by Social Group
+                            Performance of States/UTs by Social Group
                         </button>
                     </h2>
                     <div id="collapsetestfour" class="accordion-collapse collapse" aria-labelledby="four" data-bs-parent="#test">
@@ -3266,37 +3266,37 @@ function setModalHeader(data, sub, legend) {
   }
   if (data.grade == 3) {
     if (legend == 'cards') {
-      $('#data-header').html('Performance of States in Class III : ' + subject[sub].toUpperCase())
+      $('#data-header').html('Performance of States/UTs in Class III : ' + subject[sub].toUpperCase())
     }
     else {
-      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class III : ' + subject[sub].toUpperCase())
+      $('#data-header').html('Performance of States/UTs by ' + capitalizeFirstLetter(legend) + ' in Class III : ' + subject[sub].toUpperCase())
     }
 
   }
   else if (data.grade == 5) {
     if (legend == 'cards') {
-      $('#data-header').html('Performance of States in Class V : ' + subject[sub].toUpperCase())
+      $('#data-header').html('Performance of States/UTs in Class V : ' + subject[sub].toUpperCase())
     }
     else {
-      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class V : ' + subject[sub].toUpperCase())
+      $('#data-header').html('Performance of States/UTs by ' + capitalizeFirstLetter(legend) + ' in Class V : ' + subject[sub].toUpperCase())
     }
 
   }
   else if (data.grade == 8) {
     if (legend == 'cards') {
-      $('#data-header').html('Performance of States in Class VIII : ' + subject[sub].toUpperCase())
+      $('#data-header').html('Performance of States/UTs in Class VIII : ' + subject[sub].toUpperCase())
     }
     else {
-      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class VIII : ' + subject[sub].toUpperCase())
+      $('#data-header').html('Performance of States/UTs by ' + capitalizeFirstLetter(legend) + ' in Class VIII : ' + subject[sub].toUpperCase())
     }
 
   }
   else {
     if (legend == 'cards') {
-      $('#data-header').html('Performance of States in Class X : ' + subject[sub].toUpperCase())
+      $('#data-header').html('Performance of States/UTs in Class X : ' + subject[sub].toUpperCase())
     }
     else {
-      $('#data-header').html('Performance of States by ' + capitalizeFirstLetter(legend) + ' in Class X : ' + subject[sub].toUpperCase())
+      $('#data-header').html('Performance of States/UTs by ' + capitalizeFirstLetter(legend) + ' in Class X : ' + subject[sub].toUpperCase())
     }
 
   }
