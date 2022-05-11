@@ -130,4 +130,24 @@
     $('input[name=rate]').click((e)=>{
         $('input[name=rating]').val(e.target.value)
     })
+
+    $('#feedback').on("paste",function(e) {
+        e.preventDefault();
+    });
+
+    $('#feedback').keypress((e)=>{
+        preventSymbols(e)
+    })
+
+    function preventSymbols(e) {
+        var key = e.keyCode;
+        var regex =/[^a-z0-9]/gi;
+
+        //Validate TextBox value against the Regex.
+        var isValid = regex.test(String.fromCharCode(key))
+        if (isValid) {
+            e.preventDefault();
+            $('#feedback').val().replace(/[^a-z0-9]/gi, '')
+        }
+    }
 </script>
