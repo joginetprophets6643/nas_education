@@ -7,8 +7,9 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <div class="achievement-content">
+                                            <h2 class="heading-grey text-center for_state" style="font-size:200%"></h2>
                                             <h2 class="heading-grey text-center">
-                                              ACHIEVEMENT IN ASSOCIATION WITH CONTEXTUAL VARIABLE (SOME INDICES)
+                                            ACHIEVEMENT IN ASSOCIATION WITH CONTEXTUAL VARIABLE (SOME INDICES)
                                             </h2> 
                                             <div class="category-wrap">
                                               <div class="category-list col-md-3">
@@ -90,19 +91,18 @@
 <script>
     let api_url ='{{env("API_URL")}}'
     let classType = '{{$class}}'
-    let activeState = '';
-    let grades = ['3', '5', '8', '10', 'all']
-    let already_active_state = null
     let state = '{{$state}}'
     let global_filters = {}
+    let global_filters_state = {}
     limit = -1
     table = 'achievement_src'
 
     function setFilters() {
       global_filters = {}
-      
+      global_filters_state = {}
         if (state !== '' && state !== null) {
           global_filters = { ...global_filters, state_id: { _eq: state } }
+          global_filters_state = { ...global_filters_state, udise_state_code: { _eq: state } }
         }
         
         if (classType !== '') {
@@ -118,17 +118,21 @@
     
     $(document).ready(async ()=>{
         $('#achievementstate_class3').addClass('active show')
+        setFilters()
         await $.ajax({
         type: "GET",
         headers: {
             "Authorization": "Bearer " + token
         },
-        url: api_url + 'state_masters?limit-1&sort[]=udise_state_code',
+        url: api_url + 'state_masters' + '?limit=' + limit + '&filter=' + JSON.stringify(global_filters_state),
         }).done((response)=>{
         sessionStorage.setItem('states',JSON.stringify(response.data))
         });
         
-        setFilters()
+        const state_data = await JSON.parse(sessionStorage.getItem('states'))
+        const state_name = state_data[0].state_name
+        $('.for_state').html(state_name)
+        
         await $.ajax({
         type: "GET",
         headers: {
@@ -169,12 +173,9 @@
                               <tbody id="add_achievementstate">`
       data.forEach((ach, index) => {
         if (index % 6 === 0) {
-          if (classType == 'all') {
-            achievement_data += '</tbody></table></div></div><br><h5 style="text-align: center;"><b>Grade' + ach.grade + '</b></h5>' + direction_gender_header
-          }
-          else {
-            achievement_data += '</tbody></table></div></div><br>' + direction_gender_header
-          }
+          
+            achievement_data += '</tbody></table></div></div><br><h5 style="text-align: center;"><b>Grade ' + ach.grade + '</b></h5>' + direction_gender_header
+          
         } else {
           if (index === 0) {
             achievement_data += direction_gender_header
