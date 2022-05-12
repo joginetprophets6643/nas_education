@@ -130,13 +130,28 @@
     $('input[name=rate]').click((e)=>{
         $('input[name=rating]').val(e.target.value)
     })
-
+    $('#name').attr('maxlength',35);
     $('#feedback').on("paste",function(e) {
-        e.preventDefault();
+        replaceSpecialchar(this,'feedback')
     });
 
+    $('#name').on("paste",function(e) {     
+        replaceSpecialchar(this,'name')
+    });
+
+    function replaceSpecialchar(el,id){
+        setTimeout(() => {
+            value=$(el).val()
+            value=value.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi,'')
+            $('#'+id).val(value)
+        }, 100);
+    }
+
     $('#feedback').keypress((e)=>{
-        preventSymbols(e)
+        preventSymbols(e)        
+    })
+    $('#name').keypress((e)=>{
+        preventSymbols(e)        
     })
 
     function preventSymbols(e) {
@@ -145,9 +160,8 @@
 
         //Validate TextBox value against the Regex.
         var isValid = regex.test(String.fromCharCode(key))
-        if (isValid) {
+        if (isValid && key!=32 && key!=46) {
             e.preventDefault();
-            $('#feedback').val().replace(/[^a-z0-9]/gi, '')
         }
     }
 </script>
