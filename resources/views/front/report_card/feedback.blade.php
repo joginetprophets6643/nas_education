@@ -61,8 +61,8 @@
                                         LEARNING DURING PANDEMIC
                                       </h2>
                                       <div class="activity-wrap light-blue-bg mtb-30">
-                                        <h2 class="heading-black text-left">
-                                          I learnt many things:
+                                        <h2 class="heading-black text-left" id="feedbackstate_pqh1_class3">
+                                          <!-- I learn many things during the pandemic like -->
                                         </h2>
                                         <div class="row">
                                           <div class="col-md-2">

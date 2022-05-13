@@ -378,7 +378,7 @@
                   </div>
               </a>
           </div>
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <a href="" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
@@ -393,18 +393,9 @@
                 @if(!empty($visual->page_meta_title))
                         {!!$visual->home_page_content!!}
                     @endif
-                <!-- Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to ... -->
                 </div>
               </div>
               
-              <!-- <div class="btn-wrap">
-                <button class="white-link btn">
-                  {{ __('lang.Explore') }}
-                  <span class="material-icons-round">
-                    east
-                  </span>
-                </button>
-              </div> -->
             </a>
             <a href="" target="_blank" class="links-card data-bg" data-aos="fade-up">
               <div class="links-content">
@@ -419,6 +410,53 @@
               <div class="desc-white">
               @if(!empty($data->page_meta_title))
                         {!!$data->home_page_content!!}
+                    @endif
+              </div>
+              </div>
+              
+            </a>
+          </div> -->
+          <div class="col-md-6">
+            <a href="{{url('/feedback')}}" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
+              <div class="links-content">
+                <div class="d-flex align-items-center">
+                  <div class="link-icon">
+                      <img src="{{asset('assets/front/images/analysis.svg')}}" alt="img" class="img-fluid">
+                  </div>
+                  <h2 class="heading-white-sm">
+                    {{__('lang.Feedback')}}
+                  </h2>
+                </div> 
+                <div class="desc-white">
+                @if(!empty($feedback->page_meta_title))
+                        {!!$feedback->home_page_content!!}
+                    @endif
+                <!-- Data Visualisation is the user-friendly presentation of summarised data in a pictorial or graphical form that enables decision-makers to ... -->
+                </div>
+              </div>
+              
+              <!-- <div class="btn-wrap">
+                <button class="white-link btn">
+                  {{ __('lang.Explore') }}
+                  <span class="material-icons-round">
+                    east
+                  </span>
+                </button>
+              </div> -->
+            </a>
+            <a href="{{url('/nas-team')}}" target="_blank" class="links-card data-bg" data-aos="fade-up">
+              <div class="links-content">
+                <div class="d-flex align-items-center">
+                  <div class="link-icon">
+                      <img src="{{asset('assets/front/images/data-share.svg')}}" alt="img" class="img-fluid">
+                  </div>
+                  <h2 class="heading-white-sm">
+                   {{__('lang.NAS TEAM')}}
+                  </h2>
+              </div> 
+              <div class="desc-white">
+              @if(!empty($nas_team->page_meta_title))
+                        {!!$nas_team->home_page_content!!}
                     @endif
               <!-- The NAS 2021 collects data on the learning levels disaggregated by gender, location, social groups and management of schools, wherever applicable... -->
               </div>

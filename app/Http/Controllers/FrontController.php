@@ -40,6 +40,8 @@ class FrontController extends Controller
         $data=Static_Content::where('language',$lang,)->where('page_title','Data Share')->first();
         $visual=Static_Content::where('language',$lang,)->where('page_title','Visualization')->first();
         $mobile=Static_Content::where('language',$lang)->where('page_title','Mobile App')->first();
+        $feedback=Static_Content::where('language',$lang)->where('page_title','Feedback')->first();
+        $nas_team=Static_Content::where('language',$lang)->where('page_title','Nas Team')->first();
         $client_logo = ClientLogo::all();
         $banners=Banner::all();
 
@@ -56,7 +58,7 @@ class FrontController extends Controller
         $states=State_Master::orderBy('state_name')->get();
 
         
-        return view('front.index',compact('content','events','image','videos','states','client_logo','banners','report','data','visual','mobile'));
+        return view('front.index',compact('content','events','image','videos','states','client_logo','banners','report','data','visual','mobile','feedback','nas_team'));
     }
 
     public function team(){
