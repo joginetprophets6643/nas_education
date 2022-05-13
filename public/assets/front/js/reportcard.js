@@ -1422,8 +1422,10 @@ function updateData(data) {
           if (current_demography === 'national') {
 
           } else {
+            pqh1 = capitalizeFirstLetter(fb.question_desc);
             pq1 = '<div class="progress" data-percentage="' + percentage + '"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">' + percentage + '%</div></div>'
           }
+          $('#feedback' + current_demography + '_pqh1_class3').html(pqh1)
           $('#feedback' + current_demography + '_pq1_class3').html(pq1)
         }
         if (fb.level === 'pq2') {
