@@ -5,7 +5,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-black text-left">
-                                              What students have to say about schools?
+                                              What students have to say about schools
                                             </h2>
                                             <div class="row" id="feedback_pq_class3">
                                             </div>
@@ -16,7 +16,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-black text-left">
-                                              What head teachers responded about school?
+                                              What head teachers responded about school
                                             </h2>
                                             <div class="row" id="feedback_htq_class3">
                                             </div>
@@ -28,7 +28,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-black text-left">
-                                              What teachers responded about school?
+                                              What teachers responded about school
                                             </h2>
                                             <div class="row" id="feedback_tq_class3">
                                             </div>
@@ -62,7 +62,7 @@
                                       </h2>
                                       <div class="activity-wrap light-blue-bg mtb-30">
                                         <h2 class="heading-black text-left">
-                                          I learn many things during the pandemic like
+                                          I learnt many things:
                                         </h2>
                                         <div class="row">
                                           <div class="col-md-2">
@@ -100,7 +100,7 @@
                                                   </div>
                                                   <div class="col-xl-8 col-xxl-6">
                                                     <div class="activity-list-content">
-                                                      <h2 class="title">Spend time with my parents / siblings</h2>
+                                                      <h2 class="title">Spend joyful time with my parents/ grandparents/ siblings</h2>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -161,7 +161,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-black text-left">
-                                            What children say about schools?
+                                            What children say about schools
                                           </h2>
                                           <div class="row" id="feedbackstate_pq_class3">
                                           </div>
@@ -172,7 +172,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-black text-left">
-                                            What head teachers responded about school?
+                                            What head teachers responded about school
                                           </h2>
                                           <div class="row" id="feedbackstate_htq_class3">
                                           </div>
@@ -183,7 +183,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-black text-left">
-                                            What teachers responded about school?
+                                            What teachers responded about school
                                           </h2>
                                           <div class="row" id="feedbackstate_tq_class3">
                                           </div>

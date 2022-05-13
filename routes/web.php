@@ -408,10 +408,12 @@ Route::group(["middleware" => ["authCheck"]], function(){
 
     Route::group(["middleware" => ["language"]], function(){
         Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
-        Route::get('/gallery/image-gallery/state/{id}','App\Http\Controllers\GalleryController@index')->name('image-gallery');
-        Route::get('/gallery/video-gallery/state/{id}','App\Http\Controllers\GalleryController@video')->name('video-gallery');
-        Route::get('/gallery/video-gallery/{id}','App\Http\Controllers\GalleryController@viewvideos');
-        Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
+        // Route::get('/gallery/image-gallery/state/{id}','App\Http\Controllers\GalleryController@index')->name('image-gallery');
+        // Route::get('/gallery/video-gallery/state/{id}','App\Http\Controllers\GalleryController@video')->name('video-gallery');
+        Route::get('/gallery/image-gallery','App\Http\Controllers\GalleryController@view')->name('image-gallery');
+        Route::get('/gallery/video-gallery','App\Http\Controllers\GalleryController@viewvideos')->name('video-gallery');
+        // Route::get('/gallery/video-gallery/{id}','App\Http\Controllers\GalleryController@viewvideos');
+        // Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
         Route::get('/about-nas','App\Http\Controllers\AboutController@index');
         Route::get('/terms-conditions','App\Http\Controllers\ContentPagesController@index')->name('terms');
         Route::get('/privacy-policy','App\Http\Controllers\ContentPagesController@index')->name('privacy');

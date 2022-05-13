@@ -1432,7 +1432,7 @@ function updateData(data) {
             pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="' + percentage + '"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">' + percentage + '%</div></div></div><p class="title">' + capitalizeFirstLetter(fb.question_desc) + '</p></div>'
             pq2Average += percentage
           } else {
-            pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="' + percentage + '"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">' + percentage + '%</div></div></div><p class="title">' + capitalizeFirstLetter(fb.question_desc) + '<br /> things</div>'
+            pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="' + percentage + '"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">' + percentage + '%</div></div></div><p class="title">' + capitalizeFirstLetter(fb.question_desc)+'</div>'
           }
           $('#feedback' + current_demography + '_pq2_' + countPq2 + '_class3').html(pq2)
           countPq2 += 1

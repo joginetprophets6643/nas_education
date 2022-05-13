@@ -46,17 +46,26 @@ class GalleryController extends Controller
         }   
         
     }
-    public function view($id){
-        $id=decode5t($id);
-        $data=Event::join('event_images','events.id','=','event_images.event_id')->where('events.id',$id)->first();
+    // public function view($id){
+    //     $id=decode5t($id);
+    //     $data=Event::join('event_images','events.id','=','event_images.event_id')->where('events.id',$id)->first();
+    //     $images=json_decode($data->images);
+    //     return view('front.gallery.images.view',compact('images','data'));
+    // }
+    public function view(){
+        $data=DB::table('event_images')->first();
         $images=json_decode($data->images);
         return view('front.gallery.images.view',compact('images','data'));
     }
 
-    public function viewvideos($id){
-        $id=decode5t($id);
-        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('video_events.id',$id)->where('status',1)->get();
+    // public function viewvideos($id){
+    //     $id=decode5t($id);
+    //     $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('video_events.id',$id)->where('status',1)->get();
         
+    //     return view('front.gallery.vedios.view',compact('videos'));
+    // }
+    public function viewvideos(){
+        $videos=DB::table('vedios')->get();
         return view('front.gallery.vedios.view',compact('videos'));
     }
 }

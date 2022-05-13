@@ -58,7 +58,7 @@
               </div>
               <div class="col-md-6 ps-0">
                 <div class="about-img-wrap" data-aos="fade-left">
-                  <img src="{{asset('assets/front/images/about.png')}}" alt="img" class="img-fluid" />
+                  <img src="{{asset('assets/uploads/1732710732494981.jpeg')}}" alt="img" class="img-fluid" />
                 </div> 
               </div>
           </div>
@@ -287,7 +287,7 @@
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
                                 <h3 class="title">
-                                  Child sex ratio (0-6 age)
+                                  Child sex ratio (0-6 years)
                                 </h3>
                                 <p class="total-no" >
                                 <span id="sex_ratio"> 963 girls per 1000 boys</span>

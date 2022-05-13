@@ -15,7 +15,6 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
                             <li class="breadcrumb-item"><a href="{{url('/gallery/image-gallery')}}">{{ __('lang.Gallery') }}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{$data->name}}</li>
                         </ol>
                         </nav>
                 </div>
@@ -45,13 +44,7 @@
                         </div>
                     </div>
                 </div>
-
-
-                @endforeach
-                
-
-                
-
+            @endforeach
             </div>
         </div>
     </div>

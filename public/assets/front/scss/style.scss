@@ -1808,8 +1808,9 @@ ul {
         display: block;
 
         img {
-            border-radius: 6px 6px 0 0;
+            border-radius: 6px;
             width: 100%;
+            object-fit: cover;
         }
 
         .gallery-play-icon {
@@ -1842,6 +1843,8 @@ ul {
                 transition: 0.2s ease-in;
                 opacity: 1;
                 visibility: visible;
+                border: none;
+                border-radius: 6px;
             }
         }
 
@@ -4222,6 +4225,7 @@ ul {
             height: 100%;
             width: 100%;
             border-radius: 6px;
+            object-fit: cover;
         }
     }
 

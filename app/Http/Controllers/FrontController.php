@@ -130,8 +130,12 @@ class FrontController extends Controller
         //         'image'=>$state->thumbnail?$state->thumbnail:'broken-1.png'
         //     );
         // }
-        
-        return view('front.gallery.index');
+        $data=DB::table('event_images')->first();
+        $images=json_decode($data->images);
+        $images=(array_chunk($images,4))[0];
+
+        $videos=DB::table('vedios')->take(4)->get();
+        return view('front.gallery.index',compact('images','videos'));
     }
 
     public function rti(){
