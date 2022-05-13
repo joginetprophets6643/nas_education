@@ -417,7 +417,7 @@
             </a>
           </div> -->
           <div class="col-md-6">
-            <a href="" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
+            <a href="{{url('/feedback')}}" target="_blank" class="links-card analytics-bg mb-4" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
@@ -444,7 +444,7 @@
                 </button>
               </div> -->
             </a>
-            <a href="" target="_blank" class="links-card data-bg" data-aos="fade-up">
+            <a href="{{url('/nas-team')}}" target="_blank" class="links-card data-bg" data-aos="fade-up">
               <div class="links-content">
                 <div class="d-flex align-items-center">
                   <div class="link-icon">
