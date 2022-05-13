@@ -244,43 +244,45 @@
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Total District Area</h3>
-                          <p class="total-no text-white">{{isset($districtVal->total_district_area)&&$districtVal->total_district_area!=''?number_format((float)$districtVal->total_district_area):'0'}} sq. km.</p>
+                          <p class="total-no text-white">{{isset($districtVal->total_district_area)&&$districtVal->total_district_area!=0&&$districtVal->total_district_area!=''?IND_money_format((float)$districtVal->total_district_area).' sq. km.':'-'}}</p>
+                       
+
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Total Population</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->total_population)&&$districtVal->total_population!='')?number_format((float)$districtVal->total_population):'0'}}</p>
+                          <p class="total-no text-white">{{(isset($districtVal->total_population)&&$districtVal->total_population!=''&&$districtVal->total_population!='0')?IND_money_format((float)$districtVal->total_population):'-'}}</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Rural Population</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->rural_population)&&$districtVal->rural_population!='')?number_format((float)$districtVal->rural_population):'0'}}</p>
+                          <p class="total-no text-white">{{(isset($districtVal->rural_population)&&$districtVal->rural_population!=''&&$districtVal->rural_population!='0')?IND_money_format((float)$districtVal->rural_population):'-'}}</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Urban Population</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->urban_population)&&$districtVal->urban_population!='')?number_format((float)$districtVal->urban_population):'0'}}</p>
+                          <p class="total-no text-white">{{(isset($districtVal->urban_population)&&$districtVal->urban_population!=''&&$districtVal->urban_population!='0')?IND_money_format((float)$districtVal->urban_population):'-'}}</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Density of Population</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->density_of_population)&&$districtVal->density_of_population!='')?number_format((float)$districtVal->density_of_population):'0'}} per sq. km.</p>
+                          <p class="total-no text-white">{{(isset($districtVal->density_of_population)&&$districtVal->density_of_population!=''&&$districtVal->density_of_population!='0')?IND_money_format((float)$districtVal->density_of_population).' per sq. km.':'-'}}</p>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Literacy Rate</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->literacy_rate)&&$districtVal->literacy_rate!='')?number_format((float)$districtVal->literacy_rate):'0'}}%</p>
+                          <p class="total-no text-white">{{(isset($districtVal->literacy_rate)&&$districtVal->literacy_rate!=''&&$districtVal->literacy_rate!='0')?IND_money_format((float)$districtVal->literacy_rate).'%':'-'}}</p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="infotab-content dark-blue-bg">
                           <h3 class="title text-white">Child Sex Ratio (0-6 Age)</h3>
-                          <p class="total-no text-white">{{(isset($districtVal->child_sex_ratio)&&$districtVal->child_sex_ratio!='')?number_format((float)$districtVal->child_sex_ratio):'0'}}</p>
+                          <p class="total-no text-white">{{(isset($districtVal->child_sex_ratio)&&$districtVal->child_sex_ratio!=''&&$districtVal->child_sex_ratio!='0')?IND_money_format((float)$districtVal->child_sex_ratio):'-'}}</p>
                           <!-- <p class="total-no text-white">{{(isset($districtVal->child_sex_ratio)&&$districtVal->child_sex_ratio!='')?$districtVal->child_sex_ratio:'0'}} girls per 1000 boys</p> -->
                         </div>
                       </div>
@@ -370,25 +372,25 @@
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Total Number of Schools</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->no_of_schools)&&$districtVal->no_of_schools!='')?number_format((float)$districtVal->no_of_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->no_of_schools)&&$districtVal->no_of_schools!=''&&$districtVal->no_of_schools!='0')?IND_money_format((float)$districtVal->no_of_schools):'-'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content nas-heading">
                             <h3 class="title text-white">State Govt. Schools</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->state_govt_schools)&&$districtVal->state_govt_schools!='')?number_format((float)$districtVal->state_govt_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->state_govt_schools)&&$districtVal->state_govt_schools!=''&&$districtVal->state_govt_schools!='0')?IND_money_format((float)$districtVal->state_govt_schools):'-'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Govt. Aided Schools</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->govt_aided_schools)&&$districtVal->govt_aided_schools!='')?number_format((float)$districtVal->govt_aided_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->govt_aided_schools)&&$districtVal->govt_aided_schools!=''&&$districtVal->govt_aided_schools!='0')?IND_money_format((float)$districtVal->govt_aided_schools):'-'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Central Govt. Schools</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->central_govt_schools)&&$districtVal->central_govt_schools!='')?number_format((float)$districtVal->central_govt_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->central_govt_schools)&&$districtVal->central_govt_schools!=''&&$districtVal->central_govt_schools!='0')?IND_money_format((float)$districtVal->central_govt_schools):'-'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
@@ -396,7 +398,7 @@
                             <h3 class="title text-white">
                               Private Un-aided Recognized Schools
                             </h3>
-                            <p class="total-no text-white">{{(isset($districtVal->private_unaided_reco_schools)&&$districtVal->private_unaided_reco_schools!='')?number_format((float)$districtVal->private_unaided_reco_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->private_unaided_reco_schools)&&$districtVal->private_unaided_reco_schools!=''&&$districtVal->private_unaided_reco_schools!='0')?IND_money_format((float)$districtVal->private_unaided_reco_schools):'-'}}</p>
                           </div>
                         </div>
                       </div>
@@ -404,19 +406,19 @@
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Total Number of Teachers</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_state_govt_schools)&&($districtVal->teacher_state_govt_schools!='' || $districtVal->teacher_govt_aided_schools!='' || $districtVal->teacher_central_govt_schools!='' || $districtVal->teacher_private_unaided_reco_schools!=''))?number_format((float)$districtVal->teacher_state_govt_schools + $districtVal->teacher_govt_aided_schools +  $districtVal->teacher_central_govt_schools + $districtVal->teacher_private_unaided_reco_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_state_govt_schools)&&($districtVal->teacher_state_govt_schools!='' || $districtVal->teacher_govt_aided_schools!='' || $districtVal->teacher_central_govt_schools!='' || $districtVal->teacher_private_unaided_reco_schools!=''))?IND_money_format((float)$districtVal->teacher_state_govt_schools + $districtVal->teacher_govt_aided_schools +  $districtVal->teacher_central_govt_schools + $districtVal->teacher_private_unaided_reco_schools):'0'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content nas-heading">
                             <h3 class="title text-white">State Govt. Teachers</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_state_govt_schools)&&$districtVal->teacher_state_govt_schools!='')?number_format((float)$districtVal->teacher_state_govt_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_state_govt_schools)&&$districtVal->teacher_state_govt_schools!=''&&$districtVal->teacher_state_govt_schools!='0')?IND_money_format((float)$districtVal->teacher_state_govt_schools):'-'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
                           <div class="infotab-content nas-heading">
                             <h3 class="title text-white">Govt. Aided Teachers</h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_govt_aided_schools)&&$districtVal->teacher_govt_aided_schools!='')?number_format((float)$districtVal->teacher_govt_aided_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_govt_aided_schools)&&$districtVal->teacher_govt_aided_schools!=''&&$districtVal->teacher_govt_aided_schools!='0')?IND_money_format((float)$districtVal->teacher_govt_aided_schools):'-'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
@@ -424,7 +426,7 @@
                             <h3 class="title text-white">
                               Central Govt. Teachers
                             </h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_central_govt_schools)&&$districtVal->teacher_central_govt_schools!='')?number_format((float)$districtVal->teacher_central_govt_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_central_govt_schools)&&$districtVal->teacher_central_govt_schools!=''&&$districtVal->teacher_central_govt_schools!='0')?IND_money_format((float)$districtVal->teacher_central_govt_schools):'-'}}</p>
                           </div>
                         </div>
                         <div class="col-md-12 mb-4">
@@ -432,7 +434,7 @@
                             <h3 class="title text-white">
                               Teachers In Private Un-aided Recognized Schools
                             </h3>
-                            <p class="total-no text-white">{{(isset($districtVal->teacher_private_unaided_reco_schools)&&$districtVal->teacher_private_unaided_reco_schools!='')?number_format((float)$districtVal->teacher_private_unaided_reco_schools):'0'}}</p>
+                            <p class="total-no text-white">{{(isset($districtVal->teacher_private_unaided_reco_schools)&&$districtVal->teacher_private_unaided_reco_schools!=''&&$districtVal->teacher_private_unaided_reco_schools!='0')?IND_money_format((float)$districtVal->teacher_private_unaided_reco_schools):'-'}}</p>
                           </div>
                         </div>
                       </div>
@@ -465,8 +467,8 @@
                       </div>
                       <div class="col-md-8 top-card">
                         <div class="bg-sky-blue text-white text-center">
-                          <h4 class="fw-light">
-                          NAS is a system level assessment i.e. it summarizes students achievement at National, State/UT and District levels. NAS does not provide scores for individual student/school.
+                          <h4 class="fw-light mb-0">
+                          NAS is a system level assessment i.e. it summarizes students achievement at National, State/UT and District levels. 
                           </h4>
                         </div>
                       </div>
@@ -475,28 +477,29 @@
                           <div class="row">
                             <div class="col-md-6 pe-4">
                               <p>
-                                NAS is a national level large-scale assessment conducted to provide information about the learning achievement of students of Classes III, V, VIII and X studying in State Govt. schools, Govt. Aided schools, Private Unaided and Central Govt. schools.
+                                The National Achievement Survey (NAS) is a national level large-scale assessment conducted to obtain information about the learning achievement of students of Classes 3, 5, 8 and 10 studying in State Govt. schools, Govt. Aided schools, Private Unaided and Central Govt. schools. NAS does not provide scores for individual student/school.
                               </p>
                               <p>
-                                It is a nationally representative survey that gives a system level reflection on effectiveness of school education. NAS findings help compare the performance across the spectrum and across population in order to find the desirable direction and areas for remedial interventions.
+                                It is a national representative survey that provides a system level reflection on effectiveness of school education. NAS findings help compare the performance across the spectrum and across population which may serve as input to move in the desirable direction and areas for remedial interventions.
                               </p>
                               <p>
-                                NAS is embedded in an extremely rich system of background variables. This survey correlates student's performance with contextual variables. NAS is useful for educational planners, policy makers including researchers in understanding the interdependence of assessment, pedagogical process and learning outcome. NAS 2021 focused on competency-based assessment. It was conducted in Language, Mathematics & EVS for class III & V; Language, Mathematics, Science & Social Science for class VIII and Language, Mathematics, Science, Social Science and English for class X.
+                                NAS is embedded in an extremely rich system of background variables. This survey correlates students performance with contextual variables. NAS is useful for educational planners and policy makers including researchers in understanding the interdependence of assessment, pedagogical process and learning outcomes.
                               </p>
-                              <p>For effective monitoring and nation-wide coordination, a National Steering Committee was constituted by the Ministry. While the NCERT was entrusted with the task of development of Assessment Framework, the administration of NAS 2021 was entrusted to the CBSE. Grade-wise subject specific Learning Outcomes were identified by the NCERT. Sampling being a crucial aspect, the NAS-2021 sampling design intended to support the predefined objectives of the assessment. The States, Districts and School level samples were based on UDISE+2019-20 data.</p>
-                              <p>
-                              Nearly, 3.4 million students from approx 1.18 lakh schools were administered the survey. A dedicated Portal (https://nas.education.gov.in) was launched by the NIC 
+                              <p>NAS 2021 focused on competency-based assessment. It was conducted in Language, Mathematics & Environmental Studies for class 3 & 5; Language, Mathematics, Science & Social Science for class 8 and Modern Indian Language, Mathematics, Science, Social Science and English for class 10. 
+                              For effective monitoring and nation-wide coordination, a National Steering Committee was constituted by the Ministry. While the NCERT was entrusted with the task of development of Assessment Framework, the administration of NAS 2021 was entrusted to the CBSE. Grade-wise subject specific Learning Outcomes were identified by the NCERT for development of the items for assessment. Sampling being a crucial aspect of assessment, the NAS 2021 sampling design was intended to support the predefined objectives of the assessment. The sampling note on which the sample has been selected for NAS 2021 is also available on the MoE website. 
                               </p>
+                              
                             </div>
                             <div class="col-md-6 ps-4">
                               <p>
-                                with login access for functionaries and role-based functionality for managing resources, activity monitoring, reporting & documentation etc. Extensive training and capacity building was done for field operatives using short and self-narrative videos in a blended mode. For a hassle-free and fair conduct of NAS, an integrated framework with operational salience was in place. Survey was conducted in a monitored environment.
+                              The States, Districts and School level samples were based on UDISE+2019-20 data. Nearly, 3.4 million students from approximately 1.18 lakh schools were administered the survey. A dedicated Portal (https://nas.education.gov.in) was launched by the NIC with login access for functionaries and role-based functionality for managing resources, activity monitoring, reporting & documentation etc. Extensive training and capacity building was done for the field operatives using short and self-narrative videos in a blended mode. For a hassle-free and fair conduct of NAS, an integrated framework with operational salience was in place. The survey was conducted in a monitored environment. 
                               </p>
                               <p>
-                                Around 2 lakh Field Investigators (FIs), 1.24 lakh Observers, 36 State Nodal Officers, 735 District Level Coordinators and District Nodal Officers were engaged. Board Representatives were appointed for ensuring fair conduct of NAS. The pre-mapping of Test and background questionnaire tools using UDISE code, confidentiality at all stages, Just-in-Time delivery of papers in sealed trunk, school specific packing for transit security, self-learning materials for functionaries in login, 3-tier supervision, machine-based random deployment, documentations in the form of Control Sheet, Field Note for FI and Observer, District Note and update on Portal were some of the strategic arrangements that were in place for smooth administration of NAS. Out of 735 targeted Districts, the NAS-2021 was conducted in 720 Districts on 12th November 2021 barring 12 districts of Tamil Nadu and 3 districts of Andhra Pradesh due to natural calamity. Results of these 15 districts of Tamil Nadu and Andhra Pradesh has been interpolated as per the result of the rest of districts of respective states.
-                              </p>
-                              <p>
-                                This report would help diagnose learning gaps and determine interventions required in education policies, teaching practices and learning. The synthesis of the results at the national level would prove to be a rich repository of evidence for developing and designing the future course of action for the Indian education system.
+                              Around 2 lakh Field Investigators (Fls), 1.24 lakh Observers, 36 State Nodal Officers, 733 District Level Coordinators and District Nodal Officers were engaged. Board Representatives were appointed for ensuring fair conduct of NAS. The pre-mapping of Test and background questionnaire tools using UDISE code, confidentiality at all stages. Just-in-Time delivery of papers in sealed trunks, school-specific packing for transit security, self-learning materials for functionaries in login, 3-tier supervision, machine- based random deployment, documentations in the form of control sheet, field note for FI and observer, district note and update on portal were some of the strategic arrangements that were in place for the smooth administration of NAS. Out of 733 targeted districts, the NAS-2021 was conducted in 720 districts on 12th November 2021 except some districts of Tamil Nadu and Andhra Pradesh due to natural calamity.
+                              </p> 
+                              
+                              <p>  
+                              This report would help diagnose learning gaps and determine interventions necessary in education policies, teaching practices and learning. The synthesis of the results at the national level would prove to be a rich repository of evidence for developing and designing the future course of action for the Indian education system.
                               </p>
                             </div>
                           </div>
@@ -567,7 +570,7 @@
                             <div class="sec sec-5">
                               <img src="https://nas21.inroad.in/report-pdf/assets/images/parents.png" alt="parents" height='53'>
                               <h1>{{isset($learningDuringPandemic->grade_3_spenttime_with_parents__grandparents_siblings)?round($learningDuringPandemic->grade_3_spenttime_with_parents__grandparents_siblings):'0'}}%</h1>
-                              <h6>Spend time with my parents/ grandparents/ siblings</h6>
+                              <h6>Spent time with my parents/ grandparents/ siblings</h6>
                             </div>
                           </div>
                         </div>
@@ -604,7 +607,7 @@
                             <div class="sec sec-5">
                               <img src="https://nas21.inroad.in/report-pdf/assets/images/parents.png" alt="parents" height='53'>
                               <h1>{{isset($learningDuringPandemic->grade_5_spenttime_with_parents__grandparents_siblings)?round($learningDuringPandemic->grade_5_spenttime_with_parents__grandparents_siblings):'0'}}%</h1>
-                              <h6>Spend time with my parents/ grandparents/ siblings</h6>
+                              <h6>Spent time with my parents/ grandparents/ siblings</h6>
                             </div>
                           </div>
                         </div>
@@ -641,7 +644,7 @@
                             <div class="sec sec-5">
                               <img src="https://nas21.inroad.in/report-pdf/assets/images/parents.png" alt="parents" height='53'>
                               <h1>{{isset($learningDuringPandemic->grade_8_spenttime_with_parents__grandparents_siblings)?round($learningDuringPandemic->grade_8_spenttime_with_parents__grandparents_siblings):'0'}}%</h1>
-                              <h6>Spend time with my parents/ grandparents/ siblings</h6>
+                              <h6>Spent time with my parents/ grandparents/ siblings</h6>
                             </div>
                           </div>
                         </div>
@@ -678,7 +681,7 @@
                             <div class="sec sec-5">
                               <img src="https://nas21.inroad.in/report-pdf/assets/images/parents.png" alt="parents" height='53'>
                               <h1>{{isset($learningDuringPandemic->grade_10_spenttime_with_parents__grandparents_siblings)?round($learningDuringPandemic->grade_10_spenttime_with_parents__grandparents_siblings):'0'}}%</h1>
-                              <h6>Spend time with my parents/ grandparents/ siblings</h6>
+                              <h6>Spent time with my parents/ grandparents/ siblings</h6>
                             </div>
                           </div>
                         </div>
@@ -711,7 +714,10 @@
             <div class="reportview-container">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <?php
+                    $excludedWords = array(" and "); 
+                  ?>
+                  <h2>District Report Card ( {{isset($districtVal->state_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->state_name))):'-'}} - {{isset($districtVal->district_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->district_name), ' [{(-.')):'-'}} )</h2>
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg">
@@ -1004,7 +1010,7 @@
                                 </h4>
                               </div>
                               <div class="col-md-10 my-3">
-                                <p class="mb-0">Learners at this level are at the early stages of development regarding the curriculum standards. They have not achieved sufficient knowledge and skills to be considered minimally successful regarding curriculum demands. They need guidance at every stage of learning. They can make little judgment and need a lot of encouragement and guidance.</p>
+                                <p class="mb-0">Learners at this level are at the early stages of development regarding the curriculum standards. They have not achieved the required knowledge and skill to be considered minimally successful regarding curriculum demands. They need guidance at every stage of learning. They need a lot of encouragement and support.</p>
                               </div>
                               <hr>
                               <div class="col-md-2 left-per-sec p-4 my-1 bg-orange text-center">
@@ -1013,7 +1019,7 @@
                                 </h4>
                               </div>
                               <div class="col-md-10 my-3">
-                                <p class="mb-0">Learners at this level demonstrate a minimum level of skills related to the curriculum learning outcomes. They can follow simple instructions and apply simple rules to achieve expected performance. They have some good ideas which often lack coherence. They can solve problems using simple logic, and can also express themselves using simple language. They need guidance at many stages of learning.</p>
+                                <p class="mb-0">Learners at this level demonstrate a minimum level of knowledge and skills related to the curricular demands. They can follow simple instructions and apply simple rules to achieve the expected performance. They have ideas but lack coherence. They can solve problems using simple logic, and also express themselves using simple language. They need enough guidance at various stages of learning.</p>
                               </div>
                               <hr>
                               <div class="col-md-2 left-per-sec p-4 my-1 bg-green text-center">
@@ -1022,7 +1028,7 @@
                                 </h4>
                               </div>
                               <div class="col-md-10 my-3">
-                                <p class="mb-0">Learners are required to attain the proficient level and above. Learners at this level have acquired most of the learning outcomes and skills required by the curriculum. They can work independently with minimum supervision. They have a systematic methodology to solve problems. They can communicate their ideas clearly. They can also connect different ideas and create meaning with minimum guidance and supervision. They can analyze situations and interpret information for application to new situations. </p>
+                                <p class="mb-0">Learners at this level have acquired most of the learning outcomes and skills required by the curriculum. They can work independently with minimum supervision. They have a systematic methodology to solve problems. They can communicate their ideas clearly. They can also connect different ideas and create meaning with minimum guidance and supervision. They can analyze situations and interpret information for application in new situations. Efforts are required to bring all learners to attain the proficient level and above.</p>
                               </div>
                               <hr>
                               <div class="col-md-2 left-per-sec p-4 my-1 bg-skyblue text-center">
@@ -1031,12 +1037,18 @@
                                 </h4>
                               </div>
                               <div class="col-md-10 my-3">
-                                <p class="mb-0">Learners at this level display exceptional mastery of the learning content as prescribed by the curriculum and beyond. They are independent with high analytical, reflective and critical thinking. They can connect and integrate concepts and ideas to create new knowledge/meaning and solve complex problems. They communicate information with the highest level of creativity and coherence as well as make sound judgements.</p>
+                                <p class="mb-0">Learners at this level display exceptional mastery of the learning content as prescribed by the curriculum and beyond. They are independent with high analytical, reflective and critical thinking. They can connect and integrate concepts and ideas to create new knowledge/meaning and solve complex problems. They communicate information with the highest level of creativity and coherence as well as make sound judgement.</p>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                      @if($districtParticipation->grade==3 || $districtParticipation->grade==5)
+                      <h4 class="fw-bold">* EVS - Environmental Studies</h4>
+                      @endif
+                      @if($districtParticipation->grade==10)
+                      <h4 class="fw-bold">* MIL - Modern Indian Language</h4>
+                      @endif
                     </div>
                   </div>
                 </div>
@@ -1062,7 +1074,8 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>District Report Card ( {{isset($districtVal->state_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->state_name))):'-'}} - {{isset($districtVal->district_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->district_name), ' [{(-.')):'-'}} )</h2>
+
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg px-4 py-2">
@@ -1663,7 +1676,8 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>District Report Card ( {{isset($districtVal->state_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->state_name))):'-'}} - {{isset($districtVal->district_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->district_name), ' [{(-.')):'-'}} )</h2>
+
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg pb-0">
@@ -1696,7 +1710,7 @@
                             @if($l==1)
                             <tr class="bg-bluegreen text-white">
                               <td class="text" colspan="5">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="" style="width: 35px;height: 30px;" />
+                                <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/language-icon.png" alt="" style="width: 35px;height: 30px;" /> -->
                                 Language
                               </td>
                             </tr>
@@ -1769,7 +1783,7 @@
                             @if($mil==1)
                             <tr class="bg-bluegreen text-white">
                               <td class="text" colspan="5">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/mil-icon.png" alt="" />
+                                <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/mil-icon.png" alt="" /> -->
                                 MIL
                               </td>
                             </tr>
@@ -1777,7 +1791,7 @@
                             <tr class={{(($mil)%2==0)?'"light-yellow-bg"':''}}>
                               <th class="bg-bluegreen" scope="row">{{isset($milLO->subject_code)?$milLO->subject_code:'-'}}</th>
                               <td class="text-sm-start">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/mil1011.png" alt="" class="" style="width: 48rem;">
+                                <img src="https://nas21.inroad.in/report-pdf/assets/images/mil1011.png" alt="" class="" style="width: 67rem;">
                               </td>
                               <td>
                               @if(isset($milLO->avg) && round($milLO->avg)<50)
@@ -1842,7 +1856,7 @@
                             @if($m==1)
                             <tr class="bg-bluegreen text-white">
                               <td class="text" colspan="5">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="" />
+                                <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/maths-icon.png" alt="" /> -->
                                 Mathematics
                               </td>
                             </tr>
@@ -1930,7 +1944,7 @@
                             @if($e==1)
                             <tr class="bg-bluegreen text-white">
                               <td class="text" colspan="5">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="" />
+                                <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/evs-icon.png" alt="" /> -->
                                 EVS
                               </td>
                             </tr>
@@ -2017,7 +2031,7 @@
                             @if($s==1)
                             <tr class="bg-bluegreen text-white">
                               <td class="text" colspan="5">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="" />
+                                <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/science-icon.png" alt="" /> -->
                                 Science
                               </td>
                             </tr>
@@ -2119,7 +2133,8 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>District Report Card ( {{isset($districtVal->state_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->state_name))):'-'}} - {{isset($districtVal->district_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->district_name), ' [{(-.')):'-'}} )</h2>
+
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:'0'}}</span>
                 </div>
                 <div class="reportview-class-content white-bg pb-0">
@@ -2288,7 +2303,7 @@
                             @if($sst==1)
                             <tr class="bg-bluegreen text-white">
                               <td class="text" colspan="5">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="" />
+                                <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/social-science-icon.png" alt="" /> -->
                                 Social Science
                               </td>
                             </tr>
@@ -2361,7 +2376,7 @@
                             @if($eng==1)
                             <tr class="bg-bluegreen text-white">
                               <td class="text" colspan="5">
-                                <img src="https://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="" />
+                                <!-- <img src="https://nas21.inroad.in/report-pdf/assets/images/english-icon.png" alt="" /> -->
                                 English
                               </td>
                             </tr>
@@ -2461,11 +2476,12 @@
             <div class="reportview-container mb-0">
               <div class="reportview-class-wrap">
                 <div class="reportview-header">
-                  <h2>Sample District Report Card ( {{isset($districtVal->state_name)?ucfirst(strtolower($districtVal->state_name)):'-'}} - {{isset($districtVal->district_name)?ucfirst(strtolower($districtVal->district_name)):'-'}} )</h2>
+                  <h2>District Report Card ( {{isset($districtVal->state_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->state_name))):'-'}} - {{isset($districtVal->district_name)?str_ireplace($excludedWords, $excludedWords, ucwords(strtolower($districtVal->district_name), ' [{(-.')):'-'}} )</h2>
+
                   <span class="class">CLASS {{isset($districtParticipation->grade)?$districtParticipation->grade:0}}</span>
                 </div>
                 <div class="reportview-class-content light-blue-bg children-testimony mt-1">
-                  <div class="row pt-3 justify-content-center pb-30">
+                  <div class="row justify-content-center pb-30">
                     <div class="col-md-12">
                       <h4 class="heading-30 heading-black-bold text-center p-5">
                         What students have to say?
@@ -2617,10 +2633,10 @@
                   <div class="reportview-class-content">
                     <div class="row align-items-center">
                       <div class="col-md-12">
-                        <h1 class="text-center">Commitee</h1>
+                        <h1 class="text-center">NAS 2021 Team</h1>
                       </div>
                       <div class="col-md-12">
-                        <table class="table table-striped">
+                        <table class="table">
                           <thead>
                             <tr class="dark-blue-bg text-white">
                               <th scope="col" colspan="2">National Steering Committee (NAS-2021)</th>
@@ -2628,53 +2644,68 @@
                           </thead>
                           <tbody class="align-middle">
                             <tr>
-                              <th scope="row">Chairman</th>
+                              <th scope="row" rowspan="2">Chairman</th>
+                              <td class="border-bottom-0">
+                                Dr. Vineet Joshi, IAS, Chairman, CBSE  w.e.f. 15.02.2022
+                              </td>
+                            </tr>
+                            <tr>
                               <td>
-                                Dr. Vineet Joshi, IAS (Current Chairman, CBSE)
+                                Shri Manoj Ahuja, IAS, Chairperson, CBSE upto  14.02.2022 
                               </td>
                             </tr>
                             <tr>
                               <th scope="row">Member</th>
-                              <td>Jt. Secretary, DoSEL, Min. of Education</td>
+                              <td>Shri Maneesh Garg, IAS, Joint Secretary, DoSEL, Ministry of Education</td>
                             </tr>
                             <tr>
-                              <th scope="row">Member</th>
-                              <td>Prof. Dinesh Prasad Saklani, Director, NCERT
+                              <th scope="row" rowspan="2">Member</th>
+                              <td class="border-bottom-0">Prof. (Dr.) Dinesh Prasad Saklani, Director, NCERT w.e.f. 14.02.2022 
+                              </td>
+                              
+                            </tr>
+                            <tr>
+                              
+                            <td>Prof. (Dr.) Sridhar Srivastava, Director, NCERT upto 13.02.2022 
                               </td>
                             </tr>
                             <tr>
                               <th scope="row" rowspan="2">Member</th>
-                              <td>DDG</td>
+                              <td class="border-bottom-0">Shri P K Banerjee, DDG (Stats) Ministry of Education upto 07.09.2021</td>
                             </tr>
                             <tr>
                               
-                              <td>Shri V. Hegde, DDG (Stats) Min. of Education</td>
+                              <td>Shri V. Hedge, DDG (Stats) Ministry of Education w.e.f. 10.12.2021</td>
                             </tr>
                             <tr>
                               <th scope="row">Member</th>
-                              <td>Prof. (Dr.) Indrani Bhaduri, Head, ESD, Head NAS Cell, NCERT</td>
+                              <td>Shri Prem Singh, IAS, Adviser (HRD/Admn/GA/Accts.) (North Eastern States), NITI Aayog</td>
                             </tr>
                             <tr>
                               <th scope="row">Member</th>
-                              <td>Shri J.P. Pandey, Director, DoSEL, Min. of Education</td>
+                              <td>Prof. (Dr.) Indrani Bhaduri, Head, ESD & Head NAS Cell, NCERT </td>
                             </tr>
                             <tr>
                               <th scope="row">Member</th>
-                              <td>Shri Manoj Kr. Srivastava, Director (PE) Head NAS Cell-CBSE	</td>
+                              <td>Shri J. P. Pandey, Director, DoSEL, Ministry of Education   </td>
                             </tr>
                             <tr>
                               <th scope="row">Member</th>
-                              <td>Shri Saba Akhtar, Scientist F, NIC</td>
+                              <td>Shri Manoj Kumar Srivastava, Director (PE) & Head NAS Cell, CBSE</td>
                             </tr>
                             <tr>
                               <th scope="row">Member</th>
-                              <td>Dr. Ganesh Nigam, Education Specialists, UNICEF	</td>
+                              <td>Shri Saba Akhtar, Scientist ‘F’, NIC  </td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri Ramachandra Rao Begur, Education Specialist, UNICEF</td>
                             </tr>
                           </tbody>
                         </table>
                       </div>  
                       <div class="col-md-12">
-                        <table class="table table-striped">
+                        <table class="table">
                           <thead>
                             <tr class="dark-blue-bg text-white">
                               <th scope="col" colspan="2">Sub-Committee - Data Analysis, Reporting and Dissemination</th>
@@ -2682,8 +2713,14 @@
                           </thead>
                           <tbody class="align-middle">
                             <tr>
-                              <th scope="row">Chairman</th>
-                              <td>Prof. Dinesh Prasad Saklani, Director, NCERT
+                              <th scope="row" rowspan="2">Chairman</th>
+                              <td class="border-bottom-0">
+                                Prof. (Dr.) Dinesh Prasad Saklani, Director, NCERT w.e.f. 14.02.2022 
+                              </td>
+                              
+                            </tr>
+                            <tr>
+                              <td>Prof. (Dr.) Sridhar Srivastava, Director, NCERT upto 13.02.2022 
                               </td>
                             </tr>
                             <tr>
@@ -2691,32 +2728,40 @@
                               <td>Prof. (Dr.) Sridhar Srivastava, Joint Director</td>
                             </tr>
                             <tr>
+                              <th scope="row">Member Secertary</th>
+                              <td>Prof. (Dr.) Indrani Bhaduri, Head, ESD & Head NAS Cell, NCERT</td>
+                            </tr>
+                            <tr>
                               <th scope="row">Member</th>
                               <td>Shri J.P. Pandey, Director, DoSEL, Min. of Education</td>
                             </tr>
                             <tr>
-                              <th scope="row">Member</th>
-                              <td>Shri V. Hegde, DDG (Stats) Min. of Education</td>
+                              <th scope="row" rowspan="2">Member</th>
+                              <td class="border-bottom-0">Shri P K Banerjee, DDG (Stats) Ministry of Education upto 09.12.2021 </td>
+                            </tr>
+                            <tr>
+                              
+                              <td>Shri V. Hedge, DDG (Stats) Ministry of Education w.e.f. 10.12.2021</td>
                             </tr>
                             <tr>
                               <th scope="row">Member</th>
-                              <td>Shri Manoj Kr. Srivastava, Director (PE), Head NAS Cell, CBSE</td>
+                              <td>Shri Manoj Kumar Srivastava, Director (PE) & Head NAS Cell, CBSE</td>
+                            </tr>
+                            <!-- <tr>
+                              <th scope="row">Member</th>
+                              <td>Prof. (Dr.) Indrani Bhaduri, Head, ESD & Head NAS Cell, NCERT</td>
+                            </tr> -->
+                            <tr>
+                              <th scope="row">Member</th>
+                              <td>Shri Saba Akhtar, Scientist ‘F’, NIC</td>
                             </tr>
                             <tr>
                               <th scope="row">Member</th>
-                              <td>Prof. (Dr.) Indrani Bhaduri, Head, ESD, Head NAS Cell, NCERT</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Member</th>
-                              <td>Shri Saba Akhtar, Scientist F, NIC	</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Member</th>
-                              <td>Dr. Ganesh Nigam, Education Specialists, UNICEF</td>
+                              <td>Ganesh Nigam, Education Specialist, UNICEF</td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>  
+                      </div>
                   </div>
                   <div class="report-footer-wrap pg-26">
                     <div class="reportview-footer">
@@ -2731,6 +2776,230 @@
       </section>
   </div>
   <!-- glossary page ends -->
+  <!-- nw glossary page starts -->
+  <div class="page">
+      <section class="reportview-wrap committee">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="reportview-container">
+                <div class="reportview-class-wrap">
+                  <div class="reportview-class-content">
+                    <div class="row align-items-center">
+                      <div class="col-md-12">
+                        <h1 class="text-center">NAS 2021 Team</h1>
+                      </div>
+                      <div class="col-md-12">
+                        <table class="table">
+                          <thead>
+                            <tr class="dark-blue-bg text-white text-center">
+                              <th scope="col" colspan="2">National Project Coordinators</th>
+                            </tr>
+                          </thead>
+                          <tbody class="align-middle">
+                            <tr class="bg-orange text-center">
+                              <th scope="row" class="w-50">NCERT</th>
+                              <th scope="row" class="w-50">CBSE</th>
+                              
+                            </tr>
+                            <tr>
+                              <td>
+                                Prof. (Dr.) Indrani Bhaduri, Head, ESD & Head NAS Cell, NCERT
+                              </td>
+                              <td>
+                                Shri Manoj Kumar Srivastava, Director (PE) & Head NAS Cell, CBSE
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div> 
+                      <div class="col-md-12">
+                        <table class="table">
+                          <thead>
+                            <tr class="dark-blue-bg text-white text-center">
+                              <th scope="col" colspan="3">Project Team</th>
+                            </tr>
+                          </thead>
+                          <tbody class="align-middle">
+                            <!--  -->
+                            <tr class="bg-orange text-center">
+                              <th scope="row" colspan="3">
+                                Ministry of Education
+                              </th>
+                            </tr>
+                            <tr>
+                              <td>
+                                Sh. Dalbir Singh, Under Secretary
+                              </td>
+                              <td>
+                                Sh. Pratham Sagar (ASO)
+                              </td>
+                              <td>
+                                Sh. Atiqur Rahman, YP
+                              </td>
+                            </tr>
+                            <!--  -->
+                            <tr class="bg-orange text-center">
+                              <th scope="row" colspan="3">
+                              Central Board of Secondary Education (CBSE)
+                              </th>
+                            </tr>
+                            <tr>
+                              <td>
+                                Mrs. Raj Rani Sharma (JS) 
+                              </td>
+                              <td>
+                                Sh. Shambhu Lal Prasad (DS)
+                              </td>
+                              <td>
+                                Sh. Shekhar Chandra (DS) 
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                              Sh. Ramvir Singh (DS) 
+                              </td>
+                              <td>
+                              Ms. Mamta Khanna (PPS)
+                              </td>
+                              <td>
+                                Sh. Ajay Gupta (AS) 
+                              </td>
+                              
+                            </tr>
+                            <tr>
+                              <td>
+                              Mrs. Indu Kumari (AS)  
+                              </td>
+                              <td>
+                              Sh. Pradip Sagar (AO)  
+                              </td>
+                              <td>
+                              Sh. Sunder Shairwal (SO)
+                              </td>
+                              
+                            </tr>
+                            <tr>
+                              <td>
+                              Sh. Vijay Singh (SO)  
+                              </td>
+                              <td>
+                              Sh. Ghanshyam (SO)   
+                              </td>
+                              <td>
+                              CBSE PE Unit HQ Staff
+                              </td>
+                            </tr>
+                            <!--  -->
+                            <tr class="bg-orange text-center">
+                              <th scope="row" colspan="3">
+                              National Council of Educational Research & Training (NCERT)
+                              </th>
+                            </tr>
+                            <tr>
+                              <td>
+                                Prof. Tannu Malik
+                              </td>
+                              <td>
+                                Dr. Ashita Raveendran 
+                              </td>
+                              <td>
+                                Dr. Sarika Saju
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Dr. Tulika Dey
+                              </td>
+                              <td>Dr. K. Vijayan</td>
+                              <td>Prof Wazalwar</td>
+                            </tr>
+                            <tr>
+                              <td>Dr. Madhu B.</td>
+                              <td>
+                              Shri Aji Thomas
+                              </td>
+                              <td>Prof. Kirti Kapoor</td>
+                            </tr>
+                            <tr>
+                              <td>Prof. Sandhya Sahoo</td>
+                              <td>
+                              Prof. Sandhya Singh
+                              </td>
+                              <td>Prof. Usha Sharma</td>
+                            </tr>
+                            <tr>
+                              <td>Prof. Parashar</td>
+                              <td>
+                              Dr. R.K. Sharma
+                              </td>
+                              <td>Dr. Anil Nainawat</td>
+                            </tr>
+                            <tr>
+                              <td>Dr. Santosh</td>
+                              <td>
+                              Dr. Anand Arya
+                              </td>
+                              <td>Dr. Kavita</td>
+                            </tr>
+                            <tr>
+                              <td>Dr. Meena Yadav</td>
+                              <td>
+                              Ms. Bhaswati 
+                              </td>
+                              <td></td>
+                            </tr>
+                            <!--  -->
+                            <tr class="bg-orange text-center">
+                              <th scope="row" colspan="3">
+                              National Informatics Centre (NIC) 
+                              </th>
+                            </tr>
+                            <tr>
+                              <td>
+                              Sh. Abhishek Kundu, Scientist ‘D’
+                              </td>
+                              <td>
+                              Sh. Prabhat Mishra Scientist ‘C’
+                              </td>
+                              <td>
+                              
+                              </td>
+                            </tr>
+                            <!--  -->
+                            <tr class="bg-orange text-center">
+                              <th scope="row" colspan="3">
+                              Central Square Foundation (CSF) 
+                              </th>
+                            </tr>
+                            <tr>
+                              <td>
+                              Sh. Sourav Chopra
+                              </td>
+                              <td>
+                              Ms. Pooja Nagpal
+                              </td>
+                              <td>
+                              Sh. Aditya Sharma
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>   
+                  </div>
+                  <div class="report-footer-wrap pg-2-26">
+                    <div class="reportview-footer">
+                      <span class="page-no">@php $pageNo = $pageNo+1; echo $pageNo; @endphp</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  <!-- nw glossary page ends -->
   <!-- our partners page starts -->
   <div class="page">
       <section class="reportview-wrap drc-partner">
@@ -2742,17 +3011,18 @@
                   <div class="reportview-class-content p-5">
                     <div class="row justify-content-center">
                       <div class="col-md-12">
-                        <div class="d-flex align-items-center justify-content-between">
-                          <div class="imgwrap">
-                            <img src="https://nas21.inroad.in/report-pdf/assets/images/ministry-view.png" alt="img" class="" height="150"/>
-                          </div>
+                        <div class="d-flex align-items-center justify-content-end">
+                          
                           <div class="imgwrap">
                             <img src="https://nas21.inroad.in/report-pdf/assets/images/aazadi.png" alt="img" height="200" />
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-12">
-                        <h1 class="text-center">Our Partners</h1>
+                      <div class="col-md-12 text-center">
+                        <div class="imgwrap">
+                            <img src="https://nas21.inroad.in/report-pdf/assets/images/ministry-view.png" alt="img" class="" height="210"/>
+                        </div>
+                        <h1 class="text-center">Key Organizations</h1>
                       </div>
                       <div class="col-md-12">
                         <div class="row logos align-items-center text-center justify-content-center">
@@ -2790,7 +3060,7 @@
                                 <img src="https://nas21.inroad.in/report-pdf/assets/images/website-qr.png" alt="img" class="" height="250"/>
                               </div>
                               <div class="qr-content mx-2 text-start text-white">
-                                <h6>SCAN QR CODE TO DOWNLOAD THE MOBILE APP</h6>
+                                <h6 class="ms-4">SCAN QR CODE TO DOWNLOAD THE MOBILE APP</h6>
                               </div>
                             </div>
                           </div>
@@ -2823,5 +3093,6 @@
   </div>
   <!-- our partners page ends -->
 </body>
+
 
 </html>
