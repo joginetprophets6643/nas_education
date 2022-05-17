@@ -4191,12 +4191,12 @@ Highcharts.maps["countries/in/custom/in-all-disputed"] = {
     },
     {
       "type": "Feature",
-      "id": "Andaman and Nicobar Islands",
+      "id": "Andaman & Nicobar Islands",
       "properties": {
         "hc-group": "admin1",
-        "hc-key": "andaman and nicobar islands",
+        "hc-key": "andaman & nicobar islands",
         "hc-a2": "AA",
-        "name": "andaman and nicobar islands",
+        "name": "andaman & nicobar islands",
         "hc-middle-x": 0.5,
         "hc-middle-y": 0.5
       },
@@ -17196,12 +17196,12 @@ Highcharts.maps["countries/in/custom/in-all-disputed"] = {
     },
     {
       "type": "Feature",
-      "id": "Jammu and Kashmir",
+      "id": "Jammu & Kashmir",
       "properties": {
         "hc-group": "admin1",
-        "hc-key": "jammu and kashmir",
+        "hc-key": "jammu & kashmir",
         "hc-a2": "JA",
-        "name": "Jammu and Kashmir",
+        "name": "Jammu & Kashmir",
         "hc-middle-x": 0.5,
         "hc-middle-y": 0.5
       },
