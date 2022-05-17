@@ -19,7 +19,7 @@ class CreateFeedbackTable extends Migration
             $table->string('email');
             $table->string('content');
             $table->string('rating');
-            $table->string('feedback');
+            $table->text('feedback');
             $table->timestamps();
         });
     }
