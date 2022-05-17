@@ -58,7 +58,7 @@
               </div>
               <div class="col-md-6 ps-0">
                 <div class="about-img-wrap" data-aos="fade-left">
-                  <img src="{{asset('assets/uploads/1732710732494981.jpeg')}}" alt="img" class="img-fluid" />
+                  <img src="{{asset('assets/front/images/about.jpeg')}}" alt="img" class="img-fluid" />
                 </div> 
               </div>
           </div>
