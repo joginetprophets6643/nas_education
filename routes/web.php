@@ -426,7 +426,8 @@ Route::group(["middleware" => ["authCheck"]], function(){
         Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
         Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
         Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
-        Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
+        Route::get('/report-card','App\Http\Controllers\ReportCardController@landing');
+        Route::get('/report-card/2021','App\Http\Controllers\ReportCardController@index')->name('repord-card');
         Route::get('/report-card/nas-2021','App\Http\Controllers\ReportCardController@details');
 
         // Route::group(["middleware" => ["frontIsLogin"]], function(){

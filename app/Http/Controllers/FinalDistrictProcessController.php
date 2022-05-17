@@ -2526,7 +2526,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, State_MA_psub3_16 as state_avg, India_MA_psub3_16 as national_avg, Dist_MA_psub3_16 as district_avg, 'M804' subject_code, 'math' language, 'Finds squares,cubes,square roots and cube roots of numbers using different methods' description
         from grade8districttable
         union all
-        select id, state_code, dist_code, State_MA_psub3_17 as state_avg, India_MA_psub3_17 as national_avg, Dist_MA_psub3_17 as district_avg, 'M808' subject_code, 'math' language, 'uses various algebric identities in solving problem of daily life.' description
+        select id, state_code, dist_code, State_MA_psub3_17 as state_avg, India_MA_psub3_17 as national_avg, Dist_MA_psub3_17 as district_avg, 'M808' subject_code, 'math' language, 'Uses various algebric identities in solving problem of daily life.' description
         from grade8districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_18 as state_avg, India_MA_psub3_18 as national_avg, Dist_MA_psub3_18 as district_avg, 'M812' subject_code, 'math' language, 'Verifies properties of parallelogram and establishes the relationship between them through reasoning' description
