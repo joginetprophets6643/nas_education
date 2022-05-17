@@ -1838,8 +1838,10 @@ ul {
 }
 
 .gallery-card .gallery-img-wrap img {
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .gallery-card .gallery-img-wrap .gallery-play-icon {
@@ -1879,6 +1881,8 @@ ul {
   transition: 0.2s ease-in;
   opacity: 1;
   visibility: visible;
+  border: none;
+  border-radius: 6px;
 }
 
 .gallery-card .gallery-img-wrap .gallery-zoom-icon {
@@ -7899,6 +7903,8 @@ ul {
   height: 100%;
   width: 100%;
   border-radius: 6px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .gallery-main-wrap .org-link {

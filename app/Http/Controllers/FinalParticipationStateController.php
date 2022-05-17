@@ -1457,7 +1457,7 @@ class FinalParticipationstateController extends Controller
         $query = "select id, state_code, state_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
-        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use home language as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
@@ -1484,15 +1484,15 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, state_tq_q32
-        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that the school building needs major repair' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q34
-        as state_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that there is lack of drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q36
-        as state_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that there are inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q04
@@ -1536,15 +1536,15 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, State_pq_q26
-        as state_avg, 'pq1' level, 'I learn Many things during the pandemic like' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq1' level, 'I learnt many things:' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, State_pq_q27_a_d
-        as state_avg, 'pq2h' level, 'Learning from pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2h' level, 'Experiences During Pandemic' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, State_pq_q27_e_g
-        as state_avg, 'pq3h' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3h' level, 'Obstacles to learning in pandemic' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, State_pq_q27f
@@ -1560,7 +1560,7 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, State_pq_q28f
-        as state_avg, 'pq2' level, 'Happy to spend time at home with my own self' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2' level, 'Happy being by myself at home' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         ";
         return $query;
@@ -1571,7 +1571,7 @@ class FinalParticipationstateController extends Controller
         $query = "select id, state_code, state_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
-        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code,state_pq_q17 as state_avg, 'pq' level, 'students use home language as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
@@ -1598,15 +1598,15 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, state_tq_q32
-        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that the school building needs major repair' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q34
-        as state_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that there is lack of drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q36
-        as state_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that there are inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q04
@@ -1650,15 +1650,15 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, State_pq_q26
-        as state_avg, 'pq1' level, 'I learn Many things during the pandemic like' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq1' level, 'I learnt many things:' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, State_pq_q27_a_d
-        as state_avg, 'pq2h' level, 'Learning from pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2h' level, 'Experiences During Pandemic' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, State_pq_q27_e_g
-        as state_avg, 'pq3h' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3h' level, 'Obstacles to learning in pandemic' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, State_pq_q27f
@@ -1674,7 +1674,7 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, State_pq_q28f
-        as state_avg, 'pq2' level, 'Happy to spend time at home with my own self' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2' level, 'Happy being by myself at home' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         ";
         return $query;
@@ -1685,7 +1685,7 @@ class FinalParticipationstateController extends Controller
         $query = "select id, state_code, state_LA_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
-        select id, state_code,state_LA_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code,state_LA_pq_q17 as state_avg, 'pq' level, 'students use home language as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_LA_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
@@ -1712,15 +1712,15 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, state_tq_q32
-        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that the school building needs major repair' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q34
-        as state_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that there is lack of drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q36
-        as state_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that there are inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q04
@@ -1764,15 +1764,15 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, State_pq_q26
-        as state_avg, 'pq1' level, 'I learn Many things during the pandemic like' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq1' level, 'I learnt many things:' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, State_pq_q27_a_d
-        as state_avg, 'pq2h' level, 'Learning from pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2h' level, 'Experiences During Pandemic' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, State_pq_q27_e_g
-        as state_avg, 'pq3h' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3h' level, 'Obstacles to learning in pandemic' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, State_pq_q27f
@@ -1788,7 +1788,7 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, State_pq_q28f
-        as state_avg, 'pq2' level, 'Happy to spend time at home with my own self' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2' level, 'Happy being by myself at home' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         ";
         return $query;
@@ -1799,7 +1799,7 @@ class FinalParticipationstateController extends Controller
         $query = "select id, state_code, state_LA_pq_q14 as state_avg , 'pq' level, 'students like to go to school' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
-        select id, state_code,state_LA_pq_q17 as state_avg, 'pq' level, 'students use same language at home as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
+        select id, state_code,state_LA_pq_q17 as state_avg, 'pq' level, 'students use home language as medium of instruction in the class' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_LA_pq_q32 as state_avg, 'pq' level, 'CWSN students get facilities from school' question_desc, 0 question_code, 0 total_parent
@@ -1826,15 +1826,15 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, state_tq_q32
-        as state_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that the school building needs major repair' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q34
-        as state_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that there is lack of drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q36
-        as state_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'tq' level, 'Teachers have responded that there are inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q04
@@ -1878,15 +1878,15 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, State_pq_q26
-        as state_avg, 'pq1' level, 'I learn Many things during the pandemic like' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq1' level, 'I learnt many things:' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, State_pq_q27_a_d
-        as state_avg, 'pq2h' level, 'Learning from pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2h' level, 'Experiences During Pandemic' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, State_pq_q27_e_g
-        as state_avg, 'pq3h' level, 'I experienced obstacles to my learning during pandemic' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3h' level, 'Obstacles to learning in pandemic' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, State_pq_q27f
@@ -1902,7 +1902,7 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, State_pq_q28f
-        as state_avg, 'pq2' level, 'Happy to spend time at home with my own self' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq2' level, 'Happy being by myself at home' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         ";
         return $query;
@@ -2100,7 +2100,7 @@ class FinalParticipationstateController extends Controller
         select id, state_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, 'State_MA_psub3_5' src_subject_code, 'M501' subject_code, 'math' language, 'Reads and writes numbers bigger than 1000 being used in her/his surroundings' description
         from grade5statetable
         union all
-        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' src_subject_code, 'M504' subject_code, 'math' language, 'Estimates sum. difference, product and quotient of numbers and verifies the same using different strategies like using standard algorithms or breaking a number and then using operation' description
+        select id, state_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, 'State_MA_psub3_6' src_subject_code, 'M504' subject_code, 'math' language, 'Estimates sum, difference, product and quotient of numbers and verifies the same using different strategies like using standard algorithms or breaking a number and then using operation' description
         from grade5statetable
         union all
         select id, state_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, 'State_MA_psub3_7' src_subject_code, 'M505' subject_code, 'math' language, 'Finds the number corresponding to part of a collection' description
@@ -2248,7 +2248,7 @@ class FinalParticipationstateController extends Controller
         select id, state_code, State_SC_psub3_3 as state_avg, India_SC_psub3_3 as national_avg, 'State_SC_psub3_3' src_subject_code, 'SCI705' subject_code, 'sci' language, 'Relates processes and phenomenon with causes' description
         from grade8statetable
         union all
-        select id, state_code, State_SC_psub3_4 as state_avg, India_SC_psub3_4 as national_avg, 'State_SC_psub3_4' src_subject_code, 'SCI708' subject_code, 'sci' language, 'Measures and calculates e.g.. temperature; pulse rate; speed of moving objects; time period of a simple pendulum, etc.' description
+        select id, state_code, State_SC_psub3_4 as state_avg, India_SC_psub3_4 as national_avg, 'State_SC_psub3_4' src_subject_code, 'SCI708' subject_code, 'sci' language, 'Measures and calculates e.g., temperature; pulse rate; speed of moving objects; time period of a simple pendulum, etc.' description
         from grade8statetable
         union all
         select id, state_code, State_SC_psub3_5 as state_avg, India_SC_psub3_5 as national_avg, 'State_SC_psub3_5' src_subject_code, 'SCI710' subject_code, 'sci' language, 'Plots and interprets graphs' description
@@ -2305,7 +2305,7 @@ class FinalParticipationstateController extends Controller
         select id, state_code, State_SS_psub3_10 as state_avg, India_SS_psub3_10 as national_avg, 'State_SS_psub3_10' src_subject_code, 'SST734' subject_code, 'sst' language, 'Traces how goods travel through various market places' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_11 as state_avg, India_SS_psub3_11 as national_avg, 'State_SS_psub3_11' src_subject_code, 'SST802' subject_code, 'sst' language, 'Describes major crops, types of farming and agricultural practices in her/his own areaistate' description
+        select id, state_code, State_SS_psub3_11 as state_avg, India_SS_psub3_11 as national_avg, 'State_SS_psub3_11' src_subject_code, 'SST802' subject_code, 'sst' language, 'Describes major crops, types of farming and agricultural practices in her/his own area/state' description
         from grade8statetable
         union all
         select id, state_code, State_SS_psub3_12 as state_avg, India_SS_psub3_12 as national_avg, 'State_SS_psub3_12' src_subject_code, 'SST805' subject_code, 'sst' language, 'Locates distribution of important minerals e.g. coal and mineral oil on the world map' description
@@ -2332,7 +2332,7 @@ class FinalParticipationstateController extends Controller
         select id, state_code, State_SS_psub3_19 as state_avg, India_SS_psub3_19 as national_avg, 'State_SS_psub3_19' src_subject_code, 'SST823' subject_code, 'sst' language, 'Applies the knowledge of the Fundamental Rights to find out about their violation. protection and promotion in a given situation' description
         from grade8statetable
         union all
-        select id, state_code, State_SS_psub3_20 as state_avg, India_SS_psub3_20 as national_avg, 'State_SS_psub3_20' src_subject_code, 'SST827' subject_code, 'sst' language, 'Describes the process of making a taw. (e.g. Domestic Violence Act, RTI Act, RTE Act)' description
+        select id, state_code, State_SS_psub3_20 as state_avg, India_SS_psub3_20 as national_avg, 'State_SS_psub3_20' src_subject_code, 'SST827' subject_code, 'sst' language, 'Describes the process of making a law. (e.g. Domestic Violence Act, RTI Act, RTE Act)' description
         from grade8statetable
         union all
         select id, state_code, State_SS_psub3_21 as state_avg, India_SS_psub3_21 as national_avg, 'State_SS_psub3_21' src_subject_code, 'SST831' subject_code, 'sst' language, 'Identifies the role of Government in providing public facilities such as water, sanitation, road, electricity etc, and recognizes their availability' description
@@ -2433,7 +2433,11 @@ class FinalParticipationstateController extends Controller
         select id, state_code, State_SS_psub3_4 as state_avg, India_SS_psub3_4 as national_avg, 'State_SS_psub3_4' src_subject_code, 'SST1004' subject_code, 'sst' language, 'Analyses and evaluates information.' description
         from grade10statetable
         union all
-        select id, state_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, 'State_SS_psub3_5' src_subject_code, 'SST1005' subject_code, 'sst' language, 'Interprets.' description
+        select id, state_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, 'State_SS_psub3_5' src_subject_code, 'SST1005' subject_code, 'sst' language, 'Interprets: Maps, texts, symbols, cartoons, photographs, posters, newspaper clippings, climatic
+        regions, changes in maps brought out by various treaties in Europe, sea and land links of the
+        trade from India to West Asia, South East Asia and other parts of the world, pie and bar diagrams
+        related to gross domestic product, production in different sectors and industries, employment and
+        population in India' description
         from grade10statetable
         union all
         select id, state_code, State_SS_psub3_6 as state_avg, India_SS_psub3_6 as national_avg, 'State_SS_psub3_6' src_subject_code, 'SST1006' subject_code, 'sst' language, 'Draws interlinkages within Social Science.' description

@@ -1931,13 +1931,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q31 as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building needs significant repair' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that there is lack of drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that there are inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
         select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
@@ -1967,7 +1967,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers know school reopening guidelines' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers are aware of school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade3districttable
         ";
         return $query;
@@ -2006,13 +2006,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q31 as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building needs significant repair' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that there is lack of drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that there are inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
         select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
@@ -2042,7 +2042,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers know school reopening guidelines' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers are aware of school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade5districttable
         ";
         return $query;
@@ -2080,13 +2080,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q31 as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building needs significant repair' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that there is lack of drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that there are inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
         select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
@@ -2116,7 +2116,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers know school reopening guidelines' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers are aware of school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade8districttable
         ";
         return $query;
@@ -2157,13 +2157,13 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q31 as dist_avg, 'tq' level, 'Teachers say that they are overloaded with the work' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building need significant repair' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q32 as dist_avg, 'tq' level, 'Teachers have responded that the school building needs significant repair' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that lack of Drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q34 as dist_avg, 'tq' level, 'Teachers have responded that there is lack of drinking water facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q36 as dist_avg, 'tq' level, 'Teachers have responded that there are inadequate toilet facilities in school' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
         select id, state_code, dist_code, Dist_tq_q04 as dist_avg, 'tq' level, 'Teachers participated in professional development program' question_desc, 0 question_code, 0 total_parent
@@ -2193,7 +2193,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, Dist_tq_q17 as dist_avg, 'tq' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         union all
-        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers know school reopening guidelines' question_desc, 0 question_code, 0 total_parent
+        select id, state_code, dist_code, Dist_tq_q16 as dist_avg, 'tq' level, 'Teachers are aware of school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade10districttable
         ";
         return $query;
@@ -2399,7 +2399,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, State_MA_psub3_5 as state_avg, India_MA_psub3_5 as national_avg, Dist_MA_psub3_5 as district_avg, 'M501' subject_code, 'math' language, 'Reads and writes numbers bigger than 1000 being used in her/his surroundings' description
         from grade5districttable
         union all
-        select id, state_code, dist_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, Dist_MA_psub3_6 as district_avg, 'M504' subject_code, 'math' language, 'Estimates sum. difference, product and quotient of numbers and verifies the same using different strategies like using standard algorithms or breaking a number and then using operation' description
+        select id, state_code, dist_code, State_MA_psub3_6 as state_avg, India_MA_psub3_6 as national_avg, Dist_MA_psub3_6 as district_avg, 'M504' subject_code, 'math' language, 'Estimates sum, difference, product and quotient of numbers and verifies the same using different strategies like using standard algorithms or breaking a number and then using operation' description
         from grade5districttable
         union all
         select id, state_code, dist_code, State_MA_psub3_7 as state_avg, India_MA_psub3_7 as national_avg, Dist_MA_psub3_7 as district_avg, 'M505' subject_code, 'math' language, 'Finds the number corresponding to part of a collection' description
@@ -2631,7 +2631,7 @@ class FinalDistrictProcessController extends Controller
         select id, state_code, dist_code, State_SS_psub3_19 as state_avg, India_SS_psub3_19 as national_avg, Dist_SS_psub3_19 as district_avg, 'SST823' subject_code, 'sst' language, 'Applies the knowledge of the Fundamental Rights to find out about their violation. protection and promotion in a given situation' description
         from grade8districttable
         union all
-        select id, state_code, dist_code, State_SS_psub3_20 as state_avg, India_SS_psub3_20 as national_avg, Dist_SS_psub3_20 as district_avg, 'SST827' subject_code, 'sst' language, 'Describes the process of making a taw. (e.g. Domestic Violence Act, RTI Act, RTE Act)' description
+        select id, state_code, dist_code, State_SS_psub3_20 as state_avg, India_SS_psub3_20 as national_avg, Dist_SS_psub3_20 as district_avg, 'SST827' subject_code, 'sst' language, 'Describes the process of making a law. (e.g. Domestic Violence Act, RTI Act, RTE Act)' description
         from grade8districttable
         union all
         select id, state_code, dist_code, State_SS_psub3_21 as state_avg, India_SS_psub3_21 as national_avg, Dist_SS_psub3_21 as district_avg, 'SST831' subject_code, 'sst' language, 'Identifies the role of Government in providing public facilities such as water, sanitation, road, electricity etc, and recognizes their availability' description
@@ -2733,7 +2733,7 @@ class FinalDistrictProcessController extends Controller
         from grade10districttable
         union all
         select id, state_code, dist_code, State_SS_psub3_5 as state_avg, India_SS_psub3_5 as national_avg, Dist_SS_psub3_5 as district_avg, 'SST1005' subject_code, 'sst' language, 'Interprets: Maps, texts, symbols, cartoons, photographs, posters, newspaper clippings, climatic
-        regions, changes in maps brought out by various treaties in Europe, sea, and land links of the
+        regions, changes in maps brought out by various treaties in Europe, sea and land links of the
         trade from India to West Asia, South East Asia and other parts of the world, pie and bar diagrams
         related to gross domestic product, production in different sectors and industries, employment and
         population in India' description
