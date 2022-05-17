@@ -274,29 +274,35 @@ Route::get('/secure-admin/query-button', function () {
 
 //Event Routes
 
-Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
-Route::post('/secure-admin/add/event', 'App\Http\Controllers\EventController@store')->name('store-event');
-Route::get('/secure-admin/edit/event/{id}', 'App\Http\Controllers\EventController@edit')->name('edit-event');
-Route::post('/secure-admin/update/event/{id}', 'App\Http\Controllers\EventController@update');
+// Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
+// Route::post('/secure-admin/add/event', 'App\Http\Controllers\EventController@store')->name('store-event');
+// Route::get('/secure-admin/edit/event/{id}', 'App\Http\Controllers\EventController@edit')->name('edit-event');
+// Route::post('/secure-admin/update/event/{id}', 'App\Http\Controllers\EventController@update');
 
 //Event Images
 
-Route::get('/secure-admin/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
-Route::post('/secure-admin/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
-Route::get('/secure-admin/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
+Route::get('/secure-admin/event/images','App\Http\Controllers\EventController@getImages')->name('getImages');
+Route::post('/secure-admin/add/images', 'App\Http\Controllers\EventController@addImages');
+// Route::get('/secure-admin/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
+// Route::post('/secure-admin/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
+// Route::get('/secure-admin/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
+Route::get('/secure-admin/delete/image/{image}', 'App\Http\Controllers\EventController@deleteImage');
 
 //Video Event Routes
 
-Route::get('/secure-admin/video_event','App\Http\Controllers\EventController@video_event_index')->name('video-events');
-Route::post('/secure-admin/add/video_event', 'App\Http\Controllers\EventController@video_event_store')->name('store-video-event');
-Route::get('/secure-admin/edit/video_event/{id}', 'App\Http\Controllers\EventController@video_event_edit')->name('vedit-event');
-Route::post('/secure-admin/update/video_event/{id}', 'App\Http\Controllers\EventController@video_event_update');
+// Route::get('/secure-admin/video_event','App\Http\Controllers\EventController@video_event_index')->name('video-events');
+// Route::post('/secure-admin/add/video_event', 'App\Http\Controllers\EventController@video_event_store')->name('store-video-event');
+// Route::get('/secure-admin/edit/video_event/{id}', 'App\Http\Controllers\EventController@video_event_edit')->name('vedit-event');
+// Route::post('/secure-admin/update/video_event/{id}', 'App\Http\Controllers\EventController@video_event_update');
 
 //Videos Route
 
-Route::get('/secure-admin/event/videos/{id}','App\Http\Controllers\EventController@getVideos')->name('getVideos');
-Route::post('/secure-admin/add/videos/{id}', 'App\Http\Controllers\EventController@addVideos');
+Route::get('/secure-admin/event/videos','App\Http\Controllers\EventController@getVideos')->name('getVideos');
+Route::post('/secure-admin/add/videos', 'App\Http\Controllers\EventController@addVideos');
 Route::get('/secure-admin/delete/videos/{id}', 'App\Http\Controllers\EventController@deleteVideos');
+// Route::get('/secure-admin/event/videos/{id}','App\Http\Controllers\EventController@getVideos')->name('getVideos');
+// Route::post('/secure-admin/add/videos/{id}', 'App\Http\Controllers\EventController@addVideos');
+// Route::get('/secure-admin/delete/videos/{id}', 'App\Http\Controllers\EventController@deleteVideos');
 
 //Profile
 Route::get('/secure-admin/profile','App\Http\Controllers\AdminController@profile')->name('profile');

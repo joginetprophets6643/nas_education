@@ -87,8 +87,8 @@
                                 <div class="col-md-3 item">
                                     <div class="gallery-card">
                                         <div class="gallery-img-wrap">
-                                        <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image)}}" data-lightbox="photos">
-                                        <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid">
+                                        <a class="gallery-anchor" href="{{asset('assets/uploads/images/'.$image)}}" data-lightbox="photos">
+                                        <img src="{{asset('assets/uploads/images/'.$image)}}" alt="img" class="img-fluid">
                                         <button class="gallery-zoom-icon">
                                         <span class="material-icons-round">
                                         zoom_in
@@ -142,7 +142,7 @@
 
                             @endforeach
                             <div class="col-md-12">
-                                <a href="{{route('image-gallery')}}" class="org-link">
+                                <a href="{{route('video-gallery')}}" class="org-link">
                                     VIEW ALL 
                                     <span class="material-icons-round">
                                       east

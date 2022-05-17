@@ -485,11 +485,11 @@
                     </h2>
                     <div id="gallery-slider">
                       <div class="owl-carousel owl-theme" id="photoSlider">
-                        @foreach($images as $image)
+                        @foreach($events as $event)
                         <div class="item">
                             <div class="gallery-img-wrap">
-                            <a class="gallery-anchor" href="{{asset('assets/uploads/images/'.$image)}}" data-lightbox="photos">
-                            <img src="{{asset('assets/uploads/images/'.$image)}}" alt="img" class="img-fluid">                        
+                            <a class="gallery-anchor" href="{{asset('assets/uploads/images/'.$image[$event->id])}}" data-lightbox="photos">
+                            <img src="{{asset('assets/uploads/images'.$image[$event->id])}}" alt="img" class="img-fluid">                        
                             <button class="gallery-zoom-icon">
                         <span class="material-icons-round">
                         zoom_in
@@ -502,7 +502,7 @@
                         @endforeach
                       </div>
                       <div class="btn-wrap">
-                        <a href="{{url('/gallery/image-gallery')}}" class="org-link">
+                        <a href="{{url('/gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
                             east
@@ -541,7 +541,7 @@
                         @endforeach
                       </div>
                       <div class="slider-viewbtn btn-wrap">
-                        <a href="{{url('/gallery/vedio-gallery')}}" class="org-link">
+                        <a href="{{url('/gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
                             east

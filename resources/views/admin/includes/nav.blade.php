@@ -65,8 +65,8 @@
             </a>
             <div class="collapse" id="media">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('/secure-admin/event')}}"> Manage Images </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('/secure-admin/video_event')}}"> Manage Videos </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/secure-admin/event/images')}}"> Manage Images </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/secure-admin/event/videos')}}"> Manage Videos </a></li>
               </ul>
             </div>
           </li>

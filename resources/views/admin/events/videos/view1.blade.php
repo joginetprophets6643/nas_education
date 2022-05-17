@@ -5,6 +5,7 @@
 <div class="main-panel">
   <div class="content-wrapper">
       <div class="container">
+      <a href="{{route('video-events')}}" class="btn btn-primary btn-sm" style="margin-bottom:20px;">Back</a>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -15,7 +16,7 @@
                     </div>
                     @endif
                     <div class="card-header">
-                        <span class="media-title">All Videos</span>
+                        <span class="media-title">All Videos ({{$name->name}})</span>
                         <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
 
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -33,8 +34,8 @@
                                     <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="card-body">
-
-                                    <form action="{{url('/secure-admin/add/videos')}}" method="POST" enctype="multipart/form-data">
+                                    <?php $id=encode5t($id)?>
+                                    <form action="{{url('/secure-admin/add/videos/'.$id)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                         <label for="title" class="form-label">Title</label>

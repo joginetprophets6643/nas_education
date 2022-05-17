@@ -86,13 +86,13 @@
               </h2>
               <ul>
                 <li>
-                  <a href="{{url('/gallery')}}">
+                  <a href="{{url('/gallery/image-gallery')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Photo Gallery')}}
                   </a>
                 </li>
                 <li>
-                  <a href="{{url('/gallery')}}">
+                  <a href="{{url('/gallery/video-gallery')}}">
                     <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                     {{__('lang.Video Gallery')}}
                   </a>
