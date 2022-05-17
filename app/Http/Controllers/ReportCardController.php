@@ -41,6 +41,11 @@ class ReportCardController extends Controller
         $districts=District_Master::orderBy('district_name')->get();
         return view('front.report_card.index',compact('states','districts','content'));
     }
+
+    public function landing(){
+        return view('front.report_card.landing');
+    }
+
     public function details(){
         return view('front.report_card.districtcontent')->with('container_type','fluid');
     }

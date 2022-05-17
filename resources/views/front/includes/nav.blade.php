@@ -112,10 +112,10 @@
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('nas-program') ? 'active' : '' }}" href="{{url('/nas-program')}}">{{__('lang.NAS PROGRAM')}}</a>
                   </li>
-                  <!-- <li class="nav-item">
+                  <li class="nav-item">
                     <a class="nav-link {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="{{url('/report-card')}}" target="_blank">{{__('lang.REPORT CARD')}}</a>
-                  </li> -->
-                  <li class="nav-item dropdown">
+                  </li>
+                  <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdown">{{__('lang.REPORT CARD')}}
                     <span class="material-icons-round icon-hide">
                       arrow_drop_down
@@ -125,7 +125,7 @@
                       <li><a class="dropdown-item" href="{{url('/report-card/2017')}}">{{__('lang.NAS 2017')}}</a></li>
                       <li><a class="dropdown-item" href="{{url('/report-card')}}">{{__('lang.NAS 2021')}}</a></li>
                     </ul>
-                  </li>
+                  </li> -->
                   <!-- <li class="nav-item">
                     <a class="nav-link {{ Request::is('data-share') || Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}" target="_blank">{{__('lang.DATA SHARE')}}</a>
                   </li> -->
