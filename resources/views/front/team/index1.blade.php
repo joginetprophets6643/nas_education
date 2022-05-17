@@ -168,16 +168,17 @@
                           <ul>
                             <li>
                               <div class="row">
-                                <?php $sub_tilte=''?>
-                                @foreach($member as $data)
-                                @if($sub_tilte!=$data->sub_title)
+                                <?php $sub_title=array();$member=$member->groupBy('sub_title');?>
+                                @foreach($member as $sub_key=>$data)
+                                @if(!in_array($sub_key,$sub_title))
                                   <div class="col-md-12 nasteam-container team-pink p-0">
                                       <div class="nasteam-subheading">
-                                          <h2>{{$data->sub_title}}</h2>
+                                          <h2>{{$sub_key}}</h2>
                                       </div>
                                   </div>
-                                  <?php $sub_tilte=$data->sub_title?>
+                                  <?php array_push($sub_title,$sub_key)?>
                                 @endif
+                                @foreach($data as $data)
                                   <div class="col-md-4 nasteam-container team-pink p-0">
                                       <div class="nasteam-content">
                                         <div class="content-left">
@@ -202,6 +203,7 @@
                                         </div>
                                       </div>
                                   </div>
+                                @endforeach
                                 @endforeach  
                               </div>
                             </li>
