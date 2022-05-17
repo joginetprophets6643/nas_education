@@ -49,7 +49,7 @@
               <div class="col-md-6">
                 <div class="line-card line-card-shadow">
                   <div class="line-cardimg">
-                    <img src="{{asset('assets/front/images/visualization_2017.png')}}" alt="visualization" class="img-fluid" />
+                    <img src="{{asset('assets/front/images/Report_card_2017.png')}}" alt="visualization" class="img-fluid" />
                   </div>
                   <div class="btn-wrap justify-content-center pt-2 pb-4">
                     <a href="{{ url('/report-card/2017') }}" class="line-cardbtn org-btn" target="_blank">Access Report Card 2017</a>

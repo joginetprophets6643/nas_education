@@ -37,7 +37,10 @@
                                 </div>
                             </div> -->
                             @if(session('success'))
-                                <span class="text-success">{{session('success')}}</span>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{{session('success')}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
                             @endif
 
                             <form action="{{route('storefeedback')}}" method="POST">
@@ -50,9 +53,10 @@
                                         <!-- <label for="#name">Type:</label> -->
                                         <select class="form-select form-control" name="content" id="content">
                                             <option value="">Select</option>
-                                            <option value='national_report_card' {{ (old("content") == "national_report_card" ? "selected":"") }}>National Report Card</option>
-                                            <option value='state_report_card' {{ (old("content") == "state_report_card" ? "selected":"") }}>State Report Card</option>
-                                            <option value='district_report_card' {{ (old("content") == "district_report_card" ? "selected":"") }}>District Report Card</option>
+                                            <option value='Content Related' {{ (old("content") == "Content Related" ? "selected":"") }}>Content Related</option>
+                                            <option value='UI/UX Related' {{ (old("content") == "UI/UX Related" ? "selected":"") }}>UI/UX Related</option>
+                                            <option value='Map Related' {{ (old("content") == "Map Related" ? "selected":"") }}>Map Related</option>
+                                            <option value='Report Card(DRC, SRC, NRC) Related' {{ (old("content") == "Report Card(DRC, SRC, NRC) Related" ? "selected":"") }}>Report Card(DRC, SRC, NRC) Related</option>
                                             <!-- <option value='visualization' {{ (old("content") == "visualization" ? "selected":"") }}>Visualization</option> -->
                                         </select>
                                         @error('content')
