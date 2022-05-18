@@ -2908,7 +2908,7 @@ function setTableHead(legend) {
 
     return `<thead>
               <tr>
-                <th scope="col">State/Union Territory</th>
+                <th scope="col">State/UT</th>
                 <th scope="col">Mean</th>
                 <th scope="col">SE</th>
                 <th scope="col">Significance</th>
@@ -2921,7 +2921,7 @@ function setTableHead(legend) {
 
     return `<thead>
               <tr>
-                <th scope="col">State/Union Territory</th>
+                <th scope="col">State/UT</th>
                 <th scope="col">Girls</th>
                 <th scope="col">Boys</th>
                 <th scope="col">Significance</th>
@@ -2934,7 +2934,7 @@ function setTableHead(legend) {
 
     return `<thead>
               <tr>
-                <th scope="col">State/Union Territory</th>
+                <th scope="col">State/UT</th>
                 <th scope="col">Rural</th>
                 <th scope="col">Urban</th>
                 <th scope="col">Significance</th>
@@ -2947,7 +2947,7 @@ function setTableHead(legend) {
 
     return `<table class="ms_table table"><thead>
                   <tr>
-                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">State/UT</th>
                     <th scope="col">State Govt.</th>
                     <th scope="col">Govt. Aided</th>
                     <th scope="col">Significance</th>
@@ -2963,7 +2963,7 @@ function setTableHead(legend) {
 
     return `<table class="ms_table table"><thead>
                   <tr>
-                    <th scope="col">State/Union Territory</th>
+                    <th scope="col">State/UT</th>
                     <th scope="col">General</th>
                     <th scope="col">SC</th>
                     <th scope="col">Significance</th>
