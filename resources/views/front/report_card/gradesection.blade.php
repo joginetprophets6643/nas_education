@@ -20,7 +20,7 @@
                             </li>
                             <li class="nav-item" role="presentation">
                               <strong>
-                                <span class="nav-link" id="navbar-highlighter"></span>
+                                <span class="nav-link t" id="navbar-highlighter"></span>
                               </strong>
                             </li>
                             <!-- <li class="nav-item" role="presentation"><button class="nav-link"  onClick="javascript:void(0);" ><b><span id="navbar-highlighter" ></span></b></button></li> -->
