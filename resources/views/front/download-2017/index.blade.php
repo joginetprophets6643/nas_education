@@ -35,7 +35,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Report Card') }}</li>
+                              <li class="breadcrumb-item"><a href="{{url('/report-card')}}">{{ __('lang.Report Card') }}</a></li>
                               <li class="breadcrumb-item active" aria-current="page">{{ __('lang.NAS 2017') }}</li>
                             </ol>
                           </nav>
@@ -55,39 +55,49 @@
                     <div class="row justify-content-center text-center">
                     <div class="col-md-12">
                     <div class="desc-black">
-                    
+                    <h2 class="heading-blue">
+                        National Achievement Survey(NAS)-2017
+                    </h2>
                         <!-- NCERT, under the aegis of MHRD, conducted the National Achievement Survey (NAS) throughout the country on November 13, 2021, for Classes 3, 5 and 8 in government and government-aided schools. The survey tools used multiple test booklets with 45 questions in Classes 3 and 5 and 60 questions in Class VIII in Mathematics, Language, Sciences and Social Sciences. The competency-based test questions reflect the learning outcomes developed by NCERT which were recently incorporated in the RTE Act by the Government of India. Along with the test items, questionnaires about students, teachers and schools were also used. The learning levels of 2.2 million students from 1,10,000 schools across 701 districts in all 36 states/UTs were assessed. The findings of the survey help guide the education policy, planning and implementation at national, state, district and classroom levels to improve the learning levels of children and bring about qualitative improvements. -->
-</div>
-                    </div>
-                    <div class="col-lg-4 col-xl-3">
-                    <div class="line-card line-card-pink">
-                        <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/national.jpg')}}" alt="national" class="img-fluid" />
-                        </div>
-                        <div class="btn-wrap">
-                        <a href="javascript:void(0);" class="line-cardbtn w-100 btn-pink">National Report Card</a>
-                        </div>
                     </div>
                     </div>
-                    <div class="col-lg-4 col-xl-3">
-                    <div class="line-card line-card-green">
-                        <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/state.jpg')}}" alt="state" class="img-fluid" />
-                        </div>
-                        <div class="btn-wrap">
-                        <a class="line-cardbtn w-100 btn-green stateopen" href="{{url('/download-data-state-wise-2017')}}" >State Report Card</a>
-                        </div>
+                    <div class="col-lg-4 col-xl-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="National Report Card">
+                        <a href="javascript:void(0);">
+                            <div class="line-card line-card-pink">
+                                <div class="line-cardimg">
+                                <img src="{{asset('assets/front/images/national.jpg')}}" alt="national" class="img-fluid" />
+                                </div>
+                                <div class="btn-wrap">
+                                <a href="javascript:void(0);" class="line-cardbtn w-100 btn-pink">National Report Card</a>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+
+                    <div class="col-lg-4 col-xl-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="State Report Card">
+                        <a href="{{url('/download-data-state-wise-2017')}}">
+                            <div class="line-card line-card-green">
+                                <div class="line-cardimg">
+                                <img src="{{asset('assets/front/images/state.jpg')}}" alt="state" class="img-fluid" />
+                                </div>
+                                <div class="btn-wrap">
+                                <a class="line-cardbtn w-100 btn-green stateopen" href="{{url('/download-data-state-wise-2017')}}" >State Report Card</a>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-lg-4 col-xl-3">
-                    <div class="line-card line-card-blue">
-                        <div class="line-cardimg">
-                        <img src="{{asset('assets/front/images/district.jpg')}}" alt="district" class="img-fluid" />
-                        </div>
-                        <div class="btn-wrap">
-                        <a class="line-cardbtn w-100 btn-blue districtopen" href="{{url('/download-data-district-wise-2017')}}">District Report Card</a>
-                        </div>
-                    </div>
+
+                    <div class="col-lg-4 col-xl-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="District Report Card">
+                        <a href="{{url('/download-data-district-wise-2017')}}">
+                            <div class="line-card line-card-blue">
+                                <div class="line-cardimg">
+                                <img src="{{asset('assets/front/images/district.jpg')}}" alt="district" class="img-fluid" />
+                                </div>
+                                <div class="btn-wrap">
+                                <a class="line-cardbtn w-100 btn-blue districtopen" href="{{url('/download-data-district-wise-2017')}}">District Report Card</a>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     </div>
                 

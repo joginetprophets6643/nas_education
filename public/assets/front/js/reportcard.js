@@ -89,6 +89,16 @@ $(document).ready(() => {
   already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
 });
 
+$.ajax({
+  type: "GET",
+  url: api_url + 'state_participation_cards?limit-1&sort[]=state_name',
+  headers: {
+    "Authorization": "Bearer " + token
+  }
+}).done((response) => {
+  sessionStorage.setItem('state_participation_cards', JSON.stringify(response.data))
+})
+
 // doghnut chart for performance only
 async function createDoghnutChart(where, data, title) {
   await Highcharts.chart(where, {
@@ -1068,6 +1078,17 @@ function updateData(data) {
       priv = priv > 0 ? priv / Object.keys(data).length : 0
       gov = gov > 0 ? gov / Object.keys(data).length : 0
 
+      if (data[0].district_id == undefined && data[0].state_id != undefined && data.length > 1) {
+        temp_data = JSON.parse(sessionStorage.getItem('state_participation_cards'));
+        temp_data = temp_data.filter((item) => {
+          return item.state_code == data[0].state_id
+        })
+        console.log(temp_data)
+        total_school = temp_data[0].school
+        total_teacher = temp_data[0].teacher
+        total_student = temp_data[0].student
+      }
+
       $('#participation_school_class' + classType).html(Math.round(total_school).toLocaleString('en-IN'))
       $('#participation_teachers_class' + classType).html(Math.round(total_teacher).toLocaleString('en-IN'))
       $('#participation_students_class' + classType).html(Math.round(total_student).toLocaleString('en-IN'))
@@ -1434,7 +1455,7 @@ function updateData(data) {
             pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-pink"><div class="progress" data-percentage="' + percentage + '"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">' + percentage + '%</div></div></div><p class="title">' + capitalizeFirstLetter(fb.question_desc) + '</p></div>'
             pq2Average += percentage
           } else {
-            pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="' + percentage + '"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">' + percentage + '%</div></div></div><p class="title">' + capitalizeFirstLetter(fb.question_desc)+'</div>'
+            pq2 = '<div class="pendamic-progrssbar-content ptb-15"><div class="progressbar-circle-sm progressbar-blue"><div class="progress" data-percentage="' + percentage + '"><span class="progress-left"><span class="progress-bar"></span></span><span class="progress-right"><span class="progress-bar"></span></span><div class="progress-value">' + percentage + '%</div></div></div><p class="title">' + capitalizeFirstLetter(fb.question_desc) + '</div>'
           }
           $('#feedback' + current_demography + '_pq2_' + countPq2 + '_class3').html(pq2)
           countPq2 += 1
