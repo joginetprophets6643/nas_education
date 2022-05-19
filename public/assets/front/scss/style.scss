@@ -8022,3 +8022,12 @@ div {
     margin-top: -6rem;
     transition: all 0.3s ease-in-out 0s;
 }
+
+.sec-banner {
+    .heading {
+        border-radius: 8px !important;
+        span {
+            border-radius: 8px 0px 0px 8px !important;
+        }
+    }
+    } 
