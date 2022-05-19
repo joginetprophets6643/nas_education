@@ -423,13 +423,15 @@ function changeFontSize(direction){
         $(window).scroll(function(){
           if ($(this).scrollTop() > 15) {
             $('#scrollTab').css({"top":"7.9em", "padding": "0.5rem 0"});
+            $('#scrollTab .btn-dwn').css({"margin-top":"0"});
           } else {
             $('#scrollTab').css({"top":"70px"});
+            $('#scrollTab .btn-dwn').css({"margin-top":"-7rem"});
           }
         });
         $(window).scroll(function(){
           if ($(this).scrollTop() > 15) {
-            $('#scrollTab2').css({"top":"10.8em", "padding": "0.5rem 0"});
+            $('#scrollTab2').css({"top":"11.8em", "padding": "0.5rem 0"});
           } else {
             $('#scrollTab2').css({"top":"70px", "padding": "0"});
           }

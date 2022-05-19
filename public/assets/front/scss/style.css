@@ -11282,4 +11282,10 @@ div #all-state-list {
 .card-none {
   background: #636366 !important;
 }
+
+.btn-dwn {
+  margin-top: -6rem;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
 /*# sourceMappingURL=style.css.map */
