@@ -432,7 +432,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-black text-left">
-                                            Percentage of teacher doing the following activities in school:
+                                            Assessment Practices Used by Teachers in the Class
                                           </h2>
                                         </div>
                                         <div class="row" id="feedbacknational_tqn_class3">
