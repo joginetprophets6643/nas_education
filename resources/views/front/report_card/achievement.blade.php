@@ -9,57 +9,54 @@
                                             </h2> 
                                             <div class="category-wrap">
                                               <div class="category-list col-md-3">
-                                                <ul>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">A</span> Girl - Boys</div>
-                                                  </li>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">B</span>Rural - Urban</div>
-                                                  </li>
-                                                  
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">C</span>Govt.</div>
-                                                  </li>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">D</span>Govt. Aided</div>
-                                                  </li>
+                                                  <ul>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">A</span> Girl - Boys</div>
+                                                    </li>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">B</span>Rural - Urban</div>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">C</span>Govt.</div>
+                                                    </li>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">D</span>Govt. Aided</div>
+                                                    </li>
 
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">E</span>Private</div>
-                                                  </li>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">F</span>Central Govt.</div>
-                                                  </li>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">G</span>SC</div>
-                                                  </li>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">H</span>ST</div>
-                                                  </li>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">I</span>OBC</div>
-                                                  </li>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">J</span>General</div>
-                                                  </li>
-                                                  <li>
-                                                    <div class="category-item"><span class="dark-blue">K</span>EWS</div>
-                                                  </li>
-                                                </ul>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">E</span>Private</div>
+                                                    </li>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">F</span>Central Govt.</div>
+                                                    </li>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">G</span>SC</div>
+                                                    </li>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">H</span>ST</div>
+                                                    </li>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">I</span>OBC</div>
+                                                    </li>
+                                                    <li>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">J</span>General</div>
+                                                    </li>
+                                                  </ul>
                                               </div>
                                               <div class="category-status col-md-3">
                                                 <ul>
                                                   <li>
-                                                    <div class="category-item"><span class="card-green"></span> Positive Difference</div>
+                                                    <div class="category-item"><span class="card-positive"></span> Positive Difference</div>
                                                   </li>
                                                   <li>
-                                                    <div class="category-item"><span class="card-red"></span> Negative Difference</div>
+                                                    <div class="category-item"><span class="card-negative"></span> Negative Difference</div>
                                                   </li>
                                                   <li>
-                                                    <div class="category-item"><span class="card-grey"></span> Differance is not Significant</div>
+                                                    <div class="category-item"><span class="card-zero"></span> Differance is not Significant</div>
                                                   </li>
                                                   <li>
-                                                    <div class="category-item"><span class="card-sagegreen"></span> Missing Value</div>
+                                                    <div class="category-item"><span class="card-none"></span> Missing Value</div>
                                                   </li>
                                                 </ul>
                                               </div>
