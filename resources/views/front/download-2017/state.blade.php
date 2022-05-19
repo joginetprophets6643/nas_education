@@ -14,7 +14,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Report Card') }}</li>
+                              <li class="breadcrumb-item"><a href="{{url('/report-card')}}">{{ __('lang.Report Card') }}</a></li>
                               <li class="breadcrumb-item active" aria-current="page">{{ __('lang.NAS 2017') }}</li>
                             </ol>
                           </nav>

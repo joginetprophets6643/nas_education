@@ -5,18 +5,32 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-black text-left">
-                                              What students have to say about schools
+                                              What students have to say
                                             </h2>
                                             <div class="row" id="feedback_pq_class3">
                                             </div>
                                           </div>
                                         </div>
                                       </div>
+
+                                      <div class="teacher-fb-wrap mb-30">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <h2 class="heading-black text-left">
+                                              What teachers have to say
+                                            </h2>
+                                            <div class="row" id="feedback_tq_class3">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
                                       <div class="headteacher-fb-wrap mb-30">
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-black text-left">
-                                              What head teachers responded about school
+                                              What head teachers have to say
                                             </h2>
                                             <div class="row" id="feedback_htq_class3">
                                             </div>
@@ -24,17 +38,7 @@
                                         </div>
                                       </div>
                                     
-                                      <div class="teacher-fb-wrap mb-30">
-                                        <div class="row">
-                                          <div class="col-md-12">
-                                            <h2 class="heading-black text-left">
-                                              What teachers responded about school
-                                            </h2>
-                                            <div class="row" id="feedback_tq_class3">
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                      
 
 
                                     </div>
@@ -161,35 +165,38 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-black text-left">
-                                            What children say about schools
+                                            What students have to say
                                           </h2>
                                           <div class="row" id="feedbackstate_pq_class3">
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                    <div class="headteacher-fb-wrap mb-30">
-                                      <div class="row">
-                                        <div class="col-md-12">
-                                          <h2 class="heading-black text-left">
-                                            What head teachers responded about school
-                                          </h2>
-                                          <div class="row" id="feedbackstate_htq_class3">
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+
                                     <div class="teacher-fb-wrap mb-30">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-black text-left">
-                                            What teachers responded about school
+                                            What teachers have to say
                                           </h2>
                                           <div class="row" id="feedbackstate_tq_class3">
                                           </div>
                                         </div>
                                       </div>
                                     </div>
+                                    
+                                    <div class="headteacher-fb-wrap mb-30">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <h2 class="heading-black text-left">
+                                            What head teachers have to say
+                                          </h2>
+                                          <div class="row" id="feedbackstate_htq_class3">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
                                   </div>
 </div>
 <div class="tab-pane fade" id="feedbacknational_class3" role="tabpanel" aria-labelledby="nc3-feedback-tab">

@@ -1,6 +1,6 @@
 <footer class="site-footer">
       <div class="container">
-        <div class="row ptb-30">
+        <div class="row ptb-15">
           <div class="col-6 col-md-3">
               <div class="footer-links">
                 <h2 class="heading-white-xs">
@@ -8,6 +8,18 @@
                 </h2>
                 <ul>
                   <li>
+                    <a href="{{url('/report-card/2017')}}" target="_blank">
+                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                      {{__('lang.NAS 2017')}}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{url('/report-card/2021')}}" target="_blank">
+                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                      {{__('lang.NAS 2021')}}
+                    </a>
+                  </li>
+                  <!-- <li>
                     <a href="{{url('/report-card')}}" target="_blank">
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.National')}}
@@ -24,7 +36,7 @@
                       <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
                       {{__('lang.District')}}
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
           </div>
@@ -202,7 +214,7 @@
                  {{__('lang.Footer Content')}}
                </p>
               </div>
-              <p class="nic-foot-desc_sm">v2021.11.2600</p> 
+              <!-- <p class="nic-foot-desc_sm">v2021.11.2600</p>  -->
             </div>
           </div>
           <div class="col-md-12 col-lg-2">
