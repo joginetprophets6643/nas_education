@@ -1966,22 +1966,4 @@ class DataProcessController extends Controller
 
         return $query;
     }
-
-    public function nationalFeedback(){
-        $data=DB::table('pq_national_level_feedback')->get()->groupBy('question_desc');
-        
-        foreach($data as $temp_data){
-            $avg=0;
-            foreach($temp_data as $item){
-                $avg+=$item->avg;
-            }
-            DB::table('pq_national_level_feedback')->insert([
-                'grade'=>11,
-                'level'=>$temp_data[0]->level,
-                'question_desc'=>$temp_data[0]->question_desc,
-                'avg'=>$avg/sizeOf($temp_data),
-                'position'=>$temp_data[0]->position
-            ]);
-        }
-    }
 }
