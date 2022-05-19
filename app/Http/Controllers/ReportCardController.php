@@ -65,9 +65,10 @@ class ReportCardController extends Controller
 
     public function achievementwebView(Request $request){
         $classes = ['3','5','8','10','all'];
-        $states = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37'];
+        // $states = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37'];
+        $states = State_Master::where('udise_state_code',$request->input("state_id"))->first();
         if($request->has('class')){
-            if(!in_array($request->input("class"),$classes) || !in_array($request->input("state_id"),$states)){
+            if(!in_array($request->input("class"),$classes) || empty($states)){
                 return response(['status'=>404,'message'=>'Page not found']);
             }else{
                 return view('front.report_card.achievements-web-view',['class'=> $request->input("class"),'state'=> $request->input("state_id")]);

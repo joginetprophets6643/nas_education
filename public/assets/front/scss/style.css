@@ -8365,6 +8365,7 @@ ul {
   padding: 10px 12px;
   letter-spacing: 0.07px;
   color: #101010;
+  background: #fff;
   font-size: 15px;
   min-width: 300px;
 }
@@ -11264,5 +11265,21 @@ ul {
 
 div #all-state-list {
   min-height: 300px;
+}
+
+.card-positive {
+  background: #d64c3a !important;
+}
+
+.card-negative {
+  background: #e59279 !important;
+}
+
+.card-zero {
+  background: #e6e7e9 !important;
+}
+
+.card-none {
+  background: #636366 !important;
 }
 /*# sourceMappingURL=style.css.map */
