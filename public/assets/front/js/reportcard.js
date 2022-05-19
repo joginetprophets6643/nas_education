@@ -581,6 +581,10 @@ async function setScreen(screen_type = "information", load_data = true) {
   if (active_district !== null) {
     if (active_district.is_active === 2) {
       screen_type = "notconducted";
+      $('#report-link').addClass('otp-dis')
+    }
+    else {
+      $('#report-link').removeClass('otp-dis')
     }
   }
 
