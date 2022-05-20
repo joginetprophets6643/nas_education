@@ -14,8 +14,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">{{ __('lang.Home') }}</a></li>
-                            <li class="breadcrumb-item"><a href="{{url('/gallery/image-gallery')}}">{{ __('lang.Gallery') }}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{$data->name}}</li>
+                            <li class="breadcrumb-item"><a href="{{url('/gallery')}}">{{ __('lang.Gallery') }}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ __('lang.Photo Gallery') }}</li>
                         </ol>
                         </nav>
                 </div>
@@ -33,8 +33,8 @@
                 <div class="col-md-4 item">
                     <div class="gallery-card">
                         <div class="gallery-img-wrap gallery-level-three">
-                        <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image)}}" data-lightbox="photos">
-                        <img src="{{asset('assets/uploads/'.$image)}}" alt="img" class="img-fluid">
+                        <a class="gallery-anchor" href="{{asset('assets/uploads/images/'.$image)}}" data-lightbox="photos">
+                        <img src="{{asset('assets/uploads/images/'.$image)}}" alt="img" class="img-fluid">
                         <button class="gallery-zoom-icon">
                         <span class="material-icons-round">
                         zoom_in
@@ -45,13 +45,7 @@
                         </div>
                     </div>
                 </div>
-
-
-                @endforeach
-                
-
-                
-
+            @endforeach
             </div>
         </div>
     </div>

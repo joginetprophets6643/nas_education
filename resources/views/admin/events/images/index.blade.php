@@ -5,7 +5,6 @@
 <div class="main-panel">
   <div class="content-wrapper">
       <div class="container">
-          <a href="{{route('events')}}" class="btn btn-primary btn-sm" style="margin-bottom:20px;">Back</a>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -16,7 +15,7 @@
                     </div>
                     @endif
                     <div class="card-header">
-                        <span class="media-title">All Images ({{$name->name}})</span>
+                        <span class="media-title">All Images</span>
                         <a class="btn btn-primary float-right btn-sm Media_add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</a>
 
 
@@ -36,8 +35,8 @@
                                     <button type="button" class="btn-close float-right" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="card-body">
-                                        <?php $id=encode5t($id)?>
-                                    <form action="{{url('secure-admin/add/images/'.$id)}}" method="POST" enctype="multipart/form-data">
+                                       
+                                    <form action="{{url('secure-admin/add/images')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             @if($errors->any())
@@ -71,10 +70,10 @@
                         <ul class="imageslist">
                         @foreach($images as $image)
                         <li>
-                            <img src="{{asset('assets/uploads/'.$image)}}" class="w-100" alt="">
+                            <img src="{{asset('assets/uploads/images/'.$image)}}" class="w-100" alt="">
                             <?php
                             $image=encode5t($image)?>
-                            <button class="btn btn-danger btn-sm delete-img-btn Media_delete" style="margin-top:5px;margin-bottom:10px" data-delete-link="{{url('secure-admin/delete/image/'.$image.'/'.$id)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
+                            <button class="btn btn-danger btn-sm delete-img-btn Media_delete" style="margin-top:5px;margin-bottom:10px" data-delete-link="{{url('secure-admin/delete/image/'.$image)}}" data-bs-toggle="modal" data-bs-target="#DeleteImage">Delete</button>
                         </li>
                         @endforeach
                         </ul>

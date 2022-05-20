@@ -151,27 +151,97 @@ class EventController extends Controller
     //end Video Events
     
     //images
-    public function getImages($id){
-        $id=decode5t($id);
-        $name=DB::table('events')->where('id',$id)->first();
-        $data=DB::table('event_images')->where('event_id',$id)->first();
+    // public function getImages($id){
+    //     $id=decode5t($id);
+    //     $name=DB::table('events')->where('id',$id)->first();
+    //     $data=DB::table('event_images')->where('event_id',$id)->first();
+    //     if($data){
+    //     $images=json_decode($data->images);
+    //     return view('admin.events.images.index',compact('images','id','name'));
+    //     }
+    //     $images=0;
+    //     return view('admin.events.images.index',compact('images','id','name'));
+    // }
+    public function getImages(){
+        $data=DB::table('event_images')->first();
         if($data){
         $images=json_decode($data->images);
-        return view('admin.events.images.index',compact('images','id','name'));
+        return view('admin.events.images.index',compact('images'));
         }
         $images=0;
-        return view('admin.events.images.index',compact('images','id','name'));
+        return view('admin.events.images.index',compact('images'));
     }
 
-    public function addImages(Request $request,$id){
-        $id=decode5t($id);
+    // public function addImages(Request $request,$id){
+    //     $id=decode5t($id);
+    //     $validator = Validator::make($request->all(),[
+    //         'images'=>'required',
+    //         // 'images.*'=>'mimes:jpeg,jpg,png,JPEG,JPG,PNG',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->route('getImages',encode5t($id))
+    //                 ->withErrors($validator)
+    //                 ->withInput();
+    //     }
+    //     $images=$request->file('images');
+    //     $img= [];
+    //     $n_img= [];
+    //     $allowedfileExtension=['jpeg','svg','jpg','png','JPEG','PNG','JPG','SVG'];
+        
+    //     foreach($images as $multi){
+    //         $filename = $multi->getClientOriginalName();
+    //         $extension=$multi->getClientOriginalExtension();
+    //         $name=hexdec(uniqid()).'.'.$extension;
+    //         $check=in_array($extension,$allowedfileExtension);
+    //         if($check){
+            
+    //         $multi->move(public_path('assets/uploads'),$name);
+    //         $img[]=$name;
+    //         }
+    //         else{
+    //             $n_img[]=$filename;
+    //         }
+    //     }
+    //     $images = json_encode($img);
+    //     $data=DB::table('event_images')->where('event_id',$id)->get();
+    //     if(!$data->isEmpty()){
+    //         $old_img=json_decode($data[0]->images);
+    //         $result=array_merge($img,$old_img);
+    //         $images = json_encode($result);
+    //         DB::table('event_images')->where('event_id',$id)->update([
+    //             'images'=>$images
+    //         ]);
+    //     }
+    //     else{
+    //         DB::table('event_images')->insert([
+    //             'event_id'=>$id,
+    //             'images'=>$images
+    //         ]);
+    //     }
+    //     get_Date();
+    //     $id=encode5t($id);
+    //     if($n_img){
+    //         $strimg='';
+    //         foreach($n_img as $img){
+    //             $strimg=$img.' '.$strimg;
+    //         }
+    //         return Redirect()->route('getImages',$id)->with('success', $strimg.' are Invalid Image');
+    //     }
+    //     else{
+    //         return Redirect()->route('getImages',$id)->with('success','Images Uploaded Successfully');
+    //     }
+        
+
+    // }
+    public function addImages(Request $request){
         $validator = Validator::make($request->all(),[
             'images'=>'required',
             // 'images.*'=>'mimes:jpeg,jpg,png,JPEG,JPG,PNG',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('getImages',encode5t($id))
+            return redirect()->route('getImages')
                     ->withErrors($validator)
                     ->withInput();
         }
@@ -187,7 +257,7 @@ class EventController extends Controller
             $check=in_array($extension,$allowedfileExtension);
             if($check){
             
-            $multi->move(public_path('assets/uploads'),$name);
+            $multi->move(public_path('assets/uploads/images'),$name);
             $img[]=$name;
             }
             else{
@@ -195,76 +265,101 @@ class EventController extends Controller
             }
         }
         $images = json_encode($img);
-        $data=DB::table('event_images')->where('event_id',$id)->get();
+        $data=DB::table('event_images')->first();
         if(!$data->isEmpty()){
             $old_img=json_decode($data[0]->images);
             $result=array_merge($img,$old_img);
             $images = json_encode($result);
-            DB::table('event_images')->where('event_id',$id)->update([
+            DB::table('event_images')->where('event_id',5)->update([
                 'images'=>$images
             ]);
         }
         else{
             DB::table('event_images')->insert([
-                'event_id'=>$id,
+                'event_id'=>5,
                 'images'=>$images
             ]);
         }
         get_Date();
-        $id=encode5t($id);
         if($n_img){
             $strimg='';
             foreach($n_img as $img){
                 $strimg=$img.' '.$strimg;
             }
-            return Redirect()->route('getImages',$id)->with('success', $strimg.' are Invalid Image');
+            return Redirect()->route('getImages')->with('success', $strimg.' are Invalid Image');
         }
         else{
-            return Redirect()->route('getImages',$id)->with('success','Images Uploaded Successfully');
+            return Redirect()->route('getImages')->with('success','Images Uploaded Successfully');
         }
         
 
     }
 
-    public function deleteImage($image,$id){
-        $id=decode5t($id);
+    public function deleteImage($image){
         $image=decode5t($image);
-        $data=DB::table('event_images')->where('event_id',$id)->first();
+        $data=DB::table('event_images')->first();
         $images=json_decode($data->images);
         
         $key=array_search($image,$images);
         unset($images[$key]);
 
         if(!$images){
-            DB::table('event_images')->where('event_id',$id)->delete();
+            DB::table('event_images')->where('event_id',5)->delete();
             // unlink(public_path("assets/uploads/".$image));
-            $id=encode5t($id);
-            return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
+            return Redirect()->route('getImages')->with('success','Image Deleted Successfully');
         }
         // dd(array_values($images));
         $images=json_encode(array_values($images),true);
-        DB::table('event_images')->where('event_id',$id)->update([
+        DB::table('event_images')->where('event_id',5)->update([
                 'images'=>$images
         ]);
         // unlink("assets/uploads/".$image);
-        $id=encode5t($id);
-        return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
+        return Redirect()->route('getImages')->with('success','Image Deleted Successfully');
 
     }
+    // public function deleteImage($image,$id){
+    //     $id=decode5t($id);
+    //     $image=decode5t($image);
+    //     $data=DB::table('event_images')->where('event_id',$id)->first();
+    //     $images=json_decode($data->images);
+        
+    //     $key=array_search($image,$images);
+    //     unset($images[$key]);
+
+    //     if(!$images){
+    //         DB::table('event_images')->where('event_id',$id)->delete();
+    //         // unlink(public_path("assets/uploads/".$image));
+    //         $id=encode5t($id);
+    //         return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
+    //     }
+    //     // dd(array_values($images));
+    //     $images=json_encode(array_values($images),true);
+    //     DB::table('event_images')->where('event_id',$id)->update([
+    //             'images'=>$images
+    //     ]);
+    //     // unlink("assets/uploads/".$image);
+    //     $id=encode5t($id);
+    //     return Redirect()->route('getImages',$id)->with('success','Image Deleted Successfully');
+
+    // }
     //end images
 
     //videos
-    public function getVideos($id){
-        $id=decode5t($id);
-        $name=DB::table('video_events')->where('id',$id)->first();
-        $videos=DB::table('vedios')->where('event_id',$id)->get();
+    public function getVideos(){
+        $videos=DB::table('vedios')->get();
         
-        return view('admin.events.videos.view',compact('videos','id','name'));
+        return view('admin.events.videos.view',compact('videos'));
     }
+    // public function getVideos($id){
+    //     $id=decode5t($id);
+    //     $name=DB::table('video_events')->where('id',$id)->first();
+    //     $videos=DB::table('vedios')->where('event_id',$id)->get();
+        
+    //     return view('admin.events.videos.view',compact('videos','id','name'));
+    // }
 
-    public function addVideos(Request $request,$id){
+    public function addVideos(Request $request){
 
-        $id=decode5t($id);
         $validator = Validator::make($request->all(),[
             'vedio'=>'required_without_all:url|mimes:mp4,wep',
             'title'=>'required',
@@ -273,7 +368,7 @@ class EventController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('getVideos',encode5t($id))
+            return redirect()->route('getVideos')
                     ->withErrors($validator)
                     ->withInput();
         }
@@ -295,7 +390,7 @@ class EventController extends Controller
 
             
             $res=new Vedios;
-            $res->event_id=$id;
+            $res->event_id=1;
             $res->title=$request->title;
             $res->url=$request->url ? $request->url: NULL;
             $res->thumbnail=$thumbnail;
@@ -303,10 +398,54 @@ class EventController extends Controller
             $res->status=$request->status;
             $res->save();
 
-        $id=encode5t($id);
         get_Date();
-        return Redirect()->route('getVideos',$id)->with('success','Video Uploaded Successfully');
+        return Redirect()->route('getVideos')->with('success','Video Uploaded Successfully');
     }
+    // public function addVideos(Request $request,$id){
+
+    //     $id=decode5t($id);
+    //     $validator = Validator::make($request->all(),[
+    //         'vedio'=>'required_without_all:url|mimes:mp4,wep',
+    //         'title'=>'required',
+    //         'url'=>'required_without_all:vedio',
+    //         'thumbnail'=>'required_with:vedio|mimes:jpeg,svg,jpg,png,JPEG,JPG,PNG,SVG',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->route('getVideos',encode5t($id))
+    //                 ->withErrors($validator)
+    //                 ->withInput();
+    //     }
+    //     $vedio=$request->file('vedio');
+    //     if($request->status){
+    //         $request->status=1;
+    //     }
+    //     else{
+    //         $request->status=0;
+    //     }
+    //     $name=NULL;
+    //     $thumbnail=NULL;
+    //     if($request->vedio){
+    //         $name=hexdec(uniqid()).'.'.$vedio->getClientOriginalExtension();
+    //         $vedio->move(public_path('assets/uploads/vedios'),$name);
+    //         $thumbnail=hexdec(uniqid()).'.'.$request->thumbnail->getClientOriginalExtension();
+    //         $request->thumbnail->move(public_path('assets/uploads/thumbnails'),$thumbnail);
+    //     }
+
+            
+    //         $res=new Vedios;
+    //         $res->event_id=$id;
+    //         $res->title=$request->title;
+    //         $res->url=$request->url ? $request->url: NULL;
+    //         $res->thumbnail=$thumbnail;
+    //         $res->vedio=$name;
+    //         $res->status=$request->status;
+    //         $res->save();
+
+    //     $id=encode5t($id);
+    //     get_Date();
+    //     return Redirect()->route('getVideos',$id)->with('success','Video Uploaded Successfully');
+    // }
 
     public function deleteVideos(Request $request,$id){
         $id=decode5t($id);      
@@ -334,10 +473,39 @@ class EventController extends Controller
                 }
         }
         
-        $id=encode5t($vedio->event_id);
-        return Redirect()->route('getVideos',$id)->with('success','Video Deleted Successfully');
+        return Redirect()->route('getVideos')->with('success','Video Deleted Successfully');
 
     }
+    // public function deleteVideos(Request $request,$id){
+    //     $id=decode5t($id);      
+    //     $vedio=Vedios::where('id',$id)->first(); 
+    //     //dd($request);
+    //     if($vedio->vedio && $vedio->url){
+    //         if($request->type=="video"){   
+    //             if($vedio->vedio){
+    //                 // unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+    //                 // unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
+    //                 }
+    //             Vedios::where('id',$id)->update(['vedio'=>NULL]);
+    //         }
+
+    //         if($request->type=="url"){   
+    //             Vedios::where('id',$id)->update(['url'=>NULL]);
+    //         }
+    //     }
+
+    //     else{
+    //         Vedios::where('id',$id)->delete();
+    //         if($vedio->vedio){
+    //             // unlink(public_path("assets/uploads/vedios/".$vedio->vedio));
+    //             // unlink(public_path("assets/uploads/thumbnails/".$vedio->thumbnail));
+    //             }
+    //     }
+        
+    //     $id=encode5t($vedio->event_id);
+    //     return Redirect()->route('getVideos',$id)->with('success','Video Deleted Successfully');
+
+    // }
     //end videos
 
 }

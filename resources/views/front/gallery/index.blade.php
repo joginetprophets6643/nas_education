@@ -21,7 +21,7 @@
     </div>
 </section>
 
-<section class="gallery-main-wrap bg-grey ptb-60">
+<!-- <section class="gallery-main-wrap bg-grey ptb-60">
     <div class="container">
         <div class="row">
         <div class="col-md-12">
@@ -37,19 +37,18 @@
                     <h2 class="heading-blue">
                         {{ __('lang.Photo Gallery') }}
                     </h2>
-                    <div class="gallery-wrap">
+                     <div class="gallery-wrap">
                         <div class="search">
                             <input type="text" class="searchTerm" placeholder="Search Here" name="state" id="state">
                             <button type="submit" class="searchButton">
                                 <img src="{{asset('assets/front/images/icons8-search.svg')}}" alt="icon" />
                             </button>
                         </div>
-                        <!-- <label id="search">Search:</label> -->
-                        <!-- <input type="text" name="state" id="state"> -->
+                        <label id="search">Search:</label> -->
+                        <!-- <input type="text" name="state" id="state">
                     </div>
                     </div> 
-                    <div class="row photos">
-                        
+                    <div class="row photos"> 
                     </div>
                     <span id="i_found"></span>
                     </div>
@@ -58,23 +57,109 @@
                         {{__('lang.Video Gallery')}}
                     </h2>
                         <div class="row videos">                       
-                        
                         </div>
-                        <span id="v_found"></span>
-                        
-                        
-                        
+                        <span id="v_found"></span>   
                     </div>
                     </div>
                 </div>
         </div>
         </div>
     </div>
-</section>
+</section> -->
+
+<section class="gallery-main-wrap bg-grey ptb-60">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+                 <div class="card-white">
+                      <div class="photogallery-content">
+                        <h2 class="heading-blue mb-4">
+                            PHOTO GALLERY
+                        </h2>
+                        <div class="row">
+                            <!-- <div class="col-md-3">
+                                <div class="gallery-img-wrap">
+                                    <img src="assets/images/schoolimg1.png" alt="img" class="img-fluid">
+                                    
+                                </div>
+                            </div> -->
+                            @foreach($images as $image)
+                                <div class="col-md-3 item">
+                                    <div class="gallery-card">
+                                        <div class="gallery-img-wrap">
+                                        <a class="gallery-anchor" href="{{asset('assets/uploads/images/'.$image)}}" data-lightbox="photos">
+                                        <img src="{{asset('assets/uploads/images/'.$image)}}" alt="img" class="img-fluid">
+                                        <button class="gallery-zoom-icon">
+                                        <span class="material-icons-round">
+                                        zoom_in
+                                        </span>
+                                        </button>
+                                        </a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="col-md-12">
+                            <a href="{{route('image-gallery')}}" class="org-link">
+                                VIEW ALL 
+                                <span class="material-icons-round">
+                                    east
+                                </span>
+                            </a>
+                        </div>
+                      </div>
+                      <div class="videogallery-content">
+                        <h2 class="heading-blue mb-4">
+                            VIDEO GALLERY
+                        </h2>
+                        <div class="row">
+                            @foreach($videos as $video)
+                                @if($video->vedio)
+                                <div class="col-md-3 item">
+                                <!-- <div class="gallery-card"> -->
+                                    <div class="video-wrap">
+                                        <video width="385" height="240" controls>
+                                            <source src="{{URL::asset('/assets/uploads/vedios/'.$video->vedio)}}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <!-- <h5>{{ $video->title}}</h5> -->
+                                    </div>
+                                <!-- </div> -->
+                                </div>
+                                @endif
+                                @if($video->url)
+                                <div class="col-md-3 item">
+                                <!-- <div class="gallery-card"> -->
+                                    <div class="video-wrap">
+                                        <iframe height="300" src="https://www.youtube.com/embed/{{ $video->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <!-- <h5>{{ $video->title}}</h5> -->
+                                    </div>
+                                <!-- </div> -->
+                                </div>
+                                @endif
+
+                            @endforeach
+                            <div class="col-md-12">
+                                <a href="{{route('video-gallery')}}" class="org-link">
+                                    VIEW ALL 
+                                    <span class="material-icons-round">
+                                      east
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                      </div>
+                 </div>
+            </div>
+          </div>
+      </div>
+    </section>
 
 @include('front.includes.footer')
 
-<script>
+<!-- <script>
     var img_data={}
     var temp_img_data={}
     var ved_data={}
@@ -231,4 +316,4 @@
 
     })
     
-</script>
+</script> -->

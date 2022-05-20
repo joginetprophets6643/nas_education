@@ -58,7 +58,7 @@
               </div>
               <div class="col-md-6 ps-0">
                 <div class="about-img-wrap" data-aos="fade-left">
-                  <img src="{{asset('assets/front/images/about.png')}}" alt="img" class="img-fluid" />
+                  <img src="{{asset('assets/front/images/about.jpeg')}}" alt="img" class="img-fluid" />
                 </div> 
               </div>
           </div>
@@ -287,7 +287,7 @@
                             <div class="d-flex align-items-center justify-content-between">
                               <div class="content">
                                 <h3 class="title">
-                                  Child sex ratio (0-6 age)
+                                  Child sex ratio (0-6 years)
                                 </h3>
                                 <p class="total-no" >
                                 <span id="sex_ratio"> 963 girls per 1000 boys</span>
@@ -485,11 +485,11 @@
                     </h2>
                     <div id="gallery-slider">
                       <div class="owl-carousel owl-theme" id="photoSlider">
-                        @foreach($events as $event)
+                        @foreach($images as $image)
                         <div class="item">
                             <div class="gallery-img-wrap">
-                            <a class="gallery-anchor" href="{{asset('assets/uploads/'.$image[$event->id])}}" data-lightbox="photos">
-                            <img src="{{asset('assets/uploads/'.$image[$event->id])}}" alt="img" class="img-fluid">                        
+                            <a class="gallery-anchor" href="{{asset('assets/uploads/images/'.$image)}}" data-lightbox="photos">
+                            <img src="{{asset('assets/uploads/images/'.$image)}}" alt="img" class="img-fluid">                        
                             <button class="gallery-zoom-icon">
                         <span class="material-icons-round">
                         zoom_in
@@ -502,7 +502,7 @@
                         @endforeach
                       </div>
                       <div class="btn-wrap">
-                        <a href="{{url('/gallery')}}" class="org-link">
+                        <a href="{{url('/gallery/image-gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
                             east
@@ -541,7 +541,7 @@
                         @endforeach
                       </div>
                       <div class="slider-viewbtn btn-wrap">
-                        <a href="{{url('/gallery')}}" class="org-link">
+                        <a href="{{url('/gallery/vedio-gallery')}}" class="org-link">
                           {{ __('lang.VIEW ALL') }} 
                           <span class="material-icons-round">
                             east

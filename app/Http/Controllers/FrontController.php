@@ -45,21 +45,59 @@ class FrontController extends Controller
         $client_logo = ClientLogo::all();
         $banners=Banner::all();
 
-        $events=Event::join('event_images','events.id','=','event_images.event_id')->get();
+        $events=DB::table('event_images')->first();
         
         $count=[];
-        $image=[];
-        foreach($events as $event){
-            $count[$event->id]=count(json_decode($event->images));
-            $image[$event->id]=json_decode($event->images)[0];
+        $images=[];
+        if($events){
+            $images=json_decode($events->images);
+            $images=(array_chunk($images,4))[0];
         }
         
-        $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->get();
+        $videos=DB::table('vedios')->where('status',1)->take(4)->get();
         $states=State_Master::orderBy('state_name')->get();
 
         
-        return view('front.index',compact('content','events','image','videos','states','client_logo','banners','report','data','visual','mobile','feedback','nas_team'));
+        return view('front.index',compact('content','events','images','videos','states','client_logo','banners','report','data','visual','mobile','feedback','nas_team'));
     }
+    // public function index(){
+
+    //     $lang="2";
+    //     if (Session::has('locale')) {
+    //         $lang = Session::get('locale');
+    //         if($lang=="hi")
+    //         {
+    //             $lang='1';
+    //         }
+    //         else{
+    //             $lang='2';
+    //         }
+    //     }
+    //     $content=Static_Content::where('language',$lang,)->where('page_title','About NAS')->first();
+    //     $report=Static_Content::where('language',$lang,)->where('page_title','Report Card')->first();
+    //     $data=Static_Content::where('language',$lang,)->where('page_title','Data Share')->first();
+    //     $visual=Static_Content::where('language',$lang,)->where('page_title','Visualization')->first();
+    //     $mobile=Static_Content::where('language',$lang)->where('page_title','Mobile App')->first();
+    //     $feedback=Static_Content::where('language',$lang)->where('page_title','Feedback')->first();
+    //     $nas_team=Static_Content::where('language',$lang)->where('page_title','Nas Team')->first();
+    //     $client_logo = ClientLogo::all();
+    //     $banners=Banner::all();
+
+    //     $events=Event::join('event_images','events.id','=','event_images.event_id')->get();
+        
+    //     $count=[];
+    //     $image=[];
+    //     foreach($events as $event){
+    //         $count[$event->id]=count(json_decode($event->images));
+    //         $image[$event->id]=json_decode($event->images)[0];
+    //     }
+        
+    //     $videos=Video_Events::join('vedios','video_events.id','=','vedios.event_id')->where('status',1)->get();
+    //     $states=State_Master::orderBy('state_name')->get();
+
+        
+    //     return view('front.index',compact('content','events','image','videos','states','client_logo','banners','report','data','visual','mobile','feedback','nas_team'));
+    // }
 
     public function team(){
         $members=Team::orderBy('id')->get();
@@ -132,8 +170,12 @@ class FrontController extends Controller
         //         'image'=>$state->thumbnail?$state->thumbnail:'broken-1.png'
         //     );
         // }
-        
-        return view('front.gallery.index');
+        $data=DB::table('event_images')->first();
+        $images=json_decode($data->images);
+        $images=(array_chunk($images,4))[0];
+
+        $videos=DB::table('vedios')->take(4)->get();
+        return view('front.gallery.index',compact('images','videos'));
     }
 
     public function rti(){

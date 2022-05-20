@@ -20,7 +20,7 @@
                             </li>
                             <li class="nav-item" role="presentation">
                               <strong>
-                                <span class="nav-link" id="navbar-highlighter"></span>
+                                <span class="nav-link t" id="navbar-highlighter"></span>
                               </strong>
                             </li>
                             <!-- <li class="nav-item" role="presentation"><button class="nav-link"  onClick="javascript:void(0);" ><b><span id="navbar-highlighter" ></span></b></button></li> -->
@@ -47,13 +47,7 @@
                                 file_download
                               </span></a>
 
-                            <a href="{{url('/download-pdf')}}" target="_blank" id="report-link" class="btn org-btn report-btn">
-                            <!-- <span class="btn-text">Report View (2017)</span> -->
-                              Report View 
-                              <span class="material-icons-round">
-                                file_download
-                              </span>
-                            </a>
+                            
                           </div>
                         </div>
                      </div>
@@ -61,21 +55,33 @@
                         <div class="tab-pane fade" id="national" role="tabpanel" aria-labelledby="national-tab">...</div>
                         <div class="tab-pane fade" id="state" role="tabpanel" aria-labelledby="state-tab">...</div>
                         <div class="tab-pane fade show active" id="district" role="tabpanel" aria-labelledby="district-tab">
-                          <ul class="nav nav-tabs tablayertwo mtb-15 sticky-nav scroll-top" id="scrollTab" role="tablist">
-                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','3')">
-                              <button class="nav-link active" id="class3-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class3" aria-selected="true">class 3</button>
-                            </li>
-                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','5')">
-                              <button class="nav-link" id="class5-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class5" aria-selected="false">class 5</button>
-                            </li>
-                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','8')">
-                              <button class="nav-link" id="class8-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class8" aria-selected="false">class 8</button>
-                            </li>
-                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','10')">
-                              <button class="nav-link" id="class10-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class10" aria-selected="false">class 10</button>
-                            </li>
-                            <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','all')">
-                              <button class="nav-link" id="allclasses-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="allclasses" aria-selected="false">all classes</button>
-                            </li>
-                          </ul>
+                          <div class="d-flex sticky-nav scroll-top align-items-center justify-content-between" id="scrollTab">
+                            <ul class="nav nav-tabs tablayertwo mtb-15" role="tablist">
+                              <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','3')">
+                                <button class="nav-link active" id="class3-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class3" aria-selected="true">class 3</button>
+                              </li>
+                              <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','5')">
+                                <button class="nav-link" id="class5-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class5" aria-selected="false">class 5</button>
+                              </li>
+                              <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','8')">
+                                <button class="nav-link" id="class8-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class8" aria-selected="false">class 8</button>
+                              </li>
+                              <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','10')">
+                                <button class="nav-link" id="class10-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="class10" aria-selected="false">class 10</button>
+                              </li>
+                              <li class="nav-item" role="presentation" onClick="chageDataWithFilter('data_filter','all')">
+                                <button class="nav-link" id="allclasses-tab" data-bs-toggle="tab" data-bs-target="#classfilter" type="button" role="tab" aria-controls="allclasses" aria-selected="false">all classes</button>
+                              </li>
+                              
+                            </ul>
+                            <div class="btn-dwn">
+                              <a href="{{url('/download-pdf')}}" target="_blank" id="report-link" class="btn org-btn report-btn">
+                              <!-- <span class="btn-text">Report View (2017)</span> -->
+                                Report View 
+                                <span class="material-icons-round">
+                                  file_download
+                                </span>
+                              </a>
+                            </div>
+                          </div>
                          

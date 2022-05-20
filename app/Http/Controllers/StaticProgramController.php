@@ -79,7 +79,7 @@ class StaticProgramController extends Controller
         $program=Program::where('id',$id)->first();
         // unlink(public_path("assets/uploads/program/".$program->image));
         $name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('assets/uploads/team'),$name);
+        $image->move(public_path('assets/uploads/program'),$name);
         Program::where('id',$id)->update([
             'language'=>$request->language,
             'title'=>$request->title,

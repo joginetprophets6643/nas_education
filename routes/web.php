@@ -173,8 +173,10 @@ Route::get('/download-district-report/{state_id}/{district_id}', function($state
     $state_id = base64_decode($state_id);
     $district_id = base64_decode($district_id);
     // Check if file exists in app/public/file folder
-    $file_name = 'nas-district-report.pdf';
-    $file_path = public_path('nas_pdf/national/'.$state_id.'/'.$district_id.'/nas-district-report.pdf');
+    // $file_name = 'nas-district-report.pdf';
+    $district_name = DB::table('district_masters')->where('udise_district_code',$district_id)->first()->district_name;
+    $file_name='NAS21_DRC_'.$district_name.'.pdf';
+    $file_path = public_path('nas_pdf/national/'.$state_id.'/'.$district_id.'/'.$file_name);
     if (file_exists($file_path))
     {
         return Response::make(file_get_contents($file_path), 200, [
@@ -194,9 +196,12 @@ Route::get('/download-district-report/{state_id}/{district_id}', function($state
 Route::get('/download-state-report/{state_id}', function($state_id)
 {
     $state_id = base64_decode($state_id);
+   
     // Check if file exists in app/public/file folder
-    $file_name = 'nas-state-report.pdf';
-    $file_path = public_path('nas_pdf/national/'.$state_id.'/nas-state-report.pdf');
+    // $file_name = 'nas-state-report.pdf';
+    $state_name = DB::table('state_masters')->where('udise_state_code',$state_id)->first()->state_name;
+    $file_name='NAS21_SRC_'.$state_name.'.pdf';
+    $file_path = public_path('nas_pdf/national/'.$state_id.'/'. $file_name);
     if (file_exists($file_path))
     {
         return Response::make(file_get_contents($file_path), 200, [
@@ -216,8 +221,9 @@ Route::get('/download-state-report/{state_id}', function($state_id)
 Route::get('/download-national-report', function()
 {
     // Check if file exists in app/public/file folder
-    $file_name = 'nas-state-report.pdf';
-    $file_path = public_path('nas_pdf/national/nas-national-report.pdf');
+    // $file_name = 'nas-state-report.pdf';
+    $file_name='NAS21_NRC.pdf';
+    $file_path = public_path('nas_pdf/national/'.$file_name);
     if (file_exists($file_path))
     {
         return Response::make(file_get_contents($file_path), 200, [
@@ -274,29 +280,35 @@ Route::get('/secure-admin/query-button', function () {
 
 //Event Routes
 
-Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
-Route::post('/secure-admin/add/event', 'App\Http\Controllers\EventController@store')->name('store-event');
-Route::get('/secure-admin/edit/event/{id}', 'App\Http\Controllers\EventController@edit')->name('edit-event');
-Route::post('/secure-admin/update/event/{id}', 'App\Http\Controllers\EventController@update');
+// Route::get('/secure-admin/event','App\Http\Controllers\EventController@index')->name('events');
+// Route::post('/secure-admin/add/event', 'App\Http\Controllers\EventController@store')->name('store-event');
+// Route::get('/secure-admin/edit/event/{id}', 'App\Http\Controllers\EventController@edit')->name('edit-event');
+// Route::post('/secure-admin/update/event/{id}', 'App\Http\Controllers\EventController@update');
 
 //Event Images
 
-Route::get('/secure-admin/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
-Route::post('/secure-admin/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
-Route::get('/secure-admin/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
+Route::get('/secure-admin/event/images','App\Http\Controllers\EventController@getImages')->name('getImages');
+Route::post('/secure-admin/add/images', 'App\Http\Controllers\EventController@addImages');
+// Route::get('/secure-admin/event/images/{id}','App\Http\Controllers\EventController@getImages')->name('getImages');
+// Route::post('/secure-admin/add/images/{id}', 'App\Http\Controllers\EventController@addImages');
+// Route::get('/secure-admin/delete/image/{image}/{id}', 'App\Http\Controllers\EventController@deleteImage');
+Route::get('/secure-admin/delete/image/{image}', 'App\Http\Controllers\EventController@deleteImage');
 
 //Video Event Routes
 
-Route::get('/secure-admin/video_event','App\Http\Controllers\EventController@video_event_index')->name('video-events');
-Route::post('/secure-admin/add/video_event', 'App\Http\Controllers\EventController@video_event_store')->name('store-video-event');
-Route::get('/secure-admin/edit/video_event/{id}', 'App\Http\Controllers\EventController@video_event_edit')->name('vedit-event');
-Route::post('/secure-admin/update/video_event/{id}', 'App\Http\Controllers\EventController@video_event_update');
+// Route::get('/secure-admin/video_event','App\Http\Controllers\EventController@video_event_index')->name('video-events');
+// Route::post('/secure-admin/add/video_event', 'App\Http\Controllers\EventController@video_event_store')->name('store-video-event');
+// Route::get('/secure-admin/edit/video_event/{id}', 'App\Http\Controllers\EventController@video_event_edit')->name('vedit-event');
+// Route::post('/secure-admin/update/video_event/{id}', 'App\Http\Controllers\EventController@video_event_update');
 
 //Videos Route
 
-Route::get('/secure-admin/event/videos/{id}','App\Http\Controllers\EventController@getVideos')->name('getVideos');
-Route::post('/secure-admin/add/videos/{id}', 'App\Http\Controllers\EventController@addVideos');
+Route::get('/secure-admin/event/videos','App\Http\Controllers\EventController@getVideos')->name('getVideos');
+Route::post('/secure-admin/add/videos', 'App\Http\Controllers\EventController@addVideos');
 Route::get('/secure-admin/delete/videos/{id}', 'App\Http\Controllers\EventController@deleteVideos');
+// Route::get('/secure-admin/event/videos/{id}','App\Http\Controllers\EventController@getVideos')->name('getVideos');
+// Route::post('/secure-admin/add/videos/{id}', 'App\Http\Controllers\EventController@addVideos');
+// Route::get('/secure-admin/delete/videos/{id}', 'App\Http\Controllers\EventController@deleteVideos');
 
 //Profile
 Route::get('/secure-admin/profile','App\Http\Controllers\AdminController@profile')->name('profile');
@@ -408,10 +420,12 @@ Route::group(["middleware" => ["authCheck"]], function(){
 
     Route::group(["middleware" => ["language"]], function(){
         Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
-        Route::get('/gallery/image-gallery/state/{id}','App\Http\Controllers\GalleryController@index')->name('image-gallery');
-        Route::get('/gallery/video-gallery/state/{id}','App\Http\Controllers\GalleryController@video')->name('video-gallery');
-        Route::get('/gallery/video-gallery/{id}','App\Http\Controllers\GalleryController@viewvideos');
-        Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
+        // Route::get('/gallery/image-gallery/state/{id}','App\Http\Controllers\GalleryController@index')->name('image-gallery');
+        // Route::get('/gallery/video-gallery/state/{id}','App\Http\Controllers\GalleryController@video')->name('video-gallery');
+        Route::get('/gallery/image-gallery','App\Http\Controllers\GalleryController@view')->name('image-gallery');
+        Route::get('/gallery/video-gallery','App\Http\Controllers\GalleryController@viewvideos')->name('video-gallery');
+        // Route::get('/gallery/video-gallery/{id}','App\Http\Controllers\GalleryController@viewvideos');
+        // Route::get('/gallery/image-gallery/{id}','App\Http\Controllers\GalleryController@view');
         Route::get('/about-nas','App\Http\Controllers\AboutController@index');
         Route::get('/terms-conditions','App\Http\Controllers\ContentPagesController@index')->name('terms');
         Route::get('/privacy-policy','App\Http\Controllers\ContentPagesController@index')->name('privacy');
@@ -420,7 +434,8 @@ Route::group(["middleware" => ["authCheck"]], function(){
         Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
         Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
         Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
-        Route::get('/report-card','App\Http\Controllers\ReportCardController@index')->name('repord-card');
+        Route::get('/report-card','App\Http\Controllers\ReportCardController@landing');
+        Route::get('/report-card/2021','App\Http\Controllers\ReportCardController@index')->name('repord-card');
         Route::get('/report-card/nas-2021','App\Http\Controllers\ReportCardController@details');
 
         // Route::group(["middleware" => ["frontIsLogin"]], function(){
