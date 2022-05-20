@@ -1,5 +1,5 @@
 import React, { createRef, useRef, useState } from 'react';
-import AveragePerormance from '@/components/Visualization/AveragePerformance/AveragePerormance'
+import AveragePerormance from '@/components/Visualization/AveragePerformance/AveragePerformance'
 import SubjectCard from '@/components/Visualization/SubjectCard/SubjectCard'
 import WhiteCard from '@/components/Visualization/WhiteCard/WhiteCard'
 import Building from '@/assets/images/building.svg'

@@ -47,6 +47,11 @@
   padding: 0 35px 0 20px;
   font-size: 16px;
 }
+@media (max-width: 991px) {
+  .visualization-wrap .select-wrap .form-select {
+    font-size: 13px;
+  }
+}
 
 .search-list .search-menu {
   padding: 10px 15px;
@@ -125,7 +130,7 @@
 }
 @media (max-width: 1440px) {
   .apcard-white .apcard-header .apcard-heading {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 .apcard-white .apcard-header .apcard-heading img {
@@ -545,4 +550,76 @@
 .scatterplot-select-wrap {
     margin: 15px 0;
   }
+}
+
+#graphcardtab {
+  border-bottom: 1px dashed #647781;
+  padding: 0 20px;
+}
+#graphcardtab .nav-item:nth-child(1) .nav-link.active {
+  color: #FD7272;
+  border-bottom-color: #FD7272;
+}
+#graphcardtab .nav-item:nth-child(1) .nav-link.active img {
+  filter: grayscale(0);
+}
+#graphcardtab .nav-item:nth-child(1) .nav-link img {
+  filter: grayscale(100%);
+}
+#graphcardtab .nav-item:nth-child(2) .nav-link.active {
+  color: #FFB142;
+  border-bottom-color: #FFB142;
+}
+#graphcardtab .nav-item:nth-child(2) .nav-link.active img {
+  filter: grayscale(0);
+}
+#graphcardtab .nav-item:nth-child(2) .nav-link img {
+  filter: grayscale(100%);
+}
+#graphcardtab .nav-item:nth-child(3) .nav-link.active {
+  color: #BDC581;
+  border-bottom-color: #BDC581;
+}
+#graphcardtab .nav-item:nth-child(3) .nav-link.active img {
+  filter: grayscale(0);
+}
+#graphcardtab .nav-item:nth-child(3) .nav-link img {
+  filter: grayscale(100%);
+}
+#graphcardtab .nav-item .nav-link {
+  letter-spacing: 0.1px;
+  color: #707070;
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  border-bottom: 4px solid transparent;
+  margin-right: 6rem;
+  padding: 8px 5px;
+}
+@media (max-width: 1440px) {
+  #graphcardtab .nav-item .nav-link {
+    font-size: 17px;
+  }
+}
+@media (max-width: 767px) {
+  #graphcardtab .nav-item .nav-link {
+    margin-right: 2rem;
+    font-size: 14px;
+    min-width: 120px;
+  }
+}
+@media (max-width: 991px) {
+  #graphcardtab {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+  }
+}
+
+#graphcardtabContent {
+  padding: 15px 30px;
+}
+
+.maptab-wrap .apcard-graph-wrap {
+  padding: 30px 15px;
 }

@@ -2,8 +2,11 @@ import React, { useEffect, useState ,useRef} from 'react';
 import GraphCard from '@/components/Visualization/GraphCard/GraphCard';
 import { useSelector } from 'react-redux';
 import { AveragePerformanceProps, IntialStateModel, StoreModel } from '@/models/visualization';
+import GraphCardTab from '@/components/Visualization/GraphCardTab/GraphCardTab';
+import GraphCardTabContent from '@/components/Visualization/GraphCardTabContent/GraphCardTabContent';
 
-const AveragePerormance = (props:AveragePerformanceProps) => {
+
+const AveragePerformance = (props:AveragePerformanceProps) => {
   const charts = useSelector<StoreModel>(store=> store.charts) as IntialStateModel
   const [graphs, setGraphs] =  useState<any>({})
   const current_geography =  useSelector<StoreModel>(store => store.current_geography.data) as string
@@ -244,9 +247,21 @@ const AveragePerormance = (props:AveragePerformanceProps) => {
                     ""}
                 </div>
             </div>
+            <div className="row">
+                <div className="col-md-12">
+                    <div className="apcard-white">
+                        <div className="graphcardtab-wrap">
+                            <GraphCardTab />
+                            <div className="tab-content" id="graphcardtabContent">
+                                <GraphCardTabContent />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
   );
 };
 
-export default AveragePerormance;
+export default AveragePerformance;

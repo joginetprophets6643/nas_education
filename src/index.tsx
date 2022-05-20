@@ -4,7 +4,7 @@ import App from "./components/App";
 import { Provider } from 'react-redux'
 import store from './store'
 render(
-    <Provider store={store}>
+  <Provider store={store}>
     <App />
   </Provider>
 , document.getElementById("app"));

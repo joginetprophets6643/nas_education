@@ -5,7 +5,7 @@ import TabContent from '@/components/Visualization/TabContent/TabContent';
 
 const Main = () => {
   return (
-    <section className="visualization-wrap bg-light-blue pb-60">
+    <section className="visualization-wrap bg-light-blue">
     <TopBar />
     <div className="visual-tabwrap">
         <Tabs />
