@@ -6462,12 +6462,17 @@ ul {
     }
 }
 
+
 .left-arrow {
     img {
-        width: 22px
+        width: 22px;
+    }
+    &:hover {
+        background-color: $color_orange;
+        border: 1px solid $color_orange;
+        color: $color_white;
     }
 }
-
 
 .photogallery-content,
 .videogallery-content {
@@ -8008,12 +8013,15 @@ div {
 .card-positive {
     background: #d64c3a !important;
 }
+
 .card-negative {
     background: #e59279 !important;
 }
+
 .card-zero {
     background: #e6e7e9 !important;
 }
+
 .card-none {
     background: #636366 !important;
 }
@@ -8026,8 +8034,10 @@ div {
 .sec-banner {
     .heading {
         border-radius: 8px !important;
+
         span {
             border-radius: 8px 0px 0px 8px !important;
         }
     }
-    } 
+}
+

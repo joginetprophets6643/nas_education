@@ -46,8 +46,8 @@
                 </div>
                 
               </div> -->
-              <div class="col-md-6">
-                <div class="line-card line-card-shadow">
+              <div class="col-md-4">
+                <div class="line-card m-0 line-card-shadow">
                   <div class="line-cardimg">
                     <img src="{{asset('assets/front/images/Report_card_2017.png')}}" alt="visualization" class="img-fluid" />
                   </div>
@@ -56,8 +56,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="line-card line-card-shadow">
+              <div class="col-md-4">
+                <div class="line-card m-0 line-card-shadow">
                   <div class="line-cardimg">
                   
                     <img src="{{asset('assets/front/images/report-card-2021.png')}}" alt="state" class="img-fluid" />

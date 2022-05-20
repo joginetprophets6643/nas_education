@@ -832,7 +832,10 @@ function setFilters() {
   const state = JSON.parse(sessionStorage.getItem("activeState"));
   const district = JSON.parse(sessionStorage.getItem("activeDistrict"));
   if (state === null && district === null && classType === "all") {
-    if (screenType === "participation" || screenType === "feedback") {
+    if (screenType === "participation") {
+      global_filters = { ...global_filters, grade: { _eq: "11" } };
+    }
+    if (screenType === "feedback") {
       global_filters = { ...global_filters, grade: { _eq: "3" } };
     }
   } else {

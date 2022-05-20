@@ -55,9 +55,23 @@
                     <div class="row justify-content-center text-center">
                     <div class="col-md-12">
                     <div class="desc-black">
-                    <h2 class="heading-blue">
+                    <!-- <h2 class="heading-blue">
                         National Achievement Survey(NAS)-2017
-                    </h2>
+                    </h2> -->
+                    <div class="d-flex">
+                      <div class="col-md-12 aboutpage-content d-flex justify-content-between">
+                        <h2 class="heading-blue">
+                          National Achievement Survey(NAS)-2017 Report Card
+                        </h2>
+                        <div class="">
+                            <a class="btn btn-sm org-btn p-1 left-arrow" href="{{url('/report-card')}}">
+                                <img src="{{asset('assets/front/images/arrow-left-solid.svg')}}" class="px-1" alt="icon" />
+                                <span class="px-1"> Back</span>
+                            </a>
+                        </div>
+                      </div>
+                      
+                    </div>
                         <!-- NCERT, under the aegis of MHRD, conducted the National Achievement Survey (NAS) throughout the country on November 13, 2021, for Classes 3, 5 and 8 in government and government-aided schools. The survey tools used multiple test booklets with 45 questions in Classes 3 and 5 and 60 questions in Class VIII in Mathematics, Language, Sciences and Social Sciences. The competency-based test questions reflect the learning outcomes developed by NCERT which were recently incorporated in the RTE Act by the Government of India. Along with the test items, questionnaires about students, teachers and schools were also used. The learning levels of 2.2 million students from 1,10,000 schools across 701 districts in all 36 states/UTs were assessed. The findings of the survey help guide the education policy, planning and implementation at national, state, district and classroom levels to improve the learning levels of children and bring about qualitative improvements. -->
                     </div>
                     </div>

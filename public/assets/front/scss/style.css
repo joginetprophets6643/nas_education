@@ -10134,6 +10134,12 @@ ul {
   width: 22px;
 }
 
+.left-arrow:hover {
+  background-color: #f7941c;
+  border: 1px solid #f7941c;
+  color: #ffffff;
+}
+
 .photogallery-content .gallery-card .gallery-content,
 .videogallery-content .gallery-card .gallery-content {
   padding: 10px 15px;

@@ -113,7 +113,7 @@
                     <a class="nav-link {{ Request::is('nas-program') ? 'active' : '' }}" href="{{url('/nas-program')}}">{{__('lang.NAS PROGRAM')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="{{url('/report-card')}}" target="_blank">{{__('lang.REPORT CARD')}}</a>
+                    <a class="nav-link {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="{{url('/report-card')}}" >{{__('lang.REPORT CARD')}}</a>
                   </li>
                   <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle {{ Request::is('report-card') || Request::is('report-card/*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdown">{{__('lang.REPORT CARD')}}
