@@ -79,9 +79,21 @@
                     <div class="row justify-content-center text-center">
                     <div class="col-md-12">
                     <div class="desc-black para-justify">
-                      <h2 class="heading-blue">
-                          National Achievement Survey(NAS)-2021
-                      </h2>
+                      <div class="d-flex">
+                      <div class="col-md-12 aboutpage-content d-flex justify-content-between">
+                        <h2 class="heading-blue">
+                          National Achievement Survey(NAS)-2021 Report Card
+                        </h2>
+                        <div class="">
+                            <a class="btn btn-sm org-btn p-1 left-arrow" href="{{url('/report-card')}}">
+                                <img src="{{asset('assets/front/images/arrow-left-solid.svg')}}" class="px-1" alt="icon" />
+                                <span class="px-1"> Back</span>
+                            </a>
+                        </div>
+                      </div>
+                      
+                    </div>
+
                     @if(!empty($content->page_meta_title))
                        {!!$content->inner_page_content!!}
                     @endif
