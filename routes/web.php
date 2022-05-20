@@ -487,9 +487,9 @@ Route::group(["middleware" => ["authCheck"]], function(){
 
     });
     Route::get('/change','App\Http\Controllers\LocalizationController@lang_change');
-    // Route::get('/visualization/nas-2021',function(){
-    //     return view('front.visualization.visualization_new');
-    // });
+    Route::get('/visualization/nas-2021',function(){
+        return view('front.visualization.visualization_new');
+    });
 
     Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
     Route::get('/achievements','App\Http\Controllers\ReportCardController@achievementwebView');
