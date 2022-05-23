@@ -1524,15 +1524,15 @@ class FinalParticipationstateController extends Controller
         from grade3statetable
         union all
         select id, state_code, state_tq_q18
-        as state_avg, 'pq3' level, 'Protocol for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Understand the protocols for COVID symptom reporting' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q17
-        as state_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Aware of the measures to be taken for wellbeing of the children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, state_tq_q16
-        as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Know about the school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade3statetable
         union all
         select id, state_code, State_pq_q26
@@ -1638,15 +1638,15 @@ class FinalParticipationstateController extends Controller
         from grade5statetable
         union all
         select id, state_code, state_tq_q18
-        as state_avg, 'pq3' level, 'Protocol for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Understand the protocols for COVID symptom reporting' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q17
-        as state_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Aware of the measures to be taken for wellbeing of the children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, state_tq_q16
-        as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Know about the school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade5statetable
         union all
         select id, state_code, State_pq_q26
@@ -1752,15 +1752,15 @@ class FinalParticipationstateController extends Controller
         from grade8statetable
         union all
         select id, state_code, state_tq_q18
-        as state_avg, 'pq3' level, 'Protocol for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Understand the protocols for COVID symptom reporting' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q17
-        as state_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Aware of the measures to be taken for wellbeing of the children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, state_tq_q16
-        as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Know about the school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade8statetable
         union all
         select id, state_code, State_pq_q26
@@ -1866,15 +1866,15 @@ class FinalParticipationstateController extends Controller
         from grade10statetable
         union all
         select id, state_code, state_tq_q18
-        as state_avg, 'pq3' level, 'Protocol for COVID symptoms reporting' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Understand the protocols for COVID symptom reporting' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q17
-        as state_avg, 'pq3' level, 'Measures to be taken for wellbeing of children and school staff' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Aware of the measures to be taken for wellbeing of the children and school staff' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, state_tq_q16
-        as state_avg, 'pq3' level, 'School reopening guidelines for teacher' question_desc, 0 question_code, 0 total_parent
+        as state_avg, 'pq3' level, 'Know about the school reopening guidelines' question_desc, 0 question_code, 0 total_parent
         from grade10statetable
         union all
         select id, state_code, State_pq_q26

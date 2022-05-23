@@ -218,7 +218,7 @@
                                   Population
                                 </h3>
                                 <p class="total-no" id="total_population">
-                                138 Crores
+                                138 million
                                 </p>
                               </div>
                               <div class="img">
@@ -951,7 +951,7 @@
     }
     else{
       $('#total_area').html(parseInt(info.total_district_area) ? (parseFloat(info.total_district_area)).toLocaleString('en-IN') + ` million km<sup>2</sup>` : '-')
-      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString('en-IN') + ' Crore': '-')
+      $('#total_population').html(parseInt(info.total_population) ? parseInt(info.total_population).toLocaleString('en-IN') + ' million': '-')
       total_teachers = info.no_of_teachers
       display_name = 'National'
     }

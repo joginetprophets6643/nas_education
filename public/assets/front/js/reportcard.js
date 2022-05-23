@@ -2651,7 +2651,7 @@ async function createInformationScreen(data) {
     );
     $("#" + prefix + "population_class3").html(
       dataToShow.total_population
-        ? dataToShow.total_population + " Crore"
+        ? dataToShow.total_population + " million"
         : "-"
     );
   } else {
