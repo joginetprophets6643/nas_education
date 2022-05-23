@@ -160,7 +160,7 @@
 
     function preventSymbols(e) {
         var key = e.keyCode;
-        var regex =/[^a-z0-9]/gi;
+        var regex =/[^a-z]/gi;
 
         //Validate TextBox value against the Regex.
         var isValid = regex.test(String.fromCharCode(key))
