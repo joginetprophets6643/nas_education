@@ -14,6 +14,7 @@ import { StoreModel } from '@/models/visualization';
 import { ClassSubjects } from '@/models/visualization';
 import { SubjectIcons } from '@/models/visualization';
 import MapTab from '@/components/Visualization/MapTab/MapTab';
+import ScatterPlotTab from '@/components/Visualization/ScatterPlotTab/ScatterPlotTab';
 
 const TabContent = () => {
 
@@ -222,6 +223,7 @@ const TabContent = () => {
         </div>
         ))}
         <MapTab />
+        <ScatterPlotTab />
     </div>
   );
 };

@@ -1,6 +1,4 @@
 import React from 'react';
-import DropdownSelect from '@/components/Visualization/TopBar/DropdownSelect';
-import GlobeIcon from '@/assets/images/globe-icon.svg';
 import Map from '@/components/Visualization/Map/Map';
 import MapTabDropdown from '../MapTabDropdown/MapTabDropdown';
 
@@ -10,18 +8,18 @@ const MapTab = () => {
         <div className="average-performance-wrap card-blue mb-60">
             <div className="d-flex">
                 <div className="col-md-3">
-                    <div className="maptab-select-wrap">
-                        <MapTabDropdown />
+                    <div className="maptab-select-wrap m-0">
+                        <MapTabDropdown label="Sector:" />
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <div className="maptab-select-wrap">
-                        <MapTabDropdown />
+                    <div className="maptab-select-wrap m-0">
+                        <MapTabDropdown label="Indicator:" />
                     </div>
                 </div>
                 <div className="col-md-3">
-                    <div className="maptab-select-wrap">
-                        <MapTabDropdown />
+                    <div className="maptab-select-wrap m-0">
+                        <MapTabDropdown label="Subgroup:" />
                     </div>
                 </div>
             </div>

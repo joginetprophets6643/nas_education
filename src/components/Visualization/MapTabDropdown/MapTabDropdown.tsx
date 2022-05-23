@@ -5,15 +5,18 @@ import 'react-select-2/dist/js/react-select-2.js';
 
 
 const options = [
-    { value: 'blues', label: 'Blues' },
-    { value: 'rock', label: 'Rock' },
-    { value: 'jazz', label: 'Jazz' },
-    { value: 'orchestra', label: 'Orchestra' } 
+    { value: 'CLASS 3', label: 'CLASS 3' },
+    { value: 'CLASS 5', label: 'CLASS 5' },
+    { value: 'CLASS 8', label: 'CLASS 8' },
+    { value: 'CLASS 10', label: 'CLASS 10' } 
   ];
 
-const MapTabDropdown = () => {
+const MapTabDropdown = (props:any) => {
   return (
-    <Select options = {options} />
+    <div className="maptabdropdown-wrap">
+      <label className="maptabdropdown-label">{props.label}</label>
+      <Select options = {options} className="react-select" classNamePrefix="react-select" />
+    </div>
   )
 }
 
