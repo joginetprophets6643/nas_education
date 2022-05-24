@@ -1358,6 +1358,10 @@ ul {
             padding: 0;
         }
     }
+
+    .text-white-sm {
+        line-height: initial;
+    }
 }
 
 
@@ -6467,6 +6471,7 @@ ul {
     img {
         width: 22px;
     }
+
     &:hover {
         background-color: $color_orange;
         border: 1px solid $color_orange;
@@ -8040,4 +8045,3 @@ div {
         }
     }
 }
-
