@@ -45,8 +45,12 @@
                               <span class="btn-text">Report View (2017)</span>
                               &nbsp;<span class="material-icons-round">
                                 file_download
-                              </span></a>
-
+                            </span></a>
+                            <a href="{{url('/download-pdf')}}" target="_blank" id="report-link" class="btn org-btn report-btn mobile-report-btn">
+                              <span class="material-icons-round">
+                                file_download
+                              </span>
+                            </a>
                             
                           </div>
                         </div>
@@ -75,7 +79,7 @@
                               
                             </ul>
                             <div class="btn-dwn">
-                              <a href="{{url('/download-pdf')}}" target="_blank" id="report-link" class="btn org-btn report-btn">
+                              <a href="{{url('/download-pdf')}}" target="_blank" id="report-link" class="btn org-btn report-btn nrml-report-btn">
                               <!-- <span class="btn-text">Report View (2017)</span> -->
                                 Report View 
                                 <span class="material-icons-round">
