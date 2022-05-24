@@ -1928,7 +1928,7 @@ function updateData(data) {
       achievement_data = "";
       current_grade = "";
       direction_gender_header = `<div class="card ach-card">
-      <div class="ach-table"><table class="table">
+      <div class="ach-table table-responsive"><table class="table">
                               <thead>
                                 <tr>
                                   <th>Factors</th>

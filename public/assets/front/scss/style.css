@@ -8292,7 +8292,7 @@ ul {
   margin-right: 10px;
   height: 18px;
   width: 24px;
-  padding: 0 8px;
+  padding: 2px 8px;
 }
 
 .achievement-content .category-wrap li .category-item .dark-blue {
@@ -10207,6 +10207,9 @@ ul {
   #bannerSlider .owl-dots {
     max-width: 960px;
   }
+  .mobile-report-btn {
+    display: none;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -10373,6 +10376,9 @@ ul {
 }
 
 @media (max-width: 991px) {
+  .nrml-report-btn {
+    display: none;
+  }
   br {
     display: none;
   }
