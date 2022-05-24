@@ -12,6 +12,7 @@ use App\Http\Controllers\LearningOutcomeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PdfGenerateController;
 use App\Http\Controllers\VisualizationCalculationController;
+use App\Http\Controllers\VisualizationNewController;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
@@ -130,6 +131,8 @@ Route::get('getDRCDataForGrade3',[FinalCalculationController::class,'getDRCDataF
 Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
 Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
 Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
+Route::get('visualization_graph_performance',[VisualizationNewController::class,'visualization_graph_performance']);
+
 
 Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);
 
