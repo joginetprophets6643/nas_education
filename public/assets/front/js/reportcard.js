@@ -575,17 +575,34 @@ function changePageDataViaSideFilter(value) {
 //  setting screens for geographies
 async function setScreen(screen_type = "information", load_data = true) {
   // not conducted check
+
+
   const active_district = JSON.parse(
     sessionStorage.getItem("activeDistrict")
+  );
+  const active_state = JSON.parse(
+    sessionStorage.getItem("activeState")
   );
   if (active_district !== null) {
     if (active_district.is_active === 2) {
       screen_type = "notconducted";
       $('#report-link').addClass('otp-dis')
+      $('#report-mobile-link').addClass('otp-dis')
     }
     else {
       $('#report-link').removeClass('otp-dis')
+      $('#report-mobile-link').removeClass('otp-dis')
     }
+    $('#report-link').addClass('otp-dis')
+    $('#report-mobile-link').addClass('otp-dis')
+  }
+  else if (active_state !== null) {
+    $('#report-link').addClass('otp-dis')
+    $('#report-mobile-link').addClass('otp-dis')
+  }
+  else {
+    $('#report-link').removeClass('otp-dis')
+    $('#report-mobile-link').removeClass('otp-dis')
   }
 
   window.scrollTo(0, 0);
