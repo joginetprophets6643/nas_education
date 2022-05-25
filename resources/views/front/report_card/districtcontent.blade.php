@@ -100,6 +100,7 @@
     }
     // console.log(link)
     $('#report-link').attr('href',link)
+    $('#report-mobile-link').attr('href',link)
 }
 </script>
 <script src="{{asset('assets/front/js/reportcard.js')}}"></script>
