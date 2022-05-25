@@ -51,3 +51,10 @@ export const getGraphs = (filters:any) =>({
     type: constants.CHART_FETCH,
     payload: http.get('visualization_performance_graph_tbl?filter='+filters)
 })
+
+export const resetGraphs = () => ({
+    type: constants.CHART_FETCH_RESET,
+})
+
+
+
