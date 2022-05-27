@@ -517,7 +517,7 @@ function createDistrictForStates(data, state_name, state_id) {
       "," +
       district.udise_district_code +
       ')">' +
-      format_string(district.district_name) +
+      district.district_name +
       "</a></li>";
   });
   return district_list;
@@ -733,13 +733,13 @@ function chageDataWithFilter(filter_type, value) {
         activeDistrict = lastActiveDistrict;
         $("#active_state").html(activeState.state_name);
         $("#active_district").html(
-          format_string(activeDistrict.district_name)
+          activeDistrict.district_name
         );
         $("#navbar-highlighter").html(
           "(" +
           format_string(activeState.state_name) +
           " > " +
-          format_string(activeDistrict.district_name) +
+          activeDistrict.district_name +
           ")"
         );
         toggleDistrictList(activeDistrict.udise_state_code, true);
@@ -1239,7 +1239,7 @@ function setActiveStateDistrict(state_id, district_id) {
   makeDistrictActive(district_id);
   setBreadCrumb("district", true);
   $("#active_state").html(activeState.state_name);
-  $("#active_district").html(format_string(activeDistrict.district_name));
+  $("#active_district").html(activeDistrict.district_name);
   $("#navbar-highlighter").html(
     "(" + format_string(activeState.state_name) + ")"
   );
@@ -1247,7 +1247,7 @@ function setActiveStateDistrict(state_id, district_id) {
     "(" +
     format_string(activeState.state_name) +
     " > " +
-    format_string(activeDistrict.district_name) +
+    activeDistrict.district_name +
     ")"
   );
 
@@ -2707,7 +2707,7 @@ async function createInformationScreen(data) {
   );
 
   if (selected_geography === "district") {
-    $("." + prefix + "name").html(format_string(dataToShow.district_name));
+    $("." + prefix + "name").html(dataToShow.district_name);
     $("#" + prefix + "rural_class3").html(
       parseInt(dataToShow.rural_population)
         ? parseInt(dataToShow.rural_population).toLocaleString("en-IN")
