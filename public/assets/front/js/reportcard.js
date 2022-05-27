@@ -593,8 +593,8 @@ async function setScreen(screen_type = "information", load_data = true) {
       $('#report-link').removeClass('otp-dis')
       $('#report-mobile-link').removeClass('otp-dis')
     }
-    $('#report-link').addClass('otp-dis')
-    $('#report-mobile-link').addClass('otp-dis')
+    // $('#report-link').addClass('otp-dis')
+    // $('#report-mobile-link').addClass('otp-dis')
   }
   // else if (active_state !== null) {
   //   $('#report-link').addClass('otp-dis')
