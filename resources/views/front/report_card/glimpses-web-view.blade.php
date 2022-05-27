@@ -11,7 +11,7 @@
         <div class="nc3-result-wrap">
             <div class="row">
             <div class="col-md-12">
-                <h2 class="heading-grey text-center">
+                <h2 class="heading-grey temp-text text-center">
                 Performance of States/UTs
                 </h2>
                 <div class="glimps-wrap">

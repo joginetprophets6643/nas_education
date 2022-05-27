@@ -4190,16 +4190,15 @@ var AveragePerormance = function AveragePerormance(props) {
     'Evs': 'evs'
   };
   (0, react_1.useEffect)(function () {
+    console.log(charts.data, charts.loading, 'Hii');
+
     if (charts.loaded && !charts.loading) {
       setGraphs(charts.data);
       setCurrentSection('');
+    } else {
+      setGraphs({});
     }
-
-    console.log(charts);
   }, [charts]);
-  (0, react_1.useEffect)(function () {
-    console.log(graphs);
-  }, [graphs]);
   var coloumnChartColor = {
     gender: ["#F2744A", "#F2744A"],
     location: ['#16A085', '#16A085'],
@@ -4262,7 +4261,9 @@ var AveragePerormance = function AveragePerormance(props) {
           borderWidth: 0,
           dataLabels: {
             enabled: true,
-            format: '{point.y}'
+            formatter: function formatter() {
+              return this.y != 0 ? this.y + '%' : "";
+            }
           }
         }
       },
@@ -4284,7 +4285,7 @@ var AveragePerormance = function AveragePerormance(props) {
       },
       tooltip: {
         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>'
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b>'
       }
     };
     var series = {
@@ -4310,14 +4311,14 @@ var AveragePerormance = function AveragePerormance(props) {
   };
 
   (0, react_1.useEffect)(function () {
-    if (Object.keys(graphs).length !== 0 && current_geography !== 'national') {// console.log(graphs, subjectShortCodes[props.name])
-      // setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'))
-      // setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'))
-      // setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'))
-      // setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography], 'Location', 'column'))
-      // setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'], 'Learning', "column"))
-      // setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie'))
-      // setPerformanceColumnData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn', "column"))
+    if (Object.keys(graphs).length !== 0 && current_geography !== 'national' && graphs[subjectShortCodes[props.name]] !== undefined) {
+      console.log(graphs, subjectShortCodes[props.name]);
+      setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'));
+      setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'));
+      setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'));
+      setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography], 'Location', 'column'));
+      setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'], 'Learning', "column"));
+      setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie')); // setPerformanceColumnData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn', "column"))
       // setPerformanceColumnData2(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn2', "column"))
     } else {
       setGenderData({});
@@ -5015,8 +5016,7 @@ var no_data_icon_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images
 
 var GraphCard = function GraphCard(props) {
   // console.log(props.series)
-  (0, react_1.useEffect)(function () {
-    console.log(props.series.series);
+  (0, react_1.useEffect)(function () {// console.log(props.series.series)
   }, [props]);
   return react_1["default"].createElement("div", {
     className: "apcard-white"
@@ -5824,8 +5824,8 @@ var TabContent = function TabContent() {
     }
 
     dispatch((0, visualization_action_1.getCardsData)(JSON.stringify(reusable_filters), fields));
-    dispatch((0, visualization_action_1.getSubjectCards)(JSON.stringify(reusable_filters)));
-    dispatch((0, visualization_action_1.resetGraphs)());
+    dispatch((0, visualization_action_1.getSubjectCards)(JSON.stringify(reusable_filters))); // dispatch(resetGraphs())
+
     dispatch((0, visualization_action_1.getGraphs)(JSON.stringify(reusable_filters)));
     setEncounteredSubject([]);
   }, [grade, current_geography, current_id]);

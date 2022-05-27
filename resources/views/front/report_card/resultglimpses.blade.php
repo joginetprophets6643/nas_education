@@ -3,8 +3,8 @@
                                   <div class="nc3-result-wrap">
                                       <div class="row">
                                         <div class="col-md-12">
-                                          <h2 class="heading-grey text-center">
-                                            Performance of States/UTs
+                                          <h2 class="heading-grey temp-text text-center">
+                                            PERFORMANCE OF STATES/UTs
                                           </h2>
                                           <div class="glimps-wrap">
                                               <div class="row">
@@ -284,8 +284,8 @@
                                   <div class="nc5-result-wrap">
                                       <div class="row">
                                         <div class="col-md-12">
-                                          <h2 class="heading-grey text-center">
-                                            Performance of States/UTs
+                                          <h2 class="heading-grey temp-text text-center">
+                                            PERFORMANCE OF STATES/UTs
                                           </h2>
                                           <div class="glimps-wrap">
                                               <div class="row">
@@ -544,8 +544,8 @@
                                     <div class="nc8-result-wrap">
                                         <div class="row">
                                           <div class="col-md-12">
-                                            <h2 class="heading-grey text-center">
-                                              Performance of States/UTs
+                                            <h2 class="heading-grey temp-text text-center">
+                                              PERFORMANCE OF STATES/UTs
                                             </h2>
                                             <div class="glimps-wrap">
                                                 <div class="row">
@@ -871,8 +871,8 @@
                                   <div class="nc10-result-wrap">
                                       <div class="row">
                                         <div class="col-md-12">
-                                          <h2 class="heading-grey text-center">
-                                            Performance of States/UTs
+                                          <h2 class="heading-grey temp-text text-center">
+                                            PERFORMANCE OF STATES/UTs
                                           </h2>
                                           <div class="glimps-wrap">
                                               <div class="row">
@@ -1254,8 +1254,8 @@
                                   <div class="nac-result-wrap">
                                       <div class="row">
                                         <div class="col-md-12">
-                                          <h2 class="heading-grey text-center">
-                                            Performance of States/UTs
+                                          <h2 class="heading-grey temp-text text-center">
+                                            PERFORMANCE OF STATES/UTs
                                           </h2>
                                             <div class="graph-card-container graph-linecard-container mtb-30">
                                                     <div class="row">

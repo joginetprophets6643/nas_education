@@ -11312,4 +11312,8 @@ div #all-state-list {
 .sec-banner .heading span {
   border-radius: 8px 0px 0px 8px !important;
 }
+
+.temp-text {
+  text-transform: none !important;
+}
 /*# sourceMappingURL=style.css.map */

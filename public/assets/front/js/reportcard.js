@@ -596,10 +596,10 @@ async function setScreen(screen_type = "information", load_data = true) {
     $('#report-link').addClass('otp-dis')
     $('#report-mobile-link').addClass('otp-dis')
   }
-  else if (active_state !== null) {
-    $('#report-link').addClass('otp-dis')
-    $('#report-mobile-link').addClass('otp-dis')
-  }
+  // else if (active_state !== null) {
+  //   $('#report-link').addClass('otp-dis')
+  //   $('#report-mobile-link').addClass('otp-dis')
+  // }
   else {
     $('#report-link').removeClass('otp-dis')
     $('#report-mobile-link').removeClass('otp-dis')
@@ -2264,6 +2264,7 @@ function toggleActiveDistrict(district_id, value) {
 function getOutcomeRow(lo, classStyle) {
   let row = "";
   if (selected_geography === "district") {
+    $('.learning-los-head').html('Performance of the district in achieving learning Outcomes (Los)')
     row =
       '<tr class="' +
       classStyle +
@@ -2279,6 +2280,7 @@ function getOutcomeRow(lo, classStyle) {
       Math.round(lo.national_avg) +
       "</td></tr>";
   } else if (selected_geography === "state") {
+    $('.learning-los-head').html('Performance of the State/UT in achieving learning Outcomes (LOs)')
     row =
       '<tr class="' +
       classStyle +
