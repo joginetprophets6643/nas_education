@@ -389,6 +389,9 @@ Route::get('/secure-admin/edit/setting','App\Http\Controllers\SettingController@
 // Route::get('/secure-admin/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
 Route::post('/secure-admin/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
 
+//Feedback
+Route::get('/secure-admin/feedback','App\Http\Controllers\FeedbackController@getfeedbackdata')->name('feedback-data');
+
 //Program Routes
 Route::get('/secure-admin/static-program','App\Http\Controllers\StaticProgramController@index')->name('program');
 Route::get('/secure-admin/add/program','App\Http\Controllers\StaticProgramController@add')->name('add-program');
