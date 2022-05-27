@@ -5,7 +5,7 @@
                                         <div class="col-md-12">
                                           <div class="achievement-content">
                                             <h2 class="heading-grey text-center">
-                                              ACHIEVEMENT IN ASSOCIATION WITH CONTEXTUAL VARIABLE (SOME INDICES)
+                                              ACHIEVEMENT IN ASSOCIATION WITH CONTEXTUAL VARIABLE
                                             </h2> 
                                             <div class="category-wrap">
                                               <div class="category-list col-md-3">
