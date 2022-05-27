@@ -179,9 +179,9 @@
                         <li>
                           <a href="{{url('/accessbility-statement')}}">{{__('lang.Accessibility Statement')}}</a>
                         </li>
-                        <li>
+                        <!-- <li>
                           <a href="{{url('/rti')}}">{{__('lang.RTI')}}</a>
-                        </li>
+                        </li> -->
                       </ul>
                   </div>
                 </div>
