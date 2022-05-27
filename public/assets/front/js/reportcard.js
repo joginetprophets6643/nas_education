@@ -3064,19 +3064,19 @@ function createGlimpsesScreen(data) {
 
   const section_legends = {
     cards: [
-      "Substantially above National average",
-      "Not substantially different from the National average",
       "Substantially below National average",
+      "Not substantially different from the National average",
+      "Substantially above National average",
     ],
     gender: [
-      "No significant difference between Boys and Girls",
       "Boys perform significantly better than Girls",
+      "No significant difference between Boys and Girls",
       "Girls perform significantly better than Boys",
     ],
     location: [
+      "Urban perform significantly better than Rural",
       "No significant difference between Rural and Urban",
       "Rural perform significantly better than Urban",
-      "Urban perform significantly better than Rural",
     ],
     management: [
       "No significant difference between Govt. and Govt. Aided",

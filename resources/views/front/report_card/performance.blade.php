@@ -782,27 +782,7 @@
                                             </div>
                                           </div>
                                       </div>
-                                      <div class="col-md-4">
-                                        <div class="per-card card-sagegreen">
-                                          <h2>
-                                            <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20" /> Science
-                                          </h2>
-                                          <div class="per-card-content dark-sagegreen">
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_district_class8">0</span>
-                                              <p class="title">District</p>
-                                            </div>
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_state_class8">0</span>
-                                              <p class="title">State</p>
-                                            </div>
-                                            <div class="per-card-desc">
-                                              <span class="total-no"id="performance_sci_national_class8">0</span>
-                                              <p class="title">National</p>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                      
                                       <div class="col-md-4">
                                         <div class="per-card card-pink">
                                           <h2>
@@ -819,6 +799,27 @@
                                             </div>
                                             <div class="per-card-desc">
                                               <span class="total-no" id="performance_math_national_class8">0</span>
+                                              <p class="title">National</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="per-card card-sagegreen">
+                                          <h2>
+                                            <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20" /> Science
+                                          </h2>
+                                          <div class="per-card-content dark-sagegreen">
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_sci_district_class8">0</span>
+                                              <p class="title">District</p>
+                                            </div>
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_sci_state_class8">0</span>
+                                              <p class="title">State</p>
+                                            </div>
+                                            <div class="per-card-desc">
+                                              <span class="total-no"id="performance_sci_national_class8">0</span>
                                               <p class="title">National</p>
                                             </div>
                                           </div>
@@ -1255,6 +1256,48 @@
                                           </div>
                                       </div>
                                       <div class="col-md-4">
+                                        <div class="per-card card-pink">
+                                          <h2>
+                                            <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35" /> Mathematics
+                                          </h2>
+                                          <div class="per-card-content dark-pink">
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_math_district_class10">0</span>
+                                              <p class="title">District</p>
+                                            </div>
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_math_state_class10">0</span>
+                                              <p class="title">State</p>
+                                            </div>
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_math_national_class10">0</span>
+                                              <p class="title">National</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="per-card card-sagegreen">
+                                          <h2>
+                                            <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20" /> Science
+                                          </h2>
+                                          <div class="per-card-content dark-sagegreen">
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_sci_district_class10">0</span>
+                                              <p class="title">District</p>
+                                            </div>
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_sci_state_class10">0</span>
+                                              <p class="title">State</p>
+                                            </div>
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_sci_national_class10">0</span>
+                                              <p class="title">National</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
                                         <div class="per-card card-green">
                                           <h2>
                                             <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20" /> Social Science
@@ -1296,48 +1339,8 @@
                                           </div>
                                         </div>
                                       </div>
-                                      <div class="col-md-4">
-                                        <div class="per-card card-sagegreen">
-                                          <h2>
-                                            <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20" /> Science
-                                          </h2>
-                                          <div class="per-card-content dark-sagegreen">
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_district_class10">0</span>
-                                              <p class="title">District</p>
-                                            </div>
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_state_class10">0</span>
-                                              <p class="title">State</p>
-                                            </div>
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_national_class10">0</span>
-                                              <p class="title">National</p>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="col-md-4">
-                                        <div class="per-card card-pink">
-                                          <h2>
-                                            <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35" /> Mathematics
-                                          </h2>
-                                          <div class="per-card-content dark-pink">
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_district_class10">0</span>
-                                              <p class="title">District</p>
-                                            </div>
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_state_class10">0</span>
-                                              <p class="title">State</p>
-                                            </div>
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_math_national_class10">0</span>
-                                              <p class="title">National</p>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                      
+                                      
                                       
                                       <div class="col-md-12">
                                         <div class="accordion commonAccordion" id="perAccordion10">
@@ -1894,6 +1897,27 @@
                                           </div>
                                       </div>
                                       <div class="col-md-4">
+                                        <div class="per-card card-sagegreen">
+                                          <h2>
+                                            <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20" /> Science
+                                          </h2>
+                                          <div class="per-card-content dark-sagegreen">
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_sci_district_classall">0</span>
+                                              <p class="title">District</p>
+                                            </div>
+                                            <div class="per-card-desc">
+                                              <span class="total-no" id="performance_sci_state_classall">0</span>
+                                              <p class="title">State</p>
+                                            </div>
+                                            <div class="per-card-desc">
+                                              <span class="total-no"id="performance_sci_national_classall">0</span>
+                                              <p class="title">National</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
                                         <div class="per-card card-green">
                                           <h2>
                                             <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20" /> Social Science
@@ -1935,27 +1959,7 @@
                                           </div>
                                         </div>
                                       </div>
-                                      <div class="col-md-4">
-                                        <div class="per-card card-sagegreen">
-                                          <h2>
-                                            <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20" /> Science
-                                          </h2>
-                                          <div class="per-card-content dark-sagegreen">
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_district_classall">0</span>
-                                              <p class="title">District</p>
-                                            </div>
-                                            <div class="per-card-desc">
-                                              <span class="total-no" id="performance_sci_state_classall">0</span>
-                                              <p class="title">State</p>
-                                            </div>
-                                            <div class="per-card-desc">
-                                              <span class="total-no"id="performance_sci_national_classall">0</span>
-                                              <p class="title">National</p>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                      
                                       
                                       
                                       <div class="col-md-12">
@@ -6102,6 +6106,18 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+                                          <div class="per-card card-pink">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
+                                            </h2>
+                                            <div class="per-card-content dark-pink">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_math_national_class8">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
                                           <div class="per-card card-sagegreen">
                                             <h2 class="justify-content-center">
                                               <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20"> Science
@@ -6113,24 +6129,13 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="col-md-4">
-                                          <div class="per-card card-pink">
-                                            <h2 class="justify-content-center">
-                                              <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
-                                            </h2>
-                                            <div class="per-card-content dark-pink">
-                                              <div class="per-card-desc">
-                                                <span class="total-no" id="performancenational_math_national_class8">0</span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div> 
+                                         
                                       </div>
                                       <div class="row">
                                         <div class="col-md-4">
                                           <div class="per-card card-green">
                                             <h2 class="justify-content-center">
-                                              <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20"> Science
+                                              <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20"> Social Science
                                             </h2>
                                             <div class="per-card-content dark-green">
                                               <div class="per-card-desc">
@@ -6164,6 +6169,30 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+                                            <div class="per-card card-pink">
+                                              <h2 class="justify-content-center">
+                                                <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
+                                              </h2>
+                                              <div class="per-card-content dark-pink">
+                                                <div class="per-card-desc">
+                                                  <span class="total-no" id="performancenational_math_national_class10">0</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div> 
+                                        <div class="col-md-4">
+                                          <div class="per-card card-sagegreen">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20">Science
+                                            </h2>
+                                            <div class="per-card-content dark-sagegreen">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_sci_national_class10">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
                                           <div class="per-card card-green">
                                             <h2 class="justify-content-center">
                                               <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20">Social Science
@@ -6186,33 +6215,13 @@
                                                 </div>
                                               </div>
                                             </div>
-                                          </div>
+                                        </div>
+                                        
                                       </div>
                                       <div class="row">
-                                        <div class="col-md-4">
-                                          <div class="per-card card-sagegreen">
-                                            <h2 class="justify-content-center">
-                                              <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20">Science
-                                            </h2>
-                                            <div class="per-card-content dark-sagegreen">
-                                              <div class="per-card-desc">
-                                                <span class="total-no" id="performancenational_sci_national_class10">0</span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="per-card card-pink">
-                                              <h2 class="justify-content-center">
-                                                <img src="{{asset('assets/front/images/math-icon.svg')}}" alt="img" class="img-fluid" width="35"> Mathematics
-                                              </h2>
-                                              <div class="per-card-content dark-pink">
-                                                <div class="per-card-desc">
-                                                  <span class="total-no" id="performancenational_math_national_class10">0</span>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div> 
+                                        
+                                        
+                                        
                                       </div>
                                     </div>
                             </div>
@@ -6277,6 +6286,18 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+                                          <div class="per-card card-sagegreen">
+                                            <h2 class="justify-content-center">
+                                              <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20">Science
+                                            </h2>
+                                            <div class="per-card-content dark-sagegreen">
+                                              <div class="per-card-desc">
+                                                <span class="total-no" id="performancenational_sci_national_classall">0</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
                                           <div class="per-card card-green">
                                             <h2 class="justify-content-center">
                                               <img src="{{asset('assets/front/images/social-sci.svg')}}" alt="img" class="img-fluid" width="20">Social Science
@@ -6302,18 +6323,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
-                                          <div class="per-card card-sagegreen">
-                                            <h2 class="justify-content-center">
-                                              <img src="{{asset('assets/front/images/science.svg')}}" alt="img" class="img-fluid" width="20">Science
-                                            </h2>
-                                            <div class="per-card-content dark-sagegreen">
-                                              <div class="per-card-desc">
-                                                <span class="total-no" id="performancenational_sci_national_classall">0</span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                                        
                                     </div>
                             </div>
 @endsection
