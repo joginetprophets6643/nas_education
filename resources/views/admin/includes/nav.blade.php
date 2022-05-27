@@ -157,6 +157,14 @@
             </a>
           </li>
 
+          <li class="nav-item  hide-item" id="Feedback">
+            <a class="nav-link" href="{{route('feedback-data')}}">
+              <span class="menu-title">Feedback</span>
+              <!-- <i class="icon-user menu-icon"></i> -->
+              <img src="{{asset('assets/admin/vendors/images/file-lines-solid.svg')}}" alt="">
+            </a>
+          </li>
+
           <li class="nav-item  hide-item" id="Setting">
             <a class="nav-link" href="{{route('setting')}}">
               <span class="menu-title">Manage Setting</span>
