@@ -95,7 +95,7 @@ const TabContent = () => {
     }
     dispatch(getCardsData(JSON.stringify(reusable_filters), fields))
     dispatch(getSubjectCards(JSON.stringify(reusable_filters)))
-    dispatch(resetGraphs())
+    // dispatch(resetGraphs())
     dispatch(getGraphs(JSON.stringify(reusable_filters)))
     setEncounteredSubject([] as String[])
   }, [grade, current_geography, current_id])

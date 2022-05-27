@@ -30,16 +30,15 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
 
 
     useEffect(() => {
+        console.log(charts.data, charts.loading, 'Hii')
         if (charts.loaded && !charts.loading) {
             setGraphs(charts.data)
             setCurrentSection('')
         }
-        console.log(charts)
+        else {
+            setGraphs({})
+        }
     }, [charts])
-
-    useEffect(() => {
-        console.log(graphs)
-    }, [graphs])
 
     const coloumnChartColor = {
         gender: ["#F2744A", "#F2744A"],
@@ -104,7 +103,9 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
                     borderWidth: 0,
                     dataLabels: {
                         enabled: true,
-                        format: '{point.y}'
+                        formatter: function () {
+                            return this.y != 0 ? this.y + '%' : "";
+                        },
                     }
                 }
             },
@@ -127,7 +128,7 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
             },
             tooltip: {
                 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>'
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b>'
             },
 
         } as any
@@ -151,14 +152,14 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
     }
 
     useEffect(() => {
-        if (Object.keys(graphs).length !== 0 && current_geography !== 'national') {
-            // console.log(graphs, subjectShortCodes[props.name])
-            // setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'))
-            // setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'))
-            // setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'))
-            // setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography], 'Location', 'column'))
-            // setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'], 'Learning', "column"))
-            // setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie'))
+        if (Object.keys(graphs).length !== 0 && current_geography !== 'national' && graphs[subjectShortCodes[props.name]] !== undefined) {
+            console.log(graphs, subjectShortCodes[props.name])
+            setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'))
+            setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'))
+            setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'))
+            setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography], 'Location', 'column'))
+            setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'], 'Learning', "column"))
+            setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie'))
             // setPerformanceColumnData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn', "column"))
             // setPerformanceColumnData2(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn2', "column"))
 
