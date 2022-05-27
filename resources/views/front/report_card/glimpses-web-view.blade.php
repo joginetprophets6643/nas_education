@@ -292,7 +292,7 @@
         <div class="nc5-result-wrap">
             <div class="row">
             <div class="col-md-12">
-                <h2 class="heading-grey text-center">
+                <h2 class="heading-grey temp-text text-center">
                 Performance of States/UTs
                 </h2>
                 <div class="glimps-wrap">
@@ -552,7 +552,7 @@
         <div class="nc8-result-wrap">
             <div class="row">
                 <div class="col-md-12">
-                <h2 class="heading-grey text-center">
+                <h2 class="heading-grey temp-text text-center">
                     Performance of States/UTs
                 </h2>
                 <div class="glimps-wrap">
@@ -879,7 +879,7 @@
         <div class="nc10-result-wrap">
             <div class="row">
             <div class="col-md-12">
-                <h2 class="heading-grey text-center">
+                <h2 class="heading-grey temp-text text-center">
                 Performance of States/UTs
                 </h2>
                 <div class="glimps-wrap">
@@ -1262,7 +1262,7 @@
         <div class="nac-result-wrap">
             <div class="row">
             <div class="col-md-12">
-                <h2 class="heading-grey text-center">
+                <h2 class="heading-grey temp-text text-center">
                 Performance of States/UTs
                 </h2>
                 <div class="graph-card-container graph-linecard-container mtb-30">

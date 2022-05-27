@@ -3556,12 +3556,12 @@ function setModalHeader(data, sub, legend) {
   if (data.grade == 3) {
     if (legend == "cards") {
       $("#data-header").html(
-        "Performance of States in Class III : " +
+        "Performance of States/UTs in Class III : " +
         subject[sub].toUpperCase()
       );
     } else {
       $("#data-header").html(
-        "Performance of States by " +
+        "Performance of States/UTs by " +
         capitalizeFirstLetter(legend) +
         " in Class III : " +
         subject[sub].toUpperCase()
@@ -3570,12 +3570,12 @@ function setModalHeader(data, sub, legend) {
   } else if (data.grade == 5) {
     if (legend == "cards") {
       $("#data-header").html(
-        "Performance of States in Class V : " +
+        "Performance of States/UTs in Class V : " +
         subject[sub].toUpperCase()
       );
     } else {
       $("#data-header").html(
-        "Performance of States by " +
+        "Performance of States/UTs by " +
         capitalizeFirstLetter(legend) +
         " in Class V : " +
         subject[sub].toUpperCase()
@@ -3584,12 +3584,12 @@ function setModalHeader(data, sub, legend) {
   } else if (data.grade == 8) {
     if (legend == "cards") {
       $("#data-header").html(
-        "Performance of States in Class VIII : " +
+        "Performance of States/UTs in Class VIII : " +
         subject[sub].toUpperCase()
       );
     } else {
       $("#data-header").html(
-        "Performance of States by " +
+        "Performance of States/UTs by " +
         capitalizeFirstLetter(legend) +
         " in Class VIII : " +
         subject[sub].toUpperCase()
@@ -3598,12 +3598,12 @@ function setModalHeader(data, sub, legend) {
   } else {
     if (legend == "cards") {
       $("#data-header").html(
-        "Performance of States in Class X : " +
+        "Performance of States/UTs in Class X : " +
         subject[sub].toUpperCase()
       );
     } else {
       $("#data-header").html(
-        "Performance of States by " +
+        "Performance of States/UTs by " +
         capitalizeFirstLetter(legend) +
         " in Class X : " +
         subject[sub].toUpperCase()
