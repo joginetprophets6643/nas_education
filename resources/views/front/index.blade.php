@@ -1,6 +1,5 @@
 @include('front.includes.header')
 @include('front.includes.nav')
-    <marquee>NAS 2021 results published. <a href="{{url('report-card/2021')}}">Click here to view</a> </marquee>
     <section class="hero-slider-wrap">
         <div class="hero-slider">
           <div class="owl-carousel owl-theme" id="bannerSlider">
@@ -26,7 +25,7 @@
           </div>
         </div>
     </section>
-
+    <div class="m-2"><marquee>NAS 2021 National and State Report Cards have been released.<a href="{{url('report-card/2021')}}"> Click here to view</a> </marquee></div>
     <section class="about-wrap ptb-60 bg-grey" id="About">
       <div class="container">
           <div class="row">
