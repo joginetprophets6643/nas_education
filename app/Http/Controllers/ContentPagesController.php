@@ -51,6 +51,9 @@ class ContentPagesController extends Controller
             if ($currentroute == "screen_reader_access") {
                 $contents->where('page_title','Screen Reader Access');
             }
+            if ($currentroute == "help") {
+                $contents->where('page_title','Help');
+            }
 
         $content = $contents->first();
         
