@@ -438,7 +438,7 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
         Route::get('/copyright-policy','App\Http\Controllers\ContentPagesController@index')->name('copyright');
         Route::get('/hyper-linking-policy','App\Http\Controllers\ContentPagesController@index')->name('hyperlink');
         Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
-        Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
+        // Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
         Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
         Route::get('/report-card','App\Http\Controllers\ReportCardController@landing');
         Route::get('/report-card/2021','App\Http\Controllers\ReportCardController@index')->name('repord-card');
