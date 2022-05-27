@@ -6553,6 +6553,7 @@ ul {
             max-width: 960px;
         }
     }
+
     .mobile-report-btn {
         display: none;
     }
@@ -6805,6 +6806,7 @@ ul {
     .nrml-report-btn {
         display: none;
     }
+
     br {
         display: none;
     }
@@ -8050,4 +8052,8 @@ div {
             border-radius: 8px 0px 0px 8px !important;
         }
     }
+}
+
+.temp-text {
+    text-transform: none !important;
 }

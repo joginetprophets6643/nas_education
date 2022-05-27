@@ -1,6 +1,6 @@
 @include('front.includes.header')
 @include('front.includes.nav')
-
+    <marquee>NAS 2021 results published. <a href="{{url('report-card/2021')}}">Click here to view</a> </marquee>
     <section class="hero-slider-wrap">
         <div class="hero-slider">
           <div class="owl-carousel owl-theme" id="bannerSlider">

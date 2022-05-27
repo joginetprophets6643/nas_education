@@ -3,7 +3,7 @@
                                     <div class="learning-wrap">
                                         <div class="row">
                                           <div class="col-md-12">
-                                            <h2 class="heading-grey text-center">
+                                            <h2 class="heading-grey text-center learning-los-head">
                                               Performance in Learning Outcomes (LOs)
                                             </h2>
                                             <div class="learning-tabs mtb-30">
@@ -163,7 +163,7 @@
                                     <div class="learning-wrap">
                                         <div class="row">
                                           <div class="col-md-12">
-                                            <h2 class="heading-grey text-center">
+                                            <h2 class="heading-grey text-center learning-los-head">
                                               Performance in Learning Outcomes (LOs)
                                             </h2>
                                             <div class="learning-tabs mtb-30">
@@ -323,7 +323,7 @@
                                     <div class="learning-wrap">
                                         <div class="row">
                                           <div class="col-md-12">
-                                            <h2 class="heading-grey text-center">
+                                            <h2 class="heading-grey text-center learning-los-head">
                                               Performance in Learning Outcomes (LOs)
                                             </h2>
                                             <div class="learning-tabs mtb-30">
@@ -532,7 +532,7 @@
                                     <div class="learning-wrap">
                                         <div class="row">
                                           <div class="col-md-12">
-                                            <h2 class="heading-grey text-center">
+                                            <h2 class="heading-grey text-center learning-los-head">
                                               Performance in Learning Outcomes (LOs)
                                             </h2>
                                             <div class="learning-tabs mtb-30">
@@ -784,7 +784,7 @@
                                   <div class="learning-wrap">
                                     <div class="row">
                                       <div class="col-md-12">
-                                        <h2 class="heading-grey text-center">
+                                        <h2 class="heading-grey text-center learning-los-head">
                                           Performance in Learning Outcomes (LOs)
                                         </h2>
                                         <div class="dac-lo-accordion-wrap mtb-20">

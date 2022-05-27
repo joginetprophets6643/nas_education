@@ -4,7 +4,7 @@
                                     <div class="row">
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          AVERAGE PERFORMANCE OF STUDENTS
+                                          DISTRICT PERFORMANCE OF STUDENTS VIS-A-VIS STATE AND NATIONAL IN PERCENT CORRECT
                                         </h2>
                                       </div>
                                       <div class="col-md-4">
@@ -138,7 +138,7 @@
                                           <div class="accordion-item mtb-30" id="location_section_performance_class3" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionTwo">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseTwo" aria-expanded="false" aria-controls="perAccordioncollapseTwo">
-                                                Performance by Location
+                                                Performance by School Location
                                               </button>
                                             </h2>
                                             <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion5">
@@ -202,7 +202,7 @@
                                           <div class="accordion-item mtb-30" id="management_section_performance_class3" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionThree">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseThree" aria-expanded="false" aria-controls="perAccordioncollapseThree">
-                                                Performance by Management
+                                                Performance by School Management
                                               </button>
                                             </h2>
                                             <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion5">
@@ -331,7 +331,7 @@
                                       </div>
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          PERCENTAGE OF STUDENTS IN PERFORMANCE LEVELS
+                                          PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
                                         </h2>
                                         <div class="per-table">
                                           <table class="table">
@@ -381,7 +381,7 @@
                                     <div class="row">
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          AVERAGE PERFORMANCE OF STUDENTS
+                                          DISTRICT PERFORMANCE OF STUDENTS VIS-A-VIS STATE AND NATIONAL IN PERCENT CORRECT
                                         </h2>
                                       </div>
                                       <div class="col-md-4">
@@ -515,7 +515,7 @@
                                           <div class="accordion-item mtb-30" id="location_section_performance_class5" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionTwo">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseTwo" aria-expanded="false" aria-controls="perAccordioncollapseTwo">
-                                                Performance by Location
+                                                Performance by School Location
                                               </button>
                                             </h2>
                                             <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion">
@@ -579,7 +579,7 @@
                                           <div class="accordion-item mtb-30" id="management_section_performance_class5" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionThree">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseThree" aria-expanded="false" aria-controls="perAccordioncollapseThree">
-                                                Performance by Management
+                                                Performance by School Management
                                               </button>
                                             </h2>
                                             <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion">
@@ -708,7 +708,7 @@
                                       </div>
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          PERCENTAGE OF STUDENTS IN PERFORMANCE LEVELS
+                                          PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
                                         </h2>
                                         <div class="per-table">
                                           <table class="table">
@@ -758,7 +758,7 @@
                                     <div class="row">
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          AVERAGE PERFORMANCE OF STUDENTS
+                                          DISTRICT PERFORMANCE OF STUDENTS VIS-A-VIS STATE AND NATIONAL IN PERCENT CORRECT
                                         </h2>
                                       </div>
                                       <div class="col-md-4">
@@ -931,7 +931,7 @@
                                           <div class="accordion-item mtb-30" id="location_section_performance_class8" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionTwo">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseTwo" aria-expanded="false" aria-controls="perAccordioncollapseTwo">
-                                                Performance by Location
+                                                Performance by School Location
                                               </button>
                                             </h2>
                                             <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion8">
@@ -1012,7 +1012,7 @@
                                           <div class="accordion-item mtb-30" id="management_section_performance_class8" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionThree">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseThree" aria-expanded="false" aria-controls="perAccordioncollapseThree">
-                                                Performance by Management
+                                                Performance by School Management
                                               </button>
                                             </h2>
                                             <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion8">
@@ -1175,7 +1175,7 @@
                                       </div>
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          PERCENTAGE OF STUDENTS IN PERFORMANCE LEVELS
+                                          PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
                                         </h2>
                                         <div class="per-table">
                                           <table class="table">
@@ -1230,7 +1230,7 @@
                                     <div class="row">
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          AVERAGE PERFORMANCE OF STUDENTS
+                                          DISTRICT PERFORMANCE OF STUDENTS VIS-A-VIS STATE AND NATIONAL IN PERCENT CORRECT
                                         </h2>
                                       </div>
                                       <div class="col-md-4">
@@ -1443,7 +1443,7 @@
                                           <div class="accordion-item mtb-30" id="location_section_performance_class10" style="display:none;">
                                             <h2 class="accordion-header" id="perAccordionTwo">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseTwo" aria-expanded="false" aria-controls="perAccordioncollapseTwo">
-                                                Performance by Location
+                                                Performance by School Location
                                               </button>
                                             </h2>
                                             <div id="perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="perAccordionTwo" data-bs-parent="#perAccordion10">
@@ -1543,7 +1543,7 @@
                                           <div class="accordion-item mtb-30" id="management_section_performance_class10" style="display:none;" >
                                             <h2 class="accordion-header" id="perAccordionThree">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#perAccordioncollapseThree" aria-expanded="false" aria-controls="perAccordioncollapseThree">
-                                                Performance by Management
+                                                Performance by School Management
                                               </button>
                                             </h2>
                                             <div id="perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="perAccordionThree" data-bs-parent="#perAccordion10">
@@ -1743,7 +1743,7 @@
                                       </div>
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          PERCENTAGE OF STUDENTS IN PERFORMANCE LEVELS
+                                          PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
                                         </h2>
                                         <div class="per-table">
                                           <table class="table">
@@ -1806,7 +1806,7 @@
                                     <div class="row">
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          AVERAGE PERFORMANCE OF STUDENTS
+                                          DISTRICT PERFORMANCE OF STUDENTS VIS-A-VIS STATE AND NATIONAL IN PERCENT CORRECT
                                         </h2>
                                       </div>
                                       <div class="col-md-4">
@@ -2228,7 +2228,7 @@
                                           <div class="accordion-item mtb-30" id="location_section_performance_classall" style="display:none;">
                                             <h2 class="accordion-header" id="dac-perAccordionTwo">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dac-perAccordioncollapseTwo" aria-expanded="false" aria-controls="dac-perAccordioncollapseTwo">
-                                                Performance by Location
+                                                Performance by School Location
                                               </button>
                                               
                                             </h2>
@@ -2494,7 +2494,7 @@
                                           <div class="accordion-item mtb-30" id="management_section_performance_classall" style="display:none;">
                                             <h2 class="accordion-header" id="dac-perAccordionThree">
                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dac-perAccordioncollapseThree" aria-expanded="false" aria-controls="dac-perAccordioncollapseThree">
-                                                Performance by Management
+                                                Performance by School Management
                                               </button>
                                             </h2>
                                             <div id="dac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="dac-perAccordionThree" data-bs-parent="#dac-perAccordion">
@@ -3024,7 +3024,7 @@
                                       </div>
                                       <div class="col-md-12">
                                         <h2 class="heading-grey text-center">
-                                          PERCENTAGE OF STUDENTS IN PERFORMANCE LEVELS
+                                          PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
                                         </h2>
                                         <div class="per-table">
                                           <table class="table">
@@ -3097,7 +3097,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
-                                              GRADEWISE PERFORMANCE OF STUDENTS IN THE DIFFERENT SUBJECT DOMAIN
+                                              PERFORMANCE OF STUDENTS IN DIFFERENT SUBJECTS (in percentages)
                                             </h2>
                                             <div class="grade-wrap">
                                                 <div class="row">
@@ -3134,7 +3134,7 @@
                                                 </div>
                                             </div>
                                           </div>
-                                          <div class="col-md-12">
+                                          <!-- <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
                                               DISTRIBUTION OF STUDENTS BY RANGE
                                             </h2>
@@ -3173,7 +3173,7 @@
                                                 </div>
                                               </div>  
                                             </div>
-                                          </div>
+                                          </div> -->
                                           <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
                                               AVERAGE PERFORMANCE
@@ -3225,7 +3225,7 @@
                                               <div class="accordion-item mtb-30" id="locationstate_section_performance_class3" style="display:none;">
                                                 <h2 class="accordion-header" id="sc3-perAccordionTwo">
                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc3-perAccordioncollapseTwo" aria-expanded="false" aria-controls="sc3-perAccordioncollapseTwo">
-                                                    Performance by Location
+                                                    Performance by School Location
                                                   </button>
                                                 </h2>
                                                 <div id="sc3-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc3-perAccordionTwo" data-bs-parent="#sc3-perAccordion">
@@ -3269,7 +3269,7 @@
                                               <div class="accordion-item mtb-30" id="managementstate_section_performance_class3" style="display:none;">
                                                 <h2 class="accordion-header" id="sc3-perAccordionThree">
                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc3-perAccordioncollapseThree" aria-expanded="true" aria-controls="sc3-perAccordioncollapseThree">
-                                                    Performance by Managment
+                                                    Performance by School Management
                                                   </button>
                                                 </h2>
                                                 <div id="sc3-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc3-perAccordionThree" data-bs-parent="#sc3-perAccordion">
@@ -3403,7 +3403,7 @@
                                         <div class="row">
                                           <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
-                                              GRADEWISE PERFORMANCE OF STUDENTS IN THE DIFFERENT SUBJECT DOMAIN
+                                              PERFORMANCE OF STUDENTS IN DIFFERENT SUBJECTS (in percentages)
                                             </h2>
                                             <div class="grade-wrap">
                                                 <div class="row">
@@ -3440,7 +3440,7 @@
                                                 </div>
                                             </div>
                                           </div>
-                                          <div class="col-md-12">
+                                          <!-- <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
                                               DISTRIBUTION OF STUDENTS BY RANGE
                                             </h2>
@@ -3479,7 +3479,7 @@
                                                 </div>
                                               </div>  
                                             </div>
-                                          </div>
+                                          </div> -->
                                           <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
                                               AVERAGE PERFORMANCE
@@ -3531,7 +3531,7 @@
                                               <div class="accordion-item mtb-30" id="locationstate_section_performance_class5" style="display:none;">
                                                 <h2 class="accordion-header" id="sc5-perAccordionTwo">
                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc5-perAccordioncollapseTwo" aria-expanded="false" aria-controls="sc5-perAccordioncollapseTwo">
-                                                    Performance by Location
+                                                    Performance by School Location
                                                   </button>
                                                 </h2>
                                                 <div id="sc5-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc5-perAccordionTwo" data-bs-parent="#sc5-perAccordion">
@@ -3575,7 +3575,7 @@
                                               <div class="accordion-item mtb-30" id="managementstate_section_performance_class5" style="display:none;">
                                                 <h2 class="accordion-header" id="sc5-perAccordionThree">
                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc5-perAccordioncollapseThree" aria-expanded="true" aria-controls="sc5-perAccordioncollapseThree">
-                                                    Performance by Managment
+                                                    Performance by School Management
                                                   </button>
                                                 </h2>
                                                 <div id="sc5-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc5-perAccordionThree" data-bs-parent="#sc5-perAccordion">
@@ -3709,7 +3709,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
-                                            GRADEWISE PERFORMANCE OF STUDENTS IN THE DIFFERENT SUBJECT DOMAIN
+                                            PERFORMANCE OF STUDENTS IN DIFFERENT SUBJECTS (in percentages)
                                           </h2>
                                           <div class="grade-wrap">
                                               <div class="row">
@@ -3756,7 +3756,7 @@
                                               </div>
                                           </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <!-- <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
                                             DISTRIBUTION OF STUDENTS BY RANGE
                                           </h2>
@@ -3795,7 +3795,7 @@
                                               </div>
                                             </div>  
                                           </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
                                             AVERAGE PERFORMANCE
@@ -3857,7 +3857,7 @@
                                             <div class="accordion-item mtb-30" id="locationstate_section_performance_class8" style="display:none;">
                                               <h2 class="accordion-header" id="sc8-perAccordionTwo">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc8-perAccordioncollapseTwo" aria-expanded="false" aria-controls="sc8-perAccordioncollapseTwo">
-                                                  Performance by Location
+                                                  Performance by School Location
                                                 </button>
                                               </h2>
                                               <div id="sc8-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc8-perAccordionTwo" data-bs-parent="#sc8-perAccordion">
@@ -3910,7 +3910,7 @@
                                             <div class="accordion-item mtb-30" id="managementstate_section_performance_class8" style="display:none;">
                                               <h2 class="accordion-header" id="sc8-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc8-perAccordioncollapseThree" aria-expanded="false" aria-controls="sc8-perAccordioncollapseThree">
-                                                  Performance by Managment
+                                                  Performance by School Management
                                                 </button>
                                               </h2>
                                               <div id="sc8-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc8-perAccordionThree" data-bs-parent="#sc8-perAccordion">
@@ -4063,7 +4063,7 @@
                                                                         <div class="row">
                                                                           <div class="col-md-12">
                                                                             <h2 class="heading-grey text-center">
-                                                                              GRADEWISE PERFORMANCE OF STUDENTS IN THE DIFFERENT SUBJECT DOMAIN
+                                                                              PERFORMANCE OF STUDENTS IN DIFFERENT SUBJECTS (in percentages)
                                                                             </h2>
                                                                             <div class="grade-wrap">
                                                                                 <div class="row">
@@ -4120,7 +4120,7 @@
                                                                                 </div>
                                                                             </div>
                                                                           </div>
-                                                                          <div class="col-md-12">
+                                                                          <!-- <div class="col-md-12">
                                                                             <h2 class="heading-grey text-center">
                                                                               DISTRIBUTION OF STUDENTS BY RANGE
                                                                             </h2>
@@ -4159,7 +4159,7 @@
                                                                                 </div>
                                                                               </div>  
                                                                             </div>
-                                                                          </div>
+                                                                          </div> -->
                                                                           <div class="col-md-12">
                                                                             <h2 class="heading-grey text-center">
                                                                               AVERAGE PERFORMANCE
@@ -4231,7 +4231,7 @@
                                                                               <div class="accordion-item mtb-30" id="locationstate_section_performance_class10" style="display:none;">
                                                                                 <h2 class="accordion-header" id="sc10-perAccordionTwo">
                                                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc10-perAccordioncollapseTwo" aria-expanded="false" aria-controls="sc10-perAccordioncollapseTwo">
-                                                                                    Performance by Location
+                                                                                    Performance by School Location
                                                                                   </button>
                                                                                 </h2>
                                                                                 <div id="sc10-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sc10-perAccordionTwo" data-bs-parent="#sc10-perAccordion">
@@ -4295,7 +4295,7 @@
                                                                               <div class="accordion-item mtb-30" id="managementstate_section_performance_class10" style="display:none;">
                                                                                 <h2 class="accordion-header" id="sc10-perAccordionThree">
                                                                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sc10-perAccordioncollapseThree" aria-expanded="false" aria-controls="sc10-perAccordioncollapseThree">
-                                                                                    Performance by Management
+                                                                                    Performance by School Management
                                                                                   </button>
                                                                                 </h2>
                                                                                 <div id="sc10-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sc10-perAccordionThree" data-bs-parent="#sc10-perAccordion">
@@ -4468,7 +4468,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
-                                            GRADEWISE PERFORMANCE OF STUDENTS IN THE DIFFERENT SUBJECT DOMAIN
+                                            PERFORMANCE OF STUDENTS IN DIFFERENT SUBJECTS (in percentages)
                                           </h2>
                                           <div class="grade-wrap">
                                               <div class="row">
@@ -4545,7 +4545,7 @@
                                               </div>
                                           </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <!-- <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
                                             DISTRIBUTION OF STUDENTS BY RANGE
                                           </h2>
@@ -4735,7 +4735,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
                                             AVERAGE PERFORMANCE
@@ -5008,7 +5008,7 @@
                                             <div class="accordion-item mtb-30">
                                               <h2 class="accordion-header" id="sac-perAccordionTwo">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapseTwo" aria-expanded="false" aria-controls="sac-perAccordioncollapseTwo">
-                                                  Performance by Location
+                                                  Performance by School Location
                                                 </button>
                                               </h2>
                                               <div id="sac-perAccordioncollapseTwo" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionTwo" data-bs-parent="#sac-perAccordion">
@@ -5272,7 +5272,7 @@
                                             <div class="accordion-item mtb-30">
                                               <h2 class="accordion-header" id="sac-perAccordionThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sac-perAccordioncollapseThree" aria-expanded="false" aria-controls="sac-perAccordioncollapseThree">
-                                                  Performance by Managment
+                                                  Performance by School Management
                                                 </button>
                                               </h2>
                                               <div id="sac-perAccordioncollapseThree" class="accordion-collapse collapse" aria-labelledby="sac-perAccordionThree" data-bs-parent="#sac-perAccordion">
@@ -5990,7 +5990,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
-                                            AVERAGE PERFORMANCE OF STUDENTS
+                                            AVERAGE PERFORMANCE OF STUDENTS AT THE NATIONAL LEVEL (in scaled scores out of 500)
                                           </h2>
                                         </div>
                                         <div class="col-md-4">
@@ -6020,7 +6020,7 @@
                                         <div class="col-md-4">
                                           <div class="per-card card-yellow">
                                             <h2 class="justify-content-center">
-                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> Evs
+                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> EVS
                                             </h2>
                                             <div class="per-card-content dark-yellow">
                                               <div class="per-card-desc">
@@ -6038,7 +6038,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
-                                            AVERAGE PERFORMANCE OF STUDENTS
+                                            AVERAGE PERFORMANCE OF STUDENTS AT THE NATIONAL LEVEL (in scaled scores out of 500)
                                           </h2>
                                         </div>
                                         <div class="col-md-4">
@@ -6068,7 +6068,7 @@
                                         <div class="col-md-4">
                                           <div class="per-card card-yellow">
                                             <h2 class="justify-content-center">
-                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> Evs
+                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> EVS
                                             </h2>
                                             <div class="per-card-content dark-yellow">
                                               <div class="per-card-desc">
@@ -6086,7 +6086,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
-                                            AVERAGE PERFORMANCE OF STUDENTS
+                                            AVERAGE PERFORMANCE OF STUDENTS AT THE NATIONAL LEVEL (in scaled scores out of 500)
                                           </h2>
                                         </div>
                                         <div class="col-md-4">
@@ -6148,13 +6148,13 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
-                                            AVERAGE PERFORMANCE OF STUDENTS
+                                            AVERAGE PERFORMANCE OF STUDENTS AT THE NATIONAL LEVEL (in scaled scores out of 500)
                                           </h2>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="per-card card-red">
                                               <h2 class="justify-content-center">
-                                                <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="img" class="img-fluid" width="25"> Mil
+                                                <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="img" class="img-fluid" width="25"> MIL
                                               </h2>
                                               <div class="per-card-content dark-red">
                                                 <div class="per-card-desc">
@@ -6222,7 +6222,7 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
-                                            AVERAGE PERFORMANCE OF STUDENTS
+                                            AVERAGE PERFORMANCE OF STUDENTS AT THE NATIONAL LEVEL (in scaled scores out of 500)
                                           </h2>
                                         </div>
                                           <div class="col-md-4">
@@ -6252,7 +6252,7 @@
                                           <div class="col-md-4">
                                           <div class="per-card card-yellow">
                                             <h2 class="justify-content-center">
-                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> Evs
+                                              <img src="{{asset('assets/front/images/evs-icon.svg')}}" alt="img" class="img-fluid" width="20"> EVS
                                             </h2>
                                             <div class="per-card-content dark-yellow">
                                               <div class="per-card-desc">
@@ -6267,7 +6267,7 @@
                                         <div class="col-md-4">
                                             <div class="per-card card-red">
                                               <h2 class="justify-content-center">
-                                                <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="img" class="img-fluid" width="25"> Mil
+                                                <img src="{{asset('assets/front/images/mil-icon.svg')}}" alt="img" class="img-fluid" width="25"> MIL
                                               </h2>
                                               <div class="per-card-content dark-red">
                                                 <div class="per-card-desc">
