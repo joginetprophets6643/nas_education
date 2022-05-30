@@ -517,7 +517,7 @@ function createDistrictForStates(data, state_name, state_id) {
       "," +
       district.udise_district_code +
       ')">' +
-      format_string(district.district_name) +
+      district.district_name +
       "</a></li>";
   });
   return district_list;
@@ -575,17 +575,34 @@ function changePageDataViaSideFilter(value) {
 //  setting screens for geographies
 async function setScreen(screen_type = "information", load_data = true) {
   // not conducted check
+
+
   const active_district = JSON.parse(
     sessionStorage.getItem("activeDistrict")
+  );
+  const active_state = JSON.parse(
+    sessionStorage.getItem("activeState")
   );
   if (active_district !== null) {
     if (active_district.is_active === 2) {
       screen_type = "notconducted";
       $('#report-link').addClass('otp-dis')
+      $('#report-mobile-link').addClass('otp-dis')
     }
     else {
       $('#report-link').removeClass('otp-dis')
+      $('#report-mobile-link').removeClass('otp-dis')
     }
+    // $('#report-link').addClass('otp-dis')
+    // $('#report-mobile-link').addClass('otp-dis')
+  }
+  // else if (active_state !== null) {
+  //   $('#report-link').addClass('otp-dis')
+  //   $('#report-mobile-link').addClass('otp-dis')
+  // }
+  else {
+    $('#report-link').removeClass('otp-dis')
+    $('#report-mobile-link').removeClass('otp-dis')
   }
 
   window.scrollTo(0, 0);
@@ -716,13 +733,13 @@ function chageDataWithFilter(filter_type, value) {
         activeDistrict = lastActiveDistrict;
         $("#active_state").html(activeState.state_name);
         $("#active_district").html(
-          format_string(activeDistrict.district_name)
+          activeDistrict.district_name
         );
         $("#navbar-highlighter").html(
           "(" +
           format_string(activeState.state_name) +
           " > " +
-          format_string(activeDistrict.district_name) +
+          activeDistrict.district_name +
           ")"
         );
         toggleDistrictList(activeDistrict.udise_state_code, true);
@@ -1222,7 +1239,7 @@ function setActiveStateDistrict(state_id, district_id) {
   makeDistrictActive(district_id);
   setBreadCrumb("district", true);
   $("#active_state").html(activeState.state_name);
-  $("#active_district").html(format_string(activeDistrict.district_name));
+  $("#active_district").html(activeDistrict.district_name);
   $("#navbar-highlighter").html(
     "(" + format_string(activeState.state_name) + ")"
   );
@@ -1230,7 +1247,7 @@ function setActiveStateDistrict(state_id, district_id) {
     "(" +
     format_string(activeState.state_name) +
     " > " +
-    format_string(activeDistrict.district_name) +
+    activeDistrict.district_name +
     ")"
   );
 
@@ -2247,6 +2264,7 @@ function toggleActiveDistrict(district_id, value) {
 function getOutcomeRow(lo, classStyle) {
   let row = "";
   if (selected_geography === "district") {
+    $('.learning-los-head').html('Performance of the district in achieving learning Outcomes (Los)')
     row =
       '<tr class="' +
       classStyle +
@@ -2262,6 +2280,7 @@ function getOutcomeRow(lo, classStyle) {
       Math.round(lo.national_avg) +
       "</td></tr>";
   } else if (selected_geography === "state") {
+    $('.learning-los-head').html('Performance of the State/UT in achieving learning Outcomes (LOs)')
     row =
       '<tr class="' +
       classStyle +
@@ -2688,7 +2707,7 @@ async function createInformationScreen(data) {
   );
 
   if (selected_geography === "district") {
-    $("." + prefix + "name").html(format_string(dataToShow.district_name));
+    $("." + prefix + "name").html(dataToShow.district_name);
     $("#" + prefix + "rural_class3").html(
       parseInt(dataToShow.rural_population)
         ? parseInt(dataToShow.rural_population).toLocaleString("en-IN")
@@ -3045,19 +3064,19 @@ function createGlimpsesScreen(data) {
 
   const section_legends = {
     cards: [
-      "Substantially above National average",
-      "Not substantially different from the National average",
       "Substantially below National average",
+      "Not substantially different from the National average",
+      "Substantially above National average",
     ],
     gender: [
-      "No significant difference between Boys and Girls",
       "Boys perform significantly better than Girls",
+      "No significant difference between Boys and Girls",
       "Girls perform significantly better than Boys",
     ],
     location: [
+      "Urban perform significantly better than Rural",
       "No significant difference between Rural and Urban",
       "Rural perform significantly better than Urban",
-      "Urban perform significantly better than Rural",
     ],
     management: [
       "No significant difference between Govt. and Govt. Aided",
@@ -3537,12 +3556,12 @@ function setModalHeader(data, sub, legend) {
   if (data.grade == 3) {
     if (legend == "cards") {
       $("#data-header").html(
-        "Performance of States in Class III : " +
+        "Performance of States/UTs in Class III : " +
         subject[sub].toUpperCase()
       );
     } else {
       $("#data-header").html(
-        "Performance of States by " +
+        "Performance of States/UTs by " +
         capitalizeFirstLetter(legend) +
         " in Class III : " +
         subject[sub].toUpperCase()
@@ -3551,12 +3570,12 @@ function setModalHeader(data, sub, legend) {
   } else if (data.grade == 5) {
     if (legend == "cards") {
       $("#data-header").html(
-        "Performance of States in Class V : " +
+        "Performance of States/UTs in Class V : " +
         subject[sub].toUpperCase()
       );
     } else {
       $("#data-header").html(
-        "Performance of States by " +
+        "Performance of States/UTs by " +
         capitalizeFirstLetter(legend) +
         " in Class V : " +
         subject[sub].toUpperCase()
@@ -3565,12 +3584,12 @@ function setModalHeader(data, sub, legend) {
   } else if (data.grade == 8) {
     if (legend == "cards") {
       $("#data-header").html(
-        "Performance of States in Class VIII : " +
+        "Performance of States/UTs in Class VIII : " +
         subject[sub].toUpperCase()
       );
     } else {
       $("#data-header").html(
-        "Performance of States by " +
+        "Performance of States/UTs by " +
         capitalizeFirstLetter(legend) +
         " in Class VIII : " +
         subject[sub].toUpperCase()
@@ -3579,12 +3598,12 @@ function setModalHeader(data, sub, legend) {
   } else {
     if (legend == "cards") {
       $("#data-header").html(
-        "Performance of States in Class X : " +
+        "Performance of States/UTs in Class X : " +
         subject[sub].toUpperCase()
       );
     } else {
       $("#data-header").html(
-        "Performance of States by " +
+        "Performance of States/UTs by " +
         capitalizeFirstLetter(legend) +
         " in Class X : " +
         subject[sub].toUpperCase()

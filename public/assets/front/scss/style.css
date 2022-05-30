@@ -1054,7 +1054,7 @@ ul {
 }
 
 .date {
-  font-size: 18px;
+  font-size: 14px;
   color: #ffffff;
   font-weight: 400;
 }
@@ -1329,11 +1329,15 @@ ul {
 
 .contact-info p {
   margin: 0;
-  padding-bottom: 10px;
+  padding-bottom: 3px;
 }
 
 .contact-info p:last-child {
   padding: 0;
+}
+
+.contact-info .text-white-sm {
+  line-height: initial;
 }
 
 .site-footer {
@@ -1414,7 +1418,7 @@ ul {
 }
 
 .site-footer .counter {
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.14px;
   color: #ffffff;
 }
@@ -8286,7 +8290,7 @@ ul {
   margin-right: 10px;
   height: 18px;
   width: 24px;
-  padding: 0 8px;
+  padding: 2px 8px;
 }
 
 .achievement-content .category-wrap li .category-item .dark-blue {
@@ -11317,6 +11321,7 @@ div #all-state-list {
   border-radius: 8px 0px 0px 8px !important;
 }
 
+<<<<<<< HEAD
 .report-img-wrap {
   position: relative;
 }
@@ -11407,5 +11412,9 @@ div #all-state-list {
     bottom: 1.5rem;
     left: 1rem;
   }
+=======
+.temp-text {
+  text-transform: none !important;
+>>>>>>> 80b78ee3ac45213372352715aab786b61d353dec
 }
 /*# sourceMappingURL=style.css.map */

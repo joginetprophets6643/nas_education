@@ -1375,4 +1375,9 @@ class FeedbackController extends Controller
         return $query;
     }
 
+    public function getfeedbackdata(){
+        $feedbackdata = DB::table('feedback')->orderBy('id','desc')->get();
+        return view('admin.feedback.index',compact('feedbackdata'));
+    }
+
 }

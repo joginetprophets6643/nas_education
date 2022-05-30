@@ -1105,7 +1105,7 @@ ul {
 }
 
 .date {
-    font-size: 18px;
+    font-size: 14px;
     color: #ffffff;
     font-weight: 400;
 }
@@ -1352,11 +1352,15 @@ ul {
 
     p {
         margin: 0;
-        padding-bottom: 10px;
+        padding-bottom: 3px;
 
         &:last-child {
             padding: 0;
         }
+    }
+
+    .text-white-sm {
+        line-height: initial;
     }
 }
 
@@ -1429,7 +1433,7 @@ ul {
     }
 
     .counter {
-        font-size: 18px;
+        font-size: 14px;
         letter-spacing: 0.14px;
         color: $color_white;
     }
@@ -4641,7 +4645,7 @@ ul {
                     margin-right: 10px;
                     height: 18px;
                     width: 24px;
-                    padding: 0 8px;
+                    padding: 2px 8px;
                 }
 
                 .dark-blue {
@@ -6468,6 +6472,7 @@ ul {
     img {
         width: 22px;
     }
+
     &:hover {
         background-color: $color_orange;
         border: 1px solid $color_orange;
@@ -6549,6 +6554,10 @@ ul {
             max-width: 960px;
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 80b78ee3ac45213372352715aab786b61d353dec
     .mobile-report-btn {
         display: none;
     }
@@ -6811,6 +6820,10 @@ ul {
     .nrml-report-btn {
         display: none;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 80b78ee3ac45213372352715aab786b61d353dec
     br {
         display: none;
     }
@@ -8058,6 +8071,7 @@ div {
     }
 }
 
+<<<<<<< HEAD
 .report-img-wrap {
     position: relative;
     .lakshadweep-img-tooltip {
@@ -8125,3 +8139,8 @@ div {
     }
     
 }
+=======
+.temp-text {
+    text-transform: none !important;
+}
+>>>>>>> 80b78ee3ac45213372352715aab786b61d353dec

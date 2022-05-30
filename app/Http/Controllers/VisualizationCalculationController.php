@@ -10,155 +10,338 @@ use DB;
 
 class VisualizationCalculationController extends Controller
 {
-    public function visualization_participation()
-    {
+
+
+        public function visualization_participation(){
+                $state_data=DB::table('all_grade_state_participation_tbl')->get();
+                $district_data=DB::table('all_grade_participation_tbl')->get();
+                $national_data=DB::table('all_grade_national_participation_tbl')->get();
+                DB::table('visualization_participation_tbl')->truncate();
+
+                foreach($state_data as $state){
+                        DB::table('visualization_participation_tbl')->insert([
+                                'type'=>'state',
+                                'state_id'=>$state->state_id,
+                                'district_id'=>0,
+                                'grade'=>$state->grade,
+                                'district_schools_count'=>0,
+                                'district_students_count'=>0,
+                                'district_teachers_count'=>0,
+                                'state_schools_count'=>$state->total_school,
+                                'state_teachers_count'=>$state->total_teacher,
+                                'state_students_count'=>$state->total_student,
+                                'national_schools_count'=>0,
+                                'national_teachers_count'=>0,
+                                'national_students_count'=>0,
+                        ]);
+                }
+                foreach($national_data as $national){
+                        DB::table('visualization_participation_tbl')->insert([
+                                'type'=>'national',
+                                'state_id'=>0,
+                                'district_id'=>0,
+                                'grade'=>$national->grade,
+                                'district_schools_count'=>0,
+                                'district_students_count'=>0,
+                                'district_teachers_count'=>0,
+                                'state_schools_count'=>0,
+                                'state_teachers_count'=>0,
+                                'state_students_count'=>0,
+                                'national_schools_count'=>$national->total_school,
+                                'national_teachers_count'=>$national->total_teacher,
+                                'national_students_count'=>$national->total_student,
+                        ]);
+                }
+                foreach($district_data as $district){
+                        DB::table('visualization_participation_tbl')->insert([
+                                'type'=>'district',
+                                'state_id'=>$district->state_id,
+                                'district_id'=>$district->district_id,
+                                'grade'=>$district->grade,
+                                'district_schools_count'=>$district->total_school,
+                                'district_students_count'=>$district->total_student,
+                                'district_teachers_count'=>$district->total_teacher,
+                                'state_schools_count'=>0,
+                                'state_teachers_count'=>0,
+                                'state_students_count'=>0,
+                                'national_schools_count'=>0,
+                                'national_teachers_count'=>0,
+                                'national_students_count'=>0,
+                        ]);
+                }
+
+                return "All Visualization Participation Data Created Successfully";
+        }
+//     public function visualization_participation()
+//     {
         
-        /*************************************************************
-         * Name: Jogi
-         * Desc: Visualization for Participations
-         * Date: 08/02/2022
-         * Start Here
-         *************************************************************/
-        DB::table('visualization_participation_tbl')->truncate();
-        $participationQueryForDistrictLevel = "select district_id,grade,
-            SUM(total_school::int)  AS district_schools_count,
+//         /*************************************************************
+//          * Name: Jogi
+//          * Desc: Visualization for Participations
+//          * Date: 08/02/2022
+//          * Start Here
+//          *************************************************************/
+//         DB::table('visualization_participation_tbl')->truncate();
+//         $participationQueryForDistrictLevel = "select district_id,grade,
+//             SUM(total_school::int)  AS district_schools_count,
 
-            SUM(total_teacher::int)  AS district_students_count,
+//             SUM(total_teacher::int)  AS district_students_count,
 
-            SUM(total_student::int) AS district_teachers_count
+//             SUM(total_student::int) AS district_teachers_count
 
-            from all_grade_participation_tbl
-            group by district_id,grade";
+//             from all_grade_participation_tbl
+//             group by district_id,grade";
             
 
-            $participationQueryForDistrictLevel = DB::select($participationQueryForDistrictLevel);
-            $participationQueryForDistrictLevel = json_decode(json_encode($participationQueryForDistrictLevel), true);
+//             $participationQueryForDistrictLevel = DB::select($participationQueryForDistrictLevel);
+//             $participationQueryForDistrictLevel = json_decode(json_encode($participationQueryForDistrictLevel), true);
             
-            foreach ($participationQueryForDistrictLevel as $district=> $stateLevel){
-                $participationQueryForDistrictLevel[$district]['type'] = 'district';
-            };
-            Visualization_Participation_Tbl::insert($participationQueryForDistrictLevel);
+//             foreach ($participationQueryForDistrictLevel as $district=> $stateLevel){
+//                 $participationQueryForDistrictLevel[$district]['type'] = 'district';
+//             };
+//             Visualization_Participation_Tbl::insert($participationQueryForDistrictLevel);
 
-            // ******************************State Level Participation data********************************************
+//             // ******************************State Level Participation data********************************************
 
-            $participationQueryForStateLevel = "select state_id,grade,
-                (select SUM(table1.total_school::int) from all_grade_participation_tbl as table1 where table1.state_id=all_grade_participation_tbl.state_id and table1.grade=all_grade_participation_tbl.grade) as state_schools_count,
-                (select SUM(table1.total_teacher::int) from all_grade_participation_tbl as table1 where table1.state_id=all_grade_participation_tbl.state_id and table1.grade=all_grade_participation_tbl.grade) as state_teachers_count,
-                (select SUM(table1.total_student::int) from all_grade_participation_tbl as table1 where table1.state_id=all_grade_participation_tbl.state_id and table1.grade=all_grade_participation_tbl.grade) as state_students_count           
-                from all_grade_participation_tbl
-                group by state_id,grade";
+//             $participationQueryForStateLevel = "select state_id,grade,
+//                 (select SUM(table1.total_school::int) from all_grade_participation_tbl as table1 where table1.state_id=all_grade_participation_tbl.state_id and table1.grade=all_grade_participation_tbl.grade) as state_schools_count,
+//                 (select SUM(table1.total_teacher::int) from all_grade_participation_tbl as table1 where table1.state_id=all_grade_participation_tbl.state_id and table1.grade=all_grade_participation_tbl.grade) as state_teachers_count,
+//                 (select SUM(table1.total_student::int) from all_grade_participation_tbl as table1 where table1.state_id=all_grade_participation_tbl.state_id and table1.grade=all_grade_participation_tbl.grade) as state_students_count           
+//                 from all_grade_participation_tbl
+//                 group by state_id,grade";
 
-            $participationQueryForStateLevel = DB::select($participationQueryForStateLevel);
-            $participationQueryForStateLevel = json_decode(json_encode($participationQueryForStateLevel), true);
-            foreach ($participationQueryForStateLevel as $state=> $stateLevel){
-                $participationQueryForStateLevel[$state]['type'] = 'state';
-            };
-            Visualization_Participation_Tbl::insert($participationQueryForStateLevel);
+//             $participationQueryForStateLevel = DB::select($participationQueryForStateLevel);
+//             $participationQueryForStateLevel = json_decode(json_encode($participationQueryForStateLevel), true);
+//             foreach ($participationQueryForStateLevel as $state=> $stateLevel){
+//                 $participationQueryForStateLevel[$state]['type'] = 'state';
+//             };
+//             Visualization_Participation_Tbl::insert($participationQueryForStateLevel);
           
-            // **********************************Nation Level Participation****************************************************************
-            $participationQueryForNationalLevel = "select grade,
-                (select SUM(table1.total_school::int) from all_grade_participation_tbl as table1 where  table1.grade=all_grade_participation_tbl.grade) as national_schools_count,
-                (select SUM(table1.total_teacher::int) from all_grade_participation_tbl as table1 where  table1.grade=all_grade_participation_tbl.grade) as national_teachers_count,
-                (select SUM(table1.total_student::int) from all_grade_participation_tbl as table1 where  table1.grade=all_grade_participation_tbl.grade) as national_students_count      
-                from all_grade_participation_tbl
-                group by grade";
+//             // **********************************Nation Level Participation****************************************************************
+//             $participationQueryForNationalLevel = "select grade,
+//                 (select SUM(table1.total_school::int) from all_grade_participation_tbl as table1 where  table1.grade=all_grade_participation_tbl.grade) as national_schools_count,
+//                 (select SUM(table1.total_teacher::int) from all_grade_participation_tbl as table1 where  table1.grade=all_grade_participation_tbl.grade) as national_teachers_count,
+//                 (select SUM(table1.total_student::int) from all_grade_participation_tbl as table1 where  table1.grade=all_grade_participation_tbl.grade) as national_students_count      
+//                 from all_grade_participation_tbl
+//                 group by grade";
 
-                $participationQueryForNationalLevel = DB::select($participationQueryForNationalLevel);
-                $participationQueryForNationalLevel = json_decode(json_encode($participationQueryForNationalLevel), true);
-                foreach ($participationQueryForNationalLevel as $national=> $nationalLevel){
-                    $participationQueryForNationalLevel[$national]['type'] = 'national';
-                }
-                $msg = Visualization_Participation_Tbl::insert($participationQueryForNationalLevel);
-                if($msg)
-                {
-                    echo 'Data Submitted Successfully';
-                }
-                else
-                {
-                    echo 'Something went wrong';
-                }
+//                 $participationQueryForNationalLevel = DB::select($participationQueryForNationalLevel);
+//                 $participationQueryForNationalLevel = json_decode(json_encode($participationQueryForNationalLevel), true);
+//                 foreach ($participationQueryForNationalLevel as $national=> $nationalLevel){
+//                     $participationQueryForNationalLevel[$national]['type'] = 'national';
+//                 }
+//                 $msg = Visualization_Participation_Tbl::insert($participationQueryForNationalLevel);
+//                 if($msg)
+//                 {
+//                     echo 'Data Submitted Successfully';
+//                 }
+//                 else
+//                 {
+//                     echo 'Something went wrong';
+//                 }
 
+//     }
+
+    public function visualization_performance(){
+        $subjects=array('language'=>'language','math'=>'math','evs'=>'evs','sci'=>'science','sst'=>'social_science','eng'=>'english','mil'=>'mil');
+        $state_data=DB::table('state_grade_level_performance')->get();
+        $district_data=DB::table('performance_master')->get();
+        $national_data=DB::table('national_grade_level_performance')->get();
+        DB::table('visualization_performance_tbl')->truncate();
+
+
+        foreach($state_data as $state){
+                DB::table('visualization_performance_tbl')->insert([
+                        'type'=>'state',
+                        'district_id'=>0,
+                        'state_id'=>$state->state_id,
+                        'grade'=>$state->grade,
+                        'language_district'=>0,
+                        'math_district'=>0,
+                        'evs_district'=>0,
+                        'mil_district'=>0,
+                        'english_district'=>0,
+                        'science_district'=>0,
+                        'social_science_district'=>0,
+                        'language_state'=>0,
+                        'math_state'=>0,
+                        'evs_state'=>0,
+                        'mil_state'=>0,
+                        'english_state'=>0,
+                        'science_state'=>0,
+                        'social_science_state'=>0,
+                        'language_national'=>0,
+                        'math_national'=>0,
+                        'evs_national'=>0,
+                        'mil_national'=>0,
+                        'english_national'=>0,
+                        'science_national'=>0,
+                        'social_science_national'=>0,
+                ]);
+                $formatted_data=json_decode($state->data);
+                foreach($formatted_data as $key=>$data){
+                        $field=$subjects[$key].'_state';
+                        DB::table('visualization_performance_tbl')->where('state_id',$state->state_id)->where('grade',$state->grade)->update([
+                                $field=>round((float)$data->cards->state)
+                        ]);
+                }
+        }
+
+        foreach($district_data as $district){
+                DB::table('visualization_performance_tbl')->insert([
+                        'type'=>'district',
+                        'district_id'=>$district->district_id,
+                        'state_id'=>$district->state_id,
+                        'grade'=>$district->grade,
+                        'language_district'=>0,
+                        'math_district'=>0,
+                        'evs_district'=>0,
+                        'mil_district'=>0,
+                        'english_district'=>0,
+                        'science_district'=>0,
+                        'social_science_district'=>0,
+                        'language_state'=>0,
+                        'math_state'=>0,
+                        'evs_state'=>0,
+                        'mil_state'=>0,
+                        'english_state'=>0,
+                        'science_state'=>0,
+                        'social_science_state'=>0,
+                        'language_national'=>0,
+                        'math_national'=>0,
+                        'evs_national'=>0,
+                        'mil_national'=>0,
+                        'english_national'=>0,
+                        'science_national'=>0,
+                        'social_science_national'=>0,
+                ]);
+                $formatted_data=json_decode($district->data);
+                foreach($formatted_data as $key=>$data){
+                        $field=$subjects[$key].'_district';
+                        DB::table('visualization_performance_tbl')->where('district_id',$district->district_id)->where('grade',$district->grade)->update([
+                                $field=>round((float)$data->cards->district)
+                        ]);
+                }
+        }
+
+        foreach($national_data as $national){
+                DB::table('visualization_performance_tbl')->insert([
+                        'type'=>'national',
+                        'district_id'=>0,
+                        'state_id'=>0,
+                        'grade'=>$national->grade,
+                        'language_district'=>0,
+                        'math_district'=>0,
+                        'evs_district'=>0,
+                        'mil_district'=>0,
+                        'english_district'=>0,
+                        'science_district'=>0,
+                        'social_science_district'=>0,
+                        'language_state'=>0,
+                        'math_state'=>0,
+                        'evs_state'=>0,
+                        'mil_state'=>0,
+                        'english_state'=>0,
+                        'science_state'=>0,
+                        'social_science_state'=>0,
+                        'language_national'=>0,
+                        'math_national'=>0,
+                        'evs_national'=>0,
+                        'mil_national'=>0,
+                        'english_national'=>0,
+                        'science_national'=>0,
+                        'social_science_national'=>0,
+                ]);
+                $formatted_data=json_decode($national->data);
+                foreach($formatted_data as $key=>$data){
+                        $field=$subjects[$key].'_national';
+                        DB::table('visualization_performance_tbl')->where('state_id',0)->where('grade',$national->grade)->update([
+                                $field=>round((float)$data->cards->national)
+                        ]);
+                }
+        }
+
+        return "All Visualization Performace Card Data Created Successfully";
     }
+//     public function visualization_performance()
+//     {
+//                 /*************************************************************
+//          * Name: Jogi
+//          * Desc: Visualization for Performance
+//          * Date: 08/02/2022
+//          * Start Here
+//          *************************************************************/
+//             // DB::table('visualization_performance_tbl')->truncate();
+//             $performanceQueryForDistrictLevel = "select district_id, grade,
+//                 round(SUM(L_avg::float)/count(L_avg)) language_district,
+//                 round(SUM(m_avg::float)/count(l_avg)) AS math_district,
+//                 round(SUM(e_avg::float)/count(e_avg)) AS evs_district,
+//                 round(SUM(mil_avg::float)/count(mil_avg)) AS mil_district,
+//                 round(SUM(eng_avg::float)/count(eng_avg)) AS english_district,
+//                 round(SUM(sci_avg::float)/count(sci_avg)) AS science_district,
+//                 round(SUM(sst_avg::float)/count(sst_avg)) AS social_science_district
+//                 from at3_performance_data
+//                 group by  at3_performance_data.district_id, at3_performance_data.grade";
 
-    public function visualization_performance()
-    {
-                /*************************************************************
-         * Name: Jogi
-         * Desc: Visualization for Performance
-         * Date: 08/02/2022
-         * Start Here
-         *************************************************************/
-            // DB::table('visualization_performance_tbl')->truncate();
-            $performanceQueryForDistrictLevel = "select district_id, grade,
-                round(SUM(L_avg::float)/count(L_avg)) language_district,
-                round(SUM(m_avg::float)/count(l_avg)) AS math_district,
-                round(SUM(e_avg::float)/count(e_avg)) AS evs_district,
-                round(SUM(mil_avg::float)/count(mil_avg)) AS mil_district,
-                round(SUM(eng_avg::float)/count(eng_avg)) AS english_district,
-                round(SUM(sci_avg::float)/count(sci_avg)) AS science_district,
-                round(SUM(sst_avg::float)/count(sst_avg)) AS social_science_district
-                from at3_performance_data
-                group by  at3_performance_data.district_id, at3_performance_data.grade";
-
-            $performanceQueryForDistrictLevel = DB::select($performanceQueryForDistrictLevel);
-            $performanceQueryForDistrictLevel = json_decode(json_encode($performanceQueryForDistrictLevel), true);
+//             $performanceQueryForDistrictLevel = DB::select($performanceQueryForDistrictLevel);
+//             $performanceQueryForDistrictLevel = json_decode(json_encode($performanceQueryForDistrictLevel), true);
             
-            foreach ($performanceQueryForDistrictLevel as $district=> $stateLevel){
-                $performanceQueryForDistrictLevel[$district]['type'] = 'district';
-            };
-        //    dd($performanceQueryForDistrictLevel);
-            // Visualization_Performance_Tbl::insert($performanceQueryForDistrictLevel);
-            //  dd($performanceQueryForDistrictLevel);
-            // ******************************State Level Performance data********************************************
+//             foreach ($performanceQueryForDistrictLevel as $district=> $stateLevel){
+//                 $performanceQueryForDistrictLevel[$district]['type'] = 'district';
+//             };
+//         //    dd($performanceQueryForDistrictLevel);
+//             // Visualization_Performance_Tbl::insert($performanceQueryForDistrictLevel);
+//             //  dd($performanceQueryForDistrictLevel);
+//             // ******************************State Level Performance data********************************************
 
-            $performanceQueryForStateLevel = "select state_id , grade,
-                round(SUM(L_avg::float)/count(L_avg)) language_state,
-                round(SUM(m_avg::float)/count(l_avg)) AS math_state,
-                round(SUM(e_avg::float)/count(e_avg)) AS evs_state,
-                round(SUM(mil_avg::float)/count(mil_avg)) AS mil_state,
-                round(SUM(eng_avg::float)/count(eng_avg)) AS english_state,
-                round(SUM(sci_avg::float)/count(sci_avg)) AS science_state,
-                round(SUM(sst_avg::float)/count(sst_avg)) AS social_science_state
-                from at3_performance_data
-                group by at3_performance_data.state_id, at3_performance_data.grade";
+//             $performanceQueryForStateLevel = "select state_id , grade,
+//                 round(SUM(L_avg::float)/count(L_avg)) language_state,
+//                 round(SUM(m_avg::float)/count(l_avg)) AS math_state,
+//                 round(SUM(e_avg::float)/count(e_avg)) AS evs_state,
+//                 round(SUM(mil_avg::float)/count(mil_avg)) AS mil_state,
+//                 round(SUM(eng_avg::float)/count(eng_avg)) AS english_state,
+//                 round(SUM(sci_avg::float)/count(sci_avg)) AS science_state,
+//                 round(SUM(sst_avg::float)/count(sst_avg)) AS social_science_state
+//                 from at3_performance_data
+//                 group by at3_performance_data.state_id, at3_performance_data.grade";
 
-            $performanceQueryForStateLevel = DB::select($performanceQueryForStateLevel);
-            $performanceQueryForStateLevel = json_decode(json_encode($performanceQueryForStateLevel), true);
-            foreach ($performanceQueryForStateLevel as $state=> $stateLevel){
-                $performanceQueryForStateLevel[$state]['type'] = 'state';
-            };
-            // dd($performanceQueryForStateLevel);
-            // Visualization_Performance_Tbl::insert($performanceQueryForStateLevel);
-            // dd($performanceQueryForStateLevel);
-            // **********************************Nation Level Performance****************************************************************
-                $performanceQueryForNationalLevel = "select  grade,
-                    round(SUM(L_avg::float)/count(L_avg)) language_national,
-                    round(SUM(m_avg::float)/count(l_avg)) AS math_national,
-                    round(SUM(e_avg::float)/count(e_avg)) AS evs_national,
-                    round(SUM(mil_avg::float)/count(mil_avg)) AS mil_national,
-                    round(SUM(eng_avg::float)/count(eng_avg)) AS english_national,
-                    round(SUM(sci_avg::float)/count(sci_avg)) AS science_national,
-                    round(SUM(sst_avg::float)/count(sst_avg)) AS social_science_national
-                    from at3_performance_data
-                    group by  at3_performance_data.grade
-                    ";
+//             $performanceQueryForStateLevel = DB::select($performanceQueryForStateLevel);
+//             $performanceQueryForStateLevel = json_decode(json_encode($performanceQueryForStateLevel), true);
+//             foreach ($performanceQueryForStateLevel as $state=> $stateLevel){
+//                 $performanceQueryForStateLevel[$state]['type'] = 'state';
+//             };
+//             // dd($performanceQueryForStateLevel);
+//             // Visualization_Performance_Tbl::insert($performanceQueryForStateLevel);
+//             // dd($performanceQueryForStateLevel);
+//             // **********************************Nation Level Performance****************************************************************
+//                 $performanceQueryForNationalLevel = "select  grade,
+//                     round(SUM(L_avg::float)/count(L_avg)) language_national,
+//                     round(SUM(m_avg::float)/count(l_avg)) AS math_national,
+//                     round(SUM(e_avg::float)/count(e_avg)) AS evs_national,
+//                     round(SUM(mil_avg::float)/count(mil_avg)) AS mil_national,
+//                     round(SUM(eng_avg::float)/count(eng_avg)) AS english_national,
+//                     round(SUM(sci_avg::float)/count(sci_avg)) AS science_national,
+//                     round(SUM(sst_avg::float)/count(sst_avg)) AS social_science_national
+//                     from at3_performance_data
+//                     group by  at3_performance_data.grade
+//                     ";
 
-                $performanceQueryForNationalLevel = DB::select($performanceQueryForNationalLevel);
-                $performanceQueryForNationalLevel = json_decode(json_encode($performanceQueryForNationalLevel), true);
-                foreach ($performanceQueryForNationalLevel as $national=> $nationalLevel){
-                    $performanceQueryForNationalLevel[$national]['type'] = 'national';
-                }
-                // dd($performanceQueryForNationalLevel);
-                $msg = Visualization_Performance_Tbl::insert($performanceQueryForNationalLevel);
-                if($msg)
-                {
-                    echo 'Data  Submitted Successfully';
-                }
-                else
-                {
-                    echo 'Something went wrong';
-                }
-    }
+//                 $performanceQueryForNationalLevel = DB::select($performanceQueryForNationalLevel);
+//                 $performanceQueryForNationalLevel = json_decode(json_encode($performanceQueryForNationalLevel), true);
+//                 foreach ($performanceQueryForNationalLevel as $national=> $nationalLevel){
+//                     $performanceQueryForNationalLevel[$national]['type'] = 'national';
+//                 }
+//                 // dd($performanceQueryForNationalLevel);
+//                 $msg = Visualization_Performance_Tbl::insert($performanceQueryForNationalLevel);
+//                 if($msg)
+//                 {
+//                     echo 'Data  Submitted Successfully';
+//                 }
+//                 else
+//                 {
+//                     echo 'Something went wrong';
+//                 }
+//     }
     public function visualization_performance_graph()
     {
         DB::table('visualization_performance_graph_tbl')->truncate();

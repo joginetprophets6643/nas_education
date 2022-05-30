@@ -37,7 +37,7 @@
                                           <div class="row">
                                             <div class="col-md-12">
                                               <h2 class="mobile-margin">
-                                                Total number of schools in <span class="information_district_name"></span> district.
+                                                Total number of schools in <span class="information_district_name"></span> district
                                               </h2>
                                             </div>
                                             <div class="col-xl-4 col-xxl-3">
@@ -98,7 +98,7 @@
                                           <div class="row">
                                             <div class="col-md-12">
                                               <h2>
-                                                Total number of teachers in <span class="information_district_name"></span> district.
+                                                Total number of teachers in <span class="information_district_name"></span> district
                                               </h2>
                                             </div>
                                             <div class="col-xl-4 col-xxl-3">
@@ -111,30 +111,30 @@
                                                   </p>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-xxl-3">
+                                            <div class="col-xl-4 col-xxl-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Teachers In State Govt Schools">
                                                 <div class="infotab-content light-yellow-bg">
                                                   <h3 class="title">
-                                                    Teacher In State Govt Schools
+                                                    Teachers In State Govt Schools
                                                   </h3>
                                                   <p class="total-no" id="information_district_state_teacher_class3">
                                                     1000
                                                   </p>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-xxl-3">
+                                            <div class="col-xl-4 col-xxl-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Teachers In Govt Aided Schools">
                                                 <div class="infotab-content light-yellow-bg">
                                                   <h3 class="title">
-                                                    Teacher In Govt Aided Schools
+                                                    Teachers In Govt Aided Schools
                                                   </h3>
                                                   <p class="total-no" id="information_district_govt_aided_teacher_class3">
                                                     450
                                                   </p>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-xxl-3">
+                                            <div class="col-xl-4 col-xxl-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Teachers In Central Govt Schools">
                                                 <div class="infotab-content light-yellow-bg">
                                                   <h3 class="title">
-                                                    Teacher In Central Govt Schools
+                                                    Teachers In Central Govt Schools
                                                   </h3>
                                                   <p class="total-no" id="information_district_govt_teacher_class3">
                                                     250
@@ -144,7 +144,7 @@
                                             <div class="col-xl-8 col-xxl-8">
                                                 <div class="infotab-content light-yellow-bg">
                                                   <h3 class="title">
-                                                    Teacher In Private Unaided Recognized Schools
+                                                    Teachers In Private Unaided Recognized Schools
                                                   </h3>
                                                   <p class="total-no" id="information_district_private_teacher_class3">
                                                     300
@@ -272,7 +272,7 @@
                                           <div class="row">
                                             <div class="col-md-12">
                                               <h2 class="mobile-margin">
-                                                Certain Parameters of the <span class="information_state_name"></span> State
+                                                Certain Parameters of <span class="information_state_name"></span>
                                               </h2>
                                             </div>
                                             <div class="col-md-10">

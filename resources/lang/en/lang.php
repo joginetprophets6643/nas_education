@@ -18,6 +18,7 @@ return[
     'NAS TEAM'=>'NAS TEAM',
     'NAS 2017'=>'NAS-2017',
     'NAS 2021'=>'NAS-2021',
+    'Help'=>'Help',
     'CONTACT US'=>'CONTACT US',
     'Department Of School Education & Literacy'=>'Department Of School Education & Literacy',
     'Read More'=>'Read More',

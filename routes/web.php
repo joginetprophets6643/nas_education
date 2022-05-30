@@ -12,6 +12,7 @@ use App\Http\Controllers\LearningOutcomeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PdfGenerateController;
 use App\Http\Controllers\VisualizationCalculationController;
+use App\Http\Controllers\VisualizationNewController;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\FinalCalculationController;
 use App\Http\Controllers\Data2017Controller;
@@ -130,6 +131,8 @@ Route::get('getDRCDataForGrade3',[FinalCalculationController::class,'getDRCDataF
 Route::get('visualization_performance_graph',[VisualizationCalculationController::class,'visualization_performance_graph']);
 Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
 Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
+Route::get('visualization_graph_performance',[VisualizationNewController::class,'visualization_graph_performance']);
+
 
 Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);
 
@@ -386,6 +389,9 @@ Route::get('/secure-admin/edit/setting','App\Http\Controllers\SettingController@
 // Route::get('/secure-admin/delete/setting/{id}','App\Http\Controllers\SettingController@destroy');
 Route::post('/secure-admin/update/setting/{id}','App\Http\Controllers\SettingController@update')->name('update-setting');
 
+//Feedback
+Route::get('/secure-admin/feedback','App\Http\Controllers\FeedbackController@getfeedbackdata')->name('feedback-data');
+
 //Program Routes
 Route::get('/secure-admin/static-program','App\Http\Controllers\StaticProgramController@index')->name('program');
 Route::get('/secure-admin/add/program','App\Http\Controllers\StaticProgramController@add')->name('add-program');
@@ -416,7 +422,7 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
 
 
 //Front Routes
-Route::group(["middleware" => ["authCheck"]], function(){
+// Route::group(["middleware" => ["authCheck"]], function(){
 
     Route::group(["middleware" => ["language"]], function(){
         Route::get('/','App\Http\Controllers\FrontController@index')->name('/');
@@ -432,7 +438,8 @@ Route::group(["middleware" => ["authCheck"]], function(){
         Route::get('/copyright-policy','App\Http\Controllers\ContentPagesController@index')->name('copyright');
         Route::get('/hyper-linking-policy','App\Http\Controllers\ContentPagesController@index')->name('hyperlink');
         Route::get('/accessbility-statement','App\Http\Controllers\ContentPagesController@index')->name('statement');
-        Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
+        Route::get('/help','App\Http\Controllers\ContentPagesController@index')->name('help');
+        // Route::get('/rti','App\Http\Controllers\FrontController@rti')->name('rti');
         Route::get('/screen_reader_access','App\Http\Controllers\ContentPagesController@index')->name('screen_reader_access');
         Route::get('/report-card','App\Http\Controllers\ReportCardController@landing');
         Route::get('/report-card/2021','App\Http\Controllers\ReportCardController@index')->name('repord-card');
@@ -493,13 +500,13 @@ Route::group(["middleware" => ["authCheck"]], function(){
 
     Route::get('/result-glimpses','App\Http\Controllers\ReportCardController@webView');
     Route::get('/achievements','App\Http\Controllers\ReportCardController@achievementwebView');
-    Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
+    // Route::get('/auth/login','App\Http\Controllers\FrontController@logout')->name('user-logout');
 
-});
+// });
 
-Route::group(["middleware" => ["loggedCheck"]], function(){
+// Route::group(["middleware" => ["loggedCheck"]], function(){
 
-    Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
-    Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
+//     Route::get('/login','App\Http\Controllers\FrontController@login')->name('user-login');
+//     Route::post('/check/credentials','App\Http\Controllers\FrontController@checkCredentials')->name('credentials');
 
-});
+// });

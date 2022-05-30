@@ -3911,7 +3911,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.getGraphs = exports.getSubjectCards = exports.setDistrict = exports.setState = exports.changeId = exports.changeDemography = exports.getDistricts = exports.getCardsData = exports.setClass = exports.getStateList = void 0;
+exports.resetGraphs = exports.getGraphs = exports.getSubjectCards = exports.setDistrict = exports.setState = exports.changeId = exports.changeDemography = exports.getDistricts = exports.getCardsData = exports.setClass = exports.getStateList = void 0;
 
 var constants = __importStar(__webpack_require__(/*! @/constants/types */ "./src/constants/types.tsx"));
 
@@ -4006,6 +4006,14 @@ var getGraphs = function getGraphs(filters) {
 };
 
 exports.getGraphs = getGraphs;
+
+var resetGraphs = function resetGraphs() {
+  return {
+    type: constants.CHART_FETCH_RESET
+  };
+};
+
+exports.resetGraphs = resetGraphs;
 
 /***/ }),
 
@@ -4113,11 +4121,7 @@ var GraphCard_1 = __importDefault(__webpack_require__(/*! @/components/Visualiza
 
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-var GraphCardTab_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/GraphCardTab/GraphCardTab */ "./src/components/Visualization/GraphCardTab/GraphCardTab.tsx"));
-
-var GraphCardTabContent_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/GraphCardTabContent/GraphCardTabContent */ "./src/components/Visualization/GraphCardTabContent/GraphCardTabContent.tsx"));
-
-var AveragePerformance = function AveragePerformance(props) {
+var AveragePerormance = function AveragePerormance(props) {
   var charts = (0, react_redux_1.useSelector)(function (store) {
     return store.charts;
   });
@@ -4186,9 +4190,13 @@ var AveragePerformance = function AveragePerformance(props) {
     'Evs': 'evs'
   };
   (0, react_1.useEffect)(function () {
-    if (charts.loaded) {
+    console.log(charts.data, charts.loading, 'Hii');
+
+    if (charts.loaded && !charts.loading) {
       setGraphs(charts.data);
       setCurrentSection('');
+    } else {
+      setGraphs({});
     }
   }, [charts]);
   var coloumnChartColor = {
@@ -4212,9 +4220,9 @@ var AveragePerformance = function AveragePerformance(props) {
     setCurrentSection(name); //   if(name === 'management'){
     //       setManagementData(makeSeries(data,name,type))
     //   }
-    //   if(name === 'gender'){
-    //     setGenderData(makeSeries(data,name,type))
-    //   }
+    // if (name === 'gender') {
+    //     setGenderData(makeSeries(data, name, type))
+    // }
     //   if(name === 'socialgroup'){
     //     setSocialGroupData(makeSeries(data,name,type))
     //   }
@@ -4253,7 +4261,9 @@ var AveragePerformance = function AveragePerformance(props) {
           borderWidth: 0,
           dataLabels: {
             enabled: true,
-            format: '{point.y}'
+            formatter: function formatter() {
+              return this.y != 0 ? this.y + '%' : "";
+            }
           }
         }
       },
@@ -4275,7 +4285,7 @@ var AveragePerformance = function AveragePerformance(props) {
       },
       tooltip: {
         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>'
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b>'
       }
     };
     var series = {
@@ -4301,15 +4311,15 @@ var AveragePerformance = function AveragePerformance(props) {
   };
 
   (0, react_1.useEffect)(function () {
-    if (Object.keys(graphs).length !== 0) {
+    if (Object.keys(graphs).length !== 0 && current_geography !== 'national' && graphs[subjectShortCodes[props.name]] !== undefined) {
+      console.log(graphs, subjectShortCodes[props.name]);
       setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'));
       setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'));
       setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'));
       setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography], 'Location', 'column'));
-      setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'Learning', "column"));
-      setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie'));
-      setPerformanceColumnData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn', "column"));
-      setPerformanceColumnData2(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn2', "column"));
+      setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'], 'Learning', "column"));
+      setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie')); // setPerformanceColumnData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn', "column"))
+      // setPerformanceColumnData2(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn2', "column"))
     } else {
       setGenderData({});
       setManagementData({});
@@ -4421,21 +4431,10 @@ var AveragePerformance = function AveragePerformance(props) {
     title: "Average Performance of Students In ".concat(props.name, " In class ").concat(props.grade),
     chartType: currentSection === 'avgperformancecolumn2' ? true : false,
     series: performanceColumn_data2
-  }) : "")), react_1["default"].createElement("div", {
-    className: "row"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-12"
-  }, react_1["default"].createElement("div", {
-    className: "apcard-white"
-  }, react_1["default"].createElement("div", {
-    className: "graphcardtab-wrap"
-  }, react_1["default"].createElement(GraphCardTab_1["default"], null), react_1["default"].createElement("div", {
-    className: "tab-content",
-    id: "graphcardtabContent"
-  }, react_1["default"].createElement(GraphCardTabContent_1["default"], null))))))));
+  }) : ""))));
 };
 
-exports["default"] = AveragePerformance;
+exports["default"] = AveragePerormance;
 
 /***/ }),
 
@@ -4942,175 +4941,6 @@ exports["default"] = ChartType;
 
 /***/ }),
 
-/***/ "./src/components/Visualization/GraphCardTabContent/GraphCardTabContent.tsx":
-/*!**********************************************************************************!*\
-  !*** ./src/components/Visualization/GraphCardTabContent/GraphCardTabContent.tsx ***!
-  \**********************************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var Map_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Map/Map */ "./src/components/Visualization/Map/Map.tsx"));
-
-var MapDropdown_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Map/MapDropdown */ "./src/components/Visualization/Map/MapDropdown.tsx"));
-
-var StateGraph_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Graph/StateGraph */ "./src/components/Visualization/Graph/StateGraph.tsx"));
-
-var SubgroupGraph_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Graph/SubgroupGraph */ "./src/components/Visualization/Graph/SubgroupGraph.tsx"));
-
-var GraphCardTabContent = function GraphCardTabContent() {
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
-    className: "tab-pane fade show active",
-    id: "state",
-    role: "tabpanel",
-    "aria-labelledby": "state-tab"
-  }, react_1["default"].createElement("div", {
-    className: "gctabcontent-wrap"
-  }, react_1["default"].createElement("div", {
-    className: "row"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-12"
-  }, react_1["default"].createElement("div", {
-    className: "gctabcontent-select-wrap col-md-6 mb-30"
-  }, react_1["default"].createElement(MapDropdown_1["default"], null)), react_1["default"].createElement("div", {
-    className: "gctabcontent-graph-wrap"
-  }, react_1["default"].createElement(StateGraph_1["default"], null)))))), react_1["default"].createElement("div", {
-    className: "tab-pane fade",
-    id: "indicator",
-    role: "tabpanel",
-    "aria-labelledby": "indicator-tab"
-  }, react_1["default"].createElement("div", {
-    className: "gctabcontent-wrap"
-  }, react_1["default"].createElement("div", {
-    className: "row"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-12"
-  }, react_1["default"].createElement("div", {
-    className: "gctabcontent-select-wrap col-md-6 mb-30"
-  }, react_1["default"].createElement(MapDropdown_1["default"], null)), react_1["default"].createElement("div", {
-    className: "gctabcontent-graph-wrap"
-  }, react_1["default"].createElement(Map_1["default"], null)))))), react_1["default"].createElement("div", {
-    className: "tab-pane fade",
-    id: "subgroup",
-    role: "tabpanel",
-    "aria-labelledby": "subgroup-tab"
-  }, react_1["default"].createElement("div", {
-    className: "gctabcontent-wrap"
-  }, react_1["default"].createElement("div", {
-    className: "row"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-12"
-  }, react_1["default"].createElement("div", {
-    className: "gctabcontent-select-wrap col-md-6 mb-30"
-  }, react_1["default"].createElement(MapDropdown_1["default"], null)), react_1["default"].createElement("div", {
-    className: "gctabcontent-graph-wrap"
-  }, react_1["default"].createElement(SubgroupGraph_1["default"], null)))))));
-};
-
-exports["default"] = GraphCardTabContent;
-
-/***/ }),
-
-/***/ "./src/components/Visualization/GraphCardTab/GraphCardTab.tsx":
-/*!********************************************************************!*\
-  !*** ./src/components/Visualization/GraphCardTab/GraphCardTab.tsx ***!
-  \********************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var equalizer_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/equalizer.svg */ "./src/assets/images/equalizer.svg"));
-
-var speed_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/speed.svg */ "./src/assets/images/speed.svg"));
-
-var file_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/file.svg */ "./src/assets/images/file.svg"));
-
-var GraphCardTab = function GraphCardTab() {
-  return react_1["default"].createElement("ul", {
-    className: "nav nav-tabs",
-    id: "graphcardtab",
-    role: "tablist"
-  }, react_1["default"].createElement("li", {
-    className: "nav-item",
-    role: "presentation"
-  }, react_1["default"].createElement("button", {
-    className: "nav-link active",
-    id: "state-tab",
-    "data-bs-toggle": "tab",
-    "data-bs-target": "#state",
-    type: "button",
-    role: "tab",
-    "aria-controls": "state",
-    "aria-selected": "true"
-  }, react_1["default"].createElement("img", {
-    src: equalizer_svg_1["default"],
-    alt: "img",
-    className: "img-fluid"
-  }), " By State")), react_1["default"].createElement("li", {
-    className: "nav-item",
-    role: "presentation"
-  }, react_1["default"].createElement("button", {
-    className: "nav-link",
-    id: "indicator-tab",
-    "data-bs-toggle": "tab",
-    "data-bs-target": "#indicator",
-    type: "button",
-    role: "tab",
-    "aria-controls": "indicator",
-    "aria-selected": "false"
-  }, react_1["default"].createElement("img", {
-    src: speed_svg_1["default"],
-    alt: "img",
-    className: "img-fluid"
-  }), " By Indicator")), react_1["default"].createElement("li", {
-    className: "nav-item",
-    role: "presentation"
-  }, react_1["default"].createElement("button", {
-    className: "nav-link",
-    id: "subgroup-tab",
-    "data-bs-toggle": "tab",
-    "data-bs-target": "#subgroup",
-    type: "button",
-    role: "tab",
-    "aria-controls": "subgroup",
-    "aria-selected": "false"
-  }, react_1["default"].createElement("img", {
-    src: file_svg_1["default"],
-    alt: "img",
-    className: "img-fluid"
-  }), " By Subgroup")));
-};
-
-exports["default"] = GraphCardTab;
-
-/***/ }),
-
 /***/ "./src/components/Visualization/GraphCard/GraphCard.tsx":
 /*!**************************************************************!*\
   !*** ./src/components/Visualization/GraphCard/GraphCard.tsx ***!
@@ -5186,8 +5016,7 @@ var no_data_icon_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images
 
 var GraphCard = function GraphCard(props) {
   // console.log(props.series)
-  (0, react_1.useEffect)(function () {
-    console.log(props.series.series);
+  (0, react_1.useEffect)(function () {// console.log(props.series.series)
   }, [props]);
   return react_1["default"].createElement("div", {
     className: "apcard-white"
@@ -5359,243 +5188,6 @@ var ScatterGraph = function ScatterGraph() {
 };
 
 exports["default"] = ScatterGraph;
-
-/***/ }),
-
-/***/ "./src/components/Visualization/Graph/StateGraph.tsx":
-/*!***********************************************************!*\
-  !*** ./src/components/Visualization/Graph/StateGraph.tsx ***!
-  \***********************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var highcharts_react_official_1 = __importDefault(__webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js"));
-
-var StateGraph = function StateGraph() {
-  var options = {
-    chart: {
-      type: 'column'
-    },
-    title: {
-      text: ''
-    },
-    subtitle: {
-      text: ''
-    },
-    accessibility: {
-      announceNewData: {
-        enabled: true
-      }
-    },
-    xAxis: {
-      labels: {
-        rotation: -90
-      },
-      type: 'category'
-    },
-    yAxis: {
-      title: {
-        text: ''
-      }
-    },
-    legend: {
-      enabled: false
-    },
-    plotOptions: {
-      series: {
-        borderWidth: 0,
-        dataLabels: {
-          enabled: false,
-          format: '{point.y}'
-        }
-      }
-    },
-    tooltip: {
-      headerFormat: '',
-      pointFormat: '<span style="color:{point.color}">{point.name}</span> <br /> <b>Total: {point.y}</b><br/>'
-    },
-    series: [{
-      // name: "Browsers",
-      colorByPoint: true,
-      data: [{
-        name: "Andhra Pradesh",
-        y: 90,
-        color: "#FD7272"
-      }, {
-        name: "Arunachal Pradesh",
-        y: 60,
-        color: "#FD7272"
-      }, {
-        name: "Assam",
-        y: 20,
-        color: "#FD7272"
-      }, {
-        name: "Bihar",
-        y: 60,
-        color: "#FD7272"
-      }, {
-        name: "Chhattisgarh",
-        y: 40,
-        color: "#FD7272"
-      }, {
-        name: "Goa",
-        y: 30,
-        color: "#FD7272"
-      }, {
-        name: "Gujarat",
-        y: 70,
-        color: "#FD7272"
-      }, {
-        name: "Haryana",
-        y: 70,
-        color: "#FD7272"
-      }, {
-        name: "Himachal Pradesh",
-        y: 90,
-        color: "#FD7272"
-      }, {
-        name: "Jharkhand",
-        y: 40,
-        color: "#FD7272"
-      }, {
-        name: "Karnataka",
-        y: 70,
-        color: "#FD7272"
-      }, {
-        name: "Kerala",
-        y: 60,
-        color: "#FD7272"
-      }, {
-        name: "Madhya Pradesh",
-        y: 10,
-        color: "#FD7272"
-      }, {
-        name: "Manipur",
-        y: 60,
-        color: "#FD7272"
-      }, {
-        name: "Meghalaya",
-        y: 40,
-        color: "#FD7272"
-      }, {
-        name: "Mizoram",
-        y: 30,
-        color: "#FD7272"
-      }, {
-        name: "Nagaland",
-        y: 70,
-        color: "#FD7272"
-      }, {
-        name: "Odisha",
-        y: 90,
-        color: "#FD7272"
-      }]
-    }]
-  };
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(highcharts_react_official_1["default"], {
-    options: options
-  }));
-};
-
-exports["default"] = StateGraph;
-
-/***/ }),
-
-/***/ "./src/components/Visualization/Graph/SubgroupGraph.tsx":
-/*!**************************************************************!*\
-  !*** ./src/components/Visualization/Graph/SubgroupGraph.tsx ***!
-  \**************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var highcharts_react_official_1 = __importDefault(__webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js"));
-
-var SubgroupGraph = function SubgroupGraph() {
-  var options = {
-    chart: {
-      type: 'column'
-    },
-    title: {
-      text: ''
-    },
-    subtitle: {
-      text: ''
-    },
-    accessibility: {
-      announceNewData: {
-        enabled: true
-      }
-    },
-    xAxis: {
-      type: 'category'
-    },
-    yAxis: {
-      title: {
-        text: ''
-      }
-    },
-    legend: {
-      enabled: false
-    },
-    plotOptions: {
-      column: {
-        pointWidth: 25
-      },
-      series: {
-        dataLabels: {
-          enabled: true,
-          format: '{point.y}'
-        }
-      }
-    },
-    tooltip: {
-      headerFormat: '',
-      pointFormat: '<span style="color:{point.color}">{point.name}</span> <br /> <b>Total: {point.y}</b><br/>'
-    },
-    series: [{
-      name: "India",
-      colorByPoint: true,
-      data: [{
-        name: "India",
-        y: 80,
-        color: "#BDC581"
-      }]
-    }]
-  };
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(highcharts_react_official_1["default"], {
-    options: options
-  }));
-};
-
-exports["default"] = SubgroupGraph;
 
 /***/ }),
 
@@ -6167,10 +5759,10 @@ var TabContent = function TabContent() {
       setEncounteredSubject = _ref14[1];
 
   var class_subjects = {
-    class_3: ['Language', 'Evs', 'Math'],
-    class_5: ['Language', 'Evs', 'Math'],
-    class_8: ['Language', 'Science', 'Math', 'Social Science'],
-    class_10: ['Mil', 'Social Science', 'English', 'Science', 'Math']
+    class_3: ['Language', 'Math', 'Evs'],
+    class_5: ['Language', 'Math', 'Evs'],
+    class_8: ['Language', 'Math', 'Science', 'Social Science'],
+    class_10: ['Mil', 'Math', 'Science', 'Social Science', 'English']
   };
   var current_subjects = class_subjects['class_' + grade];
   var marker = (0, react_1.useRef)([]);
@@ -6232,7 +5824,8 @@ var TabContent = function TabContent() {
     }
 
     dispatch((0, visualization_action_1.getCardsData)(JSON.stringify(reusable_filters), fields));
-    dispatch((0, visualization_action_1.getSubjectCards)(JSON.stringify(reusable_filters)));
+    dispatch((0, visualization_action_1.getSubjectCards)(JSON.stringify(reusable_filters))); // dispatch(resetGraphs())
+
     dispatch((0, visualization_action_1.getGraphs)(JSON.stringify(reusable_filters)));
     setEncounteredSubject([]);
   }, [grade, current_geography, current_id]);
@@ -6270,6 +5863,7 @@ var TabContent = function TabContent() {
     changes.forEach(function (marks) {
       if (marks.isIntersecting) {
         if (marks.target.id !== '') {
+          // console.log(marks.target)
           setCurremtSubject(marks.target.id);
         }
       }
@@ -6894,7 +6488,7 @@ exports["default"] = WhiteCard;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.CHART_FETCH_REJECTED = exports.CHART_FETCH_FULFILLED = exports.CHART_FETCH_PENDING = exports.CHART_FETCH = exports.SUBJECT_CARDS_FETCH_REJECTED = exports.SUBJECT_CARDS_FETCH_FULFILLED = exports.SUBJECT_CARDS_FETCH_PENDING = exports.SUBJECT_CARDS_FETCH = exports.CURRENT_STATE_FETCH_REJECTED = exports.CURRENT_STATE_FETCH_FULFILLED = exports.CURRENT_STATE_FETCH_PENDING = exports.CURRENT_STATE_FETCH = exports.CURRENT_DISTRICT_FETCH_REJECTED = exports.CURRENT_DISTRICT_FETCH_FULFILLED = exports.CURRENT_DISTRICT_FETCH_PENDING = exports.CURRENT_DISTRICT_FETCH = exports.IDENTITY_FETCH_REJECTED = exports.IDENTITY_FETCH_FULFILLED = exports.IDENTITY_FETCH_PENDING = exports.IDENTITY_FETCH = exports.GEOGRAPHY_FETCH_REJECTED = exports.GEOGRAPHY_FETCH_FULFILLED = exports.GEOGRAPHY_FETCH_PENDING = exports.GEOGRAPHY_FETCH = exports.DISTRICT_FETCH_REJECTED = exports.DISTRICT_FETCH_FULFILLED = exports.DISTRICT_FETCH_PENDING = exports.DISTRICT_FETCH = exports.CARDS_FETCH_REJECTED = exports.CARDS_FETCH_FULFILLED = exports.CARDS_FETCH_PENDING = exports.CARDS_FETCH = exports.GRADE_FETCH_REJECTED = exports.GRADE_FETCH_FULFILLED = exports.GRADE_FETCH_PENDING = exports.GRADE_FETCH = exports.STATE_FETCH_REJECTED = exports.STATE_FETCH_FULFILLED = exports.STATE_FETCH_PENDING = exports.STATE_FETCH = void 0;
+exports.CHART_FETCH_RESET = exports.CHART_FETCH_REJECTED = exports.CHART_FETCH_FULFILLED = exports.CHART_FETCH_PENDING = exports.CHART_FETCH = exports.SUBJECT_CARDS_FETCH_REJECTED = exports.SUBJECT_CARDS_FETCH_FULFILLED = exports.SUBJECT_CARDS_FETCH_PENDING = exports.SUBJECT_CARDS_FETCH = exports.CURRENT_STATE_FETCH_REJECTED = exports.CURRENT_STATE_FETCH_FULFILLED = exports.CURRENT_STATE_FETCH_PENDING = exports.CURRENT_STATE_FETCH = exports.CURRENT_DISTRICT_FETCH_REJECTED = exports.CURRENT_DISTRICT_FETCH_FULFILLED = exports.CURRENT_DISTRICT_FETCH_PENDING = exports.CURRENT_DISTRICT_FETCH = exports.IDENTITY_FETCH_REJECTED = exports.IDENTITY_FETCH_FULFILLED = exports.IDENTITY_FETCH_PENDING = exports.IDENTITY_FETCH = exports.GEOGRAPHY_FETCH_REJECTED = exports.GEOGRAPHY_FETCH_FULFILLED = exports.GEOGRAPHY_FETCH_PENDING = exports.GEOGRAPHY_FETCH = exports.DISTRICT_FETCH_REJECTED = exports.DISTRICT_FETCH_FULFILLED = exports.DISTRICT_FETCH_PENDING = exports.DISTRICT_FETCH = exports.CARDS_FETCH_REJECTED = exports.CARDS_FETCH_FULFILLED = exports.CARDS_FETCH_PENDING = exports.CARDS_FETCH = exports.GRADE_FETCH_REJECTED = exports.GRADE_FETCH_FULFILLED = exports.GRADE_FETCH_PENDING = exports.GRADE_FETCH = exports.STATE_FETCH_REJECTED = exports.STATE_FETCH_FULFILLED = exports.STATE_FETCH_PENDING = exports.STATE_FETCH = void 0;
 exports.STATE_FETCH = "STATE_FETCH";
 exports.STATE_FETCH_PENDING = "STATE_FETCH_PENDING";
 exports.STATE_FETCH_FULFILLED = "STATE_FETCH_FULFILLED";
@@ -6935,6 +6529,7 @@ exports.CHART_FETCH = "CHART_FETCH";
 exports.CHART_FETCH_PENDING = "CHART_FETCH_PENDING";
 exports.CHART_FETCH_FULFILLED = "CHART_FETCH_FULFILLED";
 exports.CHART_FETCH_REJECTED = "CHART_FETCH_REJECTED";
+exports.CHART_FETCH_RESET = "CHART_FETCH_RESET";
 
 /***/ }),
 
@@ -7090,6 +6685,16 @@ var chartReducer = function chartReducer() {
           loaded: false,
           error: true
         });
+      }
+
+    case types_1.CHART_FETCH_RESET:
+      {
+        return {
+          data: [],
+          loading: false,
+          loaded: false,
+          error: false
+        };
       }
 
     default:
@@ -7962,36 +7567,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/assets/images/equalizer.svg":
-/*!*****************************************!*\
-  !*** ./src/assets/images/equalizer.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/equalizer.svg?241fc9a1dd8c39f6ae217396f11f6378");
-
-/***/ }),
-
-/***/ "./src/assets/images/file.svg":
-/*!************************************!*\
-  !*** ./src/assets/images/file.svg ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/file.svg?edadb5ebd5b72cfb84afae99924e38b6");
-
-/***/ }),
-
 /***/ "./src/assets/images/globe-icon.svg":
 /*!******************************************!*\
   !*** ./src/assets/images/globe-icon.svg ***!
@@ -8124,21 +7699,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/semidonut.png?1cafcf7462e9867412616886c38f1c5b");
-
-/***/ }),
-
-/***/ "./src/assets/images/speed.svg":
-/*!*************************************!*\
-  !*** ./src/assets/images/speed.svg ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/speed.svg?9cf91bd79497e930dea9792480c5d638");
 
 /***/ }),
 

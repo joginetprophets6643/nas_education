@@ -9,31 +9,31 @@
                 <ul>
                   <li>
                     <a href="{{url('/report-card/2017')}}" target="_blank">
-                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                      <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                       {{__('lang.NAS 2017')}}
                     </a>
                   </li>
                   <li>
                     <a href="{{url('/report-card/2021')}}" target="_blank">
-                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                      <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                       {{__('lang.NAS 2021')}}
                     </a>
                   </li>
                   <!-- <li>
                     <a href="{{url('/report-card')}}" target="_blank">
-                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                      <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                       {{__('lang.National')}}
                     </a>
                   </li>
                   <li>
                     <a href="{{url('/report-card')}}" target="_blank">
-                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                      <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                       {{__('lang.State')}}
                     </a>
                   </li>
                   <li>
                     <a href="{{url('/report-card')}}" target="_blank">
-                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                      <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                       {{__('lang.District')}}
                     </a>
                   </li> -->
@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="{{url('/feedback')}}" target="_blank">
-                    <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                    <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                     {{__('lang.Feedback')}}
                   </a>
                 </li>
@@ -63,13 +63,13 @@
               <ul>
                 <li>
                   <a href="{{url('/data-share/login')}}" target="_blank">
-                    <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                    <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                     {{__('lang.Login')}}
                   </a>
                 </li>
                 <li>
                   <a href="{{url('/data-share/registration')}}" target="_blank">
-                    <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                    <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                     {{__('lang.Registration')}}
                   </a>
                 </li>
@@ -84,7 +84,7 @@
               <ul>
                   <li>
                     <a href="{{url('/visualization')}}" target="_blank">
-                      <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                      <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                       {{__('lang.View')}}
                     </a>
                   </li>
@@ -99,13 +99,13 @@
               <ul>
                 <li>
                   <a href="{{url('/gallery/image-gallery')}}">
-                    <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                    <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                     {{__('lang.Photo Gallery')}}
                   </a>
                 </li>
                 <li>
                   <a href="{{url('/gallery/video-gallery')}}">
-                    <img src="{{asset('assets/front/images/arrow.svg')}}" alt="arrow" />
+                    <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                     {{__('lang.Video Gallery')}}
                   </a>
                 </li>
@@ -180,7 +180,7 @@
                           <a href="{{url('/accessbility-statement')}}">{{__('lang.Accessibility Statement')}}</a>
                         </li>
                         <li>
-                          <a href="{{url('/rti')}}">{{__('lang.RTI')}}</a>
+                          <a href="{{url('/help')}}">{{__('lang.Help')}}</a>
                         </li>
                       </ul>
                   </div>
@@ -212,6 +212,8 @@
                  <!-- This site is designed, developed, maintained and hosted by National Informatics Centre (NIC),
                  Ministry of Electronics Information Technology, Government of India. -->
                  {{__('lang.Footer Content')}}
+                 <br/>
+                 © Content Owned by Ministry of Education, Government of India
                </p>
               </div>
               <!-- <p class="nic-foot-desc_sm">v2021.11.2600</p>  -->

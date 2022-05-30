@@ -266,8 +266,8 @@ class EventController extends Controller
         }
         $images = json_encode($img);
         $data=DB::table('event_images')->first();
-        if(!$data->isEmpty()){
-            $old_img=json_decode($data[0]->images);
+        if($data){
+            $old_img=json_decode($data->images);
             $result=array_merge($img,$old_img);
             $images = json_encode($result);
             DB::table('event_images')->where('event_id',5)->update([

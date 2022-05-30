@@ -53,10 +53,13 @@
                                         <!-- <label for="#name">Type:</label> -->
                                         <select class="form-select form-control" name="content" id="content">
                                             <option value="">Select</option>
-                                            <option value='Content Related' {{ (old("content") == "Content Related" ? "selected":"") }}>Content Related</option>
-                                            <option value='UI/UX Related' {{ (old("content") == "UI/UX Related" ? "selected":"") }}>UI/UX Related</option>
-                                            <option value='Map Related' {{ (old("content") == "Map Related" ? "selected":"") }}>Map Related</option>
-                                            <option value='Report Card(DRC, SRC, NRC) Related' {{ (old("content") == "Report Card(DRC, SRC, NRC) Related" ? "selected":"") }}>Report Card(DRC, SRC, NRC) Related</option>
+                                            <option value='Content related' {{ (old("content") == "Content related" ? "selected":"") }}>Content related</option>
+                                            <option value='UI/UX related' {{ (old("content") == "UI/UX related" ? "selected":"") }}>UI/UX related</option>
+                                            <option value='Map related' {{ (old("content") == "Map related" ? "selected":"") }}>Map related</option>
+                                            <option value='District Report Card related' {{ (old("content") == "District Report Card related" ? "selected":"") }}>District Report Card related</option>
+                                            <option value='State Report Card related' {{ (old("content") == "State Report Card related" ? "selected":"") }}>State Report Card related</option>
+                                            <option value='National Report Card related' {{ (old("content") == "National Report Card related" ? "selected":"") }}>National Report Card related</option>
+                                            <option value='Others' {{ (old("content") == "Others" ? "selected":"") }}>Others</option>
                                             <!-- <option value='visualization' {{ (old("content") == "visualization" ? "selected":"") }}>Visualization</option> -->
                                         </select>
                                         @error('content')

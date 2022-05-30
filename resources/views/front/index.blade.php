@@ -1,6 +1,5 @@
 @include('front.includes.header')
 @include('front.includes.nav')
-
     <section class="hero-slider-wrap">
         <div class="hero-slider">
           <div class="owl-carousel owl-theme" id="bannerSlider">
@@ -26,7 +25,7 @@
           </div>
         </div>
     </section>
-
+    <div class="m-3" style="color:#f7941c; font-weight: bold;"><marquee>NAS 2021 National and State Report Cards have been released.<a href="{{url('report-card/2021')}}"> Click here to view</a> </marquee></div>
     <section class="about-wrap ptb-60 bg-grey" id="About">
       <div class="container">
           <div class="row">
@@ -566,7 +565,44 @@
         </div>
     </section>
 
-    <div class="client-wrap ptb-60 bg-grey" data-aos="fade-up">
+    <section class="mobileapp-page-wrap ptb-60 bg-grey">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-6">
+                        <div class="mobileapp-img-wrap">
+                            <img src="{{asset('assets/front/images/mobileapp.png')}}" alt="img" class="img-fluid" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mobileapp-content">
+                        @if(!empty($mobile->page_meta_title))
+                            <h2 class="heading-blue">
+                            {!!$mobile->page_meta_title!!}
+                            </h2>
+                            <div class="desc-black">
+                                {!!$mobile->inner_page_content!!}
+                            </div>
+                        @endif
+                            <div class="app-wrap">
+                                <h3 class="text-black">
+                                    Download the <span class="text-red">FREE</span> App Today!
+                                </h3>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn app-btn">
+                                        <img src="{{asset('assets/front/images/google_play.png')}}" alt="gp" class="img-fluid" />
+                                    </a>
+                                    <a href="#" class="btn app-btn">
+                                        <img src="{{asset('assets/front/images/app_store.png')}}" alt="as" class="img-fluid" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>   
+            </div>
+        </div>
+    </section>
+
+    <div class="client-wrap ptb-60" data-aos="fade-up">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -643,42 +679,7 @@
       </div>
     </div>
     
-    <section class="mobileapp-page-wrap ptb-60">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-6">
-                        <div class="mobileapp-img-wrap">
-                            <img src="{{asset('assets/front/images/mobileapp.png')}}" alt="img" class="img-fluid" />
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="mobileapp-content">
-                        @if(!empty($mobile->page_meta_title))
-                            <h2 class="heading-blue">
-                            {!!$mobile->page_meta_title!!}
-                            </h2>
-                            <div class="desc-black">
-                                {!!$mobile->inner_page_content!!}
-                            </div>
-                        @endif
-                            <div class="app-wrap">
-                                <h3 class="text-black">
-                                    Download the <span class="text-red">FREE</span> App Today!
-                                </h3>
-                                <div class="btn-wrap">
-                                    <a href="#" class="btn app-btn">
-                                        <img src="{{asset('assets/front/images/google_play.png')}}" alt="gp" class="img-fluid" />
-                                    </a>
-                                    <a href="#" class="btn app-btn">
-                                        <img src="{{asset('assets/front/images/app_store.png')}}" alt="as" class="img-fluid" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                      </div>   
-            </div>
-        </div>
-    </section>
+    
   
 
 @include('front.includes.footer')
