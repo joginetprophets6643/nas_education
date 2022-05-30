@@ -46,11 +46,7 @@
                               &nbsp;<span class="material-icons-round">
                                 file_download
                             </span></a>
-<<<<<<< HEAD
-                            <a href="{{url('/download-pdf')}}" target="_blank" id="report-link" class="btn org-btn report-btn mobile-report-btn">
-=======
                             <a href="{{url('/download-pdf')}}" id="report-mobile-link" target="_blank" class="btn org-btn report-btn mobile-report-btn">
->>>>>>> 80b78ee3ac45213372352715aab786b61d353dec
                               <span class="material-icons-round">
                                 file_download
                               </span>
