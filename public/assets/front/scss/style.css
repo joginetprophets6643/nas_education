@@ -1364,9 +1364,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  word-break: break-all;
 }
 
 .site-footer .footer-links ul li a:hover {
@@ -10203,6 +10201,9 @@ ul {
   #bannerSlider .owl-dots {
     max-width: 960px;
   }
+  .mobile-report-btn {
+    display: none;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -10281,6 +10282,16 @@ ul {
   .site-footer .footer-bottom-links ul li a {
     font-size: 12px;
     padding: 0 5px;
+  }
+  .tablayertwo .nav-link {
+    margin-right: 15px;
+    font-size: 14px;
+  }
+  .report-btn {
+    font-size: 0;
+  }
+  .report-btn span {
+    margin-left: 0;
   }
 }
 
@@ -10369,6 +10380,9 @@ ul {
 }
 
 @media (max-width: 991px) {
+  .nrml-report-btn {
+    display: none;
+  }
   br {
     display: none;
   }
@@ -11301,5 +11315,97 @@ div #all-state-list {
 
 .sec-banner .heading span {
   border-radius: 8px 0px 0px 8px !important;
+}
+
+.report-img-wrap {
+  position: relative;
+}
+
+.report-img-wrap .lakshadweep-img-tooltip {
+  position: relative;
+}
+
+.report-img-wrap .lakshadweep-img-tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.report-img-wrap .lakshadweep-img-tooltip .tooltiptext {
+  visibility: hidden;
+  border: 1px solid #f7941c;
+  background: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  padding: 5px;
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  display: block;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 100px;
+  z-index: 1;
+}
+
+.report-img-wrap .lakshadweep-img-tooltip .tooltiptext small {
+  font-size: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.report-img-wrap .lakshadweep-img-tooltip .tooltiptext small:before {
+  content: '';
+  height: 7px;
+  width: 7px;
+  background: #f7941c;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.report-img-wrap .lakshadweep-img {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 8rem;
+}
+
+.report-img-wrap .lakshadweep-img img {
+  height: 65px;
+}
+
+@media (min-width: 1400px) {
+  .report-img-wrap .lakshadweep-img {
+    left: 11rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .report-img-wrap .lakshadweep-img {
+    left: 5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .report-img-wrap .lakshadweep-img {
+    bottom: 6.5rem;
+    left: 3rem;
+  }
+}
+
+@media (min-width: 545px) and (max-width: 767px) {
+  .report-img-wrap .lakshadweep-img {
+    bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 545px) {
+  .report-img-wrap .lakshadweep-img {
+    bottom: 1.5rem;
+    left: 1rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

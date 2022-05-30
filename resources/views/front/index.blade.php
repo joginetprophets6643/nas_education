@@ -318,6 +318,12 @@
           <div class="col-md-7">
             <div class="report-img-wrap" data-aos="fade-left">
               <div id="map-container"></div>
+              <div class="lakshadweep-img-tooltip">
+                <span class="tooltiptext"><small>State</small>Lakshadweep</span>
+                <a href="#" class="lakshadweep-img">
+                  <img src="{{asset('assets/front/images/lakshadweep.png')}}" alt="img" />
+                </a>
+              </div>
               <div class="btn-wrap justify-content-end">
               <div id="BackToN">
                 <a href="javascript:void(0);" onClick="BackToNational()" class="black-link">
@@ -738,7 +744,7 @@
             }
         },
         mapNavigation: {
-            enabled: true
+            enabled: false
         },
         credits: {
           enabled: false
@@ -778,7 +784,7 @@
             states: {
                 hover: {
                     // color: '#006BB6'
-                    color:'#006bb6'
+                    color:'#f7941c'
                 },
                 select: {
                   color: '#006bb6',

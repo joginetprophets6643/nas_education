@@ -1385,7 +1385,8 @@ ul {
                     margin: 0;
                     display: flex;
                     align-items: center;
-                    width: max-content;
+                    // width: max-content;
+                    word-break: break-all;
 
                     &:hover {
                         color: #f7941c;
@@ -6548,6 +6549,9 @@ ul {
             max-width: 960px;
         }
     }
+    .mobile-report-btn {
+        display: none;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -6679,8 +6683,18 @@ ul {
             }
         }
     }
-
-
+    .tablayertwo {
+        .nav-link {
+            margin-right: 15px;
+            font-size: 14px;
+        }
+    } 
+    .report-btn{
+        font-size: 0;
+        span {
+            margin-left: 0;
+        }
+    }
 }
 
 @media (min-width: 1025px) {
@@ -6794,6 +6808,9 @@ ul {
     // body {
     //     padding-top: 11rem;
     // }
+    .nrml-report-btn {
+        display: none;
+    }
     br {
         display: none;
     }
@@ -8041,3 +8058,70 @@ div {
     }
 }
 
+.report-img-wrap {
+    position: relative;
+    .lakshadweep-img-tooltip {
+        position: relative;
+        &:hover {
+            .tooltiptext {
+                visibility: visible;
+            }
+        }
+        .tooltiptext {
+            visibility: hidden;
+            border: 1px solid #f7941c;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+            padding: 5px;
+            color: #000;
+            font-size: 12px;
+            font-weight: 500;
+            position: absolute;
+            display: block;
+            opacity: 0.8;
+            bottom: 30px;
+            left: 100px;
+            z-index: 1;
+            small {
+                font-size: 10px;
+                display: flex;
+                align-items: center;
+                &:before {
+                    content: '';
+                    height: 7px;
+                    width: 7px;
+                    background: #f7941c;
+                    border-radius: 50%;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+    .lakshadweep-img {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 8rem;
+        img{
+            height: 65px
+        }
+        @media (min-width: 1400px) {
+            left: 11rem;
+        }
+        @media (min-width: 992px) and (max-width: 1199px) {
+            left: 5rem;
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+            bottom: 6.5rem;
+            left: 3rem;
+        }
+        @media (min-width: 545px) and (max-width: 767px) {
+            bottom: 1.5rem;
+        }
+        @media (max-width: 545px) {
+            bottom: 1.5rem;
+            left: 1rem;
+        }   
+    }
+    
+}
