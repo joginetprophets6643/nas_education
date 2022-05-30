@@ -11316,4 +11316,8 @@ div #all-state-list {
 .temp-text {
   text-transform: none !important;
 }
+
+#achTable table tbody tr:last-child {
+  border-bottom: 1px solid #d6d6d6;
+}
 /*# sourceMappingURL=style.css.map */

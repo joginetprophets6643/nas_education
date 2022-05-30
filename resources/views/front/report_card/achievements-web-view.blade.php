@@ -148,25 +148,37 @@
       //console.log(data);
       achievement_data = '';
       current_grade = ''
-      direction_gender_header = `<div class="card ach-card">
-      <div class="ach-table table-responsive"><table class="table">
-                              <thead>
-                                <tr>
-                                  <th>Factors</th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">A</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">B</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">C</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">D</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">E</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">F</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">G</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">H</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">I</span></th>
-                                  <th class="bg-dark text-white text-center"><span class="category-item">J</span></th>
-                                  
-                                </tr>
-                              </thead>
-                              <tbody id="add_achievementstate">`
+      direction_gender_header = `<div class="ach-card">
+      <div class="btn-wrap justify-content-end">
+        <button id="slideBack" class="org-btn btn btn-sm mb-2" type="button">
+          <span class="material-icons-round">
+          chevron_left
+          </span>
+        </button>
+        <button id="slideNext" class="org-btn btn btn-sm mb-2" type="button">
+          <span class="material-icons-round">
+          navigate_next
+          </span>
+        </button>
+      </div>
+      <div class="ach-table table-responsive" id="achTable"><table class="table table-bordered" id="achTableContent">
+        <thead>
+          <tr>
+            <th>Factors</th>
+            <th class="bg-dark text-white text-center"><span class="category-item">A</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">B</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">C</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">D</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">E</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">F</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">G</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">H</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">I</span></th>
+            <th class="bg-dark text-white text-center"><span class="category-item">J</span></th>
+            
+          </tr>
+        </thead>
+        <tbody id="add_achievementstate">`
       data.forEach((ach, index) => {
         if (index % 6 === 0) {
           
@@ -343,6 +355,33 @@
       })
 
 
+      // achievement table slider starts
+      $('#slideNext').click(()=>{
+          var achTable = document.getElementById('achTable');
+          sideScroll(achTable,'right',25,100,10);
+      });
+
+      $('#slideBack').click(()=>{
+          var achTable = document.getElementById('achTable');
+          sideScroll(achTable,'left',25,100,10);
+      });
+
+      function sideScroll(element,direction,speed,distance,step){
+          scrollAmount = 0;
+          var slideTimer = setInterval(function(){
+              if(direction == 'left'){
+                  element.scrollLeft -= step;
+              } else {
+                  element.scrollLeft += step;
+              }
+              scrollAmount += step;
+              if(scrollAmount >= distance){
+                  window.clearInterval(slideTimer);
+              }
+          }, speed);
+      }
+      // achievement table slider ends
     });
 
+    
 </script>
