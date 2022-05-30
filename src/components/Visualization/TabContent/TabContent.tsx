@@ -206,6 +206,7 @@ const TabContent = () => {
               count={Object.keys(subject_count).length !== 0 && typeof (subject_count) !== 'undefined'
                 ? subject_count[((subject.replace(/\s+/g, '_')).toLowerCase() + '_' + current_geography)] : 0}
               image={subject_icons[(subject.replace(/\s+/g, '')).toLowerCase()]}
+              geography={current_geography}
             />
           </div>
         ))}

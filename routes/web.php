@@ -132,6 +132,7 @@ Route::get('visualization_performance_graph',[VisualizationCalculationController
 Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
 Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
 Route::get('visualization_graph_performance',[VisualizationNewController::class,'visualization_graph_performance']);
+Route::get('visualization_linked_graph',[VisualizationCalculationController::class,'linkedGraphData']);
 
 
 Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);

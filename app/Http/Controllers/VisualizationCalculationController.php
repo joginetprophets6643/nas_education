@@ -1473,4 +1473,66 @@ class VisualizationCalculationController extends Controller
     
         
     }
+
+    public function linkedGraphData(){
+        $data=DB::table('visualization_performance_graph_tbl')->get();
+        $state_data=DB::table('visualization_performance_graph_tbl')->where('type','state')->orderBy('state_id','ASC')->get()->groupBy('grade');
+        $avs=['cards'=>['total'],'gender'=>['boys','girls'],'location'=>['rural','urban'],'management'=>['govt','private','govt_aided','central_govt'],'socialgroup'=>['sc','st','general','obc']];
+        $grades=[3,5,8,10];
+        $all_subjects=['3'=>['language','math','evs'],'5'=>['language','math','evs'],'8'=>['language','math','sci','sst'],'10'=>['mil','math','sci','sst','eng']];
+        foreach($grades as $grade){
+                $final_state_data=array();
+                $subjects=$all_subjects[$grade];
+                foreach($subjects as $subject){
+                        $state_temp_data=$state_data[$grade];
+                        foreach($avs as $legend=>$av){
+                                foreach($av as $value){
+                                        $final_state_data[$subject]['avs'][$value]=$this->generate_state_av_data($state_temp_data,$legend,$value,$subject);
+                                        // foreach($state_temp_data as $state){
+                                        //         $district_temp_data=DB::table('visualization_performance_graph_tbl')->where('grade',$grade)->where('state_id',$state->state_id)->get();
+                                        //         dd($state->state_id,$district_temp_data);
+                                        // }
+                                }
+                        }
+                        $final_state_data[$subject]['lo'][$value]=$this->generate_state_lo_data($state_temp_data,$subject);
+                        dd($final_state_data[$subject]);
+                }
+                if($grade==10){
+                dd(json_encode($final_state_data));
+                }             
+                // DB::table('visulization_linked_grph_tbl')->insert([]);
+        }
+    }
+
+    public function generate_state_av_data($data,$legend,$value,$subject){
+        $formatted_data=array();
+        foreach($data as $state){
+                $temp_data=json_decode($state->data);
+                $temp_data=$temp_data->$subject;
+                // dd($temp_data->$legend->state);
+                if($legend=='cards'){
+                        $formatted_data[]=array($state->state_id=>$temp_data->$legend->state);
+                }else{
+                        $formatted_data[]=array($state->state_id=>$temp_data->$legend->state->$value);
+                }
+        }
+        return $formatted_data;
+    }
+
+    public function generate_state_lo_data($data,$subject){
+        $formatted_data=array();
+        foreach($data as $state){
+                $temp_data=json_decode($state->data);
+                $temp_data=$temp_data->$subject;
+                $temp_data=$temp_data->lo;
+                $lo_codes=array_keys((array)$temp_data);
+                dd($lo_codes);
+                foreach($lo_codes as $lo){
+                        $formatted_data[]=array($state->state_id=>$temp_data->$legend->state->$value);
+                }
+                // dd($temp_data->$legend->state);
+
+        }
+        return $formatted_data;
+    }
 }

@@ -9,27 +9,23 @@ const GraphCardTabContent = () => {
     <>
       <div className="tab-pane fade show active" id="state" role="tabpanel" aria-labelledby="state-tab">
         <div className="gctabcontent-wrap">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="gctabcontent-select-wrap col-md-6 mb-30">
-                  <MapDropdown />
-                </div>
-                <div className="gctabcontent-graph-wrap">
-                  <StateGraph />
-                </div>
+          <div className="row">
+            <div className="col-md-12">
+
+              <div className="gctabcontent-graph-wrap">
+                <StateGraph />
               </div>
             </div>
+          </div>
         </div>
       </div>
       <div className="tab-pane fade" id="indicator" role="tabpanel" aria-labelledby="indicator-tab">
         <div className="gctabcontent-wrap">
           <div className="row">
             <div className="col-md-12">
-              <div className="gctabcontent-select-wrap col-md-6 mb-30">
-                <MapDropdown />
-              </div>
+
               <div className="gctabcontent-graph-wrap">
-                 <Map />
+                <Map />
               </div>
             </div>
           </div>
@@ -39,9 +35,7 @@ const GraphCardTabContent = () => {
         <div className="gctabcontent-wrap">
           <div className="row">
             <div className="col-md-12">
-              <div className="gctabcontent-select-wrap col-md-6 mb-30">
-                <MapDropdown />
-              </div>
+
               <div className="gctabcontent-graph-wrap">
                 <SubgroupGraph />
               </div>

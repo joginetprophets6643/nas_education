@@ -3911,7 +3911,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.resetGraphs = exports.getGraphs = exports.getSubjectCards = exports.setDistrict = exports.setState = exports.changeId = exports.changeDemography = exports.getDistricts = exports.getCardsData = exports.setClass = exports.getStateList = void 0;
+exports.resetGraphs = exports.getLinkedGraphs = exports.getGraphs = exports.getSubjectCards = exports.setDistrict = exports.setState = exports.changeId = exports.changeDemography = exports.getDistricts = exports.getCardsData = exports.setClass = exports.getStateList = void 0;
 
 var constants = __importStar(__webpack_require__(/*! @/constants/types */ "./src/constants/types.tsx"));
 
@@ -4006,6 +4006,15 @@ var getGraphs = function getGraphs(filters) {
 };
 
 exports.getGraphs = getGraphs;
+
+var getLinkedGraphs = function getLinkedGraphs(filters) {
+  return {
+    type: constants.CHART_FETCH,
+    payload: utility_1["default"].get('visualization_performance_graph_tbl?filter=' + filters)
+  };
+};
+
+exports.getLinkedGraphs = getLinkedGraphs;
 
 var resetGraphs = function resetGraphs() {
   return {
@@ -4121,7 +4130,13 @@ var GraphCard_1 = __importDefault(__webpack_require__(/*! @/components/Visualiza
 
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-var AveragePerormance = function AveragePerormance(props) {
+var GraphCardTab_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/GraphCardTab/GraphCardTab */ "./src/components/Visualization/GraphCardTab/GraphCardTab.tsx"));
+
+var GraphCardTabContent_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/GraphCardTabContent/GraphCardTabContent */ "./src/components/Visualization/GraphCardTabContent/GraphCardTabContent.tsx"));
+
+var MapTabDropdown_1 = __importDefault(__webpack_require__(/*! ../MapTabDropdown/MapTabDropdown */ "./src/components/Visualization/MapTabDropdown/MapTabDropdown.tsx"));
+
+var AveragePerformance = function AveragePerformance(props) {
   var charts = (0, react_redux_1.useSelector)(function (store) {
     return store.charts;
   });
@@ -4190,13 +4205,9 @@ var AveragePerormance = function AveragePerormance(props) {
     'Evs': 'evs'
   };
   (0, react_1.useEffect)(function () {
-    console.log(charts.data, charts.loading, 'Hii');
-
-    if (charts.loaded && !charts.loading) {
+    if (charts.loaded) {
       setGraphs(charts.data);
       setCurrentSection('');
-    } else {
-      setGraphs({});
     }
   }, [charts]);
   var coloumnChartColor = {
@@ -4220,9 +4231,9 @@ var AveragePerormance = function AveragePerormance(props) {
     setCurrentSection(name); //   if(name === 'management'){
     //       setManagementData(makeSeries(data,name,type))
     //   }
-    // if (name === 'gender') {
-    //     setGenderData(makeSeries(data, name, type))
-    // }
+    //   if(name === 'gender'){
+    //     setGenderData(makeSeries(data,name,type))
+    //   }
     //   if(name === 'socialgroup'){
     //     setSocialGroupData(makeSeries(data,name,type))
     //   }
@@ -4261,9 +4272,7 @@ var AveragePerormance = function AveragePerormance(props) {
           borderWidth: 0,
           dataLabels: {
             enabled: true,
-            formatter: function formatter() {
-              return this.y != 0 ? this.y + '%' : "";
-            }
+            format: '{point.y}'
           }
         }
       },
@@ -4285,7 +4294,7 @@ var AveragePerormance = function AveragePerormance(props) {
       },
       tooltip: {
         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b>'
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>'
       }
     };
     var series = {
@@ -4294,6 +4303,7 @@ var AveragePerormance = function AveragePerormance(props) {
       data: []
     };
     name = name.replace(/\s+/g, '').toLowerCase();
+    console.log(data, name);
     Object.keys(data).forEach(function (legend, index) {
       series.data.push({
         name: legend.toUpperCase(),
@@ -4312,7 +4322,6 @@ var AveragePerormance = function AveragePerormance(props) {
 
   (0, react_1.useEffect)(function () {
     if (Object.keys(graphs).length !== 0 && current_geography !== 'national' && graphs[subjectShortCodes[props.name]] !== undefined) {
-      console.log(graphs, subjectShortCodes[props.name]);
       setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'));
       setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'));
       setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'));
@@ -4431,10 +4440,29 @@ var AveragePerormance = function AveragePerormance(props) {
     title: "Average Performance of Students In ".concat(props.name, " In class ").concat(props.grade),
     chartType: currentSection === 'avgperformancecolumn2' ? true : false,
     series: performanceColumn_data2
-  }) : ""))));
+  }) : "")), react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, react_1["default"].createElement(MapTabDropdown_1["default"], {
+    label: "Indicator"
+  })), react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, react_1["default"].createElement(MapTabDropdown_1["default"], {
+    label: "Subgroup"
+  })), react_1["default"].createElement("div", {
+    className: "col-md-12"
+  }, react_1["default"].createElement("div", {
+    className: "apcard-white"
+  }, react_1["default"].createElement("div", {
+    className: "graphcardtab-wrap"
+  }, react_1["default"].createElement(GraphCardTab_1["default"], null), react_1["default"].createElement("div", {
+    className: "tab-content",
+    id: "graphcardtabContent"
+  }, react_1["default"].createElement(GraphCardTabContent_1["default"], null))))))));
 };
 
-exports["default"] = AveragePerormance;
+exports["default"] = AveragePerformance;
 
 /***/ }),
 
@@ -4941,6 +4969,167 @@ exports["default"] = ChartType;
 
 /***/ }),
 
+/***/ "./src/components/Visualization/GraphCardTabContent/GraphCardTabContent.tsx":
+/*!**********************************************************************************!*\
+  !*** ./src/components/Visualization/GraphCardTabContent/GraphCardTabContent.tsx ***!
+  \**********************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Map_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Map/Map */ "./src/components/Visualization/Map/Map.tsx"));
+
+var StateGraph_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Graph/StateGraph */ "./src/components/Visualization/Graph/StateGraph.tsx"));
+
+var SubgroupGraph_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Graph/SubgroupGraph */ "./src/components/Visualization/Graph/SubgroupGraph.tsx"));
+
+var GraphCardTabContent = function GraphCardTabContent() {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+    className: "tab-pane fade show active",
+    id: "state",
+    role: "tabpanel",
+    "aria-labelledby": "state-tab"
+  }, react_1["default"].createElement("div", {
+    className: "gctabcontent-wrap"
+  }, react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-12"
+  }, react_1["default"].createElement("div", {
+    className: "gctabcontent-graph-wrap"
+  }, react_1["default"].createElement(StateGraph_1["default"], null)))))), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "indicator",
+    role: "tabpanel",
+    "aria-labelledby": "indicator-tab"
+  }, react_1["default"].createElement("div", {
+    className: "gctabcontent-wrap"
+  }, react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-12"
+  }, react_1["default"].createElement("div", {
+    className: "gctabcontent-graph-wrap"
+  }, react_1["default"].createElement(Map_1["default"], null)))))), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "subgroup",
+    role: "tabpanel",
+    "aria-labelledby": "subgroup-tab"
+  }, react_1["default"].createElement("div", {
+    className: "gctabcontent-wrap"
+  }, react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-12"
+  }, react_1["default"].createElement("div", {
+    className: "gctabcontent-graph-wrap"
+  }, react_1["default"].createElement(SubgroupGraph_1["default"], null)))))));
+};
+
+exports["default"] = GraphCardTabContent;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/GraphCardTab/GraphCardTab.tsx":
+/*!********************************************************************!*\
+  !*** ./src/components/Visualization/GraphCardTab/GraphCardTab.tsx ***!
+  \********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var equalizer_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/equalizer.svg */ "./src/assets/images/equalizer.svg"));
+
+var speed_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/speed.svg */ "./src/assets/images/speed.svg"));
+
+var file_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/file.svg */ "./src/assets/images/file.svg"));
+
+var GraphCardTab = function GraphCardTab() {
+  return react_1["default"].createElement("ul", {
+    className: "nav nav-tabs",
+    id: "graphcardtab",
+    role: "tablist"
+  }, react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link active",
+    id: "state-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#state",
+    type: "button",
+    role: "tab",
+    "aria-controls": "state",
+    "aria-selected": "true"
+  }, react_1["default"].createElement("img", {
+    src: equalizer_svg_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), " By State")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "indicator-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#indicator",
+    type: "button",
+    role: "tab",
+    "aria-controls": "indicator",
+    "aria-selected": "false"
+  }, react_1["default"].createElement("img", {
+    src: speed_svg_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), " By Indicator")), react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link",
+    id: "subgroup-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#subgroup",
+    type: "button",
+    role: "tab",
+    "aria-controls": "subgroup",
+    "aria-selected": "false"
+  }, react_1["default"].createElement("img", {
+    src: file_svg_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), " By Subgroup")));
+};
+
+exports["default"] = GraphCardTab;
+
+/***/ }),
+
 /***/ "./src/components/Visualization/GraphCard/GraphCard.tsx":
 /*!**************************************************************!*\
   !*** ./src/components/Visualization/GraphCard/GraphCard.tsx ***!
@@ -5188,6 +5377,243 @@ var ScatterGraph = function ScatterGraph() {
 };
 
 exports["default"] = ScatterGraph;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/Graph/StateGraph.tsx":
+/*!***********************************************************!*\
+  !*** ./src/components/Visualization/Graph/StateGraph.tsx ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var highcharts_react_official_1 = __importDefault(__webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js"));
+
+var StateGraph = function StateGraph() {
+  var options = {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: ''
+    },
+    subtitle: {
+      text: ''
+    },
+    accessibility: {
+      announceNewData: {
+        enabled: true
+      }
+    },
+    xAxis: {
+      labels: {
+        rotation: -90
+      },
+      type: 'category'
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    legend: {
+      enabled: false
+    },
+    plotOptions: {
+      series: {
+        borderWidth: 0,
+        dataLabels: {
+          enabled: false,
+          format: '{point.y}'
+        }
+      }
+    },
+    tooltip: {
+      headerFormat: '',
+      pointFormat: '<span style="color:{point.color}">{point.name}</span> <br /> <b>Total: {point.y}</b><br/>'
+    },
+    series: [{
+      // name: "Browsers",
+      colorByPoint: true,
+      data: [{
+        name: "Andhra Pradesh",
+        y: 90,
+        color: "#FD7272"
+      }, {
+        name: "Arunachal Pradesh",
+        y: 60,
+        color: "#FD7272"
+      }, {
+        name: "Assam",
+        y: 20,
+        color: "#FD7272"
+      }, {
+        name: "Bihar",
+        y: 60,
+        color: "#FD7272"
+      }, {
+        name: "Chhattisgarh",
+        y: 40,
+        color: "#FD7272"
+      }, {
+        name: "Goa",
+        y: 30,
+        color: "#FD7272"
+      }, {
+        name: "Gujarat",
+        y: 70,
+        color: "#FD7272"
+      }, {
+        name: "Haryana",
+        y: 70,
+        color: "#FD7272"
+      }, {
+        name: "Himachal Pradesh",
+        y: 90,
+        color: "#FD7272"
+      }, {
+        name: "Jharkhand",
+        y: 40,
+        color: "#FD7272"
+      }, {
+        name: "Karnataka",
+        y: 70,
+        color: "#FD7272"
+      }, {
+        name: "Kerala",
+        y: 60,
+        color: "#FD7272"
+      }, {
+        name: "Madhya Pradesh",
+        y: 10,
+        color: "#FD7272"
+      }, {
+        name: "Manipur",
+        y: 60,
+        color: "#FD7272"
+      }, {
+        name: "Meghalaya",
+        y: 40,
+        color: "#FD7272"
+      }, {
+        name: "Mizoram",
+        y: 30,
+        color: "#FD7272"
+      }, {
+        name: "Nagaland",
+        y: 70,
+        color: "#FD7272"
+      }, {
+        name: "Odisha",
+        y: 90,
+        color: "#FD7272"
+      }]
+    }]
+  };
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(highcharts_react_official_1["default"], {
+    options: options
+  }));
+};
+
+exports["default"] = StateGraph;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/Graph/SubgroupGraph.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/Visualization/Graph/SubgroupGraph.tsx ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var highcharts_react_official_1 = __importDefault(__webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js"));
+
+var SubgroupGraph = function SubgroupGraph() {
+  var options = {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: ''
+    },
+    subtitle: {
+      text: ''
+    },
+    accessibility: {
+      announceNewData: {
+        enabled: true
+      }
+    },
+    xAxis: {
+      type: 'category'
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    legend: {
+      enabled: false
+    },
+    plotOptions: {
+      column: {
+        pointWidth: 25
+      },
+      series: {
+        dataLabels: {
+          enabled: true,
+          format: '{point.y}'
+        }
+      }
+    },
+    tooltip: {
+      headerFormat: '',
+      pointFormat: '<span style="color:{point.color}">{point.name}</span> <br /> <b>Total: {point.y}</b><br/>'
+    },
+    series: [{
+      name: "India",
+      colorByPoint: true,
+      data: [{
+        name: "India",
+        y: 80,
+        color: "#BDC581"
+      }]
+    }]
+  };
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(highcharts_react_official_1["default"], {
+    options: options
+  }));
+};
+
+exports["default"] = SubgroupGraph;
 
 /***/ }),
 
@@ -5569,23 +5995,82 @@ exports["default"] = ScatterPlotTab;
 "use strict";
 
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
 };
 
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var SubjectCard = function SubjectCard(props) {
   var name = props.name,
       class_style = props.class_style,
       count = props.count,
-      image = props.image;
+      image = props.image,
+      geography = props.geography;
+
+  var _ref = (0, react_1.useState)(''),
+      _ref2 = _slicedToArray(_ref, 2),
+      title = _ref2[0],
+      setTitle = _ref2[1];
+
+  var _ref3 = (0, react_1.useState)(''),
+      _ref4 = _slicedToArray(_ref3, 2),
+      subtitle = _ref4[0],
+      setSubTitle = _ref4[1];
+
+  (0, react_1.useEffect)(function () {
+    if (geography == "national") {
+      setSubTitle('out of 500');
+    } else {
+      setSubTitle('Percent');
+    }
+  }, [geography]);
   return react_1["default"].createElement("div", {
     className: "visual-per-card per-card card-".concat(class_style)
   }, react_1["default"].createElement("h2", null, react_1["default"].createElement("img", {
@@ -5601,7 +6086,7 @@ var SubjectCard = function SubjectCard(props) {
     className: "total-no"
   }, count), react_1["default"].createElement("p", {
     className: "title"
-  }, "Percent")), react_1["default"].createElement("div", {
+  }, subtitle)), react_1["default"].createElement("div", {
     className: "per-card-desc"
   }, react_1["default"].createElement("p", {
     className: "title text-start"
@@ -5930,7 +6415,8 @@ var TabContent = function TabContent() {
       name: subject,
       class_style: subject_styles[subject.replace(/\s+/g, '').toLowerCase()],
       count: Object.keys(subject_count).length !== 0 && typeof subject_count !== 'undefined' ? subject_count[subject.replace(/\s+/g, '_').toLowerCase() + '_' + current_geography] : 0,
-      image: subject_icons[subject.replace(/\s+/g, '').toLowerCase()]
+      image: subject_icons[subject.replace(/\s+/g, '').toLowerCase()],
+      geography: current_geography
     }));
   })), current_subjects.map(function (subject, index) {
     return react_1["default"].createElement("div", {
@@ -7567,6 +8053,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/assets/images/equalizer.svg":
+/*!*****************************************!*\
+  !*** ./src/assets/images/equalizer.svg ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/equalizer.svg?241fc9a1dd8c39f6ae217396f11f6378");
+
+/***/ }),
+
+/***/ "./src/assets/images/file.svg":
+/*!************************************!*\
+  !*** ./src/assets/images/file.svg ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/file.svg?edadb5ebd5b72cfb84afae99924e38b6");
+
+/***/ }),
+
 /***/ "./src/assets/images/globe-icon.svg":
 /*!******************************************!*\
   !*** ./src/assets/images/globe-icon.svg ***!
@@ -7699,6 +8215,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/semidonut.png?1cafcf7462e9867412616886c38f1c5b");
+
+/***/ }),
+
+/***/ "./src/assets/images/speed.svg":
+/*!*************************************!*\
+  !*** ./src/assets/images/speed.svg ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/speed.svg?9cf91bd79497e930dea9792480c5d638");
 
 /***/ }),
 
