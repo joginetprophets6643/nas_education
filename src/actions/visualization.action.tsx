@@ -53,8 +53,8 @@ export const getGraphs = (filters: any) => ({
 })
 
 export const getLinkedGraphs = (filters: any) => ({
-    type: constants.CHART_FETCH,
-    payload: http.get('visualization_performance_graph_tbl?filter=' + filters)
+    type: constants.LINKED_CHART_FETCH,
+    payload: http.get('visulization_linked_grph_tbl?filter=' + filters)
 })
 
 export const resetGraphs = () => ({
