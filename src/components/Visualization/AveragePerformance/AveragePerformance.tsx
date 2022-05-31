@@ -2,10 +2,16 @@ import React, { useEffect, useState, useRef } from 'react';
 import GraphCard from '@/components/Visualization/GraphCard/GraphCard';
 import { useSelector } from 'react-redux';
 import { AveragePerformanceProps, IntialStateModel, StoreModel } from '@/models/visualization';
+import GraphCardTab from '@/components/Visualization/GraphCardTab/GraphCardTab';
+import GraphCardTabContent from '@/components/Visualization/GraphCardTabContent/GraphCardTabContent';
+import MapTabDropdown from '../MapTabDropdown/MapTabDropdown';
 
-const AveragePerormance = (props: AveragePerformanceProps) => {
+
+const AveragePerformance = (props: AveragePerformanceProps) => {
     const charts = useSelector<StoreModel>(store => store.charts) as IntialStateModel
+    const linked_charts = useSelector<StoreModel>(store => store.linked_charts) as IntialStateModel
     const [graphs, setGraphs] = useState<any>({})
+    const [linkedGraphs, setLinkedGraphs] = useState<any>({})
     const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
     const [gender_data, setGenderData] = useState<any>({})
     const [management_data, setManagementData] = useState<any>({})
@@ -14,6 +20,10 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
     const [learningoutcome_data, setLearningOutcomeData] = useState<any>({})
     const [performanceColumn_data, setPerformanceColumnData] = useState<any>({})
     const [performanceColumn_data2, setPerformanceColumnData2] = useState<any>({})
+    const [option, setOption] = useState<string>('')
+    const [subOption, setSubOption] = useState<string>('')
+    const [check, setCond] = useState<boolean>(false)
+    const [subCheck, setSubCond] = useState<boolean>(false)
 
     const [performance_level_data, setPerformanceLevelData] = useState<any>({})
     const [currentSection, setCurrentSection] = useState<string>('')
@@ -30,15 +40,17 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
 
 
     useEffect(() => {
-        console.log(charts.data, charts.loading, 'Hii')
-        if (charts.loaded && !charts.loading) {
+        if (charts.loaded) {
             setGraphs(charts.data)
             setCurrentSection('')
         }
-        else {
-            setGraphs({})
-        }
     }, [charts])
+
+    useEffect(() => {
+        if (linked_charts.loaded) {
+            setLinkedGraphs(linked_charts.data)
+        }
+    }, [linked_charts])
 
     const coloumnChartColor = {
         gender: ["#F2744A", "#F2744A"],
@@ -62,9 +74,9 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
         //   if(name === 'management'){
         //       setManagementData(makeSeries(data,name,type))
         //   }
-        // if (name === 'gender') {
-        //     setGenderData(makeSeries(data, name, type))
-        // }
+        //   if(name === 'gender'){
+        //     setGenderData(makeSeries(data,name,type))
+        //   }
         //   if(name === 'socialgroup'){
         //     setSocialGroupData(makeSeries(data,name,type))
         //   }
@@ -103,9 +115,7 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
                     borderWidth: 0,
                     dataLabels: {
                         enabled: true,
-                        formatter: function () {
-                            return this.y != 0 ? this.y + '%' : "";
-                        },
+                        format: '{point.y}'
                     }
                 }
             },
@@ -128,7 +138,7 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
             },
             tooltip: {
                 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b>'
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>'
             },
 
         } as any
@@ -139,6 +149,7 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
             data: []
         } as any
         name = name.replace(/\s+/g, '').toLowerCase()
+        console.log(data, name);
         Object.keys(data).forEach((legend, index) => {
             series.data.push({
                 name: legend.toUpperCase(),
@@ -151,9 +162,39 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
         return chart_details
     }
 
+    const getOption = (option: string) => {
+        setOption((prev: string) => {
+            return option
+        })
+        // console.log(suboption, option, "Hii")
+    }
+    const getSubOption = (option: string) => {
+        setSubOption((prev: string) => {
+            return option
+        })
+        // console.log(suboption, option, "Hii")
+    }
+
+    useEffect(() => {
+        if (option !== '') {
+            setCond(true)
+        }
+        else {
+            setCond(false)
+        }
+    }, [option])
+
+    useEffect(() => {
+        if (subOption !== '') {
+            setSubCond(true)
+        }
+        else {
+            setSubCond(false)
+        }
+    }, [subOption])
+
     useEffect(() => {
         if (Object.keys(graphs).length !== 0 && current_geography !== 'national' && graphs[subjectShortCodes[props.name]] !== undefined) {
-            console.log(graphs, subjectShortCodes[props.name])
             setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'))
             setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'))
             setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'))
@@ -251,9 +292,49 @@ const AveragePerormance = (props: AveragePerformanceProps) => {
                             ""}
                     </div>
                 </div>
+                {props.load_charts ?
+                    <div className="row">
+                        <div className="col-md-6">
+                            <MapTabDropdown label="Indicator" subject={[subjectShortCodes[props.name]]} onChangeOption={getOption} />
+                        </div>
+                        <div className="col-md-6">
+                            {check && <MapTabDropdown label="Subgroup" option={option} keyOptions={linkedGraphs[subjectShortCodes[props.name]][option]} onChangeSubOption={getSubOption} />}
+                        </div>
+                        <div className="col-md-12">
+                            <div className="apcard-white">
+                                <div className="graphcardtab-wrap">
+                                    <GraphCardTab />
+                                    <div className="tab-content" id="graphcardtabContent">
+                                        <GraphCardTabContent charts_data={linkedGraphs[subjectShortCodes[props.name]]} option={option} check={subCheck} subOption={subOption} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    : ""}
+                {/* <div className="row">
+                    <div className="col-md-6">
+                        <MapTabDropdown label="Indicator" />
+                    </div>
+                    <div className="col-md-6">
+                        <MapTabDropdown label="Subgroup" />
+                    </div>
+                    <div className="col-md-12">
+                        <div className="apcard-white">
+                            <div className="graphcardtab-wrap">
+                                <GraphCardTab />
+                                <div className="tab-content" id="graphcardtabContent">
+                                    <GraphCardTabContent />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
             </div>
         </div>
     );
 };
 
-export default AveragePerormance;
+export default AveragePerformance;

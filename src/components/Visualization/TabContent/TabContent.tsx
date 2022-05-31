@@ -8,7 +8,7 @@ import Student from '@/assets/images/brainstorming.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Globe from "@/assets/images/globe-icon.svg";
-import { getCardsData, getGraphs, getSubjectCards, resetGraphs } from '@/actions/visualization.action';
+import { getCardsData, getGraphs, getSubjectCards, resetGraphs, getLinkedGraphs } from '@/actions/visualization.action';
 import { IntialStateModel, ParticipationCards } from '@/models/visualization';
 import { StoreModel } from '@/models/visualization';
 import { ClassSubjects } from '@/models/visualization';
@@ -95,7 +95,7 @@ const TabContent = () => {
     }
     dispatch(getCardsData(JSON.stringify(reusable_filters), fields))
     dispatch(getSubjectCards(JSON.stringify(reusable_filters)))
-    // dispatch(resetGraphs())
+    dispatch(getLinkedGraphs(JSON.stringify(reusable_filters)))
     dispatch(getGraphs(JSON.stringify(reusable_filters)))
     setEncounteredSubject([] as String[])
   }, [grade, current_geography, current_id])
@@ -206,6 +206,7 @@ const TabContent = () => {
               count={Object.keys(subject_count).length !== 0 && typeof (subject_count) !== 'undefined'
                 ? subject_count[((subject.replace(/\s+/g, '_')).toLowerCase() + '_' + current_geography)] : 0}
               image={subject_icons[(subject.replace(/\s+/g, '')).toLowerCase()]}
+              geography={current_geography}
             />
           </div>
         ))}

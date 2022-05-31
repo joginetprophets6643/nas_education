@@ -1473,4 +1473,89 @@ class VisualizationCalculationController extends Controller
     
         
     }
+
+    public function linkedGraphData(){
+        $data=DB::table('visualization_performance_graph_tbl')->get();
+        DB::table('visulization_linked_grph_tbl')->truncate();
+        $state_data=DB::table('visualization_performance_graph_tbl')->where('type','state')->orderBy('state_id','ASC')->get()->groupBy('grade');
+        $avs=['cards'=>['total'],'gender'=>['boys','girls'],'location'=>['rural','urban'],'management'=>['govt','private','govt_aided','central_govt'],'socialgroup'=>['sc','st','general','obc']];
+        $ranges=["below_basic","basic",'proficient','advanced'];
+        $grades=[3,5,8,10];
+        $all_subjects=['3'=>['language','math','evs'],'5'=>['language','math','evs'],'8'=>['language','math','sci','sst'],'10'=>['mil','math','sci','sst','eng']];
+        foreach($grades as $grade){
+                $final_state_data=array();
+                $subjects=$all_subjects[$grade];
+                foreach($subjects as $subject){
+                        $state_temp_data=$state_data[$grade];
+                        foreach($avs as $legend=>$av){
+                                foreach($av as $value){
+                                        $final_state_data[$subject]['avs'][$value]=$this->generate_state_av_data($state_temp_data,$legend,$value,$subject);
+                                        // foreach($state_temp_data as $state){
+                                        //         $district_temp_data=DB::table('visualization_performance_graph_tbl')->where('grade',$grade)->where('state_id',$state->state_id)->get();
+                                        //         dd($state->state_id,$district_temp_data);
+                                        // }
+                                }
+                        }
+                        $final_state_data[$subject]['lo']=$this->generate_state_lo_data($state_temp_data,$subject);
+                        // dd($final_state_data[$subject]);
+                        foreach($ranges as $range){
+                                $final_state_data[$subject]['range'][$range]=$this->generate_state_range_data($state_temp_data,$range,$subject);
+                        }
+                }
+                // if($grade==10){
+                // dd(json_encode($final_state_data));
+                // }             
+                DB::table('visulization_linked_grph_tbl')->insert([
+                        "type"=>"national",
+                        "grade"=>$grade,
+                        "state_id"=>0,
+                        "data"=>json_encode($final_state_data)
+                ]);               
+        }
+        return "All data created sucessfully";
+    }
+
+    public function generate_state_av_data($data,$legend,$value,$subject){
+        $formatted_data=array();
+        foreach($data as $state){
+                $temp_data=json_decode($state->data);
+                $temp_data=$temp_data->$subject;
+                $state_name=DB::table('state_masters')->where('udise_state_code',$state->state_id)->first();
+                // dd($temp_data->$legend->state);
+                if($legend=='cards'){
+                        $formatted_data[$state_name->state_name]=round($temp_data->$legend->state);
+                }else{
+                        $formatted_data[$state_name->state_name]=$temp_data->$legend->state->$value;
+                }
+        }
+        return $formatted_data;
+    }
+
+    public function generate_state_range_data($data,$range,$subject){
+        $formatted_data=array();
+        foreach($data as $state){
+                $temp_data=json_decode($state->data);
+                $temp_data=$temp_data->$subject;
+                // dd($temp_data->$legend->state);
+                $state_name=DB::table('state_masters')->where('udise_state_code',$state->state_id)->first();
+                $formatted_data[$state_name->state_name]=$temp_data->performance_level->state->$range;
+        }
+        return $formatted_data;
+    }
+
+    public function generate_state_lo_data($data,$subject){
+        $formatted_data=array();
+        $lo_codes=array_keys((array)(json_decode($data[0]->data)->$subject->lo));
+        // dd($lo_codes);
+        foreach($lo_codes as $lo){
+                foreach($data as $state){
+                        $temp_data=json_decode($state->data);
+                        $temp_data=$temp_data->$subject;
+                        $temp_data=$temp_data->lo;
+                        $state_name=DB::table('state_masters')->where('udise_state_code',$state->state_id)->first();
+                        $formatted_data[$lo][$state_name->state_name]=$temp_data->$lo;
+                }
+        }
+        return $formatted_data;
+    }
 }
