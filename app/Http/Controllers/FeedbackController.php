@@ -1377,6 +1377,9 @@ class FeedbackController extends Controller
 
     public function getfeedbackdata(){
         $feedbackdata = DB::table('feedback')->orderBy('id','desc')->get();
+        foreach($feedbackdata as $data){
+            $data->created_at = date("d-m-Y h:i:sa", strtotime($data->created_at));
+        }
         return view('admin.feedback.index',compact('feedbackdata'));
     }
 

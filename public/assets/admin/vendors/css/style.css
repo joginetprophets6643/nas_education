@@ -19848,3 +19848,18 @@ a.btn.btn-danger.btn-sm.RTI_delete {
     align-items: center;
     justify-content: space-between;
 }
+
+.dt-buttons {
+    display: flex;
+    justify-content: end;
+    margin: 1rem;
+}
+.dt-button {
+    margin: 2px;
+}
+
+@media print {
+    .table td {
+        white-space: normal;
+    }
+}
