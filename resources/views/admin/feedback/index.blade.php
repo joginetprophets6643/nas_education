@@ -25,9 +25,9 @@
               <th scope="col" width="70px">SL no.</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
-              <th scope="col">Rating</th>
               <th scope="col">Content</th>
               <th scope="col">Feedback</th>
+              <th scope="col">Date</th>
               <!-- <th scope="col" width="200px" class="action Program_action">Actions</th> -->
             </tr>
           </thead>
@@ -38,9 +38,9 @@
               <th scope="row">{{$i++}}</th>
               <td >{{$data->name}}</td>
               <td >{{$data->email}}</td>
-              <td >{{$data->rating}}</td>
               <td >{{$data->content}}</td>
               <td >{{$data->feedback}}</td>
+              <td >{{$data->created_at}}</td>
               
             </tr>
             @endforeach

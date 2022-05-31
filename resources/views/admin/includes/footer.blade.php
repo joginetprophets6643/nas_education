@@ -77,10 +77,35 @@ $('.extra').css('display',"inline-block");
 </script>
     <!-- End custom js for this page -->
     <script src="{{ asset('assets/admin/vendors/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('assets/admin/vendors/js/datatablepdf/dataTables.buttons.min.js')}}"></script>
+    <script src="{{ asset('assets/admin/vendors/js/datatablepdf/jszip.min.js')}}"></script>
+    <script src="{{ asset('assets/admin/vendors/js/datatablepdf/pdfmake.min.js')}}"></script>
+    <script src="{{ asset('assets/admin/vendors/js/datatablepdf/vfs_fonts.js')}}"></script>
+    <script src="{{ asset('assets/admin/vendors/js/datatablepdf/buttons.html5.min.js')}}"></script>
+    <script src="{{ asset('assets/admin/vendors/js/datatablepdf/buttons.print.min.js')}}"></script>
 
-<script>
-    $(document).ready( function () {
-    $('.table').DataTable();
+    <script>
+    // $(document).ready( function () {
+    // $('.table').DataTable({
+    // dom: 'lBfrtip',
+    // buttons: [
+    //   'copy', 'csv', 'excel', 'pdf', 'print', 
+    // ],
+    // } );
+
+    // } );
+    $(document).ready(function() {
+    $('.table').DataTable( {
+        dom: 'lBfrtip',
+        buttons: [
+          'copy', 'csv', 'excel', 'print',
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'A4'
+            }
+        ]
+    } );
 } );
 </script>
 
