@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
+import { useSelector } from 'react-redux';
 import 'react-select-2/dist/css/react-select-2.css';
 import 'react-select-2/dist/js/react-select-2.js';
+import { StoreModel } from '@/models/visualization';
 
 
 // const options = [
@@ -12,29 +14,29 @@ import 'react-select-2/dist/js/react-select-2.js';
 //   ];
 
 const MapTabDropdown = (props: any) => {
+  const grade = useSelector<StoreModel>(store => store.grade.data) as number
   const { label, subject, option, keyOptions } = props
   const [options, setOptions] = useState<any>([])
   const [defaultOption, setdefaultOption] = useState<any>({})
   const [check, setCheck] = useState<boolean>(false)
   let subOpt = {
     "avs": [
-      { value: 'total', label: 'total' },
+      { value: '', label: '' },
     ],
     "lo": [
-      { value: 'total', label: 'total' }
+      { value: '', label: '' }
     ],
     "range": [
-      { value: 'total', label: 'total' }
+      { value: '', label: '' }
     ]
-  }
-  const [optCount, setOptCount] = useState<integer>(0)
-  const [count, setCount] = useState<integer>(0)
+  } as any
+  const [optCount, setOptCount] = useState<number>(0)
+  const [count, setCount] = useState<number>(0)
 
   useEffect(() => {
     if (keyOptions !== undefined) {
       const allSubOtp = Object.keys(keyOptions)
-      let newOpt = [];
-      console.log(allSubOtp)
+      let newOpt: Object[] = [];
       allSubOtp.forEach((item) => {
         newOpt.push({
           label: item,
@@ -103,7 +105,9 @@ const MapTabDropdown = (props: any) => {
 
   useEffect(() => {
     if (option !== undefined && option !== '') {
-      setOptions(subOpt[option])
+      setOptions((previousState: any) => {
+        return subOpt[option]
+      })
       setdefaultOption((previousState: any) => {
         return subOpt[option][0]
       })
@@ -111,6 +115,16 @@ const MapTabDropdown = (props: any) => {
     }
     // console.log(option, "Byee")
   }, [option])
+
+  useEffect(() => {
+    console.log(defaultOption, "")
+  }, [defaultOption])
+
+
+  useEffect(() => {
+    console.log(JSON.stringify(defaultOption), 'dddd')
+
+  }, [])
 
   return (
     <>

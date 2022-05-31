@@ -1478,10 +1478,11 @@ class VisualizationCalculationController extends Controller
         $data=DB::table('visualization_performance_graph_tbl')->get();
         DB::table('visulization_linked_grph_tbl')->truncate();
         $state_data=DB::table('visualization_performance_graph_tbl')->where('type','state')->orderBy('state_id','ASC')->get()->groupBy('grade');
-        $avs=['cards'=>['total'],'gender'=>['boys','girls'],'location'=>['rural','urban'],'management'=>['govt','private','govt_aided','central_govt'],'socialgroup'=>['sc','st','general','obc']];
+        $avs=['cards'=>['total'],'gender'=>['boys','girls'],'location'=>['rural','urban'],'management'=>['govt','govt_aided','private','central_govt'],'socialgroup'=>['general','sc','st','obc']];
         $ranges=["below_basic","basic",'proficient','advanced'];
         $grades=[3,5,8,10];
         $all_subjects=['3'=>['language','math','evs'],'5'=>['language','math','evs'],'8'=>['language','math','sci','sst'],'10'=>['mil','math','sci','sst','eng']];
+        $final=['total'=>'Total','boys'=>'Boys','girls'=>'Girls','rural'=>'Rural','urban'=>'Urban','govt'=>'Government','govt_aided'=>'Goverment Aided','private'=>'Private','central_govt'=>'Central Government','sc'=>'SC','st'=>"ST",'general'=>'General','obc'=>'OBC','below_basic'=>'Below Basic','basic'=>'Basic','proficient'=>'Proficient','advanced'=>'Advanced'];
         foreach($grades as $grade){
                 $final_state_data=array();
                 $subjects=$all_subjects[$grade];
@@ -1489,7 +1490,7 @@ class VisualizationCalculationController extends Controller
                         $state_temp_data=$state_data[$grade];
                         foreach($avs as $legend=>$av){
                                 foreach($av as $value){
-                                        $final_state_data[$subject]['avs'][$value]=$this->generate_state_av_data($state_temp_data,$legend,$value,$subject);
+                                        $final_state_data[$subject]['avs'][$final[$value]]=$this->generate_state_av_data($state_temp_data,$legend,$value,$subject);
                                         // foreach($state_temp_data as $state){
                                         //         $district_temp_data=DB::table('visualization_performance_graph_tbl')->where('grade',$grade)->where('state_id',$state->state_id)->get();
                                         //         dd($state->state_id,$district_temp_data);
@@ -1499,7 +1500,7 @@ class VisualizationCalculationController extends Controller
                         $final_state_data[$subject]['lo']=$this->generate_state_lo_data($state_temp_data,$subject);
                         // dd($final_state_data[$subject]);
                         foreach($ranges as $range){
-                                $final_state_data[$subject]['range'][$range]=$this->generate_state_range_data($state_temp_data,$range,$subject);
+                                $final_state_data[$subject]['range'][$final[$range]]=$this->generate_state_range_data($state_temp_data,$range,$subject);
                         }
                 }
                 // if($grade==10){

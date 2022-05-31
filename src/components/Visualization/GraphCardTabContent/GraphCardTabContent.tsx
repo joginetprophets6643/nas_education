@@ -40,7 +40,7 @@ const GraphCardTabContent = (props: any) => {
             <div className="col-md-12">
 
               <div className="gctabcontent-graph-wrap">
-                <Map />
+                <Map data={data} subOption={subOption} />
               </div>
             </div>
           </div>

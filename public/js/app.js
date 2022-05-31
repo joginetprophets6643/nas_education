@@ -4336,7 +4336,6 @@ var AveragePerformance = function AveragePerformance(props) {
       data: []
     };
     name = name.replace(/\s+/g, '').toLowerCase();
-    console.log(data, name);
     Object.keys(data).forEach(function (legend, index) {
       series.data.push({
         name: legend.toUpperCase(),
@@ -4380,7 +4379,7 @@ var AveragePerformance = function AveragePerformance(props) {
     }
   }, [subOption]);
   (0, react_1.useEffect)(function () {
-    if (Object.keys(graphs).length !== 0 && current_geography !== 'national' && graphs[subjectShortCodes[props.name]] !== undefined) {
+    if (Object.keys(graphs).length !== 0 && graphs[subjectShortCodes[props.name]] !== undefined) {
       setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'));
       setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'));
       setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'));
@@ -4470,35 +4469,6 @@ var AveragePerformance = function AveragePerformance(props) {
     title: "By Learning Outcome",
     chartType: currentSection === 'learning' ? true : false,
     series: learningoutcome_data
-  }) : "")), react_1["default"].createElement("div", {
-    className: "row"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-6"
-  }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
-    type: "map",
-    chartMenu: toggleChartMenu,
-    useDropdown: true,
-    title: "Average Performance of Students In ".concat(props.name, " In class ").concat(props.grade),
-    series: socialgroup_data
-  }) : ""), react_1["default"].createElement("div", {
-    className: "col-md-6"
-  }, props.load_charts ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(GraphCard_1["default"], {
-    chartMenu: toggleChartMenu,
-    useDropdown: true,
-    type: "column",
-    title: "Average Performance of Students In ".concat(props.name, " In class ").concat(props.grade),
-    chartType: currentSection === 'avgperformancecolumn' ? true : false,
-    series: performanceColumn_data
-  })) : "")), react_1["default"].createElement("div", {
-    className: "row"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-12"
-  }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
-    chartMenu: toggleChartMenu,
-    type: "column",
-    title: "Average Performance of Students In ".concat(props.name, " In class ").concat(props.grade),
-    chartType: currentSection === 'avgperformancecolumn2' ? true : false,
-    series: performanceColumn_data2
   }) : "")), props.load_charts ? react_1["default"].createElement("div", {
     className: "row"
   }, react_1["default"].createElement("div", {
@@ -5161,7 +5131,10 @@ var GraphCardTabContent = function GraphCardTabContent(props) {
     className: "col-md-12"
   }, react_1["default"].createElement("div", {
     className: "gctabcontent-graph-wrap"
-  }, react_1["default"].createElement(Map_1["default"], null)))))), react_1["default"].createElement("div", {
+  }, react_1["default"].createElement(Map_1["default"], {
+    data: data,
+    subOption: subOption
+  })))))), react_1["default"].createElement("div", {
     className: "tab-pane fade",
     id: "subgroup",
     role: "tabpanel",
@@ -5973,6 +5946,8 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var react_select_1 = __importDefault(__webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js"));
 
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
 __webpack_require__(/*! react-select-2/dist/css/react-select-2.css */ "./node_modules/react-select-2/dist/css/react-select-2.css");
 
 __webpack_require__(/*! react-select-2/dist/js/react-select-2.js */ "./node_modules/react-select-2/dist/js/react-select-2.js"); // const options = [
@@ -5984,6 +5959,9 @@ __webpack_require__(/*! react-select-2/dist/js/react-select-2.js */ "./node_modu
 
 
 var MapTabDropdown = function MapTabDropdown(props) {
+  var grade = (0, react_redux_1.useSelector)(function (store) {
+    return store.grade.data;
+  });
   var label = props.label,
       subject = props.subject,
       option = props.option,
@@ -6006,16 +5984,16 @@ var MapTabDropdown = function MapTabDropdown(props) {
 
   var subOpt = {
     "avs": [{
-      value: 'total',
-      label: 'total'
+      value: '',
+      label: ''
     }],
     "lo": [{
-      value: 'total',
-      label: 'total'
+      value: '',
+      label: ''
     }],
     "range": [{
-      value: 'total',
-      label: 'total'
+      value: '',
+      label: ''
     }]
   };
 
@@ -6033,7 +6011,6 @@ var MapTabDropdown = function MapTabDropdown(props) {
     if (keyOptions !== undefined) {
       var allSubOtp = Object.keys(keyOptions);
       var newOpt = [];
-      console.log(allSubOtp);
       allSubOtp.forEach(function (item) {
         newOpt.push({
           label: item,
@@ -6104,7 +6081,9 @@ var MapTabDropdown = function MapTabDropdown(props) {
   }, [count]);
   (0, react_1.useEffect)(function () {
     if (option !== undefined && option !== '') {
-      setOptions(subOpt[option]);
+      setOptions(function (previousState) {
+        return subOpt[option];
+      });
       setdefaultOption(function (previousState) {
         return subOpt[option][0];
       });
@@ -6112,6 +6091,12 @@ var MapTabDropdown = function MapTabDropdown(props) {
     } // console.log(option, "Byee")
 
   }, [option]);
+  (0, react_1.useEffect)(function () {
+    console.log(defaultOption, "");
+  }, [defaultOption]);
+  (0, react_1.useEffect)(function () {
+    console.log(JSON.stringify(defaultOption), 'dddd');
+  }, []);
   return react_1["default"].createElement(react_1["default"].Fragment, null, check ? react_1["default"].createElement("div", {
     className: "maptabdropdown-wrap"
   }, react_1["default"].createElement("label", {
@@ -6237,7 +6222,9 @@ var mapDataIE = __webpack_require__(/*! @highcharts/map-collection/countries/in/
 
 (0, map_1["default"])(highcharts_1["default"]);
 
-var Map = function Map() {
+var Map = function Map(props) {
+  var data = props.data,
+      subOption = props.subOption;
   var mapOptions = {
     chart: {
       map: 'countries/in/custom/in-all-disputed'
@@ -6799,19 +6786,19 @@ var TabContent = function TabContent() {
     className: "col-md-4"
   }, react_1["default"].createElement(WhiteCard_1["default"], {
     title: "Number of Schools Sampled",
-    count: school_count,
+    count: school_count.toLocaleString('en-IN'),
     image: building_svg_1["default"]
   })), react_1["default"].createElement("div", {
     className: "col-md-4"
   }, react_1["default"].createElement(WhiteCard_1["default"], {
     title: "Number of Teachers Sampled",
-    count: teachers_count,
+    count: teachers_count.toLocaleString('en-IN'),
     image: professor_svg_1["default"]
   })), react_1["default"].createElement("div", {
     className: "col-md-4"
   }, react_1["default"].createElement(WhiteCard_1["default"], {
     title: "Number of Students Sampled",
-    count: student_count,
+    count: student_count.toLocaleString('en-IN'),
     image: brainstorming_svg_1["default"]
   }))), react_1["default"].createElement("div", {
     className: "row"
