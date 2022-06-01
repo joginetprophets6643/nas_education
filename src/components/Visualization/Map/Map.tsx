@@ -36,7 +36,7 @@ const Map = (props: any) => {
     },
     series: [{
       mapData: mapDataIE,
-      name: 'Random data',
+      name: 'State',
       allowPointSelect: true,
       cursor: 'pointer',
       color: "#9ec2e4",
@@ -50,8 +50,8 @@ const Map = (props: any) => {
         }
       },
       dataLabels: {
-        // enabled: true,
-        // format: '{point.name}'
+        enabled: false,
+        format: subOption
       },
 
     }]

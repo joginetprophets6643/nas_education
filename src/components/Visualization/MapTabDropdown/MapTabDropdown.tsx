@@ -32,11 +32,11 @@ const MapTabDropdown = (props: any) => {
   } as any
   const [optCount, setOptCount] = useState<number>(0)
   const [count, setCount] = useState<number>(0)
+  let newOpt: Object[] = [];
 
   useEffect(() => {
     if (keyOptions !== undefined) {
       const allSubOtp = Object.keys(keyOptions)
-      let newOpt: Object[] = [];
       allSubOtp.forEach((item) => {
         newOpt.push({
           label: item,
@@ -44,18 +44,21 @@ const MapTabDropdown = (props: any) => {
         })
       })
       subOpt[option] = newOpt
+      setdefaultOption((previousState: any) => {
+        return subOpt[option][0]
+      })
     }
   }, [keyOptions])
 
   useEffect(() => {
     if (label == 'Indicator') {
       setOptions([
-        { value: 'avs', label: 'Average Performance of Students in ' + subject + ' in Class 3, Percent' },
-        { value: 'lo', label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class 3, Percent' },
-        { value: 'range', label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class 3, Percent' },
+        { value: 'avs', label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent' },
+        { value: 'lo', label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent' },
+        { value: 'range', label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent' },
       ])
       setdefaultOption((previousState: any) => {
-        return { value: 'avs', label: 'Average Performance of Students in ' + subject + ' in Class 3, Percent' }
+        return { value: 'avs', label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent' }
       })
       setOptCount(1)
     }
@@ -77,7 +80,7 @@ const MapTabDropdown = (props: any) => {
     } else {
       props.onChangeSubOption(event.value)
       setdefaultOption((previousState: any) => {
-        return event.value
+        return event
       })
     }
   }
@@ -113,18 +116,8 @@ const MapTabDropdown = (props: any) => {
       })
       props.onChangeSubOption(subOpt[option][0].value)
     }
-    // console.log(option, "Byee")
+    // console.log(option)
   }, [option])
-
-  useEffect(() => {
-    console.log(defaultOption, "")
-  }, [defaultOption])
-
-
-  useEffect(() => {
-    console.log(JSON.stringify(defaultOption), 'dddd')
-
-  }, [])
 
   return (
     <>
@@ -132,7 +125,11 @@ const MapTabDropdown = (props: any) => {
         check ?
           <div className="maptabdropdown-wrap">
             <label className="maptabdropdown-label">{label}</label>
-            <Select options={options} defaultValue={defaultOption} onChange={changeOption} className="react-select" classNamePrefix="react-select" />
+            {label == "Indicator" && <Select options={options} defaultValue={defaultOption} onChange={changeOption} className="react-select" classNamePrefix="react-select" />}
+            {label == "Indicator:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
+            {label == "Subgroup:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
+            {label == "Sector:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
+            {label == "Subgroup" && <Select options={options} value={defaultOption} onChange={changeOption} className="react-select" classNamePrefix="react-select" />}
           </div>
           :
           ''

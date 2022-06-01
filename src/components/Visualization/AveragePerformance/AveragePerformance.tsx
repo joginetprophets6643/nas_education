@@ -302,9 +302,9 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                         <div className="col-md-12">
                             <div className="apcard-white">
                                 <div className="graphcardtab-wrap">
-                                    <GraphCardTab />
+                                    <GraphCardTab subject={[subjectShortCodes[props.name]]} />
                                     <div className="tab-content" id="graphcardtabContent">
-                                        <GraphCardTabContent charts_data={linkedGraphs[subjectShortCodes[props.name]]} option={option} check={subCheck} subOption={subOption} />
+                                        <GraphCardTabContent subgroup={graphs[subjectShortCodes[props.name]]} charts_data={linkedGraphs[subjectShortCodes[props.name]]} option={option} check={subCheck} subOption={subOption} subject={[subjectShortCodes[props.name]]} />
                                     </div>
                                 </div>
                             </div>

@@ -1476,36 +1476,34 @@ class VisualizationCalculationController extends Controller
 
     public function linkedGraphData(){
         $data=DB::table('visualization_performance_graph_tbl')->get();
-        DB::table('visulization_linked_grph_tbl')->truncate();
+        // ini_set('max_execution_time', '5000');
+        // DB::table('visulization_linked_grph_tbl')->truncate();
         $state_data=DB::table('visualization_performance_graph_tbl')->where('type','state')->orderBy('state_id','ASC')->get()->groupBy('grade');
         $avs=['cards'=>['total'],'gender'=>['boys','girls'],'location'=>['rural','urban'],'management'=>['govt','govt_aided','private','central_govt'],'socialgroup'=>['general','sc','st','obc']];
         $ranges=["below_basic","basic",'proficient','advanced'];
         $grades=[3,5,8,10];
         $all_subjects=['3'=>['language','math','evs'],'5'=>['language','math','evs'],'8'=>['language','math','sci','sst'],'10'=>['mil','math','sci','sst','eng']];
         $final=['total'=>'Total','boys'=>'Boys','girls'=>'Girls','rural'=>'Rural','urban'=>'Urban','govt'=>'Government','govt_aided'=>'Goverment Aided','private'=>'Private','central_govt'=>'Central Government','sc'=>'SC','st'=>"ST",'general'=>'General','obc'=>'OBC','below_basic'=>'Below Basic','basic'=>'Basic','proficient'=>'Proficient','advanced'=>'Advanced'];
+        // $this->linkedGraphDistrictData();
         foreach($grades as $grade){
                 $final_state_data=array();
+                $final_district_data=array();
                 $subjects=$all_subjects[$grade];
                 foreach($subjects as $subject){
                         $state_temp_data=$state_data[$grade];
                         foreach($avs as $legend=>$av){
                                 foreach($av as $value){
                                         $final_state_data[$subject]['avs'][$final[$value]]=$this->generate_state_av_data($state_temp_data,$legend,$value,$subject);
-                                        // foreach($state_temp_data as $state){
-                                        //         $district_temp_data=DB::table('visualization_performance_graph_tbl')->where('grade',$grade)->where('state_id',$state->state_id)->get();
-                                        //         dd($state->state_id,$district_temp_data);
-                                        // }
                                 }
                         }
                         $final_state_data[$subject]['lo']=$this->generate_state_lo_data($state_temp_data,$subject);
-                        // dd($final_state_data[$subject]);
                         foreach($ranges as $range){
                                 $final_state_data[$subject]['range'][$final[$range]]=$this->generate_state_range_data($state_temp_data,$range,$subject);
                         }
                 }
                 // if($grade==10){
                 // dd(json_encode($final_state_data));
-                // }             
+                // }            
                 DB::table('visulization_linked_grph_tbl')->insert([
                         "type"=>"national",
                         "grade"=>$grade,
@@ -1514,6 +1512,43 @@ class VisualizationCalculationController extends Controller
                 ]);               
         }
         return "All data created sucessfully";
+    }
+    public function linkedGraphDistrictData(){
+        $data=DB::table('visualization_performance_graph_tbl')->get();
+        $state_data=DB::table('visualization_performance_graph_tbl')->where('type','state')->orderBy('state_id','ASC')->get()->groupBy('grade');
+        $avs=['cards'=>['total'],'gender'=>['boys','girls'],'location'=>['rural','urban'],'management'=>['govt','govt_aided','private','central_govt'],'socialgroup'=>['general','sc','st','obc']];
+        $ranges=["below_basic","basic",'proficient','advanced'];
+        $grades=[3,5,8,10];
+        $all_subjects=['3'=>['language','math','evs'],'5'=>['language','math','evs'],'8'=>['language','math','sci','sst'],'10'=>['mil','math','sci','sst','eng']];
+        $final=['total'=>'Total','boys'=>'Boys','girls'=>'Girls','rural'=>'Rural','urban'=>'Urban','govt'=>'Government','govt_aided'=>'Goverment Aided','private'=>'Private','central_govt'=>'Central Government','sc'=>'SC','st'=>"ST",'general'=>'General','obc'=>'OBC','below_basic'=>'Below Basic','basic'=>'Basic','proficient'=>'Proficient','advanced'=>'Advanced'];
+        foreach($grades as $grade){
+                $final_district_data=array();
+                $subjects=$all_subjects[$grade];
+                $state_temp_data=$state_data[$grade];
+                foreach($state_temp_data as $state){
+                        foreach($subjects as $subject){                              
+                                $district_temp_data=DB::table('visualization_performance_graph_tbl')->where('grade',$grade)->where('state_id',$state->state_id)->where('district_id','!=',0)->get();
+                                foreach($avs as $legend=>$av){
+                                        foreach($av as $value){
+                                                $final_district_data[$subject]['avs'][$final[$value]]=$this->generate_district_av_data($district_temp_data,$legend,$value,$subject);
+                                        }
+                                }
+                                $final_district_data[$subject]['lo']=$this->generate_district_lo_data($district_temp_data,$subject);
+                                foreach($ranges as $range){
+                                        $final_district_data[$subject]['range'][$final[$range]]=$this->generate_district_range_data($district_temp_data,$range,$subject);
+                                }
+                        }
+                        // dd($final_district_data);
+                        DB::table('visulization_linked_grph_tbl')->insert([
+                        "type"=>"state",
+                        "grade"=>$grade,
+                        "state_id"=>$state->state_id,
+                        "data"=>json_encode($final_district_data)
+                ]); 
+                }           
+                              
+        }
+        return "All District data created sucessfully";
     }
 
     public function generate_state_av_data($data,$legend,$value,$subject){
@@ -1531,7 +1566,33 @@ class VisualizationCalculationController extends Controller
         }
         return $formatted_data;
     }
+    public function generate_district_av_data($data,$legend,$value,$subject){
+        $formatted_data=array();
+        foreach($data as $district){
+                $temp_data=json_decode($district->data);
+                $temp_data=$temp_data->$subject;
+                $district_name=DB::table('district_masters')->where('udise_district_code',$district->district_id)->first();
+                // dd($temp_data->$legend->state);
+                if($legend=='cards'){
+                        $formatted_data[$district_name->district_name]=round($temp_data->$legend->district);
+                }else{
+                        $formatted_data[$district_name->district_name]=$temp_data->$legend->district->$value;
+                }
+        }
+        return $formatted_data;
+    }
 
+    public function generate_district_range_data($data,$range,$subject){
+        $formatted_data=array();
+        foreach($data as $district){
+                $temp_data=json_decode($district->data);
+                $temp_data=$temp_data->$subject;
+                // dd($temp_data->$legend->state);
+                $district_name=DB::table('district_masters')->where('udise_district_code',$district->district_id)->first();
+                $formatted_data[$district_name->district_name]=$temp_data->performance_level->district->$range;
+        }
+        return $formatted_data;
+    }
     public function generate_state_range_data($data,$range,$subject){
         $formatted_data=array();
         foreach($data as $state){
@@ -1555,6 +1616,21 @@ class VisualizationCalculationController extends Controller
                         $temp_data=$temp_data->lo;
                         $state_name=DB::table('state_masters')->where('udise_state_code',$state->state_id)->first();
                         $formatted_data[$lo][$state_name->state_name]=$temp_data->$lo;
+                }
+        }
+        return $formatted_data;
+    }
+    public function generate_district_lo_data($data,$subject){
+        $formatted_data=array();
+        $lo_codes=array_keys((array)(json_decode($data[0]->data)->$subject->lo));
+        // dd($lo_codes);
+        foreach($lo_codes as $lo){
+                foreach($data as $district){
+                        $temp_data=json_decode($district->data);
+                        $temp_data=$temp_data->$subject;
+                        $temp_data=$temp_data->lo;
+                        $district_name=DB::table('district_masters')->where('udise_district_code',$district->district_id)->first();
+                        $formatted_data[$lo][$district_name->district_name]=$temp_data->$lo;
                 }
         }
         return $formatted_data;

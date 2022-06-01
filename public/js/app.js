@@ -4490,14 +4490,18 @@ var AveragePerformance = function AveragePerformance(props) {
     className: "apcard-white"
   }, react_1["default"].createElement("div", {
     className: "graphcardtab-wrap"
-  }, react_1["default"].createElement(GraphCardTab_1["default"], null), react_1["default"].createElement("div", {
+  }, react_1["default"].createElement(GraphCardTab_1["default"], {
+    subject: [subjectShortCodes[props.name]]
+  }), react_1["default"].createElement("div", {
     className: "tab-content",
     id: "graphcardtabContent"
   }, react_1["default"].createElement(GraphCardTabContent_1["default"], {
+    subgroup: graphs[subjectShortCodes[props.name]],
     charts_data: linkedGraphs[subjectShortCodes[props.name]],
     option: option,
     check: subCheck,
-    subOption: subOption
+    subOption: subOption,
+    subject: [subjectShortCodes[props.name]]
   })))))) : ""));
 };
 
@@ -5082,29 +5086,66 @@ var StateGraph_1 = __importDefault(__webpack_require__(/*! @/components/Visualiz
 var SubgroupGraph_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Graph/SubgroupGraph */ "./src/components/Visualization/Graph/SubgroupGraph.tsx"));
 
 var GraphCardTabContent = function GraphCardTabContent(props) {
-  var charts_data = props.charts_data,
+  var subgroup = props.subgroup,
+      charts_data = props.charts_data,
       option = props.option,
       check = props.check,
-      subOption = props.subOption;
+      subOption = props.subOption,
+      subject = props.subject;
 
   var _ref = (0, react_1.useState)({}),
       _ref2 = _slicedToArray(_ref, 2),
       data = _ref2[0],
       setData = _ref2[1];
 
+  var _ref3 = (0, react_1.useState)({}),
+      _ref4 = _slicedToArray(_ref3, 2),
+      subGroupData = _ref4[0],
+      setSubGroupData = _ref4[1];
+
+  var legends = {
+    'total': 'cards',
+    'boys': 'gender',
+    'girls': 'gender',
+    'rural': 'location',
+    'urban': 'location',
+    'government': 'management',
+    'goverment aided': 'management',
+    'private': 'management',
+    'central government': 'management',
+    'sc': 'socialgroup',
+    'st': 'socialgroup',
+    'general': 'socialgroup',
+    'obc': 'socialgroup',
+    'below basic': 'performance_level',
+    'basic': 'performance_level',
+    'proficient': 'performance_level',
+    'advanced': 'performance_level'
+  };
   (0, react_1.useEffect)(function () {
     if (option !== undefined && option !== '') {
-      console.log(charts_data[option], option);
+      // console.log(charts_data[option], option)
       setData(charts_data[option][subOption]);
     } else {
       setData(charts_data['avs']['total']);
     }
   }, [option, check, subOption]);
-  (0, react_1.useEffect)(function () {// console.log(charts_data, 'changed')
-  }, [charts_data]);
+  (0, react_1.useEffect)(function () {
+    if (subOption !== undefined && subOption !== '') {
+      if (legends[subOption.toLowerCase()] !== undefined) {
+        setSubGroupData(function (prevState) {
+          return subgroup[legends[subOption.toLowerCase()]];
+        }); // console.log(subOption.toLowerCase(), subgroup[legends[subOption.toLowerCase()]])
+      } else {
+        setSubGroupData(function (prevState) {
+          return subgroup['lo'];
+        });
+      }
+    }
+  }, [subgroup, subOption]);
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "tab-pane fade show active",
-    id: "state",
+    id: subject + "state",
     role: "tabpanel",
     "aria-labelledby": "state-tab"
   }, react_1["default"].createElement("div", {
@@ -5120,7 +5161,7 @@ var GraphCardTabContent = function GraphCardTabContent(props) {
     subOption: subOption
   })))))), react_1["default"].createElement("div", {
     className: "tab-pane fade",
-    id: "indicator",
+    id: subject + "indicator",
     role: "tabpanel",
     "aria-labelledby": "indicator-tab"
   }, react_1["default"].createElement("div", {
@@ -5136,7 +5177,7 @@ var GraphCardTabContent = function GraphCardTabContent(props) {
     subOption: subOption
   })))))), react_1["default"].createElement("div", {
     className: "tab-pane fade",
-    id: "subgroup",
+    id: subject + "subgroup",
     role: "tabpanel",
     "aria-labelledby": "subgroup-tab"
   }, react_1["default"].createElement("div", {
@@ -5147,7 +5188,10 @@ var GraphCardTabContent = function GraphCardTabContent(props) {
     className: "col-md-12"
   }, react_1["default"].createElement("div", {
     className: "gctabcontent-graph-wrap"
-  }, react_1["default"].createElement(SubgroupGraph_1["default"], null)))))));
+  }, react_1["default"].createElement(SubgroupGraph_1["default"], {
+    data: subGroupData,
+    subOption: subOption
+  })))))));
 };
 
 exports["default"] = GraphCardTabContent;
@@ -5181,7 +5225,8 @@ var speed_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/speed.
 
 var file_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/file.svg */ "./src/assets/images/file.svg"));
 
-var GraphCardTab = function GraphCardTab() {
+var GraphCardTab = function GraphCardTab(props) {
+  var subject = props.subject;
   return react_1["default"].createElement("ul", {
     className: "nav nav-tabs",
     id: "graphcardtab",
@@ -5191,9 +5236,9 @@ var GraphCardTab = function GraphCardTab() {
     role: "presentation"
   }, react_1["default"].createElement("button", {
     className: "nav-link active",
-    id: "state-tab",
+    id: subject + "state-tab",
     "data-bs-toggle": "tab",
-    "data-bs-target": "#state",
+    "data-bs-target": "#" + subject + "state",
     type: "button",
     role: "tab",
     "aria-controls": "state",
@@ -5207,9 +5252,9 @@ var GraphCardTab = function GraphCardTab() {
     role: "presentation"
   }, react_1["default"].createElement("button", {
     className: "nav-link",
-    id: "indicator-tab",
+    id: subject + "indicator-tab",
     "data-bs-toggle": "tab",
-    "data-bs-target": "#indicator",
+    "data-bs-target": "#" + subject + "indicator",
     type: "button",
     role: "tab",
     "aria-controls": "indicator",
@@ -5223,9 +5268,9 @@ var GraphCardTab = function GraphCardTab() {
     role: "presentation"
   }, react_1["default"].createElement("button", {
     className: "nav-link",
-    id: "subgroup-tab",
+    id: subject + "subgroup-tab",
     "data-bs-toggle": "tab",
-    "data-bs-target": "#subgroup",
+    "data-bs-target": "#" + subject + "subgroup",
     type: "button",
     role: "tab",
     "aria-controls": "subgroup",
@@ -5584,9 +5629,9 @@ var StateGraph = function StateGraph(props) {
           y: Number(data[legend])
         });
       });
-    }
+    } // console.log(series.data)
 
-    console.log(series.data);
+
     return series.data;
   };
 
@@ -5755,6 +5800,54 @@ exports["default"] = StateGraph;
 "use strict";
 
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -5765,11 +5858,101 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var highcharts_react_official_1 = __importDefault(__webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js"));
 
-var SubgroupGraph = function SubgroupGraph() {
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var SubgroupGraph = function SubgroupGraph(props) {
+  var data = props.data,
+      subOption = props.subOption;
+
+  var _ref = (0, react_1.useState)({}),
+      _ref2 = _slicedToArray(_ref, 2),
+      final_data = _ref2[0],
+      setData = _ref2[1];
+
+  var current_geography = (0, react_redux_1.useSelector)(function (store) {
+    return store.current_geography.data;
+  });
+  var legends = {
+    'boys': 'boys',
+    'girls': 'girls',
+    'rural': 'rural',
+    'urban': 'urban',
+    'government': 'govt',
+    'goverment aided': 'govt_aided',
+    'private': 'private',
+    'central government': 'central_govt',
+    'sc': 'sc',
+    'st': 'st',
+    'general': 'general',
+    'obc': 'obc',
+    'basic': 'basic',
+    'below basic': 'below_basic',
+    'proficient': 'proficient',
+    'advanced': 'advanced'
+  };
+  (0, react_1.useEffect)(function () {
+    if (data !== undefined && subOption !== undefined && subOption !== '') {
+      if (Object.keys(data).length !== 0) {
+        if (current_geography == 'national') {
+          if (subOption !== 'Total') {
+            if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
+              setData(makeSeries(_defineProperty({}, subOption, data[current_geography][legends[subOption.toLowerCase()]])));
+            } else {
+              setData(makeSeries(_defineProperty({}, subOption, data[subOption])));
+            }
+          } else {
+            setData(makeSeries({
+              India: data[current_geography]
+            }));
+          }
+        } else {
+          if (subOption !== 'Total') {
+            if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
+              var _makeSeries3;
+
+              setData(makeSeries((_makeSeries3 = {}, _defineProperty(_makeSeries3, subOption, data[current_geography][legends[subOption.toLowerCase()]]), _defineProperty(_makeSeries3, "India", data['national'][legends[subOption.toLowerCase()]]), _makeSeries3)));
+            } else {
+              setData(makeSeries(_defineProperty({}, subOption, data[subOption])));
+            }
+          } else {
+            setData(makeSeries({
+              State: data[current_geography],
+              India: data['national']
+            }));
+          }
+        }
+      }
+    } else {
+      setData(makeSeries({}));
+    }
+  }, [data, subOption]);
+
+  var makeSeries = function makeSeries(data) {
+    console.log(data);
+    var series = {
+      name: 'India',
+      colorByPoint: true,
+      data: []
+    };
+
+    if (Object.keys(data).length != 0) {
+      Object.keys(data).forEach(function (legend, index) {
+        series.data.push({
+          name: legend.toUpperCase(),
+          color: "#BDC581",
+          y: Number(data[legend])
+        });
+      });
+    } // console.log(series.data)
+
+
+    return series.data;
+  };
+
   var options = {
     chart: {
       type: 'column'
@@ -5809,16 +5992,20 @@ var SubgroupGraph = function SubgroupGraph() {
     },
     tooltip: {
       headerFormat: '',
-      pointFormat: '<span style="color:{point.color}">{point.name}</span> <br /> <b>Total: {point.y}</b><br/>'
+      // pointFormat: '<span style="color:{point.color}">{point.name}</span> <br /> <b>' + subOption + ': {point.y}</b><br/>'
+      pointFormat: '<b>' + subOption + ': {point.y}</b><br/>'
     },
     series: [{
       name: "India",
       colorByPoint: true,
-      data: [{
-        name: "India",
-        y: 80,
-        color: "#BDC581"
-      }]
+      data: final_data // data: [
+      //     {
+      //         name: "India",
+      //         y: 80,
+      //         color: "#BDC581"
+      //     }
+      // ]
+
     }]
   };
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(highcharts_react_official_1["default"], {
@@ -5857,6 +6044,10 @@ var Tabs_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/
 
 var TabContent_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/TabContent/TabContent */ "./src/components/Visualization/TabContent/TabContent.tsx"));
 
+var MapTab_1 = __importDefault(__webpack_require__(/*! ../MapTab/MapTab */ "./src/components/Visualization/MapTab/MapTab.tsx"));
+
+var ScatterPlotTab_1 = __importDefault(__webpack_require__(/*! ../ScatterPlotTab/ScatterPlotTab */ "./src/components/Visualization/ScatterPlotTab/ScatterPlotTab.tsx"));
+
 var Main = function Main() {
   return react_1["default"].createElement("section", {
     className: "visualization-wrap bg-light-blue"
@@ -5870,7 +6061,13 @@ var Main = function Main() {
     id: "class3",
     role: "tabpanel",
     "aria-labelledby": "class3-tab"
-  }, react_1["default"].createElement(TabContent_1["default"], null)))));
+  }, react_1["default"].createElement(TabContent_1["default"], null)), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "maps"
+  }, react_1["default"].createElement(MapTab_1["default"], null)), react_1["default"].createElement("div", {
+    className: "tab-pane fade",
+    id: "plot"
+  }, react_1["default"].createElement(ScatterPlotTab_1["default"], null)))));
 };
 
 exports["default"] = Main;
@@ -6007,10 +6204,10 @@ var MapTabDropdown = function MapTabDropdown(props) {
       count = _ref10[0],
       setCount = _ref10[1];
 
+  var newOpt = [];
   (0, react_1.useEffect)(function () {
     if (keyOptions !== undefined) {
       var allSubOtp = Object.keys(keyOptions);
-      var newOpt = [];
       allSubOtp.forEach(function (item) {
         newOpt.push({
           label: item,
@@ -6018,24 +6215,27 @@ var MapTabDropdown = function MapTabDropdown(props) {
         });
       });
       subOpt[option] = newOpt;
+      setdefaultOption(function (previousState) {
+        return subOpt[option][0];
+      });
     }
   }, [keyOptions]);
   (0, react_1.useEffect)(function () {
     if (label == 'Indicator') {
       setOptions([{
         value: 'avs',
-        label: 'Average Performance of Students in ' + subject + ' in Class 3, Percent'
+        label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
       }, {
         value: 'lo',
-        label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class 3, Percent'
+        label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent'
       }, {
         value: 'range',
-        label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class 3, Percent'
+        label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent'
       }]);
       setdefaultOption(function (previousState) {
         return {
           value: 'avs',
-          label: 'Average Performance of Students in ' + subject + ' in Class 3, Percent'
+          label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
         };
       });
       setOptCount(1);
@@ -6057,7 +6257,7 @@ var MapTabDropdown = function MapTabDropdown(props) {
     } else {
       props.onChangeSubOption(event.value);
       setdefaultOption(function (previousState) {
-        return event.value;
+        return event;
       });
     }
   };
@@ -6088,22 +6288,37 @@ var MapTabDropdown = function MapTabDropdown(props) {
         return subOpt[option][0];
       });
       props.onChangeSubOption(subOpt[option][0].value);
-    } // console.log(option, "Byee")
+    } // console.log(option)
 
   }, [option]);
-  (0, react_1.useEffect)(function () {
-    console.log(defaultOption, "");
-  }, [defaultOption]);
-  (0, react_1.useEffect)(function () {
-    console.log(JSON.stringify(defaultOption), 'dddd');
-  }, []);
   return react_1["default"].createElement(react_1["default"].Fragment, null, check ? react_1["default"].createElement("div", {
     className: "maptabdropdown-wrap"
   }, react_1["default"].createElement("label", {
     className: "maptabdropdown-label"
-  }, label), react_1["default"].createElement(react_select_1["default"], {
+  }, label), label == "Indicator" && react_1["default"].createElement(react_select_1["default"], {
     options: options,
     defaultValue: defaultOption,
+    onChange: changeOption,
+    className: "react-select",
+    classNamePrefix: "react-select"
+  }), label == "Indicator:" && react_1["default"].createElement(react_select_1["default"], {
+    options: options,
+    defaultValue: defaultOption,
+    className: "react-select",
+    classNamePrefix: "react-select"
+  }), label == "Subgroup:" && react_1["default"].createElement(react_select_1["default"], {
+    options: options,
+    defaultValue: defaultOption,
+    className: "react-select",
+    classNamePrefix: "react-select"
+  }), label == "Sector:" && react_1["default"].createElement(react_select_1["default"], {
+    options: options,
+    defaultValue: defaultOption,
+    className: "react-select",
+    classNamePrefix: "react-select"
+  }), label == "Subgroup" && react_1["default"].createElement(react_select_1["default"], {
+    options: options,
+    value: defaultOption,
     onChange: changeOption,
     className: "react-select",
     classNamePrefix: "react-select"
@@ -6141,7 +6356,7 @@ var MapTabDropdown_1 = __importDefault(__webpack_require__(/*! ../MapTabDropdown
 
 var MapTab = function MapTab() {
   return react_1["default"].createElement("div", {
-    className: "maptab-wrap"
+    className: "maptab-wrap mt-3"
   }, react_1["default"].createElement("div", {
     className: "average-performance-wrap card-blue mb-60"
   }, react_1["default"].createElement("div", {
@@ -6251,7 +6466,7 @@ var Map = function Map(props) {
     },
     series: [{
       mapData: mapDataIE,
-      name: 'Random data',
+      name: 'State',
       allowPointSelect: true,
       cursor: 'pointer',
       color: "#9ec2e4",
@@ -6264,8 +6479,9 @@ var Map = function Map(props) {
           color: '#9ec2e4'
         }
       },
-      dataLabels: {// enabled: true,
-        // format: '{point.name}'
+      dataLabels: {
+        enabled: false,
+        format: subOption
       }
     }]
   };
@@ -6579,10 +6795,6 @@ var globe_icon_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/g
 
 var visualization_action_1 = __webpack_require__(/*! @/actions/visualization.action */ "./src/actions/visualization.action.tsx");
 
-var MapTab_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/MapTab/MapTab */ "./src/components/Visualization/MapTab/MapTab.tsx"));
-
-var ScatterPlotTab_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/ScatterPlotTab/ScatterPlotTab */ "./src/components/Visualization/ScatterPlotTab/ScatterPlotTab.tsx"));
-
 var TabContent = function TabContent() {
   // const current_geography = "national"
   var dispatch = (0, react_redux_1.useDispatch)();
@@ -6633,10 +6845,15 @@ var TabContent = function TabContent() {
       current_subject = _ref12[0],
       setCurremtSubject = _ref12[1];
 
-  var _ref13 = (0, react_1.useState)([]),
+  var _ref13 = (0, react_1.useState)(1),
       _ref14 = _slicedToArray(_ref13, 2),
-      encountered_subject = _ref14[0],
-      setEncounteredSubject = _ref14[1];
+      temp_state_id = _ref14[0],
+      setState = _ref14[1];
+
+  var _ref15 = (0, react_1.useState)([]),
+      _ref16 = _slicedToArray(_ref15, 2),
+      encountered_subject = _ref16[0],
+      setEncounteredSubject = _ref16[1];
 
   var class_subjects = {
     class_3: ['Language', 'Math', 'Evs'],
@@ -6675,8 +6892,28 @@ var TabContent = function TabContent() {
         _eq: grade
       }
     };
+    var temp_reusable_filters = {
+      type: {
+        _eq: current_geography
+      },
+      grade: {
+        _eq: grade
+      }
+    };
+
+    if (current_geography == 'district') {
+      temp_reusable_filters = {
+        type: {
+          _eq: 'state'
+        },
+        grade: {
+          _eq: grade
+        }
+      };
+    }
+
     var participation_filter = {};
-    var performance_filter = {};
+    var performance_filter = {}; // let temp_state_id = 1
 
     if (current_geography === 'national') {
       fields = 'national_schools_count,national_teachers_count,national_students_count'; // performance_filter = {...reusable_filters}
@@ -6688,8 +6925,14 @@ var TabContent = function TabContent() {
         state_id: {
           _eq: current_id
         }
+      });
+      temp_reusable_filters = Object.assign(Object.assign({}, temp_reusable_filters), {
+        state_id: {
+          _eq: current_id
+        }
       }); // performance_filter ={...reusable_filters , state_id: {_eq: current_id}}
 
+      setState(current_id);
       fields = 'state_teachers_count,state_students_count,state_schools_count';
     }
 
@@ -6698,6 +6941,11 @@ var TabContent = function TabContent() {
         district_id: {
           _eq: current_id
         }
+      });
+      temp_reusable_filters = Object.assign(Object.assign({}, temp_reusable_filters), {
+        state_id: {
+          _eq: temp_state_id
+        }
       }); // performance_filter ={...reusable_filters , district_id: {_eq: current_id}}
 
       fields = 'district_schools_count,district_teachers_count,district_students_count';
@@ -6705,7 +6953,7 @@ var TabContent = function TabContent() {
 
     dispatch((0, visualization_action_1.getCardsData)(JSON.stringify(reusable_filters), fields));
     dispatch((0, visualization_action_1.getSubjectCards)(JSON.stringify(reusable_filters)));
-    dispatch((0, visualization_action_1.getLinkedGraphs)(JSON.stringify(reusable_filters)));
+    dispatch((0, visualization_action_1.getLinkedGraphs)(JSON.stringify(temp_reusable_filters)));
     dispatch((0, visualization_action_1.getGraphs)(JSON.stringify(reusable_filters)));
     setEncounteredSubject([]);
   }, [grade, current_geography, current_id]);
@@ -6829,7 +7077,7 @@ var TabContent = function TabContent() {
       grade: grade,
       load_charts: encountered_subject.includes(subject) ? true : false
     })));
-  }), react_1["default"].createElement(MapTab_1["default"], null), react_1["default"].createElement(ScatterPlotTab_1["default"], null));
+  }));
 };
 
 exports["default"] = TabContent;
@@ -6917,7 +7165,7 @@ var Tabs = function Tabs() {
     className: "nav-link",
     id: "class5-tab",
     "data-bs-toggle": "tab",
-    "data-bs-target": "#class5",
+    "data-bs-target": "#class3",
     type: "button",
     role: "tab",
     "aria-controls": "class5",
@@ -6932,7 +7180,7 @@ var Tabs = function Tabs() {
     className: "nav-link",
     id: "class8-tab",
     "data-bs-toggle": "tab",
-    "data-bs-target": "#class8",
+    "data-bs-target": "#class3",
     type: "button",
     role: "tab",
     "aria-controls": "class8",
@@ -6947,7 +7195,7 @@ var Tabs = function Tabs() {
     className: "nav-link",
     id: "class10-tab",
     "data-bs-toggle": "tab",
-    "data-bs-target": "#class10",
+    "data-bs-target": "#class3",
     type: "button",
     role: "tab",
     "aria-controls": "class10",
