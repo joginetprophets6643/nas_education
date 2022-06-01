@@ -21,7 +21,7 @@ const StateGraph = (props: any) => {
             });
         }
 
-        console.log(series.data)
+        // console.log(series.data)
         return series.data
     }
     useEffect(() => {

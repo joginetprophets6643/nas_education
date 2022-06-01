@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
+import { useSelector } from 'react-redux';
 import 'react-select-2/dist/css/react-select-2.css';
 import 'react-select-2/dist/js/react-select-2.js';
+import { StoreModel } from '@/models/visualization';
 
 
 // const options = [
@@ -12,29 +14,29 @@ import 'react-select-2/dist/js/react-select-2.js';
 //   ];
 
 const MapTabDropdown = (props: any) => {
+  const grade = useSelector<StoreModel>(store => store.grade.data) as number
   const { label, subject, option, keyOptions } = props
   const [options, setOptions] = useState<any>([])
   const [defaultOption, setdefaultOption] = useState<any>({})
   const [check, setCheck] = useState<boolean>(false)
   let subOpt = {
     "avs": [
-      { value: 'total', label: 'total' },
+      { value: '', label: '' },
     ],
     "lo": [
-      { value: 'total', label: 'total' }
+      { value: '', label: '' }
     ],
     "range": [
-      { value: 'total', label: 'total' }
+      { value: '', label: '' }
     ]
-  }
-  const [optCount, setOptCount] = useState<integer>(0)
-  const [count, setCount] = useState<integer>(0)
+  } as any
+  const [optCount, setOptCount] = useState<number>(0)
+  const [count, setCount] = useState<number>(0)
+  let newOpt: Object[] = [];
 
   useEffect(() => {
     if (keyOptions !== undefined) {
       const allSubOtp = Object.keys(keyOptions)
-      let newOpt = [];
-      console.log(allSubOtp)
       allSubOtp.forEach((item) => {
         newOpt.push({
           label: item,
@@ -42,18 +44,21 @@ const MapTabDropdown = (props: any) => {
         })
       })
       subOpt[option] = newOpt
+      setdefaultOption((previousState: any) => {
+        return subOpt[option][0]
+      })
     }
   }, [keyOptions])
 
   useEffect(() => {
     if (label == 'Indicator') {
       setOptions([
-        { value: 'avs', label: 'Average Performance of Students in ' + subject + ' in Class 3, Percent' },
-        { value: 'lo', label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class 3, Percent' },
-        { value: 'range', label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class 3, Percent' },
+        { value: 'avs', label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent' },
+        { value: 'lo', label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent' },
+        { value: 'range', label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent' },
       ])
       setdefaultOption((previousState: any) => {
-        return { value: 'avs', label: 'Average Performance of Students in ' + subject + ' in Class 3, Percent' }
+        return { value: 'avs', label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent' }
       })
       setOptCount(1)
     }
@@ -75,7 +80,7 @@ const MapTabDropdown = (props: any) => {
     } else {
       props.onChangeSubOption(event.value)
       setdefaultOption((previousState: any) => {
-        return event.value
+        return event
       })
     }
   }
@@ -103,13 +108,15 @@ const MapTabDropdown = (props: any) => {
 
   useEffect(() => {
     if (option !== undefined && option !== '') {
-      setOptions(subOpt[option])
+      setOptions((previousState: any) => {
+        return subOpt[option]
+      })
       setdefaultOption((previousState: any) => {
         return subOpt[option][0]
       })
       props.onChangeSubOption(subOpt[option][0].value)
     }
-    // console.log(option, "Byee")
+    // console.log(option)
   }, [option])
 
   return (
@@ -118,7 +125,11 @@ const MapTabDropdown = (props: any) => {
         check ?
           <div className="maptabdropdown-wrap">
             <label className="maptabdropdown-label">{label}</label>
-            <Select options={options} defaultValue={defaultOption} onChange={changeOption} className="react-select" classNamePrefix="react-select" />
+            {label == "Indicator" && <Select options={options} defaultValue={defaultOption} onChange={changeOption} className="react-select" classNamePrefix="react-select" />}
+            {label == "Indicator:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
+            {label == "Subgroup:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
+            {label == "Sector:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
+            {label == "Subgroup" && <Select options={options} value={defaultOption} onChange={changeOption} className="react-select" classNamePrefix="react-select" />}
           </div>
           :
           ''

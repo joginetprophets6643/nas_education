@@ -13,7 +13,7 @@ export interface District {
 
 export interface WhiteCardProps {
     title: string;
-    count: number;
+    count: string;
     image: string;
 }
 

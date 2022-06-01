@@ -149,7 +149,6 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
             data: []
         } as any
         name = name.replace(/\s+/g, '').toLowerCase()
-        console.log(data, name);
         Object.keys(data).forEach((legend, index) => {
             series.data.push({
                 name: legend.toUpperCase(),
@@ -194,7 +193,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
     }, [subOption])
 
     useEffect(() => {
-        if (Object.keys(graphs).length !== 0 && current_geography !== 'national' && graphs[subjectShortCodes[props.name]] !== undefined) {
+        if (Object.keys(graphs).length !== 0 && graphs[subjectShortCodes[props.name]] !== undefined) {
             setGenderData(makeSeries(graphs[subjectShortCodes[props.name]]['gender'][current_geography], 'Gender', 'column'))
             setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'))
             setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'))
@@ -267,7 +266,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                             ""}
                     </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-6">
                         {props.load_charts ?
                             <GraphCard type="map" chartMenu={toggleChartMenu} useDropdown={true} title={`Average Performance of Students In ${props.name} In class ${props.grade}`} series={socialgroup_data} />
@@ -291,7 +290,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                             :
                             ""}
                     </div>
-                </div>
+                </div> */}
                 {props.load_charts ?
                     <div className="row">
                         <div className="col-md-6">
@@ -303,9 +302,9 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                         <div className="col-md-12">
                             <div className="apcard-white">
                                 <div className="graphcardtab-wrap">
-                                    <GraphCardTab />
+                                    <GraphCardTab subject={[subjectShortCodes[props.name]]} />
                                     <div className="tab-content" id="graphcardtabContent">
-                                        <GraphCardTabContent charts_data={linkedGraphs[subjectShortCodes[props.name]]} option={option} check={subCheck} subOption={subOption} />
+                                        <GraphCardTabContent subgroup={graphs[subjectShortCodes[props.name]]} charts_data={linkedGraphs[subjectShortCodes[props.name]]} option={option} check={subCheck} subOption={subOption} subject={[subjectShortCodes[props.name]]} />
                                     </div>
                                 </div>
                             </div>
