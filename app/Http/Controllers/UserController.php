@@ -226,7 +226,7 @@ class UserController extends BaseController
         $data='';
 
         if($request->state==''){
-            $data=DataInfo::where('acc_year',$request->acc_year)->where('type','national')->get();
+            $data=DataInfo::where('acc_year','2020-21')->where('type','national')->get();
         }
         elseif($request->district==''){
             $data=DataInfo::where('acc_year',$request->acc_year)->where('type','state')->where('type_id',$request->state)->get();
@@ -234,7 +234,7 @@ class UserController extends BaseController
         else{
             $data=DataInfo::where('acc_year',$request->acc_year)->where('type','district')->where('type_id',$request->district)->get();
         }
-        
+        // dd($data);
         $id=[];
         foreach($data as $item){
             $id[]=$item->id;
@@ -245,7 +245,6 @@ class UserController extends BaseController
             'data_id'=>json_encode($id),
             'purpose'=>$request->purpose,
         ]);
-
         return $data;
     }
 }

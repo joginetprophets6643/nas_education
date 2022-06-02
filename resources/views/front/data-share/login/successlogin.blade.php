@@ -42,10 +42,13 @@
 
                                 <div class="row mt-4">
                                     <div class="form-group col-md-4">
-                                        <label class="form-label">Academic Year <span class="text-danger">*</span></label>
+                                        <label class="form-label">Grade <span class="text-danger">*</span></label>
                                         <select class="form-select form-control" id="acc_year" name="acc_year" required>
-                                        <option value="">Select Academic Year</option> 
-                                        <option value="2020-21">2020-21</option> 
+                                        <option value="">Select Grade</option> 
+                                        <option value="3">Grade 3</option> 
+                                        <option value="5">Grade 5</option> 
+                                        <option value="8">Grade 8</option> 
+                                        <option value="10">Grade 10</option> 
                                         </select>
                                         <span class="text-danger" id="valid_acc_year"></span>
                                     </div>
@@ -184,7 +187,7 @@ function doValidation(){
     let flag3='';
 
     if($('#acc_year').val()==''){
-        $('#valid_acc_year').html("The accademic year field is required.");
+        $('#valid_acc_year').html("The grade field is required.");
         flag1=false
     }
     else{
