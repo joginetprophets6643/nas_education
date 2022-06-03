@@ -144,7 +144,7 @@
                                             <div class="col-xl-8 col-xxl-8">
                                                 <div class="infotab-content light-yellow-bg">
                                                   <h3 class="title">
-                                                    Teachers In Private Unaided Recognized Schools
+                                                    Teachers In Private Un-aided Recognized Schools
                                                   </h3>
                                                   <p class="total-no" id="information_district_private_teacher_class3">
                                                     300

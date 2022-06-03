@@ -3256,9 +3256,9 @@ ul {
 
 .progressbar-circle-lg {
     .progress {
-        width: 230px;
-        height: 230px;
-        line-height: 230px;
+        width: 180px;
+        height: 180px;
+        line-height: 180px;
         background: none;
         margin: 10px auto;
         box-shadow: none;
@@ -7892,6 +7892,7 @@ ul {
                     font-size: 12px;
                     font-weight: 400;
                     text-align: center;
+                    min-width: 100px;
 
                     &:first-child {
                         text-align: left;
@@ -8001,6 +8002,7 @@ ul {
     .table {
         tr {
             th {
+                min-width: auto !important;
                 &:first-child {
                     min-width: auto !important;
                 }

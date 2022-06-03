@@ -18,7 +18,7 @@
                                                     </li>
                                                     
                                                     <li>
-                                                      <div class="category-item"><span class="bg-dark text-white text-center">C</span>Govt.</div>
+                                                      <div class="category-item"><span class="bg-dark text-white text-center">C</span>State Govt.</div>
                                                     </li>
                                                     <li>
                                                       <div class="category-item"><span class="bg-dark text-white text-center">D</span>Govt. Aided</div>
@@ -53,7 +53,7 @@
                                                     <div class="category-item"><span class="card-negative"></span> Negative Difference</div>
                                                   </li>
                                                   <li>
-                                                    <div class="category-item"><span class="card-zero"></span> Differance is not Significant</div>
+                                                    <div class="category-item"><span class="card-zero"></span> Difference is not Significant</div>
                                                   </li>
                                                   <li>
                                                     <div class="category-item"><span class="card-none"></span> Missing Value</div>

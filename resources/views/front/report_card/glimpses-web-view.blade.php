@@ -25,7 +25,9 @@
                                 <div class="row">
                                 <div class="col-md-12">
                                     <div class="glimps-graph">
-                                        <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button>                                                                
+                                        <div class="d-flex justify-content-end">
+                                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button>                                                               
+                                        </div>
                                         <div id="CardsNationalLanguageBarGraph_class3">
                                         </div>
                                         
@@ -44,7 +46,10 @@
                             <div class="row">
                             <div class="col-md-12">
                                 <div class="glimps-graph">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                                    <div class="d-flex justify-content-end">
+                                    <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                                    </div>
+
                                     <div id="CardsNationalMathBarGraph_class3"></div>
                                 </div>
                             </div>
@@ -63,7 +68,9 @@
                             <div class="row">
                             <div class="col-md-12">
                                 <div class="glimps-graph">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards')">Data</button>
+                                    </div>
                                     <div id="CardsNationalEvsBarGraph_class3"></div>
                                 </div>
                             </div>
@@ -92,7 +99,9 @@
                             Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalLanguageBarGraph_class3">
 
                                 </div>  
@@ -105,7 +114,9 @@
                             Mathematics
                         </h2>
                         <div class="glimps-graph-wrap light-pink">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                            </div>
                             <div id="GenderNationalMathBarGraph_class3">
 
                             </div>  
@@ -118,7 +129,9 @@
                             EVS
                         </h2>
                         <div class="glimps-graph-wrap light-yellow">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender')">Data</button>
+                                    </div>
                             <div id="GenderNationalEvsBarGraph_class3">
 
                             </div>  
@@ -145,7 +158,9 @@
                             Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
+                                    </div>
                                 <div id="LocationNationalLanguageBarGraph_class3">
 
                                 </div>  
@@ -158,7 +173,9 @@
                             Mathematics
                         </h2>
                         <div class="glimps-graph-wrap light-pink">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                                    </div>
                             <div id="LocationNationalMathBarGraph_class3">
 
                             </div>        
@@ -171,7 +188,9 @@
                             EVS
                         </h2>
                         <div class="glimps-graph-wrap light-yellow">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','location')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','location')">Data</button>
+                                    </div>
                             <div id="LocationNationalEvsBarGraph_class3">
 
                             </div>    
@@ -198,9 +217,22 @@
                             Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
+                               <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalLanguageBarGraph_class3')" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalLanguageBarGraph_class3')" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalLanguageBarGraph_class3">
 
-                                </div>    
+                                </div>  
+
                             </div>
                             </div>
                         </div>
@@ -210,6 +242,18 @@
                             Mathematics
                         </h2>
                             <div class="glimps-graph-wrap light-pink">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalMathBarGraph_class3')" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalMathBarGraph_class3')" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalMathBarGraph_class3">
 
                                 </div>     
@@ -222,6 +266,18 @@
                             EVS
                         </h2>
                             <div class="glimps-graph-wrap light-yellow">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalEvsBarGraph_class3')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalEvsBarGraph_class3')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                             <div class="glimpse-table table-responsive" id="ManagementNationalEvsBarGraph_class3">
 
                             </div>
@@ -248,6 +304,18 @@
                             Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalLanguageBarGraph_class3')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalLanguageBarGraph_class3')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="SocialNationalLanguageBarGraph_class3">
 
                                 </div>
@@ -260,6 +328,18 @@
                             Mathematics
                         </h2>
                             <div class="glimps-graph-wrap light-pink">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalMathBarGraph_class3')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalMathBarGraph_class3')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                             <div class="glimpse-table table-responsive" id="SocialNationalMathBarGraph_class3">
 
                             </div>
@@ -272,6 +352,18 @@
                             EVS
                         </h2>
                             <div class="glimps-graph-wrap light-yellow">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalEvsBarGraph_class3')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalEvsBarGraph_class3')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                             <div class="glimpse-table table-responsive" id="SocialNationalEvsBarGraph_class3">
 
                             </div>   
@@ -303,7 +395,9 @@
                             Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button>
+                                    </div>
                                 <div id="CardsNationalLanguageBarGraph_class5">
 
                                 </div>
@@ -316,7 +410,9 @@
                             Mathematics
                         </h2>
                         <div class="glimps-graph-wrap light-pink">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                                    </div>
                             <div id="CardsNationalMathBarGraph_class5"></div>
                         </div>
                         </div>
@@ -327,7 +423,9 @@
                             EVS
                         </h2>
                         <div class="glimps-graph-wrap light-yellow">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards')">Data</button>
+                                    </div>
                             <div id="CardsNationalEvsBarGraph_class5"></div>
                         </div>
                         </div>
@@ -352,7 +450,9 @@
                             Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalLanguageBarGraph_class5">
 
                                 </div>  
@@ -365,7 +465,9 @@
                             Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                                    </div>
                             <div id="GenderNationalMathBarGraph_class5">
 
                             </div>  
@@ -378,7 +480,9 @@
                             EVS
                             </h2>
                             <div class="glimps-graph-wrap light-yellow">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','gender')">Data</button>
+                                    </div>
                             <div id="GenderNationalEvsBarGraph_class5">
 
                             </div>  
@@ -405,7 +509,7 @@
                                 Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
                                 <div id="LocationNationalLanguageBarGraph_class5">
 
                                 </div>  
@@ -418,7 +522,9 @@
                             Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                                    </div>
                             <div id="LocationNationalMathBarGraph_class5">
 
                             </div>        
@@ -431,7 +537,9 @@
                             EVS
                             </h2>
                             <div class="glimps-graph-wrap light-yellow">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','location')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','location')">Data</button>
+                                    </div>
                             <div id="LocationNationalEvsBarGraph_class5">
 
                             </div>    
@@ -458,6 +566,18 @@
                                 Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalLanguageBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalLanguageBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalLanguageBarGraph_class5">
 
                                 </div>    
@@ -470,6 +590,18 @@
                             Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalMathBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalMathBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalMathBarGraph_class5">
 
                                 </div>     
@@ -482,6 +614,18 @@
                             EVS
                             </h2>
                             <div class="glimps-graph-wrap light-yellow">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalEvsBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalEvsBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                             <div class="glimpse-table table-responsive" id="ManagementNationalEvsBarGraph_class5">
 
                             </div>
@@ -508,6 +652,18 @@
                                 Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalLanguageBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalLanguageBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="SocialNationalLanguageBarGraph_class5">
 
                                 </div>
@@ -520,6 +676,18 @@
                             Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalMathBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalMathBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                             <div class="glimpse-table table-responsive" id="SocialNationalMathBarGraph_class5">
 
                             </div>
@@ -532,6 +700,18 @@
                             EVS
                             </h2>
                             <div class="glimps-graph-wrap light-yellow">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalEvsBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalEvsBarGraph_class5')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                             <div class="glimpse-table table-responsive" id="SocialNationalEvsBarGraph_class5">
 
                             </div>   
@@ -563,7 +743,9 @@
                                 Language
                             </h2>
                             <div class="glimps-graph-wrap light-blue">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards')">Data</button>
+                                    </div>
                                 <div id="CardsNationalLanguageBarGraph_class8">
 
                                 </div>  
@@ -576,7 +758,9 @@
                             Social Science
                             </h2>
                             <div class="glimps-graph-wrap light-green">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards')">Data</button>
+                                    </div>
                             <div id="CardsNationalSocialBarGraph_class8">
 
                             </div>                                                            
@@ -589,7 +773,9 @@
                             Science
                             </h2>
                             <div class="glimps-graph-wrap light-sagegreen">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards')">Data</button>
+                                    </div>
                             <div id="CardsNationalScienceBarGraph_class8">
 
                             </div>  
@@ -602,7 +788,9 @@
                             Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                                    </div>
                             <div id="CardsNationalMathBarGraph_class8">
 
                             </div>  
@@ -629,7 +817,9 @@
                                     Language
                                 </h2>
                                 <div class="glimps-graph-wrap light-blue">
-                                    <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','gender')">Data</button>
+                                    </div>
                                     <div id="GenderNationalLanguageBarGraph_class8">
 
                                     </div>                                                                  
@@ -642,7 +832,9 @@
                                 Social Science
                                 </h2>
                                 <div class="glimps-graph-wrap light-green">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','gender')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalSocialBarGraph_class8">
 
                                 </div>        
@@ -655,7 +847,9 @@
                                 Science
                                 </h2>
                                 <div class="glimps-graph-wrap light-sagegreen">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','gender')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalScienceBarGraph_class8">
 
                                 </div>      
@@ -668,7 +862,9 @@
                                 Mathematics
                                 </h2>
                                 <div class="glimps-graph-wrap light-pink">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalMathBarGraph_class8">
 
                                 </div>  
@@ -695,7 +891,9 @@
                                     Language
                                 </h2>
                                 <div class="glimps-graph-wrap light-blue">
-                                    <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','location')">Data</button>
+                                    </div>
                                     <div id="LocationNationalLanguageBarGraph_class8">
 
                                     </div> 
@@ -708,7 +906,9 @@
                                 Social Science
                                 </h2>
                                 <div class="glimps-graph-wrap light-green">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','location')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','location')">Data</button>
+                                    </div>
                                 <div id="LocationNationalSocialBarGraph_class8">
 
                                 </div> 
@@ -721,7 +921,9 @@
                                 Science
                                 </h2>
                                 <div class="glimps-graph-wrap light-sagegreen">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','location')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','location')">Data</button>
+                                    </div>
                                 <div id="LocationNationalScienceBarGraph_class8">
 
                                 </div> 
@@ -734,7 +936,9 @@
                                 Mathematics
                                 </h2>
                                 <div class="glimps-graph-wrap light-pink">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                                    </div>
                                 <div id="LocationNationalMathBarGraph_class8">
 
                                 </div> 
@@ -761,6 +965,18 @@
                                     Language
                                 </h2>
                                 <div class="glimps-graph-wrap light-blue">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','ManagementNationalLanguageBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','ManagementNationalLanguageBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                     <div class="glimpse-table table-responsive" id="ManagementNationalLanguageBarGraph_class8">
 
                                     </div> 
@@ -773,6 +989,18 @@
                                 Social Science
                                 </h2>
                                 <div class="glimps-graph-wrap light-green">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalSocialBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalSocialBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalSocialBarGraph_class8">
 
                                 </div> 
@@ -785,6 +1013,18 @@
                                 Science
                                 </h2>
                                 <div class="glimps-graph-wrap light-sagegreen">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalScienceBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalScienceBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalScienceBarGraph_class8">
 
                                 </div> 
@@ -797,6 +1037,18 @@
                                 Mathematics
                                 </h2>
                                 <div class="glimps-graph-wrap light-pink">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','ManagementNationalMathBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','ManagementNationalMathBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalMathBarGraph_class8">
 
                                 </div> 
@@ -823,6 +1075,18 @@
                                     Language
                                 </h2>
                                 <div class="glimps-graph-wrap light-blue">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalLanguageBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalLanguageBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                     <div class="glimpse-table table-responsive" id="SocialNationalLanguageBarGraph_class8">
 
                                     </div> 
@@ -835,6 +1099,18 @@
                                 Social Science
                                 </h2>
                                 <div class="glimps-graph-wrap light-green">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalSocialBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalSocialBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="SocialNationalSocialBarGraph_class8">
 
                                 </div> 
@@ -847,6 +1123,18 @@
                                 Science
                                 </h2>
                                 <div class="glimps-graph-wrap light-sagegreen">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalScienceBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalScienceBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="SocialNationalScienceBarGraph_class8">
 
                                 </div> 
@@ -859,6 +1147,18 @@
                                 Mathematics
                                 </h2>
                                 <div class="glimps-graph-wrap light-pink">
+                                <div class="btn-wrap justify-content-end">
+                                    <button onclick="slidebar('back','SocialNationalMathBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        chevron_left
+                                        </span>
+                                    </button>
+                                    <button onclick="slidebar('next','SocialNationalMathBarGraph_class8')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                        <span class="material-icons-round">
+                                        navigate_next
+                                        </span>
+                                    </button>
+                                </div>
                                 <div class="glimpse-table table-responsive" id="SocialNationalMathBarGraph_class8">
 
                                 </div> 
@@ -890,7 +1190,9 @@
                             MIL
                             </h2>
                             <div class="glimps-graph-wrap light-red">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','cards')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','cards')">Data</button>
+                                    </div>
                                 <div id="CardsNationalMilBarGraph_class10"></div>
                             </div>
                         </div>
@@ -901,7 +1203,9 @@
                             Social Science
                         </h2>
                         <div class="glimps-graph-wrap light-green">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards')">Data</button>
+                                    </div>
                             <div id="CardsNationalSocialBarGraph_class10"></div>
                         </div>
                         </div>
@@ -912,7 +1216,9 @@
                             English
                         </h2>
                         <div class="glimps-graph-wrap light-purple">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','cards')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','cards')">Data</button>
+                                    </div>
                         <div id="CardsNationalEnglishBarGraph_class10"></div>
 
                         </div>
@@ -924,7 +1230,9 @@
                             Science
                         </h2>
                         <div class="glimps-graph-wrap light-sagegreen">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards')">Data</button>
+                                    </div>
                             <div id="CardsNationalScienceBarGraph_class10"></div>
                         </div>
                         </div>
@@ -935,7 +1243,9 @@
                             Mathematics
                         </h2>
                         <div class="glimps-graph-wrap light-pink">
-                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                        <div class="d-flex justify-content-end">
+                        <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards')">Data</button>
+                                    </div>
                             <div id="CardsNationalMathBarGraph_class10"></div>
 
                         </div>
@@ -962,7 +1272,9 @@
                                 MIL
                                 </h2>
                                 <div class="glimps-graph-wrap light-red">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','gender')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','gender')">Data</button>
+                                    </div>
                                     <div id="GenderNationalMilBarGraph_class10">
                                     
                                     </div>
@@ -975,7 +1287,9 @@
                                 Social Science
                             </h2>
                             <div class="glimps-graph-wrap light-green">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalSocialBarGraph_class10">
                                     
                                 </div>
@@ -988,7 +1302,9 @@
                                 English
                             </h2>
                             <div class="glimps-graph-wrap light-purple">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalEnglishBarGraph_class10">
                                         
                                 </div>
@@ -1001,7 +1317,9 @@
                                 Science
                             </h2>
                             <div class="glimps-graph-wrap light-sagegreen">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalScienceBarGraph_class10">
                                         
                                 </div>
@@ -1014,7 +1332,9 @@
                                 Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','gender')">Data</button>
+                                    </div>
                                 <div id="GenderNationalMathBarGraph_class10">
                                         
                                 </div>
@@ -1041,7 +1361,9 @@
                                 MIL
                                 </h2>
                                 <div class="glimps-graph-wrap light-red">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','location')">Data</button>
+                                <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','location')">Data</button>
+                                    </div>
                                 <div id="LocationNationalMilBarGraph_class10">
                                     
                                 </div>
@@ -1054,7 +1376,9 @@
                                 Social Science
                             </h2>
                             <div class="glimps-graph-wrap light-green">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','location')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','location')">Data</button>
+                                    </div>
                             <div id="LocationNationalSocialBarGraph_class10">
                                     
                             </div>
@@ -1067,7 +1391,9 @@
                                 English
                             </h2>
                             <div class="glimps-graph-wrap light-purple">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','location')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','location')">Data</button>
+                                    </div>
                             <div id="LocationNationalEnglishBarGraph_class10">
                                     
                             </div>
@@ -1080,7 +1406,9 @@
                                 Science
                             </h2>
                             <div class="glimps-graph-wrap light-sagegreen">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','location')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','location')">Data</button>
+                                    </div>
                                 <div id="LocationNationalScienceBarGraph_class10">
                                         
                                 </div>
@@ -1093,7 +1421,9 @@
                                 Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
-                                <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                            <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','location')">Data</button>
+                                    </div>
                                 <div id="LocationNationalMathBarGraph_class10">
                                         
                                 </div>
@@ -1120,6 +1450,18 @@
                                 MIL
                                 </h2>
                                 <div class="glimps-graph-wrap light-red">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','ManagementNationalMilBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','ManagementNationalMilBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalMilBarGraph_class10">
                                         
                                 </div>
@@ -1132,6 +1474,18 @@
                                 Social Science
                             </h2>
                             <div class="glimps-graph-wrap light-green">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','ManagementNationalSocialBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','ManagementNationalSocialBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalSocialBarGraph_class10">
                                         
                                 </div>
@@ -1144,6 +1498,18 @@
                                 English
                             </h2>
                             <div class="glimps-graph-wrap light-purple">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','ManagementNationalEnglishBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','ManagementNationalEnglishBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalEnglishBarGraph_class10">
                                         
                                 </div>
@@ -1156,6 +1522,18 @@
                                 Science
                             </h2>
                             <div class="glimps-graph-wrap light-sagegreen">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','ManagementNationalScienceBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','ManagementNationalScienceBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalScienceBarGraph_class10">
                                         
                                 </div>
@@ -1168,6 +1546,18 @@
                                 Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','ManagementNationalMathBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','ManagementNationalMathBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                 <div class="glimpse-table table-responsive" id="ManagementNationalMathBarGraph_class10">
                                         
                                 </div>
@@ -1194,6 +1584,18 @@
                                 MIL
                                 </h2>
                                 <div class="glimps-graph-wrap light-red">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','SocialNationalMilBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','SocialNationalMilBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                 <div class="glimpse-table table-responsive" id="SocialNationalMilBarGraph_class10">
                                         
                                 </div>
@@ -1206,6 +1608,18 @@
                                 Social Science
                             </h2>
                             <div class="glimps-graph-wrap light-green">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','SocialNationalSocialBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','SocialNationalSocialBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                             <div class="glimpse-table table-responsive" id="SocialNationalSocialBarGraph_class10">
                                         
                             </div>
@@ -1218,6 +1632,18 @@
                                 English
                             </h2>
                             <div class="glimps-graph-wrap light-purple">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','SocialNationalEnglishBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','SocialNationalEnglishBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                             <div class="glimpse-table table-responsive" id="SocialNationalEnglishBarGraph_class10">
                                         
                             </div>
@@ -1230,6 +1656,18 @@
                                 Science
                             </h2>
                             <div class="glimps-graph-wrap light-sagegreen">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','SocialNationalScienceBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','SocialNationalScienceBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                 <div class="glimpse-table table-responsive" id="SocialNationalScienceBarGraph_class10">
                                         
                                 </div>
@@ -1242,6 +1680,18 @@
                                 Mathematics
                             </h2>
                             <div class="glimps-graph-wrap light-pink">
+                                    <div class="btn-wrap justify-content-end">
+                                        <button onclick="slidebar('back','SocialNationalMathBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            chevron_left
+                                            </span>
+                                        </button>
+                                        <button onclick="slidebar('next','SocialNationalMathBarGraph_class10')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                            <span class="material-icons-round">
+                                            navigate_next
+                                            </span>
+                                        </button>
+                                    </div>
                                 <div class="glimpse-table table-responsive" id="SocialNationalMathBarGraph_class10">
                                         
                                 </div>
@@ -1280,7 +1730,9 @@
                                         </div>
                                         <div class="glimps-card">
                                             <div class="glimps-graph light-blue">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards',3)">Data</button>                                                                      </h3>
+                                            <div class="d-flex justify-content-end">
+                                            <button class="btn btn-sm org-btn overflow-hidden p-5-15" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards',3)">Data</button>
+                                             </div>
                                             <div id="CardsNational3LanguageBarGraph_classall"></div>
                                             </div>
                                         </div>  
@@ -1293,7 +1745,9 @@
                                         </div>
                                         <div class="glimps-card">
                                             <div class="glimps-graph light-blue">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards',5)">Data</button>
+                                            <div class="d-flex justify-content-end">
+                                            <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards',5)">Data</button>
+                                    </div>
                                             <div id="CardsNational5LanguageBarGraph_classall"></div>
                                             </div>
                                         </div>
@@ -1309,7 +1763,9 @@
                                         </div>
                                         <div class="glimps-card">
                                             <div class="glimps-graph light-blue">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards',8)">Data</button>
+                                            <div class="d-flex justify-content-end">
+                                            <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('language','cards',8)">Data</button>
+                                    </div>
                                                 <div id="CardsNational8LanguageBarGraph_classall"></div>
                                             </div>
                                         </div>
@@ -1331,7 +1787,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-pink">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards',3)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards',3)">Data</button>
+                                    </div>
                                         <div id="CardsNational3MathBarGraph_classall"></div>
 
                                         </div>
@@ -1345,7 +1803,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-pink">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards',5)">Data</button>
+                                            <div class="d-flex justify-content-end">
+                                            <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards',5)">Data</button>
+                                            </div>
                                         <div id="CardsNational5MathBarGraph_classall"></div>
 
                                         </div>
@@ -1362,7 +1822,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-pink">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards',8)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards',8)">Data</button>
+                                            </div>
                                         <div id="CardsNational8MathBarGraph_classall"></div>
 
                                         </div>
@@ -1376,7 +1838,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-pink">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards',10)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('math','cards',10)">Data</button>
+                                            </div>
                                         <div id="CardsNational10MathBarGraph_classall"></div>
 
                                         </div>
@@ -1399,7 +1863,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-yellow">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards',3)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards',3)">Data</button>
+                                            </div>
                                         <div id="CardsNational3EvsBarGraph_classall"></div>
 
                                         </div>
@@ -1413,7 +1879,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-yellow">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards',5)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('evs','cards',5)">Data</button>
+                                            </div>
                                         <div id="CardsNational5EvsBarGraph_classall"></div>
 
                                         </div>
@@ -1436,7 +1904,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-sagegreen">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards',8)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards',8)">Data</button>
+                                            </div>
                                         <div id="CardsNational8ScienceBarGraph_classall"></div>
 
                                         </div>
@@ -1450,7 +1920,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-sagegreen">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards',10)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sci','cards',10)">Data</button>
+                                            </div>
                                         <div id="CardsNational10ScienceBarGraph_classall"></div>
 
                                         </div>
@@ -1473,7 +1945,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-green">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards',8)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards',8)">Data</button>
+                                            </div>
                                         <div id="CardsNational8SocialBarGraph_classall"></div>
 
                                         </div>
@@ -1487,7 +1961,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-green">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards',10)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('sst','cards',10)">Data</button>
+                                            </div>
                                         <div id="CardsNational10SocialBarGraph_classall"></div>
 
                                         </div>
@@ -1510,7 +1986,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-red">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','cards',10)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('mil','cards',10)">Data</button>
+                                            </div>
                                         <div id="CardsNational10MilBarGraph_classall"></div>
 
                                         </div>
@@ -1533,7 +2011,9 @@
                                         </div>
                                         <div class="glimps-card">
                                         <div class="glimps-graph light-purple">
-                                            <button class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','cards',10)">Data</button>
+                                        <div class="d-flex justify-content-end">
+                                        <button class="btn btn-sm org-btn overflow-hidden p-5-15 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getGlimpsesData('eng','cards',10)">Data</button>
+                                            </div>
                                         <div id="CardsNational10EnglishBarGraph_classall"></div>
 
                                         </div>
@@ -1575,11 +2055,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15"
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('language','gender',3)">Data</button>
-                                                                </h3>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15"
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('language','gender',3)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational3LanguageBarGraph_classall"></div>
                                                             </div>
                                                         </div>
@@ -1592,10 +2073,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('language','gender',5)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('language','gender',5)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational5LanguageBarGraph_classall"></div>
                                                             </div>
                                                         </div>
@@ -1611,10 +2094,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('language','gender',8)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('language','gender',8)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational8LanguageBarGraph_classall"></div>
                                                             </div>
                                                         </div>
@@ -1637,10 +2122,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('math','gender',3)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('math','gender',3)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational3MathBarGraph_classall"></div>
 
                                                             </div>
@@ -1654,10 +2141,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('math','gender',5)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('math','gender',5)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational5MathBarGraph_classall"></div>
 
                                                             </div>
@@ -1674,10 +2163,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('math','gender',8)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('math','gender',8)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational8MathBarGraph_classall"></div>
 
                                                             </div>
@@ -1691,10 +2182,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('math','gender',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('math','gender',10)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational10MathBarGraph_classall"></div>
 
                                                             </div>
@@ -1718,10 +2211,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-yellow">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('evs','gender',3)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('evs','gender',3)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational3EvsBarGraph_classall"></div>
 
                                                             </div>
@@ -1735,10 +2230,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-yellow">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('evs','gender',5)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('evs','gender',5)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational5EvsBarGraph_classall"></div>
 
                                                             </div>
@@ -1762,10 +2259,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-sagegreen">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('sci','gender',8)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('sci','gender',8)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational8ScienceBarGraph_classall"></div>
 
                                                             </div>
@@ -1779,10 +2278,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-sagegreen">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('sci','gender',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('sci','gender',10)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational10ScienceBarGraph_classall"></div>
 
                                                             </div>
@@ -1806,10 +2307,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-green">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('sst','gender',8)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('sst','gender',8)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational8SocialBarGraph_classall"></div>
 
                                                             </div>
@@ -1823,10 +2326,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-green">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('sst','gender',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('sst','gender',10)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational10SocialBarGraph_classall"></div>
 
                                                             </div>
@@ -1850,10 +2355,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-red">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('mil','gender',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('mil','gender',10)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational10MilBarGraph_classall"></div>
 
                                                             </div>
@@ -1877,10 +2384,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-purple">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('eng','gender',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('eng','gender',10)">Data</button>
+                                            </div>
                                                                 <div id="GenderNational10EnglishBarGraph_classall"></div>
 
                                                             </div>
@@ -1920,10 +2429,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('language','location',3)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('language','location',3)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational3LanguageBarGraph_classall"></div>
 
                                                             </div>
@@ -1937,10 +2448,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('language','location',5)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('language','location',5)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational5LanguageBarGraph_classall"></div>
 
                                                             </div>
@@ -1957,10 +2470,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('language','location',8)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('language','location',8)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational8LanguageBarGraph_classall"></div>
 
                                                             </div>
@@ -1984,10 +2499,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('math','location',3)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('math','location',3)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational3MathBarGraph_classall"></div>
 
                                                             </div>
@@ -2001,10 +2518,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('math','location',5)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('math','location',5)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational5MathBarGraph_classall"></div>
 
                                                             </div>
@@ -2021,10 +2540,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('math','location',8)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('math','location',8)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational8MathBarGraph_classall"></div>
 
                                                             </div>
@@ -2038,10 +2559,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('math','location',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('math','location',10)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational10MathBarGraph_classall"></div>
 
                                                             </div>
@@ -2065,10 +2588,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-yellow">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('evs','location',3)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('evs','location',3)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational3EvsBarGraph_classall"></div>
 
                                                             </div>
@@ -2082,10 +2607,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-yellow">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('evs','location',5)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('evs','location',5)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational5EvsBarGraph_classall"></div>
 
                                                             </div>
@@ -2109,10 +2636,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-sagegreen">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('sci','location',8)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('sci','location',8)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational8ScienceBarGraph_classall"></div>
 
                                                             </div>
@@ -2126,10 +2655,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-sagegreen">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('sci','location',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('sci','location',10)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational10ScienceBarGraph_classall"></div>
 
                                                             </div>
@@ -2153,10 +2684,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-green">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('sst','location',8)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('sst','location',8)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational8SocialBarGraph_classall"></div>
 
                                                             </div>
@@ -2170,10 +2703,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-green">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('sst','location',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('sst','location',10)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational10SocialBarGraph_classall"></div>
 
                                                             </div>
@@ -2197,10 +2732,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-red">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('mil','location',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('mil','location',10)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational10MilBarGraph_classall"></div>
 
                                                             </div>
@@ -2224,10 +2761,12 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-purple">
-                                                                <button
-                                                                    class="btn btn-sm org-btn float-end m-auto overflow-hidden p-5-15 "
-                                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                                    onclick="getGlimpsesData('eng','location',10)">Data</button>
+                                                            <div class="d-flex justify-content-end">
+                                                            <button
+                                                                class="btn btn-sm org-btn overflow-hidden p-5-15 "
+                                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                                onclick="getGlimpsesData('eng','location',10)">Data</button>
+                                            </div>
                                                                 <div id="LocationNational10EnglishBarGraph_classall"></div>
 
                                                             </div>
@@ -2267,6 +2806,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational3LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational3LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational3LanguageBarGraph_classall"></div>
 
@@ -2281,6 +2832,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational5LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational5LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational5LanguageBarGraph_classall"></div>
 
@@ -2298,6 +2861,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational8LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational8LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational8LanguageBarGraph_classall"></div>
                                                             </div>
@@ -2321,6 +2896,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational3MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational3MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational3MathBarGraph_classall"></div>
 
@@ -2335,6 +2922,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational5MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational5MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational5MathBarGraph_classall"></div>
 
@@ -2352,6 +2951,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational8MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational8MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational8MathBarGraph_classall"></div>
 
@@ -2366,6 +2977,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational10MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational10MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational10MathBarGraph_classall"></div>
 
@@ -2390,6 +3013,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-yellow">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational3EvsBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational3EvsBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational3EvsBarGraph_classall"></div>
 
@@ -2404,6 +3039,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-yellow">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational5EvsBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational5EvsBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational5EvsBarGraph_classall"></div>
 
@@ -2428,6 +3075,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-sagegreen">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational8ScienceBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational8ScienceBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational8ScienceBarGraph_classall"></div>
 
@@ -2442,6 +3101,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-sagegreen">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational10ScienceBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational10ScienceBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational10ScienceBarGraph_classall"></div>
 
@@ -2466,6 +3137,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-green">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational8SocialBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational8SocialBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational8SocialBarGraph_classall"></div>
 
@@ -2480,6 +3163,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-green">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational10SocialBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational10SocialBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational10SocialBarGraph_classall"></div>
 
@@ -2504,6 +3199,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-red">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational10MilBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational10MilBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational10MilBarGraph_classall"></div>
 
@@ -2528,6 +3235,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-purple">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','ManagementNational10EnglishBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','ManagementNational10EnglishBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="ManagementNational10EnglishBarGraph_classall"></div>
 
@@ -2568,6 +3287,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational3LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational3LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational3LanguageBarGraph_classall"></div>
 
@@ -2582,6 +3313,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational5LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational5LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational5LanguageBarGraph_classall"></div>
 
@@ -2599,6 +3342,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-blue">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational8LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational8LanguageBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational8LanguageBarGraph_classall"></div>
 
@@ -2623,6 +3378,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational3MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational3MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational3MathBarGraph_classall"></div>
 
@@ -2637,6 +3404,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational5MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational5MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational5MathBarGraph_classall"></div>
 
@@ -2654,6 +3433,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational8MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational8MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational8MathBarGraph_classall"></div>
 
@@ -2668,6 +3459,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-pink">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational10MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational10MathBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational10MathBarGraph_classall"></div>
 
@@ -2692,6 +3495,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-yellow">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational3EvsBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational3EvsBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational3EvsBarGraph_classall"></div>
 
@@ -2706,6 +3521,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-yellow">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational5EvsBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational5EvsBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational5EvsBarGraph_classall"></div>
 
@@ -2730,6 +3557,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-sagegreen">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational8ScienceBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational8ScienceBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational8ScienceBarGraph_classall"></div>
 
@@ -2744,6 +3583,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-sagegreen">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational10ScienceBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational10ScienceBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational10ScienceBarGraph_classall"></div>
 
@@ -2768,6 +3619,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-green">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational8SocialBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational8SocialBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational8SocialBarGraph_classall"></div>
 
@@ -2782,6 +3645,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-green">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational10SocialBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational10SocialBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational10SocialBarGraph_classall"></div>
 
@@ -2806,6 +3681,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-red">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational10MilBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational10MilBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational10MilBarGraph_classall"></div>
 
@@ -2830,6 +3717,18 @@
                                                         </div>
                                                         <div class="glimps-card">
                                                             <div class="glimps-graph light-purple">
+                                                                <div class="btn-wrap justify-content-end">
+                                                                    <button onclick="slidebar('back','SocialNational10EnglishBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        chevron_left
+                                                                        </span>
+                                                                    </button>
+                                                                    <button onclick="slidebar('next','SocialNational10EnglishBarGraph_classall')" class="org-btn btn btn-sm mb-2" class="org-btn btn btn-sm mb-2" type="button">
+                                                                        <span class="material-icons-round">
+                                                                        navigate_next
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
                                                                 <div class="glimpse-table table-responsive"
                                                                     id="SocialNational10EnglishBarGraph_classall"></div>
 
@@ -3003,13 +3902,32 @@ let subjects_full_names ={
         }
 
         const section_legends = {
-        cards:["Substantially above national average", "Not substantially different from the national average" , "Substantially below national average"],
-        gender:["No significant difference between Boys and Girls","Boys perform significantly better than Girls","Girls perform significantly better than Boys"],
-        location:["No significant difference between Rural and Urban","Rural perform significantly better than Urban","Urban perform significantly better than Rural"],
-        management:["No significant difference between Govt. and Govt. Aided","Govt. perform significantly better than Govt. Aided","Govt. Aided perform significantly better than Govt."],
-        socialgroup:["No significant difference between Govt. and Govt. Aided","Govt. perform significantly better than Govt. Aided","Govt. Aided perform significantly better than Govt."],
-
-        }
+            cards: [
+            "Substantially below National average",
+            "Not substantially different from the National average",
+            "Substantially above National average",
+            ],
+            gender: [
+            "Boys perform significantly better than Girls",
+            "No significant difference between Boys and Girls",
+            "Girls perform significantly better than Boys",
+            ],
+            location: [
+            "Urban perform significantly better than Rural",
+            "No significant difference between Rural and Urban",
+            "Rural perform significantly better than Urban",
+            ],
+            management: [
+            "No significant difference between Govt. and Govt. Aided",
+            "Govt. perform significantly better than Govt. Aided",
+            "Govt. Aided perform significantly better than Govt.",
+            ],
+            socialgroup: [
+            "No significant difference between Govt. and Govt. Aided",
+            "Govt. perform significantly better than Govt. Aided",
+            "Govt. Aided perform significantly better than Govt.",
+            ],
+        };
         sections.forEach(section=>{
         let where = ''
         graphs.forEach(sub=>{
@@ -3539,5 +4457,44 @@ function generateIndictor(category) {
   return innerHtml;
 
 }
+
+// achievement table slider starts
+
+
+$('#slideNext').click(()=>{
+    var achTable = document.getElementById('ManagementNationalLanguageBarGraph_class3');
+    sideScroll(achTable,'right',25,100,10);
+});
+
+$('#slideBack').click(()=>{
+    var achTable = document.getElementById('ManagementNationalLanguageBarGraph_class3');
+    sideScroll(achTable,'left',25,100,10);
+});
+
+function sideScroll(element,direction,speed,distance,step){
+    scrollAmount = 0;
+    var slideTimer = setInterval(function(){
+        if(direction == 'left'){
+            element.scrollLeft -= step;
+        } else {
+            element.scrollLeft += step;
+        }
+        scrollAmount += step;
+        if(scrollAmount >= distance){
+            window.clearInterval(slideTimer);
+        }
+    }, speed);
+}
+
+function slidebar(type,id){
+    var achTable = document.getElementById(id);
+    if(type=='next'){
+        sideScroll(achTable,'right',25,100,10);
+    }
+    else{
+        sideScroll(achTable,'left',25,100,10);
+    }
+}
+// achievement table slider ends
 
 </script>

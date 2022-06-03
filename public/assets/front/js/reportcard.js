@@ -66,7 +66,7 @@ const entities = {
   rural: "Rural",
   state_average: "State Average",
   national_average: "National Average",
-  trans_gender: "Trans Gender",
+  trans_gender: "Transgender",
 };
 
 // geography wise screen
