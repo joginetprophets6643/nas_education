@@ -17,6 +17,10 @@ use App\Models\DataInfo;
 use App\Models\UserInfo;
 use App\Models\District_Master;
 use Illuminate\Support\Facades\Validator;
+use App\Exports\NASDataExport;
+use App\Exports\NASSheetExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\Exportablep;
 
 class UserController extends BaseController
 {
@@ -222,29 +226,96 @@ class UserController extends BaseController
     }
 
     public function getData(Request $request){
+        $grades=['3','5','8','10'];
+        
+        $table='';
+        $files=[];
+        
+        if($request->type=='national'){
+            // $data=DataInfo::where('acc_year','2020-21')->where('type','national')->get();
 
-        $data='';
+            if($request->acc_year=="all"){
+                foreach($grades as $grade){
+                    $sheet=[];
+                    $table='grade'.$grade.'nationaltable';
+                    $sheet[]=DB::getSchemaBuilder()->getColumnListing($table);
+                    $sheet[]=DB::table($table)->get()->toArray();
+                    $data[]=$sheet;
+                }
+                return Excel::download(new NASSheetExport($data), 'grade.xlsx');
 
-        if($request->state==''){
-            $data=DataInfo::where('acc_year','2020-21')->where('type','national')->get();
+            }else{
+                $table='grade'.$request->acc_year.'nationaltable';
+                $data[]=DB::getSchemaBuilder()->getColumnListing($table);
+                $data[]=DB::table($table)->get()->toArray();
+            }
+
         }
-        elseif($request->district==''){
-            $data=DataInfo::where('acc_year',$request->acc_year)->where('type','state')->where('type_id',$request->state)->get();
+        elseif($request->type=='state'){
+            if($request->acc_year=="all"){
+                foreach($grades as $grade){
+                    $sheet=[];
+                    $table='grade'.$grade.'statetable';
+                    $sheet[]=DB::getSchemaBuilder()->getColumnListing($table);
+                    if($request->state=="all"){
+                    $sheet[]=DB::table($table)->get()->toArray();
+                    }else{
+                    $sheet[]=DB::table($table)->where('state_code',$request->state)->get()->toArray();
+                    }
+                    $data[]=$sheet;
+                }
+                return Excel::download(new NASSheetExport($data), 'grade.xlsx');
+
+            }else{
+                $table='grade'.$request->acc_year.'statetable';
+                $data[]=DB::getSchemaBuilder()->getColumnListing($table);
+                if($request->state=="all"){
+                $data[]=DB::table($table)->get()->toArray();
+                }else{
+                $data[]=DB::table($table)->where('state_code',$request->state)->get()->toArray();
+                }
+            }
+            
         }
         else{
-            $data=DataInfo::where('acc_year',$request->acc_year)->where('type','district')->where('type_id',$request->district)->get();
+            if($request->acc_year=='all'){
+                foreach($grades as $grade){
+                    $sheet=[];
+                    $table='grade'.$grade.'districttable';
+                    $sheet[]=DB::getSchemaBuilder()->getColumnListing($table);
+                    if($request->district=="all"){
+                    $sheet[]=DB::table($table)->where('state_code',$request->state)->get()->toArray();
+                    }else{
+                    $sheet[]=DB::table($table)->where('dist_code',$request->district)->get()->toArray();
+                    }
+                    $data[]=$sheet;
+                }
+                return Excel::download(new NASSheetExport($data), 'grade.xlsx');
+            }
+            else{
+                $table='grade'.$request->acc_year.'districttable';
+                $data[]=DB::getSchemaBuilder()->getColumnListing($table);
+                if($request->district=="all"){
+                $data[]=DB::table($table)->where('state_code',$request->state)->get()->toArray();
+                }else{
+                $data[]=DB::table($table)->where('dist_code',$request->district)->get()->toArray();
+                }
+            }
+            
         }
-        // dd($data);
-        $id=[];
-        foreach($data as $item){
-            $id[]=$item->id;
-        }
+        
+        return Excel::download(new NASDataExport($data,'grade'.$request->acc_year), 'grade.xlsx');
+        // dd($excel,$data);
+        // $id=[];
+        // foreach($data as $item){
+        //     $id[]=$item->id;
+        // }
 
-        UserInfo::insert([
-            'user_id'=>Auth::user()->id,
-            'data_id'=>json_encode($id),
-            'purpose'=>$request->purpose,
-        ]);
-        return $data;
+        // UserInfo::insert([
+        //     'user_id'=>Auth::user()->id,
+        //     'data_id'=>json_encode($id),
+        //     'purpose'=>$request->purpose,
+        // ]);
+        // return $data;
     }
 }

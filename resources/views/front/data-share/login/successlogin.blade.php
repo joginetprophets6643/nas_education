@@ -41,6 +41,18 @@
                             <form>
 
                                 <div class="row mt-4">
+
+                                    <div class="form-group col-md-4">
+                                        <label class="form-label">Type <span class="text-danger">*</span></label>
+                                        <select class="form-select form-control" id="type" name="type" required>
+                                        <option value="">Select Type</option> 
+                                        <option value="national">National Report Card</option> 
+                                        <option value="state">State Report Card</option> 
+                                        <option value="district">District Report Card</option> 
+                                        </select>
+                                        <span class="text-danger" id="valid_type"></span>
+                                    </div>
+
                                     <div class="form-group col-md-4">
                                         <label class="form-label">Grade <span class="text-danger">*</span></label>
                                         <select class="form-select form-control" id="acc_year" name="acc_year" required>
@@ -49,18 +61,21 @@
                                         <option value="5">Grade 5</option> 
                                         <option value="8">Grade 8</option> 
                                         <option value="10">Grade 10</option> 
+                                        <option value="all">All Grade</option> 
                                         </select>
                                         <span class="text-danger" id="valid_acc_year"></span>
                                     </div>
 
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-4 d-list" id="state_col">
                                         <label class="form-label">State</label>
-                                        <select class="form-select form-control" name="state" id="state">
-                                            <option value="" class="example">State</option>
+                                        <select class="form-select form-control" name="state" id="state" disabled>
+                                            <option value="" class="example">Select State</option>
+                                            <option value="all" class="all_state">All State</option>
                                             @foreach($states as $state)
-                                            <option value="{{$state->state_id}}" class="example">{{$state->state_name}}</option>
+                                            <option value="{{$state->udise_state_code}}" class="example">{{$state->state_name}}</option>
                                             @endforeach
                                         </select>
+                                        <span class="text-danger" id="valid_state"></span>
                                         @error('state')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -74,6 +89,7 @@
                                         <span class="text-danger" id="valid_district"></span>
                                     </div>
                                 </div>
+
 
                                 <div class="form-group col-md-12 mt-4">
                                     <label class="form-label">Purpose <span class="text-danger">*</span></label><br>
@@ -182,32 +198,54 @@ let districts = ''
 
 function doValidation(){
 
-    let flag1='';
-    let flag2='';
-    let flag3='';
+    let flag=[];
 
     if($('#acc_year').val()==''){
         $('#valid_acc_year').html("The grade field is required.");
-        flag1=false
+        flag.push(false)
     }
     else{
         $('#valid_acc_year').html("");
-        flag1=true
+        flag.push(true)
+    }
+
+    if($('#type').val()==''){
+        $('#valid_type').html("The type field is required.");
+        flag.push(false)
+    }
+    else{
+        $('#valid_type').html("");
+        flag.push(true)
     }
 
     if(!$('#ajax_districts').is(':disabled')){
         const value=$('#ajax_districts').val()
         if(value==''){
         $('#valid_district').html("The district field is required.");
-        flag2 = false
+        flag.push(false)
         }
         else{
             $('#valid_district').html("");
-            flag2= true
+            flag.push(true)
         }
     }
     else{
-        flag2= true
+        flag.push(true)
+    }
+
+    if(!$('#state').is(':disabled')){
+        const value=$('#state').val()
+        if(value==''){
+        $('#valid_state').html("The state field is required.");
+        flag.push(false)
+        }
+        else{
+            $('#valid_state').html("");
+            flag.push(true)
+        }
+    }
+    else{
+        flag.push(true)
     }
 
     const text=$('#purpose').val()
@@ -217,65 +255,94 @@ function doValidation(){
     if(len<=50)
     {
         $('#valid_purpose').html("Must be equal to & greater than 50 characters.");
-        flag3=false
+        flag.push(false)
     }
     else if(format.test(text)){
         $('#valid_purpose').html("Special characters not allowed.");
-        flag3=false
+        flag.push(false)
     }
     else{
         $('#valid_purpose').html("");
-        flag3=true
+        flag.push(true)
     }
 
     if(!$('#term-cons').is(":checked")){
         // $('#termsAlert').modal('show');
         alert('Please agree to the terms given below.')
     }
-
-    return flag1 && flag2 && flag3
+    return flag.includes(false)
     
 }
+$('#type').change((e)=>{
+    $('.file-section').css('display','none');
+    $('#get_files').css('display','block')
+    let value=e.target.value;
+    if(value!='national' && value!=''){
+        if(value=='district'){
+            $('.all_state').addClass('d-list')
+        }
+        else{
+            $('.all_state').removeClass('d-list')
+            $('#districts').addClass('d-list')
+            $('#ajax_districts').prop('disabled',true)
+            $('#districts').addClass('mt-4')
 
+        }
+        $('#state').val('')
+        $('#state_col').removeClass('d-list')
+        $("#state").prop('disabled',false)
+    }
+    else{       
+        $('#state_col').addClass('d-list')
+        $("#state").prop('disabled')
+        $('#districts').addClass('d-list')
+        $('#ajax_districts').prop('disabled',true)
+        $('#districts').removeClass('mt-4')
+    }
+})
 
 $('#state').change((e)=>{
-
+    $('.file-section').css('display','none');
+    $('#get_files').css('display','block')
     $('#ajax_districts').empty();
     $('#ajax_districts').append('<option value="">District</option>')
     let id = e.target.value;
 
-    if(id==''){
-        $('#districts').css('display','none')
-        $('#ajax_districts').prop('disabled',true)
+    if(id=='' || $('#type').val()!=='district'){
+        $('#districts').addClass('d-list')
+        $('#ajax_districts').prop('disabled',true)     
     }
     else{
         
-        $('#stateChange').modal('show');
+        // $('#stateChange').modal('show');
 
 
-        $('#y_btn').click(()=>{
-            $('#districts').css('display','block')
+        // $('#y_btn').click(()=>{
+            $('#districts').removeClass('d-list')
             $('#ajax_districts').prop('disabled',false)
+            $('#districts').addClass('mt-4')
 
             let dis = districts.filter(function(districts){
-                return districts.state_id==id;
+                return districts.udise_state_code==id;
             })
             $('#ajax_districts').empty();
-            $('#ajax_districts').append('<option value="">District</option>')
+            $('#ajax_districts').append('<option value="">Select District</option>')
+            $('#ajax_districts').append('<option value="all">All District</option>')
 
 
             dis=dis.sort((a, b) => a.district_name.localeCompare(b.district_name))
             dis.forEach((item)=>{
-                $('#ajax_districts').append(`<option value="${item.district_id}">
+                $('#ajax_districts').append(`<option value="${item.udise_district_code}">
                     ${item.district_name}
                 </option>`);
             })
-        })
+            
+        // })
 
-        $('#n_btn').click(()=>{
-            $('#districts').css('display','none')
-            $('#ajax_districts').prop('disabled',true)
-        })
+        // $('#n_btn').click(()=>{
+        //     $('#districts').css('display','none')
+        //     $('#ajax_districts').prop('disabled',true)
+        // })
 
 
     }
@@ -287,7 +354,12 @@ $('#state').change((e)=>{
 $('#ajax_districts').change(()=>{
     
     $('.file-section').css('display','none');
-
+    $('#get_files').css('display','block')
+})
+$('#acc_year').change(()=>{
+    
+    $('.file-section').css('display','none');
+    $('#get_files').css('display','block')
 })
 
 $('#get_files').click(()=>{
@@ -300,70 +372,100 @@ $('#get_files').click(()=>{
 
 
     let flag=doValidation()
-
-    if($('#term-cons').is(":checked") && flag){
+    if($('#term-cons').is(":checked") && !flag){
 
         $.ajax({
+        xhrFields: {
+            responseType: 'blob',
+        },
         type: "POST",
         data: data,
         headers: {'X-CSRF-TOKEN': "{{ csrf_token() }}"},
         url: base_url + 'data-share/get-files',
         success: function (data) {
-            
-            let list = document.getElementById("file-list");
-            let desc_list=document.getElementById("description-list");
-
-            $('#file-list').empty()
-            $('#description-list').empty()
-
-            if(data.length){
-
-            data.forEach((item)=>{
-            let li = document.createElement("li");
-            let desc_li = document.createElement("li");
-            const i = document.createElement('i');
-            const a = document.createElement('a');
-            const div1 = document.createElement('div');
-            const div2 = document.createElement('div');
-            const div3 = document.createElement('div');
-            const div4 = document.createElement('div');
-            i.className = "fa fa-download";
-
-            div1.innerText = item.file_title + ' ';
-            
-
-            a.href= base_url + 'assets/uploads/data_share/' + item.file_name
-            a.setAttribute('target','_blank')
-            a.appendChild(i)
-
-            li.appendChild(div1);
-            div2.appendChild(a);
-            li.appendChild(div2);
-            list.appendChild(li);
-
-            div3.innerText = item.file_title+' :'
-            div3.className="col-md-1"
-            div4.innerText=item.file_description
-            desc_li.appendChild(div3)
-            desc_li.appendChild(div4)
-            desc_list.appendChild(desc_li);
-            })
-
-            $('.file-section').css('display','block');
-            $('#downloadSchema').css('display','block');
-            }
-            else{
-
-                let li = document.createElement("li");
+            // console.log(data)
+            // data=JSON.parse(data)
+            // data.forEach((file)=>{
+            //     console.log(file,"HII")
+            //     var blob = new Blob([file], {
+            //         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            //     });
+                var link = document.createElement('a');
+                link.text="Here click to download your file"
+                link.href = window.URL.createObjectURL(data);
+                link.download = `data.xlsx`;
+                link.click()
+                $('#get_files').css('display','none')
+                let desc_list=document.getElementById("description-list");
+                $('#description-list').empty()
                 let span = document.createElement("span");
+                let li = document.createElement("li");
 
-                li.className = "justify-content-center text-danger";
-                span.innerText="No files Found!"
+                li.className = "justify-content-center";
+                span.innerText="Your file is already downloaded"
                 li.appendChild(span);
                 desc_list.appendChild(li);
                 $('.file-section').css('display','block');
-                $('#downloadSchema').css('display','none');
-            }
+
+
+
+            
+            // link.click();
+
+            // let list = document.getElementById("file-list");
+            // let desc_list=document.getElementById("description-list");
+
+            // $('#file-list').empty()
+            // $('#description-list').empty()
+
+            // if(data.length){
+
+            // data.forEach((item)=>{
+            // let li = document.createElement("li");
+            // let desc_li = document.createElement("li");
+            // const i = document.createElement('i');
+            // const a = document.createElement('a');
+            // const div1 = document.createElement('div');
+            // const div2 = document.createElement('div');
+            // const div3 = document.createElement('div');
+            // const div4 = document.createElement('div');
+            // i.className = "fa fa-download";
+
+            // div1.innerText = item.file_title + ' ';
+            
+
+            // a.href= base_url + 'assets/uploads/data_share/' + item.file_name
+            // a.setAttribute('target','_blank')
+            // a.appendChild(i)
+
+            // li.appendChild(div1);
+            // div2.appendChild(a);
+            // li.appendChild(div2);
+            // list.appendChild(li);
+
+            // div3.innerText = item.file_title+' :'
+            // div3.className="col-md-1"
+            // div4.innerText=item.file_description
+            // desc_li.appendChild(div3)
+            // desc_li.appendChild(div4)
+            // desc_list.appendChild(desc_li);
+            // })
+
+            // $('.file-section').css('display','block');
+            // $('#downloadSchema').css('display','block');
+            // }
+            // else{
+
+            //     let li = document.createElement("li");
+            //     let span = document.createElement("span");
+
+            //     li.className = "justify-content-center text-danger";
+            //     span.innerText="No files Found!"
+            //     li.appendChild(span);
+            //     desc_list.appendChild(link);
+            //     $('.file-section').css('display','block');
+            //     $('#downloadSchema').css('display','none');
+            // }
 
         }
 
@@ -371,6 +473,20 @@ $('#get_files').click(()=>{
 
     }
     
+})
+
+$('#downloadSchema').click(()=>{
+    let type=$('#type').val()
+    if(type=='state'){
+        var link = document.createElement('a');
+        link.href = base_url+'schema/stateSchema.csv';
+        link.click()
+    }
+    else if(type=='district'){
+        var link = document.createElement('a');
+        link.href = base_url+'schema/stateSchema.csv';
+        link.click()
+    }
 })
 
 
