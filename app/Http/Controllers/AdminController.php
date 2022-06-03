@@ -49,27 +49,34 @@ class AdminController extends BaseController
     }
     public function login(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+        $ips=["127.0.0.1"];
+        if(in_array($request->ip(),$ips)){
+            $validator = Validator::make($request->all(),[
+                'email' => 'required',
+                'password' => 'required',
+            ]);
 
-        if ($validator->fails()) {
-            return redirect()->route('secure-admin')
-                    ->withErrors($validator)
-                    ->withInput();
-        }
-        $credentials = $request->only('email', 'password','address');
-        foreach($credentials as $key=>$item){
-            if($key=="password"){
-                $credentials[$key]=base64_decode($item);
+            if ($validator->fails()) {
+                return redirect()->route('secure-admin')
+                        ->withErrors($validator)
+                        ->withInput();
             }
-        }
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/secure-admin/dashboard')->with('success','Signed in');
-        }
+            $credentials = $request->only('email', 'password','address');
+            foreach($credentials as $key=>$item){
+                if($key=="password"){
+                    $credentials[$key]=base64_decode($item);
+                }
+            }
+            if (Auth::attempt($credentials)) {
+                return redirect()->intended('/secure-admin/dashboard')->with('success','Signed in');
+            }
 
-        return redirect("secure-admin")->with('success','Login details are not valid');
+            return redirect("secure-admin")->with('success','Login details are not valid');
+        }
+        else{
+            return redirect("secure-admin")->with('success','Login details are not valid');
+        }
+        
     }
 
     public function dashboard()

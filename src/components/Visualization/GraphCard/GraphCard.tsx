@@ -18,7 +18,7 @@ const GraphCard = (props: any) => {
     }, [props])
     return (
         <div className="apcard-white">
-            <div className="apcard-header">
+            <div className={`apcard-header card-${props.class_style}`}>
                 <h3 className="apcard-heading apcard-heading-red">
                     <img src={People} alt="img" className="img-fluid" /> {props.title}
                 </h3>

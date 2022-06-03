@@ -198,7 +198,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
             setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'))
             setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'))
             setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography], 'Location', 'column'))
-            setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'], 'Learning', "column"))
+            setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'][current_geography], 'Learning', "column"))
             setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie'))
             // setPerformanceColumnData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn', "column"))
             // setPerformanceColumnData2(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn2', "column"))
@@ -227,27 +227,13 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                 <div className="row">
                     <div className="col-md-6">
                         {props.load_charts ?
-                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Gender" chartType={currentSection === 'gender' ? true : false} series={gender_data} />
+                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Gender" chartType={currentSection === 'gender' ? true : false} series={gender_data} class_style={props.class_style} />
                             :
                             ""}
                     </div>
                     <div className="col-md-6">
                         {props.load_charts ?
-                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Location" chartType={currentSection === 'location' ? true : false} series={location_data} />
-                            :
-                            ""}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6">
-                        {props.load_charts ?
-                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Management" chartType={currentSection === 'management' ? true : false} series={management_data} />
-                            :
-                            ""}
-                    </div>
-                    <div className="col-md-6">
-                        {props.load_charts ?
-                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Social Group" chartType={currentSection === 'socialgroup' ? true : false} series={socialgroup_data} />
+                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Location" chartType={currentSection === 'location' ? true : false} series={location_data} class_style={props.class_style} />
                             :
                             ""}
                     </div>
@@ -255,13 +241,27 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                 <div className="row">
                     <div className="col-md-6">
                         {props.load_charts ?
-                            <GraphCard type="pie" chartMenu={toggleChartMenu} useDropdown={false} title="Range of Performance" chartType={currentSection === 'performance' ? true : false} series={performance_level_data} />
+                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Management" chartType={currentSection === 'management' ? true : false} series={management_data} class_style={props.class_style} />
                             :
                             ""}
                     </div>
                     <div className="col-md-6">
                         {props.load_charts ?
-                            <GraphCard type="column" chartMenu={toggleChartMenu} useDropdown={false} title="By Learning Outcome" chartType={currentSection === 'learning' ? true : false} series={learningoutcome_data} />
+                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Social Group" chartType={currentSection === 'socialgroup' ? true : false} series={socialgroup_data} class_style={props.class_style} />
+                            :
+                            ""}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6">
+                        {props.load_charts ?
+                            <GraphCard type="pie" chartMenu={toggleChartMenu} useDropdown={false} title="Range of Performance" chartType={currentSection === 'performance' ? true : false} series={performance_level_data} class_style={props.class_style} />
+                            :
+                            ""}
+                    </div>
+                    <div className="col-md-6">
+                        {props.load_charts ?
+                            <GraphCard type="column" chartMenu={toggleChartMenu} useDropdown={false} title="By Learning Outcome" chartType={currentSection === 'learning' ? true : false} series={learningoutcome_data} class_style={props.class_style} />
                             :
                             ""}
                     </div>
@@ -302,9 +302,9 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                         <div className="col-md-12">
                             <div className="apcard-white">
                                 <div className="graphcardtab-wrap">
-                                    <GraphCardTab subject={[subjectShortCodes[props.name]]} />
+                                    <GraphCardTab subject={[subjectShortCodes[props.name]]} geography={current_geography} />
                                     <div className="tab-content" id="graphcardtabContent">
-                                        <GraphCardTabContent subgroup={graphs[subjectShortCodes[props.name]]} charts_data={linkedGraphs[subjectShortCodes[props.name]]} option={option} check={subCheck} subOption={subOption} subject={[subjectShortCodes[props.name]]} />
+                                        <GraphCardTabContent subgroup={graphs[subjectShortCodes[props.name]]} charts_data={linkedGraphs[subjectShortCodes[props.name]]} option={option} check={subCheck} subOption={subOption} subject={[subjectShortCodes[props.name]]} geography={current_geography} />
                                     </div>
                                 </div>
                             </div>

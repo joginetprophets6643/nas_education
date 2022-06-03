@@ -34,7 +34,7 @@ const SubgroupGraph = (props: any) => {
                             setData(makeSeries({ [subOption]: data[current_geography][legends[subOption.toLowerCase()]] }))
                         }
                         else {
-                            setData(makeSeries({ [subOption]: data[subOption] }))
+                            setData(makeSeries({ [subOption]: data[current_geography][subOption] }))
                         }
                     }
                     else {
@@ -44,10 +44,10 @@ const SubgroupGraph = (props: any) => {
                 else {
                     if (subOption !== 'Total') {
                         if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
-                            setData(makeSeries({ [subOption]: data[current_geography][legends[subOption.toLowerCase()]], India: data['national'][legends[subOption.toLowerCase()]] }))
+                            setData(makeSeries({ State: data[current_geography][legends[subOption.toLowerCase()]], India: data['national'][legends[subOption.toLowerCase()]] }))
                         }
                         else {
-                            setData(makeSeries({ [subOption]: data[subOption] }))
+                            setData(makeSeries({ State: data[current_geography][subOption], India: data['national'][subOption] }))
                         }
                     }
                     else {

@@ -1607,7 +1607,7 @@ class VisualizationCalculationController extends Controller
 
     public function generate_state_lo_data($data,$subject){
         $formatted_data=array();
-        $lo_codes=array_keys((array)(json_decode($data[0]->data)->$subject->lo));
+        $lo_codes=array_keys((array)(json_decode($data[0]->data)->$subject->lo->state));
         // dd($lo_codes);
         foreach($lo_codes as $lo){
                 foreach($data as $state){
@@ -1615,14 +1615,14 @@ class VisualizationCalculationController extends Controller
                         $temp_data=$temp_data->$subject;
                         $temp_data=$temp_data->lo;
                         $state_name=DB::table('state_masters')->where('udise_state_code',$state->state_id)->first();
-                        $formatted_data[$lo][$state_name->state_name]=$temp_data->$lo;
+                        $formatted_data[$lo][$state_name->state_name]=$temp_data->state->$lo;
                 }
         }
         return $formatted_data;
     }
     public function generate_district_lo_data($data,$subject){
         $formatted_data=array();
-        $lo_codes=array_keys((array)(json_decode($data[0]->data)->$subject->lo));
+        $lo_codes=array_keys((array)(json_decode($data[0]->data)->$subject->lo->district));
         // dd($lo_codes);
         foreach($lo_codes as $lo){
                 foreach($data as $district){
@@ -1630,7 +1630,7 @@ class VisualizationCalculationController extends Controller
                         $temp_data=$temp_data->$subject;
                         $temp_data=$temp_data->lo;
                         $district_name=DB::table('district_masters')->where('udise_district_code',$district->district_id)->first();
-                        $formatted_data[$lo][$district_name->district_name]=$temp_data->$lo;
+                        $formatted_data[$lo][$district_name->district_name]=$temp_data->district->$lo;
                 }
         }
         return $formatted_data;

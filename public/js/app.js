@@ -4384,7 +4384,7 @@ var AveragePerformance = function AveragePerformance(props) {
       setManagementData(makeSeries(graphs[subjectShortCodes[props.name]]['management'][current_geography], 'Management', 'column'));
       setSocialGroupData(makeSeries(graphs[subjectShortCodes[props.name]]['socialgroup'][current_geography], 'Social Group', 'column'));
       setLocationData(makeSeries(graphs[subjectShortCodes[props.name]]['location'][current_geography], 'Location', 'column'));
-      setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'], 'Learning', "column"));
+      setLearningOutcomeData(makeSeries(graphs[subjectShortCodes[props.name]]['lo'][current_geography], 'Learning', "column"));
       setPerformanceLevelData(makeSeries(graphs[subjectShortCodes[props.name]]['performance_level'][current_geography], 'Performance', 'pie')); // setPerformanceColumnData(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn', "column"))
       // setPerformanceColumnData2(makeSeries(graphs[subjectShortCodes[props.name]]['learning_outcome'], 'avgPerformanceColumn2', "column"))
     } else {
@@ -4419,7 +4419,8 @@ var AveragePerformance = function AveragePerformance(props) {
     type: "column",
     title: "By Gender",
     chartType: currentSection === 'gender' ? true : false,
-    series: gender_data
+    series: gender_data,
+    class_style: props.class_style
   }) : ""), react_1["default"].createElement("div", {
     className: "col-md-6"
   }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
@@ -4428,7 +4429,8 @@ var AveragePerformance = function AveragePerformance(props) {
     type: "column",
     title: "By Location",
     chartType: currentSection === 'location' ? true : false,
-    series: location_data
+    series: location_data,
+    class_style: props.class_style
   }) : "")), react_1["default"].createElement("div", {
     className: "row"
   }, react_1["default"].createElement("div", {
@@ -4439,7 +4441,8 @@ var AveragePerformance = function AveragePerformance(props) {
     type: "column",
     title: "By Management",
     chartType: currentSection === 'management' ? true : false,
-    series: management_data
+    series: management_data,
+    class_style: props.class_style
   }) : ""), react_1["default"].createElement("div", {
     className: "col-md-6"
   }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
@@ -4448,7 +4451,8 @@ var AveragePerformance = function AveragePerformance(props) {
     type: "column",
     title: "By Social Group",
     chartType: currentSection === 'socialgroup' ? true : false,
-    series: socialgroup_data
+    series: socialgroup_data,
+    class_style: props.class_style
   }) : "")), react_1["default"].createElement("div", {
     className: "row"
   }, react_1["default"].createElement("div", {
@@ -4459,7 +4463,8 @@ var AveragePerformance = function AveragePerformance(props) {
     useDropdown: false,
     title: "Range of Performance",
     chartType: currentSection === 'performance' ? true : false,
-    series: performance_level_data
+    series: performance_level_data,
+    class_style: props.class_style
   }) : ""), react_1["default"].createElement("div", {
     className: "col-md-6"
   }, props.load_charts ? react_1["default"].createElement(GraphCard_1["default"], {
@@ -4468,7 +4473,8 @@ var AveragePerformance = function AveragePerformance(props) {
     useDropdown: false,
     title: "By Learning Outcome",
     chartType: currentSection === 'learning' ? true : false,
-    series: learningoutcome_data
+    series: learningoutcome_data,
+    class_style: props.class_style
   }) : "")), props.load_charts ? react_1["default"].createElement("div", {
     className: "row"
   }, react_1["default"].createElement("div", {
@@ -4491,7 +4497,8 @@ var AveragePerformance = function AveragePerformance(props) {
   }, react_1["default"].createElement("div", {
     className: "graphcardtab-wrap"
   }, react_1["default"].createElement(GraphCardTab_1["default"], {
-    subject: [subjectShortCodes[props.name]]
+    subject: [subjectShortCodes[props.name]],
+    geography: current_geography
   }), react_1["default"].createElement("div", {
     className: "tab-content",
     id: "graphcardtabContent"
@@ -4501,7 +4508,8 @@ var AveragePerformance = function AveragePerformance(props) {
     option: option,
     check: subCheck,
     subOption: subOption,
-    subject: [subjectShortCodes[props.name]]
+    subject: [subjectShortCodes[props.name]],
+    geography: current_geography
   })))))) : ""));
 };
 
@@ -5091,7 +5099,8 @@ var GraphCardTabContent = function GraphCardTabContent(props) {
       option = props.option,
       check = props.check,
       subOption = props.subOption,
-      subject = props.subject;
+      subject = props.subject,
+      geography = props.geography;
 
   var _ref = (0, react_1.useState)({}),
       _ref2 = _slicedToArray(_ref, 2),
@@ -5143,7 +5152,7 @@ var GraphCardTabContent = function GraphCardTabContent(props) {
       }
     }
   }, [subgroup, subOption]);
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, geography != 'district' ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "tab-pane fade show active",
     id: subject + "state",
     role: "tabpanel",
@@ -5161,6 +5170,22 @@ var GraphCardTabContent = function GraphCardTabContent(props) {
     subOption: subOption
   })))))), react_1["default"].createElement("div", {
     className: "tab-pane fade",
+    id: subject + "indicator",
+    role: "tabpanel",
+    "aria-labelledby": "indicator-tab"
+  }, react_1["default"].createElement("div", {
+    className: "gctabcontent-wrap"
+  }, react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-12"
+  }, react_1["default"].createElement("div", {
+    className: "gctabcontent-graph-wrap"
+  }, react_1["default"].createElement(Map_1["default"], {
+    data: data,
+    subOption: subOption
+  }))))))) : react_1["default"].createElement("div", {
+    className: "tab-pane fade show active",
     id: subject + "indicator",
     role: "tabpanel",
     "aria-labelledby": "indicator-tab"
@@ -5226,12 +5251,13 @@ var speed_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/speed.
 var file_svg_1 = __importDefault(__webpack_require__(/*! @/assets/images/file.svg */ "./src/assets/images/file.svg"));
 
 var GraphCardTab = function GraphCardTab(props) {
-  var subject = props.subject;
+  var subject = props.subject,
+      geography = props.geography;
   return react_1["default"].createElement("ul", {
     className: "nav nav-tabs",
     id: "graphcardtab",
     role: "tablist"
-  }, react_1["default"].createElement("li", {
+  }, geography != 'district' ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("li", {
     className: "nav-item",
     role: "presentation"
   }, react_1["default"].createElement("button", {
@@ -5252,6 +5278,22 @@ var GraphCardTab = function GraphCardTab(props) {
     role: "presentation"
   }, react_1["default"].createElement("button", {
     className: "nav-link",
+    id: subject + "indicator-tab",
+    "data-bs-toggle": "tab",
+    "data-bs-target": "#" + subject + "indicator",
+    type: "button",
+    role: "tab",
+    "aria-controls": "indicator",
+    "aria-selected": "false"
+  }, react_1["default"].createElement("img", {
+    src: speed_svg_1["default"],
+    alt: "img",
+    className: "img-fluid"
+  }), " By Indicator"))) : react_1["default"].createElement("li", {
+    className: "nav-item",
+    role: "presentation"
+  }, react_1["default"].createElement("button", {
+    className: "nav-link active",
     id: subject + "indicator-tab",
     "data-bs-toggle": "tab",
     "data-bs-target": "#" + subject + "indicator",
@@ -5366,7 +5408,7 @@ var GraphCard = function GraphCard(props) {
   return react_1["default"].createElement("div", {
     className: "apcard-white"
   }, react_1["default"].createElement("div", {
-    className: "apcard-header"
+    className: "apcard-header card-".concat(props.class_style)
   }, react_1["default"].createElement("h3", {
     className: "apcard-heading apcard-heading-red"
   }, react_1["default"].createElement("img", {
@@ -5902,7 +5944,7 @@ var SubgroupGraph = function SubgroupGraph(props) {
             if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
               setData(makeSeries(_defineProperty({}, subOption, data[current_geography][legends[subOption.toLowerCase()]])));
             } else {
-              setData(makeSeries(_defineProperty({}, subOption, data[subOption])));
+              setData(makeSeries(_defineProperty({}, subOption, data[current_geography][subOption])));
             }
           } else {
             setData(makeSeries({
@@ -5912,11 +5954,15 @@ var SubgroupGraph = function SubgroupGraph(props) {
         } else {
           if (subOption !== 'Total') {
             if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
-              var _makeSeries3;
-
-              setData(makeSeries((_makeSeries3 = {}, _defineProperty(_makeSeries3, subOption, data[current_geography][legends[subOption.toLowerCase()]]), _defineProperty(_makeSeries3, "India", data['national'][legends[subOption.toLowerCase()]]), _makeSeries3)));
+              setData(makeSeries({
+                State: data[current_geography][legends[subOption.toLowerCase()]],
+                India: data['national'][legends[subOption.toLowerCase()]]
+              }));
             } else {
-              setData(makeSeries(_defineProperty({}, subOption, data[subOption])));
+              setData(makeSeries({
+                State: data[current_geography][subOption],
+                India: data['national'][subOption]
+              }));
             }
           } else {
             setData(makeSeries({
@@ -6415,6 +6461,52 @@ exports["default"] = MapTab;
 "use strict";
 
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -6425,7 +6517,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var highcharts_1 = __importDefault(__webpack_require__(/*! highcharts */ "./node_modules/highcharts/highcharts.js"));
 
@@ -6440,9 +6532,44 @@ var mapDataIE = __webpack_require__(/*! @highcharts/map-collection/countries/in/
 var Map = function Map(props) {
   var data = props.data,
       subOption = props.subOption;
+  var category = [[], [], [], []];
+  (0, react_1.useEffect)(function () {
+    // console.log(data)
+    if (data !== undefined) {
+      makeSeries(data);
+    }
+  }, [data]);
+
+  var makeSeries = function makeSeries(data) {
+    var values = Object.values(data);
+    var min = Math.min.apply(Math, _toConsumableArray(values));
+    var max = Math.max.apply(Math, _toConsumableArray(values));
+    var logic = Math.round((max - min) / 4);
+    var ranges = [];
+    max = min + logic;
+
+    for (var i = 0; i < 4; i++) {
+      ranges[i] = {
+        'min': min,
+        'max': max
+      };
+      min = max + 1;
+      max += logic + 1;
+    }
+
+    Object.keys(data).forEach(function (item) {
+      ranges.forEach(function (range, index) {
+        if (data[item] >= range['min'] && data[item] <= range['max']) {
+          category[index].push([item, data[item]]);
+        }
+      });
+    });
+    console.log(category);
+  };
+
   var mapOptions = {
     chart: {
-      map: 'countries/in/custom/in-all-disputed'
+      map: ''
     },
     title: {
       text: ''
@@ -6483,7 +6610,95 @@ var Map = function Map(props) {
         enabled: false,
         format: subOption
       }
-    }]
+    }] // series: [
+    //   {
+    //     name: 'legends',
+    //     mapData: mapDataIE,
+    //     data: category[0],
+    //     allAreas: false,
+    //     allowPointSelect: true,
+    //     cursor: "pointer",
+    //     // color: req_colors[0],
+    //     borderColor: "#6e6f70",
+    //     states: {
+    //       hover: {
+    //         color: "#f7941c",
+    //       },
+    //       select: {
+    //         color: "#9ec2e4",
+    //       },
+    //     },
+    //     dataLabels: {
+    //       enabled: false,
+    //       format: "{point.name}",
+    //     },
+    //   },
+    //   {
+    //     data: category[1],
+    //     name: 'legends',
+    //     // color: req_colors[1],
+    //     allowPointSelect: true,
+    //     allAreas: false,
+    //     cursor: "pointer",
+    //     borderColor: "#6e6f70",
+    //     states: {
+    //       hover: {
+    //         color: "#f7941c",
+    //       },
+    //       select: {
+    //         color: "#9ec2e4",
+    //       },
+    //     },
+    //     dataLabels: {
+    //       enabled: false,
+    //       format: "{point.name}",
+    //     },
+    //   },
+    //   {
+    //     data: category[2],
+    //     name: 'legends',
+    //     // color: req_colors[2],
+    //     allowPointSelect: true,
+    //     allAreas: false,
+    //     cursor: "pointer",
+    //     borderColor: "#6e6f70",
+    //     states: {
+    //       hover: {
+    //         color: "#f7941c",
+    //       },
+    //       select: {
+    //         color: "#9ec2e4",
+    //       },
+    //     },
+    //     dataLabels: {
+    //       enabled: false,
+    //       format: "{point.name}",
+    //     },
+    //   },
+    //   {
+    //     data: category[3],
+    //     name: 'legends',
+    //     // color: req_colors[3],
+    //     showInLegend: false,
+    //     allowPointSelect: true,
+    //     allAreas: false,
+    //     cursor: "pointer",
+    //     borderColor: "#6e6f70",
+    //     states: {
+    //       hover: {
+    //         color: "#f7941c",
+    //       },
+    //       select: {
+    //         color: "#9ec2e4",
+    //       },
+    //     },
+    //     dataLabels: {
+    //       enabled: false,
+    //       format: "{point.name}",
+    //     },
+    //   },
+    // ],
+
   };
   return react_1["default"].createElement("div", {
     className: "apcard-graph-wrap"
@@ -6493,7 +6708,8 @@ var Map = function Map(props) {
     constructorType: 'mapChart',
     highcharts: highcharts_1["default"],
     options: mapOptions,
-    allowChartUpdate: false
+    allowChartUpdate: true,
+    immutable: true
   })));
 };
 

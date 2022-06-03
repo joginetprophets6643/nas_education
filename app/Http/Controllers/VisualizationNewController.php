@@ -23,34 +23,24 @@ class VisualizationNewController extends Controller
         $district_performance = PerformanceMaster::orderBy('id','ASC')->get();
         $state_performance = StateGradeLevelPerformance::orderBy('id','ASC')->get();
         $national_performance = NationalGradeLevelPerformance::orderBy('id','ASC')->get();
-        $national_data=DB::table('national_grade_level_performance')->get();
+        // $national_data=DB::table('national_grade_level_performance')->get();
 
         foreach($district_performance as $data){
             $data->data = json_decode($data->data);
             
             foreach($data->data as $key=>$value){
-                // foreach($value as $k=>$j){
-                    
-                //     foreach($j as $i=>$f){
-                        
-                //         foreach($i as $l=>$m){
-                //             dd($l);
-                //         }
-                //     }
-                    
-                // }
 
                 foreach($value->cards as $k=>$j){
                     // dd($value->cards,$k,$j);
                     $value->cards->$k=round($j);
-                    if($k=="national"){
-                        foreach($national_data as $n){
-                            if($n->grade==$data->grade){
-                                $n_data=json_decode($n->data);
-                                $value->cards->$k=$n_data->$key->cards->national;
-                            }
-                        }
-                    }
+                    // if($k=="national"){
+                    //     foreach($national_data as $n){
+                    //         if($n->grade==$data->grade){
+                    //             $n_data=json_decode($n->data);
+                    //             $value->cards->$k=$n_data->$key->cards->national;
+                    //         }
+                    //     }
+                    // }
                     
                 }
 
@@ -130,14 +120,14 @@ class VisualizationNewController extends Controller
                 foreach($value->cards as $k=>$j){
                     // dd($value->cards,$k,$j);
                     $value->cards->$k=round($j);
-                    if($k=="national"){
-                        foreach($national_data as $n){
-                            if($n->grade==$data->grade){
-                                $n_data=json_decode($n->data);
-                                $value->cards->$k=$n_data->$key->cards->national;
-                            }
-                        }
-                    }
+                    // if($k=="national"){
+                    //     foreach($national_data as $n){
+                    //         if($n->grade==$data->grade){
+                    //             $n_data=json_decode($n->data);
+                    //             $value->cards->$k=$n_data->$key->cards->national;
+                    //         }
+                    //     }
+                    // }
                     
                 }
 
@@ -217,14 +207,14 @@ class VisualizationNewController extends Controller
                 foreach($value->cards as $k=>$j){
                     // dd($value->cards,$k,$j);
                     $value->cards->$k=round($j);
-                    if($k=="national"){
-                        foreach($national_data as $n){
-                            if($n->grade==$data->grade){
-                                $n_data=json_decode($n->data);
-                                $value->cards->$k=$n_data->$key->cards->national;
-                            }
-                        }
-                    }
+                    // if($k=="national"){
+                    //     foreach($national_data as $n){
+                    //         if($n->grade==$data->grade){
+                    //             $n_data=json_decode($n->data);
+                    //             $value->cards->$k=$n_data->$key->cards->national;
+                    //         }
+                    //     }
+                    // }
                     
                 }
 
@@ -297,28 +287,34 @@ class VisualizationNewController extends Controller
     }
 
     public function getLOforDistrict($district_id,$grade,$subject){
+        $geography=["national"=>"national_avg","district"=>'avg',"state"=>"state_avg"];
         $lodata = DistrictGradeLevelLearningOutCome::where('district_id',$district_id)
-                  ->select('subject_code','avg')
                   ->where('grade',$grade)
                   ->where('language',$subject)->get();
 
         $final_subject_data = [];
-        foreach ($lodata as $subject_fetch) {
-                $final_subject_data[$subject_fetch->subject_code] = round($subject_fetch->avg);
+        foreach($geography as $key=>$geo){
+            foreach ($lodata as $subject_fetch) {
+                $final_subject_data[$key][$subject_fetch->subject_code] = round($subject_fetch->$geo);
+            }
         }
+        // dd($final_subject_data);
+        
         return $final_subject_data;
 
     }
 
     public function getLOforState($state_id,$grade,$subject){
+        $geography=["national"=>"national_avg","state"=>"state_avg"];
         $lodata = StateGradeLevelLearningOutCome::where('state_id',$state_id)
-                  ->select('subject_code','state_avg')
                   ->where('grade',$grade)
                   ->where('language',$subject)->get();
 
         $final_subject_data = [];
-        foreach ($lodata as $subject_fetch) {
-                $final_subject_data[$subject_fetch->subject_code] = round($subject_fetch->state_avg);
+        foreach($geography as $key=>$geo){
+            foreach ($lodata as $subject_fetch) {
+                $final_subject_data[$key][$subject_fetch->subject_code] = round($subject_fetch->$geo);
+            }
         }
         return $final_subject_data;
 
@@ -331,7 +327,7 @@ class VisualizationNewController extends Controller
                   ->where('language',$subject)->get();
         $final_subject_data = [];
         foreach ($lodata as $subject_fetch) {
-                $final_subject_data[$subject_fetch->subject_code] = round($subject_fetch->national_avg);
+                $final_subject_data['national'][$subject_fetch->subject_code] = round($subject_fetch->national_avg);
         }
         return $final_subject_data;
 
