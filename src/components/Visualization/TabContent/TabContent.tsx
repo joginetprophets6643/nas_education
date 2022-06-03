@@ -8,7 +8,7 @@ import Student from '@/assets/images/brainstorming.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Globe from "@/assets/images/globe-icon.svg";
-import { getCardsData, getGraphs, getSubjectCards, resetGraphs } from '@/actions/visualization.action';
+import { getCardsData, getGraphs, getSubjectCards, resetGraphs, getLinkedGraphs, setState } from '@/actions/visualization.action';
 import { IntialStateModel, ParticipationCards } from '@/models/visualization';
 import { StoreModel } from '@/models/visualization';
 import { ClassSubjects } from '@/models/visualization';
@@ -32,6 +32,7 @@ const TabContent = () => {
   const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
   const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
   const [current_subject, setCurremtSubject] = useState<string>('')
+  const [temp_state_id, setState] = useState<number>(1)
   const [encountered_subject, setEncounteredSubject] = useState<Array<String>>([])
   const class_subjects = {
     class_3: ['Language', 'Math', 'Evs',],
@@ -74,8 +75,21 @@ const TabContent = () => {
       grade: { _eq: grade }
     } as any
 
+    let temp_reusable_filters = {
+      type: { _eq: current_geography },
+      grade: { _eq: grade }
+    } as any
+
+    if (current_geography == 'district') {
+      temp_reusable_filters = {
+        type: { _eq: 'state' },
+        grade: { _eq: grade }
+      } as any
+    }
+
     let participation_filter = {}
     let performance_filter = {}
+    // let temp_state_id = 1
 
     if (current_geography === 'national') {
       fields = 'national_schools_count,national_teachers_count,national_students_count'
@@ -85,17 +99,20 @@ const TabContent = () => {
     }
     if (current_geography === 'state') {
       reusable_filters = { ...reusable_filters, state_id: { _eq: current_id } }
+      temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: current_id } }
       // performance_filter ={...reusable_filters , state_id: {_eq: current_id}}
+      setState(current_id)
       fields = 'state_teachers_count,state_students_count,state_schools_count'
     }
     if (current_geography === 'district') {
       reusable_filters = { ...reusable_filters, district_id: { _eq: current_id } }
+      temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: temp_state_id } }
       // performance_filter ={...reusable_filters , district_id: {_eq: current_id}}
       fields = 'district_schools_count,district_teachers_count,district_students_count'
     }
     dispatch(getCardsData(JSON.stringify(reusable_filters), fields))
     dispatch(getSubjectCards(JSON.stringify(reusable_filters)))
-    // dispatch(resetGraphs())
+    dispatch(getLinkedGraphs(JSON.stringify(temp_reusable_filters)))
     dispatch(getGraphs(JSON.stringify(reusable_filters)))
     setEncounteredSubject([] as String[])
   }, [grade, current_geography, current_id])
@@ -178,21 +195,21 @@ const TabContent = () => {
         <div className="col-md-4">
           <WhiteCard
             title="Number of Schools Sampled"
-            count={school_count}
+            count={school_count.toLocaleString('en-IN')}
             image={Building}
           />
         </div>
         <div className="col-md-4">
           <WhiteCard
             title="Number of Teachers Sampled"
-            count={teachers_count}
+            count={teachers_count.toLocaleString('en-IN')}
             image={Professor}
           />
         </div>
         <div className="col-md-4">
           <WhiteCard
             title="Number of Students Sampled"
-            count={student_count}
+            count={student_count.toLocaleString('en-IN')}
             image={Student}
           />
         </div>
@@ -206,6 +223,7 @@ const TabContent = () => {
               count={Object.keys(subject_count).length !== 0 && typeof (subject_count) !== 'undefined'
                 ? subject_count[((subject.replace(/\s+/g, '_')).toLowerCase() + '_' + current_geography)] : 0}
               image={subject_icons[(subject.replace(/\s+/g, '')).toLowerCase()]}
+              geography={current_geography}
             />
           </div>
         ))}
@@ -224,8 +242,6 @@ const TabContent = () => {
           </div>
         </div>
       ))}
-      <MapTab />
-      <ScatterPlotTab />
     </div>
   );
 };

@@ -2397,6 +2397,24 @@ function createPerformanceScreen(data, empty) {
 
         // district bottom table
         if (!empty) {
+          if (current_demography === "state") {
+
+            table_criteria.forEach((criteria) => {
+              const table_tupple = Math.round(
+                data[subjects_short_codes[sub.toLowerCase()]][
+                "performance_level"
+                ]["state"][criteria]
+              );
+              const table_where =
+                "peformance_" +
+                sub +
+                "_" +
+                criteria +
+                "_table_class" +
+                classType + "_state";
+              $("#" + table_where).html(table_tupple);
+            });
+          }
           if (current_demography === "") {
             table_criteria.forEach((criteria) => {
               const table_tupple = Math.round(

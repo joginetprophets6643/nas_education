@@ -9,17 +9,19 @@ import { currentStateReducer } from '@/reducers/current_state.reducer';
 import { currentDistrictReducer } from '@/reducers/current_district.reducer';
 import { subjectCards } from '@/reducers/subjectcards.reducer';
 import { chartReducer } from '@/reducers/chart.reducer';
+import { linkedChartReducer } from './linked_chart.reducer';
 
-const reducers =  combineReducers({
+const reducers = combineReducers({
     states: visualizationReducer,
     grade: gradeReducer,
     cards: cardsReducers,
     districts: districtReducer,
-    current_geography:geographyReducer,
-    current_id:identityReducer,
-    current_state:currentStateReducer,
+    current_geography: geographyReducer,
+    current_id: identityReducer,
+    current_state: currentStateReducer,
     current_district: currentDistrictReducer,
     subject_cards: subjectCards,
     charts: chartReducer,
+    linked_charts: linkedChartReducer,
 })
 export default reducers

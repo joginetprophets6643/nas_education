@@ -132,6 +132,7 @@ Route::get('visualization_performance_graph',[VisualizationCalculationController
 Route::get('visualization_participation',[VisualizationCalculationController::class,'visualization_participation']);
 Route::get('visualization_performance',[VisualizationCalculationController::class,'visualization_performance']);
 Route::get('visualization_graph_performance',[VisualizationNewController::class,'visualization_graph_performance']);
+Route::get('visualization_linked_graph',[VisualizationCalculationController::class,'linkedGraphData']);
 
 
 Route::get('learningoutcome_calculation',[LearningOutcomeController::class,'LearningOutComeProcessData']);
@@ -445,26 +446,26 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
         Route::get('/report-card/2021','App\Http\Controllers\ReportCardController@index')->name('repord-card');
         Route::get('/report-card/nas-2021','App\Http\Controllers\ReportCardController@details');
 
-        // Route::group(["middleware" => ["frontIsLogin"]], function(){
+        Route::group(["middleware" => ["frontIsLogin"]], function(){
 
-        //     Route::get('/data-share/logout','App\Http\Controllers\UserController@logout');
-        //     Route::post('/data-share/get-files','App\Http\Controllers\UserController@getData');
-        //     Route::get('/data-share/download-data','App\Http\Controllers\UserController@successLogin')->name('successLogin');
+            Route::get('/data-share/logout','App\Http\Controllers\UserController@logout');
+            Route::post('/data-share/get-files','App\Http\Controllers\UserController@getData');
+            Route::get('/data-share/download-data','App\Http\Controllers\UserController@successLogin')->name('successLogin');
             
-        // });
+        });
 
 
-        // Route::group(["middleware" => ["frontIsAuthenticated"]], function(){
+        Route::group(["middleware" => ["frontIsAuthenticated"]], function(){
             
-        //     Route::post('/data-share/check','App\Http\Controllers\UserController@login')->name('check');
-        //     Route::get('/data-share/registration','App\Http\Controllers\UserController@register')->name('registration');
-        //     Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
-        //     Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
-        //     Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
-        //     Route::get('/data-share/reset-password','App\Http\Controllers\UserController@resetPassword')->name('reset-password');
-        //     Route::post('/data-share/change-password','App\Http\Controllers\UserController@changePassword');
+            Route::post('/data-share/check','App\Http\Controllers\UserController@login')->name('check');
+            Route::get('/data-share/registration','App\Http\Controllers\UserController@register')->name('registration');
+            Route::post('/registered','App\Http\Controllers\UserController@registered')->name('registered');
+            Route::get('/data-share/success','App\Http\Controllers\UserController@success')->name('success');
+            Route::get('/data-share/login','App\Http\Controllers\UserController@viewLogin')->name('login');
+            Route::get('/data-share/reset-password','App\Http\Controllers\UserController@resetPassword')->name('reset-password');
+            Route::post('/data-share/change-password','App\Http\Controllers\UserController@changePassword');
 
-        // });
+        });
 
 
         //Feedback Route

@@ -3359,6 +3359,49 @@
                                               </div>
                                             </div>
                                           </div>
+                                          <div class="col-md-12">
+                                            <h2 class="heading-grey text-center">
+                                              PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
+                                            </h2>
+                                            <div class="per-table">
+                                              <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col" class="blue-level-1">Language</th>
+                                                    <th scope="col" class="pink-level-1">Mathematics</th>
+                                                    <th scope="col" class="yellow-level-1">EVS</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <th scope="row" class="bg-grey">BELOW BASIC</th>
+                                                    <td class="blue-level-2" id="peformance_Language_below_basic_table_class3_state">0</td>
+                                                    <td class="pink-level-2" id="peformance_Math_below_basic_table_class3_state">0</td>
+                                                    <td class="yellow-level-2" id="peformance_Evs_below_basic_table_class3_state">0</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">BASIC</th>
+                                                    <td class="blue-level-3" id="peformance_Language_basic_table_class3_state">0</td>
+                                                    <td class="pink-level-3" id="peformance_Math_basic_table_class3_state">0</td>
+                                                    <td class="yellow-level-3" id="peformance_Evs_basic_table_class3_state">0</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row" class="bg-grey">PROFICIENT</th>
+                                                    <td class="blue-level-4" id="peformance_Language_proficient_table_class3_state">0</td>
+                                                    <td class="pink-level-4" id="peformance_Math_proficient_table_class3_state">0</td>
+                                                    <td class="yellow-level-4" id="peformance_Evs_proficient_table_class3_state">0</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">ADVANCED</th>
+                                                    <td class="blue-level-5" id="peformance_Language_advanced_table_class3_state">0</td>
+                                                    <td class="pink-level-5" id="peformance_Math_advanced_table_class3_state">0</td>
+                                                    <td class="yellow-level-5" id="peformance_Evs_advanced_table_class3_state">0</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
                                           <!-- <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
                                               AVERAGE PERFORMANCE OF THE DISTRICTS
@@ -3665,6 +3708,49 @@
                                               </div>
                                             </div>
                                           </div>
+                                          <div class="col-md-12">
+                                            <h2 class="heading-grey text-center">
+                                              PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
+                                            </h2>
+                                            <div class="per-table">
+                                              <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col" class="blue-level-1">Language</th>
+                                                    <th scope="col" class="pink-level-1">Mathematics</th>
+                                                    <th scope="col" class="yellow-level-1">EVS</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row" class="bg-grey">BELOW BASIC</th>
+                                                    <td class="blue-level-2" id="peformance_Language_below_basic_table_class5_state">0</td>
+                                                    <td class="pink-level-2" id="peformance_Math_below_basic_table_class5_state">0</td>
+                                                    <td class="yellow-level-2" id="peformance_Evs_below_basic_table_class5_state">0</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">BASIC</th>
+                                                    <td class="blue-level-3" id="peformance_Language_basic_table_class5_state">0</td>
+                                                    <td class="pink-level-3" id="peformance_Math_basic_table_class5_state">0</td>
+                                                    <td class="yellow-level-3" id="peformance_Evs_basic_table_class5_state">0</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row" class="bg-grey">PROFICIENT</th>
+                                                    <td class="blue-level-4" id="peformance_Language_proficient_table_class5_state">0</td>
+                                                    <td class="pink-level-4" id="peformance_Math_proficient_table_class5_state">0</td>
+                                                    <td class="yellow-level-4" id="peformance_Evs_proficient_table_class5_state">0</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">ADVANCED</th>
+                                                    <td class="blue-level-5" id="peformance_Language_advanced_table_class5_state">0</td>
+                                                    <td class="pink-level-5" id="peformance_Math_advanced_table_class5_state">0</td>
+                                                    <td class="yellow-level-5" id="peformance_Evs_advanced_table_class5_state">0</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
                                           <!-- <div class="col-md-12">
                                             <h2 class="heading-grey text-center">
                                               AVERAGE PERFORMANCE OF THE DISTRICTS
@@ -3760,7 +3846,7 @@
                                               </div>
                                           </div>
                                         </div>
-                                        <!-- <div class="col-md-12">
+                                        <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
                                             DISTRIBUTION OF STUDENTS BY RANGE
                                           </h2>
@@ -3799,7 +3885,7 @@
                                               </div>
                                             </div>  
                                           </div>
-                                        </div> -->
+                                        </div>
                                         <div class="col-md-12">
                                           <h2 class="heading-grey text-center">
                                             AVERAGE PERFORMANCE
@@ -4017,6 +4103,54 @@
                                                 </div>
                                               </div>
                                             </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
+                                          </h2>
+                                          <div class="per-table">
+                                            <table class="table">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col"></th>
+                                                  <th scope="col" class="blue-level-1">Language</th>
+                                                  <th scope="col" class="sagegreen-level-1">Science</th>
+                                                  <th scope="col" class="pink-level-1">Mathematics</th>
+                                                  <th scope="col" class="green-level-1">Social Science</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row" class="bg-grey">BELOW BASIC</th>
+                                                  <td class="blue-level-2"  id="peformance_Language_below_basic_table_class8_state">0</td>
+                                                  <td class="sagegreen-level-2"  id="peformance_Science_below_basic_table_class8_state">0</td>
+                                                  <td class="pink-level-2"  id="peformance_Math_below_basic_table_class8_state">0</td>
+                                                  <td class="green-level-2"  id="peformance_Social_below_basic_table_class8_state">0</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">BASIC</th>
+                                                  <td class="blue-level-3" id="peformance_Language_basic_table_class8_state">0</td>
+                                                  <td class="sagegreen-level-3" id="peformance_Science_basic_table_class8_state">0</td>
+                                                  <td class="pink-level-3" id="peformance_Math_basic_table_class8_state">0</td>
+                                                  <td class="green-level-3" id="peformance_Social_basic_table_class8_state">0</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row" class="bg-grey">PROFICIENT</th>
+                                                  <td class="blue-level-4" id="peformance_Language_proficient_table_class8_state">0</td>
+                                                  <td class="sagegreen-level-4" id="peformance_Science_proficient_table_class8_state">0</td>
+                                                  <td class="pink-level-4" id="peformance_Math_proficient_table_class8_state">0</td>
+                                                  <td class="green-level-4" id="peformance_Social_proficient_table_class8_state">0</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">ADVANCED</th>
+                                                  <td class="blue-level-5" id="peformance_Language_advanced_table_class8_state">0</td>
+                                                  <td class="sagegreen-level-5" id="peformance_Science_advanced_table_class8_state">0</td>
+                                                  <td class="pink-level-5" id="peformance_Math_advanced_table_class8_state">0</td>
+                                                  <td class="green-level-5" id="peformance_Social_advanced_table_class8_state">0</td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
                                           </div>
                                         </div>
                                         <!-- <div class="col-md-12">
@@ -4422,6 +4556,62 @@
                                                                                   </div>
                                                                                 </div>
                                                                               </div>
+                                                                            </div>
+                                                                          </div>
+                                                                          <div class="col-md-12">
+                                                                            <h2 class="heading-grey text-center">
+                                                                              PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
+                                                                            </h2>
+                                                                            <div class="per-table">
+                                                                              <table class="table">
+                                                                                <thead>
+                                                                                  <tr>
+                                                                                    <th scope="col"></th>
+                                                                                    <th scope="col" class="red-level-1">MIL</th>
+                                                                                    <th scope="col" class="green-level-1">Social Science</th>
+                                                                                    <th scope="col" class="purple-level-1">English</th>
+                                                                                    <th scope="col" class="sagegreen-level-1">Science</th>
+                                                                                    <th scope="col" class="pink-level-1">Mathematics</th>
+                                                                                  </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                  <tr>
+                                                                                    <th scope="row" class="bg-grey" >BELOW BASIC</th>
+                                                                                    <td class="red-level-2"  id="peformance_Mil_below_basic_table_class10_state">0</td>
+                                                                                    <td class="green-level-2" id="peformance_Social_below_basic_table_class10_state">0</td>
+                                                                                    <td class="purple-level-2" id="peformance_English_below_basic_table_class10_state">0</td>
+                                                                                    <td class="sagegreen-level-2" id="peformance_Science_below_basic_table_class10_state">0</td>
+                                                                                    <td class="pink-level-2" id="peformance_Math_below_basic_table_class10_state">0</td>
+
+                                                                                  </tr>
+                                                                                  <tr>
+                                                                                    <th scope="row">BASIC</th>
+                                                                                    <td class="red-level-3"  id="peformance_Mil_basic_table_class10_state">0</td>
+                                                                                    <td class="green-level-3" id="peformance_Social_basic_table_class10_state">0</td>
+                                                                                    <td class="purple-level-3" id="peformance_English_basic_table_class10_state">0</td>
+                                                                                    <td class="sagegreen-level-3" id="peformance_Science_basic_table_class10_state">0</td>
+                                                                                    <td class="pink-level-3" id="peformance_Math_basic_table_class10_state">0</td>
+                                                                                  </tr>
+                                                                                  <tr>
+                                                                                    <th scope="row" class="bg-grey">PROFICIENT</th>
+                                                                                    <td class="red-level-4"  id="peformance_Mil_proficient_table_class10_state">0</td>
+                                                                                    <td class="green-level-4"  id="peformance_Social_proficient_table_class10_state">0</td>
+                                                                                    <td class="purple-level-4"  id="peformance_English_proficient_table_class10_state">0</td>
+                                                                                    <td class="sagegreen-level-4"  id="peformance_Science_proficient_table_class10_state">0</td>
+                                                                                    <td class="pink-level-4 " id="peformance_Math_proficient_table_class10_state">0</td>
+                                                                                    
+                                                                                  </tr>
+                                                                                  <tr>
+                                                                                    <th scope="row" >ADVANCED</th>
+                                                                                    <td class="red-level-5"  id="peformance_Mil_advanced_table_class10_state">0</td>
+                                                                                    <td class="green-level-5" id="peformance_Social_advanced_table_class10_state">0</td>
+                                                                                    <td class="purple-level-5" id="peformance_English_advanced_table_class10_state">0</td>
+                                                                                    <td class="sagegreen-level-5" id="peformance_Science_advanced_table_class10_state">0</td>
+                                                                                    <td class="pink-level-5" id="peformance_Math_advanced_table_class10_state">0</td>
+                                                                                    
+                                                                                  </tr>
+                                                                                </tbody>
+                                                                              </table>
                                                                             </div>
                                                                           </div>
                                                                           <!-- <div class="col-md-12">
@@ -5801,6 +5991,72 @@
                                                 </div>
                                               </div>
                                             </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                          <h2 class="heading-grey text-center">
+                                            PERCENTAGE OF STUDENTS BY PERFORMANCE LEVELS
+                                          </h2>
+                                          <div class="per-table">
+                                            <table class="table">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col"></th>
+                                                  <th scope="col" class="red-level-1">MIL</th>
+                                                  <th scope="col" class="green-level-1">Social Science</th>
+                                                  <th scope="col" class="yellow-level-1">EVS</th>
+                                                  <th scope="col" class="purple-level-1">English</th>
+                                                  <th scope="col" class="sagegreen-level-1">Science</th>
+                                                  <th scope="col" class="blue-level-1">Language</th>
+                                                  <th scope="col" class="pink-level-1">Mathematics</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row" class="bg-grey">BELOW BASIC</th>
+                                                  <td class="red-level-2" id="peformance_Mil_below_basic_table_classall_state">0</td>
+                                                  <td class="green-level-2" id="peformance_Social_below_basic_table_classall_state">0</td>
+                                                  <td class="yellow-level-2" id="peformance_Evs_below_basic_table_classall_state">0</td>
+                                                  <td class="purple-level-2" id="peformance_English_below_basic_table_classall_state">0</td>
+                                                  <td class="sagegreen-level-2" id="peformance_Science_below_basic_table_classall_state">0</td>
+                                                  <td class="blue-level-2" id="peformance_Language_below_basic_table_classall_state">0</td>
+                                                  <td class="pink-level-2" id="peformance_Math_below_basic_table_classall_state">0</td>
+
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">BASIC</th>
+                                                  <td class="red-level-3" id="peformance_Mil_basic_table_classall_state">0</td>
+                                                  <td class="green-level-3"  id="peformance_Social_basic_table_classall_state">0</td>
+                                                  <td class="yellow-level-3" id="peformance_Evs_basic_table_classall_state">0</td>
+                                                  <td class="purple-level-3" id="peformance_English_basic_table_classall_state">0</td>
+                                                  <td class="sagegreen-level-3" id="peformance_Science_basic_table_classall_state">0</td>
+                                                  <td class="blue-level-3" id="peformance_Language_basic_table_classall_state">0</td>
+                                                  <td class="pink-level-3" id="peformance_Math_basic_table_classall_state">0</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row" class="bg-grey">PROFICIENT</th>
+                                                  <td class="red-level-4" id="peformance_Mil_proficient_table_classall_state">0</td>
+                                                  <td class="green-level-4"  id="peformance_Social_proficient_table_classall_state">0</td>
+                                                  <td class="yellow-level-4" id="peformance_Evs_proficient_table_classall_state">0</td>
+                                                  <td class="purple-level-4" id="peformance_English_proficient_table_classall_state">0</td>
+                                                  <td class="sagegreen-level-4" id="peformance_Science_proficient_table_classall_state">0</td>
+                                                  <td class="blue-level-4" id="peformance_Language_proficient_table_classall_state">0</td>
+                                                  <td class="pink-level-4" id="peformance_Math_proficient_table_classall_state">0</td>
+                                                  
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">ADVANCED</th>
+                                                  <td class="red-level-5" id="peformance_Mil_advanced_table_classall_state">0</td>
+                                                  <td class="green-level-5"  id="peformance_Social_advanced_table_classall_state">0</td>
+                                                  <td class="yellow-level-5" id="peformance_Evs_advanced_table_classall_state">0</td>
+                                                  <td class="purple-level-5" id="peformance_English_advanced_table_classall_state">0</td>
+                                                  <td class="sagegreen-level-5" id="peformance_Science_advanced_table_classall_state">0</td>
+                                                  <td class="blue-level-5" id="peformance_Language_advanced_table_classall_state">0</td>
+                                                  <td class="pink-level-5" id="peformance_Math_advanced_table_classall_state">0</td>
+                                                  
+                                                </tr>
+                                              </tbody>
+                                            </table>
                                           </div>
                                         </div>
                                         <!-- <div class="col-md-12">

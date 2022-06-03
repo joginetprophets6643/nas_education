@@ -144,13 +144,30 @@
         
         
       data = await JSON.parse(sessionStorage.getItem('achievement_data'))
+      if(classType=="3"){
+        classforphp = "<?php $classid="3"; ?>";
+      }
+      if(classType=="5"){
+        classforphp = "<?php $classid="5"; ?>";
+      }
+      if(classType=="8"){
+        classforphp = "<?php $classid="8"; ?>";
+      }
+      if(classType=="10"){
+        classforphp = "<?php $classid="10"; ?>";
+      }
+      if(classType=="all"){
+        classforphp = "<?php $classid="all"; ?>";
+      }
+
       
-      //console.log(data);
+      
+      //console.log(classforphp);
       achievement_data = '';
       current_grade = ''
       direction_gender_header = `<div class="ach-card">
       <div class="btn-wrap justify-content-end">
-        <button id="slideBack" class="org-btn btn btn-sm mb-2" type="button">
+        <button id="slideBack<?php echo $classid; ?>" class="org-btn btn btn-sm mb-2" type="button">
           <span class="material-icons-round">
           chevron_left
           </span>
