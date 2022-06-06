@@ -4,7 +4,9 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
 
-const mapDataIE = require("@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json");
+// const mapDataIE = require("@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json");
+// const Highcharts = require("../../../../public/assets/front/js/highmaps.js");
+const mapDataIE = require("../../../../public/assets/front/js/in-all-disputed.js");
 highchartsMap(Highcharts);
 
 
@@ -46,7 +48,7 @@ const Map = (props: any) => {
   }
   const mapOptions = {
     chart: {
-      map: ''
+      map: mapDataIE
     },
 
     title: {
@@ -69,7 +71,7 @@ const Map = (props: any) => {
       enabled: false
     },
     series: [{
-      mapData: mapDataIE,
+      // mapData: mapDataIE,
       name: 'State',
       allowPointSelect: true,
       cursor: 'pointer',
