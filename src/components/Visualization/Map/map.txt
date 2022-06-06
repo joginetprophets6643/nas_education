@@ -65,7 +65,7 @@ const Map = (props: any) => {
       plotOptions: {
         series: {
           events: {
-            click: function (e: any) {
+            click: function (e) {
               alert(e)
             },
           },
@@ -109,20 +109,6 @@ const Map = (props: any) => {
             },
             select: {
               color: '#9ec2e4'
-            }
-          },
-          drilldown: {
-            activeDataLabelStyle: {
-              color: '#FFFFFF',
-              textDecoration: 'none',
-              textOutline: '1px #000000'
-            },
-            drillUpButton: {
-              relativeTo: 'spacingBox',
-              position: {
-                x: 0,
-                y: 60
-              }
             }
           },
           tooltip: {
