@@ -6465,13 +6465,21 @@ function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableTo
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
@@ -6532,13 +6540,141 @@ var mapDataIE = __webpack_require__(/*! @highcharts/map-collection/countries/in/
 var Map = function Map(props) {
   var data = props.data,
       subOption = props.subOption;
+
+  var _ref = (0, react_1.useState)(),
+      _ref2 = _slicedToArray(_ref, 2),
+      options = _ref2[0],
+      setOptions = _ref2[1];
+
   var category = [[], [], [], []];
-  (0, react_1.useEffect)(function () {
-    // console.log(data)
-    if (data !== undefined) {
-      makeSeries(data);
-    }
+  (0, react_1.useEffect)(function () {// console.log(data)
+    // mapDataIE.features.forEach((state: any) => {
+    //   state.properties.color = 'black'
+    // })
+    // if (data !== undefined) {
+    //   makeSeries(data);
+    // }
   }, [data]);
+  var custom_data = [];
+  (0, react_1.useEffect)(function () {
+    var temp_option = {
+      title: {
+        text: "Widget click by location",
+        style: {
+          color: "black"
+        }
+      },
+      chart: {
+        backgroundColor: "transparent",
+        type: "map",
+        map: mapDataIE
+      },
+      mapNavigation: {
+        enabled: true,
+        enableButtons: false
+      },
+      credits: {
+        enabled: false
+      },
+      colorAxis: {
+        dataClasses: [{
+          from: 1,
+          color: "#C40401",
+          name: "widget name one"
+        }, {
+          from: 2,
+          color: "#0200D0",
+          name: "widget name two"
+        }]
+      },
+      plotOptions: {
+        series: {
+          events: {
+            click: function click(e) {
+              alert(e);
+            }
+          }
+        }
+      },
+      // tooltip: {
+      //   pointFormatter: function () {
+      //     return this.name;
+      //   }
+      // },
+      legend: {
+        align: "right",
+        verticalAlign: "top",
+        x: -100,
+        y: 70,
+        floating: true,
+        layout: "vertical",
+        valueDecimals: 0,
+        backgroundColor: // theme
+        highcharts_1["default"].defaultOptions && highcharts_1["default"].defaultOptions.legend && highcharts_1["default"].defaultOptions.legend.backgroundColor || "rgba(255, 255, 255, 0.85)"
+      },
+      series: [{
+        // name: "world map",
+        color: 'black',
+        dataLabels: {
+          enabled: true,
+          color: "#fcba03",
+          // format: "{point.postal-code}",
+          style: {
+            textTransform: "uppercase"
+          }
+        },
+        states: {
+          hover: {
+            color: '#f7941c'
+          },
+          select: {
+            color: '#9ec2e4'
+          }
+        },
+        drilldown: {
+          activeDataLabelStyle: {
+            color: '#FFFFFF',
+            textDecoration: 'none',
+            textOutline: '1px #000000'
+          },
+          drillUpButton: {
+            relativeTo: 'spacingBox',
+            position: {
+              x: 0,
+              y: 60
+            }
+          }
+        },
+        tooltip: {
+          ySuffix: " %"
+        },
+        cursor: "pointer",
+        joinBy: ["hc-key", "hc-key"],
+        data: []
+      }]
+    }; // temp_option.series[0].mapData = mapDataIE
+
+    mapDataIE['features'].forEach(function (state, i) {
+      if (state.id && state.geometry === undefined) {
+        var name = state["properties"]["name"];
+        var value = i % 2 + 1;
+        var postalCode = state["id"];
+        var type = value === 1 ? "widget name one" : "widget name two";
+        var row = i;
+        temp_option === null || temp_option === void 0 ? void 0 : temp_option.series[0].data.push({
+          value: value,
+          name: name,
+          code: postalCode,
+          type: type
+        }); // temp_option?.series[0].mapData.push(state)
+      }
+    }); // temp_option.chart.map = mapDataIE
+
+    setOptions(Object.assign({}, temp_option));
+  }, []);
+  (0, react_1.useEffect)(function () {
+    console.log(options);
+  }, [options]);
 
   var makeSeries = function makeSeries(data) {
     var values = Object.values(data);
@@ -6559,158 +6695,176 @@ var Map = function Map(props) {
 
     Object.keys(data).forEach(function (item) {
       ranges.forEach(function (range, index) {
-        if (data[item] >= range['min'] && data[item] <= range['max']) {
-          category[index].push([item, data[item]]);
+        if (data[item] >= range['min'] && data[item] <= range['max'] && item.toLowerCase() !== 'ladakh') {
+          category[index].push({
+            "hc-key": item.toLowerCase(),
+            'value': data[item]
+          });
         }
-      });
-    });
-    console.log(category);
+      }); // if (item.toLowerCase() != 'ladakh') {
+      //   custom_data.push({ 'hc-key': item.toLowerCase(), 'value': data[item], 'color': 'black' })
+      // }
+    }); // console.log(category)
   };
 
-  var mapOptions = {
-    chart: {
-      map: ''
-    },
-    title: {
-      text: ''
-    },
-    subtitle: {
-      text: ''
-    },
-    legend: {
-      enabled: false
-    },
-    tooltip: {
-      enabled: true
-    },
-    navigation: {
-      buttonOptions: {
-        enabled: false
-      }
-    },
-    credits: {
-      enabled: false
-    },
-    series: [{
-      mapData: mapDataIE,
-      name: 'State',
-      allowPointSelect: true,
-      cursor: 'pointer',
-      color: "#9ec2e4",
-      borderColor: "#6e6f70",
-      states: {
-        hover: {
-          color: '#f7941c'
-        },
-        select: {
-          color: '#9ec2e4'
+  var mapOptions = {};
+  (0, react_1.useEffect)(function () {
+    mapOptions = {
+      chart: {
+        map: mapDataIE
+      },
+      title: {
+        text: ''
+      },
+      subtitle: {
+        text: ''
+      },
+      legend: {
+        enabled: true
+      },
+      tooltip: {
+        enabled: true
+      },
+      navigation: {
+        buttonOptions: {
+          enabled: false
         }
       },
-      dataLabels: {
-        enabled: false,
-        format: subOption
-      }
-    }] // series: [
-    //   {
-    //     name: 'legends',
-    //     mapData: mapDataIE,
-    //     data: category[0],
-    //     allAreas: false,
-    //     allowPointSelect: true,
-    //     cursor: "pointer",
-    //     // color: req_colors[0],
-    //     borderColor: "#6e6f70",
-    //     states: {
-    //       hover: {
-    //         color: "#f7941c",
-    //       },
-    //       select: {
-    //         color: "#9ec2e4",
-    //       },
-    //     },
-    //     dataLabels: {
-    //       enabled: false,
-    //       format: "{point.name}",
-    //     },
-    //   },
-    //   {
-    //     data: category[1],
-    //     name: 'legends',
-    //     // color: req_colors[1],
-    //     allowPointSelect: true,
-    //     allAreas: false,
-    //     cursor: "pointer",
-    //     borderColor: "#6e6f70",
-    //     states: {
-    //       hover: {
-    //         color: "#f7941c",
-    //       },
-    //       select: {
-    //         color: "#9ec2e4",
-    //       },
-    //     },
-    //     dataLabels: {
-    //       enabled: false,
-    //       format: "{point.name}",
-    //     },
-    //   },
-    //   {
-    //     data: category[2],
-    //     name: 'legends',
-    //     // color: req_colors[2],
-    //     allowPointSelect: true,
-    //     allAreas: false,
-    //     cursor: "pointer",
-    //     borderColor: "#6e6f70",
-    //     states: {
-    //       hover: {
-    //         color: "#f7941c",
-    //       },
-    //       select: {
-    //         color: "#9ec2e4",
-    //       },
-    //     },
-    //     dataLabels: {
-    //       enabled: false,
-    //       format: "{point.name}",
-    //     },
-    //   },
-    //   {
-    //     data: category[3],
-    //     name: 'legends',
-    //     // color: req_colors[3],
-    //     showInLegend: false,
-    //     allowPointSelect: true,
-    //     allAreas: false,
-    //     cursor: "pointer",
-    //     borderColor: "#6e6f70",
-    //     states: {
-    //       hover: {
-    //         color: "#f7941c",
-    //       },
-    //       select: {
-    //         color: "#9ec2e4",
-    //       },
-    //     },
-    //     dataLabels: {
-    //       enabled: false,
-    //       format: "{point.name}",
-    //     },
-    //   },
-    // ],
-
-  };
+      credits: {
+        enabled: false
+      },
+      // series: [{
+      //   // mapData: mao,
+      //   name: 'State',
+      //   type: 'map',
+      //   data: custom_data,
+      //   allowPointSelect: true,
+      //   allAreas: false,
+      //   keys: ['hc-key', 'value', 'color'],
+      //   cursor: 'pointer',
+      //   color: "#9ec2e4",
+      //   borderColor: "#6e6f70",
+      //   states: {
+      //     hover: {
+      //       color: '#f7941c'
+      //     },
+      //     select: {
+      //       color: '#9ec2e4'
+      //     }
+      //   },
+      //   dataLabels: {
+      //     enabled: false,
+      //     format: subOption
+      //   },
+      // }]
+      series: [{
+        name: 'legends',
+        type: 'map',
+        data: category[0],
+        allAreas: false,
+        allowPointSelect: true,
+        color: "#9ec2e4",
+        cursor: "pointer",
+        // color: req_colors[0],
+        borderColor: "#6e6f70",
+        states: {
+          hover: {
+            color: "#f7941c"
+          },
+          select: {
+            color: "#9ec2e4"
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
+        },
+        keys: ['hc-key', 'value']
+      }, {
+        data: category[1],
+        type: 'map',
+        name: 'legends1',
+        color: "#9ec2e4",
+        // color: req_colors[1],
+        allowPointSelect: true,
+        allAreas: false,
+        cursor: "pointer",
+        borderColor: "#6e6f70",
+        states: {
+          hover: {
+            color: "#f7941c"
+          },
+          select: {
+            color: "#9ec2e4"
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
+        },
+        keys: ['hc-key', 'value']
+      }, {
+        data: category[2],
+        name: 'legends2',
+        type: 'map',
+        // color: req_colors[2],
+        allowPointSelect: true,
+        allAreas: false,
+        cursor: "pointer",
+        borderColor: "#6e6f70",
+        states: {
+          hover: {
+            color: "#f7941c"
+          },
+          select: {
+            color: "#9ec2e4"
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
+        },
+        keys: ['hc-key', 'value']
+      }, {
+        data: category[3],
+        name: 'legends3',
+        type: 'map',
+        // color: req_colors[3],
+        // showInLegend: false,
+        allowPointSelect: true,
+        allAreas: false,
+        cursor: "pointer",
+        borderColor: "#6e6f70",
+        states: {
+          hover: {
+            color: "#f7941c"
+          },
+          select: {
+            color: "#9ec2e4"
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
+        },
+        keys: ['hc-key', 'value']
+      }]
+    };
+  }, [category[0], category[1], category[2], category[3]]);
   return react_1["default"].createElement("div", {
     className: "apcard-graph-wrap"
   }, react_1["default"].createElement("div", {
     className: "map-content"
-  }, react_1["default"].createElement(highcharts_react_official_1["default"], {
-    constructorType: 'mapChart',
+  }, options ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(highcharts_react_official_1["default"], {
     highcharts: highcharts_1["default"],
-    options: mapOptions,
+    constructorType: "mapChart",
+    options: options,
     allowChartUpdate: true,
-    immutable: true
-  })));
+    immutable: true,
+    callback: function callback(data) {
+      console.log(data);
+    }
+  })) : null));
 };
 
 exports["default"] = Map;

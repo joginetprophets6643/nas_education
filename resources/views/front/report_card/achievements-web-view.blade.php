@@ -148,14 +148,15 @@
       //console.log(classforphp);
       achievement_data = '';
       current_grade = ''
-      //direction_gender_header = ``
+      // direction_gender_header = ``
       data.forEach((ach, index) => {
         if (index % 6 === 0) {
           
-            achievement_data += '</tbody></table></div></div><br><h5 style="text-align: center;"><b>Grade ' + ach.grade + '</b></h5><div class="ach-card"> <div class="btn-wrap justify-content-end"> <button id="slideBack'+ach.grade+'" class="org-btn btn btn-sm mb-2" type="button"> <span class="material-icons-round"> chevron_left </span> </button> <button id="slideNext'+ach.grade+'" class="org-btn btn btn-sm mb-2" type="button"> <span class="material-icons-round"> navigate_next </span> </button> </div> <div class="ach-table table-responsive" id="achTable'+ach.grade+'"><table class="table table-bordered" id="achTableContent"> <thead> <tr> <th>Factors</th> <th class="bg-dark text-white text-center"><span class="category-item">A</span></th> <th class="bg-dark text-white text-center"><span class="category-item">B</span></th> <th class="bg-dark text-white text-center"><span class="category-item">C</span></th> <th class="bg-dark text-white text-center"><span class="category-item">D</span></th> <th class="bg-dark text-white text-center"><span class="category-item">E</span></th> <th class="bg-dark text-white text-center"><span class="category-item">F</span></th> <th class="bg-dark text-white text-center"><span class="category-item">G</span></th> <th class="bg-dark text-white text-center"><span class="category-item">H</span></th> <th class="bg-dark text-white text-center"><span class="category-item">I</span></th> <th class="bg-dark text-white text-center"><span class="category-item">J</span></th> </tr> </thead> <tbody id="add_achievementstate">'
+            achievement_data += '</tbody></table></div></div><br><h5 id="clsheading'+ach.grade+'" style="text-align: center;"><b>Grade ' + ach.grade + '</b></h5><div class="ach-card"><div class="btn-wrap justify-content-end"><button id="slideBack'+ach.grade+'"  class="org-btn btn btn-sm mb-2" type="button"><span class="material-icons-round">chevron_left</span></button><button id="slideNext'+ach.grade+'" class="org-btn btn btn-sm mb-2" type="button"><span class="material-icons-round">navigate_next</span></button></div><div class="ach-table table-responsive" id="achTable'+ach.grade+'"><table class="table table-bordered" id="achTableContent"><thead><tr><th>Factors</th><th class="bg-dark text-white text-center"><span class="category-item">A</span></th><th class="bg-dark text-white text-center"><span class="category-item">B</span></th><th class="bg-dark text-white text-center"><span class="category-item">C</span></th><th class="bg-dark text-white text-center"><span class="category-item">D</span></th><th class="bg-dark text-white text-center"><span class="category-item">E</span></th><th class="bg-dark text-white text-center"><span class="category-item">F</span></th><th class="bg-dark text-white text-center"><span class="category-item">G</span></th><th class="bg-dark text-white text-center"><span class="category-item">H</span></th><th class="bg-dark text-white text-center"><span class="category-item">I</span></th><th class="bg-dark text-white text-center"><span class="category-item">J</span></th></tr></thead><tbody id="add_achievementstate">'
+          
         } else {
           if (index === 0) {
-            achievement_data += '<div class="ach-card"> <div class="btn-wrap justify-content-end"> <button id="slideBack" class="org-btn btn btn-sm mb-2" type="button"> <span class="material-icons-round"> chevron_left </span> </button> <button id="slideNext" class="org-btn btn btn-sm mb-2" type="button"> <span class="material-icons-round"> navigate_next </span> </button> </div> <div class="ach-table table-responsive" id="achTable"><table class="table table-bordered" id="achTableContent"> <thead> <tr> <th>Factors</th> <th class="bg-dark text-white text-center"><span class="category-item">A</span></th> <th class="bg-dark text-white text-center"><span class="category-item">B</span></th> <th class="bg-dark text-white text-center"><span class="category-item">C</span></th> <th class="bg-dark text-white text-center"><span class="category-item">D</span></th> <th class="bg-dark text-white text-center"><span class="category-item">E</span></th> <th class="bg-dark text-white text-center"><span class="category-item">F</span></th> <th class="bg-dark text-white text-center"><span class="category-item">G</span></th> <th class="bg-dark text-white text-center"><span class="category-item">H</span></th> <th class="bg-dark text-white text-center"><span class="category-item">I</span></th> <th class="bg-dark text-white text-center"><span class="category-item">J</span></th> </tr> </thead> <tbody id="add_achievementstate">';
+            achievement_data += '<div class="ach-card"><div class="btn-wrap justify-content-end"><button id="slideBack"  class="org-btn btn btn-sm mb-2" type="button"><span class="material-icons-round">chevron_left</span></button><button id="slideNext" class="org-btn btn btn-sm mb-2" type="button"><span class="material-icons-round">navigate_next</span></button></div><div class="ach-table table-responsive" id="achTable-1"><table class="table table-bordered" id="achTableContent"><thead><tr><th>Factors</th><th class="bg-dark text-white text-center"><span class="category-item">A</span></th><th class="bg-dark text-white text-center"><span class="category-item">B</span></th><th class="bg-dark text-white text-center"><span class="category-item">C</span></th><th class="bg-dark text-white text-center"><span class="category-item">D</span></th><th class="bg-dark text-white text-center"><span class="category-item">E</span></th><th class="bg-dark text-white text-center"><span class="category-item">F</span></th><th class="bg-dark text-white text-center"><span class="category-item">G</span></th><th class="bg-dark text-white text-center"><span class="category-item">H</span></th><th class="bg-dark text-white text-center"><span class="category-item">I</span></th><th class="bg-dark text-white text-center"><span class="category-item">J</span></th></tr></thead><tbody id="add_achievementstate">'
           }
         }
 
@@ -319,34 +320,47 @@
 
 
       // achievement table slider starts
+      // For Class 3
+      $('#slideNext3').click(()=>{
+          var achTable = document.getElementById('achTable3');
+          sideScroll(achTable,'right',25,100,10);
+      });
+
       $('#slideBack3').click(()=>{
           var achTable = document.getElementById('achTable3');
           sideScroll(achTable,'left',25,100,10);
+      });
+      // For Class 5
+      $('#slideNext5').click(()=>{
+          var achTable = document.getElementById('achTable5');
+          sideScroll(achTable,'right',25,100,10);
       });
 
       $('#slideBack5').click(()=>{
           var achTable = document.getElementById('achTable5');
           sideScroll(achTable,'left',25,100,10);
       });
+      // For Class 8
+      $('#slideNext8').click(()=>{
+          var achTable = document.getElementById('achTable8');
+          sideScroll(achTable,'right',25,100,10);
+      });
 
       $('#slideBack8').click(()=>{
           var achTable = document.getElementById('achTable8');
           sideScroll(achTable,'left',25,100,10);
+      });
+      // For Class 10
+      $('#slideNext10').click(()=>{
+          var achTable = document.getElementById('achTable10');
+          sideScroll(achTable,'right',25,100,10);
       });
 
       $('#slideBack10').click(()=>{
           var achTable = document.getElementById('achTable10');
           sideScroll(achTable,'left',25,100,10);
       });
-      $('#slideNext3').click(()=>{
-          var achTable = document.getElementById('achTable3');
-          sideScroll(achTable,'right',25,100,10);
-      });
 
-      $('#slideNext5').click(()=>{
-          var achTable = document.getElementById('achTable5');
-          sideScroll(achTable,'right',25,100,10);
-      });
 
       $('#slideNext8').click(()=>{
           var achTable = document.getElementById('achTable8');
