@@ -4035,6 +4035,40 @@ exports.resetGraphs = resetGraphs;
 "use strict";
 
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -4045,13 +4079,16 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 __webpack_require__(/*! @/styles/_style.scss */ "./src/styles/_style.scss");
 
 var Main_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Main/Main */ "./src/components/Visualization/Main/Main.tsx"));
 
 var App = function App() {
+  (0, react_1.useEffect)(function () {
+    window.scrollTo(0, 0);
+  }, []);
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Main_1["default"], null));
 };
 
@@ -5918,6 +5955,12 @@ var SubgroupGraph = function SubgroupGraph(props) {
   var current_geography = (0, react_redux_1.useSelector)(function (store) {
     return store.current_geography.data;
   });
+  var current_state = (0, react_redux_1.useSelector)(function (store) {
+    return store.current_state.data;
+  });
+  var current_district = (0, react_redux_1.useSelector)(function (store) {
+    return store.current_district.data;
+  });
   var legends = {
     'boys': 'boys',
     'girls': 'girls',
@@ -5951,24 +5994,37 @@ var SubgroupGraph = function SubgroupGraph(props) {
               India: data[current_geography]
             }));
           }
+        } else if (current_geography == 'state') {
+          if (subOption !== 'Total') {
+            if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
+              var _makeSeries3;
+
+              setData(makeSeries((_makeSeries3 = {}, _defineProperty(_makeSeries3, current_state.state_name, data[current_geography][legends[subOption.toLowerCase()]]), _defineProperty(_makeSeries3, "India", data['national'][legends[subOption.toLowerCase()]]), _makeSeries3)));
+            } else {
+              var _makeSeries4;
+
+              setData(makeSeries((_makeSeries4 = {}, _defineProperty(_makeSeries4, current_state.state_name, data[current_geography][subOption]), _defineProperty(_makeSeries4, "India", data['national'][subOption]), _makeSeries4)));
+            }
+          } else {
+            var _makeSeries5;
+
+            setData(makeSeries((_makeSeries5 = {}, _defineProperty(_makeSeries5, current_state.state_name, data[current_geography]), _defineProperty(_makeSeries5, "India", data['national']), _makeSeries5)));
+          }
         } else {
           if (subOption !== 'Total') {
             if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
-              setData(makeSeries({
-                State: data[current_geography][legends[subOption.toLowerCase()]],
-                India: data['national'][legends[subOption.toLowerCase()]]
-              }));
+              var _makeSeries6;
+
+              setData(makeSeries((_makeSeries6 = {}, _defineProperty(_makeSeries6, current_district.district_name, data[current_geography][legends[subOption.toLowerCase()]]), _defineProperty(_makeSeries6, current_district.state_name, data['state'][legends[subOption.toLowerCase()]]), _makeSeries6)));
             } else {
-              setData(makeSeries({
-                State: data[current_geography][subOption],
-                India: data['national'][subOption]
-              }));
+              var _makeSeries7;
+
+              setData(makeSeries((_makeSeries7 = {}, _defineProperty(_makeSeries7, current_district.district_name, data[current_geography][subOption]), _defineProperty(_makeSeries7, current_district.state_name, data['state'][subOption]), _makeSeries7)));
             }
           } else {
-            setData(makeSeries({
-              State: data[current_geography],
-              India: data['national']
-            }));
+            var _makeSeries8;
+
+            setData(makeSeries((_makeSeries8 = {}, _defineProperty(_makeSeries8, current_district.district_name, data[current_geography]), _defineProperty(_makeSeries8, current_district.state_name, data['state']), _makeSeries8)));
           }
         }
       }
@@ -5978,9 +6034,9 @@ var SubgroupGraph = function SubgroupGraph(props) {
   }, [data, subOption]);
 
   var makeSeries = function makeSeries(data) {
-    console.log(data);
+    // console.log(data)
     var series = {
-      name: 'India',
+      name: '',
       colorByPoint: true,
       data: []
     };
@@ -6375,99 +6431,14 @@ exports["default"] = MapTabDropdown;
 
 /***/ }),
 
-/***/ "./src/components/Visualization/MapTab/MapTab.tsx":
-/*!********************************************************!*\
-  !*** ./src/components/Visualization/MapTab/MapTab.tsx ***!
-  \********************************************************/
+/***/ "./src/components/Visualization/MapTabDropdown/MapsTabDropdown.tsx":
+/*!*************************************************************************!*\
+  !*** ./src/components/Visualization/MapTabDropdown/MapsTabDropdown.tsx ***!
+  \*************************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var Map_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Map/Map */ "./src/components/Visualization/Map/Map.tsx"));
-
-var MapTabDropdown_1 = __importDefault(__webpack_require__(/*! ../MapTabDropdown/MapTabDropdown */ "./src/components/Visualization/MapTabDropdown/MapTabDropdown.tsx"));
-
-var MapTab = function MapTab() {
-  return react_1["default"].createElement("div", {
-    className: "maptab-wrap mt-3"
-  }, react_1["default"].createElement("div", {
-    className: "average-performance-wrap card-blue mb-60"
-  }, react_1["default"].createElement("div", {
-    className: "d-flex"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-3"
-  }, react_1["default"].createElement("div", {
-    className: "maptab-select-wrap m-0"
-  }, react_1["default"].createElement(MapTabDropdown_1["default"], {
-    label: "Sector:"
-  }))), react_1["default"].createElement("div", {
-    className: "col-md-6"
-  }, react_1["default"].createElement("div", {
-    className: "maptab-select-wrap m-0"
-  }, react_1["default"].createElement(MapTabDropdown_1["default"], {
-    label: "Indicator:"
-  }))), react_1["default"].createElement("div", {
-    className: "col-md-3"
-  }, react_1["default"].createElement("div", {
-    className: "maptab-select-wrap m-0"
-  }, react_1["default"].createElement(MapTabDropdown_1["default"], {
-    label: "Subgroup:"
-  })))), react_1["default"].createElement("div", {
-    className: "averag-performance-content light-blue"
-  }, react_1["default"].createElement("div", {
-    className: "row"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-12"
-  }, react_1["default"].createElement("div", {
-    className: "apcard-white"
-  }, react_1["default"].createElement("div", {
-    className: "apcard-content p-0"
-  }, react_1["default"].createElement("div", {
-    className: "apcard-header justify-content-center"
-  }, react_1["default"].createElement("h3", {
-    className: "apcard-heading"
-  }, "Average Performance of Students in EVS in Class 3, Percent")), react_1["default"].createElement(Map_1["default"], null)), react_1["default"].createElement("div", {
-    className: "apcard-content p-0"
-  }, react_1["default"].createElement("div", {
-    className: "apcard-header justify-content-center"
-  }, react_1["default"].createElement("h3", {
-    className: "apcard-heading"
-  }, "Average Performance of Students in EVS in Class 3, Percent")), react_1["default"].createElement(Map_1["default"], null))))))));
-};
-
-exports["default"] = MapTab;
-
-/***/ }),
-
-/***/ "./src/components/Visualization/Map/Map.tsx":
-/*!**************************************************!*\
-  !*** ./src/components/Visualization/Map/Map.tsx ***!
-  \**************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -6527,347 +6498,194 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var highcharts_1 = __importDefault(__webpack_require__(/*! highcharts */ "./node_modules/highcharts/highcharts.js"));
+var react_select_1 = __importDefault(__webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js"));
 
-var highcharts_react_official_1 = __importDefault(__webpack_require__(/*! highcharts-react-official */ "./node_modules/highcharts-react-official/dist/highcharts-react.min.js"));
+__webpack_require__(/*! react-select-2/dist/css/react-select-2.css */ "./node_modules/react-select-2/dist/css/react-select-2.css");
 
-var map_1 = __importDefault(__webpack_require__(/*! highcharts/modules/map */ "./node_modules/highcharts/modules/map.js"));
+__webpack_require__(/*! react-select-2/dist/js/react-select-2.js */ "./node_modules/react-select-2/dist/js/react-select-2.js");
 
-var mapDataIE = __webpack_require__(/*! @highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json */ "./node_modules/@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json");
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-(0, map_1["default"])(highcharts_1["default"]);
+var sectorOptions = [{
+  value: '3',
+  label: 'Grade 3'
+}, {
+  value: '5',
+  label: 'Grade 5'
+}, {
+  value: '8',
+  label: 'Grade 8'
+}, {
+  value: '10',
+  label: 'Grade 10'
+}];
+var gradeSubjects = {
+  3: ['language', 'math', 'evs'],
+  5: ['language', 'math', 'evs'],
+  8: ['language', 'math', 'science', 'social science'],
+  10: ['mil', 'math', 'science', 'social science', 'english']
+};
+var indicatorOptions = [];
 
-var Map = function Map(props) {
-  var data = props.data,
-      subOption = props.subOption;
-
-  var _ref = (0, react_1.useState)(),
+var MapsTabDropdown = function MapsTabDropdown(props) {
+  var _ref = (0, react_1.useState)('3'),
       _ref2 = _slicedToArray(_ref, 2),
-      options = _ref2[0],
-      setOptions = _ref2[1];
+      grade = _ref2[0],
+      setGrade = _ref2[1];
 
-  var category = [[], [], [], []];
-  (0, react_1.useEffect)(function () {// console.log(data)
-    // mapDataIE.features.forEach((state: any) => {
-    //   state.properties.color = 'black'
-    // })
-    // if (data !== undefined) {
-    //   makeSeries(data);
-    // }
-  }, [data]);
-  var custom_data = [];
+  var linked_charts = (0, react_redux_1.useSelector)(function (store) {
+    return store.linked_charts;
+  });
+  var label = props.label;
+
+  var _ref3 = (0, react_1.useState)([]),
+      _ref4 = _slicedToArray(_ref3, 2),
+      options = _ref4[0],
+      setOptions = _ref4[1];
+
   (0, react_1.useEffect)(function () {
-    var temp_option = {
-      title: {
-        text: "Widget click by location",
-        style: {
-          color: "black"
-        }
-      },
-      chart: {
-        backgroundColor: "transparent",
-        type: "map",
-        map: mapDataIE
-      },
-      mapNavigation: {
-        enabled: true,
-        enableButtons: false
-      },
-      credits: {
-        enabled: false
-      },
-      colorAxis: {
-        dataClasses: [{
-          from: 1,
-          color: "#C40401",
-          name: "widget name one"
-        }, {
-          from: 2,
-          color: "#0200D0",
-          name: "widget name two"
-        }]
-      },
-      plotOptions: {
-        series: {
-          events: {
-            click: function click(e) {
-              alert(e);
-            }
-          }
-        }
-      },
-      // tooltip: {
-      //   pointFormatter: function () {
-      //     return this.name;
-      //   }
-      // },
-      legend: {
-        align: "right",
-        verticalAlign: "top",
-        x: -100,
-        y: 70,
-        floating: true,
-        layout: "vertical",
-        valueDecimals: 0,
-        backgroundColor: // theme
-        highcharts_1["default"].defaultOptions && highcharts_1["default"].defaultOptions.legend && highcharts_1["default"].defaultOptions.legend.backgroundColor || "rgba(255, 255, 255, 0.85)"
-      },
-      series: [{
-        // name: "world map",
-        color: 'black',
-        dataLabels: {
-          enabled: true,
-          color: "#fcba03",
-          // format: "{point.postal-code}",
-          style: {
-            textTransform: "uppercase"
-          }
-        },
-        states: {
-          hover: {
-            color: '#f7941c'
-          },
-          select: {
-            color: '#9ec2e4'
-          }
-        },
-        drilldown: {
-          activeDataLabelStyle: {
-            color: '#FFFFFF',
-            textDecoration: 'none',
-            textOutline: '1px #000000'
-          },
-          drillUpButton: {
-            relativeTo: 'spacingBox',
-            position: {
-              x: 0,
-              y: 60
-            }
-          }
-        },
-        tooltip: {
-          ySuffix: " %"
-        },
-        cursor: "pointer",
-        joinBy: ["hc-key", "hc-key"],
-        data: []
-      }]
-    }; // temp_option.series[0].mapData = mapDataIE
-
-    mapDataIE['features'].forEach(function (state, i) {
-      if (state.id && state.geometry === undefined) {
-        var name = state["properties"]["name"];
-        var value = i % 2 + 1;
-        var postalCode = state["id"];
-        var type = value === 1 ? "widget name one" : "widget name two";
-        var row = i;
-        temp_option === null || temp_option === void 0 ? void 0 : temp_option.series[0].data.push({
-          value: value,
-          name: name,
-          code: postalCode,
-          type: type
-        }); // temp_option?.series[0].mapData.push(state)
-      }
-    }); // temp_option.chart.map = mapDataIE
-
-    setOptions(Object.assign({}, temp_option));
-  }, []);
-  (0, react_1.useEffect)(function () {
-    console.log(options);
-  }, [options]);
-
-  var makeSeries = function makeSeries(data) {
-    var values = Object.values(data);
-    var min = Math.min.apply(Math, _toConsumableArray(values));
-    var max = Math.max.apply(Math, _toConsumableArray(values));
-    var logic = Math.round((max - min) / 4);
-    var ranges = [];
-    max = min + logic;
-
-    for (var i = 0; i < 4; i++) {
-      ranges[i] = {
-        'min': min,
-        'max': max
-      };
-      min = max + 1;
-      max += logic + 1;
+    if (linked_charts.loaded && !linked_charts.loading) {// console.log(linked_charts, "Hii")
     }
-
-    Object.keys(data).forEach(function (item) {
-      ranges.forEach(function (range, index) {
-        if (data[item] >= range['min'] && data[item] <= range['max'] && item.toLowerCase() !== 'ladakh') {
-          category[index].push({
-            "hc-key": item.toLowerCase(),
-            'value': data[item]
+  }, [linked_charts]);
+  (0, react_1.useEffect)(function () {
+    if (label == 'Indicator:') {
+      Object.keys(gradeSubjects).forEach(function (grd) {
+        if (grd == grade) {
+          gradeSubjects[grd].forEach(function (subject) {
+            indicatorOptions.push({
+              value: subject + 'avs',
+              label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
+            });
+            indicatorOptions.push({
+              value: subject + 'lo',
+              label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent'
+            });
+            indicatorOptions.push({
+              value: subject + 'range',
+              label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent'
+            });
           });
         }
-      }); // if (item.toLowerCase() != 'ladakh') {
-      //   custom_data.push({ 'hc-key': item.toLowerCase(), 'value': data[item], 'color': 'black' })
-      // }
-    }); // console.log(category)
-  };
-
-  var mapOptions = {};
-  (0, react_1.useEffect)(function () {
-    mapOptions = {
-      chart: {
-        map: mapDataIE
-      },
-      title: {
-        text: ''
-      },
-      subtitle: {
-        text: ''
-      },
-      legend: {
-        enabled: true
-      },
-      tooltip: {
-        enabled: true
-      },
-      navigation: {
-        buttonOptions: {
-          enabled: false
-        }
-      },
-      credits: {
-        enabled: false
-      },
-      // series: [{
-      //   // mapData: mao,
-      //   name: 'State',
-      //   type: 'map',
-      //   data: custom_data,
-      //   allowPointSelect: true,
-      //   allAreas: false,
-      //   keys: ['hc-key', 'value', 'color'],
-      //   cursor: 'pointer',
-      //   color: "#9ec2e4",
-      //   borderColor: "#6e6f70",
-      //   states: {
-      //     hover: {
-      //       color: '#f7941c'
-      //     },
-      //     select: {
-      //       color: '#9ec2e4'
-      //     }
-      //   },
-      //   dataLabels: {
-      //     enabled: false,
-      //     format: subOption
-      //   },
-      // }]
-      series: [{
-        name: 'legends',
-        type: 'map',
-        data: category[0],
-        allAreas: false,
-        allowPointSelect: true,
-        color: "#9ec2e4",
-        cursor: "pointer",
-        // color: req_colors[0],
-        borderColor: "#6e6f70",
-        states: {
-          hover: {
-            color: "#f7941c"
-          },
-          select: {
-            color: "#9ec2e4"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        keys: ['hc-key', 'value']
-      }, {
-        data: category[1],
-        type: 'map',
-        name: 'legends1',
-        color: "#9ec2e4",
-        // color: req_colors[1],
-        allowPointSelect: true,
-        allAreas: false,
-        cursor: "pointer",
-        borderColor: "#6e6f70",
-        states: {
-          hover: {
-            color: "#f7941c"
-          },
-          select: {
-            color: "#9ec2e4"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        keys: ['hc-key', 'value']
-      }, {
-        data: category[2],
-        name: 'legends2',
-        type: 'map',
-        // color: req_colors[2],
-        allowPointSelect: true,
-        allAreas: false,
-        cursor: "pointer",
-        borderColor: "#6e6f70",
-        states: {
-          hover: {
-            color: "#f7941c"
-          },
-          select: {
-            color: "#9ec2e4"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        keys: ['hc-key', 'value']
-      }, {
-        data: category[3],
-        name: 'legends3',
-        type: 'map',
-        // color: req_colors[3],
-        // showInLegend: false,
-        allowPointSelect: true,
-        allAreas: false,
-        cursor: "pointer",
-        borderColor: "#6e6f70",
-        states: {
-          hover: {
-            color: "#f7941c"
-          },
-          select: {
-            color: "#9ec2e4"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        keys: ['hc-key', 'value']
-      }]
-    };
-  }, [category[0], category[1], category[2], category[3]]);
-  return react_1["default"].createElement("div", {
-    className: "apcard-graph-wrap"
-  }, react_1["default"].createElement("div", {
-    className: "map-content"
-  }, options ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(highcharts_react_official_1["default"], {
-    highcharts: highcharts_1["default"],
-    constructorType: "mapChart",
-    options: options,
-    allowChartUpdate: true,
-    immutable: true,
-    callback: function callback(data) {
-      console.log(data);
+      });
+      setOptions(indicatorOptions);
+    } else if (label == 'Subgroup:') {
+      indicatorOptions.push({
+        value: '',
+        label: ''
+      });
+    } else {
+      setOptions(sectorOptions);
     }
-  })) : null));
+  }, []);
+  return react_1["default"].createElement("div", {
+    className: "maptabdropdown-wrap"
+  }, react_1["default"].createElement("label", {
+    className: "maptabdropdown-label"
+  }, label), label == "Indicator:" && react_1["default"].createElement(react_select_1["default"], {
+    options: options,
+    value: indicatorOptions[0],
+    className: "react-select",
+    classNamePrefix: "react-select"
+  }), label == "Subgroup:" && react_1["default"].createElement(react_select_1["default"], {
+    options: options,
+    className: "react-select",
+    classNamePrefix: "react-select"
+  }), label == "Sector:" && react_1["default"].createElement(react_select_1["default"], {
+    options: options,
+    defaultValue: sectorOptions[0],
+    className: "react-select",
+    classNamePrefix: "react-select"
+  }));
 };
 
-exports["default"] = Map;
+exports["default"] = MapsTabDropdown;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/MapTab/MapTab.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/Visualization/MapTab/MapTab.tsx ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Map_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/Map/Map */ "./src/components/Visualization/Map/Map.tsx"));
+
+var MapsTabDropdown_1 = __importDefault(__webpack_require__(/*! ../MapTabDropdown/MapsTabDropdown */ "./src/components/Visualization/MapTabDropdown/MapsTabDropdown.tsx"));
+
+var MapTab = function MapTab() {
+  return react_1["default"].createElement("div", {
+    className: "maptab-wrap mt-3"
+  }, react_1["default"].createElement("div", {
+    className: "average-performance-wrap card-blue mb-60"
+  }, react_1["default"].createElement("div", {
+    className: "d-flex"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-3"
+  }, react_1["default"].createElement("div", {
+    className: "maptab-select-wrap m-0"
+  }, react_1["default"].createElement(MapsTabDropdown_1["default"], {
+    label: "Sector:"
+  }))), react_1["default"].createElement("div", {
+    className: "col-md-6"
+  }, react_1["default"].createElement("div", {
+    className: "maptab-select-wrap m-0"
+  }, react_1["default"].createElement(MapsTabDropdown_1["default"], {
+    label: "Indicator:"
+  }))), react_1["default"].createElement("div", {
+    className: "col-md-3"
+  }, react_1["default"].createElement("div", {
+    className: "maptab-select-wrap m-0"
+  }, react_1["default"].createElement(MapsTabDropdown_1["default"], {
+    label: "Subgroup:"
+  })))), react_1["default"].createElement("div", {
+    className: "averag-performance-content light-blue"
+  }, react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-12"
+  }, react_1["default"].createElement("div", {
+    className: "apcard-white"
+  }, react_1["default"].createElement("div", {
+    className: "apcard-content p-0"
+  }, react_1["default"].createElement("div", {
+    className: "apcard-header justify-content-center"
+  }, react_1["default"].createElement("h3", {
+    className: "apcard-heading"
+  }, "Average Performance of Students in EVS in Class 3, Percent")), react_1["default"].createElement(Map_1["default"], null)), react_1["default"].createElement("div", {
+    className: "apcard-content p-0"
+  }, react_1["default"].createElement("div", {
+    className: "apcard-header justify-content-center"
+  }, react_1["default"].createElement("h3", {
+    className: "apcard-heading"
+  }, "Average Performance of Students in EVS in Class 3, Percent")), react_1["default"].createElement(Map_1["default"], null))))))));
+};
+
+exports["default"] = MapTab;
+
+/***/ }),
+
+/***/ "./src/components/Visualization/Map/Map.tsx":
+/*!**************************************************!*\
+  !*** ./src/components/Visualization/Map/Map.tsx ***!
+  \**************************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\nas_education\\src\\components\\Visualization\\Map\\Map.tsx: Identifier 'mapOptions' has already been declared. (243:8)\n\n\u001b[0m \u001b[90m 241 |\u001b[39m         console\u001b[33m.\u001b[39mlog(category)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 242 |\u001b[39m     }\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 243 |\u001b[39m     \u001b[36mlet\u001b[39m mapOptions \u001b[33m=\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 244 |\u001b[39m         chart\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 245 |\u001b[39m             map\u001b[33m:\u001b[39m mapDataIE\u001b[0m\n\u001b[0m \u001b[90m 246 |\u001b[39m         }\u001b[33m,\u001b[39m\u001b[0m\n    at Object._raise (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:476:17)\n    at Object.raiseWithData (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:469:17)\n    at Object.raise (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:430:17)\n    at ScopeHandler.checkRedeclarationInScope (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:1720:12)\n    at ScopeHandler.declareName (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:1686:12)\n    at Object.checkLVal (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:11626:24)\n    at Object.parseVarId (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:14852:10)\n    at Object.parseVar (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:14823:12)\n    at Object.parseVarStatement (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:14630:10)\n    at Object.parseStatementContent (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:14188:21)\n    at Object.parseStatement (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:14113:17)\n    at Object.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:14739:25)\n    at Object.parseBlockBody (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:14730:10)\n    at Object.parseBlock (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:14714:10)\n    at Object.parseFunctionBody (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:13440:24)\n    at Object.parseArrowExpression (C:\\xampp\\htdocs\\nas_education\\node_modules\\@babel\\parser\\lib\\index.js:13412:10)");
 
 /***/ }),
 
@@ -6904,6 +6722,64 @@ exports["default"] = MapDropdown;
 
 /***/ }),
 
+/***/ "./src/components/Visualization/ScaterPlotTabDropdown/ScaterPlotTapDropDown.tsx":
+/*!**************************************************************************************!*\
+  !*** ./src/components/Visualization/ScaterPlotTabDropdown/ScaterPlotTapDropDown.tsx ***!
+  \**************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var react_select_1 = __importDefault(__webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js"));
+
+__webpack_require__(/*! react-select-2/dist/css/react-select-2.css */ "./node_modules/react-select-2/dist/css/react-select-2.css");
+
+__webpack_require__(/*! react-select-2/dist/js/react-select-2.js */ "./node_modules/react-select-2/dist/js/react-select-2.js");
+
+var options = [{
+  value: 'CLASS 3',
+  label: 'CLASS 3'
+}, {
+  value: 'CLASS 5',
+  label: 'CLASS 5'
+}, {
+  value: 'CLASS 8',
+  label: 'CLASS 8'
+}, {
+  value: 'CLASS 10',
+  label: 'CLASS 10'
+}];
+
+var ScatterPlotTabDropdown = function ScatterPlotTabDropdown(props) {
+  var label = props.label;
+  return react_1["default"].createElement("div", {
+    className: "maptabdropdown-wrap"
+  }, react_1["default"].createElement("label", {
+    className: "maptabdropdown-label"
+  }, label), react_1["default"].createElement(react_select_1["default"], {
+    options: options,
+    className: "react-select",
+    classNamePrefix: "react-select"
+  }));
+};
+
+exports["default"] = ScatterPlotTabDropdown;
+
+/***/ }),
+
 /***/ "./src/components/Visualization/ScatterPlotTab/ScatterPlotTab.tsx":
 /*!************************************************************************!*\
   !*** ./src/components/Visualization/ScatterPlotTab/ScatterPlotTab.tsx ***!
@@ -6929,7 +6805,7 @@ var ScatterGraph_1 = __importDefault(__webpack_require__(/*! @/components/Visual
 
 var GraphPlayBtn_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/GraphPlayBtn/GraphPlayBtn */ "./src/components/Visualization/GraphPlayBtn/GraphPlayBtn.tsx"));
 
-var MapTabDropdown_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/MapTabDropdown/MapTabDropdown */ "./src/components/Visualization/MapTabDropdown/MapTabDropdown.tsx"));
+var ScaterPlotTapDropDown_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/ScaterPlotTabDropdown/ScaterPlotTapDropDown */ "./src/components/Visualization/ScaterPlotTabDropdown/ScaterPlotTapDropDown.tsx"));
 
 var ScatterPlotTab = function ScatterPlotTab() {
   return react_1["default"].createElement("div", {
@@ -6948,13 +6824,13 @@ var ScatterPlotTab = function ScatterPlotTab() {
     className: "col-md-6"
   }, react_1["default"].createElement("div", {
     className: "scatterplot-select-wrap mb-30"
-  }, react_1["default"].createElement(MapTabDropdown_1["default"], {
+  }, react_1["default"].createElement(ScaterPlotTapDropDown_1["default"], {
     label: "Y-Axis:"
   }))), react_1["default"].createElement("div", {
     className: "col-md-6"
   }, react_1["default"].createElement("div", {
     className: "scatterplot-select-wrap"
-  }, react_1["default"].createElement(MapTabDropdown_1["default"], {
+  }, react_1["default"].createElement(ScaterPlotTapDropDown_1["default"], {
     label: "X-Axis:"
   }))), react_1["default"].createElement("div", {
     className: "col-md-12"
@@ -7493,8 +7369,13 @@ var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react
 
 var visualization_action_1 = __webpack_require__(/*! @/actions/visualization.action */ "./src/actions/visualization.action.tsx");
 
+var visualization_action_2 = __webpack_require__(/*! @/actions/visualization.action */ "./src/actions/visualization.action.tsx");
+
 var Tabs = function Tabs() {
   var dispatch = (0, react_redux_1.useDispatch)();
+  var current_geography = (0, react_redux_1.useSelector)(function (store) {
+    return store.current_geography.data;
+  });
 
   var _ref = (0, react_2.useState)(0),
       _ref2 = _slicedToArray(_ref, 2),
@@ -7504,9 +7385,58 @@ var Tabs = function Tabs() {
   var current_grade = (0, react_redux_1.useSelector)(function (store) {
     return store.grade.data;
   });
+  var current_id = (0, react_redux_1.useSelector)(function (store) {
+    return store.current_id.data;
+  });
+
+  var _ref3 = (0, react_2.useState)(1),
+      _ref4 = _slicedToArray(_ref3, 2),
+      temp_state_id = _ref4[0],
+      setState = _ref4[1];
 
   var changeGrade = function changeGrade(grade) {
     dispatch((0, visualization_action_1.setClass)(grade));
+  };
+
+  var changeScreen = function changeScreen() {
+    var temp_reusable_filters = {
+      type: {
+        _eq: current_geography
+      },
+      grade: {
+        _eq: 3
+      }
+    };
+
+    if (current_geography == 'district') {
+      temp_reusable_filters = {
+        type: {
+          _eq: 'state'
+        },
+        grade: {
+          _eq: 3
+        }
+      };
+    }
+
+    if (current_geography === 'state') {
+      temp_reusable_filters = Object.assign(Object.assign({}, temp_reusable_filters), {
+        state_id: {
+          _eq: current_id
+        }
+      });
+      setState(current_id);
+    }
+
+    if (current_geography === 'district') {
+      temp_reusable_filters = Object.assign(Object.assign({}, temp_reusable_filters), {
+        state_id: {
+          _eq: temp_state_id
+        }
+      });
+    }
+
+    dispatch((0, visualization_action_2.getLinkedGraphs)(JSON.stringify(temp_reusable_filters)));
   };
 
   return react_1["default"].createElement("ul", {
@@ -7584,7 +7514,10 @@ var Tabs = function Tabs() {
     type: "button",
     role: "tab",
     "aria-controls": "maps",
-    "aria-selected": "false"
+    "aria-selected": "false",
+    onClick: function onClick(e) {
+      changeScreen();
+    }
   }, "MAPS")), react_1["default"].createElement("li", {
     className: "nav-item",
     role: "presentation"
@@ -7805,7 +7738,6 @@ var Dropdown = function Dropdown() {
     className: "dropdown"
   }, react_1["default"].createElement("a", {
     className: "menu-level-main dropdown-toggle",
-    href: "",
     "data-bs-toggle": "dropdown",
     "data-bs-auto-close": "outside"
   }, current_text), react_1["default"].createElement("div", {
@@ -7831,9 +7763,7 @@ var Dropdown = function Dropdown() {
     }, " ", result.district_name);
   }) : ""), searchedDistrictList.length === 0 ? react_1["default"].createElement("a", {
     href: "#",
-    onClick: function onClick(e) {
-      e.preventDefault();
-    },
+    onClick: setNational,
     className: "dropdown-item dropdown-toggle",
     "data-bs-toggle": "dropdown",
     "data-bs-auto-close": "outside"
@@ -10119,170 +10049,6 @@ L(d,function(b){a.addButton(b)}),a.isDirtyExporting=!1)}function ja(a,b){var c=a
 U,b.addButton=t,b.destroyExport=V,b.renderExporting=ia,b.callbacks.push(T),x(a,"init",fa),d.isSafari&&d.win.matchMedia("print").addListener(function(a){I&&(a.matches?I.beforePrint():I.afterPrint())}))}})(H||(H={}));e.exporting=m(z.exporting,e.exporting);e.lang=m(z.lang,e.lang);e.navigation=m(z.navigation,e.navigation);"";"";return H});g(a,"masters/modules/exporting.src.js",[a["Core/Globals.js"],a["Extensions/Exporting/Exporting.js"],a["Core/HttpUtilities.js"]],function(a,e,g){a.HttpUtilities=g;a.ajax=
 g.ajax;a.getJSON=g.getJSON;a.post=g.post;e.compose(a.Chart,a.Renderer)})});
 //# sourceMappingURL=exporting.js.map
-
-/***/ }),
-
-/***/ "./node_modules/highcharts/modules/map.js":
-/*!************************************************!*\
-  !*** ./node_modules/highcharts/modules/map.js ***!
-  \************************************************/
-/***/ ((module, exports, __webpack_require__) => {
-
-"use strict";
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
- Highmaps JS v9.3.3 (2022-02-01)
-
- Highmaps as a plugin for Highcharts or Highcharts Stock.
-
- (c) 2011-2021 Torstein Honsi
-
- License: www.highcharts.com/license
-*/
-(function(c){ true&&module.exports?(c["default"]=c,module.exports=c): true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! highcharts */ "./node_modules/highcharts/highcharts.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function(y){c(y);c.Highcharts=y;return c}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):0})(function(c){function y(c,f,p,r){c.hasOwnProperty(f)||(c[f]=r.apply(null,p))}c=c?c._modules:{};y(c,"Core/Axis/Color/ColorAxisComposition.js",[c["Core/Color/Color.js"],c["Core/Utilities.js"]],function(c,f){var p=c.parse,
-r=f.addEvent,n=f.extend,u=f.merge,e=f.pick,b=f.splat,v;(function(m){function k(){var h=this,l=this.options;this.colorAxis=[];l.colorAxis&&(l.colorAxis=b(l.colorAxis),l.colorAxis.forEach(function(l,d){l.index=d;new B(h,l)}))}function a(h){var l=this,d=function(a){a=h.allItems.indexOf(a);-1!==a&&(l.destroyItem(h.allItems[a]),h.allItems.splice(a,1))},a=[],g,w;(this.chart.colorAxis||[]).forEach(function(h){(g=h.options)&&g.showInLegend&&(g.dataClasses&&g.visible?a=a.concat(h.getDataClassLegendSymbols()):
-g.visible&&a.push(h),h.series.forEach(function(h){if(!h.options.showInLegend||g.dataClasses)"point"===h.options.legendType?h.points.forEach(function(h){d(h)}):d(h)}))});for(w=a.length;w--;)h.allItems.unshift(a[w])}function d(h){h.visible&&h.item.legendColor&&h.item.legendSymbol.attr({fill:h.item.legendColor})}function g(){var h=this.chart.colorAxis;h&&h.forEach(function(h,l,a){h.update({},a)})}function t(){(this.chart.colorAxis&&this.chart.colorAxis.length||this.colorAttribs)&&this.translateColors()}
-function x(){var h=this.axisTypes;h?-1===h.indexOf("colorAxis")&&h.push("colorAxis"):this.axisTypes=["colorAxis"]}function v(h){var l=this,a=h?"show":"hide";l.visible=l.options.visible=!!h;["graphic","dataLabel"].forEach(function(h){if(l[h])l[h][a]()});this.series.buildKDTree()}function q(){var h=this,l=this.options.nullColor,a=this.colorAxis,d=this.colorKey;(this.data.length?this.data:this.points).forEach(function(g){var w=g.getNestedProperty(d);(w=g.options.color||(g.isNull||null===g.value?l:a&&
-"undefined"!==typeof w?a.toColor(w,g):g.color||h.color))&&g.color!==w&&(g.color=w,"point"===h.options.legendType&&g.legendItem&&h.chart.legend.colorizeItem(g,g.visible))})}function w(h){var l=h.prototype.createAxis;h.prototype.createAxis=function(h,a){if("colorAxis"!==h)return l.apply(this,arguments);var d=new B(this,u(a.axis,{index:this[h].length,isX:!1}));this.isDirtyLegend=!0;this.axes.forEach(function(h){h.series=[]});this.series.forEach(function(h){h.bindAxes();h.isDirtyData=!0});e(a.redraw,
-!0)&&this.redraw(a.animation);return d}}function A(){this.elem.attr("fill",p(this.start).tweenTo(p(this.end),this.pos),void 0,!0)}function h(){this.elem.attr("stroke",p(this.start).tweenTo(p(this.end),this.pos),void 0,!0)}var l=[],B;m.compose=function(b,e,m,u,c){B||(B=b);-1===l.indexOf(e)&&(l.push(e),b=e.prototype,b.collectionsWithUpdate.push("colorAxis"),b.collectionsWithInit.colorAxis=[b.addColorAxis],r(e,"afterGetAxes",k),w(e));-1===l.indexOf(m)&&(l.push(m),e=m.prototype,e.fillSetter=A,e.strokeSetter=
-h);-1===l.indexOf(u)&&(l.push(u),r(u,"afterGetAllItems",a),r(u,"afterColorizeItem",d),r(u,"afterUpdate",g));-1===l.indexOf(c)&&(l.push(c),n(c.prototype,{optionalAxis:"colorAxis",translateColors:q}),n(c.prototype.pointClass.prototype,{setVisible:v}),r(c,"afterTranslate",t),r(c,"bindAxes",x))};m.pointSetVisible=v})(v||(v={}));return v});y(c,"Core/Axis/Color/ColorAxisDefaults.js",[],function(){return{lineWidth:0,minPadding:0,maxPadding:0,gridLineWidth:1,tickPixelInterval:72,startOnTick:!0,endOnTick:!0,
-offset:0,marker:{animation:{duration:50},width:.01,color:"#999999"},labels:{overflow:"justify",rotation:0},minColor:"#e6ebf5",maxColor:"#003399",tickLength:5,showInLegend:!0}});y(c,"Core/Axis/Color/ColorAxis.js",[c["Core/Axis/Axis.js"],c["Core/Color/Color.js"],c["Core/Axis/Color/ColorAxisComposition.js"],c["Core/Axis/Color/ColorAxisDefaults.js"],c["Core/Globals.js"],c["Core/Legend/LegendSymbol.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f,p,r,n,u,e,b){var v=this&&this.__extends||
-function(){var a=function(d,g){a=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(a,h){a.__proto__=h}||function(a,h){for(var l in h)h.hasOwnProperty(l)&&(a[l]=h[l])};return a(d,g)};return function(d,g){function b(){this.constructor=d}a(d,g);d.prototype=null===g?Object.create(g):(b.prototype=g.prototype,new b)}}(),m=f.parse,k=n.noop,a=e.series,d=b.extend,g=b.isNumber,t=b.merge,x=b.pick;f=function(b){function q(a,d){var h=b.call(this,a,d)||this;h.beforePadding=!1;h.chart=void 0;h.coll=
-"colorAxis";h.dataClasses=void 0;h.legendItem=void 0;h.legendItems=void 0;h.name="";h.options=void 0;h.stops=void 0;h.visible=!0;h.init(a,d);return h}v(q,b);q.compose=function(a,d,h,l){p.compose(q,a,d,h,l)};q.prototype.init=function(a,d){var h=a.options.legend||{},l=d.layout?"vertical"!==d.layout:"vertical"!==h.layout,g=d.visible;h=t(q.defaultColorAxisOptions,d,{showEmpty:!1,title:null,visible:h.enabled&&!1!==g});this.coll="colorAxis";this.side=d.side||l?2:1;this.reversed=d.reversed||!l;this.opposite=
-!l;b.prototype.init.call(this,a,h);this.userOptions.visible=g;d.dataClasses&&this.initDataClasses(d);this.initStops();this.horiz=l;this.zoomEnabled=!1};q.prototype.initDataClasses=function(a){var d=this.chart,h=this.options,l=a.dataClasses.length,g,b=0,w=d.options.chart.colorCount;this.dataClasses=g=[];this.legendItems=[];(a.dataClasses||[]).forEach(function(a,q){a=t(a);g.push(a);if(d.styledMode||!a.color)"category"===h.dataClassColor?(d.styledMode||(q=d.options.colors,w=q.length,a.color=q[b]),a.colorIndex=
-b,b++,b===w&&(b=0)):a.color=m(h.minColor).tweenTo(m(h.maxColor),2>l?.5:q/(l-1))})};q.prototype.hasData=function(){return!!(this.tickPositions||[]).length};q.prototype.setTickPositions=function(){if(!this.dataClasses)return b.prototype.setTickPositions.call(this)};q.prototype.initStops=function(){this.stops=this.options.stops||[[0,this.options.minColor],[1,this.options.maxColor]];this.stops.forEach(function(a){a.color=m(a[1])})};q.prototype.setOptions=function(a){b.prototype.setOptions.call(this,a);
-this.options.crosshair=this.options.marker};q.prototype.setAxisSize=function(){var a=this.legendSymbol,d=this.chart,h=d.options.legend||{},l,g;a?(this.left=h=a.attr("x"),this.top=l=a.attr("y"),this.width=g=a.attr("width"),this.height=a=a.attr("height"),this.right=d.chartWidth-h-g,this.bottom=d.chartHeight-l-a,this.len=this.horiz?g:a,this.pos=this.horiz?h:l):this.len=(this.horiz?h.symbolWidth:h.symbolHeight)||q.defaultLegendLength};q.prototype.normalizedValue=function(a){this.logarithmic&&(a=this.logarithmic.log2lin(a));
-return 1-(this.max-a)/(this.max-this.min||1)};q.prototype.toColor=function(a,d){var h=this.dataClasses,l=this.stops,g;if(h)for(g=h.length;g--;){var b=h[g];var w=b.from;l=b.to;if(("undefined"===typeof w||a>=w)&&("undefined"===typeof l||a<=l)){var t=b.color;d&&(d.dataClass=g,d.colorIndex=b.colorIndex);break}}else{a=this.normalizedValue(a);for(g=l.length;g--&&!(a>l[g][0]););w=l[g]||l[g+1];l=l[g+1]||w;a=1-(l[0]-a)/(l[0]-w[0]||1);t=w.color.tweenTo(l.color,a)}return t};q.prototype.getOffset=function(){var a=
-this.legendGroup,d=this.chart.axisOffset[this.side];a&&(this.axisParent=a,b.prototype.getOffset.call(this),this.added||(this.added=!0,this.labelLeft=0,this.labelRight=this.width),this.chart.axisOffset[this.side]=d)};q.prototype.setLegendColor=function(){var a=this.reversed,d=a?1:0;a=a?0:1;d=this.horiz?[d,0,a,0]:[0,a,0,d];this.legendColor={linearGradient:{x1:d[0],y1:d[1],x2:d[2],y2:d[3]},stops:this.stops}};q.prototype.drawLegendSymbol=function(a,d){var h=a.padding,g=a.options,b=this.horiz,t=x(g.symbolWidth,
-b?q.defaultLegendLength:12),w=x(g.symbolHeight,b?12:q.defaultLegendLength),k=x(g.labelPadding,b?16:30);g=x(g.itemDistance,10);this.setLegendColor();d.legendSymbol=this.chart.renderer.rect(0,a.baseline-11,t,w).attr({zIndex:1}).add(d.legendGroup);this.legendItemWidth=t+h+(b?g:k);this.legendItemHeight=w+h+(b?k:0)};q.prototype.setState=function(a){this.series.forEach(function(d){d.setState(a)})};q.prototype.setVisible=function(){};q.prototype.getSeriesExtremes=function(){var d=this.series,g=d.length,
-h;this.dataMin=Infinity;for(this.dataMax=-Infinity;g--;){var l=d[g];var b=l.colorKey=x(l.options.colorKey,l.colorKey,l.pointValKey,l.zoneAxis,"y");var t=l.pointArrayMap;var q=l[b+"Min"]&&l[b+"Max"];if(l[b+"Data"])var k=l[b+"Data"];else if(t){k=[];t=t.indexOf(b);var e=l.yData;if(0<=t&&e)for(h=0;h<e.length;h++)k.push(x(e[h][t],e[h]))}else k=l.yData;q?(l.minColorValue=l[b+"Min"],l.maxColorValue=l[b+"Max"]):(k=a.prototype.getExtremes.call(l,k),l.minColorValue=k.dataMin,l.maxColorValue=k.dataMax);"undefined"!==
-typeof l.minColorValue&&(this.dataMin=Math.min(this.dataMin,l.minColorValue),this.dataMax=Math.max(this.dataMax,l.maxColorValue));q||a.prototype.applyExtremes.call(l)}};q.prototype.drawCrosshair=function(a,d){var h=d&&d.plotX,g=d&&d.plotY,t=this.pos,q=this.len;if(d){var k=this.toPixels(d.getNestedProperty(d.series.colorKey));k<t?k=t-2:k>t+q&&(k=t+q+2);d.plotX=k;d.plotY=this.len-k;b.prototype.drawCrosshair.call(this,a,d);d.plotX=h;d.plotY=g;this.cross&&!this.cross.addedToColorAxis&&this.legendGroup&&
-(this.cross.addClass("highcharts-coloraxis-marker").add(this.legendGroup),this.cross.addedToColorAxis=!0,this.chart.styledMode||"object"!==typeof this.crosshair||this.cross.attr({fill:this.crosshair.color}))}};q.prototype.getPlotLinePath=function(a){var d=this.left,h=a.translatedValue,l=this.top;return g(h)?this.horiz?[["M",h-4,l-6],["L",h+4,l-6],["L",h,l],["Z"]]:[["M",d,h],["L",d-6,h+6],["L",d-6,h-6],["Z"]]:b.prototype.getPlotLinePath.call(this,a)};q.prototype.update=function(a,d){var h=this.chart.legend;
-this.series.forEach(function(a){a.isDirtyData=!0});(a.dataClasses&&h.allItems||this.dataClasses)&&this.destroyItems();b.prototype.update.call(this,a,d);this.legendItem&&(this.setLegendColor(),h.colorizeItem(this,!0))};q.prototype.destroyItems=function(){var a=this.chart;this.legendItem?a.legend.destroyItem(this):this.legendItems&&this.legendItems.forEach(function(d){a.legend.destroyItem(d)});a.isDirtyLegend=!0};q.prototype.destroy=function(){this.chart.isDirtyLegend=!0;this.destroyItems();b.prototype.destroy.apply(this,
-[].slice.call(arguments))};q.prototype.remove=function(a){this.destroyItems();b.prototype.remove.call(this,a)};q.prototype.getDataClassLegendSymbols=function(){var a=this,g=a.chart,h=a.legendItems,b=g.options.legend,t=b.valueDecimals,q=b.valueSuffix||"",e;h.length||a.dataClasses.forEach(function(b,l){var w=b.from,x=b.to,m=g.numberFormatter,v=!0;e="";"undefined"===typeof w?e="< ":"undefined"===typeof x&&(e="> ");"undefined"!==typeof w&&(e+=m(w,t)+q);"undefined"!==typeof w&&"undefined"!==typeof x&&
-(e+=" - ");"undefined"!==typeof x&&(e+=m(x,t)+q);h.push(d({chart:g,name:e,options:{},drawLegendSymbol:u.drawRectangle,visible:!0,setState:k,isDataClass:!0,setVisible:function(){v=a.visible=!v;a.series.forEach(function(a){a.points.forEach(function(a){a.dataClass===l&&a.setVisible(v)})});g.legend.colorizeItem(this,v)}},b))});return h};q.defaultColorAxisOptions=r;q.defaultLegendLength=200;q.keepProps=["legendGroup","legendItemHeight","legendItemWidth","legendItem","legendSymbol"];return q}(c);Array.prototype.push.apply(c.keepProps,
-f.keepProps);"";return f});y(c,"Maps/MapNavigationOptionsDefault.js",[c["Core/DefaultOptions.js"],c["Core/Utilities.js"]],function(c,f){f=f.extend;var p={buttonOptions:{alignTo:"plotBox",align:"left",verticalAlign:"top",x:0,width:18,height:18,padding:5,style:{fontSize:"15px",fontWeight:"bold"},theme:{"stroke-width":1,"text-align":"center"}},buttons:{zoomIn:{onclick:function(){this.mapZoom(.5)},text:"+",y:0},zoomOut:{onclick:function(){this.mapZoom(2)},text:"-",y:28}},mouseWheelSensitivity:1.1};f(c.defaultOptions.lang,
-{zoomIn:"Zoom in",zoomOut:"Zoom out"});return c.defaultOptions.mapNavigation=p});y(c,"Maps/MapNavigation.js",[c["Core/Chart/Chart.js"],c["Core/Globals.js"],c["Core/Utilities.js"]],function(c,f,p){function r(a){a&&(a.preventDefault&&a.preventDefault(),a.stopPropagation&&a.stopPropagation(),a.cancelBubble=!0)}function n(a){this.init(a)}var u=f.doc,e=p.addEvent,b=p.extend,v=p.isNumber,m=p.merge,k=p.objectEach,a=p.pick;n.prototype.init=function(a){this.chart=a;a.mapNavButtons=[]};n.prototype.update=function(d){var g=
-this.chart,t=g.options.mapNavigation,x,v,q,w,c=function(a){this.handler.call(g,a);r(a)},h=g.mapNavButtons;d&&(t=g.options.mapNavigation=m(g.options.mapNavigation,d));for(;h.length;)h.pop().destroy();a(t.enableButtons,t.enabled)&&!g.renderer.forExport&&k(t.buttons,function(a,d){a=m(t.buttonOptions,a);!g.styledMode&&a.theme&&(x=a.theme,x.style=m(a.theme.style,a.style),q=(v=x.states)&&v.hover,w=v&&v.select,delete x.states);var l=g.renderer.button(a.text||"",0,0,c,x,q,w,void 0,"zoomIn"===d?"topbutton":
-"bottombutton").addClass("highcharts-map-navigation highcharts-"+{zoomIn:"zoom-in",zoomOut:"zoom-out"}[d]).attr({width:a.width,height:a.height,title:g.options.lang[d],padding:a.padding,zIndex:5}).add();l.handler=a.onclick;e(l.element,"dblclick",r);h.push(l);b(a,{width:l.width,height:2*l.height});if(g.hasLoaded)l.align(a,!1,a.alignTo);else var k=e(g,"load",function(){l.element&&l.align(a,!1,a.alignTo);k()})});this.updateEvents(t)};n.prototype.updateEvents=function(d){var g=this.chart;a(d.enableDoubleClickZoom,
-d.enabled)||d.enableDoubleClickZoomTo?this.unbindDblClick=this.unbindDblClick||e(g.container,"dblclick",function(a){g.pointer.onContainerDblClick(a)}):this.unbindDblClick&&(this.unbindDblClick=this.unbindDblClick());a(d.enableMouseWheelZoom,d.enabled)?this.unbindMouseWheel=this.unbindMouseWheel||e(g.container,void 0!==u.onwheel?"wheel":void 0!==u.onmousewheel?"mousewheel":"DOMMouseScroll",function(a){g.pointer.inClass(a.target,"highcharts-no-mousewheel")||(g.pointer.onContainerMouseWheel(a),r(a));
-return!1}):this.unbindMouseWheel&&(this.unbindMouseWheel=this.unbindMouseWheel())};b(c.prototype,{fitToBox:function(a,g){[["x","width"],["y","height"]].forEach(function(d){var b=d[0];d=d[1];a[b]+a[d]>g[b]+g[d]&&(a[d]>g[d]?(a[d]=g[d],a[b]=g[b]):a[b]=g[b]+g[d]-a[d]);a[d]>g[d]&&(a[d]=g[d]);a[b]<g[b]&&(a[b]=g[b])});return a},mapZoom:function(a,g,b,k,e){this.mapView&&(v(a)&&(a=Math.log(a)/Math.log(.5)),this.mapView.zoomBy(a,v(g)&&v(b)?this.mapView.projection.inverse([g,b]):void 0,v(k)&&v(e)?[k,e]:void 0))}});
-e(c,"beforeRender",function(){this.mapNavigation=new n(this);this.mapNavigation.update()});f.MapNavigation=n});y(c,"Maps/MapPointer.js",[c["Core/Pointer.js"],c["Core/Utilities.js"]],function(c,f){var p=f.defined,r=f.extend,n=f.pick;f=f.wrap;var u=0,e;r(c.prototype,{onContainerDblClick:function(b){var e=this.chart;b=this.normalize(b);e.options.mapNavigation.enableDoubleClickZoomTo?e.pointer.inClass(b.target,"highcharts-tracker")&&e.hoverPoint&&e.hoverPoint.zoomTo():e.isInsidePlot(b.chartX-e.plotLeft,
-b.chartY-e.plotTop)&&e.mapZoom(.5,void 0,void 0,b.chartX,b.chartY)},onContainerMouseWheel:function(b){var v=this.chart;b=this.normalize(b);var m=p(b.wheelDelta)&&-b.wheelDelta/120||b.deltaY||b.detail;1<=Math.abs(m)&&(u+=Math.abs(m),e&&clearTimeout(e),e=setTimeout(function(){u=0},50));10>u&&v.isInsidePlot(b.chartX-v.plotLeft,b.chartY-v.plotTop)&&v.mapView&&v.mapView.zoomBy((v.options.mapNavigation.mouseWheelSensitivity-1)*-m,void 0,[b.chartX,b.chartY],1>Math.abs(m)?!1:void 0)}});f(c.prototype,"zoomOption",
-function(b){var e=this.chart.options.mapNavigation;n(e.enableTouchZoom,e.enabled)&&(this.chart.options.chart.pinchType="xy");b.apply(this,[].slice.call(arguments,1))});f(c.prototype,"pinchTranslate",function(b,e,m,k,a,d,g){b.call(this,e,m,k,a,d,g);"map"===this.chart.options.chart.type&&this.hasZoom&&(b=k.scaleX>k.scaleY,this.pinchTranslateDirection(!b,e,m,k,a,d,g,b?k.scaleX:k.scaleY))})});y(c,"Series/ColorMapMixin.js",[c["Core/Globals.js"],c["Core/Series/Point.js"],c["Core/Utilities.js"]],function(c,
-f,p){var r=c.noop;c=c.seriesTypes;var n=p.defined;p=p.addEvent;p(f,"afterSetState",function(c){this.moveToTopOnHover&&this.graphic&&this.graphic.attr({zIndex:c&&"hover"===c.state?1:0})});return{PointMixin:{dataLabelOnNull:!0,moveToTopOnHover:!0,isValid:function(){return null!==this.value&&Infinity!==this.value&&-Infinity!==this.value}},SeriesMixin:{pointArrayMap:["value"],axisTypes:["xAxis","yAxis","colorAxis"],trackerGroups:["group","markerGroup","dataLabelsGroup"],getSymbol:r,parallelArrays:["x",
-"y","value"],colorKey:"value",pointAttribs:c.column.prototype.pointAttribs,colorAttribs:function(c){var e={};!n(c.color)||c.state&&"normal"!==c.state||(e[this.colorProp||"fill"]=c.color);return e}}}});y(c,"Maps/MapViewOptionsDefault.js",[],function(){return{center:[0,0],maxZoom:void 0,padding:0,projection:void 0,zoom:void 0}});y(c,"Maps/Projections/LambertConformalConic.js",[],function(){var c=Math.sign||function(c){return 0===c?0:0<c?1:-1},f=Math.PI/180,p=Math.PI/2,r=0,n=0;return{init:function(u){var e=
-(u.parallels||[]).map(function(b){return b*f});u=e[0]||0;e=e[1]||u;var b=Math.cos(u);r=u===e?Math.sin(u):Math.log(b/Math.cos(e))/Math.log(Math.tan((p+e)/2)/Math.tan((p+u)/2));1e-10>Math.abs(r)&&(r=1e-10*(c(r)||1));n=b*Math.pow(Math.tan((p+u)/2),r)/r},forward:function(c){var e=c[0]*f;c=c[1]*f;0<n?c<-p+.000001&&(c=-p+.000001):c>p-.000001&&(c=p-.000001);c=n/Math.pow(Math.tan((p+c)/2),r);return[c*Math.sin(r*e)*63.78137,63.78137*(n-c*Math.cos(r*e))]},inverse:function(u){var e=u[0]/63.78137;u=n-u[1]/63.78137;
-var b=c(r)*Math.sqrt(e*e+u*u),v=Math.atan2(e,Math.abs(u))*c(u);0>u*r&&(v-=Math.PI*c(e)*c(u));return[v/r/f,(2*Math.atan(Math.pow(n/b,1/r))-p)/f]}}});y(c,"Maps/Projections/EqualEarth.js",[],function(){var c=Math.sqrt(3)/2;return{forward:function(f){var p=Math.PI/180,r=Math.asin(c*Math.sin(f[1]*p)),n=r*r,u=n*n*n;return[f[0]*p*Math.cos(r)*74.03120656864502/(c*(1.340264+3*-.081106*n+u*(7*.000893+.034164*n))),74.03120656864502*r*(1.340264+-.081106*n+u*(.000893+.003796*n))]},inverse:function(f){var p=f[0]/
-74.03120656864502;f=f[1]/74.03120656864502;var r=180/Math.PI,n=f,u;for(u=0;12>u;++u){var e=n*n;var b=e*e*e;var v=n*(1.340264+-.081106*e+b*(.000893+.003796*e))-f;e=1.340264+3*-.081106*e+b*(7*.000893+.034164*e);n-=v/=e;if(1e-9>Math.abs(v))break}e=n*n;return[r*c*p*(1.340264+3*-.081106*e+e*e*e*(7*.000893+.034164*e))/Math.cos(n),r*Math.asin(Math.sin(n)/c)]}}});y(c,"Maps/Projections/Miller.js",[],function(){var c=Math.PI/4,f=Math.PI/180;return{forward:function(p){return[p[0]*f*63.78137,79.7267125*Math.log(Math.tan(c+
-.4*p[1]*f))]},inverse:function(p){return[p[0]/63.78137/f,2.5*(Math.atan(Math.exp(p[1]/63.78137*.8))-c)/f]}}});y(c,"Maps/Projections/Orthographic.js",[],function(){var c=Math.PI/180;return{forward:function(f){var p=f[0];if(-90>p||90<p)return[NaN,NaN];f=f[1]*c;return[Math.cos(f)*Math.sin(p*c)*63.78460826781007,63.78460826781007*Math.sin(f)]},inverse:function(f){var p=f[0]/63.78460826781007;f=f[1]/63.78460826781007;var r=Math.sqrt(p*p+f*f),n=Math.asin(r),u=Math.sin(n);return[Math.atan2(p*u,r*Math.cos(n))/
-c,Math.asin(r&&f*u/r)/c]}}});y(c,"Maps/Projections/WebMercator.js",[],function(){var c=Math.PI/180;return{forward:function(f){if(85.0511287798<Math.abs(f[1]))return[NaN,NaN];var p=Math.sin(f[1]*c);return[63.78137*f[0]*c,63.78137*Math.log((1+p)/(1-p))/2]},inverse:function(f){return[f[0]/(63.78137*c),(2*Math.atan(Math.exp(f[1]/63.78137))-Math.PI/2)/c]},maxLatitude:85.0511287798}});y(c,"Maps/Projections/ProjectionRegistry.js",[c["Maps/Projections/LambertConformalConic.js"],c["Maps/Projections/EqualEarth.js"],
-c["Maps/Projections/Miller.js"],c["Maps/Projections/Orthographic.js"],c["Maps/Projections/WebMercator.js"]],function(c,f,p,r,n){return{EqualEarth:f,LambertConformalConic:c,Miller:p,Orthographic:r,WebMercator:n}});y(c,"Maps/Projection.js",[c["Maps/Projections/ProjectionRegistry.js"],c["Core/Utilities.js"]],function(c,f){var p=this&&this.__spreadArrays||function(){for(var c=0,b=0,v=arguments.length;b<v;b++)c+=arguments[b].length;c=Array(c);var m=0;for(b=0;b<v;b++)for(var k=arguments[b],a=0,d=k.length;a<
-d;a++,m++)c[m]=k[a];return c},r=f.erase,n=2*Math.PI/360,u=function(c){-180>c&&(c+=360);180<c&&(c-=360);return c};return function(){function e(b){void 0===b&&(b={});this.hasGeoProjection=this.hasCoordinates=!1;this.maxLatitude=90;this.options=b;var c=b.name,m=b.rotation;this.rotator=m?this.getRotator(m):void 0;var k=this.def=c?e.registry[c]:void 0,a=this.rotator;k&&(k.init&&k.init(b),this.maxLatitude=k.maxLatitude||90,this.hasGeoProjection=!0);a&&k?(this.forward=function(d){d=a.forward(d);return k.forward(d)},
-this.inverse=function(d){d=k.inverse(d);return a.inverse(d)}):k?(this.forward=k.forward,this.inverse=k.inverse):a&&(this.forward=a.forward,this.inverse=a.inverse)}e.add=function(b,c){e.registry[b]=c};e.greatCircle=function(b,c,e){var k=Math.atan2,a=Math.cos,d=Math.sin,g=Math.sqrt,t=b[1]*n,m=b[0]*n,v=c[1]*n,q=c[0]*n,w=v-t,A=q-m;w=d(w/2)*d(w/2)+a(t)*a(v)*d(A/2)*d(A/2);w=2*k(g(w),g(1-w));var h=Math.round(6371E3*w/5E5);A=[];e&&A.push(b);if(1<h)for(h=b=1/h;.999>h;h+=b){var l=d((1-h)*w)/d(w),u=d(h*w)/d(w),
-f=l*a(t)*a(m)+u*a(v)*a(q),p=l*a(t)*d(m)+u*a(v)*d(q);l=l*d(t)+u*d(v);l=k(l,g(f*f+p*p));f=k(p,f);A.push([f/n,l/n])}e&&A.push(c);return A};e.insertGreatCircles=function(b){for(var c=b.length-1;c--;)if(10<Math.max(Math.abs(b[c][0]-b[c+1][0]),Math.abs(b[c][1]-b[c+1][1]))){var m=e.greatCircle(b[c],b[c+1]);m.length&&b.splice.apply(b,p([c+1,0],m))}};e.toString=function(b){b=b||{};var c=b.rotation;return[b.name,c&&c.join(",")].join(";")};e.prototype.getRotator=function(b){var c=b[0]*n,e=(b[1]||0)*n;b=(b[2]||
-0)*n;var k=Math.cos(e),a=Math.sin(e),d=Math.cos(b),g=Math.sin(b);if(0!==c||0!==e||0!==b)return{forward:function(b){var e=b[0]*n+c,t=b[1]*n,q=Math.cos(t);b=Math.cos(e)*q;e=Math.sin(e)*q;t=Math.sin(t);q=t*k+b*a;return[Math.atan2(e*d-q*g,b*k-t*a)/n,Math.asin(q*d+e*g)/n]},inverse:function(b){var e=b[0]*n,t=b[1]*n,q=Math.cos(t);b=Math.cos(e)*q;e=Math.sin(e)*q;t=Math.sin(t);q=t*d-e*g;return[(Math.atan2(e*d+t*g,b*k+q*a)-c)/n,Math.asin(q*k-b*a)/n]}}};e.prototype.forward=function(b){return b};e.prototype.inverse=
-function(b){return b};e.prototype.clipOnAntimeridian=function(b,c){var m=[],k=[b];b.forEach(function(a,d){var g=b[d-1];if(!d){if(!c)return;g=b[b.length-1]}var h=g[0],l=a[0];(-90>h||90<h)&&(-90>l||90<l)&&0<h!==0<l&&m.push({i:d,lat:g[1]+(180-g[0])/(a[0]-g[0])*(a[1]-g[1]),direction:0>h?1:-1,previousLonLat:g,lonLat:a})});if(m.length)if(c){if(1===m.length%2){var a=m.slice().sort(function(a,d){return Math.abs(d.lat)-Math.abs(a.lat)})[0];r(m,a)}for(var d=m.length-2;0<=d;){var g=m[d].i,t=u(180+.000001*m[d].direction),
-x=u(180-.000001*m[d].direction);g=b.splice.apply(b,p([g,m[d+1].i-g],e.greatCircle([t,m[d].lat],[t,m[d+1].lat],!0)));g.push.apply(g,e.greatCircle([x,m[d+1].lat],[x,m[d].lat],!0));k.push(g);d-=2}if(a)for(g=0;g<k.length;g++)if(d=k[g],x=d.indexOf(a.lonLat),-1<x){g=(0>a.lat?-1:1)*this.maxLatitude;t=u(180+.000001*a.direction);var v=u(180-.000001*a.direction);a=e.greatCircle([t,a.lat],[t,g],!0).concat(e.greatCircle([v,g],[v,a.lat],!0));d.splice.apply(d,p([x,0],a));break}}else for(d=m.length;d--;)g=m[d].i,
-g=b.splice(g,b.length,[u(180+.000001*m[d].direction),m[d].lat]),g.unshift([u(180-.000001*m[d].direction),m[d].lat]),k.push(g);return k};e.prototype.path=function(b){var c=this,m=this.def,k=this.rotator,a=[],d="Polygon"===b.type||"MultiPolygon"===b.type,g=this.hasGeoProjection,t="Orthographic"!==this.options.name,x=t?k:void 0,u=t?m||this:this,q=function(b){b=b.map(function(a){if(t){x&&(a=x.forward(a));var d=a[0];.000001>Math.abs(d-180)&&(d=180>d?179.999999:180.000001);a=[d,a[1]]}return a});var k=[b];
-g&&(e.insertGreatCircles(b),t&&(k=c.clipOnAntimeridian(b,d)));k.forEach(function(h){if(!(2>h.length))for(var b=!1,k,q,t=!1,m=function(d){b?a.push(["L",d[0],d[1]]):(a.push(["M",d[0],d[1]]),b=!0)},w=0;w<h.length;w++){var x=h[w],v=u.forward(x);isNaN(v[0])||isNaN(v[1])||g&&!(x[1]<=c.maxLatitude&&x[1]>=-c.maxLatitude)?t=!0:(d&&!k&&(k=x,h.push(x)),t&&q&&(d&&g?e.greatCircle(q,x).forEach(function(a){return m(u.forward(a))}):b=!1),m(v),q=x,t=!1)}})};"LineString"===b.type?q(b.coordinates):"MultiLineString"===
-b.type?b.coordinates.forEach(function(a){return q(a)}):"Polygon"===b.type?(b.coordinates.forEach(function(a){return q(a)}),a.length&&a.push(["Z"])):"MultiPolygon"===b.type&&(b.coordinates.forEach(function(a){a.forEach(function(a){return q(a)})}),a.length&&a.push(["Z"]));return a};e.registry=c;return e}()});y(c,"Maps/MapView.js",[c["Maps/MapViewOptionsDefault.js"],c["Maps/Projection.js"],c["Core/Utilities.js"]],function(c,f,p){var r=p.addEvent,n=p.clamp,u=p.fireEvent,e=p.isNumber,b=p.merge,v=p.pick,
-m=p.relativeLength;return function(){function k(a,d){var g=this;this.userOptions=d||{};d=b(c,d);this.chart=a;this.center=d.center;this.options=d;this.projection=new f(d.projection);this.zoom=d.zoom||0;r(a,"afterSetChartSize",function(){if(void 0===g.minZoom||g.minZoom===g.zoom)g.fitToBounds(void 0,void 0,!1),e(g.userOptions.zoom)&&(g.zoom=g.userOptions.zoom),g.userOptions.center&&b(!0,g.center,g.userOptions.center)});var k,m,v;d=function(d){var b=a.pointer.pinchDown,c=a.mouseDownX,h=a.mouseDownY;
-1===b.length&&(c=b[0].chartX,h=b[0].chartY);if("number"===typeof c&&"number"===typeof h){var l=c+","+h,e=d.originalEvent;b=e.chartX;e=e.chartY;l!==m&&(m=l,k=g.projection.forward(g.center),v=(g.projection.options.rotation||[0,0]).slice());"Orthographic"===g.projection.options.name&&3>(g.minZoom||Infinity)?(l=440/(g.getScale()*Math.min(a.plotWidth,a.plotHeight)),v&&(c=(c-b)*l-v[0],h=n(-v[1]-(h-e)*l,-80,80),g.update({projection:{rotation:[-c,-h]},center:[c,h],zoom:g.zoom},!0,!1))):(l=g.getScale(),h=
-g.projection.inverse([k[0]+(c-b)/l,k[1]-(h-e)/l]),g.setView(h,void 0,!0,!1));d.preventDefault()}};r(a,"pan",d);r(a,"touchpan",d);r(a,"selection",function(d){if(d.resetSelection)g.zoomBy();else{var b=d.x-a.plotLeft,c=d.y-a.plotTop,h=g.pixelsToProjectedUnits({x:b,y:c}),l=h.y;h=h.x;b=g.pixelsToProjectedUnits({x:b+d.width,y:c+d.height});g.fitToBounds({x1:h,y1:l,x2:b.x,y2:b.y},void 0,!0,d.originalEvent.touches?!1:void 0);/^touch/.test(d.originalEvent.type)||a.showResetZoom();d.preventDefault()}})}k.prototype.fitToBounds=
-function(a,d,b,c){void 0===b&&(b=!0);var g=a||this.getProjectedBounds();if(g){var e=this.chart,k=e.plotWidth;e=e.plotHeight;var t=v(d,a?0:this.options.padding);d=m(t,k);t=m(t,e);k=Math.log(400.979322/Math.max((g.x2-g.x1)/((k-d)/256),(g.y2-g.y1)/((e-t)/256)))/Math.log(2);a||(this.minZoom=k);a=this.projection.inverse([(g.x2+g.x1)/2,(g.y2+g.y1)/2]);this.setView(a,k,b,c)}};k.prototype.getProjectedBounds=function(){var a=this.chart.series.reduce(function(a,b){(b=b.getProjectedBounds&&b.getProjectedBounds())&&
-a.push(b);return a},[]);return k.compositeBounds(a)};k.prototype.getScale=function(){return 256/400.979322*Math.pow(2,this.zoom)};k.prototype.redraw=function(a){this.chart.series.forEach(function(a){a.useMapGeometry&&(a.isDirty=!0)});this.chart.redraw(a)};k.prototype.setView=function(a,d,b,c){void 0===b&&(b=!0);var g=!1;a&&(this.center=a);"number"===typeof d&&("number"===typeof this.minZoom&&(d=Math.max(d,this.minZoom)),"number"===typeof this.options.maxZoom&&(d=Math.min(d,this.options.maxZoom)),
-g=d>this.zoom,this.zoom=d);var e=this.getProjectedBounds();if(e&&!g){g=this.projection.forward(this.center);d=this.chart;a=d.plotWidth;d=d.plotHeight;var k=this.getScale(),t=this.projectedUnitsToPixels({x:e.x1,y:e.y1}),m=this.projectedUnitsToPixels({x:e.x2,y:e.y2});e=[(e.x1+e.x2)/2,(e.y1+e.y2)/2];var h=t.x,l=m.y;m=m.x;t=t.y;m-h<a?g[0]=e[0]:0>h&&m<a?g[0]+=Math.max(h,m-a)/k:m>a&&0<h&&(g[0]+=Math.min(m-a,h)/k);t-l<d?g[1]=e[1]:0>l&&t<d?g[1]-=Math.max(l,t-d)/k:t>d&&0<l&&(g[1]-=Math.min(t-d,l)/k);this.center=
-this.projection.inverse(g)}u(this,"afterSetView");b&&this.redraw(c)};k.prototype.projectedUnitsToPixels=function(a){var d=this.getScale(),b=this.projection.forward(this.center);return{x:this.chart.plotWidth/2-d*(b[0]-a.x),y:this.chart.plotHeight/2+d*(b[1]-a.y)}};k.prototype.pixelsToProjectedUnits=function(a){var d=a.x;a=a.y;var b=this.getScale(),c=this.projection.forward(this.center);return{x:c[0]+(d-this.chart.plotWidth/2)/b,y:c[1]-(a-this.chart.plotHeight/2)/b}};k.prototype.update=function(a,d,
-g){void 0===d&&(d=!0);var c=a.projection;c=c&&f.toString(c)!==f.toString(this.options.projection);b(!0,this.userOptions,a);b(!0,this.options,a);c&&(this.chart.series.forEach(function(a){a.clearBounds&&a.clearBounds();a.isDirty=!0;a.isDirtyData=!0}),this.projection=new f(this.options.projection),a.center||e(a.zoom)||this.fitToBounds(void 0,void 0,!1));(a.center||e(a.zoom))&&this.setView(this.options.center,a.zoom,!1);d&&this.chart.redraw(g)};k.prototype.zoomBy=function(a,b,g,c){var d=this.chart,e=
-this.projection.forward(this.center);b=b?this.projection.forward(b):[];var k=b[0],t=b[1];"number"===typeof a?(a=this.zoom+a,b=void 0,g&&(k=g[0],t=g[1],g=this.getScale(),k=k-d.plotLeft-d.plotWidth/2,d=t-d.plotTop-d.plotHeight/2,k=e[0]+k/g,t=e[1]+d/g),"number"===typeof k&&"number"===typeof t&&(g=1-Math.pow(2,this.zoom)/Math.pow(2,a),k=e[0]-k,d=e[1]-t,e[0]-=k*g,e[1]+=d*g,b=this.projection.inverse(e)),this.setView(b,a,void 0,c)):this.fitToBounds(void 0,void 0,void 0,c)};k.compositeBounds=function(a){if(a.length)return a.slice(1).reduce(function(a,
-b){a.x1=Math.min(a.x1,b.x1);a.y1=Math.min(a.y1,b.y1);a.x2=Math.max(a.x2,b.x2);a.y2=Math.max(a.y2,b.y2);return a},b(a[0]))};return k}()});y(c,"Maps/MapSymbols.js",[c["Core/Renderer/SVG/SVGRenderer.js"]],function(c){function f(c,f,n,u,e,b,v,m){return[["M",c+e,f],["L",c+n-b,f],["C",c+n-b/2,f,c+n,f+b/2,c+n,f+b],["L",c+n,f+u-v],["C",c+n,f+u-v/2,c+n-v/2,f+u,c+n-v,f+u],["L",c+m,f+u],["C",c+m/2,f+u,c,f+u-m/2,c,f+u-m],["L",c,f+e],["C",c,f+e/2,c+e/2,f,c+e,f],["Z"]]}c=c.prototype.symbols;c.bottombutton=function(c,
-r,n,u,e){e=e&&e.r||0;return f(c-1,r-1,n,u,0,0,e,e)};c.topbutton=function(c,r,n,u,e){e=e&&e.r||0;return f(c-1,r-1,n,u,e,e,0,0)};return c});y(c,"Core/Chart/MapChart.js",[c["Core/Chart/Chart.js"],c["Core/DefaultOptions.js"],c["Maps/MapView.js"],c["Core/Renderer/SVG/SVGRenderer.js"],c["Core/Utilities.js"]],function(c,f,p,r,n){var u=this&&this.__extends||function(){var b=function(a,d){b=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(a,b){a.__proto__=b}||function(a,b){for(var d in b)b.hasOwnProperty(d)&&
-(a[d]=b[d])};return b(a,d)};return function(a,d){function c(){this.constructor=a}b(a,d);a.prototype=null===d?Object.create(d):(c.prototype=d.prototype,new c)}}(),e=f.getOptions,b=n.addEvent,v=n.merge,m=n.pick;c=function(c){function a(){return null!==c&&c.apply(this,arguments)||this}u(a,c);a.prototype.init=function(a,g){b(this,"afterInit",function(){this.mapView=new p(this,this.options.mapView)});var d=e().credits;a=v({chart:{panning:{enabled:!0,type:"xy"},type:"map"},credits:{mapText:m(d.mapText,
-' \u00a9 <a href="{geojson.copyrightUrl}">{geojson.copyrightShort}</a>'),mapTextFull:m(d.mapTextFull,"{geojson.copyright}")},mapView:{},tooltip:{followTouchMove:!1}},a);c.prototype.init.call(this,a,g)};return a}(c);(function(b){b.maps={};b.mapChart=function(a,d,c){return new b(a,d,c)};b.splitPath=function(a){"string"===typeof a&&(a=a.replace(/([A-Za-z])/g," $1 ").replace(/^\s*/,"").replace(/\s*$/,""),a=a.split(/[ ,;]+/).map(function(a){return/[A-za-z]/.test(a)?a:parseFloat(a)}));return r.prototype.pathToSegments(a)}})(c||
-(c={}));return c});y(c,"Series/Map/MapPoint.js",[c["Series/ColorMapMixin.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f,p){var r=this&&this.__extends||function(){var c=function(e,b){c=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(b,c){b.__proto__=c}||function(b,c){for(var e in c)c.hasOwnProperty(e)&&(b[e]=c[e])};return c(e,b)};return function(e,b){function f(){this.constructor=e}c(e,b);e.prototype=null===b?Object.create(b):(f.prototype=b.prototype,new f)}}(),
-n=p.extend;f=function(c){function e(){var b=null!==c&&c.apply(this,arguments)||this;b.options=void 0;b.path=void 0;b.series=void 0;return b}r(e,c);e.getProjectedPath=function(b,c){b.projectedPath||(c&&b.geometry?(c.hasCoordinates=!0,b.projectedPath=c.path(b.geometry)):b.projectedPath=b.path);return b.projectedPath||[]};e.prototype.applyOptions=function(b,e){var m=this.series;b=c.prototype.applyOptions.call(this,b,e);e=m.joinBy;m.mapData&&m.mapMap&&(e=c.prototype.getNestedProperty.call(b,e[1]),(m=
-"undefined"!==typeof e&&m.mapMap[e])?n(b,m):b.value=b.value||null);return b};e.prototype.onMouseOver=function(b){p.clearTimeout(this.colorInterval);if(null!==this.value||this.series.options.nullInteraction)c.prototype.onMouseOver.call(this,b);else this.series.onMouseOut(b)};e.prototype.zoomTo=function(){var b=this.series.chart;b.mapView&&this.bounds&&(b.mapView.fitToBounds(this.bounds,void 0,!1),this.series.isDirty=!0,b.redraw())};return e}(f.seriesTypes.scatter.prototype.pointClass);n(f.prototype,
-{dataLabelOnNull:c.PointMixin.dataLabelOnNull,isValid:c.PointMixin.isValid,moveToTopOnHover:c.PointMixin.moveToTopOnHover});return f});y(c,"Series/Map/MapSeries.js",[c["Core/Animation/AnimationUtilities.js"],c["Series/ColorMapMixin.js"],c["Series/CenteredUtilities.js"],c["Core/Globals.js"],c["Core/Legend/LegendSymbol.js"],c["Core/Chart/MapChart.js"],c["Series/Map/MapPoint.js"],c["Maps/MapView.js"],c["Core/Series/Series.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Renderer/SVG/SVGRenderer.js"],
-c["Core/Utilities.js"]],function(c,f,p,r,n,u,e,b,v,m,k,a){var d=this&&this.__extends||function(){var a=function(b,c){a=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(a,b){a.__proto__=b}||function(a,b){for(var c in b)b.hasOwnProperty(c)&&(a[c]=b[c])};return a(b,c)};return function(b,c){function d(){this.constructor=b}a(b,c);b.prototype=null===c?Object.create(c):(d.prototype=c.prototype,new d)}}(),g=c.animObject;c=r.noop;var t=u.maps,x=u.splitPath;u=m.seriesTypes;var z=u.column,q=u.scatter;
-u=a.extend;var w=a.fireEvent,A=a.getNestedProperty,h=a.isArray,l=a.isNumber,B=a.merge,E=a.objectEach,C=a.pick,F=a.splat;a=function(a){function c(){var b=null!==a&&a.apply(this,arguments)||this;b.chart=void 0;b.data=void 0;b.group=void 0;b.joinBy=void 0;b.options=void 0;b.points=void 0;b.transformGroup=void 0;return b}d(c,a);c.prototype.animate=function(a){var b=this.chart,c=this.group,d=g(this.options.animation);b.renderer.isSVG&&(a?c.attr({translateX:b.plotLeft+b.plotWidth/2,translateY:b.plotTop+
-b.plotHeight/2,scaleX:.001,scaleY:.001}):c.animate({translateX:b.plotLeft,translateY:b.plotTop,scaleX:1,scaleY:1},d))};c.prototype.animateDrilldown=function(a){var b=this.chart,c=this.group;b.renderer.isSVG&&(a?c.attr({translateX:b.plotLeft+b.plotWidth/2,translateY:b.plotTop+b.plotHeight/2,scaleX:.1,scaleY:.1,opacity:.01}):c.animate({translateX:b.plotLeft,translateY:b.plotTop,scaleX:1,scaleY:1,opacity:1}))};c.prototype.animateDrillupFrom=function(){var a=this.chart;a.renderer.isSVG&&this.group.animate({translateX:a.plotLeft+
-a.plotWidth/2,translateY:a.plotTop+a.plotHeight/2,scaleX:.1,scaleY:.1,opacity:.01})};c.prototype.animateDrillupTo=function(a){z.prototype.animateDrillupTo.call(this,a)};c.prototype.clearBounds=function(){this.points.forEach(function(a){delete a.bounds;delete a.projectedPath});delete this.bounds};c.prototype.doFullTranslate=function(){return!(!(this.isDirtyData||this.chart.isResizing||this.chart.renderer.isVML)&&this.hasRendered)};c.prototype.drawMapDataLabels=function(){v.prototype.drawDataLabels.call(this);
-this.dataLabelsGroup&&this.dataLabelsGroup.clip(this.chart.clipRect)};c.prototype.drawPoints=function(){var a=this,b=this.chart,c=this.group,d=this.svgTransform,h=b.mapView,g=b.renderer;this.transformGroup||(this.transformGroup=g.g().add(c),this.transformGroup.survive=!0);this.doFullTranslate()&&(b.hasRendered&&!b.styledMode&&this.points.forEach(function(b){b.shapeArgs&&(b.shapeArgs.fill=a.pointAttribs(b,b.state).fill)}),this.group=this.transformGroup,z.prototype.drawPoints.apply(this),this.group=
-c,this.points.forEach(function(c){if(c.graphic){var d="";c.name&&(d+="highcharts-name-"+c.name.replace(/ /g,"-").toLowerCase());c.properties&&c.properties["hc-key"]&&(d+=" highcharts-key-"+c.properties["hc-key"].toLowerCase());d&&c.graphic.addClass(d);b.styledMode&&c.graphic.css(a.pointAttribs(c,c.selected&&"select"||void 0))}}));if(h&&d){var e=C(this.options[this.pointAttrToOptions&&this.pointAttrToOptions["stroke-width"]||"borderWidth"],1),l=d.scaleX,k=0<d.scaleY?1:-1,t=this.transformGroup;if(g.globalAnimation&&
-b.hasRendered){var m=Number(t.attr("translateX")),q=Number(t.attr("translateY")),f=Number(t.attr("scaleX"));t.attr({animator:0}).animate({animator:1},{step:function(a,b){a=f+(l-f)*b.pos;t.attr({translateX:m+(d.translateX-m)*b.pos,translateY:q+(d.translateY-q)*b.pos,scaleX:a,scaleY:a*k});c.element.setAttribute("stroke-width",e/a)}})}else t.attr(d),c.element.setAttribute("stroke-width",e/l)}this.drawMapDataLabels()};c.prototype.getProjectedBounds=function(){if(!this.bounds){var a=Number.MAX_VALUE,c=
-this.chart.mapView&&this.chart.mapView.projection,d=[];(this.points||[]).forEach(function(b){if(b.path||b.geometry){"string"===typeof b.path?b.path=x(b.path):h(b.path)&&"M"===b.path[0]&&(b.path=k.prototype.pathToSegments(b.path));if(!b.bounds){var g=e.getProjectedPath(b,c),t=b.properties,m=-a,q=a,f=-a,w=a,v;g.forEach(function(a){var b=a[a.length-2];a=a[a.length-1];"number"===typeof b&&"number"===typeof a&&(q=Math.min(q,b),m=Math.max(m,b),w=Math.min(w,a),f=Math.max(f,a),v=!0)});v&&(g=t&&t["hc-middle-x"],
-g=q+(m-q)*C(b.middleX,l(g)?g:.5),t=t&&t["hc-middle-y"],t=C(b.middleY,l(t)?t:.5),b.geometry||(t=1-t),b.bounds={midX:g,midY:f-(f-w)*t,x1:q,y1:w,x2:m,y2:f},b.labelrank=C(b.labelrank,(m-q)*(f-w)))}b.bounds&&d.push(b.bounds)}});this.bounds=b.compositeBounds(d)}return this.bounds};c.prototype.hasData=function(){return!!this.processedXData.length};c.prototype.pointAttribs=function(a,b){var c=a.series.chart,d=c.mapView;b=c.styledMode?this.colorAttribs(a):z.prototype.pointAttribs.call(this,a,b);(a=a.options[this.pointAttrToOptions&&
-this.pointAttrToOptions["stroke-width"]||"borderWidth"])&&d&&(a/=d.getScale());b.dashstyle&&d&&this.options.borderWidth&&(a=this.options.borderWidth/d.getScale());b["stroke-width"]=C(a,"inherit");return b};c.prototype.setData=function(a,b,c,d){var g=this.options,k=this.chart.options.chart,m=k&&k.map,q=g.mapData,f=this.joinBy,w=g.keys||this.pointArrayMap,u=[],x={},n=this.chart.mapTransforms;!q&&m&&(q="string"===typeof m?t[m]:m);a&&a.forEach(function(b,c){var d=0;if(l(b))a[c]={value:b};else if(h(b)){a[c]=
-{};!g.keys&&b.length>w.length&&"string"===typeof b[0]&&(a[c]["hc-key"]=b[0],++d);for(var k=0;k<w.length;++k,++d)w[k]&&"undefined"!==typeof b[d]&&(0<w[k].indexOf(".")?e.prototype.setNestedProperty(a[c],b[d],w[k]):a[c][w[k]]=b[d])}f&&"_i"===f[0]&&(a[c]._i=c)});(this.chart.mapTransforms=n=k.mapTransforms||q&&q["hc-transform"]||n)&&E(n,function(a){a.rotation&&(a.cosAngle=Math.cos(a.rotation),a.sinAngle=Math.sin(a.rotation))});if(q){"FeatureCollection"===q.type&&(this.mapTitle=q.title,q=r.geojson(q,this.type,
-this));this.mapData=q;this.mapMap={};for(n=0;n<q.length;n++)k=q[n],m=k.properties,k._i=n,f[0]&&m&&m[f[0]]&&(k[f[0]]=m[f[0]]),x[k[f[0]]]=k;this.mapMap=x;if(a&&f[1]){var p=f[1];a.forEach(function(a){a=A(p,a);x[a]&&u.push(x[a])})}if(g.allAreas){a=a||[];if(f[1]){var z=f[1];a.forEach(function(a){u.push(A(z,a))})}u="|"+u.map(function(a){return a&&a[f[0]]}).join("|")+"|";q.forEach(function(b){f[0]&&-1!==u.indexOf("|"+b[f[0]]+"|")||(a.push(B(b,{value:null})),d=!1)})}}v.prototype.setData.call(this,a,b,c,d);
-this.processData();this.generatePoints()};c.prototype.setOptions=function(a){a=v.prototype.setOptions.call(this,a);var b=a.joinBy;null===b&&(b="_i");b=this.joinBy=F(b);b[1]||(b[1]=b[0]);return a};c.prototype.translate=function(){var a=this.doFullTranslate(),b=this.chart.mapView,c=b&&b.projection;!this.chart.hasRendered||!this.isDirtyData&&this.hasRendered||(this.processData(),this.generatePoints(),delete this.bounds,this.getProjectedBounds());var d;if(b){var h=b.getScale(),g=b.projection.forward(b.center);
-b=b.projection.hasCoordinates?-1:1;this.svgTransform=d={scaleX:h,scaleY:h*b,translateX:this.chart.plotWidth/2-g[0]*h,translateY:this.chart.plotHeight/2-g[1]*h*b}}this.points.forEach(function(b){d&&b.bounds&&l(b.bounds.midX)&&l(b.bounds.midY)&&(b.plotX=b.bounds.midX*d.scaleX+d.translateX,b.plotY=b.bounds.midY*d.scaleY+d.translateY);a&&(b.shapeType="path",b.shapeArgs={d:e.getProjectedPath(b,c)})});w(this,"afterTranslate")};c.defaultOptions=B(q.defaultOptions,{animation:!1,dataLabels:{crop:!1,formatter:function(){var a=
-this.series.chart.numberFormatter,b=this.point.value;return l(b)?a(b,-1):""},inside:!0,overflow:!1,padding:0,verticalAlign:"middle"},marker:null,nullColor:"#f7f7f7",stickyTracking:!1,tooltip:{followPointer:!0,pointFormat:"{point.name}: {point.value}<br/>"},turboThreshold:0,allAreas:!0,borderColor:"#cccccc",borderWidth:1,joinBy:"hc-key",states:{hover:{halo:null,brightness:.2},normal:{animation:!0},select:{color:"#cccccc"},inactive:{opacity:1}}});return c}(q);u(a.prototype,{type:"map",axisTypes:f.SeriesMixin.axisTypes,
-colorAttribs:f.SeriesMixin.colorAttribs,colorKey:f.SeriesMixin.colorKey,directTouch:!0,drawDataLabels:c,drawGraph:c,drawLegendSymbol:n.drawRectangle,forceDL:!0,getCenter:p.getCenter,getExtremesFromAll:!0,getSymbol:f.SeriesMixin.getSymbol,isCartesian:!1,parallelArrays:f.SeriesMixin.parallelArrays,pointArrayMap:f.SeriesMixin.pointArrayMap,pointClass:e,preserveAspectRatio:!0,searchPoint:c,trackerGroups:f.SeriesMixin.trackerGroups,useMapGeometry:!0});m.registerSeriesType("map",a);"";return a});y(c,"Series/MapLine/MapLineSeries.js",
-[c["Series/Map/MapSeries.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f,p){var r=this&&this.__extends||function(){var b=function(c,e){b=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(b,a){b.__proto__=a}||function(b,a){for(var c in a)a.hasOwnProperty(c)&&(b[c]=a[c])};return b(c,e)};return function(c,e){function k(){this.constructor=c}b(c,e);c.prototype=null===e?Object.create(e):(k.prototype=e.prototype,new k)}}(),n=f.series,u=p.extend,e=p.merge;p=function(b){function f(){var c=
-null!==b&&b.apply(this,arguments)||this;c.data=void 0;c.options=void 0;c.points=void 0;return c}r(f,b);f.prototype.pointAttribs=function(b,e){b=c.prototype.pointAttribs.call(this,b,e);b.fill=this.options.fillColor;return b};f.defaultOptions=e(c.defaultOptions,{lineWidth:1,fillColor:"none"});return f}(c);u(p.prototype,{type:"mapline",colorProp:"stroke",drawLegendSymbol:n.prototype.drawLegendSymbol,pointAttrToOptions:{stroke:"color","stroke-width":"lineWidth"}});f.registerSeriesType("mapline",p);"";
-return p});y(c,"Series/MapPoint/MapPointPoint.js",[c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f){var p=this&&this.__extends||function(){var c=function(e,b){c=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(b,c){b.__proto__=c}||function(b,c){for(var e in c)c.hasOwnProperty(e)&&(b[e]=c[e])};return c(e,b)};return function(e,b){function f(){this.constructor=e}c(e,b);e.prototype=null===b?Object.create(b):(f.prototype=b.prototype,new f)}}(),r=f.isNumber,n=f.merge;
-return function(c){function e(){var b=null!==c&&c.apply(this,arguments)||this;b.options=void 0;b.series=void 0;return b}p(e,c);e.prototype.applyOptions=function(b,e){b="undefined"!==typeof b.lat&&"undefined"!==typeof b.lon?n(b,this.series.chart.fromLatLonToPoint(b)):b;return c.prototype.applyOptions.call(this,b,e)};e.prototype.isValid=function(){return!!(this.options.geometry||r(this.x)&&r(this.y))};return e}(c.seriesTypes.scatter.prototype.pointClass)});y(c,"Series/MapPoint/MapPointSeries.js",[c["Core/Globals.js"],
-c["Series/MapPoint/MapPointPoint.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f,p,r){var n=this&&this.__extends||function(){var b=function(a,c){b=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(a,b){a.__proto__=b}||function(a,b){for(var c in b)b.hasOwnProperty(c)&&(a[c]=b[c])};return b(a,c)};return function(a,c){function d(){this.constructor=a}b(a,c);a.prototype=null===c?Object.create(c):(d.prototype=c.prototype,new d)}}();c=c.noop;var u=p.seriesTypes.scatter,
-e=r.extend,b=r.fireEvent,v=r.isNumber,m=r.merge;r=function(c){function a(){var a=null!==c&&c.apply(this,arguments)||this;a.data=void 0;a.options=void 0;a.points=void 0;return a}n(a,c);a.prototype.drawDataLabels=function(){c.prototype.drawDataLabels.call(this);this.dataLabelsGroup&&this.dataLabelsGroup.clip(this.chart.clipRect)};a.prototype.translate=function(){var a=this,c=this.chart.mapView;this.processedXData||this.processData();this.generatePoints();if(c){var e=c.projection,k=e.forward,f=e.hasCoordinates;
-this.points.forEach(function(b){var d=b.x;d=void 0===d?void 0:d;var g=b.y;g=void 0===g?void 0:g;var h=b.options.geometry;(h=h&&"Point"===h.type&&h.coordinates)?(g=k(h),d=g[0],g=g[1]):b.bounds&&(d=b.bounds.midX,g=b.bounds.midY);v(d)&&v(g)?(d=c.projectedUnitsToPixels({x:d,y:g}),b.plotX=d.x,b.plotY=f?d.y:a.chart.plotHeight-d.y):(b.plotX=void 0,b.plotY=void 0);b.isInside=a.isPointInside(b);b.zone=a.zones.length?b.getZone():void 0})}b(this,"afterTranslate")};a.defaultOptions=m(u.defaultOptions,{dataLabels:{crop:!1,
-defer:!1,enabled:!0,formatter:function(){return this.point.name},overflow:!1,style:{color:"#000000"}}});return a}(u);e(r.prototype,{type:"mappoint",axisTypes:["colorAxis"],forceDL:!0,isCartesian:!1,pointClass:f,searchPoint:c,useMapGeometry:!0});p.registerSeriesType("mappoint",r);"";return r});y(c,"Series/Bubble/BubbleLegendDefaults.js",[],function(){return{borderColor:void 0,borderWidth:2,className:void 0,color:void 0,connectorClassName:void 0,connectorColor:void 0,connectorDistance:60,connectorWidth:1,
-enabled:!1,labels:{className:void 0,allowOverlap:!1,format:"",formatter:void 0,align:"right",style:{fontSize:"10px",color:"#000000"},x:0,y:0},maxSize:60,minSize:10,legendIndex:0,ranges:{value:void 0,borderColor:void 0,color:void 0,connectorColor:void 0},sizeBy:"area",sizeByAbsoluteValue:!1,zIndex:1,zThreshold:0}});y(c,"Series/Bubble/BubbleLegendItem.js",[c["Core/Color/Color.js"],c["Core/FormatUtilities.js"],c["Core/Globals.js"],c["Core/Utilities.js"]],function(c,f,p,r){var n=c.parse,u=p.noop,e=r.arrayMax,
-b=r.arrayMin,v=r.isNumber,m=r.merge,k=r.pick,a=r.stableSort;"";return function(){function c(a,b){this.options=this.symbols=this.visible=this.selected=this.ranges=this.movementX=this.maxLabel=this.legendSymbol=this.legendItemWidth=this.legendItemHeight=this.legendItem=this.legendGroup=this.legend=this.fontMetrics=this.chart=void 0;this.setState=u;this.init(a,b)}c.prototype.init=function(a,b){this.options=a;this.visible=!0;this.chart=b.chart;this.legend=b};c.prototype.addToLegend=function(a){a.splice(this.options.legendIndex,
-0,this)};c.prototype.drawLegendSymbol=function(b){var c=this.chart,d=this.options,g=k(b.options.itemDistance,20),e=d.ranges,f=d.connectorDistance;this.fontMetrics=c.renderer.fontMetrics(d.labels.style.fontSize);e&&e.length&&v(e[0].value)?(a(e,function(a,b){return b.value-a.value}),this.ranges=e,this.setOptions(),this.render(),b=this.getMaxLabelSize(),e=this.ranges[0].radius,c=2*e,f=f-e+b.width,f=0<f?f:0,this.maxLabel=b,this.movementX="left"===d.labels.align?f:0,this.legendItemWidth=c+f+g,this.legendItemHeight=
-c+this.fontMetrics.h/2):b.options.bubbleLegend.autoRanges=!0};c.prototype.setOptions=function(){var a=this.ranges,b=this.options,c=this.chart.series[b.seriesIndex],d=this.legend.baseline,e={zIndex:b.zIndex,"stroke-width":b.borderWidth},f={zIndex:b.zIndex,"stroke-width":b.connectorWidth},u={align:this.legend.options.rtl||"left"===b.labels.align?"right":"left",zIndex:b.zIndex},h=c.options.marker.fillOpacity,l=this.chart.styledMode;a.forEach(function(g,t){l||(e.stroke=k(g.borderColor,b.borderColor,c.color),
-e.fill=k(g.color,b.color,1!==h?n(c.color).setOpacity(h).get("rgba"):c.color),f.stroke=k(g.connectorColor,b.connectorColor,c.color));a[t].radius=this.getRangeRadius(g.value);a[t]=m(a[t],{center:a[0].radius-a[t].radius+d});l||m(!0,a[t],{bubbleAttribs:m(e),connectorAttribs:m(f),labelAttribs:u})},this)};c.prototype.getRangeRadius=function(a){var b=this.options;return this.chart.series[this.options.seriesIndex].getRadius.call(this,b.ranges[b.ranges.length-1].value,b.ranges[0].value,b.minSize,b.maxSize,
-a)};c.prototype.render=function(){var a=this.chart.renderer,b=this.options.zThreshold;this.symbols||(this.symbols={connectors:[],bubbleItems:[],labels:[]});this.legendSymbol=a.g("bubble-legend");this.legendItem=a.g("bubble-legend-item");this.legendSymbol.translateX=0;this.legendSymbol.translateY=0;this.ranges.forEach(function(a){a.value>=b&&this.renderRange(a)},this);this.legendSymbol.add(this.legendItem);this.legendItem.add(this.legendGroup);this.hideOverlappingLabels()};c.prototype.renderRange=
-function(a){var b=this.options,c=b.labels,d=this.chart,g=d.series[b.seriesIndex],e=d.renderer,k=this.symbols;d=k.labels;var h=a.center,l=Math.abs(a.radius),f=b.connectorDistance||0,m=c.align,u=b.connectorWidth,n=this.ranges[0].radius||0,v=h-l-b.borderWidth/2+u/2,p=this.fontMetrics;p=p.f/2-(p.h-p.f)/2;var r=e.styledMode;f=this.legend.options.rtl||"left"===m?-f:f;"center"===m&&(f=0,b.connectorDistance=0,a.labelAttribs.align="center");m=v+b.labels.y;var D=n+f+b.labels.x;k.bubbleItems.push(e.circle(n,
-h+((v%1?1:.5)-(u%2?0:.5)),l).attr(r?{}:a.bubbleAttribs).addClass((r?"highcharts-color-"+g.colorIndex+" ":"")+"highcharts-bubble-legend-symbol "+(b.className||"")).add(this.legendSymbol));k.connectors.push(e.path(e.crispLine([["M",n,v],["L",n+f,v]],b.connectorWidth)).attr(r?{}:a.connectorAttribs).addClass((r?"highcharts-color-"+this.options.seriesIndex+" ":"")+"highcharts-bubble-legend-connectors "+(b.connectorClassName||"")).add(this.legendSymbol));a=e.text(this.formatLabel(a),D,m+p).attr(r?{}:a.labelAttribs).css(r?
-{}:c.style).addClass("highcharts-bubble-legend-labels "+(b.labels.className||"")).add(this.legendSymbol);d.push(a);a.placed=!0;a.alignAttr={x:D,y:m+p}};c.prototype.getMaxLabelSize=function(){var a,b;this.symbols.labels.forEach(function(c){b=c.getBBox(!0);a=a?b.width>a.width?b:a:b});return a||{}};c.prototype.formatLabel=function(a){var b=this.options,c=b.labels.formatter;b=b.labels.format;var d=this.chart.numberFormatter;return b?f.format(b,a):c?c.call(a):d(a.value,1)};c.prototype.hideOverlappingLabels=
-function(){var a=this.chart,b=this.symbols;!this.options.labels.allowOverlap&&b&&(a.hideOverlappingLabels(b.labels),b.labels.forEach(function(a,c){a.newOpacity?a.newOpacity!==a.oldOpacity&&b.connectors[c].show():b.connectors[c].hide()}))};c.prototype.getRanges=function(){var a=this.legend.bubbleLegend,c=a.options.ranges,d,f=Number.MAX_VALUE,q=-Number.MAX_VALUE;a.chart.series.forEach(function(a){a.isBubble&&!a.ignoreSeries&&(d=a.zData.filter(v),d.length&&(f=k(a.options.zMin,Math.min(f,Math.max(b(d),
-!1===a.options.displayNegative?a.options.zThreshold:-Number.MAX_VALUE))),q=k(a.options.zMax,Math.max(q,e(d)))))});var n=f===q?[{value:q}]:[{value:f},{value:(f+q)/2},{value:q,autoRanges:!0}];c.length&&c[0].radius&&n.reverse();n.forEach(function(a,b){c&&c[b]&&(n[b]=m(c[b],a))});return n};c.prototype.predictBubbleSizes=function(){var a=this.chart,b=this.fontMetrics,c=a.legend.options,d=c.floating,e=(c="horizontal"===c.layout)?a.legend.lastLineHeight:0,k=a.plotSizeX,f=a.plotSizeY,h=a.series[this.options.seriesIndex],
-l=h.getPxExtremes();a=Math.ceil(l.minPxSize);l=Math.ceil(l.maxPxSize);var m=Math.min(f,k);h=h.options.maxSize;if(d||!/%$/.test(h))b=l;else if(h=parseFloat(h),b=(m+e-b.h/2)*h/100/(h/100+1),c&&f-b>=k||!c&&k-b>=f)b=l;return[a,Math.ceil(b)]};c.prototype.updateRanges=function(a,b){var c=this.legend.options.bubbleLegend;c.minSize=a;c.maxSize=b;c.ranges=this.getRanges()};c.prototype.correctSizes=function(){var a=this.legend,b=this.chart.series[this.options.seriesIndex].getPxExtremes();1<Math.abs(Math.ceil(b.maxPxSize)-
-this.options.maxSize)&&(this.updateRanges(this.options.minSize,b.maxPxSize),a.render())};return c}()});y(c,"Series/Bubble/BubbleLegendComposition.js",[c["Series/Bubble/BubbleLegendDefaults.js"],c["Series/Bubble/BubbleLegendItem.js"],c["Core/DefaultOptions.js"],c["Core/Utilities.js"]],function(c,f,p,r){var n=p.setOptions,u=r.addEvent,e=r.objectEach,b=r.wrap,v;(function(m){function k(b,c,g){var h=this.legend,l=0<=a(this);if(h&&h.options.enabled&&h.bubbleLegend&&h.options.bubbleLegend.autoRanges&&l){var k=
-h.bubbleLegend.options;l=h.bubbleLegend.predictBubbleSizes();h.bubbleLegend.updateRanges(l[0],l[1]);k.placed||(h.group.placed=!1,h.allItems.forEach(function(a){a.legendGroup.translateY=null}));h.render();this.getMargins();this.axes.forEach(function(a){a.visible&&a.render();k.placed||(a.setScale(),a.updateNames(),e(a.ticks,function(a){a.isNew=!0;a.isNewLabel=!0}))});k.placed=!0;this.getMargins();b.call(this,c,g);h.bubbleLegend.correctSizes();v(h,d(h))}else b.call(this,c,g),h&&h.options.enabled&&h.bubbleLegend&&
-(h.render(),v(h,d(h)))}function a(a){a=a.series;for(var b=0;b<a.length;){if(a[b]&&a[b].isBubble&&a[b].visible&&a[b].zData.length)return b;b++}return-1}function d(a){a=a.allItems;var b=[],c=a.length,d,e=0;for(d=0;d<c;d++)if(a[d].legendItemHeight&&(a[d].itemHeight=a[d].legendItemHeight),a[d]===a[c-1]||a[d+1]&&a[d]._legendItemPos[1]!==a[d+1]._legendItemPos[1]){b.push({height:0});var g=b[b.length-1];for(e;e<=d;e++)a[e].itemHeight>g.height&&(g.height=a[e].itemHeight);g.step=d}return b}function g(b){var c=
-this.bubbleLegend,d=this.options,h=d.bubbleLegend,e=a(this.chart);c&&c.ranges&&c.ranges.length&&(h.ranges.length&&(h.autoRanges=!!h.ranges[0].autoRanges),this.destroyItem(c));0<=e&&d.enabled&&h.enabled&&(h.seriesIndex=e,this.bubbleLegend=new f(h,this),this.bubbleLegend.addToLegend(b.allItems))}function t(){var b=this.chart,c=this.visible,d=this.chart.legend;d&&d.bubbleLegend&&(this.visible=!c,this.ignoreSeries=c,b=0<=a(b),d.bubbleLegend.visible!==b&&(d.update({bubbleLegend:{enabled:b}}),d.bubbleLegend.visible=
-b),this.visible=c)}function v(a,b){var c=a.options.rtl,d,e,g,k=0;a.allItems.forEach(function(a,h){d=a.legendGroup.translateX;e=a._legendItemPos[1];if((g=a.movementX)||c&&a.ranges)g=c?d-a.options.maxSize/2:d+g,a.legendGroup.attr({translateX:g});h>b[k].step&&k++;a.legendGroup.attr({translateY:Math.round(e+b[k].height/2)});a._legendItemPos[1]=e+b[k].height/2})}var p=[];m.compose=function(a,d,e){-1===p.indexOf(a)&&(p.push(a),n({legend:{bubbleLegend:c}}),b(a.prototype,"drawChartBox",k));-1===p.indexOf(d)&&
-(p.push(d),u(d,"afterGetAllItems",g));-1===p.indexOf(e)&&(p.push(e),u(e,"legendItemClick",t))}})(v||(v={}));return v});y(c,"Series/Bubble/BubblePoint.js",[c["Core/Series/Point.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f,p){var r=this&&this.__extends||function(){var c=function(f,e){c=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(b,c){b.__proto__=c}||function(b,c){for(var e in c)c.hasOwnProperty(e)&&(b[e]=c[e])};return c(f,e)};return function(f,e){function b(){this.constructor=
-f}c(f,e);f.prototype=null===e?Object.create(e):(b.prototype=e.prototype,new b)}}();p=p.extend;f=function(f){function n(){var c=null!==f&&f.apply(this,arguments)||this;c.options=void 0;c.series=void 0;return c}r(n,f);n.prototype.haloPath=function(e){return c.prototype.haloPath.call(this,0===e?0:(this.marker?this.marker.radius||0:0)+e)};return n}(f.seriesTypes.scatter.prototype.pointClass);p(f.prototype,{ttBelow:!1});return f});y(c,"Series/Bubble/BubbleSeries.js",[c["Core/Axis/Axis.js"],c["Series/Bubble/BubbleLegendComposition.js"],
-c["Series/Bubble/BubblePoint.js"],c["Core/Color/Color.js"],c["Core/Globals.js"],c["Core/Series/Series.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f,p,r,n,u,e,b){var v=this&&this.__extends||function(){var a=function(b,c){a=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(a,b){a.__proto__=b}||function(a,b){for(var c in b)b.hasOwnProperty(c)&&(a[c]=b[c])};return a(b,c)};return function(b,c){function d(){this.constructor=b}a(b,c);b.prototype=null===c?Object.create(c):
-(d.prototype=c.prototype,new d)}}(),m=r.parse;r=n.noop;var k=e.seriesTypes;n=k.column;var a=k.scatter;k=b.addEvent;var d=b.arrayMax,g=b.arrayMin,t=b.clamp,x=b.extend,z=b.isNumber,q=b.merge,w=b.pick;b=function(b){function c(){var a=null!==b&&b.apply(this,arguments)||this;a.data=void 0;a.maxPxSize=void 0;a.minPxSize=void 0;a.options=void 0;a.points=void 0;a.radii=void 0;a.yData=void 0;a.zData=void 0;return a}v(c,b);c.prototype.animate=function(a){!a&&this.points.length<this.options.animationLimit&&
-this.points.forEach(function(a){var b=a.graphic;b&&b.width&&(this.hasRendered||b.attr({x:a.plotX,y:a.plotY,width:1,height:1}),b.animate(this.markerAttribs(a),this.options.animation))},this)};c.prototype.getRadii=function(){var a=this,b=this.zData,c=this.yData,d=[],e=this.chart.bubbleZExtremes;var h=this.getPxExtremes();var g=h.minPxSize,k=h.maxPxSize;if(!e){var f=Number.MAX_VALUE,m=-Number.MAX_VALUE,t;this.chart.series.forEach(function(b){b.bubblePadding&&(b.visible||!a.chart.options.chart.ignoreHiddenSeries)&&
-(b=b.getZExtremes())&&(f=Math.min(f||b.zMin,b.zMin),m=Math.max(m||b.zMax,b.zMax),t=!0)});t?(e={zMin:f,zMax:m},this.chart.bubbleZExtremes=e):e={zMin:0,zMax:0}}var q=0;for(h=b.length;q<h;q++){var n=b[q];d.push(this.getRadius(e.zMin,e.zMax,g,k,n,c[q]))}this.radii=d};c.prototype.getRadius=function(a,b,c,d,e,h){var g=this.options,k="width"!==g.sizeBy,f=g.zThreshold,l=b-a,m=.5;if(null===h||null===e)return null;if(z(e)){g.sizeByAbsoluteValue&&(e=Math.abs(e-f),l=Math.max(b-f,Math.abs(a-f)),a=0);if(e<a)return c/
-2-1;0<l&&(m=(e-a)/l)}k&&0<=m&&(m=Math.sqrt(m));return Math.ceil(c+m*(d-c))/2};c.prototype.hasData=function(){return!!this.processedXData.length};c.prototype.pointAttribs=function(a,b){var c=this.options.marker.fillOpacity;a=u.prototype.pointAttribs.call(this,a,b);1!==c&&(a.fill=m(a.fill).setOpacity(c).get("rgba"));return a};c.prototype.translate=function(){b.prototype.translate.call(this);this.getRadii();this.translateBubble()};c.prototype.translateBubble=function(){for(var a=this.data,b=this.radii,
-c=this.getPxExtremes().minPxSize,d=a.length;d--;){var e=a[d],h=b?b[d]:0;z(h)&&h>=c/2?(e.marker=x(e.marker,{radius:h,width:2*h,height:2*h}),e.dlBox={x:e.plotX-h,y:e.plotY-h,width:2*h,height:2*h}):e.shapeArgs=e.plotY=e.dlBox=void 0}};c.prototype.getPxExtremes=function(){var a=Math.min(this.chart.plotWidth,this.chart.plotHeight),b=function(b){if("string"===typeof b){var c=/%$/.test(b);b=parseInt(b,10)}return c?a*b/100:b},c=b(w(this.options.minSize,8));b=Math.max(b(w(this.options.maxSize,"20%")),c);return{minPxSize:c,
-maxPxSize:b}};c.prototype.getZExtremes=function(){var a=this.options,b=(this.zData||[]).filter(z);if(b.length){var c=w(a.zMin,t(g(b),!1===a.displayNegative?a.zThreshold||0:-Number.MAX_VALUE,Number.MAX_VALUE));a=w(a.zMax,d(b));if(z(c)&&z(a))return{zMin:c,zMax:a}}};c.compose=f.compose;c.defaultOptions=q(a.defaultOptions,{dataLabels:{formatter:function(){var a=this.series.chart.numberFormatter,b=this.point.z;return z(b)?a(b,-1):""},inside:!0,verticalAlign:"middle"},animationLimit:250,marker:{lineColor:null,
-lineWidth:1,fillOpacity:.5,radius:null,states:{hover:{radiusPlus:0}},symbol:"circle"},minSize:8,maxSize:"20%",softThreshold:!1,states:{hover:{halo:{size:5}}},tooltip:{pointFormat:"({point.x}, {point.y}), Size: {point.z}"},turboThreshold:0,zThreshold:0,zoneAxis:"z"});return c}(a);x(b.prototype,{alignDataLabel:n.prototype.alignDataLabel,applyZones:r,bubblePadding:!0,buildKDTree:r,directTouch:!0,isBubble:!0,pointArrayMap:["y","z"],pointClass:p,parallelArrays:["x","y","z"],trackerGroups:["group","dataLabelsGroup"],
-specialGroup:"group",zoneAxis:"z"});k(b,"updatedData",function(a){delete a.target.chart.bubbleZExtremes});c.prototype.beforePadding=function(){var a=this,b=this.len,c=this.chart,d=0,e=b,g=this.isXAxis,k=g?"xData":"yData",f=this.min,m=this.max-f,t=b/m,q;this.series.forEach(function(b){if(b.bubblePadding&&(b.visible||!c.options.chart.ignoreHiddenSeries)){q=a.allowZoomOutside=!0;var h=b[k];g&&b.getRadii(0,0,b);if(0<m)for(var l=h.length;l--;)if(z(h[l])&&a.dataMin<=h[l]&&h[l]<=a.max){var n=b.radii&&b.radii[l]||
-0;d=Math.min((h[l]-f)*t-n,d);e=Math.max((h[l]-f)*t+n,e)}}});q&&0<m&&!this.logarithmic&&(e-=b,t*=(b+Math.max(0,d)-Math.min(e,b))/b,[["min","userMin",d],["max","userMax",e]].forEach(function(b){"undefined"===typeof w(a.options[b[0]],a[b[1]])&&(a[b[0]]+=b[2]/t)}))};e.registerSeriesType("bubble",b);"";"";return b});y(c,"Series/MapBubble/MapBubblePoint.js",[c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f){var p=this&&this.__extends||function(){var c=function(e,b){c=Object.setPrototypeOf||
-{__proto__:[]}instanceof Array&&function(b,c){b.__proto__=c}||function(b,c){for(var e in c)c.hasOwnProperty(e)&&(b[e]=c[e])};return c(e,b)};return function(e,b){function f(){this.constructor=e}c(e,b);e.prototype=null===b?Object.create(b):(f.prototype=b.prototype,new f)}}();c=c.seriesTypes;var r=c.map,n=f.merge;return function(c){function e(){return null!==c&&c.apply(this,arguments)||this}p(e,c);e.prototype.applyOptions=function(b,e){return b&&"undefined"!==typeof b.lat&&"undefined"!==typeof b.lon?
-c.prototype.applyOptions.call(this,n(b,this.series.chart.fromLatLonToPoint(b)),e):r.prototype.pointClass.prototype.applyOptions.call(this,b,e)};e.prototype.isValid=function(){return"number"===typeof this.z};return e}(c.bubble.prototype.pointClass)});y(c,"Series/MapBubble/MapBubbleSeries.js",[c["Series/Bubble/BubbleSeries.js"],c["Series/MapBubble/MapBubblePoint.js"],c["Series/Map/MapSeries.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f,p,r,n){var u=this&&this.__extends||
-function(){var b=function(c,a){b=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(a,b){a.__proto__=b}||function(a,b){for(var c in b)b.hasOwnProperty(c)&&(a[c]=b[c])};return b(c,a)};return function(c,a){function d(){this.constructor=c}b(c,a);c.prototype=null===a?Object.create(a):(d.prototype=a.prototype,new d)}}(),e=r.seriesTypes.mappoint,b=n.extend,v=n.merge;n=function(b){function f(){var a=null!==b&&b.apply(this,arguments)||this;a.data=void 0;a.options=void 0;a.points=void 0;return a}
-u(f,b);f.prototype.translate=function(){e.prototype.translate.call(this);this.getRadii();this.translateBubble()};f.compose=c.compose;f.defaultOptions=v(c.defaultOptions,{animationLimit:500,tooltip:{pointFormat:"{point.name}: {point.z}"}});return f}(c);b(n.prototype,{type:"mapbubble",axisTypes:["colorAxis"],getProjectedBounds:p.prototype.getProjectedBounds,isCartesian:!1,pointArrayMap:["z"],pointClass:f,setData:p.prototype.setData,setOptions:p.prototype.setOptions,useMapGeometry:!0,xyFromShape:!0});
-r.registerSeriesType("mapbubble",n);"";return n});y(c,"Series/Heatmap/HeatmapPoint.js",[c["Core/Series/SeriesRegistry.js"],c["Core/Utilities.js"]],function(c,f){var p=this&&this.__extends||function(){var b=function(c,e){b=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(b,a){b.__proto__=a}||function(b,a){for(var c in a)a.hasOwnProperty(c)&&(b[c]=a[c])};return b(c,e)};return function(c,e){function f(){this.constructor=c}b(c,e);c.prototype=null===e?Object.create(e):(f.prototype=e.prototype,
-new f)}}(),r=f.clamp,n=f.defined,u=f.extend,e=f.pick;c=function(b){function c(){var c=null!==b&&b.apply(this,arguments)||this;c.options=void 0;c.series=void 0;c.value=void 0;c.x=void 0;c.y=void 0;return c}p(c,b);c.prototype.applyOptions=function(c,e){c=b.prototype.applyOptions.call(this,c,e);c.formatPrefix=c.isNull||null===c.value?"null":"point";return c};c.prototype.getCellAttributes=function(){var b=this.series,c=b.options,a=(c.colsize||1)/2,d=(c.rowsize||1)/2,g=b.xAxis,f=b.yAxis,p=this.options.marker||
-b.options.marker;b=b.pointPlacementToXValue();var u=e(this.pointPadding,c.pointPadding,0),q={x1:r(Math.round(g.len-(g.translate(this.x-a,!1,!0,!1,!0,-b)||0)),-g.len,2*g.len),x2:r(Math.round(g.len-(g.translate(this.x+a,!1,!0,!1,!0,-b)||0)),-g.len,2*g.len),y1:r(Math.round(f.translate(this.y-d,!1,!0,!1,!0)||0),-f.len,2*f.len),y2:r(Math.round(f.translate(this.y+d,!1,!0,!1,!0)||0),-f.len,2*f.len)};[["width","x"],["height","y"]].forEach(function(a){var b=a[0];a=a[1];var c=a+"1",d=a+"2",e=Math.abs(q[c]-
-q[d]),g=p&&p.lineWidth||0,f=Math.abs(q[c]+q[d])/2;b=p&&p[b];n(b)&&b<e&&(b=b/2+g/2,q[c]=f-b,q[d]=f+b);u&&("y"===a&&(c=d,d=a+"1"),q[c]+=u,q[d]-=u)});return q};c.prototype.haloPath=function(b){if(!b)return[];var c=this.shapeArgs;return["M",c.x-b,c.y-b,"L",c.x-b,c.y+c.height+b,c.x+c.width+b,c.y+c.height+b,c.x+c.width+b,c.y-b,"Z"]};c.prototype.isValid=function(){return Infinity!==this.value&&-Infinity!==this.value};return c}(c.seriesTypes.scatter.prototype.pointClass);u(c.prototype,{dataLabelOnNull:!0,
-moveToTopOnHover:!0,ttBelow:!1});return c});y(c,"Series/Heatmap/HeatmapSeries.js",[c["Core/Color/Color.js"],c["Series/ColorMapMixin.js"],c["Series/Heatmap/HeatmapPoint.js"],c["Core/Legend/LegendSymbol.js"],c["Core/Series/SeriesRegistry.js"],c["Core/Renderer/SVG/SVGRenderer.js"],c["Core/Utilities.js"]],function(c,f,p,r,n,u,e){var b=this&&this.__extends||function(){var a=function(b,c){a=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(a,b){a.__proto__=b}||function(a,b){for(var c in b)b.hasOwnProperty(c)&&
-(a[c]=b[c])};return a(b,c)};return function(b,c){function d(){this.constructor=b}a(b,c);b.prototype=null===c?Object.create(c):(d.prototype=c.prototype,new d)}}(),v=n.series,m=n.seriesTypes,k=m.column,a=m.scatter,d=u.prototype.symbols,g=e.extend,t=e.fireEvent,x=e.isNumber,y=e.merge,q=e.pick;u=function(e){function f(){var a=null!==e&&e.apply(this,arguments)||this;a.colorAxis=void 0;a.data=void 0;a.options=void 0;a.points=void 0;a.valueMax=NaN;a.valueMin=NaN;return a}b(f,e);f.prototype.drawPoints=function(){var a=
-this;if((this.options.marker||{}).enabled||this._hasPointMarkers)v.prototype.drawPoints.call(this),this.points.forEach(function(b){b.graphic&&(b.graphic[a.chart.styledMode?"css":"animate"](a.colorAttribs(b)),a.options.borderRadius&&b.graphic.attr({r:a.options.borderRadius}),(b.shapeArgs||{}).r=a.options.borderRadius,(b.shapeArgs||{}).d=b.graphic.pathArray,null===b.value&&b.graphic.addClass("highcharts-null-point"))})};f.prototype.getExtremes=function(){var a=v.prototype.getExtremes.call(this,this.valueData),
-b=a.dataMin;a=a.dataMax;x(b)&&(this.valueMin=b);x(a)&&(this.valueMax=a);return v.prototype.getExtremes.call(this)};f.prototype.getValidPoints=function(a,b){return v.prototype.getValidPoints.call(this,a,b,!0)};f.prototype.hasData=function(){return!!this.processedXData.length};f.prototype.init=function(){v.prototype.init.apply(this,arguments);var a=this.options;a.pointRange=q(a.pointRange,a.colsize||1);this.yAxis.axisPointRange=a.rowsize||1;d.ellipse=d.circle};f.prototype.markerAttribs=function(a,b){var c=
-a.marker||{},d=this.options.marker||{},e=a.shapeArgs||{},g={};if(a.hasImage)return{x:a.plotX,y:a.plotY};if(b){var f=d.states[b]||{};var h=c.states&&c.states[b]||{};[["width","x"],["height","y"]].forEach(function(a){g[a[0]]=(h[a[0]]||f[a[0]]||e[a[0]])+(h[a[0]+"Plus"]||f[a[0]+"Plus"]||0);g[a[1]]=e[a[1]]+(e[a[0]]-g[a[0]])/2})}return b?g:e};f.prototype.pointAttribs=function(a,b){var d=v.prototype.pointAttribs.call(this,a,b),e=this.options||{},g=this.chart.options.plotOptions||{},f=g.series||{},h=g.heatmap||
-{};g=a&&a.options.borderColor||e.borderColor||h.borderColor||f.borderColor;f=a&&a.options.borderWidth||e.borderWidth||h.borderWidth||f.borderWidth||d["stroke-width"];d.stroke=a&&a.marker&&a.marker.lineColor||e.marker&&e.marker.lineColor||g||this.color;d["stroke-width"]=f;b&&(a=y(e.states[b],e.marker&&e.marker.states[b],a&&a.options.states&&a.options.states[b]||{}),b=a.brightness,d.fill=a.color||c.parse(d.fill).brighten(b||0).get(),d.stroke=a.lineColor);return d};f.prototype.setClip=function(a){var b=
-this.chart;v.prototype.setClip.apply(this,arguments);(!1!==this.options.clip||a)&&this.markerGroup.clip((a||this.clipBox)&&this.sharedClipKey?b.sharedClips[this.sharedClipKey]:b.clipRect)};f.prototype.translate=function(){var a=this.options,b=a.marker&&a.marker.symbol||"rect",c=d[b]?b:"rect",e=-1!==["circle","square"].indexOf(c);this.generatePoints();this.points.forEach(function(a){var f=a.getCellAttributes(),h={};h.x=Math.min(f.x1,f.x2);h.y=Math.min(f.y1,f.y2);h.width=Math.max(Math.abs(f.x2-f.x1),
-0);h.height=Math.max(Math.abs(f.y2-f.y1),0);var k=a.hasImage=0===(a.marker&&a.marker.symbol||b||"").indexOf("url");if(e){var l=Math.abs(h.width-h.height);h.x=Math.min(f.x1,f.x2)+(h.width<h.height?0:l/2);h.y=Math.min(f.y1,f.y2)+(h.width<h.height?l/2:0);h.width=h.height=Math.min(h.width,h.height)}l={plotX:(f.x1+f.x2)/2,plotY:(f.y1+f.y2)/2,clientX:(f.x1+f.x2)/2,shapeType:"path",shapeArgs:y(!0,h,{d:d[c](h.x,h.y,h.width,h.height)})};k&&(a.marker={width:h.width,height:h.height});g(a,l)});t(this,"afterTranslate")};
-f.defaultOptions=y(a.defaultOptions,{animation:!1,borderRadius:0,borderWidth:0,nullColor:"#f7f7f7",dataLabels:{formatter:function(){var a=this.series.chart.numberFormatter,b=this.point.value;return x(b)?a(b,-1):""},inside:!0,verticalAlign:"middle",crop:!1,overflow:!1,padding:0},marker:{symbol:"rect",radius:0,lineColor:void 0,states:{hover:{lineWidthPlus:0},select:{}}},clip:!0,pointRange:null,tooltip:{pointFormat:"{point.x}, {point.y}: {point.value}<br/>"},states:{hover:{halo:!1,brightness:.2}}});
-return f}(a);g(u.prototype,{alignDataLabel:k.prototype.alignDataLabel,axisTypes:f.SeriesMixin.axisTypes,colorAttribs:f.SeriesMixin.colorAttribs,colorKey:f.SeriesMixin.colorKey,directTouch:!0,drawLegendSymbol:r.drawRectangle,getExtremesFromAll:!0,getSymbol:v.prototype.getSymbol,parallelArrays:f.SeriesMixin.parallelArrays,pointArrayMap:["y","value"],pointClass:p,trackerGroups:f.SeriesMixin.trackerGroups});n.registerSeriesType("heatmap",u);"";"";return u});y(c,"Extensions/GeoJSON.js",[c["Core/Chart/Chart.js"],
-c["Core/FormatUtilities.js"],c["Core/Globals.js"],c["Core/Utilities.js"]],function(c,f,p,r){function n(b,a){var c,e=!1,f=b.x,k=b.y;b=0;for(c=a.length-1;b<a.length;c=b++){var m=a[b][1]>k;var q=a[c][1]>k;m!==q&&f<(a[c][0]-a[b][0])*(k-a[b][1])/(a[c][1]-a[b][1])+a[b][0]&&(e=!e)}return e}var u=f.format,e=p.win,b=r.error,v=r.extend,m=r.merge;f=r.wrap;"";c.prototype.transformFromLatLon=function(c,a){var d=this.options.chart.proj4||e.proj4;if(!d)return b(21,!1,this),{x:0,y:null};var f=a.jsonmarginX;f=void 0===
-f?0:f;var k=a.jsonmarginY;k=void 0===k?0:k;var m=a.jsonres;m=void 0===m?1:m;var n=a.scale;n=void 0===n?1:n;var q=a.xoffset;q=void 0===q?0:q;var p=a.xpan;p=void 0===p?0:p;var r=a.yoffset;r=void 0===r?0:r;var h=a.ypan;h=void 0===h?0:h;c=d(a.crs,[c.lon,c.lat]);d=a.cosAngle||a.rotation&&Math.cos(a.rotation);var l=a.sinAngle||a.rotation&&Math.sin(a.rotation);a=a.rotation?[c[0]*d+c[1]*l,-c[0]*l+c[1]*d]:c;return{x:((a[0]-q)*n+p)*m+f,y:-(((r-a[1])*n+h)*m-k)}};c.prototype.transformToLatLon=function(c,a){if(!this.options.chart.proj4&&
-!e.proj4)b(21,!1,this);else if(null!==c.y){var d=a.jsonmarginX,f=a.jsonmarginY,k=a.jsonres;k=void 0===k?1:k;var m=a.scale;m=void 0===m?1:m;var n=a.xoffset,q=a.xpan,p=a.yoffset,r=a.ypan;c={x:((c.x-(void 0===d?0:d))/k-(void 0===q?0:q))/m+(void 0===n?0:n),y:((c.y-(void 0===f?0:f))/k+(void 0===r?0:r))/m+(void 0===p?0:p)};d=a.cosAngle||a.rotation&&Math.cos(a.rotation);f=a.sinAngle||a.rotation&&Math.sin(a.rotation);a=e.proj4(a.crs,"WGS84",a.rotation?{x:c.x*d+c.y*-f,y:c.x*f+c.y*d}:c);return{lat:a.y,lon:a.x}}};
-c.prototype.fromPointToLatLon=function(c){var a=this.mapTransforms;if(a){for(var d in a)if(Object.hasOwnProperty.call(a,d)&&a[d].hitZone&&n(c,a[d].hitZone.coordinates[0]))return this.transformToLatLon(c,a[d]);return this.transformToLatLon(c,a["default"])}b(22,!1,this)};c.prototype.fromLatLonToPoint=function(c){var a=this.mapTransforms,d;if(!a)return b(22,!1,this),{x:0,y:null};for(d in a)if(Object.hasOwnProperty.call(a,d)&&a[d].hitZone){var e=this.transformFromLatLon(c,a[d]);if(n(e,a[d].hitZone.coordinates[0]))return e}return this.transformFromLatLon(c,
-a["default"])};p.geojson=function(b,a,c){void 0===a&&(a="map");var d=[];b.features.forEach(function(b){var c=b.geometry||{},e=c.type;c=c.coordinates;b=b.properties;var f;"map"!==a&&"mapbubble"!==a||"Polygon"!==e&&"MultiPolygon"!==e?"mapline"!==a||"LineString"!==e&&"MultiLineString"!==e?"mappoint"===a&&"Point"===e&&c.length&&(f={geometry:{coordinates:c,type:e}}):c.length&&(f={geometry:{coordinates:c,type:e}}):c.length&&(f={geometry:{coordinates:c,type:e}});f&&d.push(v(f,{name:b.name||b.NAME,properties:b}))});
-c&&b.copyrightShort&&(c.chart.mapCredits=u(c.chart.options.credits.mapText,{geojson:b}),c.chart.mapCreditsFull=u(c.chart.options.credits.mapTextFull,{geojson:b}));return d};f(c.prototype,"addCredits",function(b,a){a=m(!0,this.options.credits,a);this.mapCredits&&(a.href=null);b.call(this,a);this.credits&&this.mapCreditsFull&&this.credits.attr({title:this.mapCreditsFull})})});y(c,"masters/modules/map.src.js",[c["Core/Globals.js"],c["Core/Axis/Color/ColorAxis.js"],c["Series/MapBubble/MapBubbleSeries.js"],
-c["Core/Chart/MapChart.js"]],function(c,f,p,r){c.ColorAxis=f;c.MapChart=r;c.mapChart=c.Map=r.mapChart;c.maps=r.maps;f.compose(c.Chart,c.Fx,c.Legend,c.Series);p.compose(c.Chart,c.Legend,c.Series)})});
-//# sourceMappingURL=map.js.map
 
 /***/ }),
 
@@ -51005,17 +50771,6 @@ function combine (array, callback) {
 	return array.map(callback).join('')
 }
 
-
-/***/ }),
-
-/***/ "./node_modules/@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json ***!
-  \**********************************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse('{"title":"India with disputed territories","version":"2.0.0","type":"FeatureCollection","copyright":"Copyright (c) 2022 Highsoft AS, Based on http://projects.datameet.org/maps/states/","copyrightShort":"projects.datameet.org","copyrightUrl":"https://creativecommons.org/licenses/by/2.5/in/","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG:32644"}},"hc-transform":{"default":{"crs":"+proj=utm +zone=44 +datum=WGS84 +units=m +no_defs","scale":0.00020862025385,"jsonres":15.5,"jsonmarginX":-999,"jsonmarginY":9851,"xoffset":-814534.248882,"yoffset":4122045.33412}},"features":[{"type":"Feature","id":"Madhya Pradesh","properties":{"hc-group":"admin1","hc-key":"madhya pradesh","hc-a2":"MP","name":"Madhya Pradesh","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"MultiPolygon","coordinates":[[[[977,4582],[974,4582],[971,4589],[976,4590],[977,4582]]],[[[3557,4938],[3575,4908],[3575,4899],[3575,4899],[3575,4898],[3576,4897],[3578,4895],[3579,4896],[3580,4897],[3580,4898],[3583,4896],[3584,4895],[3646,4865],[3624,4785],[3565,4775],[3566,4732],[3509,4702],[3515,4664],[3509,4657],[3467,4607],[3411,4565],[3386,4547],[3361,4576],[3317,4562],[3316,4564],[3311,4563],[3291,4546],[3292,4494],[3261,4471],[3247,4406],[3214,4410],[3191,4298],[3156,4271],[3164,4200],[3139,4150],[3093,4171],[3054,4166],[3043,4218],[2982,4258],[2940,4230],[2871,4222],[2830,4248],[2764,4228],[2748,4274],[2663,4290],[2657,4266],[2555,4247],[2561,4209],[2491,4202],[2417,4225],[2392,4217],[2390,4253],[2306,4237],[2305,4217],[2213,4176],[2180,4189],[2075,4178],[2055,4238],[2103,4232],[2101,4282],[2075,4319],[2007,4317],[1983,4294],[1937,4305],[1877,4263],[1844,4263],[1842,4224],[1784,4168],[1782,4119],[1738,4122],[1698,4080],[1633,4087],[1626,4148],[1607,4189],[1564,4198],[1339,4204],[1274,4235],[1259,4270],[1195,4297],[1181,4290],[1103,4313],[1077,4335],[1085,4401],[1056,4446],[1007,4415],[958,4423],[943,4446],[954,4517],[939,4521],[940,4570],[979,4555],[1007,4583],[952,4596],[963,4626],[1014,4671],[1048,4666],[1079,4728],[1080,4763],[1053,4763],[1036,4819],[1059,4836],[1107,4830],[1163,4873],[1110,4909],[1125,4945],[1194,4985],[1220,4989],[1252,5051],[1246,5115],[1274,5156],[1240,5225],[1245,5229],[1249,5231],[1249,5235],[1245,5241],[1240,5242],[1205,5247],[1236,5310],[1189,5334],[1227,5390],[1223,5435],[1245,5388],[1287,5400],[1293,5431],[1242,5433],[1237,5496],[1272,5462],[1329,5463],[1331,5494],[1358,5514],[1407,5515],[1388,5434],[1364,5451],[1363,5406],[1489,5384],[1532,5408],[1563,5396],[1564,5361],[1587,5338],[1581,5294],[1544,5306],[1526,5278],[1553,5222],[1524,5186],[1554,5174],[1528,5135],[1498,5149],[1464,5138],[1447,5156],[1426,5111],[1489,5066],[1515,5087],[1598,5109],[1594,5142],[1652,5165],[1650,5205],[1672,5249],[1681,5208],[1726,5218],[1781,5185],[1813,5220],[1869,5169],[1905,5170],[1920,5194],[1887,5253],[1881,5315],[1942,5293],[1963,5351],[1933,5394],[1894,5393],[1880,5419],[1929,5435],[1905,5465],[1909,5494],[1973,5500],[2004,5519],[2047,5507],[2075,5520],[2083,5557],[2052,5634],[2018,5590],[1976,5601],[1928,5587],[1920,5595],[1916,5597],[1876,5594],[1822,5624],[1797,5675],[1803,5771],[1841,5809],[1891,5821],[1923,5873],[1992,5908],[1997,5918],[1998,5920],[2027,5922],[2101,5980],[2132,5982],[2137,5985],[2137,5986],[2142,5991],[2286,6082],[2313,6072],[2320,6112],[2358,6128],[2407,6139],[2472,6097],[2528,6109],[2568,6077],[2606,6069],[2603,6036],[2650,5982],[2652,5946],[2589,5874],[2608,5858],[2584,5807],[2523,5735],[2542,5690],[2490,5670],[2436,5676],[2412,5660],[2373,5601],[2420,5515],[2381,5500],[2382,5469],[2328,5428],[2360,5352],[2358,5272],[2389,5247],[2395,5209],[2434,5252],[2526,5175],[2558,5190],[2594,5261],[2561,5337],[2526,5321],[2524,5417],[2478,5456],[2450,5599],[2503,5627],[2492,5606],[2527,5595],[2518,5648],[2582,5666],[2563,5605],[2532,5573],[2552,5550],[2566,5590],[2593,5568],[2562,5558],[2562,5524],[2599,5564],[2645,5505],[2705,5519],[2688,5576],[2743,5557],[2729,5507],[2762,5493],[2782,5524],[2872,5499],[2878,5547],[2928,5558],[2936,5585],[2970,5584],[2992,5611],[3030,5602],[3027,5568],[3067,5524],[3042,5512],[3030,5463],[3084,5483],[3081,5487],[3084,5489],[3085,5487],[3085,5484],[3124,5499],[3148,5481],[3181,5492],[3157,5507],[3201,5530],[3208,5438],[3279,5444],[3296,5423],[3340,5486],[3342,5521],[3410,5505],[3446,5528],[3448,5489],[3513,5466],[3548,5465],[3549,5421],[3663,5376],[3657,5345],[3716,5320],[3713,5351],[3755,5340],[3799,5358],[3831,5339],[3844,5306],[3816,5307],[3814,5245],[3832,5241],[3820,5157],[3849,5095],[3815,5081],[3814,5080],[3799,5074],[3763,5033],[3599,5041],[3556,5060],[3522,5037],[3472,5078],[3451,5065],[3474,5018],[3477,5013],[3481,5005],[3463,4983],[3442,4957],[3463,4923],[3478,4936],[3495,4949],[3518,4936],[3527,4930],[3557,4938]],[[3075,5464],[3070,5465],[3069,5461],[3072,5462],[3075,5464]],[[2730,5477],[2738,5486],[2723,5502],[2724,5488],[2730,5477]],[[2721,5531],[2718,5533],[2716,5528],[2720,5527],[2721,5531]]]]}},{"type":"Feature","id":"Uttar Pradesh","properties":{"hc-group":"admin1","hc-key":"uttar pradesh","hc-a2":"UP","name":"Uttar Pradesh","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"MultiPolygon","coordinates":[[[[3075,5464],[3072,5462],[3069,5461],[3070,5465],[3075,5464]]],[[[2730,5477],[2724,5488],[2723,5502],[2738,5486],[2730,5477]]],[[[2721,5531],[2720,5527],[2716,5528],[2718,5533],[2721,5531]]],[[[4298,6095],[4354,6059],[4309,6048],[4246,6061],[4240,6037],[4237,6026],[4190,6016],[4191,5992],[4226,5992],[4278,5966],[4273,5920],[4227,5917],[4241,5867],[4321,5815],[4398,5792],[4429,5762],[4387,5720],[4347,5737],[4335,5742],[4334,5730],[4332,5716],[4299,5713],[4276,5736],[4253,5702],[4203,5674],[4160,5614],[4079,5577],[4039,5558],[4020,5540],[4010,5482],[4035,5392],[4085,5337],[4075,5307],[4073,5300],[4038,5290],[4056,5245],[4018,5147],[3955,5070],[3897,5063],[3849,5095],[3820,5157],[3832,5241],[3814,5245],[3816,5307],[3844,5306],[3831,5339],[3799,5358],[3755,5340],[3713,5351],[3716,5320],[3657,5345],[3663,5376],[3549,5421],[3548,5465],[3513,5466],[3448,5489],[3446,5528],[3410,5505],[3342,5521],[3340,5486],[3296,5423],[3279,5444],[3208,5438],[3201,5530],[3157,5507],[3181,5492],[3148,5481],[3124,5499],[3085,5484],[3085,5483],[3084,5483],[3030,5463],[3042,5512],[3067,5524],[3027,5568],[3030,5602],[2992,5611],[2970,5584],[2936,5585],[2928,5558],[2878,5547],[2872,5499],[2782,5524],[2762,5493],[2729,5507],[2743,5557],[2688,5576],[2705,5519],[2645,5505],[2599,5564],[2562,5524],[2562,5558],[2593,5568],[2566,5590],[2552,5550],[2532,5573],[2563,5605],[2582,5666],[2518,5648],[2527,5595],[2492,5606],[2503,5627],[2450,5599],[2478,5456],[2524,5417],[2526,5321],[2561,5337],[2594,5261],[2558,5190],[2526,5175],[2434,5252],[2395,5209],[2389,5247],[2358,5272],[2360,5352],[2328,5428],[2382,5469],[2381,5500],[2420,5515],[2373,5601],[2412,5660],[2436,5676],[2490,5670],[2542,5690],[2523,5735],[2584,5807],[2608,5858],[2589,5874],[2652,5946],[2650,5982],[2603,6036],[2606,6069],[2568,6077],[2528,6109],[2472,6097],[2407,6139],[2358,6128],[2375,6162],[2336,6172],[2319,6152],[2257,6149],[2212,6168],[2150,6129],[2129,6138],[2106,6111],[2105,6145],[2207,6186],[2140,6216],[2188,6263],[2158,6309],[2113,6336],[2085,6382],[2087,6428],[2068,6484],[2131,6513],[2153,6548],[2135,6567],[2156,6642],[2134,6648],[2143,6679],[2095,6735],[2093,6809],[2056,6837],[2052,6865],[2062,6915],[2035,6950],[2039,7088],[2029,7129],[2062,7237],[2097,7291],[2138,7309],[2189,7379],[2191,7406],[2192,7407],[2188,7413],[2301,7353],[2235,7262],[2226,7219],[2261,7147],[2292,7162],[2327,7113],[2422,7188],[2470,7167],[2477,7135],[2533,7083],[2597,7059],[2538,7014],[2580,6993],[2596,6957],[2626,6940],[2637,6960],[2671,6941],[2679,6903],[2739,6886],[2754,6845],[2831,6841],[2869,6856],[2915,6799],[2936,6793],[2958,6835],[3021,6804],[3053,6764],[3101,6737],[3096,6776],[3147,6766],[3184,6725],[3223,6714],[3287,6672],[3320,6665],[3353,6609],[3353,6586],[3388,6599],[3404,6567],[3474,6534],[3545,6486],[3561,6513],[3594,6511],[3717,6424],[3795,6440],[3807,6363],[3867,6363],[3908,6345],[3950,6347],[3991,6304],[4021,6329],[4017,6357],[4085,6356],[4169,6313],[4211,6254],[4235,6151],[4298,6141],[4298,6095]]]]}},{"type":"Feature","id":"Karnataka","properties":{"hc-group":"admin1","hc-key":"karnataka","hc-a2":"KA","name":"Karnataka","hc-middle-x":0.35,"hc-middle-y":0.7},"geometry":{"type":"MultiPolygon","coordinates":[[[[1988,3141],[1986,3134],[1977,3133],[1979,3140],[1988,3141]]],[[[930,2207],[915,2207],[913,2218],[924,2219],[930,2207]]],[[[1094,1108],[1075,1158],[1040,1325],[1034,1412],[1007,1529],[983,1554],[935,1760],[925,1745],[893,1829],[844,1851],[843,1885],[884,1893],[917,1935],[925,1987],[906,2008],[931,2022],[906,2097],[907,2156],[862,2156],[866,2182],[904,2202],[942,2195],[994,2310],[1002,2358],[947,2385],[946,2442],[916,2459],[1002,2504],[1024,2479],[1070,2493],[1074,2533],[1153,2550],[1160,2611],[1214,2612],[1260,2572],[1280,2612],[1344,2622],[1352,2607],[1417,2612],[1403,2692],[1413,2722],[1387,2764],[1407,2797],[1467,2757],[1496,2769],[1508,2739],[1574,2753],[1673,2751],[1648,2775],[1649,2833],[1678,2835],[1703,2874],[1744,2888],[1772,2860],[1784,2898],[1853,2943],[1868,3039],[1921,3027],[1955,3071],[1968,3117],[2013,3130],[2007,3084],[2044,3063],[2073,3073],[2088,2999],[2073,2982],[2104,2966],[2035,2859],[2031,2820],[2082,2812],[2114,2780],[2062,2769],[2057,2741],[2008,2691],[2006,2662],[2036,2649],[2048,2614],[2031,2579],[2035,2532],[2017,2491],[2033,2463],[1998,2428],[1953,2423],[1970,2399],[2038,2389],[2073,2371],[2039,2343],[2045,2226],[1954,2240],[1894,2224],[1883,2158],[1909,2134],[1875,2124],[1877,2027],[1902,2015],[1920,1958],[1900,1908],[1819,1910],[1791,1932],[1779,1889],[1814,1887],[1802,1823],[1776,1756],[1813,1709],[1849,1712],[1817,1681],[1836,1627],[1896,1619],[1911,1661],[1956,1658],[1983,1635],[1996,1657],[2025,1640],[2036,1600],[1994,1598],[1971,1547],[2003,1530],[1978,1502],[1966,1548],[1903,1539],[1865,1560],[1864,1602],[1819,1598],[1846,1560],[1832,1549],[1868,1514],[1844,1473],[1852,1449],[1913,1452],[1912,1489],[1940,1502],[2004,1480],[2011,1430],[2037,1426],[2146,1487],[2138,1507],[2193,1518],[2194,1472],[2221,1496],[2247,1456],[2228,1424],[2260,1410],[2269,1377],[2338,1385],[2329,1304],[2387,1268],[2403,1233],[2362,1188],[2364,1164],[2287,1123],[2280,1089],[2245,1096],[2176,1135],[2141,1129],[2107,1059],[2057,1058],[2051,990],[2061,949],[2013,916],[2011,895],[2103,882],[2118,861],[2080,805],[2017,798],[1993,734],[1946,751],[1881,739],[1809,747],[1791,683],[1686,688],[1669,719],[1640,705],[1635,739],[1609,731],[1556,780],[1529,776],[1530,818],[1491,802],[1448,809],[1419,857],[1392,854],[1292,938],[1270,996],[1220,1037],[1199,1074],[1137,1099],[1140,1120],[1094,1108]]]]}},{"type":"Feature","id":"Nagaland","properties":{"hc-group":"admin1","hc-key":"nagaland","hc-a2":"NA","name":"Nagaland","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[7861,6325],[7814,6239],[7839,6212],[7848,6107],[7868,6103],[7820,6019],[7837,5981],[7802,5941],[7768,5875],[7726,5857],[7683,5873],[7689,5937],[7651,5910],[7636,5879],[7599,5858],[7544,5863],[7499,5885],[7423,5857],[7438,5838],[7380,5729],[7332,5764],[7322,5812],[7277,5846],[7390,5969],[7408,6012],[7421,5958],[7478,6004],[7468,6021],[7479,6100],[7505,6154],[7523,6161],[7525,6206],[7553,6247],[7568,6211],[7593,6270],[7626,6306],[7678,6322],[7713,6353],[7736,6402],[7800,6417],[7832,6454],[7850,6410],[7836,6388],[7859,6362],[7861,6325]]]}},{"type":"Feature","id":"Bihar","properties":{"hc-group":"admin1","hc-key":"bihar","hc-a2":"BI","name":"Bihar","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"MultiPolygon","coordinates":[[[[4403,5213],[4401,5215],[4400,5220],[4405,5215],[4403,5213]]],[[[4085,5337],[4066,5375],[4060,5375],[4057,5374],[4035,5392],[4010,5482],[4020,5540],[4079,5577],[4136,5612],[4142,5614],[4142,5614],[4143,5618],[4145,5615],[4160,5614],[4203,5674],[4253,5702],[4276,5736],[4299,5713],[4334,5730],[4347,5737],[4351,5739],[4356,5737],[4387,5720],[4429,5762],[4398,5792],[4321,5815],[4241,5867],[4227,5917],[4273,5920],[4274,5926],[4278,5931],[4278,5966],[4226,5992],[4191,5992],[4190,6016],[4237,6033],[4240,6037],[4244,6043],[4248,6050],[4309,6048],[4354,6059],[4350,6075],[4338,6077],[4325,6079],[4298,6095],[4298,6141],[4235,6151],[4211,6254],[4169,6313],[4158,6343],[4219,6347],[4243,6375],[4292,6354],[4300,6335],[4412,6316],[4434,6276],[4421,6213],[4524,6186],[4546,6148],[4600,6154],[4606,6116],[4647,6110],[4738,6161],[4772,6142],[4779,6080],[4814,6055],[4871,6091],[4934,6066],[4991,6070],[5103,6014],[5154,6030],[5209,6077],[5218,6029],[5275,6016],[5300,5996],[5343,6031],[5380,6012],[5408,6033],[5437,6025],[5476,6055],[5511,6016],[5544,6040],[5546,6078],[5587,6085],[5571,6063],[5610,6014],[5520,5932],[5511,5911],[5470,5895],[5467,5833],[5496,5827],[5494,5798],[5541,5774],[5537,5734],[5555,5696],[5517,5715],[5463,5680],[5464,5640],[5488,5624],[5468,5598],[5398,5641],[5366,5620],[5365,5584],[5316,5591],[5308,5543],[5271,5532],[5266,5458],[5254,5456],[5234,5372],[5203,5377],[5180,5349],[5112,5344],[5091,5355],[5065,5333],[5047,5275],[4985,5304],[4998,5348],[4933,5355],[4906,5415],[4874,5396],[4849,5420],[4803,5426],[4776,5377],[4785,5344],[4658,5315],[4585,5273],[4533,5256],[4510,5305],[4460,5284],[4454,5261],[4409,5254],[4401,5222],[4334,5279],[4333,5320],[4302,5316],[4273,5288],[4234,5343],[4214,5311],[4144,5294],[4073,5300],[4071,5306],[4075,5307],[4079,5308],[4079,5310],[4081,5315],[4085,5337]]]]}},{"type":"Feature","id":"Lakshadweep","properties":{"hc-group":"admin1","hc-key":"lakshadweep","hc-a2":"LA","name":"Lakshadweep","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[779,569],[773,610],[817,575],[804,555],[779,569]]]}},{"type":"Feature","id":"Andaman and Nicobar","properties":{"hc-group":"admin1","hc-key":"andaman and nicobar","hc-a2":"AA","name":"Andaman and Nicobar","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"MultiPolygon","coordinates":[[[[7824,-751],[7841,-776],[7802,-825],[7796,-778],[7824,-751]]],[[[7697,-543],[7733,-589],[7697,-594],[7676,-576],[7697,-543]]],[[[7765,-514],[7769,-575],[7738,-550],[7722,-488],[7765,-514]]],[[[7348,496],[7374,457],[7370,379],[7346,355],[7304,363],[7317,392],[7305,451],[7348,496]]],[[[7525,990],[7535,942],[7507,906],[7525,871],[7478,903],[7497,923],[7489,959],[7525,990]]],[[[7814,-863],[7813,-850],[7876,-824],[7912,-905],[7893,-987],[7866,-999],[7844,-935],[7813,-909],[7814,-863]]],[[[7476,1011],[7435,941],[7396,1013],[7390,1118],[7399,1170],[7364,1214],[7388,1256],[7390,1206],[7416,1217],[7414,1299],[7421,1420],[7488,1479],[7506,1370],[7498,1300],[7439,1232],[7458,1235],[7484,1166],[7487,1102],[7476,1011]]],[[[7352,787],[7332,843],[7348,879],[7366,868],[7374,964],[7394,990],[7415,966],[7409,893],[7428,878],[7424,811],[7393,763],[7422,779],[7409,710],[7370,661],[7385,725],[7343,741],[7380,759],[7352,787]]]]}},{"type":"Feature","id":"Assam","properties":{"hc-group":"admin1","hc-key":"assam","hc-a2":"AS","name":"Assam","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"MultiPolygon","coordinates":[[[[6081,6026],[6078,6025],[6077,6027],[6078,6028],[6081,6026]]],[[[6947,5436],[6940,5500],[6955,5541],[6937,5568],[6960,5588],[6987,5571],[7024,5576],[6995,5633],[6999,5634],[7000,5636],[7025,5675],[7057,5669],[7114,5711],[7108,5736],[7058,5785],[7055,5784],[7043,5778],[7038,5799],[7036,5811],[7032,5826],[7024,5834],[7022,5836],[6960,5893],[6892,5856],[6882,5908],[6901,5946],[6881,5964],[6922,6008],[6804,5975],[6763,6010],[6736,5986],[6736,5948],[6700,5940],[6684,5970],[6662,5912],[6661,5908],[6660,5908],[6658,5906],[6657,5906],[6656,5907],[6656,5907],[6656,5907],[6654,5905],[6613,5896],[6580,5851],[6570,5893],[6504,5881],[6487,5921],[6418,5924],[6380,5907],[6328,5938],[6213,5909],[6145,5821],[6189,5781],[6147,5760],[6137,5730],[6143,5780],[6117,5852],[6137,5897],[6113,5914],[6077,5975],[6084,6032],[6115,6056],[6116,6056],[6117,6056],[6117,6057],[6117,6057],[6117,6057],[6117,6057],[6118,6140],[6109,6173],[6215,6204],[6225,6237],[6283,6257],[6364,6217],[6495,6229],[6505,6244],[6586,6236],[6608,6258],[6632,6244],[6712,6259],[6764,6301],[6818,6281],[6833,6299],[6861,6300],[6941,6333],[6986,6337],[7007,6367],[7078,6363],[7128,6334],[7234,6361],[7273,6356],[7340,6375],[7388,6419],[7376,6445],[7477,6575],[7509,6596],[7490,6623],[7572,6615],[7659,6664],[7702,6697],[7837,6761],[7860,6753],[7901,6772],[7927,6804],[8046,6822],[7986,6727],[8004,6683],[8034,6666],[8029,6620],[8062,6629],[8087,6605],[8038,6571],[7953,6537],[7933,6549],[7914,6497],[7850,6451],[7832,6454],[7800,6417],[7736,6402],[7713,6353],[7678,6322],[7626,6306],[7593,6270],[7568,6211],[7553,6247],[7525,6206],[7523,6161],[7505,6154],[7479,6100],[7468,6021],[7478,6004],[7421,5958],[7408,6012],[7390,5969],[7277,5846],[7322,5812],[7332,5764],[7311,5745],[7256,5573],[7229,5572],[7225,5512],[7205,5421],[7149,5414],[7123,5457],[7102,5391],[7083,5385],[7036,5308],[7018,5350],[6976,5346],[6948,5343],[6964,5395],[6947,5436]],[[6103,6035],[6107,6035],[6103,6042],[6096,6041],[6103,6035]]]]}},{"type":"Feature","id":"West Bengal","properties":{"hc-group":"admin1","hc-key":"west bengal","hc-a2":"WB","name":"West Bengal","hc-middle-x":0.6,"hc-middle-y":0.75},"geometry":{"type":"MultiPolygon","coordinates":[[[[5796,4379],[5818,4422],[5793,4298],[5762,4290],[5777,4331],[5766,4369],[5796,4379]]],[[[5633,4413],[5654,4353],[5644,4311],[5612,4317],[5633,4413]]],[[[6103,6035],[6096,6041],[6103,6042],[6107,6035],[6103,6035]]],[[[5546,6078],[5567,6143],[5545,6237],[5496,6280],[5502,6320],[5529,6293],[5599,6293],[5641,6279],[5690,6323],[5742,6309],[5781,6297],[5785,6243],[5855,6226],[5871,6195],[5945,6219],[5978,6201],[6042,6193],[6030,6175],[6109,6173],[6118,6140],[6117,6057],[6117,6057],[6116,6056],[6084,6032],[6077,5975],[6049,5992],[6037,5971],[6039,5905],[5978,5924],[5962,5912],[5895,5954],[5866,6046],[5812,6030],[5860,6006],[5831,5987],[5782,6004],[5742,5995],[5735,6042],[5651,6087],[5636,6111],[5621,6063],[5669,6056],[5663,6024],[5624,5962],[5577,5938],[5554,5857],[5572,5803],[5612,5818],[5676,5768],[5707,5715],[5760,5705],[5792,5725],[5799,5684],[5824,5656],[5863,5648],[5838,5598],[5760,5610],[5722,5595],[5681,5605],[5687,5540],[5671,5509],[5632,5488],[5598,5505],[5579,5445],[5550,5403],[5614,5333],[5664,5304],[5792,5282],[5802,5225],[5803,5145],[5771,5124],[5751,5070],[5759,5029],[5780,5033],[5815,4989],[5832,4995],[5803,4920],[5844,4895],[5876,4902],[5884,4869],[5865,4853],[5864,4802],[5902,4763],[5888,4723],[5920,4614],[5916,4576],[5948,4529],[5937,4493],[5955,4456],[5927,4425],[5940,4374],[5966,4330],[5909,4325],[5877,4377],[5888,4328],[5837,4342],[5829,4397],[5836,4446],[5804,4437],[5781,4386],[5703,4329],[5698,4290],[5669,4302],[5666,4374],[5645,4429],[5666,4474],[5652,4513],[5574,4543],[5586,4518],[5635,4511],[5655,4485],[5610,4449],[5582,4379],[5500,4310],[5427,4292],[5409,4351],[5355,4362],[5338,4417],[5315,4423],[5292,4381],[5259,4397],[5270,4426],[5243,4459],[5161,4478],[5163,4503],[5217,4519],[5201,4570],[5174,4578],[5169,4633],[5134,4632],[5128,4660],[5053,4701],[5077,4778],[4981,4776],[4923,4828],[4882,4821],[4855,4843],[4865,4945],[4923,4955],[4917,4986],[4954,4980],[4953,4949],[4981,4935],[5023,4946],[5024,4975],[5051,5008],[5079,5008],[5138,5035],[5165,5032],[5173,5077],[5196,5103],[5282,5076],[5276,5102],[5310,5098],[5326,5136],[5306,5160],[5375,5146],[5406,5187],[5454,5212],[5439,5246],[5474,5268],[5489,5306],[5482,5362],[5518,5371],[5514,5421],[5496,5434],[5530,5499],[5465,5554],[5468,5598],[5488,5624],[5464,5640],[5463,5680],[5517,5715],[5555,5696],[5537,5734],[5541,5774],[5494,5798],[5496,5827],[5467,5833],[5470,5895],[5511,5911],[5520,5932],[5610,6014],[5571,6063],[5587,6085],[5546,6078]],[[6081,6026],[6078,6028],[6077,6027],[6078,6025],[6081,6026]]]]}},{"type":"Feature","id":"Puducherry","properties":{"hc-group":"admin1","hc-key":"puducherry","hc-a2":"PU","name":"Puducherry","hc-middle-x":0.62,"hc-middle-y":0.82},"geometry":{"type":"MultiPolygon","coordinates":[[[[3672,2508],[3678,2504],[3704,2506],[3687,2494],[3672,2508]]],[[[2861,838],[2850,814],[2822,716],[2750,737],[2742,801],[2769,856],[2861,838]]],[[[2846,450],[2845,412],[2845,393],[2800,443],[2846,450]]],[[[1324,720],[1323,722],[1321,725],[1326,724],[1324,720]]],[[[1331,729],[1324,737],[1325,738],[1325,738],[1327,736],[1328,734],[1331,729]]],[[[1323,742],[1325,739],[1325,738],[1325,738],[1324,740],[1323,742]]]]}},{"type":"Feature","id":"Daman and Diu","properties":{"hc-group":"admin1","hc-key":"daman and diu","hc-a2":"DA","name":"Daman and Diu","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"MultiPolygon","coordinates":[[[[478,3876],[488,3903],[494,3912],[505,3873],[478,3876]]],[[[-123,4043],[-123,4043],[-123,4043],[-123,4043]]],[[[-149,4042],[-135,4036],[-131,4040],[-126,4045],[-123,4043],[-137,4030],[-149,4042]]],[[[-76,4051],[-74,4047],[-78,4046],[-78,4049],[-76,4051]]]]}},{"type":"Feature","id":"Gujarat","properties":{"hc-group":"admin1","hc-key":"gujarat","hc-a2":"GU","name":"Gujarat","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"MultiPolygon","coordinates":[[[[514,3839],[514,3837],[514,3836],[519,3828],[529,3823],[529,3815],[500,3822],[470,3787],[449,3792],[454,3831],[478,3876],[505,3873],[494,3912],[510,3960],[463,4121],[463,4154],[431,4138],[425,4218],[460,4300],[435,4316],[469,4339],[407,4364],[449,4433],[410,4424],[426,4521],[450,4544],[497,4526],[499,4547],[459,4568],[407,4540],[391,4578],[350,4518],[330,4447],[321,4491],[322,4379],[334,4338],[307,4277],[251,4206],[260,4186],[50,4105],[25,4081],[-76,4051],[-78,4049],[-78,4046],[-100,4041],[-123,4043],[-123,4043],[-123,4043],[-126,4045],[-131,4040],[-128,4044],[-149,4042],[-189,4029],[-316,4096],[-377,4146],[-454,4231],[-581,4401],[-698,4522],[-782,4636],[-768,4699],[-697,4696],[-712,4659],[-692,4636],[-600,4658],[-586,4689],[-543,4661],[-516,4701],[-491,4674],[-440,4716],[-366,4719],[-273,4846],[-242,4900],[-276,4884],[-293,4851],[-331,4872],[-376,4849],[-433,4848],[-497,4826],[-519,4800],[-602,4819],[-684,4848],[-823,4947],[-878,5005],[-857,5048],[-882,5056],[-897,5108],[-894,5164],[-835,5213],[-857,5228],[-878,5200],[-911,5197],[-876,5226],[-889,5249],[-912,5223],[-929,5243],[-901,5280],[-879,5263],[-868,5277],[-798,5271],[-783,5381],[-762,5395],[-748,5357],[-724,5387],[-706,5356],[-673,5371],[-643,5356],[-603,5368],[-510,5364],[-466,5317],[-371,5309],[-337,5351],[-179,5386],[-183,5325],[-135,5308],[-72,5320],[-83,5333],[-1,5363],[-37,5384],[-36,5442],[2,5469],[63,5437],[128,5457],[184,5438],[255,5447],[274,5429],[315,5455],[325,5435],[413,5393],[441,5369],[445,5338],[473,5371],[522,5352],[532,5316],[613,5310],[617,5343],[655,5356],[650,5320],[680,5303],[645,5245],[690,5211],[695,5179],[727,5215],[752,5190],[751,5144],[730,5121],[796,5044],[808,5044],[812,5043],[825,5032],[813,4971],[877,4965],[898,4930],[928,4931],[929,4925],[929,4924],[930,4924],[930,4923],[933,4923],[934,4923],[936,4922],[941,4921],[943,4916],[977,4895],[972,4864],[1012,4865],[1036,4819],[1053,4763],[1080,4763],[1079,4728],[1048,4666],[1014,4671],[963,4626],[952,4596],[1007,4583],[979,4555],[940,4570],[939,4521],[954,4517],[943,4446],[958,4423],[843,4381],[865,4316],[831,4311],[854,4263],[925,4282],[971,4270],[1007,4282],[1004,4250],[927,4246],[884,4223],[880,4190],[840,4181],[836,4147],[769,4131],[806,4123],[843,4084],[872,4026],[862,3984],[800,3931],[763,3937],[712,3989],[684,3967],[710,3941],[684,3869],[685,3804],[639,3804],[611,3779],[606,3782],[606,3791],[606,3793],[612,3795],[613,3795],[613,3796],[614,3797],[610,3806],[604,3807],[598,3808],[595,3808],[589,3811],[587,3809],[590,3799],[585,3798],[582,3794],[582,3793],[581,3793],[580,3793],[578,3794],[574,3794],[570,3799],[568,3794],[567,3794],[563,3817],[569,3821],[574,3819],[575,3820],[578,3823],[587,3830],[588,3832],[592,3836],[594,3838],[595,3840],[595,3841],[596,3839],[601,3848],[587,3847],[580,3846],[579,3846],[583,3856],[578,3867],[569,3855],[567,3856],[562,3855],[556,3843],[547,3843],[545,3843],[537,3843],[519,3843],[516,3842],[516,3841],[514,3839]],[[977,4582],[976,4590],[971,4589],[974,4582],[977,4582]]],[[[-949,5202],[-940,5214],[-913,5218],[-928,5170],[-952,5146],[-999,5163],[-970,5170],[-952,5197],[-980,5182],[-993,5201],[-976,5241],[-934,5280],[-949,5202]]]]}},{"type":"Feature","id":"Rajasthan","properties":{"hc-group":"admin1","hc-key":"rajasthan","hc-a2":"RA","name":"Rajasthan","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[730,5121],[751,5144],[752,5190],[727,5215],[695,5179],[690,5211],[645,5245],[680,5303],[650,5320],[655,5356],[617,5343],[613,5310],[532,5316],[522,5352],[473,5371],[445,5338],[441,5369],[413,5393],[325,5435],[315,5455],[274,5429],[255,5447],[184,5438],[128,5457],[63,5437],[2,5469],[-45,5565],[-56,5642],[-121,5736],[-115,5848],[-203,5844],[-240,5859],[-291,5946],[-291,6002],[-258,6051],[-248,6167],[-287,6189],[-343,6186],[-456,6255],[-464,6280],[-447,6354],[-417,6413],[-319,6486],[-264,6537],[-221,6623],[-137,6690],[-67,6683],[-43,6650],[-42,6615],[-20,6575],[24,6566],[125,6603],[191,6612],[271,6607],[350,6633],[365,6691],[460,6779],[501,6884],[534,6916],[646,6969],[713,6994],[831,7180],[874,7307],[947,7337],[1006,7350],[1063,7392],[1034,7312],[1230,7290],[1239,7262],[1211,7219],[1253,7220],[1235,7096],[1299,7076],[1323,7090],[1353,7045],[1401,7022],[1469,7043],[1492,7030],[1486,6973],[1484,6962],[1492,6957],[1525,6938],[1510,6913],[1532,6795],[1584,6751],[1644,6702],[1695,6623],[1675,6630],[1644,6602],[1670,6600],[1667,6595],[1639,6539],[1649,6520],[1727,6511],[1712,6563],[1721,6587],[1771,6574],[1780,6615],[1816,6618],[1808,6596],[1837,6551],[1874,6567],[1872,6595],[1942,6638],[1972,6608],[1956,6556],[1957,6497],[1942,6458],[1969,6433],[1992,6491],[2020,6474],[2051,6480],[2068,6484],[2087,6428],[2085,6382],[2113,6336],[2158,6309],[2188,6263],[2140,6216],[2207,6186],[2105,6145],[2106,6111],[2129,6138],[2150,6129],[2212,6168],[2257,6149],[2319,6152],[2336,6172],[2375,6162],[2358,6128],[2320,6112],[2313,6072],[2286,6082],[2137,5986],[2132,5982],[2101,5980],[2027,5922],[1923,5873],[1891,5821],[1841,5809],[1803,5771],[1797,5675],[1822,5624],[1876,5594],[1935,5580],[1976,5601],[2018,5590],[2052,5634],[2083,5557],[2075,5520],[2047,5507],[2004,5519],[1973,5500],[1909,5494],[1905,5465],[1929,5435],[1880,5419],[1894,5393],[1933,5394],[1963,5351],[1942,5293],[1881,5315],[1887,5253],[1920,5194],[1905,5170],[1869,5169],[1813,5220],[1781,5185],[1726,5218],[1681,5208],[1672,5249],[1650,5205],[1652,5165],[1594,5142],[1598,5109],[1515,5087],[1489,5066],[1426,5111],[1447,5156],[1464,5138],[1498,5149],[1528,5135],[1554,5174],[1524,5186],[1553,5222],[1526,5278],[1544,5306],[1581,5294],[1587,5338],[1563,5396],[1532,5408],[1489,5384],[1363,5406],[1364,5451],[1388,5434],[1407,5515],[1358,5514],[1331,5494],[1329,5463],[1272,5462],[1237,5496],[1242,5433],[1293,5431],[1287,5400],[1245,5388],[1223,5435],[1227,5390],[1189,5334],[1236,5310],[1205,5247],[1237,5248],[1240,5242],[1245,5229],[1274,5156],[1246,5115],[1252,5051],[1220,4989],[1125,4945],[1110,4909],[1163,4873],[1107,4830],[1059,4836],[1036,4819],[1012,4865],[972,4864],[977,4895],[943,4916],[944,4921],[936,4922],[933,4923],[930,4924],[898,4930],[877,4965],[813,4971],[825,5032],[780,5030],[774,5065],[730,5121]]]}},{"type":"Feature","id":"Dadara and Nagar Havelli","properties":{"hc-group":"admin1","hc-key":"dadara and nagar havelli","hc-a2":"DA","name":"Dadara and Nagar Havelli","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[570,3799],[573,3795],[574,3794],[577,3794],[578,3794],[579,3794],[580,3793],[581,3793],[581,3793],[582,3794],[590,3799],[587,3809],[591,3809],[595,3808],[596,3808],[598,3808],[601,3808],[604,3807],[606,3806],[610,3806],[616,3798],[613,3796],[612,3795],[606,3791],[605,3790],[605,3786],[606,3782],[611,3779],[612,3773],[612,3770],[610,3767],[604,3763],[604,3758],[598,3754],[595,3759],[592,3762],[586,3764],[583,3767],[579,3764],[577,3765],[574,3768],[571,3770],[567,3771],[559,3772],[558,3772],[558,3773],[558,3773],[557,3773],[557,3772],[557,3762],[552,3763],[550,3766],[548,3768],[545,3773],[544,3776],[541,3778],[541,3780],[543,3785],[544,3787],[541,3789],[540,3786],[540,3785],[540,3782],[539,3781],[539,3781],[535,3780],[532,3780],[530,3784],[528,3786],[533,3795],[534,3800],[534,3802],[530,3804],[530,3807],[529,3815],[531,3820],[529,3823],[514,3839],[529,3839],[530,3838],[531,3837],[531,3837],[533,3836],[537,3839],[537,3843],[537,3844],[545,3843],[547,3843],[547,3843],[548,3849],[547,3852],[556,3843],[562,3855],[564,3855],[569,3855],[569,3856],[570,3855],[570,3854],[572,3855],[574,3857],[575,3861],[583,3856],[580,3846],[580,3846],[583,3846],[585,3846],[587,3846],[587,3847],[588,3848],[589,3850],[597,3849],[601,3848],[601,3844],[601,3842],[601,3839],[597,3838],[597,3839],[596,3839],[595,3840],[594,3840],[594,3838],[593,3836],[592,3836],[592,3836],[592,3836],[591,3837],[590,3837],[589,3835],[589,3834],[588,3832],[588,3832],[587,3830],[584,3829],[582,3829],[582,3829],[578,3824],[578,3824],[578,3823],[577,3820],[575,3820],[569,3821],[566,3820],[563,3817],[561,3811],[561,3809],[564,3808],[564,3801],[563,3796],[566,3793],[567,3794],[570,3799]]]}},{"type":"Feature","id":"Chhattisgarh","properties":{"hc-group":"admin1","hc-key":"chhattisgarh","hc-a2":"CH","name":"Chhattisgarh","hc-middle-x":0.4,"hc-middle-y":0.4},"geometry":{"type":"Polygon","coordinates":[[[3557,4938],[3518,4936],[3483,4934],[3478,4936],[3474,4937],[3470,4937],[3453,4961],[3463,4983],[3477,5013],[3478,5015],[3475,5018],[3474,5018],[3466,5021],[3451,5065],[3472,5078],[3522,5037],[3556,5060],[3599,5041],[3763,5033],[3814,5080],[3814,5081],[3815,5081],[3820,5080],[3830,5080],[3838,5086],[3849,5095],[3897,5063],[3955,5070],[4018,5147],[4080,5121],[4096,5065],[4127,5058],[4154,5026],[4170,4970],[4253,4960],[4235,4891],[4269,4876],[4257,4813],[4290,4789],[4298,4745],[4372,4751],[4328,4648],[4278,4628],[4253,4586],[4266,4566],[4251,4532],[4207,4522],[4169,4484],[4136,4478],[4101,4416],[4123,4365],[4102,4323],[4051,4257],[4039,4212],[4051,4160],[4015,4172],[4015,4134],[3990,4087],[3966,4073],[3911,4099],[3855,4085],[3803,4088],[3799,4048],[3730,3972],[3707,3992],[3715,3902],[3700,3874],[3736,3829],[3736,3776],[3720,3728],[3726,3694],[3833,3672],[3829,3616],[3789,3597],[3795,3628],[3742,3642],[3708,3616],[3681,3666],[3653,3668],[3570,3711],[3545,3684],[3545,3639],[3611,3601],[3609,3511],[3634,3470],[3677,3287],[3654,3281],[3650,3244],[3580,3204],[3580,3171],[3515,3108],[3435,3053],[3433,3016],[3404,2916],[3387,2891],[3309,2907],[3271,2883],[3256,2902],[3245,3011],[3246,3016],[3245,3020],[3207,3007],[3160,3089],[3160,3091],[3160,3091],[3157,3098],[3129,3145],[3080,3184],[3030,3169],[3004,3216],[3031,3250],[3005,3313],[3046,3404],[3109,3459],[3120,3428],[3169,3419],[3200,3444],[3182,3469],[3213,3502],[3160,3534],[3141,3564],[3052,3642],[3092,3649],[3099,3713],[3049,3726],[3046,3761],[3125,3790],[3114,3814],[3127,3890],[3079,3895],[3112,3917],[3099,4005],[3072,4006],[3060,4035],[3072,4093],[3107,4105],[3139,4150],[3164,4200],[3156,4271],[3167,4302],[3191,4298],[3214,4410],[3236,4431],[3247,4406],[3261,4471],[3292,4494],[3291,4546],[3328,4550],[3361,4576],[3386,4547],[3400,4566],[3411,4565],[3413,4565],[3414,4565],[3457,4581],[3494,4631],[3503,4621],[3508,4627],[3509,4631],[3509,4657],[3509,4702],[3566,4732],[3565,4775],[3624,4785],[3646,4865],[3616,4890],[3583,4896],[3580,4897],[3575,4898],[3557,4938]]]}},{"type":"Feature","id":"Tamil Nadu","properties":{"hc-group":"admin1","hc-key":"tamil nadu","hc-a2":"TN","name":"Tamil Nadu","hc-middle-x":0.65,"hc-middle-y":0.8},"geometry":{"type":"Polygon","coordinates":[[[2822,716],[2816,647],[2842,582],[2846,450],[2800,443],[2845,393],[2854,199],[2816,195],[2681,213],[2641,183],[2623,135],[2636,111],[2539,-4],[2506,-96],[2560,-152],[2425,-189],[2390,-212],[2336,-217],[2260,-271],[2229,-388],[2231,-437],[2198,-487],[2117,-526],[2087,-554],[2036,-563],[2024,-585],[1939,-569],[1862,-508],[1890,-496],[1929,-417],[1890,-345],[1920,-299],[1882,-247],[1925,-200],[1931,-147],[1978,-74],[1958,-38],[1892,-35],[1911,8],[1909,59],[1931,94],[1905,142],[1939,181],[1897,231],[1828,183],[1775,214],[1780,318],[1804,385],[1776,418],[1718,439],[1748,484],[1731,524],[1643,538],[1679,594],[1607,634],[1574,635],[1569,672],[1593,672],[1640,705],[1669,719],[1686,688],[1791,683],[1809,747],[1881,739],[1946,751],[1993,734],[2017,798],[2080,805],[2118,861],[2103,882],[2011,895],[2013,916],[2061,949],[2051,990],[2057,1058],[2107,1059],[2141,1129],[2176,1135],[2245,1096],[2280,1089],[2331,1039],[2363,1040],[2376,1081],[2395,1064],[2423,1148],[2419,1169],[2450,1197],[2548,1203],[2608,1178],[2642,1228],[2678,1220],[2703,1241],[2715,1291],[2753,1264],[2830,1256],[2820,1283],[2880,1295],[2893,1336],[2930,1367],[2986,1337],[2996,1371],[3021,1266],[2992,1147],[2990,1086],[2957,980],[2861,838],[2769,856],[2742,801],[2750,737],[2822,716]]]}},{"type":"Feature","id":"Chandigarh","properties":{"hc-group":"admin1","hc-key":"chandigarh","hc-a2":"CH","name":"Chandigarh","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[1966,7532],[1961,7526],[1960,7524],[1961,7522],[1952,7516],[1939,7523],[1935,7524],[1934,7527],[1932,7527],[1931,7530],[1932,7531],[1928,7533],[1929,7536],[1929,7537],[1922,7550],[1927,7554],[1930,7553],[1934,7556],[1937,7559],[1937,7560],[1937,7561],[1938,7561],[1938,7561],[1938,7561],[1939,7562],[1943,7563],[1949,7558],[1948,7558],[1948,7558],[1947,7557],[1946,7555],[1946,7555],[1948,7555],[1950,7554],[1950,7554],[1952,7556],[1955,7558],[1955,7558],[1957,7555],[1953,7552],[1956,7550],[1956,7550],[1956,7550],[1959,7551],[1964,7550],[1962,7541],[1963,7538],[1966,7532]]]}},{"type":"Feature","id":"Punjab","properties":{"hc-group":"admin1","hc-key":"punjab","hc-a2":"PU","name":"Punjab","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[1961,7522],[1988,7490],[1987,7453],[1987,7452],[1981,7451],[1991,7417],[1961,7431],[1870,7374],[1897,7352],[1863,7309],[1819,7327],[1776,7321],[1757,7297],[1759,7231],[1758,7227],[1758,7227],[1756,7228],[1755,7228],[1753,7228],[1751,7224],[1750,7223],[1749,7222],[1744,7219],[1704,7196],[1648,7199],[1635,7223],[1596,7203],[1554,7201],[1518,7226],[1475,7178],[1465,7140],[1443,7135],[1429,7166],[1450,7209],[1442,7238],[1422,7219],[1412,7263],[1376,7251],[1355,7285],[1320,7303],[1267,7274],[1230,7290],[1034,7312],[1063,7392],[1038,7453],[1074,7504],[1117,7537],[1217,7649],[1296,7688],[1304,7715],[1263,7702],[1256,7769],[1296,7844],[1292,7872],[1254,7931],[1316,7998],[1360,8011],[1381,8040],[1432,8036],[1507,8060],[1538,8101],[1528,8139],[1589,8135],[1648,8160],[1699,8214],[1693,8187],[1713,8154],[1653,8107],[1617,8095],[1622,8038],[1695,7989],[1716,7939],[1701,7940],[1723,7878],[1766,7789],[1770,7753],[1810,7759],[1829,7790],[1855,7749],[1893,7719],[1906,7680],[1900,7639],[1948,7602],[1965,7575],[1964,7550],[1956,7550],[1956,7550],[1922,7550],[1939,7523],[1945,7520],[1952,7516],[1958,7522],[1961,7522]]]}},{"type":"Feature","id":"Haryana","properties":{"hc-group":"admin1","hc-key":"haryana","hc-a2":"HA","name":"Haryana","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[1757,7297],[1776,7321],[1819,7327],[1863,7309],[1897,7352],[1870,7374],[1961,7431],[1991,7417],[1987,7453],[1989,7457],[1989,7463],[1988,7490],[1961,7522],[1966,7532],[1964,7550],[1965,7575],[1948,7602],[1989,7597],[2021,7540],[2064,7519],[2059,7481],[2050,7476],[2049,7476],[2057,7465],[2060,7464],[2076,7453],[2076,7451],[2077,7444],[2121,7436],[2142,7416],[2172,7429],[2191,7406],[2189,7379],[2138,7309],[2097,7291],[2062,7237],[2029,7129],[2039,7088],[2035,6950],[2062,6915],[2052,6865],[2009,6869],[1974,6851],[1969,6785],[1938,6758],[1950,6745],[2022,6732],[2040,6701],[2095,6735],[2143,6679],[2134,6648],[2156,6642],[2135,6567],[2153,6548],[2131,6513],[2068,6484],[2054,6477],[2051,6480],[2042,6490],[2040,6488],[2040,6482],[1992,6491],[1969,6433],[1942,6458],[1957,6497],[1956,6556],[1972,6608],[1942,6638],[1872,6595],[1874,6567],[1837,6551],[1816,6601],[1817,6600],[1824,6600],[1816,6618],[1761,6622],[1760,6620],[1764,6619],[1771,6574],[1721,6587],[1712,6563],[1727,6511],[1649,6520],[1639,6539],[1666,6588],[1669,6588],[1675,6592],[1667,6595],[1644,6602],[1675,6630],[1695,6623],[1644,6702],[1595,6722],[1600,6735],[1584,6751],[1552,6785],[1552,6789],[1549,6791],[1532,6795],[1510,6913],[1492,6957],[1486,6973],[1479,6988],[1482,6991],[1482,6998],[1492,7030],[1469,7043],[1401,7022],[1353,7058],[1352,7063],[1349,7065],[1347,7075],[1329,7083],[1327,7087],[1323,7090],[1299,7076],[1260,7082],[1257,7076],[1256,7068],[1235,7096],[1253,7220],[1211,7219],[1239,7262],[1230,7290],[1267,7274],[1320,7303],[1355,7285],[1376,7251],[1412,7263],[1422,7219],[1442,7238],[1450,7209],[1429,7166],[1443,7135],[1465,7140],[1475,7178],[1518,7226],[1554,7201],[1596,7203],[1635,7223],[1648,7199],[1704,7196],[1749,7222],[1757,7227],[1758,7227],[1758,7227],[1757,7297]]]}},{"type":"Feature","id":"Andhra Pradesh","properties":{"hc-group":"admin1","hc-key":"andhra pradesh","hc-a2":"AP","name":"Andhra Pradesh","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[3271,2883],[3309,2907],[3387,2891],[3464,2895],[3605,2982],[3688,2957],[3710,2977],[3703,3024],[3719,3109],[3758,3154],[3779,3102],[3801,3096],[3795,3059],[3858,3082],[3875,3120],[3905,3091],[3960,3104],[3943,3124],[3967,3155],[3946,3166],[4011,3239],[4076,3273],[4040,3320],[4090,3304],[4091,3349],[4116,3326],[4146,3376],[4183,3317],[4203,3328],[4238,3257],[4286,3256],[4305,3236],[4384,3250],[4422,3299],[4419,3334],[4498,3350],[4480,3366],[4515,3383],[4534,3358],[4472,3280],[4463,3250],[4395,3164],[4323,3092],[4318,3074],[4177,3001],[4099,2931],[4080,2894],[4018,2822],[3936,2772],[3788,2693],[3700,2610],[3682,2564],[3726,2545],[3705,2442],[3502,2352],[3443,2371],[3341,2356],[3305,2233],[3267,2205],[3254,2157],[3184,2140],[3188,2174],[3167,2199],[3086,2187],[3025,2154],[2988,2104],[2973,2050],[2940,2004],[2920,1903],[2943,1789],[2970,1730],[2948,1581],[2989,1451],[2996,1371],[2986,1337],[2930,1367],[2893,1336],[2880,1295],[2820,1283],[2830,1256],[2753,1264],[2715,1291],[2703,1241],[2678,1220],[2642,1228],[2608,1178],[2548,1203],[2450,1197],[2419,1169],[2423,1148],[2395,1064],[2376,1081],[2363,1040],[2331,1039],[2280,1089],[2287,1123],[2364,1164],[2362,1188],[2403,1233],[2387,1268],[2329,1304],[2338,1385],[2269,1377],[2260,1410],[2228,1424],[2247,1456],[2221,1496],[2194,1472],[2193,1518],[2138,1507],[2146,1487],[2037,1426],[2011,1430],[2004,1480],[1940,1502],[1912,1489],[1913,1452],[1852,1449],[1844,1473],[1868,1514],[1832,1549],[1846,1560],[1819,1598],[1864,1602],[1865,1560],[1903,1539],[1966,1548],[1978,1502],[2003,1530],[1971,1547],[1994,1598],[2036,1600],[2025,1640],[1996,1657],[1983,1635],[1956,1658],[1911,1661],[1896,1619],[1836,1627],[1817,1681],[1849,1712],[1813,1709],[1776,1756],[1802,1823],[1814,1887],[1779,1889],[1791,1932],[1819,1910],[1900,1908],[1920,1958],[1902,2015],[1877,2027],[1875,2124],[1909,2134],[1883,2158],[1894,2224],[1954,2240],[2045,2226],[2145,2204],[2176,2215],[2250,2189],[2300,2228],[2303,2260],[2357,2279],[2410,2269],[2425,2284],[2484,2257],[2536,2292],[2531,2316],[2570,2335],[2624,2325],[2641,2337],[2644,2433],[2712,2455],[2832,2507],[2890,2472],[2934,2536],[2907,2554],[2926,2591],[2973,2619],[3001,2607],[3020,2557],[3104,2518],[3112,2576],[3034,2592],[3047,2630],[3064,2609],[3103,2652],[3146,2627],[3206,2621],[3222,2675],[3250,2667],[3317,2694],[3320,2720],[3363,2739],[3295,2787],[3258,2786],[3213,2858],[3271,2883]],[[3672,2508],[3687,2494],[3704,2506],[3678,2504],[3672,2508]]]}},{"type":"Feature","id":"Maharashtra","properties":{"hc-group":"admin1","hc-key":"maharashtra","hc-a2":"MA","name":"Maharashtra","hc-middle-x":0.4,"hc-middle-y":0.45},"geometry":{"type":"Polygon","coordinates":[[[611,3779],[639,3804],[685,3804],[684,3869],[710,3941],[684,3967],[712,3989],[763,3937],[800,3931],[862,3984],[872,4026],[843,4084],[806,4123],[769,4131],[836,4147],[840,4181],[880,4190],[884,4223],[927,4246],[1004,4250],[1007,4282],[971,4270],[925,4282],[854,4263],[831,4311],[865,4316],[843,4381],[958,4423],[1007,4415],[1056,4446],[1085,4401],[1077,4335],[1103,4313],[1181,4290],[1195,4297],[1259,4270],[1274,4235],[1339,4204],[1564,4198],[1607,4189],[1626,4148],[1633,4087],[1698,4080],[1738,4122],[1782,4119],[1784,4168],[1842,4224],[1844,4263],[1877,4263],[1937,4305],[1983,4294],[2007,4317],[2075,4319],[2101,4282],[2103,4232],[2055,4238],[2075,4178],[2180,4189],[2213,4176],[2305,4217],[2306,4237],[2390,4253],[2392,4217],[2417,4225],[2491,4202],[2561,4209],[2555,4247],[2657,4266],[2663,4290],[2748,4274],[2764,4228],[2830,4248],[2871,4222],[2940,4230],[2982,4258],[3043,4218],[3054,4166],[3093,4171],[3139,4150],[3107,4105],[3072,4093],[3060,4035],[3072,4006],[3099,4005],[3112,3917],[3079,3895],[3127,3890],[3114,3814],[3125,3790],[3046,3761],[3049,3726],[3099,3713],[3092,3649],[3052,3642],[3141,3564],[3160,3534],[3213,3502],[3182,3469],[3200,3444],[3169,3419],[3120,3428],[3109,3459],[3046,3404],[3005,3313],[3031,3250],[3004,3216],[2949,3202],[2877,3257],[2893,3267],[2889,3333],[2866,3355],[2905,3461],[2884,3493],[2827,3533],[2735,3496],[2679,3530],[2649,3485],[2581,3513],[2565,3552],[2528,3555],[2524,3592],[2372,3621],[2343,3649],[2361,3602],[2333,3569],[2340,3486],[2298,3465],[2296,3410],[2249,3421],[2216,3447],[2186,3433],[2152,3319],[2182,3308],[2212,3268],[2175,3256],[2143,3179],[2091,3165],[2066,3091],[2073,3073],[2044,3063],[2007,3084],[2013,3130],[1968,3117],[1955,3071],[1921,3027],[1868,3039],[1853,2943],[1784,2898],[1772,2860],[1744,2888],[1703,2874],[1678,2835],[1649,2833],[1648,2775],[1673,2751],[1574,2753],[1508,2739],[1496,2769],[1467,2757],[1407,2797],[1387,2764],[1413,2722],[1403,2692],[1417,2612],[1352,2607],[1344,2622],[1280,2612],[1260,2572],[1214,2612],[1160,2611],[1153,2550],[1074,2533],[1070,2493],[1024,2479],[1002,2504],[916,2459],[946,2442],[947,2385],[1002,2358],[994,2310],[942,2195],[904,2202],[866,2182],[862,2156],[809,2151],[800,2191],[708,2189],[681,2256],[654,2267],[603,2462],[604,2519],[587,2614],[593,2672],[563,2764],[575,2761],[549,2852],[549,2913],[516,2993],[476,3184],[491,3211],[470,3243],[472,3309],[448,3361],[464,3425],[450,3426],[459,3500],[432,3582],[436,3630],[415,3697],[443,3735],[449,3792],[470,3787],[500,3822],[529,3815],[528,3786],[539,3781],[541,3780],[557,3773],[558,3773],[559,3772],[598,3754],[611,3779]],[[1988,3141],[1979,3140],[1977,3133],[1986,3134],[1988,3141]],[[930,2207],[924,2219],[913,2218],[915,2207],[930,2207]]]}},{"type":"Feature","id":"Himachal Pradesh","properties":{"hc-group":"admin1","hc-key":"himachal pradesh","hc-a2":"HP","name":"Himachal Pradesh","hc-middle-x":0.5,"hc-middle-y":0.4},"geometry":{"type":"Polygon","coordinates":[[[2064,7519],[2021,7540],[1989,7597],[1948,7602],[1900,7639],[1906,7680],[1893,7719],[1855,7749],[1829,7790],[1810,7759],[1770,7753],[1766,7789],[1723,7878],[1701,7940],[1716,7939],[1695,7989],[1622,8038],[1617,8095],[1653,8107],[1713,8154],[1693,8187],[1699,8214],[1716,8238],[1715,8279],[1679,8329],[1704,8341],[1724,8324],[1774,8365],[1818,8373],[1865,8425],[1915,8432],[1938,8414],[2000,8440],[1991,8409],[2048,8347],[2089,8342],[2095,8318],[2154,8284],[2225,8323],[2264,8333],[2277,8294],[2323,8257],[2318,8231],[2339,8194],[2376,8218],[2403,8218],[2461,8251],[2465,8202],[2436,8186],[2440,8150],[2462,8168],[2502,8128],[2477,8066],[2524,8055],[2517,8034],[2576,7976],[2551,7909],[2562,7865],[2590,7842],[2557,7811],[2573,7761],[2612,7709],[2639,7658],[2603,7653],[2577,7690],[2517,7703],[2477,7692],[2425,7724],[2337,7679],[2297,7679],[2248,7612],[2263,7574],[2232,7534],[2265,7467],[2262,7449],[2188,7413],[2192,7407],[2191,7406],[2172,7429],[2142,7416],[2121,7436],[2077,7444],[2060,7464],[2049,7476],[2064,7519]]]}},{"type":"Feature","id":"Meghalaya","properties":{"hc-group":"admin1","hc-key":"meghalaya","hc-a2":"ME","name":"Meghalaya","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[7108,5736],[7114,5711],[7057,5669],[7025,5675],[6995,5633],[6929,5651],[6875,5679],[6768,5665],[6735,5645],[6720,5662],[6678,5645],[6604,5662],[6492,5640],[6361,5633],[6229,5644],[6127,5690],[6137,5730],[6147,5760],[6189,5781],[6145,5821],[6213,5909],[6328,5938],[6380,5907],[6418,5924],[6487,5921],[6504,5881],[6570,5893],[6580,5851],[6613,5896],[6656,5907],[6656,5907],[6660,5908],[6664,5909],[6665,5909],[6674,5913],[6662,5912],[6658,5911],[6684,5970],[6700,5940],[6736,5948],[6736,5986],[6763,6010],[6804,5975],[6922,6008],[6881,5964],[6901,5946],[6882,5908],[6892,5856],[6960,5893],[7021,5847],[7021,5840],[7022,5836],[7023,5833],[7024,5834],[7053,5842],[7036,5811],[7032,5805],[7038,5799],[7055,5784],[7108,5736]]]}},{"type":"Feature","id":"Kerala","properties":{"hc-group":"admin1","hc-key":"kerala","hc-a2":"KE","name":"Kerala","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[1321,725],[1265,779],[1220,841],[1210,834],[1170,938],[1094,1108],[1140,1120],[1137,1099],[1199,1074],[1220,1037],[1270,996],[1292,938],[1392,854],[1419,857],[1448,809],[1491,802],[1530,818],[1529,776],[1556,780],[1609,731],[1635,739],[1640,705],[1593,672],[1569,672],[1574,635],[1607,634],[1679,594],[1643,538],[1731,524],[1748,484],[1718,439],[1776,418],[1804,385],[1780,318],[1775,214],[1828,183],[1897,231],[1939,181],[1905,142],[1931,94],[1909,59],[1911,8],[1892,-35],[1958,-38],[1978,-74],[1931,-147],[1925,-200],[1882,-247],[1920,-299],[1890,-345],[1929,-417],[1890,-496],[1862,-508],[1817,-470],[1691,-303],[1659,-253],[1595,-99],[1564,98],[1495,298],[1448,396],[1425,510],[1393,598],[1352,642],[1324,720],[1326,724],[1321,725]],[[1324,737],[1324,735],[1323,734],[1321,733],[1321,730],[1323,729],[1323,729],[1323,729],[1325,728],[1327,728],[1328,728],[1328,728],[1329,729],[1330,729],[1330,729],[1330,729],[1331,729],[1332,732],[1328,734],[1327,735],[1327,736],[1328,741],[1327,742],[1327,742],[1328,744],[1324,744],[1323,742],[1324,740],[1324,740],[1324,737]]]}},{"type":"Feature","id":"Telangana","properties":{"hc-group":"admin1","hc-key":"telangana","hc-a2":"TE","name":"Telangana","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[3004,3216],[3030,3169],[3080,3184],[3129,3145],[3160,3091],[3207,3007],[3245,3020],[3243,2975],[3256,2902],[3271,2883],[3213,2858],[3258,2786],[3295,2787],[3363,2739],[3320,2720],[3317,2694],[3250,2667],[3222,2675],[3206,2621],[3146,2627],[3103,2652],[3064,2609],[3047,2630],[3034,2592],[3112,2576],[3104,2518],[3020,2557],[3001,2607],[2973,2619],[2926,2591],[2907,2554],[2934,2536],[2890,2472],[2832,2507],[2712,2455],[2644,2433],[2641,2337],[2624,2325],[2570,2335],[2531,2316],[2536,2292],[2484,2257],[2425,2284],[2410,2269],[2357,2279],[2303,2260],[2300,2228],[2250,2189],[2176,2215],[2145,2204],[2045,2226],[2039,2343],[2073,2371],[2038,2389],[1970,2399],[1953,2423],[1998,2428],[2033,2463],[2017,2491],[2035,2532],[2031,2579],[2048,2614],[2036,2649],[2006,2662],[2008,2691],[2057,2741],[2062,2769],[2114,2780],[2082,2812],[2031,2820],[2035,2859],[2104,2966],[2073,2982],[2088,2999],[2073,3073],[2066,3091],[2091,3165],[2143,3179],[2175,3256],[2212,3268],[2182,3308],[2152,3319],[2186,3433],[2216,3447],[2249,3421],[2296,3410],[2298,3465],[2340,3486],[2333,3569],[2361,3602],[2343,3649],[2372,3621],[2524,3592],[2528,3555],[2565,3552],[2581,3513],[2649,3485],[2679,3530],[2735,3496],[2827,3533],[2884,3493],[2905,3461],[2866,3355],[2889,3333],[2893,3267],[2877,3257],[2949,3202],[3004,3216]]]}},{"type":"Feature","id":"Mizoram","properties":{"hc-group":"admin1","hc-key":"mizoram","hc-a2":"MI","name":"Mizoram","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[6982,5155],[6976,5187],[6996,5208],[6987,5330],[6976,5346],[7018,5350],[7036,5308],[7083,5385],[7102,5391],[7123,5457],[7149,5414],[7205,5421],[7221,5400],[7206,5315],[7264,5310],[7302,5290],[7328,5303],[7353,5260],[7375,5135],[7360,5050],[7374,5003],[7359,4933],[7333,4920],[7294,4937],[7302,4890],[7289,4808],[7310,4764],[7309,4724],[7330,4708],[7340,4648],[7327,4618],[7290,4623],[7281,4542],[7262,4557],[7247,4528],[7232,4566],[7174,4596],[7169,4544],[7153,4532],[7127,4583],[7142,4584],[7096,4790],[7066,4858],[7041,4871],[7044,4914],[7026,4979],[7042,4982],[7012,5050],[6982,5155]]]}},{"type":"Feature","id":"Tripura","properties":{"hc-group":"admin1","hc-key":"tripura","hc-a2":"TR","name":"Tripura","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[6976,5346],[6987,5330],[6996,5208],[6976,5187],[6982,5155],[6965,5130],[6951,5157],[6920,5121],[6887,5150],[6874,5124],[6892,5059],[6833,4991],[6850,4917],[6787,4855],[6760,4873],[6724,4965],[6701,4941],[6707,4893],[6683,4928],[6676,4980],[6648,5044],[6617,5082],[6613,5135],[6634,5136],[6632,5187],[6647,5222],[6681,5223],[6676,5270],[6734,5264],[6763,5282],[6769,5318],[6801,5292],[6794,5330],[6852,5296],[6865,5386],[6915,5390],[6926,5443],[6947,5436],[6964,5395],[6948,5343],[6976,5346]]]}},{"type":"Feature","id":"Manipur","properties":{"hc-group":"admin1","hc-key":"manipur","hc-a2":"MA","name":"Manipur","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[7205,5421],[7225,5512],[7229,5572],[7256,5573],[7311,5745],[7332,5764],[7380,5729],[7438,5838],[7423,5857],[7499,5885],[7544,5863],[7599,5858],[7636,5879],[7651,5910],[7689,5937],[7683,5873],[7726,5857],[7705,5792],[7709,5758],[7759,5742],[7758,5670],[7735,5633],[7730,5586],[7709,5578],[7634,5373],[7632,5327],[7611,5255],[7560,5280],[7490,5273],[7470,5299],[7423,5296],[7391,5270],[7354,5315],[7328,5303],[7302,5290],[7264,5310],[7206,5315],[7221,5400],[7205,5421]]]}},{"type":"Feature","id":"Arunanchal Pradesh","properties":{"hc-group":"admin1","hc-key":"arunanchal pradesh","hc-a2":"AP","name":"Arunanchal Pradesh","hc-middle-x":0.6,"hc-middle-y":0.4},"geometry":{"type":"Polygon","coordinates":[[[7861,6325],[7859,6362],[7836,6388],[7850,6410],[7832,6454],[7850,6451],[7914,6497],[7933,6549],[7953,6537],[8038,6571],[8087,6605],[8062,6629],[8029,6620],[8034,6666],[8004,6683],[7986,6727],[8046,6822],[7927,6804],[7901,6772],[7860,6753],[7837,6761],[7702,6697],[7659,6664],[7572,6615],[7490,6623],[7509,6596],[7477,6575],[7376,6445],[7388,6419],[7340,6375],[7273,6356],[7234,6361],[7128,6334],[7078,6363],[7007,6367],[6986,6337],[6941,6333],[6861,6300],[6833,6299],[6828,6340],[6798,6397],[6823,6444],[6803,6454],[6786,6509],[6761,6499],[6668,6499],[6635,6533],[6650,6614],[6621,6631],[6661,6635],[6714,6622],[6746,6591],[6849,6654],[6869,6626],[6927,6652],[6949,6648],[7001,6715],[6977,6760],[7023,6784],[7080,6837],[7135,6849],[7127,6890],[7154,6919],[7169,6970],[7255,6985],[7328,7012],[7354,7001],[7371,7066],[7418,7113],[7432,7162],[7495,7222],[7535,7228],[7552,7274],[7601,7244],[7614,7213],[7637,7223],[7761,7211],[7763,7195],[7830,7192],[7851,7261],[7918,7322],[7975,7339],[8010,7373],[8070,7299],[8113,7320],[8109,7277],[8039,7234],[8066,7204],[8064,7173],[8116,7227],[8171,7251],[8160,7218],[8211,7152],[8208,7123],[8172,7104],[8182,7088],[8132,7042],[8149,7025],[8121,7001],[8173,6980],[8181,7007],[8245,7032],[8285,7003],[8325,7013],[8360,6992],[8400,7012],[8487,6975],[8474,6915],[8510,6903],[8508,6855],[8464,6854],[8394,6781],[8361,6732],[8374,6675],[8474,6566],[8440,6552],[8371,6576],[8374,6602],[8343,6630],[8283,6630],[8254,6597],[8161,6582],[8100,6542],[8080,6492],[8035,6469],[8021,6425],[7994,6423],[7977,6388],[7955,6392],[7921,6335],[7883,6316],[7861,6325]]]}},{"type":"Feature","id":"Jharkhand","properties":{"hc-group":"admin1","hc-key":"jharkhand","hc-a2":"JH","name":"Jharkhand","hc-middle-x":0.6,"hc-middle-y":0.3},"geometry":{"type":"Polygon","coordinates":[[[4018,5147],[4056,5245],[4038,5290],[4073,5300],[4144,5294],[4214,5311],[4234,5343],[4273,5288],[4302,5316],[4333,5320],[4334,5279],[4401,5222],[4409,5254],[4454,5261],[4460,5284],[4510,5305],[4533,5256],[4585,5273],[4658,5315],[4785,5344],[4776,5377],[4803,5426],[4849,5420],[4874,5396],[4906,5415],[4933,5355],[4998,5348],[4985,5304],[5047,5275],[5065,5333],[5091,5355],[5112,5344],[5180,5349],[5203,5377],[5234,5372],[5254,5456],[5266,5458],[5271,5532],[5308,5543],[5316,5591],[5365,5584],[5366,5620],[5398,5641],[5468,5598],[5465,5554],[5530,5499],[5496,5434],[5514,5421],[5518,5371],[5482,5362],[5489,5306],[5474,5268],[5439,5246],[5454,5212],[5406,5187],[5375,5146],[5306,5160],[5326,5136],[5310,5098],[5276,5102],[5282,5076],[5196,5103],[5173,5077],[5165,5032],[5138,5035],[5079,5008],[5051,5008],[5024,4975],[5023,4946],[4981,4935],[4953,4949],[4954,4980],[4917,4986],[4923,4955],[4865,4945],[4855,4843],[4882,4821],[4923,4828],[4981,4776],[5077,4778],[5053,4701],[5128,4660],[5134,4632],[5169,4633],[5174,4578],[5201,4570],[5217,4519],[5163,4503],[5061,4535],[5015,4573],[4952,4594],[4930,4620],[4903,4580],[4922,4570],[4926,4527],[4911,4505],[4931,4484],[4889,4409],[4842,4418],[4857,4455],[4817,4432],[4725,4467],[4681,4439],[4667,4410],[4649,4432],[4597,4448],[4615,4522],[4602,4580],[4555,4557],[4503,4564],[4420,4552],[4395,4528],[4350,4522],[4298,4551],[4298,4568],[4253,4586],[4278,4628],[4328,4648],[4372,4751],[4298,4745],[4290,4789],[4257,4813],[4269,4876],[4235,4891],[4253,4960],[4170,4970],[4154,5026],[4127,5058],[4096,5065],[4080,5121],[4018,5147]],[[4403,5213],[4405,5215],[4400,5220],[4401,5215],[4403,5213]]]}},{"type":"Feature","id":"Goa","properties":{"hc-group":"admin1","hc-key":"goa","hc-a2":"GO","name":"Goa","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[843,1885],[829,1918],[784,1956],[794,1987],[779,2046],[751,2062],[797,2070],[737,2106],[708,2189],[800,2191],[809,2151],[862,2156],[907,2156],[906,2097],[931,2022],[906,2008],[925,1987],[917,1935],[884,1893],[843,1885]]]}},{"type":"Feature","id":"NCT of Delhi","properties":{"hc-group":"admin1","hc-key":"nct of delhi","hc-a2":"NO","name":"NCT of Delhi","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[2052,6865],[2056,6837],[2093,6809],[2095,6735],[2040,6701],[2022,6732],[1950,6745],[1938,6758],[1969,6785],[1974,6851],[2009,6869],[2052,6865]]]}},{"type":"Feature","id":"Odisha","properties":{"hc-group":"admin1","hc-key":"odisha","hc-a2":"OD","name":"Odisha","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[5427,4292],[5397,4265],[5314,4253],[5248,4195],[5223,4147],[5221,4101],[5266,4018],[5280,3955],[5205,3897],[5187,3842],[5207,3824],[5121,3764],[5070,3683],[4962,3642],[4844,3606],[4728,3543],[4575,3417],[4534,3358],[4515,3383],[4480,3366],[4498,3350],[4419,3334],[4422,3299],[4384,3250],[4305,3236],[4286,3256],[4238,3257],[4203,3328],[4183,3317],[4146,3376],[4116,3326],[4091,3349],[4090,3304],[4040,3320],[4076,3273],[4011,3239],[3946,3166],[3967,3155],[3943,3124],[3960,3104],[3905,3091],[3875,3120],[3858,3082],[3795,3059],[3801,3096],[3779,3102],[3758,3154],[3719,3109],[3703,3024],[3710,2977],[3688,2957],[3605,2982],[3464,2895],[3387,2891],[3404,2916],[3433,3016],[3435,3053],[3515,3108],[3580,3171],[3580,3204],[3650,3244],[3654,3281],[3677,3287],[3634,3470],[3609,3511],[3611,3601],[3545,3639],[3545,3684],[3570,3711],[3653,3668],[3681,3666],[3708,3616],[3742,3642],[3795,3628],[3789,3597],[3829,3616],[3833,3672],[3726,3694],[3720,3728],[3736,3776],[3736,3829],[3700,3874],[3715,3902],[3707,3992],[3730,3972],[3799,4048],[3803,4088],[3855,4085],[3911,4099],[3966,4073],[3990,4087],[4015,4134],[4015,4172],[4051,4160],[4039,4212],[4051,4257],[4102,4323],[4123,4365],[4101,4416],[4136,4478],[4169,4484],[4207,4522],[4251,4532],[4266,4566],[4253,4586],[4298,4568],[4298,4551],[4350,4522],[4395,4528],[4420,4552],[4503,4564],[4555,4557],[4602,4580],[4615,4522],[4597,4448],[4649,4432],[4667,4410],[4681,4439],[4725,4467],[4817,4432],[4857,4455],[4842,4418],[4889,4409],[4931,4484],[4911,4505],[4926,4527],[4922,4570],[4903,4580],[4930,4620],[4952,4594],[5015,4573],[5061,4535],[5163,4503],[5161,4478],[5243,4459],[5270,4426],[5259,4397],[5292,4381],[5315,4423],[5338,4417],[5355,4362],[5409,4351],[5427,4292]]]}},{"type":"Feature","id":"Jammu and Kashmir","properties":{"hc-group":"admin1","hc-key":"jammu and kashmir","hc-a2":"JA","name":"Jammu and Kashmir","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[1528,8139],[1466,8164],[1438,8198],[1410,8182],[1390,8196],[1330,8202],[1320,8247],[1344,8327],[1322,8298],[1246,8305],[1186,8354],[1130,8377],[1122,8396],[1076,8393],[1043,8438],[1025,8439],[1037,8480],[1011,8541],[1035,8615],[1018,8632],[1033,8732],[1014,8772],[1013,8849],[993,8911],[1012,8979],[1066,8970],[1099,9042],[1155,9053],[1205,9096],[1205,9135],[1227,9156],[1165,9197],[1106,9207],[1105,9254],[1136,9289],[1135,9312],[1092,9332],[1025,9334],[949,9396],[958,9440],[885,9451],[865,9464],[822,9448],[779,9482],[801,9520],[783,9538],[808,9606],[833,9603],[929,9666],[969,9717],[976,9745],[1066,9758],[1141,9731],[1200,9734],[1191,9764],[1153,9783],[1145,9813],[1199,9802],[1246,9767],[1284,9799],[1309,9791],[1360,9825],[1402,9807],[1405,9841],[1442,9851],[1477,9830],[1498,9787],[1529,9809],[1548,9796],[1586,9827],[1625,9830],[1626,9805],[1659,9740],[1697,9721],[1732,9657],[1781,9623],[1823,9612],[1874,9563],[1903,9566],[1924,9526],[1983,9499],[2028,9448],[2004,9415],[2026,9377],[2064,9352],[2118,9354],[2133,9330],[2186,9323],[2209,9295],[2210,9231],[2291,9233],[2293,9250],[2342,9228],[2363,9270],[2412,9251],[2454,9316],[2499,9337],[2527,9329],[2568,9360],[2656,9372],[2708,9352],[2739,9404],[2781,9406],[2790,9372],[2885,9335],[2921,9328],[2959,9348],[2993,9290],[3045,9263],[3055,9216],[3011,9107],[3007,9043],[2978,8986],[2976,8945],[2914,8936],[2888,8913],[2886,8862],[2809,8861],[2824,8838],[2830,8776],[2808,8766],[2780,8696],[2714,8710],[2659,8711],[2626,8684],[2683,8554],[2628,8562],[2630,8490],[2648,8453],[2786,8425],[2749,8339],[2787,8303],[2836,8237],[2780,8165],[2741,8186],[2684,8144],[2678,8113],[2637,8098],[2591,8134],[2575,8227],[2530,8192],[2504,8197],[2462,8168],[2440,8150],[2436,8186],[2465,8202],[2461,8251],[2403,8218],[2376,8218],[2339,8194],[2318,8231],[2323,8257],[2277,8294],[2264,8333],[2225,8323],[2154,8284],[2095,8318],[2089,8342],[2048,8347],[1991,8409],[2000,8440],[1938,8414],[1915,8432],[1865,8425],[1818,8373],[1774,8365],[1724,8324],[1704,8341],[1679,8329],[1715,8279],[1716,8238],[1699,8214],[1648,8160],[1589,8135],[1528,8139]]]}},{"type":"Feature","id":"Sikkim","properties":{"hc-group":"admin1","hc-key":"sikkim","hc-a2":"SI","name":"Sikkim","hc-middle-x":0.5,"hc-middle-y":0.5},"geometry":{"type":"Polygon","coordinates":[[[5502,6320],[5515,6364],[5506,6420],[5536,6485],[5548,6551],[5526,6558],[5527,6590],[5608,6601],[5678,6650],[5748,6623],[5767,6581],[5761,6499],[5738,6460],[5755,6403],[5793,6377],[5756,6346],[5742,6309],[5690,6323],[5641,6279],[5599,6293],[5529,6293],[5502,6320]]]}},{"type":"Feature","id":"Uttarakhand","properties":{"hc-group":"admin1","hc-key":"uttarakhand","hc-a2":"UT","name":"Uttarakhand","hc-middle-x":0.55,"hc-middle-y":0.35},"geometry":{"type":"Polygon","coordinates":[[[2612,7709],[2660,7785],[2682,7772],[2717,7721],[2732,7667],[2767,7627],[2794,7627],[2821,7592],[2867,7614],[2902,7605],[2921,7573],[2979,7532],[2996,7544],[3020,7518],[3002,7492],[3012,7461],[3096,7428],[3130,7425],[3198,7366],[3254,7348],[3265,7325],[3232,7317],[3152,7240],[3118,7226],[3092,7180],[3055,7156],[3072,7123],[3049,7080],[3016,7056],[3037,7011],[3023,6948],[2997,6944],[2957,6867],[2958,6835],[2936,6793],[2915,6799],[2869,6856],[2831,6841],[2754,6845],[2739,6886],[2679,6903],[2671,6941],[2637,6960],[2626,6940],[2596,6957],[2580,6993],[2538,7014],[2597,7059],[2533,7083],[2477,7135],[2470,7167],[2422,7188],[2327,7113],[2292,7162],[2261,7147],[2226,7219],[2235,7262],[2301,7353],[2188,7413],[2262,7449],[2265,7467],[2232,7534],[2263,7574],[2248,7612],[2297,7679],[2337,7679],[2425,7724],[2477,7692],[2517,7703],[2577,7690],[2603,7653],[2639,7658],[2612,7709]]]}}]}');
 
 /***/ }),
 

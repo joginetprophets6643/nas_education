@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TopBar from '@/components/Visualization/TopBar/TopBar';
 import Tabs from '@/components/Visualization/Tabs/Tabs';
 import TabContent from '@/components/Visualization/TabContent/TabContent';
 import MapTab from '../MapTab/MapTab';
 import ScatterPlotTab from '../ScatterPlotTab/ScatterPlotTab';
 
+
 const Main = () => {
+
   return (
     <section className="visualization-wrap bg-light-blue">
       <TopBar />

@@ -7,6 +7,8 @@ const SubgroupGraph = (props: any) => {
     const { data, subOption } = props
     const [final_data, setData] = useState<Object>({})
     const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
+    const current_state = useSelector<StoreModel>(store => store.current_state.data) as any
+    const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
     let legends = {
         'boys': 'boys',
         'girls': 'girls',
@@ -41,17 +43,31 @@ const SubgroupGraph = (props: any) => {
                         setData(makeSeries({ India: data[current_geography] }))
                     }
                 }
-                else {
+                else if (current_geography == 'state') {
                     if (subOption !== 'Total') {
                         if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
-                            setData(makeSeries({ State: data[current_geography][legends[subOption.toLowerCase()]], India: data['national'][legends[subOption.toLowerCase()]] }))
+                            setData(makeSeries({ [current_state.state_name]: data[current_geography][legends[subOption.toLowerCase()]], India: data['national'][legends[subOption.toLowerCase()]] }))
                         }
                         else {
-                            setData(makeSeries({ State: data[current_geography][subOption], India: data['national'][subOption] }))
+                            setData(makeSeries({ [current_state.state_name]: data[current_geography][subOption], India: data['national'][subOption] }))
                         }
                     }
                     else {
-                        setData(makeSeries({ State: data[current_geography], India: data['national'] }))
+                        setData(makeSeries({ [current_state.state_name]: data[current_geography], India: data['national'] }))
+                    }
+
+                }
+                else {
+                    if (subOption !== 'Total') {
+                        if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
+                            setData(makeSeries({ [current_district.district_name]: data[current_geography][legends[subOption.toLowerCase()]], [current_district.state_name]: data['state'][legends[subOption.toLowerCase()]] }))
+                        }
+                        else {
+                            setData(makeSeries({ [current_district.district_name]: data[current_geography][subOption], [current_district.state_name]: data['state'][subOption] }))
+                        }
+                    }
+                    else {
+                        setData(makeSeries({ [current_district.district_name]: data[current_geography], [current_district.state_name]: data['state'] }))
                     }
 
                 }
@@ -64,9 +80,9 @@ const SubgroupGraph = (props: any) => {
 
 
     const makeSeries = (data: any) => {
-        console.log(data)
+        // console.log(data)
         let series = {
-            name: 'India',
+            name: '',
             colorByPoint: true,
             data: []
         } as any

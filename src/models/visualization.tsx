@@ -52,6 +52,7 @@ export interface StoreModel {
     current_district: IntialStateModel;
     subject_cards: IntialStateModel;
     charts: IntialStateModel;
+    linked_charts: IntialStateModel;
 }
 export interface ParticipationCards {
     id: number;

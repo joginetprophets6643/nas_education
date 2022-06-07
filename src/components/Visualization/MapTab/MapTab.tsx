@@ -1,6 +1,6 @@
 import React from 'react';
 import Map from '@/components/Visualization/Map/Map';
-import MapTabDropdown from '../MapTabDropdown/MapTabDropdown';
+import MapsTabDropdown from '../MapTabDropdown/MapsTabDropdown';
 
 const MapTab = () => {
     return (
@@ -9,17 +9,17 @@ const MapTab = () => {
                 <div className="d-flex">
                     <div className="col-md-3">
                         <div className="maptab-select-wrap m-0">
-                            <MapTabDropdown label="Sector:" />
+                            <MapsTabDropdown label="Sector:" />
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="maptab-select-wrap m-0">
-                            <MapTabDropdown label="Indicator:" />
+                            <MapsTabDropdown label="Indicator:" />
                         </div>
                     </div>
                     <div className="col-md-3">
                         <div className="maptab-select-wrap m-0">
-                            <MapTabDropdown label="Subgroup:" />
+                            <MapsTabDropdown label="Subgroup:" />
                         </div>
                     </div>
                 </div>

@@ -2,15 +2,42 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClass } from '@/actions/visualization.action'
-import { useEffect } from 'react';
+import { getLinkedGraphs } from '@/actions/visualization.action';
+import { StoreModel } from '@/models/visualization';
 
 const Tabs = () => {
     const dispatch = useDispatch()
+    const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
     const [grade, setGrade] = useState<number>(0)
     const current_grade = useSelector<any>(store => store.grade.data)
+    const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
+    const [temp_state_id, setState] = useState<number>(1)
 
     const changeGrade = (grade: number) => {
         dispatch(setClass(grade))
+    }
+
+    const changeScreen = () => {
+        let temp_reusable_filters = {
+            type: { _eq: current_geography },
+            grade: { _eq: 3 }
+        } as any
+
+        if (current_geography == 'district') {
+            temp_reusable_filters = {
+                type: { _eq: 'state' },
+                grade: { _eq: 3 }
+            } as any
+        }
+
+        if (current_geography === 'state') {
+            temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: current_id } }
+            setState(current_id)
+        }
+        if (current_geography === 'district') {
+            temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: temp_state_id } }
+        }
+        dispatch(getLinkedGraphs(JSON.stringify(temp_reusable_filters)))
     }
 
     return (
@@ -28,7 +55,7 @@ const Tabs = () => {
                 <button className="nav-link" id="class10-tab" data-bs-toggle="tab" data-bs-target="#class3" type="button" role="tab" aria-controls="class10" aria-selected="false" onClick={(e) => { changeGrade(10) }}>class 10</button>
             </li>
             <li className="nav-item" role="presentation">
-                <button className="nav-link" id="maps-tab" data-bs-toggle="tab" data-bs-target="#maps" type="button" role="tab" aria-controls="maps" aria-selected="false">MAPS</button>
+                <button className="nav-link" id="maps-tab" data-bs-toggle="tab" data-bs-target="#maps" type="button" role="tab" aria-controls="maps" aria-selected="false" onClick={(e) => { changeScreen() }}>MAPS</button>
             </li>
             <li className="nav-item" role="presentation">
                 <button className="nav-link" id="plot-tab" data-bs-toggle="tab" data-bs-target="#plot" type="button" role="tab" aria-controls="plot" aria-selected="false">SCATTER PLOT</button>
