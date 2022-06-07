@@ -126,9 +126,6 @@ const MapTabDropdown = (props: any) => {
           <div className="maptabdropdown-wrap">
             <label className="maptabdropdown-label">{label}</label>
             {label == "Indicator" && <Select options={options} defaultValue={defaultOption} onChange={changeOption} className="react-select" classNamePrefix="react-select" />}
-            {label == "Indicator:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
-            {label == "Subgroup:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
-            {label == "Sector:" && <Select options={options} defaultValue={defaultOption} className="react-select" classNamePrefix="react-select" />}
             {label == "Subgroup" && <Select options={options} value={defaultOption} onChange={changeOption} className="react-select" classNamePrefix="react-select" />}
           </div>
           :

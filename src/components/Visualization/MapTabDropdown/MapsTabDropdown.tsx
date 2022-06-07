@@ -22,13 +22,18 @@ const gradeSubjects = {
 } as any
 
 const indicatorOptions = [] as any
+const subGroupOptions = [] as any
 
 const MapsTabDropdown = (props: any) => {
 
-    const [grade, setGrade] = useState<string>('3')
+    const{grade}=props
+
+    // const [grade, setGrade] = useState<string>('3')
     const linked_charts = useSelector<StoreModel>(store => store.linked_charts) as IntialStateModel
-    const { label } = props
+    const { label,subOption } = props
     const [options, setOptions] = useState<any>([])
+    const [indOptions, setIndOptions] = useState<any>([])
+    const [subOptions, setSubOptions] = useState<any>([])
 
     useEffect(() => {
         if (linked_charts.loaded && !linked_charts.loading) {
@@ -36,43 +41,57 @@ const MapsTabDropdown = (props: any) => {
         }
     }, [linked_charts])
 
-    useEffect(() => {
-
-        if (label == 'Indicator:') {
-            Object.keys(gradeSubjects).forEach((grd) => {
-                if (grd == grade) {
-                    gradeSubjects[grd].forEach((subject: string) => {
-                        indicatorOptions.push({
-                            value: subject + 'avs', label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
-                        })
-                        indicatorOptions.push({
-                            value: subject + 'lo', label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent'
-                        })
-                        indicatorOptions.push({ value: subject + 'range', label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent' })
+    const makeIndicatorOptions=()=>{
+        indicatorOptions.splice(0,indicatorOptions.length)
+        Object.keys(gradeSubjects).forEach((grd) => {
+            if (grd == grade) {
+                gradeSubjects[grd].forEach((subject: string) => {
+                    indicatorOptions.push({
+                        value: subject + '_avs', label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
                     })
-                }
-            })
+                    indicatorOptions.push({
+                        value: subject + '_lo', label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent'
+                    })
+                    indicatorOptions.push({ value: subject + '_range', label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent' })
+                })
+            }
+        })
+        setIndOptions(indicatorOptions)
+    }
 
-            setOptions(indicatorOptions)
-
+    useEffect(() => {
+        if (label == 'Indicator:') {
+            makeIndicatorOptions()
         }
         else if (label == 'Subgroup:') {
-
-            indicatorOptions.push({ value: '', label: '' })
+            subGroupOptions.splice(0,subGroupOptions.length)
+            subOption.forEach((item:string)=>{
+                subGroupOptions.push({value:item,label:item})
+            })
+            setSubOptions(subGroupOptions)
         }
         else {
             setOptions(sectorOptions)
         }
 
-    }, [])
+    }, [grade,subOption])
+
+    const changeOptions=(event:any)=>{
+        if(label=='Sector:'){
+            props.onchange(event.value)
+        }
+        else if(label=='Indicator:'){
+            props.onChangeInd(event.value)
+        }
+    }
 
 
     return (
         <div className="maptabdropdown-wrap">
             <label className="maptabdropdown-label">{label}</label>
-            {label == "Indicator:" && <Select options={options} value={indicatorOptions[0]} className="react-select" classNamePrefix="react-select" />}
-            {label == "Subgroup:" && <Select options={options} className="react-select" classNamePrefix="react-select" />}
-            {label == "Sector:" && <Select options={options} defaultValue={sectorOptions[0]} className="react-select" classNamePrefix="react-select" />}
+            {label == "Indicator:" && <Select options={indOptions} value={indOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" />}
+            {label == "Subgroup:" && <Select options={subOptions} value={subOptions[0]} className="react-select" classNamePrefix="react-select" />}
+            {label == "Sector:" && <Select options={options} defaultValue={sectorOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" />}
         </div>
     )
 }

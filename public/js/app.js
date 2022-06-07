@@ -6405,21 +6405,6 @@ var MapTabDropdown = function MapTabDropdown(props) {
     onChange: changeOption,
     className: "react-select",
     classNamePrefix: "react-select"
-  }), label == "Indicator:" && react_1["default"].createElement(react_select_1["default"], {
-    options: options,
-    defaultValue: defaultOption,
-    className: "react-select",
-    classNamePrefix: "react-select"
-  }), label == "Subgroup:" && react_1["default"].createElement(react_select_1["default"], {
-    options: options,
-    defaultValue: defaultOption,
-    className: "react-select",
-    classNamePrefix: "react-select"
-  }), label == "Sector:" && react_1["default"].createElement(react_select_1["default"], {
-    options: options,
-    defaultValue: defaultOption,
-    className: "react-select",
-    classNamePrefix: "react-select"
   }), label == "Subgroup" && react_1["default"].createElement(react_select_1["default"], {
     options: options,
     value: defaultOption,
@@ -6528,73 +6513,104 @@ var gradeSubjects = {
   10: ['mil', 'math', 'science', 'social science', 'english']
 };
 var indicatorOptions = [];
+var subGroupOptions = [];
 
 var MapsTabDropdown = function MapsTabDropdown(props) {
-  var _ref = (0, react_1.useState)('3'),
-      _ref2 = _slicedToArray(_ref, 2),
-      grade = _ref2[0],
-      setGrade = _ref2[1];
+  var grade = props.grade; // const [grade, setGrade] = useState<string>('3')
 
   var linked_charts = (0, react_redux_1.useSelector)(function (store) {
     return store.linked_charts;
   });
-  var label = props.label;
+  var label = props.label,
+      subOption = props.subOption;
+
+  var _ref = (0, react_1.useState)([]),
+      _ref2 = _slicedToArray(_ref, 2),
+      options = _ref2[0],
+      setOptions = _ref2[1];
 
   var _ref3 = (0, react_1.useState)([]),
       _ref4 = _slicedToArray(_ref3, 2),
-      options = _ref4[0],
-      setOptions = _ref4[1];
+      indOptions = _ref4[0],
+      setIndOptions = _ref4[1];
+
+  var _ref5 = (0, react_1.useState)([]),
+      _ref6 = _slicedToArray(_ref5, 2),
+      subOptions = _ref6[0],
+      setSubOptions = _ref6[1];
 
   (0, react_1.useEffect)(function () {
     if (linked_charts.loaded && !linked_charts.loading) {// console.log(linked_charts, "Hii")
     }
   }, [linked_charts]);
+
+  var makeIndicatorOptions = function makeIndicatorOptions() {
+    indicatorOptions.splice(0, indicatorOptions.length);
+    Object.keys(gradeSubjects).forEach(function (grd) {
+      if (grd == grade) {
+        gradeSubjects[grd].forEach(function (subject) {
+          indicatorOptions.push({
+            value: subject + '_avs',
+            label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
+          });
+          indicatorOptions.push({
+            value: subject + '_lo',
+            label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent'
+          });
+          indicatorOptions.push({
+            value: subject + '_range',
+            label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent'
+          });
+        });
+      }
+    });
+    setIndOptions(indicatorOptions);
+  };
+
   (0, react_1.useEffect)(function () {
     if (label == 'Indicator:') {
-      Object.keys(gradeSubjects).forEach(function (grd) {
-        if (grd == grade) {
-          gradeSubjects[grd].forEach(function (subject) {
-            indicatorOptions.push({
-              value: subject + 'avs',
-              label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
-            });
-            indicatorOptions.push({
-              value: subject + 'lo',
-              label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent'
-            });
-            indicatorOptions.push({
-              value: subject + 'range',
-              label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent'
-            });
-          });
-        }
-      });
-      setOptions(indicatorOptions);
+      makeIndicatorOptions();
     } else if (label == 'Subgroup:') {
-      indicatorOptions.push({
-        value: '',
-        label: ''
+      subGroupOptions.splice(0, subGroupOptions.length);
+      subOption.forEach(function (item) {
+        subGroupOptions.push({
+          value: item,
+          label: item
+        });
       });
+      setSubOptions(subGroupOptions);
     } else {
       setOptions(sectorOptions);
     }
-  }, []);
+  }, [grade, subOption]);
+
+  var changeOptions = function changeOptions(event) {
+    if (label == 'Sector:') {
+      props.onchange(event.value);
+    } else if (label == 'Indicator:') {
+      props.onChangeInd(event.value);
+    }
+  };
+
   return react_1["default"].createElement("div", {
     className: "maptabdropdown-wrap"
   }, react_1["default"].createElement("label", {
     className: "maptabdropdown-label"
   }, label), label == "Indicator:" && react_1["default"].createElement(react_select_1["default"], {
-    options: options,
-    value: indicatorOptions[0],
+    options: indOptions,
+    value: indOptions[0],
+    onChange: changeOptions,
     className: "react-select",
     classNamePrefix: "react-select"
   }), label == "Subgroup:" && react_1["default"].createElement(react_select_1["default"], {
-    options: options,
+    options: subOptions,
+    value: subOptions[0],
     className: "react-select",
     classNamePrefix: "react-select"
   }), label == "Sector:" && react_1["default"].createElement(react_select_1["default"], {
     options: options,
     defaultValue: sectorOptions[0],
+    onChange: changeOptions,
     className: "react-select",
     classNamePrefix: "react-select"
   }));
@@ -6613,6 +6629,18 @@ exports["default"] = MapsTabDropdown;
 "use strict";
 
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -6629,7 +6657,38 @@ var Map_1 = __importDefault(__webpack_require__(/*! @/components/Visualization/M
 
 var MapsTabDropdown_1 = __importDefault(__webpack_require__(/*! ../MapTabDropdown/MapsTabDropdown */ "./src/components/Visualization/MapTabDropdown/MapsTabDropdown.tsx"));
 
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var react_2 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
 var MapTab = function MapTab() {
+  var linked_charts = (0, react_redux_1.useSelector)(function (store) {
+    return store.linked_charts;
+  });
+
+  var _ref = (0, react_2.useState)('3'),
+      _ref2 = _slicedToArray(_ref, 2),
+      grade = _ref2[0],
+      setGrade = _ref2[1]; // const [subject,setSubject] = useState<string>('language')
+
+
+  var _ref3 = (0, react_2.useState)([]),
+      _ref4 = _slicedToArray(_ref3, 2),
+      subOptions = _ref4[0],
+      setSubOptions = _ref4[1]; // const [legend,setLegend] = useState<string>('avs')
+
+
+  var changeGrade = function changeGrade(grade) {
+    setGrade(grade);
+  };
+
+  var changeInd = function changeInd(legend) {
+    var legends = legend.split('_');
+    var data = linked_charts.data[legends[0]][legends[1]];
+    var keys = Object.keys(data);
+    setSubOptions(keys);
+  };
+
   return react_1["default"].createElement("div", {
     className: "maptab-wrap mt-3"
   }, react_1["default"].createElement("div", {
@@ -6641,19 +6700,23 @@ var MapTab = function MapTab() {
   }, react_1["default"].createElement("div", {
     className: "maptab-select-wrap m-0"
   }, react_1["default"].createElement(MapsTabDropdown_1["default"], {
-    label: "Sector:"
+    label: "Sector:",
+    onchange: changeGrade
   }))), react_1["default"].createElement("div", {
     className: "col-md-6"
   }, react_1["default"].createElement("div", {
     className: "maptab-select-wrap m-0"
   }, react_1["default"].createElement(MapsTabDropdown_1["default"], {
-    label: "Indicator:"
+    label: "Indicator:",
+    grade: grade,
+    onChangeInd: changeInd
   }))), react_1["default"].createElement("div", {
     className: "col-md-3"
   }, react_1["default"].createElement("div", {
     className: "maptab-select-wrap m-0"
   }, react_1["default"].createElement(MapsTabDropdown_1["default"], {
-    label: "Subgroup:"
+    label: "Subgroup:",
+    subOption: subOptions
   })))), react_1["default"].createElement("div", {
     className: "averag-performance-content light-blue"
   }, react_1["default"].createElement("div", {
@@ -6804,8 +6867,7 @@ var Map = function Map(props) {
     english: ['#E8C7E6', '#DCACD9', '#D190CD', '#B168AD']
   };
   (0, react_1.useEffect)(function () {
-    console.log(data);
-
+    // console.log(data)
     if (data !== undefined) {
       makeSeries(data);
     }
@@ -6830,14 +6892,21 @@ var Map = function Map(props) {
 
     Object.keys(data).forEach(function (item) {
       ranges.forEach(function (range, index) {
-        if (data[item] >= range['min'] && data[item] <= range['max'] && item.toLowerCase() !== 'ladakh') {
-          category[index].push([item.toLowerCase(), data[item]]);
+        if (data[item] >= range['min'] && data[item] <= range['max']) {
+          if (item.includes('&') || item.includes('Islands') || item.includes('Dadra')) {
+            item = item.replace('&', 'and');
+            item = item.replace(' Islands', '');
+            item = item.replace(' Dadra', 'dadara');
+            category[index].push([item.toLowerCase(), data[item]]);
+          } else if (item == 'Delhi') {
+            category[index].push(['nct of delhi', data[item]]);
+          } else {
+            category[index].push([item.toLowerCase(), data[item]]);
+          }
         }
-      }); // if (item.toLowerCase() != 'ladakh') {
-      //   custom_data.push({ 'hc-key': item.toLowerCase(), 'value': data[item], 'color': 'black' })
-      // }
-    });
-    console.log(category);
+      });
+    }); // console.log(category)
+
     var series = [{
       name: ranges[0]['min'] + '-' + ranges[0]['max'],
       allowPointSelect: true,
@@ -6910,8 +6979,8 @@ var Map = function Map(props) {
       },
       allAreas: false,
       data: category[3]
-    }];
-    console.log(series);
+    }]; // console.log(series)
+
     setmapOptions(Object.assign(Object.assign({}, mapOptions), {
       series: series
     }));

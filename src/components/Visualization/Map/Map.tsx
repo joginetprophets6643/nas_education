@@ -44,7 +44,7 @@ const Map = (props: any) => {
 
 
   useEffect(() => {
-    console.log(data)
+    // console.log(data)
     if (data !== undefined) {
       makeSeries(data);
     }
@@ -65,15 +65,21 @@ const Map = (props: any) => {
     }
     Object.keys(data).forEach((item: string) => {
       ranges.forEach((range:any, index:any) => {
-        if (data[item] >= range['min'] && data[item] <= range['max'] && item.toLowerCase() !== 'ladakh') {
-          category[index].push([item.toLowerCase(), data[item]])
+        if (data[item] >= range['min'] && data[item] <= range['max']) {
+          if(item.includes('&') || item.includes('Islands') || item.includes('Dadra')){
+            item=item.replace('&','and')
+            item=item.replace(' Islands','')
+            item=item.replace(' Dadra','dadara')
+            category[index].push([item.toLowerCase(), data[item]])
+          }else if(item=='Delhi'){
+            category[index].push(['nct of delhi', data[item]])
+          } else{
+            category[index].push([item.toLowerCase(), data[item]])
+          }
         }
       })
-      // if (item.toLowerCase() != 'ladakh') {
-      //   custom_data.push({ 'hc-key': item.toLowerCase(), 'value': data[item], 'color': 'black' })
-      // }
     })
-    console.log(category)
+    // console.log(category)
     let series= [
       {
         name: ranges[0]['min']+'-'+ranges[0]['max'],
@@ -153,7 +159,7 @@ const Map = (props: any) => {
       }
     ]
 
-    console.log(series)
+    // console.log(series)
     setmapOptions({...mapOptions,series:series})
   }
 
