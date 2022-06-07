@@ -1,7 +1,7 @@
 import React from 'react';
 import ScatterGraph from '@/components/Visualization/Graph/ScatterGraph';
 import GraphPlayBtn from '@/components/Visualization/GraphPlayBtn/GraphPlayBtn';
-import ScatterPlotTabDropdown from '@/components/Visualization/ScaterPlotTabDropdown/ScaterPlotTapDropDown';
+import ScatterPlotTabDropdown from '@/components/Visualization/ScaterPlotTabDropdown/ScaterPlotTapDropdown';
 
 const ScatterPlotTab = () => {
     return (

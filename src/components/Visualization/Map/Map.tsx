@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import MapDropdown from './MapDropdown';
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
@@ -10,8 +9,8 @@ highchartsMap(Highcharts);
 
 
 const Map = (props: any) => {
-  const { data, subOption } = props
-  const [options, setOptions] = useState<any>()
+  const { data, subOption,subject } = props
+  let category: Array<any[]> = [[], [], [], []]
   const [mapOptions, setmapOptions] = useState<any>({
     chart: {
       map: mapDataIE
@@ -30,186 +29,26 @@ const Map = (props: any) => {
       enabled: false,
     },
 
-    series: [
-      {
-        name: 'State',
-        allowPointSelect: true,
-        cursor: 'pointer',
-        borderColor: "#6E6E6E",
-        color: '#FFB142',
-        type: "map",
-        states: {
-          hover: {
-            color: "#006bb6"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        allAreas: false,
-        data: category[0]
-      },
-      {
-        name: 'State',
-        allowPointSelect: true,
-        cursor: 'pointer',
-        borderColor: "#6E6E6E",
-        color: '#000000',
-        type: "map",
-        states: {
-          hover: {
-            color: "#006bb6"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        allAreas: false,
-        data: [
-          ['madhya pradesh', 1]
-        ]
-      }
-    ]
+    series:[]
   })
 
-  let category: Array<any[]> = [[], [], [], []]
+  const colorCode = {
+    language: ['#BAD4EC', '#9EC2E4', '#83B1DD', '#6997C3'],
+    evs: ['#E5E2AF', '#DAD68F', '#CFCB6F', '#B6B156'],
+    math: ['#F4BBCF', '#F09FBB', '#EB84A8', '#D26A8E'],
+    social: ['#C7E1C0', '#ABD3A1', '#8FC481', '#68A358'],
+    science: ['#B1DEDF', '#8ACDCE', '#63BDBE', '#369B9D'],
+    mil: ['#F7C4C3', '#F3A6A5', '#EF8987', '#D4605F'],
+    english: ['#E8C7E6', '#DCACD9', '#D190CD', '#B168AD'],
+  } as any
+
 
   useEffect(() => {
     console.log(data)
-    mapDataIE.features.forEach((state: any) => {
-      state.properties.color = 'black'
-    })
     if (data !== undefined) {
       makeSeries(data);
     }
   }, [data])
-  let custom_data: any = []
-
-
-
-  // useEffect(() => {
-  //   let temp_option = {
-  //     title: {
-  //       text: "Widget click by location",
-  //       style: {
-  //         color: "black"
-  //       }
-  //     },
-  //     chart: {
-  //       backgroundColor: "transparent",
-  //       type: "map",
-  //       map: mapDataIE
-  //     },
-  //     mapNavigation: {
-  //       enabled: true,
-  //       enableButtons: false
-  //     },
-  //     credits: {
-  //       enabled: false
-  //     },
-  //     colorAxis: {
-  //       dataClasses: [
-  //         {
-  //           from: 1,
-  //           color: "#C40401",
-  //           name: "widget name one"
-  //         },
-  //         {
-  //           from: 2,
-  //           color: "#0200D0",
-  //           name: "widget name two"
-  //         }
-  //       ]
-  //     },
-  //     plotOptions: {
-  //       series: {
-  //         events: {
-  //           click: function (e: any) {
-  //             alert(e)
-  //           },
-  //         },
-  //       },
-  //     },
-  //     // tooltip: {
-  //     //   pointFormatter: function () {
-  //     //     return this.name;
-  //     //   }
-  //     // },
-  //     // legend: {
-  //     //   align: "right",
-  //     //   verticalAlign: "top",
-  //     //   x: -100,
-  //     //   y: 70,
-  //     //   floating: true,
-  //     //   layout: "vertical",
-  //     //   valueDecimals: 0,
-  //     //   backgroundColor:
-  //     //     // theme
-  //     //     (Highcharts.defaultOptions &&
-  //     //       Highcharts.defaultOptions.legend &&
-  //     //       Highcharts.defaultOptions.legend.backgroundColor) ||
-  //     //     "rgba(255, 255, 255, 0.85)"
-  //     // },
-  //     series: [
-  //       {
-  //         // name: "world map",
-  //         color: 'black',
-  //         dataLabels: {
-  //           enabled: true,
-  //           color: "#fcba03",
-  //           // format: "{point.postal-code}",
-  //           style: {
-  //             textTransform: "uppercase"
-  //           }
-  //         },
-  //         states: {
-  //           hover: {
-  //             color: '#f7941c'
-  //           },
-  //           select: {
-  //             color: '#9ec2e4'
-  //           }
-  //         },
-
-  //         tooltip: {
-  //           ySuffix: " %"
-  //         },
-  //         cursor: "pointer",
-  //         joinBy: ["hc-key", "hc-key"],
-  //         data: [],
-  //       }
-  //     ]
-  //   } as any
-  //   // temp_option.series[0].mapData = mapDataIE
-  //   mapDataIE['features'].forEach((state: any, i: number) => {
-  //     if (state.id && state.geometry === undefined) {
-  //       let name = state["properties"]["name"];
-  //       let value = (i % 2) + 1;
-  //       let postalCode = state["id"];
-
-  //       let type = value === 1 ? "widget name one" : "widget name two";
-  //       let row = i;
-
-  //       temp_option?.series[0].data.push({
-  //         value: value,
-  //         name: name,
-  //         code: postalCode,
-  //         type: type
-  //       })
-  //       // temp_option?.series[0].mapData.push(state)
-
-  //     }
-  //   })
-  //   // temp_option.chart.map = mapDataIE
-  //   setOptions({ ...temp_option })
-  // }, [])
-
-
-  // useEffect(() => {
-  //   // console.log(options)
-  // }, [options])
 
   const makeSeries = (data: Object) => {
 
@@ -217,7 +56,7 @@ const Map = (props: any) => {
     let min = Math.min(...values)
     let max = Math.max(...values)
     const logic = Math.round((max - min) / 4)
-    let ranges: Array<Object> = []
+    let ranges: any = []
     max = min + logic
     for (let i = 0; i < 4; i++) {
       ranges[i] = { 'min': min, 'max': max }
@@ -225,7 +64,7 @@ const Map = (props: any) => {
       max += logic + 1
     }
     Object.keys(data).forEach((item: string) => {
-      ranges.forEach((range, index) => {
+      ranges.forEach((range:any, index:any) => {
         if (data[item] >= range['min'] && data[item] <= range['max'] && item.toLowerCase() !== 'ladakh') {
           category[index].push([item.toLowerCase(), data[item]])
         }
@@ -235,33 +74,13 @@ const Map = (props: any) => {
       // }
     })
     console.log(category)
-  }
-
-  let mapOptions = {
-    chart: {
-      map: mapDataIE
-    },
-    title: {
-      text: ''
-    },
-
-    subtitle: {
-      text: ''
-    },
-    legend: {
-      enabled: true
-    },
-    mapNavigation: {
-      enabled: false,
-    },
-
-    series: [
+    let series= [
       {
-        name: 'State',
+        name: ranges[0]['min']+'-'+ranges[0]['max'],
         allowPointSelect: true,
         cursor: 'pointer',
         borderColor: "#6E6E6E",
-        color: '#FFB142',
+        color: colorCode[subject][0],
         type: "map",
         states: {
           hover: {
@@ -276,11 +95,11 @@ const Map = (props: any) => {
         data: category[0]
       },
       {
-        name: 'State',
+        name: ranges[1]['min']+'-'+ranges[1]['max'],
         allowPointSelect: true,
         cursor: 'pointer',
         borderColor: "#6E6E6E",
-        color: '#000000',
+        color: colorCode[subject][1],
         type: "map",
         states: {
           hover: {
@@ -292,34 +111,55 @@ const Map = (props: any) => {
           format: "{point.name}"
         },
         allAreas: false,
-        data: [
-          ['madhya pradesh', 1]
-        ]
+        data: category[1]
+      },
+      {
+        name: ranges[2]['min']+'-'+ranges[2]['max'],
+        allowPointSelect: true,
+        cursor: 'pointer',
+        borderColor: "#6E6E6E",
+        color: colorCode[subject][2],
+        type: "map",
+        states: {
+          hover: {
+            color: "#006bb6"
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
+        },
+        allAreas: false,
+        data:category[2]
+      }
+      {
+        name: ranges[3]['min']+'-'+ranges[3]['max'],
+        allowPointSelect: true,
+        cursor: 'pointer',
+        borderColor: "#6E6E6E",
+        color: colorCode[subject][3],
+        type: "map",
+        states: {
+          hover: {
+            color: "#006bb6"
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
+        },
+        allAreas: false,
+        data: category[3]
       }
     ]
-  };
+
+    console.log(series)
+    setmapOptions({...mapOptions,series:series})
+  }
 
   return (
     <div className="apcard-graph-wrap">
       <div className="map-content">
-        {/* 
-        {options ?
-          <>
-            <HighchartsReact
-              highcharts={Highcharts}
-              constructorType={"mapChart"}
-              options={options}
-              allowChartUpdate={true}
-              immutable={true}
-              callback={(data: any) => {
-                // console.log(data)
-              }}
-            />
-          </>
-
-          :
-
-          null} */}
         <HighchartsReact
           constructorType={'mapChart'}
           highcharts={Highcharts}
@@ -327,9 +167,6 @@ const Map = (props: any) => {
           allowChartUpdate={true}
           immutable={true}
           updateArgs={[true]}
-          callback={(data: any) => {
-            console.log(data, "Hii")
-          }}
         />
 
       </div>
