@@ -10,7 +10,7 @@
             <div class="achievement-content">
               <h2 class="heading-grey text-center for_state" style="font-size:200%"></h2>
               <h2 class="heading-grey text-center">
-              ACHIEVEMENT IN ASSOCIATION WITH CONTEXTUAL VARIABLE (SOME INDICES)
+              ACHIEVEMENT IN ASSOCIATION WITH CONTEXTUAL VARIABLE
               </h2> 
               <div class="category-wrap row">
                 <div class="category-list col-md-3 mb-3">
@@ -23,14 +23,14 @@
                     </li>
                     
                     <li>
-                      <div class="category-item"><span class="bg-dark text-white text-center">C</span>Govt.</div>
+                      <div class="category-item"><span class="bg-dark text-white text-center">C</span>State Govt.</div>
                     </li>
                     <li>
                       <div class="category-item"><span class="bg-dark text-white text-center">D</span>Govt. Aided</div>
                     </li>
 
                     <li>
-                      <div class="category-item"><span class="bg-dark text-white text-center">E</span>Private</div>
+                      <div class="category-item"><span class="bg-dark text-white text-center">E</span>Private Recognized</div>
                     </li>
                     <li>
                       <div class="category-item"><span class="bg-dark text-white text-center">F</span>Central Govt.</div>
@@ -58,7 +58,7 @@
                       <div class="category-item"><span class="card-negative"></span> Negative Difference</div>
                     </li>
                     <li>
-                      <div class="category-item"><span class="card-zero"></span> Differance is not Significant</div>
+                      <div class="category-item"><span class="card-zero"></span> Difference is not Significant</div>
                     </li>
                     <li>
                       <div class="category-item"><span class="card-none"></span> Missing Value</div>
@@ -144,23 +144,6 @@
         
         
       data = await JSON.parse(sessionStorage.getItem('achievement_data'))
-      if(classType=="3"){
-        classforphp = "<?php $classid="3"; ?>";
-      }
-      if(classType=="5"){
-        classforphp = "<?php $classid="5"; ?>";
-      }
-      if(classType=="8"){
-        classforphp = "<?php $classid="8"; ?>";
-      }
-      if(classType=="10"){
-        classforphp = "<?php $classid="10"; ?>";
-      }
-      if(classType=="all"){
-        classforphp = "<?php $classid="all"; ?>";
-      }
-
-      
       
       //console.log(classforphp);
       achievement_data = '';
@@ -330,13 +313,7 @@
 
 
           achievement_data += '<tr><td>' + ach.factor + '</td>' + direction_gender + direction_location + direction_sch_mgmt_gov + direction_sch_mgmt_govaid + direction_sch_mgmt_priv + direction_sch_mgmt_centgov + direction_category_sc + direction_category_st + direction_category_obc + direction_category_gen + '</tr>'
-
-
-
-
-
         
-
         $('#add_achievementstate').html(achievement_data);
 
       })
@@ -384,6 +361,18 @@
           sideScroll(achTable,'left',25,100,10);
       });
 
+
+      $('#slideNext8').click(()=>{
+          var achTable = document.getElementById('achTable8');
+          sideScroll(achTable,'right',25,100,10);
+      });
+
+      $('#slideNext10').click(()=>{
+          var achTable = document.getElementById('achTable10');
+          sideScroll(achTable,'right',25,100,10);
+      });
+
+      
 
       function sideScroll(element,direction,speed,distance,step){
           scrollAmount = 0;
