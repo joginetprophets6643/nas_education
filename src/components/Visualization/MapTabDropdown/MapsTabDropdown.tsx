@@ -21,52 +21,62 @@ const gradeSubjects = {
     10: ['mil', 'math', 'science', 'social science', 'english']
 } as any
 
+const subjects_short_codes = {
+    math: 'math',
+    evs: 'evs',
+    'social science': 'sst',
+    language: 'language',
+    mil: 'mil',
+    science: 'sci',
+    english: 'eng',
+} as any
+
 const indicatorOptions = [] as any
 const subGroupOptions = [] as any
 
 const MapsTabDropdown = (props: any) => {
 
-    const{grade}=props
+    const { grade } = props
 
     // const [grade, setGrade] = useState<string>('3')
-    const linked_charts = useSelector<StoreModel>(store => store.linked_charts) as IntialStateModel
-    const { label,subOption } = props
+    const { label, subOption } = props
     const [options, setOptions] = useState<any>([])
     const [indOptions, setIndOptions] = useState<any>([])
     const [subOptions, setSubOptions] = useState<any>([])
 
-    useEffect(() => {
-        if (linked_charts.loaded && !linked_charts.loading) {
-            // console.log(linked_charts, "Hii")
-        }
-    }, [linked_charts])
-
-    const makeIndicatorOptions=()=>{
-        indicatorOptions.splice(0,indicatorOptions.length)
+    const makeIndicatorOptions = () => {
+        indicatorOptions.splice(0, indicatorOptions.length)
         Object.keys(gradeSubjects).forEach((grd) => {
             if (grd == grade) {
                 gradeSubjects[grd].forEach((subject: string) => {
                     indicatorOptions.push({
-                        value: subject + '_avs', label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
+                        value: subjects_short_codes[subject] + '_avs', label: 'Average Performance of Students in ' + subject + ' in Class ' + grade + ', Percent'
                     })
                     indicatorOptions.push({
-                        value: subject + '_lo', label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent'
+                        value: subjects_short_codes[subject] + '_lo', label: 'Average Performance of Students by learning outcome in ' + subject + ' in Class ' + grade + ', Percent'
                     })
-                    indicatorOptions.push({ value: subject + '_range', label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent' })
+                    indicatorOptions.push({ value: subjects_short_codes[subject] + '_range', label: 'Range of Performance of Students who Answered Correctly in ' + subject + ' in Class ' + grade + ', Percent' })
                 })
             }
         })
         setIndOptions(indicatorOptions)
+
     }
+
+    useEffect(() => {
+        if (indOptions.length) {
+            props.onChangeInd(indOptions[0].value)
+        }
+    }, [indOptions])
 
     useEffect(() => {
         if (label == 'Indicator:') {
             makeIndicatorOptions()
         }
         else if (label == 'Subgroup:') {
-            subGroupOptions.splice(0,subGroupOptions.length)
-            subOption.forEach((item:string)=>{
-                subGroupOptions.push({value:item,label:item})
+            subGroupOptions.splice(0, subGroupOptions.length)
+            subOption.forEach((item: string) => {
+                subGroupOptions.push({ value: item, label: item })
             })
             setSubOptions(subGroupOptions)
         }
@@ -74,14 +84,20 @@ const MapsTabDropdown = (props: any) => {
             setOptions(sectorOptions)
         }
 
-    }, [grade,subOption])
+    }, [grade, subOption])
 
-    const changeOptions=(event:any)=>{
-        if(label=='Sector:'){
+    useEffect(() => {
+
+    }, [subOptions])
+
+    const changeOptions = (event: any) => {
+        if (label == 'Sector:') {
             props.onchange(event.value)
         }
-        else if(label=='Indicator:'){
+        else if (label == 'Indicator:') {
             props.onChangeInd(event.value)
+        } else {
+            props.onChangeSubOpt(event.value)
         }
     }
 
@@ -89,8 +105,8 @@ const MapsTabDropdown = (props: any) => {
     return (
         <div className="maptabdropdown-wrap">
             <label className="maptabdropdown-label">{label}</label>
-            {label == "Indicator:" && <Select options={indOptions} value={indOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" />}
-            {label == "Subgroup:" && <Select options={subOptions} value={subOptions[0]} className="react-select" classNamePrefix="react-select" />}
+            {label == "Indicator:" && indOptions.length ? <Select options={indOptions} defaultValue={indOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" /> : ''}
+            {label == "Subgroup:" && subOptions.length ? <Select options={subOptions} defaultValue={subOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" /> : ''}
             {label == "Sector:" && <Select options={options} defaultValue={sectorOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" />}
         </div>
     )

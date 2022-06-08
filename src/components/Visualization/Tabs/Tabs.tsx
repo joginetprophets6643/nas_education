@@ -5,7 +5,7 @@ import { setClass } from '@/actions/visualization.action'
 import { getLinkedGraphs } from '@/actions/visualization.action';
 import { StoreModel } from '@/models/visualization';
 
-const Tabs = () => {
+const Tabs = (props: any) => {
     const dispatch = useDispatch()
     const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
     const [grade, setGrade] = useState<number>(0)
@@ -15,9 +15,11 @@ const Tabs = () => {
 
     const changeGrade = (grade: number) => {
         dispatch(setClass(grade))
+        props.onchangeScreen('grade')
     }
 
     const changeScreen = () => {
+        props.onchangeScreen('map')
         let temp_reusable_filters = {
             type: { _eq: current_geography },
             grade: { _eq: 3 }
