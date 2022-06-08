@@ -972,7 +972,7 @@
     $('#literacy_rate').html(parseFloat(info.literacy_rate) ? parseFloat(info.literacy_rate).toLocaleString('en-IN')+'%' : '-' )
     $('#population_density').html(parseInt(info.density_of_population) ? parseFloat(info.density_of_population).toLocaleString('en-IN')+` per km<sup>2</sup>` : '-')
     $('#total_teachers').html(parseInt(total_teachers).toLocaleString('en-IN'))
-    $('#sex_ratio').html(parseFloat(info.child_sex_ratio) ? parseFloat(info.child_sex_ratio).toLocaleString('en-IN')+' per 1000 boys' : '-')
+    $('#sex_ratio').html(parseFloat(info.child_sex_ratio) ? parseFloat(info.child_sex_ratio).toLocaleString('en-IN')+'girls per 1000 boys' : '-')
 
   }
 

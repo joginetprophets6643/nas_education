@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import MapDropdown from './MapDropdown';
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
+import { DISTRICT_MAPS } from './district_map';
+import { useSelector } from 'react-redux';
+import { StoreModel } from '@/models/visualization';
 
 const mapDataIE = require("@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json");
 
@@ -10,158 +12,50 @@ highchartsMap(Highcharts);
 
 
 const Map = (props: any) => {
-  const { data, subOption } = props
-  const [options, setOptions] = useState<any>()
-
+  const { data, subOption, subject } = props
   let category: Array<any[]> = [[], [], [], []]
+  const [mapOptions, setmapOptions] = useState<any>({
+    chart: {
+      map: mapDataIE
+    },
+    title: {
+      text: ''
+    },
+
+    subtitle: {
+      text: ''
+    },
+    legend: {
+      enabled: true
+    },
+    mapNavigation: {
+      enabled: false,
+    },
+
+    series: []
+  })
+  const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
+  const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
+  const current_state = useSelector<StoreModel>(store => store.current_state.data) as any
+
+
+  const colorCode = {
+    language: ['#BAD4EC', '#9EC2E4', '#83B1DD', '#6997C3'],
+    evs: ['#E5E2AF', '#DAD68F', '#CFCB6F', '#B6B156'],
+    math: ['#F4BBCF', '#F09FBB', '#EB84A8', '#D26A8E'],
+    sst: ['#C7E1C0', '#ABD3A1', '#8FC481', '#68A358'],
+    sci: ['#B1DEDF', '#8ACDCE', '#63BDBE', '#369B9D'],
+    mil: ['#F7C4C3', '#F3A6A5', '#EF8987', '#D4605F'],
+    eng: ['#E8C7E6', '#DCACD9', '#D190CD', '#B168AD'],
+  } as any
 
   useEffect(() => {
-    // console.log(data)
-    // mapDataIE.features.forEach((state: any) => {
-    //   state.properties.color = 'black'
-    // })
-    // if (data !== undefined) {
-    //   makeSeries(data);
-    // }
-  }, [data])
-  let custom_data: any = []
+    if (data !== undefined && subOption !== '') {
+      makeSeries(data);
+    }
+  }, [data, subOption, subject])
 
-
-
-  useEffect(() => {
-    let temp_option = {
-      title: {
-        text: "Widget click by location",
-        style: {
-          color: "black"
-        }
-      },
-      chart: {
-        backgroundColor: "transparent",
-        type: "map",
-        map: mapDataIE
-      },
-      mapNavigation: {
-        enabled: true,
-        enableButtons: false
-      },
-      credits: {
-        enabled: false
-      },
-      colorAxis: {
-        dataClasses: [
-          {
-            from: 1,
-            color: "#C40401",
-            name: "widget name one"
-          },
-          {
-            from: 2,
-            color: "#0200D0",
-            name: "widget name two"
-          }
-        ]
-      },
-      plotOptions: {
-        series: {
-          events: {
-            click: function (e: any) {
-              alert(e)
-            },
-          },
-        },
-      },
-      // tooltip: {
-      //   pointFormatter: function () {
-      //     return this.name;
-      //   }
-      // },
-      legend: {
-        align: "right",
-        verticalAlign: "top",
-        x: -100,
-        y: 70,
-        floating: true,
-        layout: "vertical",
-        valueDecimals: 0,
-        backgroundColor:
-          // theme
-          (Highcharts.defaultOptions &&
-            Highcharts.defaultOptions.legend &&
-            Highcharts.defaultOptions.legend.backgroundColor) ||
-          "rgba(255, 255, 255, 0.85)"
-      },
-      series: [
-        {
-          // name: "world map",
-          color: 'black',
-          dataLabels: {
-            enabled: true,
-            color: "#fcba03",
-            // format: "{point.postal-code}",
-            style: {
-              textTransform: "uppercase"
-            }
-          },
-          states: {
-            hover: {
-              color: '#f7941c'
-            },
-            select: {
-              color: '#9ec2e4'
-            }
-          },
-          drilldown: {
-            activeDataLabelStyle: {
-              color: '#FFFFFF',
-              textDecoration: 'none',
-              textOutline: '1px #000000'
-            },
-            drillUpButton: {
-              relativeTo: 'spacingBox',
-              position: {
-                x: 0,
-                y: 60
-              }
-            }
-          },
-          tooltip: {
-            ySuffix: " %"
-          },
-          cursor: "pointer",
-          joinBy: ["hc-key", "hc-key"],
-          data: [],
-        }
-      ]
-    } as any
-    // temp_option.series[0].mapData = mapDataIE
-    mapDataIE['features'].forEach((state: any, i: number) => {
-      if (state.id && state.geometry === undefined) {
-        let name = state["properties"]["name"];
-        let value = (i % 2) + 1;
-        let postalCode = state["id"];
-
-        let type = value === 1 ? "widget name one" : "widget name two";
-        let row = i;
-
-        temp_option?.series[0].data.push({
-          value: value,
-          name: name,
-          code: postalCode,
-          type: type
-        })
-        // temp_option?.series[0].mapData.push(state)
-
-      }
-    })
-    // temp_option.chart.map = mapDataIE
-    setOptions({ ...temp_option })
-  }, [])
-
-
-  useEffect(() => {
-    console.log(options)
-  }, [options])
+  const chunk = (arr: any, size: any) => arr.reduce((acc: any, e: any, i: any) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
 
   const makeSeries = (data: Object) => {
 
@@ -169,7 +63,7 @@ const Map = (props: any) => {
     let min = Math.min(...values)
     let max = Math.max(...values)
     const logic = Math.round((max - min) / 4)
-    let ranges: Array<Object> = []
+    let ranges: any = []
     max = min + logic
     for (let i = 0; i < 4; i++) {
       ranges[i] = { 'min': min, 'max': max }
@@ -177,207 +71,183 @@ const Map = (props: any) => {
       max += logic + 1
     }
     Object.keys(data).forEach((item: string) => {
-      ranges.forEach((range, index) => {
-        if (data[item] >= range['min'] && data[item] <= range['max'] && item.toLowerCase() !== 'ladakh') {
-          category[index].push({ "hc-key": item.toLowerCase(), 'value': data[item] })
+      ranges.forEach((range: any, index: any) => {
+        if (data[item] >= range['min'] && data[item] <= range['max']) {
+          if (item.includes('&') || item.includes('Islands') || item.includes('Dadra')) {
+            item = item.replace('&', 'and')
+            item = item.replace(' Islands', '')
+            item = item.replace(' Dadra', 'dadara')
+            category[index].push([item.toLowerCase(), data[item]])
+          } else if (item == 'Delhi') {
+            category[index].push(['nct of delhi', data[item]])
+          } else {
+            category[index].push([item.toLowerCase(), data[item]])
+          }
         }
       })
-      // if (item.toLowerCase() != 'ladakh') {
-      //   custom_data.push({ 'hc-key': item.toLowerCase(), 'value': data[item], 'color': 'black' })
-      // }
     })
-    // console.log(category)
-  }
-  let mapOptions = {}
-  useEffect(() => {
-    mapOptions = {
-      chart: {
-        map: mapDataIE
-      },
 
-      title: {
-        text: ''
-      },
-
-      subtitle: {
-        text: ''
-      },
-      legend: {
-        enabled: true
-      },
-      tooltip: { enabled: true },
-      navigation: {
-        buttonOptions: {
-          enabled: false
-        }
-      },
-      credits: {
-        enabled: false
-      },
-      // series: [{
-      //   // mapData: mao,
-      //   name: 'State',
-      //   type: 'map',
-      //   data: custom_data,
-      //   allowPointSelect: true,
-      //   allAreas: false,
-      //   keys: ['hc-key', 'value', 'color'],
-      //   cursor: 'pointer',
-      //   color: "#9ec2e4",
-      //   borderColor: "#6e6f70",
-      //   states: {
-      //     hover: {
-      //       color: '#f7941c'
-      //     },
-      //     select: {
-      //       color: '#9ec2e4'
-      //     }
-      //   },
-      //   dataLabels: {
-      //     enabled: false,
-      //     format: subOption
-      //   },
-
-      // }]
-
-      series: [
-        {
-          name: 'legends',
-          type: 'map',
-          data: category[0],
-          allAreas: false,
-          allowPointSelect: true,
-          color: "#9ec2e4",
-          cursor: "pointer",
-          // color: req_colors[0],
-          borderColor: "#6e6f70",
-          states: {
-            hover: {
-              color: "#f7941c",
-            },
-            select: {
-              color: "#9ec2e4",
-            },
-          },
-          dataLabels: {
-            enabled: false,
-            format: "{point.name}",
-          },
-          keys: ['hc-key', 'value'],
+    let series = [
+      {
+        name: ranges[0]['min'] + '-' + ranges[0]['max'],
+        allowPointSelect: true,
+        cursor: 'pointer',
+        borderColor: "#6E6E6E",
+        color: colorCode[subject][0],
+        type: "map",
+        states: {
+          hover: {
+            color: "#006bb6"
+          }
         },
-        {
-          data: category[1],
-          type: 'map',
-          name: 'legends1',
-          color: "#9ec2e4",
-          // color: req_colors[1],
-          allowPointSelect: true,
-          allAreas: false,
-          cursor: "pointer",
-          borderColor: "#6e6f70",
-          states: {
-            hover: {
-              color: "#f7941c",
-            },
-            select: {
-              color: "#9ec2e4",
-            },
-          },
-          dataLabels: {
-            enabled: false,
-            format: "{point.name}",
-          },
-          keys: ['hc-key', 'value'],
-
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
         },
-        {
-          data: category[2],
-          name: 'legends2',
-          type: 'map',
-          // color: req_colors[2],
-
-          allowPointSelect: true,
-          allAreas: false,
-          cursor: "pointer",
-          borderColor: "#6e6f70",
-          states: {
-            hover: {
-              color: "#f7941c",
-            },
-            select: {
-              color: "#9ec2e4",
-            },
-          },
-          dataLabels: {
-            enabled: false,
-            format: "{point.name}",
-          },
-          keys: ['hc-key', 'value'],
-
+        allAreas: false,
+        data: category[0]
+      },
+      {
+        name: ranges[1]['min'] + '-' + ranges[1]['max'],
+        allowPointSelect: true,
+        cursor: 'pointer',
+        borderColor: "#6E6E6E",
+        color: colorCode[subject][1],
+        type: "map",
+        states: {
+          hover: {
+            color: "#006bb6"
+          }
         },
-        {
-          data: category[3],
-          name: 'legends3',
-          type: 'map',
-          // color: req_colors[3],
-          // showInLegend: false,
-          allowPointSelect: true,
-          allAreas: false,
-          cursor: "pointer",
-          borderColor: "#6e6f70",
-          states: {
-            hover: {
-              color: "#f7941c",
-            },
-            select: {
-              color: "#9ec2e4",
-            },
-          },
-          dataLabels: {
-            enabled: false,
-            format: "{point.name}",
-          },
-          keys: ['hc-key', 'value'],
-
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
         },
-      ],
+        allAreas: false,
+        data: category[1]
+      },
+      {
+        name: ranges[2]['min'] + '-' + ranges[2]['max'],
+        allowPointSelect: true,
+        cursor: 'pointer',
+        borderColor: "#6E6E6E",
+        color: colorCode[subject][2],
+        type: "map",
+        states: {
+          hover: {
+            color: "#006bb6"
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
+        },
+        allAreas: false,
+        data: category[2]
+      },
+      {
+        name: ranges[3]['min'] + '-' + ranges[3]['max'],
+        allowPointSelect: true,
+        cursor: 'pointer',
+        borderColor: "#6E6E6E",
+        color: colorCode[subject][3],
+        type: "map",
+        states: {
+          hover: {
+            color: "#006bb6"
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: "{point.name}"
+        },
+        allAreas: false,
+        data: category[3]
+      }
+    ]
+    if (current_geography !== 'national') {
+      const selectedMapData = DISTRICT_MAPS.find(data => data.name === current_state.state_name.toUpperCase())
+      console.log(selectedMapData)
+      // let series_data: Array<any> = [[{ 'type': 'map', 'joinBy': 'id', data: [], mapData: [] }], [{ 'type': 'map', 'joinBy': 'id', data: [], mapData: [] }], [{ 'type': 'map', 'joinBy': 'id', data: [], mapData: [] }], [{ 'type': 'map', 'joinBy': 'id', data: [], mapData: [] }]]
+      const temp_data = selectedMapData !== undefined ? selectedMapData.data : ''
+      temp_data[0].mapData.forEach((item: any) => {
 
+        category[0].forEach((cat0) => {
+          if (cat0[0].includes(item.name.toLowerCase())) {
+            temp_data[0].data.forEach((district: any) => {
+              if (district.id == item.id) {
+                district.color = colorCode[subject][0]
+                district.borderColor = "#fff";
+                district.states.hover.color = "#006bb6";
+              }
+            })
+          }
+        })
+        category[1].forEach((cat1) => {
+          if (cat1[0].includes(item.name.toLowerCase())) {
+            temp_data[0].data.forEach((district: any) => {
+              if (district.id == item.id) {
+                district.color = colorCode[subject][1]
+                district.borderColor = "#fff";
+                district.states.hover.color = "#006bb6";
+              }
+            })
+          }
+        })
+        category[2].forEach((cat0) => {
+          if (cat0[0].includes(item.name.toLowerCase())) {
+            temp_data[0].data.forEach((district: any) => {
+              if (district.id == item.id) {
+                district.color = colorCode[subject][2]
+                district.borderColor = "#fff";
+                district.states.hover.color = "#006bb6";
+              }
+            })
+          }
+        })
+        category[3].forEach((cat0) => {
+          if (cat0[0].includes(item.name.toLowerCase())) {
+            temp_data[0].data.forEach((district: any) => {
+              if (district.id == item.id) {
+                district.color = colorCode[subject][3]
+                district.borderColor = "#fff";
+                district.states.hover.color = "#006bb6";
+              }
+            })
+          }
+        })
+      })
+
+      console.log(category)
+      setmapOptions({ ...mapOptions, series: temp_data })
     }
-  }, [category[0], category[1], category[2], category[3]])
+    else {
+      setmapOptions({ ...mapOptions, chart: { map: mapDataIE } })
+      setmapOptions({ ...mapOptions, series: series })
+    }
+
+
+
+    // console.log(series)
+
+  }
 
   return (
     <div className="apcard-graph-wrap">
       <div className="map-content">
-
-        {options ?
-          <>
-            <HighchartsReact
-              highcharts={Highcharts}
-              constructorType={"mapChart"}
-              options={options}
-              allowChartUpdate={true}
-              immutable={true}
-              callback={(data: any) => {
-                console.log(data)
-              }}
-            />
-          </>
-
-          :
-
-          null}
-        {/* <HighchartsReact
+        <HighchartsReact
           constructorType={'mapChart'}
           highcharts={Highcharts}
           options={mapOptions}
           allowChartUpdate={true}
           immutable={true}
           updateArgs={[true]}
-          callback={(data: any) => {
-            console.log(data)
-          }} 
+        // callback={(data: any) => {
+        //   console.log(data)
+        // }}
+
         />
-        */}
+
       </div>
     </div>
   )

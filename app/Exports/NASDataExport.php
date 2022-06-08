@@ -7,23 +7,22 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use DB;
 use Maatwebsite\Excel\Concerns\WithTitle;
 
-
-class NASDataExport implements FromCollection, WithHeadings,WithTitle
+class NASDataExport implements FromCollection, WithHeadings, WithTitle
 {
     protected $data;
     protected $title;
-  
+
     /**
      * Write code on Method
      *
      * @return response()
      */
-    public function __construct($data,$title)
+    public function __construct($data, $title)
     {
         $this->data = $data;
-        $this->title =$title;
+        $this->title = $title;
     }
-  
+
     /**
      * Write code on Method
      *
@@ -31,21 +30,25 @@ class NASDataExport implements FromCollection, WithHeadings,WithTitle
      */
     public function collection()
     {
-        return collect($this->data[1]);
+        $data = collect($this->data[1]);
+        foreach ($data as $item) {
+            unset($item->id);
+        }
+        return $data;
     }
 
     public function title(): string
     {
         return $this->title;
     }
-  
+
     /**
      * Write code on Method
      *
      * @return response()
      */
-    public function headings() :array
+    public function headings(): array
     {
-        return $this->data[0];
+        return array_diff($this->data[0], ['id']);
     }
 }

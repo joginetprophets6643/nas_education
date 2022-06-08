@@ -227,8 +227,8 @@
                                                   <h3 class="title">
                                                     Child Sex Ratio (0-6 years)
                                                   </h3>
-                                                  <p class="total-no" id="information_district_sex_ratio_class3">
-                                                    918 girls per 1000 boys
+                                                  <p class="total-no">
+                                                   <span id="information_district_sex_ratio_class3">0</span> girls per 1000 boys
                                                   </p>
                                                 </div>
                                             </div>
