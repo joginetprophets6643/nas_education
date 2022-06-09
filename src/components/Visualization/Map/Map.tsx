@@ -10,30 +10,31 @@ const mapDataIE = require("@highcharts/map-collection/countries/in/custom/in-all
 
 highchartsMap(Highcharts);
 
+const defaultmapOptions = {
+  chart: {
+    map: mapDataIE
+  },
+  title: {
+    text: ''
+  },
+
+  subtitle: {
+    text: ''
+  },
+  legend: {
+    enabled: true
+  },
+  mapNavigation: {
+    enabled: false,
+  },
+
+  series: []
+}
 
 const Map = (props: any) => {
   const { data, subOption, subject } = props
   let category: Array<any[]> = [[], [], [], []]
-  const [mapOptions, setmapOptions] = useState<any>({
-    chart: {
-      map: mapDataIE
-    },
-    title: {
-      text: ''
-    },
-
-    subtitle: {
-      text: ''
-    },
-    legend: {
-      enabled: true
-    },
-    mapNavigation: {
-      enabled: false,
-    },
-
-    series: []
-  })
+  const [mapOptions, setmapOptions] = useState<any>(defaultmapOptions)
   const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
   const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
   const current_state = useSelector<StoreModel>(store => store.current_state.data) as any
@@ -55,10 +56,8 @@ const Map = (props: any) => {
     }
   }, [data, subOption, subject])
 
-  const chunk = (arr: any, size: any) => arr.reduce((acc: any, e: any, i: any) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
-
   const makeSeries = (data: Object) => {
-
+    setmapOptions(defaultmapOptions)
     const values = Object.values(data)
     let min = Math.min(...values)
     let max = Math.max(...values)
@@ -165,10 +164,8 @@ const Map = (props: any) => {
         data: category[3]
       }
     ]
-    if (current_geography !== 'national') {
+    if (current_geography != 'national') {
       const selectedMapData = DISTRICT_MAPS.find(data => data.name === current_state.state_name.toUpperCase())
-      console.log(selectedMapData)
-      // let series_data: Array<any> = [[{ 'type': 'map', 'joinBy': 'id', data: [], mapData: [] }], [{ 'type': 'map', 'joinBy': 'id', data: [], mapData: [] }], [{ 'type': 'map', 'joinBy': 'id', data: [], mapData: [] }], [{ 'type': 'map', 'joinBy': 'id', data: [], mapData: [] }]]
       const temp_data = selectedMapData !== undefined ? selectedMapData.data : ''
       temp_data[0].mapData.forEach((item: any) => {
 
@@ -179,6 +176,7 @@ const Map = (props: any) => {
                 district.color = colorCode[subject][0]
                 district.borderColor = "#fff";
                 district.states.hover.color = "#006bb6";
+                district.y = cat0[1]
               }
             })
           }
@@ -190,6 +188,7 @@ const Map = (props: any) => {
                 district.color = colorCode[subject][1]
                 district.borderColor = "#fff";
                 district.states.hover.color = "#006bb6";
+                district.y = cat1[1]
               }
             })
           }
@@ -201,6 +200,7 @@ const Map = (props: any) => {
                 district.color = colorCode[subject][2]
                 district.borderColor = "#fff";
                 district.states.hover.color = "#006bb6";
+                district.y = cat0[1]
               }
             })
           }
@@ -212,25 +212,43 @@ const Map = (props: any) => {
                 district.color = colorCode[subject][3]
                 district.borderColor = "#fff";
                 district.states.hover.color = "#006bb6";
+                district.y = cat0[1]
               }
             })
           }
         })
       })
 
-      console.log(category)
-      setmapOptions({ ...mapOptions, series: temp_data })
+      if (current_geography == 'district') {
+
+      }
+
+      setmapOptions({
+        ...mapOptions,
+        series: temp_data,
+        legend: { enabled: false },
+        plotOptions: {
+          series: {
+            name: 'District',
+            allowPointSelect: true,
+          }
+        },
+        tooltip: {
+          enabled: true,
+          pointFormat: '{point.name}: {point.y}'
+        },
+      })
     }
     else {
       setmapOptions({ ...mapOptions, chart: { map: mapDataIE } })
       setmapOptions({ ...mapOptions, series: series })
     }
 
-
-
-    // console.log(series)
-
   }
+
+  useEffect(() => {
+    console.log(mapOptions)
+  }, [mapOptions])
 
   return (
     <div className="apcard-graph-wrap">

@@ -245,6 +245,15 @@ class UserController extends BaseController
         $table = '';
         $files = [];
 
+        UserInfo::insert([
+            'user_id' => Auth::user()->id,
+            'data_type' => $request->type,
+            'grade' => $request->acc_year,
+            'state' => $request->state,
+            'district' => $request->district,
+            'purpose' => $request->purpose,
+        ]);
+
         if ($request->type == 'national') {
             // $data=DataInfo::where('acc_year','2020-21')->where('type','national')->get();
 
@@ -353,12 +362,6 @@ class UserController extends BaseController
         // foreach($data as $item){
         //     $id[]=$item->id;
         // }
-
-        // UserInfo::insert([
-        //     'user_id'=>Auth::user()->id,
-        //     'data_id'=>json_encode($id),
-        //     'purpose'=>$request->purpose,
-        // ]);
         // return $data;
     }
 }
