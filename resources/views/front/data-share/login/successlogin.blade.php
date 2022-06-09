@@ -158,6 +158,13 @@
                             
                             </div>
 
+                            <div  id="loader" class="lds-ring center d-none">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+
                         </div>
                     </div>
             </div>   
@@ -414,6 +421,10 @@ $('#get_files').click(()=>{
                 }
             }
             link.click()
+
+            $('#loader').removeClass('d-none')
+            
+
             $('#get_files').css('display','none')
             let desc_list=document.getElementById("description-list");
             $('#description-list').empty()
@@ -424,7 +435,12 @@ $('#get_files').click(()=>{
             span.innerText="Your file is already downloaded"
             li.appendChild(span);
             desc_list.appendChild(li);
-            $('.file-section').css('display','block');
+
+            setTimeout(function(){
+                $('.file-section').css('display','block');
+                $('#loader').addClass('d-none')
+            },5000);
+            
 
 
 
@@ -496,9 +512,10 @@ $('#get_files').click(()=>{
 
 $('#downloadSchema').click(()=>{
     let type=$('#type').val()
-    if(type=='state'){
+    if(type=='state' || type=='national'){
         var link = document.createElement('a');
         link.href = base_url+'schema/stateSchema.csv';
+        link.download=type+'Schema.csv'
         link.click()
     }
     else if(type=='district'){
@@ -510,6 +527,7 @@ $('#downloadSchema').click(()=>{
 
 
 $(document).ready(()=> {
+
     $.ajax({
     type: "GET",
     headers: {
