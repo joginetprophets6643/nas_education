@@ -10,34 +10,35 @@ const mapDataIE = require("@highcharts/map-collection/countries/in/custom/in-all
 
 highchartsMap(Highcharts);
 
-const defaultmapOptions = {
-  chart: {
-    map: mapDataIE
-  },
-  title: {
-    text: ''
-  },
-
-  subtitle: {
-    text: ''
-  },
-  legend: {
-    enabled: true
-  },
-  mapNavigation: {
-    enabled: false,
-  },
-
-  series: []
-}
-
 const Map = (props: any) => {
   const { data, subOption, subject } = props
-  let category: Array<any[]> = [[], [], [], []]
-  const [mapOptions, setmapOptions] = useState<any>(defaultmapOptions)
+  const [mapOptions, setmapOptions] = useState<any>({
+    chart: {
+      map: mapDataIE
+    },
+    title: {
+      text: ''
+    },
+
+    subtitle: {
+      text: ''
+    },
+    legend: {
+      enabled: true
+    },
+    mapNavigation: {
+      enabled: false,
+    },
+
+    series: []
+  })
+  const [category, setCategory] = useState<any>([])
+  const [ranges, setRanges] = useState<any>([])
+  const [stateData, setStateData] = useState<any>({})
   const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
-  const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
   const current_state = useSelector<StoreModel>(store => store.current_state.data) as any
+  const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
+
 
 
   const colorCode = {
@@ -52,199 +53,223 @@ const Map = (props: any) => {
 
   useEffect(() => {
     if (data !== undefined && subOption !== '') {
+      console.log(data, subject)
       makeSeries(data);
     }
-  }, [data, subOption, subject])
+  }, [data, subOption, subject, current_geography])
 
   const makeSeries = (data: Object) => {
-    setmapOptions(defaultmapOptions)
     const values = Object.values(data)
     let min = Math.min(...values)
     let max = Math.max(...values)
+    let temp_ranges: any = []
+    let temp_category: Array<any[]> = [[], [], [], []]
     const logic = Math.round((max - min) / 4)
-    let ranges: any = []
     max = min + logic
     for (let i = 0; i < 4; i++) {
-      ranges[i] = { 'min': min, 'max': max }
+      temp_ranges[i] = { 'min': min, 'max': max }
       min = max + 1
       max += logic + 1
     }
     Object.keys(data).forEach((item: string) => {
-      ranges.forEach((range: any, index: any) => {
+      temp_ranges.forEach((range: any, index: any) => {
         if (data[item] >= range['min'] && data[item] <= range['max']) {
           if (item.includes('&') || item.includes('Islands') || item.includes('Dadra')) {
             item = item.replace('&', 'and')
             item = item.replace(' Islands', '')
             item = item.replace(' Dadra', 'dadara')
-            category[index].push([item.toLowerCase(), data[item]])
+            temp_category[index].push([item.toLowerCase(), parseInt(data[item])])
           } else if (item == 'Delhi') {
-            category[index].push(['nct of delhi', data[item]])
+            temp_category[index].push(['nct of delhi', parseInt(data[item])])
           } else {
-            category[index].push([item.toLowerCase(), data[item]])
+            temp_category[index].push([item.toLowerCase(), parseInt(data[item])])
           }
         }
       })
     })
-
-    let series = [
-      {
-        name: ranges[0]['min'] + '-' + ranges[0]['max'],
-        allowPointSelect: true,
-        cursor: 'pointer',
-        borderColor: "#6E6E6E",
-        color: colorCode[subject][0],
-        type: "map",
-        states: {
-          hover: {
-            color: "#006bb6"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        allAreas: false,
-        data: category[0]
-      },
-      {
-        name: ranges[1]['min'] + '-' + ranges[1]['max'],
-        allowPointSelect: true,
-        cursor: 'pointer',
-        borderColor: "#6E6E6E",
-        color: colorCode[subject][1],
-        type: "map",
-        states: {
-          hover: {
-            color: "#006bb6"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        allAreas: false,
-        data: category[1]
-      },
-      {
-        name: ranges[2]['min'] + '-' + ranges[2]['max'],
-        allowPointSelect: true,
-        cursor: 'pointer',
-        borderColor: "#6E6E6E",
-        color: colorCode[subject][2],
-        type: "map",
-        states: {
-          hover: {
-            color: "#006bb6"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        allAreas: false,
-        data: category[2]
-      },
-      {
-        name: ranges[3]['min'] + '-' + ranges[3]['max'],
-        allowPointSelect: true,
-        cursor: 'pointer',
-        borderColor: "#6E6E6E",
-        color: colorCode[subject][3],
-        type: "map",
-        states: {
-          hover: {
-            color: "#006bb6"
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: "{point.name}"
-        },
-        allAreas: false,
-        data: category[3]
-      }
-    ]
-    if (current_geography != 'national') {
-      const selectedMapData = DISTRICT_MAPS.find(data => data.name === current_state.state_name.toUpperCase())
-      const temp_data = selectedMapData !== undefined ? selectedMapData.data : ''
-      temp_data[0].mapData.forEach((item: any) => {
-
-        category[0].forEach((cat0) => {
-          if (cat0[0].includes(item.name.toLowerCase())) {
-            temp_data[0].data.forEach((district: any) => {
-              if (district.id == item.id) {
-                district.color = colorCode[subject][0]
-                district.borderColor = "#fff";
-                district.states.hover.color = "#006bb6";
-                district.y = cat0[1]
-              }
-            })
-          }
-        })
-        category[1].forEach((cat1) => {
-          if (cat1[0].includes(item.name.toLowerCase())) {
-            temp_data[0].data.forEach((district: any) => {
-              if (district.id == item.id) {
-                district.color = colorCode[subject][1]
-                district.borderColor = "#fff";
-                district.states.hover.color = "#006bb6";
-                district.y = cat1[1]
-              }
-            })
-          }
-        })
-        category[2].forEach((cat0) => {
-          if (cat0[0].includes(item.name.toLowerCase())) {
-            temp_data[0].data.forEach((district: any) => {
-              if (district.id == item.id) {
-                district.color = colorCode[subject][2]
-                district.borderColor = "#fff";
-                district.states.hover.color = "#006bb6";
-                district.y = cat0[1]
-              }
-            })
-          }
-        })
-        category[3].forEach((cat0) => {
-          if (cat0[0].includes(item.name.toLowerCase())) {
-            temp_data[0].data.forEach((district: any) => {
-              if (district.id == item.id) {
-                district.color = colorCode[subject][3]
-                district.borderColor = "#fff";
-                district.states.hover.color = "#006bb6";
-                district.y = cat0[1]
-              }
-            })
-          }
-        })
-      })
-
-      if (current_geography == 'district') {
-
-      }
-
-      setmapOptions({
-        ...mapOptions,
-        series: temp_data,
-        legend: { enabled: false },
-        plotOptions: {
-          series: {
-            name: 'District',
-            allowPointSelect: true,
-          }
-        },
-        tooltip: {
-          enabled: true,
-          pointFormat: '{point.name}: {point.y}'
-        },
-      })
-    }
-    else {
-      setmapOptions({ ...mapOptions, chart: { map: mapDataIE } })
-      setmapOptions({ ...mapOptions, series: series })
-    }
-
+    setRanges(temp_ranges)
+    setCategory(temp_category)
   }
+
+  useEffect(() => {
+    if (category.length) {
+      if (current_geography != 'national') {
+        const selectedMapData: any = DISTRICT_MAPS.find(data => data.name === current_state.state_name.toUpperCase())
+
+        selectedMapData.data[0].mapData.forEach((item: any) => {
+
+          category[0].forEach((cat0: any) => {
+            if (cat0[0].includes(item.name.toLowerCase())) {
+              selectedMapData.data[0].data.forEach((district: any) => {
+                if (district.id == item.id) {
+                  district.color = colorCode[subject][0]
+                  district.borderColor = "#fff";
+                  district.states.hover.color = "#006bb6";
+                  district.y = cat0[1]
+                }
+              })
+            }
+          })
+          category[1].forEach((cat1: any) => {
+            if (cat1[0].includes(item.name.toLowerCase())) {
+              selectedMapData.data[0].data.forEach((district: any) => {
+                if (district.id == item.id) {
+                  district.color = colorCode[subject][1]
+                  district.borderColor = "#fff";
+                  district.states.hover.color = "#006bb6";
+                  district.y = cat1[1]
+                }
+              })
+            }
+          })
+          category[2].forEach((cat0: any) => {
+            if (cat0[0].includes(item.name.toLowerCase())) {
+              selectedMapData.data[0].data.forEach((district: any) => {
+                if (district.id == item.id) {
+                  district.color = colorCode[subject][2]
+                  district.borderColor = "#fff";
+                  district.states.hover.color = "#006bb6";
+                  district.y = cat0[1]
+                }
+              })
+            }
+          })
+          category[3].forEach((cat0: any) => {
+            if (cat0[0].includes(item.name.toLowerCase())) {
+              selectedMapData.data[0].data.forEach((district: any) => {
+                if (district.id == item.id) {
+                  district.color = colorCode[subject][3]
+                  district.borderColor = "#fff";
+                  district.states.hover.color = "#006bb6";
+                  district.y = cat0[1]
+                }
+              })
+            }
+          })
+        })
+
+        if (current_geography == 'district') {
+          selectedMapData.data[0].data.forEach((district: any) => {
+            if (district.id == current_district.district_id) {
+              district.color = '#006bb6'
+            }
+          })
+        }
+
+        setStateData(selectedMapData.data)
+
+      }
+      else {
+        if (category.length > 0 && ranges.length > 0) {
+          let series = [
+            {
+              name: ranges[0]['min'] + '-' + ranges[0]['max'],
+              allowPointSelect: true,
+              cursor: 'pointer',
+              borderColor: "#6E6E6E",
+              color: colorCode[subject][0],
+              type: "map",
+              states: {
+                hover: {
+                  color: "#006bb6"
+                }
+              },
+              dataLabels: {
+                enabled: false,
+                format: "{point.name}"
+              },
+              allAreas: false,
+              data: category[0]
+            },
+            {
+              name: ranges[1]['min'] + '-' + ranges[1]['max'],
+              allowPointSelect: true,
+              cursor: 'pointer',
+              borderColor: "#6E6E6E",
+              color: colorCode[subject][1],
+              type: "map",
+              states: {
+                hover: {
+                  color: "#006bb6"
+                }
+              },
+              dataLabels: {
+                enabled: false,
+                format: "{point.name}"
+              },
+              allAreas: false,
+              data: category[1]
+            },
+            {
+              name: ranges[2]['min'] + '-' + ranges[2]['max'],
+              allowPointSelect: true,
+              cursor: 'pointer',
+              borderColor: "#6E6E6E",
+              color: colorCode[subject][2],
+              type: "map",
+              states: {
+                hover: {
+                  color: "#006bb6"
+                }
+              },
+              dataLabels: {
+                enabled: false,
+                format: "{point.name}"
+              },
+              allAreas: false,
+              data: category[2]
+            },
+            {
+              name: ranges[3]['min'] + '-' + ranges[3]['max'],
+              allowPointSelect: true,
+              cursor: 'pointer',
+              borderColor: "#6E6E6E",
+              color: colorCode[subject][3],
+              type: "map",
+              states: {
+                hover: {
+                  color: "#006bb6"
+                }
+              },
+              dataLabels: {
+                enabled: false,
+                format: "{point.name}"
+              },
+              allAreas: false,
+              data: category[3]
+            }
+          ]
+          setmapOptions({ ...mapOptions, chart: { map: mapDataIE }, series: series })
+        }
+      }
+    }
+
+
+  }, [category])
+
+  useEffect(() => {
+    console.log(stateData)
+    if (Object.keys(stateData).length > 0) {
+      if (category.length > 0 && ranges.length > 0) {
+        setmapOptions({
+          ...mapOptions,
+          series: stateData,
+          legend: { enabled: false },
+          plotOptions: {
+            series: {
+              name: 'District',
+              allowPointSelect: true,
+            }
+          },
+          tooltip: {
+            enabled: true,
+            pointFormat: '{point.name}: {point.y}'
+          },
+        })
+      }
+
+    }
+  }, [stateData])
 
   useEffect(() => {
     console.log(mapOptions)

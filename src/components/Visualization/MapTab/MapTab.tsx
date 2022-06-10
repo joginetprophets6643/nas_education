@@ -35,6 +35,8 @@ const MapTab = () => {
     }
 
     useEffect(() => {
+        setDataLoaded(false)
+
         let temp_reusable_filters = {
             type: { _eq: current_geography },
             grade: { _eq: grade }
@@ -55,7 +57,7 @@ const MapTab = () => {
             temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: temp_state_id } }
         }
         dispatch(getLinkedGraphs(JSON.stringify(temp_reusable_filters)))
-    }, [grade, current_geography])
+    }, [grade, current_geography, current_id])
 
     const changeInd = (legend: string) => {
         if (linked_charts.loaded && !linked_charts.loading) {
@@ -101,7 +103,7 @@ const MapTab = () => {
                     </div>
                     <div className="col-md-3">
                         <div className="maptab-select-wrap m-0">
-                            <MapsTabDropdown label="Subgroup:" subOption={subOptions} onChangeSubOpt={changeSub} />
+                            {dataLoaded && <MapsTabDropdown label="Subgroup:" subOption={subOptions} onChangeSubOpt={changeSub} />}
                         </div>
                     </div>
                 </div>
