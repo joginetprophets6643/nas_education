@@ -149,13 +149,16 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
             data: []
         } as any
         name = name.replace(/\s+/g, '').toLowerCase()
-        Object.keys(data).forEach((legend, index) => {
-            series.data.push({
-                name: legend.toUpperCase(),
-                color: ((name === 'learning' || name === 'avgperformancecolumn' || name === 'avgperformancecolumn2') ? coloumnChartColor[name][0] : coloumnChartColor[name][index]),
-                y: Number(data[legend])
-            })
-        });
+        if (data !== undefined) {
+            Object.keys(data).forEach((legend, index) => {
+                series.data.push({
+                    name: legend.toUpperCase(),
+                    color: ((name === 'learning' || name === 'avgperformancecolumn' || name === 'avgperformancecolumn2') ? coloumnChartColor[name][0] : coloumnChartColor[name][index]),
+                    y: Number(data[legend])
+                })
+            });
+        }
+
 
         chart_details = { ...chart_details, chart: { type: type }, series: [series] }
         return chart_details
