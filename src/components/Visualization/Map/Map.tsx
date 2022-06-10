@@ -34,6 +34,7 @@ const Map = (props: any) => {
   })
   const [category, setCategory] = useState<any>([])
   const [ranges, setRanges] = useState<any>([])
+  const [isGenerate, setIsGenerate] = useState<boolean>(false)
   const [stateData, setStateData] = useState<any>({})
   const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
   const current_state = useSelector<StoreModel>(store => store.current_state.data) as any
@@ -53,7 +54,7 @@ const Map = (props: any) => {
 
   useEffect(() => {
     if (data !== undefined && subOption !== '') {
-      console.log(data, subject)
+      console.log(data, subject, subOption)
       makeSeries(data);
     }
   }, [data, subOption, subject, current_geography])
@@ -88,60 +89,74 @@ const Map = (props: any) => {
       })
     })
     setRanges(temp_ranges)
+    console.log(category)
     setCategory(temp_category)
   }
 
   useEffect(() => {
     if (category.length) {
       if (current_geography != 'national') {
-        const selectedMapData: any = DISTRICT_MAPS.find(data => data.name === current_state.state_name.toUpperCase())
+        let temp_state_name = current_state.state_name.toUpperCase()
+        if (temp_state_name == 'DELHI') {
+          temp_state_name = 'NCT OF DELHI'
+        }
+        const selectedMapData: any = DISTRICT_MAPS.find(data => data.name === temp_state_name)
 
         selectedMapData.data[0].mapData.forEach((item: any) => {
 
           category[0].forEach((cat0: any) => {
-            if (cat0[0].includes(item.name.toLowerCase())) {
+            if (cat0[0]?.includes(item.name.toLowerCase())) {
               selectedMapData.data[0].data.forEach((district: any) => {
                 if (district.id == item.id) {
                   district.color = colorCode[subject][0]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
                   district.y = cat0[1]
+                  district.type = ranges[0]['min'] + '-' + ranges[0]['max']
                 }
               })
             }
           })
           category[1].forEach((cat1: any) => {
-            if (cat1[0].includes(item.name.toLowerCase())) {
+            if (cat1[0]?.includes(item.name.toLowerCase())) {
               selectedMapData.data[0].data.forEach((district: any) => {
                 if (district.id == item.id) {
                   district.color = colorCode[subject][1]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
                   district.y = cat1[1]
+                  district.type = ranges[1]['min'] + '-' + ranges[1]['max']
                 }
               })
             }
           })
           category[2].forEach((cat0: any) => {
-            if (cat0[0].includes(item.name.toLowerCase())) {
+            if (cat0[0]?.includes(item.name.toLowerCase())) {
               selectedMapData.data[0].data.forEach((district: any) => {
                 if (district.id == item.id) {
                   district.color = colorCode[subject][2]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
                   district.y = cat0[1]
+                  district.type = ranges[2]['min'] + '-' + ranges[2]['max']
                 }
               })
             }
           })
           category[3].forEach((cat0: any) => {
-            if (cat0[0].includes(item.name.toLowerCase())) {
+            if (cat0[0]?.includes(item.name.toLowerCase())) {
               selectedMapData.data[0].data.forEach((district: any) => {
                 if (district.id == item.id) {
                   district.color = colorCode[subject][3]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
                   district.y = cat0[1]
+                  // district.type = ranges[3]['min'] + '-' + ranges[3]['max']
+                }
+              })
+              selectedMapData.data[0].mapData.forEach((district: any) => {
+                if (district.id == item.id) {
+                  district.type = ranges[3]['min'] + '-' + ranges[3]['max']
                 }
               })
             }
@@ -239,22 +254,24 @@ const Map = (props: any) => {
               data: category[3]
             }
           ]
+          setIsGenerate(false)
           setmapOptions({ ...mapOptions, chart: { map: mapDataIE }, series: series })
         }
       }
     }
 
 
-  }, [category])
+  }, [category, ranges, subject, subOption])
 
   useEffect(() => {
     console.log(stateData)
     if (Object.keys(stateData).length > 0) {
       if (category.length > 0 && ranges.length > 0) {
+        setIsGenerate(false)
         setmapOptions({
           ...mapOptions,
           series: stateData,
-          legend: { enabled: false },
+          legend: { enabled: true },
           plotOptions: {
             series: {
               name: 'District',
@@ -265,31 +282,60 @@ const Map = (props: any) => {
             enabled: true,
             pointFormat: '{point.name}: {point.y}'
           },
+          colorAxis: {
+            dataClasses: [
+              {
+                from: ranges[0]['min'],
+                to: ranges[0]['max'],
+                color: colorCode[subject][0],
+                name: ranges[0]['min'] + '-' + ranges[0]['max']
+              },
+              {
+                from: ranges[1]['min'],
+                to: ranges[1]['max'],
+                color: colorCode[subject][1],
+                name: ranges[1]['min'] + '-' + ranges[1]['max']
+              },
+              {
+                from: ranges[2]['min'],
+                to: ranges[2]['max'],
+                color: colorCode[subject][2],
+                name: ranges[2]['min'] + '-' + ranges[2]['max']
+              },
+              {
+                from: ranges[3]['min'],
+                to: ranges[3]['max'],
+                color: colorCode[subject][3],
+                name: ranges[3]['min'] + '-' + ranges[3]['max']
+              }
+            ]
+          },
         })
       }
 
     }
-  }, [stateData])
+  }, [stateData, ranges, current_district, subject, subOption])
 
   useEffect(() => {
     console.log(mapOptions)
+    setIsGenerate(true)
   }, [mapOptions])
 
   return (
     <div className="apcard-graph-wrap">
-      <div className="map-content">
-        <HighchartsReact
+      <div className="map-content">{
+        isGenerate && <HighchartsReact
           constructorType={'mapChart'}
           highcharts={Highcharts}
           options={mapOptions}
           allowChartUpdate={true}
-          immutable={true}
-          updateArgs={[true]}
-        // callback={(data: any) => {
-        //   console.log(data)
-        // }}
+          updateArgs={[true, true, true]}
+          callback={(data: any) => {
+            console.log(data)
+          }}
 
         />
+      }
 
       </div>
     </div>

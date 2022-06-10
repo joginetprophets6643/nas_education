@@ -36,13 +36,12 @@ const subGroupOptions = [] as any
 
 const MapsTabDropdown = (props: any) => {
 
-    const { grade } = props
-
     // const [grade, setGrade] = useState<string>('3')
-    const { label, subOption } = props
+    const { grade, label, subOption } = props
     const [options, setOptions] = useState<any>([])
     const [indOptions, setIndOptions] = useState<any>([])
     const [subOptions, setSubOptions] = useState<any>([])
+
 
     const makeIndicatorOptions = () => {
         indicatorOptions.splice(0, indicatorOptions.length)

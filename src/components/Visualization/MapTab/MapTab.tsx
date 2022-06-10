@@ -15,17 +15,20 @@ const MapTab = () => {
     const [data, setData] = useState<any>({})
     const [subOption, getSubOption] = useState<string>('')
     const [legends, setLegends] = useState<any>(['language', 'avs'])
-    const [dataLoaded, setDataLoaded] = useState<boolean>(false)
+    const [InddataLoaded, setIndDataLoaded] = useState<boolean>(false)
+    const [SubdataLoaded, setSubDataLoaded] = useState<boolean>(false)
     const dispatch = useDispatch()
     const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
     const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
     const [temp_state_id, setState] = useState<number>(1)
 
     useEffect(() => {
-        setDataLoaded(false)
+        setIndDataLoaded(false)
+        setSubDataLoaded(false)
         if (linked_charts.loaded && !linked_charts.loading) {
             setData(linked_charts.data)
-            setDataLoaded(true)
+            setIndDataLoaded(true)
+            setSubDataLoaded(true)
             // changeInd()
         }
     }, [linked_charts])
@@ -35,7 +38,8 @@ const MapTab = () => {
     }
 
     useEffect(() => {
-        setDataLoaded(false)
+        setIndDataLoaded(false)
+        setSubDataLoaded(false)
 
         let temp_reusable_filters = {
             type: { _eq: current_geography },
@@ -61,13 +65,13 @@ const MapTab = () => {
 
     const changeInd = (legend: string) => {
         if (linked_charts.loaded && !linked_charts.loading) {
+            setSubDataLoaded(false)
             setLegends(legend.split('_'))
         }
     }
 
     useEffect(() => {
         if (legends.length && Object.keys(data).length) {
-            // console.log(legends[0], legends[1], data)
             setKeys((previousState: any) => {
                 return Object.keys(data[legends[0]][legends[1]])
             })
@@ -79,6 +83,7 @@ const MapTab = () => {
         if (keys.length) {
             setSubOptions(keys)
             changeSub(keys[0])
+            setSubDataLoaded(true)
         }
     }, [keys])
 
@@ -97,13 +102,13 @@ const MapTab = () => {
                     </div>
                     <div className="col-md-6">
                         <div className="maptab-select-wrap m-0">
-                            {dataLoaded && <MapsTabDropdown label="Indicator:" grade={grade} onChangeInd={changeInd} />}
+                            {InddataLoaded && <MapsTabDropdown label="Indicator:" grade={grade} onChangeInd={changeInd} />}
 
                         </div>
                     </div>
                     <div className="col-md-3">
                         <div className="maptab-select-wrap m-0">
-                            {dataLoaded && <MapsTabDropdown label="Subgroup:" subOption={subOptions} onChangeSubOpt={changeSub} />}
+                            {SubdataLoaded && <MapsTabDropdown label="Subgroup:" subOption={subOptions} onChangeSubOpt={changeSub} />}
                         </div>
                     </div>
                 </div>
