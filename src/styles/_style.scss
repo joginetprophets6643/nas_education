@@ -147,6 +147,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-radius: 6px 6px 0 0;
 
         .apcard-heading {
             letter-spacing: 0.1px;
@@ -161,6 +162,7 @@
 
             img {
                 margin-right: 5px;
+                filter: invert(1);
             }
         }
 

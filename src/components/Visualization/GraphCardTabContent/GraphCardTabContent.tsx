@@ -3,6 +3,7 @@ import Map from '@/components/Visualization/Map/Map';
 import MapDropdown from '@/components/Visualization/Map/MapDropdown';
 import StateGraph from '@/components/Visualization/Graph/StateGraph';
 import SubgroupGraph from '@/components/Visualization/Graph/SubgroupGraph';
+import MapNew from '../Map/MapNew';
 
 const GraphCardTabContent = (props: any) => {
   const { subgroup, charts_data, option, check, subOption, subject, geography } = props
@@ -74,7 +75,8 @@ const GraphCardTabContent = (props: any) => {
               <div className="col-md-12">
 
                 <div className="gctabcontent-graph-wrap">
-                  <Map data={data} subOption={subOption} />
+                  {/* <Map data={data} subOption={subOption} /> */}
+                  <MapNew />
                 </div>
               </div>
             </div>
