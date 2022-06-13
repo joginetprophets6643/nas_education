@@ -7,10 +7,11 @@ import http from '@/services/utility'
 const Dropdown = () => {
     const dispatch = useDispatch()
     const [states, setStateList] = useState<Array<States>>([])
+    const [allDistrict, setAllDistrict] = useState<Array<States>>([])
     const [districts, setDistrictList] = useState<Array<District>>([])
     const state_list = useSelector<StoreModel>(store => store.states) as IntialStateModel
     const district_list = useSelector<StoreModel>(store => store.districts) as IntialStateModel
-    const [searched_district, setSearchedDistrict] = useState<string>('')
+    const [searched_in_india, setSearchedInIndia] = useState<string>('')
     const [state_id, setStateId] = useState<number>(0)
     const currentState = useSelector<StoreModel>(store => store.current_state) as IntialStateModel
     const currentDistrict = useSelector<StoreModel>(store => store.current_district) as IntialStateModel
@@ -25,8 +26,8 @@ const Dropdown = () => {
         dispatch(changeId(state.udise_state_code))
     }
 
-    const searchDistrict = (e: any) => {
-        setSearchedDistrict(e.target.value)
+    const searchInIndia = (e: any) => {
+        setSearchedInIndia(e.target.value)
     }
 
     const ChangeDistrict = (district: District) => {
@@ -40,6 +41,20 @@ const Dropdown = () => {
         dispatch(changeId(0))
     }
 
+    const ChangeGeography=(geography:any)=>{
+        if(geography?.district_name){
+            dispatch(changeDemography('district'))
+            dispatch(changeId(geography.udise_district_code))
+            dispatch(setDistrict(geography))
+        }
+        else{
+            setStateId(geography.udise_state_code)
+            dispatch(setState(geography))
+            dispatch(changeDemography('state'))
+            dispatch(changeId(geography.udise_state_code))
+        }
+    }
+
     useEffect(() => {
         dispatch(getStateList())
     }, [])
@@ -51,22 +66,56 @@ const Dropdown = () => {
     }, [state_list])
 
     useEffect(() => {
-        setDistrictList(district_list.data)
+        if(district_list.loaded){
+            setDistrictList(district_list.data)
+        }
     }, [district_list])
 
 
     useEffect(() => {
-        if (searched_district !== '' && searched_district.length >= 3) {
-            const filter = {
-                district_name: { _contains: searched_district }
-            }
-            http.get('district_masters?filter=' + JSON.stringify(filter)).then(response => {
-                setSearchedDistrictList(response.data.data)
+        if (searched_in_india !== '') {
+            // const filter = {
+            //     state_name: { _contains: searched_state }
+            // }
+            http.get('district_masters?limit=-1').then(response => {
+                setAllDistrict(response.data.data)
             }) as any
+            // const searched_state_list=state_list.data.filter((state:any)=>{
+            //     if(state.state_name.toLowerCase().includes(searched_state.toLowerCase())){
+            //         return state
+            //     }
+            // })
+            
+            // console.log(districts)
+            // const searched_district_list=district_list.data.filter((district:any)=>{
+            //     console.log(district)
+            //     if(district.district_name.toLowerCase().includes(searched_state.toLowerCase())){
+            //         return district
+            //     }
+            // })
+            // console.log(searched_district_list)
+            // setSearchedDistrictList(searched_state_list.concat(searched_district_list))
         } else {
             setSearchedDistrictList([])
         }
-    }, [searched_district])
+    }, [searched_in_india])
+
+    useEffect(()=>{
+        if(allDistrict.length>0 && searched_in_india!==''){
+            const searched_state_list=state_list.data.filter((state:any)=>{
+                if(state.state_name.toLowerCase().includes(searched_in_india.toLowerCase())){
+                    return state
+                }
+            })
+            
+            const searched_district_list=allDistrict.filter((district:any)=>{
+                if(district.district_name.toLowerCase().includes(searched_in_india.toLowerCase())){
+                    return district
+                }
+            })
+            setSearchedDistrictList(searched_state_list.concat(searched_district_list))
+        }
+    },[allDistrict])
 
 
     useEffect(() => {
@@ -101,18 +150,19 @@ const Dropdown = () => {
                     <a className="menu-level-main dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside">{current_text}</a>
                     <div className="dropdown-menu menu-level-1">
                         <div className="inputSearch">
-                            <input type="text" className="form-control" onChange={(e) => { searchDistrict(e) }} />
+                            <input type="text" className="form-control" onChange={(e) => { searchInIndia(e) }} />
                         </div>
                         <div className="dropdown-list search-list">
                             <ul className="search-menu scrollbar-y-lightblue">
                                 {searchedDistrictList.length !== 0 ? searchedDistrictList.map((result, index) => (
-                                    <li key={index} onClick={() => { ChangeDistrict(result) }}> {result.district_name}</li>
+                                    <li key={index} onClick={() => { ChangeGeography(result) }}> {result.district_name ? result.district_name : result.state_name}</li>
+                                    // <li key={index} onClick={() => { ChangeDistrict(result) }}> {result.district_name ? result.state_name+' -> '+result.district_name : result.state_name}</li>
                                 ))
                                     : ""}
                             </ul>
                             {searchedDistrictList.length === 0 ?
                                 <a href="#" onClick={setNational} className="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside">India</a>
-                                : ""}
+                            : ""}
                             <ul className="dropdown-menu menu-level-2 scrollbar-y-lightblue">
                                 {states.map((state, index) => (
                                     <li className="dropdown-list" key={state.state_id}>

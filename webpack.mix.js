@@ -1,15 +1,16 @@
-const mix = require("laravel-mix")
-const path = require("path")
+const mix = require('laravel-mix')
+const path = require('path')
 const del = require('del')
 
-
-mix.ts("src/index.tsx", "public/js/app.js").react()
-.sass('src/styles/_style.scss', 'public/css')
+mix
+  .ts('src/index.tsx', 'public/js/app.js')
+  .react()
+  .sass('src/styles/_style.scss', 'public/css/_style_new.css')
 
 mix.webpackConfig({
-    resolve: {
-        alias:{
-            '@':path.resolve(__dirname,'src')
-        }
-    }
-});
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+})
