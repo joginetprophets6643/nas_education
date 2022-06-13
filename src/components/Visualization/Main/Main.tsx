@@ -4,11 +4,11 @@ import Tabs from '@/components/Visualization/Tabs/Tabs';
 import TabContent from '@/components/Visualization/TabContent/TabContent';
 import MapTab from '../MapTab/MapTab';
 import ScatterPlotTab from '../ScatterPlotTab/ScatterPlotTab';
+import Loader from '../Loader/Loader';
 
 
 const Main = () => {
   const [screenType, setScreenType] = useState<string>('grade')
-
 
   const changeScreen = (screen: string) => {
     setScreenType(screen)
@@ -31,7 +31,7 @@ const Main = () => {
             {screenType == 'map' && <MapTab />}
           </div>
           <div className="tab-pane fade" id="plot">
-            <ScatterPlotTab />
+            {screenType == 'scatter' && <ScatterPlotTab />}
           </div>
         </div>
 

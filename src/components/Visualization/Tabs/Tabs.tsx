@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClass } from '@/actions/visualization.action'
-import { getLinkedGraphs } from '@/actions/visualization.action';
+import { getLinkedGraphs, getScatterLinkedGraphs } from '@/actions/visualization.action';
 import { StoreModel } from '@/models/visualization';
 
 const Tabs = (props: any) => {
@@ -18,17 +18,19 @@ const Tabs = (props: any) => {
         props.onchangeScreen('grade')
     }
 
-    const changeScreen = () => {
-        props.onchangeScreen('map')
-        let temp_reusable_filters = {
-            type: { _eq: current_geography },
-            grade: { _eq: 3 }
-        } as any
+    const changeScreen = (screen: string) => {
 
-        if (current_geography == 'district') {
+        props.onchangeScreen(screen)
+
+        let temp_reusable_filters = {}
+        if (screen == 'map') {
             temp_reusable_filters = {
-                type: { _eq: 'state' },
+                type: { _eq: current_geography },
                 grade: { _eq: 3 }
+            } as any
+        } else {
+            temp_reusable_filters = {
+                type: { _eq: current_geography },
             } as any
         }
 
@@ -37,9 +39,14 @@ const Tabs = (props: any) => {
             setState(current_id)
         }
         if (current_geography === 'district') {
-            temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: temp_state_id } }
+            temp_reusable_filters = { ...temp_reusable_filters, type: 'state', state_id: { _eq: temp_state_id } }
         }
-        dispatch(getLinkedGraphs(JSON.stringify(temp_reusable_filters)))
+        if (screen == 'map') {
+            dispatch(getLinkedGraphs(JSON.stringify(temp_reusable_filters)))
+        } else {
+            dispatch(getScatterLinkedGraphs(JSON.stringify(temp_reusable_filters)))
+        }
+
     }
 
     return (
@@ -57,10 +64,10 @@ const Tabs = (props: any) => {
                 <button className="nav-link" id="class10-tab" data-bs-toggle="tab" data-bs-target="#class3" type="button" role="tab" aria-controls="class10" aria-selected="false" onClick={(e) => { changeGrade(10) }}>class 10</button>
             </li>
             <li className="nav-item" role="presentation">
-                <button className="nav-link" id="maps-tab" data-bs-toggle="tab" data-bs-target="#maps" type="button" role="tab" aria-controls="maps" aria-selected="false" onClick={(e) => { changeScreen() }}>MAPS</button>
+                <button className="nav-link" id="maps-tab" data-bs-toggle="tab" data-bs-target="#maps" type="button" role="tab" aria-controls="maps" aria-selected="false" onClick={(e) => { changeScreen('map') }}>MAPS</button>
             </li>
             <li className="nav-item" role="presentation">
-                <button className="nav-link" id="plot-tab" data-bs-toggle="tab" data-bs-target="#plot" type="button" role="tab" aria-controls="plot" aria-selected="false">SCATTER PLOT</button>
+                <button className="nav-link" id="plot-tab" data-bs-toggle="tab" data-bs-target="#plot" type="button" role="tab" aria-controls="plot" aria-selected="false" onClick={(e) => { changeScreen('scatter') }}>SCATTER PLOT</button>
             </li>
         </ul>
     );

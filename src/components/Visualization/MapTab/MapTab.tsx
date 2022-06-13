@@ -5,6 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IntialStateModel, StoreModel } from '@/models/visualization';
 import { useState } from 'react';
 import { getLinkedGraphs } from '@/actions/visualization.action';
+import Loader from '../Loader/Loader';
+
+const heading = {
+    'avs': '',
+    'lo': 'by learning outcome',
+    'range': 'who Answered Correctly'
+} as any
 
 const MapTab = () => {
     const linked_charts = useSelector<StoreModel>(store => store.linked_charts) as IntialStateModel
@@ -17,6 +24,7 @@ const MapTab = () => {
     const [legends, setLegends] = useState<any>(['language', 'avs'])
     const [InddataLoaded, setIndDataLoaded] = useState<boolean>(false)
     const [SubdataLoaded, setSubDataLoaded] = useState<boolean>(false)
+    const [IsLoading, setIsLoading] = useState<boolean>(true)
     const dispatch = useDispatch()
     const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
     const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
@@ -27,6 +35,9 @@ const MapTab = () => {
         setSubDataLoaded(false)
         if (linked_charts.loaded && !linked_charts.loading) {
             setData(linked_charts.data)
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 500)
             setIndDataLoaded(true)
             setSubDataLoaded(true)
             // changeInd()
@@ -93,7 +104,7 @@ const MapTab = () => {
 
     return (
         <div className="maptab-wrap mt-3">
-            <div className="average-performance-wrap card-blue mb-60">
+            {IsLoading ? <Loader /> : <div className="average-performance-wrap card-blue mb-60">
                 <div className="d-flex">
                     <div className="col-md-3">
                         <div className="maptab-select-wrap m-0">
@@ -120,7 +131,7 @@ const MapTab = () => {
                                     <div className="apcard-content p-0">
                                         <div className="apcard-header justify-content-center">
                                             <h3 className="apcard-heading">
-                                                Average Performance of Students in EVS in Class 3, Percent
+                                                Average Performance of Students {heading[legends[1]]} in {subject} in Class 3, Percent
                                             </h3>
                                         </div>
                                         <Map data={data[legends[0]] != undefined && data[legends[0]][legends[1]][subOption]} subOption={subOption} subject={subject} />
@@ -138,7 +149,8 @@ const MapTab = () => {
                         </div>
                     </div>
                 }
-            </div>
+            </div>}
+
         </div>
     )
 }

@@ -10,6 +10,7 @@ import { currentDistrictReducer } from '@/reducers/current_district.reducer';
 import { subjectCards } from '@/reducers/subjectcards.reducer';
 import { chartReducer } from '@/reducers/chart.reducer';
 import { linkedChartReducer } from './linked_chart.reducer';
+import { scatterLinkedChartReducer } from './scatter_linked_chart_reducer';
 
 const reducers = combineReducers({
     states: visualizationReducer,
@@ -23,5 +24,6 @@ const reducers = combineReducers({
     subject_cards: subjectCards,
     charts: chartReducer,
     linked_charts: linkedChartReducer,
+    scatter_linked_charts: scatterLinkedChartReducer
 })
 export default reducers

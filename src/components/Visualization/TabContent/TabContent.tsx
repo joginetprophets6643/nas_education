@@ -8,13 +8,17 @@ import Student from '@/assets/images/brainstorming.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Globe from "@/assets/images/globe-icon.svg";
+import Mil from "@/assets/images/mil-icon.svg";
+import Math from "@/assets/images/math-icon.svg";
+import Evs from "@/assets/images/evs-icon.svg";
+import Eng from "@/assets/images/english-icon.svg";
+import Sci from "@/assets/images/science.svg";
+import Sst from "@/assets/images/social-sci.svg";
 import { getCardsData, getGraphs, getSubjectCards, resetGraphs, getLinkedGraphs, setState } from '@/actions/visualization.action';
 import { IntialStateModel, ParticipationCards } from '@/models/visualization';
 import { StoreModel } from '@/models/visualization';
 import { ClassSubjects } from '@/models/visualization';
 import { SubjectIcons } from '@/models/visualization';
-import MapTab from '@/components/Visualization/MapTab/MapTab';
-import ScatterPlotTab from '@/components/Visualization/ScatterPlotTab/ScatterPlotTab';
 
 const TabContent = () => {
 
@@ -58,12 +62,12 @@ const TabContent = () => {
 
   const subject_icons = {
     language: Globe,
-    evs: Globe,
-    math: Globe,
-    socialscience: Globe,
-    science: Globe,
-    english: Globe,
-    mil: Globe,
+    evs: Evs,
+    math: Math,
+    socialscience: Sst,
+    science: Sci,
+    english: Eng,
+    mil: Mil,
   } as SubjectIcons
 
 

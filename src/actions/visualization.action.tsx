@@ -54,7 +54,12 @@ export const getGraphs = (filters: any) => ({
 
 export const getLinkedGraphs = (filters: any) => ({
     type: constants.LINKED_CHART_FETCH,
-    payload: http.get('visulization_linked_grph_tbl?filter=' + filters)
+    payload: http.get('visulization_linked_grph_tbl?filter=' + filters),
+})
+
+export const getScatterLinkedGraphs = (filters: any) => ({
+    type: constants.SCATTER_LINKED_CHART_FETCH,
+    payload: http.get('visulization_linked_grph_tbl?filter=' + filters),
 })
 
 export const resetGraphs = () => ({
