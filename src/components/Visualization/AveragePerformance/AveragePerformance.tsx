@@ -27,6 +27,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
 
     const [performance_level_data, setPerformanceLevelData] = useState<any>({})
     const [currentSection, setCurrentSection] = useState<string>('')
+    const [changedType, setChangedType] = useState<string>('')
 
     let subjectShortCodes = {
         "Language": 'language',
@@ -63,34 +64,43 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
         performance: ['#F6A5B5', '#F2849A', '#EC4A6A', '#BD3B55']
     } as any
 
-    const toggleChartMenu = (value: boolean) => {
-        if (!value) {
+    const toggleChartMenu = (value: string) => {
+        if (value!=='') {
+            setChangedType(value)
+        }
+        if(value=='false'){
             setCurrentSection('')
         }
     }
 
-    const chartClickEvent = (data: any, name: string, type: string) => {
+    useEffect(()=>{
+        if(changedType!=='' && changedType!=='false'){
+            console.log(currentSection,changedType)
+            if(currentSection === 'management'){
+                setManagementData(makeSeries(management_data.series[0].data,currentSection,changedType,true))
+            }
+            if(currentSection === 'gender'){
+            setGenderData(makeSeries(gender_data.series[0].data,currentSection,changedType,true))
+            }
+            if(currentSection === 'socialgroup'){
+            setSocialGroupData(makeSeries(socialgroup_data.series[0].data,currentSection,changedType,true))
+            }
+            if(currentSection === 'location'){
+            setLocationData(makeSeries(location_data.series[0].data,currentSection,changedType,true))
+            }
+            if(currentSection === 'performance'){
+            setPerformanceLevelData(makeSeries(performance_level_data.series[0].data,currentSection,changedType,true))
+            }
+            if(currentSection === 'learning'){
+            setLearningOutcomeData(makeSeries(learningoutcome_data.series[0].data,currentSection,changedType,true))
+            }
+        }
+    },[changedType])
+
+    const chartClickEvent = (data: any, name: string) => {
         setCurrentSection(name)
-        //   if(name === 'management'){
-        //       setManagementData(makeSeries(data,name,type))
-        //   }
-        //   if(name === 'gender'){
-        //     setGenderData(makeSeries(data,name,type))
-        //   }
-        //   if(name === 'socialgroup'){
-        //     setSocialGroupData(makeSeries(data,name,type))
-        //   }
-        //   if(name === 'location'){
-        //     setLocationData(makeSeries(data,name,type))
-        //   }
-        //   if(name === 'performance'){
-        //     setPerformanceLevelData(makeSeries(data,name,type))
-        //   }
-        //   if(name === 'learning'){
-        //     setLearningOutcomeData(makeSeries(data,name,type))
-        //   }
     }
-    const makeSeries = (data: any, name: string, type: string) => {
+    const makeSeries = (data: any, name: string, type: string,change=false) => {
         let chart_details = {
             title: {
                 text: ''
@@ -125,7 +135,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                     changechart: {
                         text: "Change Chart Type",
                         onclick: () => {
-                            chartClickEvent(data, name, 'pie')
+                            chartClickEvent(data, name)
                         },
                     },
 
@@ -148,14 +158,22 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
             colorByPoint: true,
             data: []
         } as any
-        name = name.replace(/\s+/g, '').toLowerCase()
-        Object.keys(data).forEach((legend, index) => {
-            series.data.push({
-                name: legend.toUpperCase(),
-                color: ((name === 'learning' || name === 'avgperformancecolumn' || name === 'avgperformancecolumn2') ? coloumnChartColor[name][0] : coloumnChartColor[name][index]),
-                y: Number(data[legend])
-            })
-        });
+        if(change==false){
+            name = name.replace(/\s+/g, '').toLowerCase()
+            if (data !== undefined) {
+                Object.keys(data).forEach((legend, index) => {
+                    series.data.push({
+                        name: legend.toUpperCase(),
+                        color: ((name === 'learning' || name === 'avgperformancecolumn' || name === 'avgperformancecolumn2') ? coloumnChartColor[name][0] : coloumnChartColor[name][index]),
+                        y: Number(data[legend])
+                    })
+                });
+            }
+        }
+        else{
+            series.data=data
+        }
+
 
         chart_details = { ...chart_details, chart: { type: type }, series: [series] }
         return chart_details

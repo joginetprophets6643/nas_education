@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Map from '@/components/Visualization/Map/Map';
-import MapDropdown from '@/components/Visualization/Map/MapDropdown';
 import StateGraph from '@/components/Visualization/Graph/StateGraph';
 import SubgroupGraph from '@/components/Visualization/Graph/SubgroupGraph';
 import MapNew from '../Map/MapNew';
@@ -75,8 +74,7 @@ const GraphCardTabContent = (props: any) => {
               <div className="col-md-12">
 
                 <div className="gctabcontent-graph-wrap">
-                  {/* <Map data={data} subOption={subOption} /> */}
-                  <MapNew />
+                  <Map data={data} subOption={subOption} subject={subject[0]} />
                 </div>
               </div>
             </div>
@@ -87,7 +85,7 @@ const GraphCardTabContent = (props: any) => {
             <div className="col-md-12">
 
               <div className="gctabcontent-graph-wrap">
-                <Map data={data} subOption={subOption} />
+                <Map data={data} subOption={subOption} subject={subject[0]} />
               </div>
             </div>
           </div>

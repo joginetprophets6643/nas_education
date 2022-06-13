@@ -71,6 +71,7 @@
                                         <select class="form-select form-control" name="state" id="state" disabled>
                                             <option value="" class="example">Select State</option>
                                             <option value="all" class="all_state">All State</option>
+                                            <option value="all_district" class="all_district">All District</option>
                                             @foreach($states as $state)
                                             <option value="{{$state->udise_state_code}}" class="example">{{$state->state_name}}</option>
                                             @endforeach
@@ -93,7 +94,7 @@
 
                                 <div class="form-group col-md-12 mt-4">
                                     <label class="form-label">Purpose <span class="text-danger">*</span></label><br>
-                                    <textarea name="purpose" class="form-control w-100" id="purpose" rows="3" placeholder="Purpose of download data upto 50 characters..."></textarea>
+                                    <textarea name="purpose" class="form-control w-100" id="purpose" rows="3" placeholder="Purpose of download data upto 20 characters..."></textarea>
                                     <span class="text-danger" id="valid_purpose"></span>
                                 </div>
                                 <div class="term-wrap">
@@ -157,6 +158,13 @@
                             
                             </div>
 
+                            <div  id="loader" class="lds-ring center d-none">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+
                         </div>
                     </div>
             </div>   
@@ -203,6 +211,7 @@ function doValidation(){
     if($('#acc_year').val()==''){
         $('#valid_acc_year').html("The grade field is required.");
         flag.push(false)
+        $('#acc_year').focus()
     }
     else{
         $('#valid_acc_year').html("");
@@ -212,6 +221,7 @@ function doValidation(){
     if($('#type').val()==''){
         $('#valid_type').html("The type field is required.");
         flag.push(false)
+        $('#type').focus()
     }
     else{
         $('#valid_type').html("");
@@ -223,6 +233,7 @@ function doValidation(){
         if(value==''){
         $('#valid_district').html("The district field is required.");
         flag.push(false)
+        $('#ajax_districts').focus()
         }
         else{
             $('#valid_district').html("");
@@ -238,6 +249,7 @@ function doValidation(){
         if(value==''){
         $('#valid_state').html("The state field is required.");
         flag.push(false)
+        $('#state').focus()
         }
         else{
             $('#valid_state').html("");
@@ -252,14 +264,16 @@ function doValidation(){
     const len=text.length
     const format= /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
-    if(len<=50)
+    if(len<=20)
     {
-        $('#valid_purpose').html("Must be equal to & greater than 50 characters.");
+        $('#valid_purpose').html("Must be equal to & greater than 20 characters.");
         flag.push(false)
+        $('#purpose').focus()
     }
     else if(format.test(text)){
         $('#valid_purpose').html("Special characters not allowed.");
         flag.push(false)
+        $('#purpose').focus()
     }
     else{
         $('#valid_purpose').html("");
@@ -280,9 +294,11 @@ $('#type').change((e)=>{
     if(value!='national' && value!=''){
         if(value=='district'){
             $('.all_state').addClass('d-list')
+            $('.all_district').removeClass('d-list')
         }
         else{
             $('.all_state').removeClass('d-list')
+            $('.all_district').addClass('d-list') 
             $('#districts').addClass('d-list')
             $('#ajax_districts').prop('disabled',true)
             $('#districts').addClass('mt-4')
@@ -312,6 +328,10 @@ $('#state').change((e)=>{
         $('#districts').addClass('d-list')
         $('#ajax_districts').prop('disabled',true)     
     }
+    else if(id=='all_district'){
+        $('#districts').addClass('d-list')
+        $('#ajax_districts').prop('disabled',true)
+    }
     else{
         
         // $('#stateChange').modal('show');
@@ -332,9 +352,7 @@ $('#state').change((e)=>{
 
             dis=dis.sort((a, b) => a.district_name.localeCompare(b.district_name))
             dis.forEach((item)=>{
-                $('#ajax_districts').append(`<option value="${item.udise_district_code}">
-                    ${item.district_name}
-                </option>`);
+                $('#ajax_districts').append(`<option value="${item.udise_district_code}">${item.district_name}</option>`);
             })
             
         // })
@@ -352,12 +370,10 @@ $('#state').change((e)=>{
 })
 
 $('#ajax_districts').change(()=>{
-    
     $('.file-section').css('display','none');
     $('#get_files').css('display','block')
 })
 $('#acc_year').change(()=>{
-    
     $('.file-section').css('display','none');
     $('#get_files').css('display','block')
 })
@@ -383,29 +399,48 @@ $('#get_files').click(()=>{
         headers: {'X-CSRF-TOKEN': "{{ csrf_token() }}"},
         url: base_url + 'data-share/get-files',
         success: function (data) {
-            // console.log(data)
-            // data=JSON.parse(data)
-            // data.forEach((file)=>{
-            //     console.log(file,"HII")
-            //     var blob = new Blob([file], {
-            //         type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            //     });
-                var link = document.createElement('a');
-                link.text="Here click to download your file"
-                link.href = window.URL.createObjectURL(data);
-                link.download = `data.xlsx`;
-                link.click()
-                $('#get_files').css('display','none')
-                let desc_list=document.getElementById("description-list");
-                $('#description-list').empty()
-                let span = document.createElement("span");
-                let li = document.createElement("li");
+            $('#purpose').val('')
 
-                li.className = "justify-content-center";
-                span.innerText="Your file is already downloaded"
-                li.appendChild(span);
-                desc_list.appendChild(li);
+            let link = document.createElement('a');
+            link.text="Here click to download your file"
+            link.href = window.URL.createObjectURL(data);
+            if($('#type').val()=='national'){
+                link.download = 'NAS21_'+$('#type').val()+'data_'+new Date().toDateString();
+            }
+            else if($('#type').val()=='state'){
+                link.download = 'NAS21_'+$('#state :selected').text()+'_'+new Date().toDateString();
+            }
+            else{
+                state=$('#state :selected').text()
+                district=$('#ajax_districts :selected').text()
+                if(state=='All District'){
+                    link.download = 'NAS21_'+state+'_'+district+'_'+new Date().toDateString();
+                }
+                else{
+                link.download = 'NAS21_'+state+'_'+new Date().toDateString();
+                }
+            }
+            link.click()
+
+            $('#loader').removeClass('d-none')
+            
+
+            $('#get_files').css('display','none')
+            let desc_list=document.getElementById("description-list");
+            $('#description-list').empty()
+            let span = document.createElement("span");
+            let li = document.createElement("li");
+
+            li.className = "justify-content-center";
+            span.innerText="Your file is already downloaded"
+            li.appendChild(span);
+            desc_list.appendChild(li);
+
+            setTimeout(function(){
                 $('.file-section').css('display','block');
+                $('#loader').addClass('d-none')
+            },5000);
+            
 
 
 
@@ -477,9 +512,10 @@ $('#get_files').click(()=>{
 
 $('#downloadSchema').click(()=>{
     let type=$('#type').val()
-    if(type=='state'){
+    if(type=='state' || type=='national'){
         var link = document.createElement('a');
         link.href = base_url+'schema/stateSchema.csv';
+        link.download=type+'Schema.csv'
         link.click()
     }
     else if(type=='district'){
@@ -491,6 +527,7 @@ $('#downloadSchema').click(()=>{
 
 
 $(document).ready(()=> {
+
     $.ajax({
     type: "GET",
     headers: {

@@ -6,6 +6,7 @@ export interface States {
 
 export interface District {
     district_name: string;
+    state_name:string;
     district_id: number;
     udise_district_code: number;
     udise_state_id: number;
@@ -52,6 +53,7 @@ export interface StoreModel {
     current_district: IntialStateModel;
     subject_cards: IntialStateModel;
     charts: IntialStateModel;
+    linked_charts: IntialStateModel;
 }
 export interface ParticipationCards {
     id: number;

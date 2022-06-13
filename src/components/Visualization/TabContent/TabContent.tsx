@@ -195,21 +195,21 @@ const TabContent = () => {
         <div className="col-md-4">
           <WhiteCard
             title="Number of Schools Sampled"
-            count={school_count.toLocaleString('en-IN')}
+            count={school_count != undefined ? school_count.toLocaleString('en-IN') : ''}
             image={Building}
           />
         </div>
         <div className="col-md-4">
           <WhiteCard
             title="Number of Teachers Sampled"
-            count={teachers_count.toLocaleString('en-IN')}
+            count={teachers_count != undefined ? teachers_count.toLocaleString('en-IN') : ''}
             image={Professor}
           />
         </div>
         <div className="col-md-4">
           <WhiteCard
             title="Number of Students Sampled"
-            count={student_count.toLocaleString('en-IN')}
+            count={student_count != undefined ? student_count.toLocaleString('en-IN') : ''}
             image={Student}
           />
         </div>

@@ -24,10 +24,11 @@ import percentage from '@/assets/images/100minus.png';
 const ChartType = (props:any) => {
 
   const closeMenu = ()=>{
-      props.menuToggler(false)
+      props.menuToggler('false')
   }
   const changeType =( type: string)=>{
       console.log(type)
+      props.menuToggler(type)
   }
   return (
     <div className="charttype-wrap">
