@@ -48,7 +48,7 @@
               </h2>
               <ul>
                 <li>
-                  <a href="{{url('/feedback')}}" target="_blank">
+                  <a href="{{url('/user-feedback')}}" target="_blank">
                     <img src="{{asset('assets/front/images/circle.svg')}}" height="8" alt="circle" />
                     {{__('lang.Feedback')}}
                   </a>

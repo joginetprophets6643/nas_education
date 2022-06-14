@@ -130,7 +130,7 @@
                     <a class="nav-link {{ Request::is('data-share') || Request::is('data-share/*') ? 'active' : '' }}" href="{{url('/data-share')}}" target="_blank">{{__('lang.DATA SHARE')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ Request::is('feedback') ? 'active' : '' }}" href="{{url('/feedback')}}" target="_blank">{{__('lang.Feedback')}}</a>
+                    <a class="nav-link {{ Request::is('user-feedback') ? 'active' : '' }}" href="{{url('/user-feedback')}}" target="_blank">{{__('lang.Feedback')}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('visualization') || Request::is('visualization/*') ? 'active' : '' }}" href="{{url('/visualization')}}" target="_blank">{{__('lang.VISUALIZATION')}}</a>

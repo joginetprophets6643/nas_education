@@ -210,10 +210,12 @@ class FrontController extends Controller
         return redirect()->route('user-login');
     }
 
-    public function feedback(){
+    public function WebUserfeedback(){
         return view('front.feedback.index');
     }
-
+    public function mobileUserfeedback(){
+        return view('front.feedback.mobile_index');
+    }
     public function storeFeedback(Request $request){
         $validator = Validator::make($request->all(),[
             'feedback'=>'required|min:35',
