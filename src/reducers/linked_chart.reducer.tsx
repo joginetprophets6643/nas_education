@@ -10,7 +10,7 @@ const initialStateList = {
 
 
 export const linkedChartReducer = function (state = initialStateList, action: any) {
-    const { type, payload } = action;
+    const { type, payload, screen } = action;
     switch (type) {
         case LINKED_CHART_FETCH_PENDING: {
             return { ...state, loading: true };
@@ -23,6 +23,7 @@ export const linkedChartReducer = function (state = initialStateList, action: an
                 data: payload.data.data.length > 0 ? JSON.parse(payload.data.data[0].data) : {}
                 // data: payload.data.data
             };
+
         }
         case LINKED_CHART_FETCH_REJECTED: {
             return { ...state, loading: false, loaded: false, error: true };

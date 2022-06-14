@@ -5,20 +5,68 @@ import 'react-select-2/dist/css/react-select-2.css';
 import 'react-select-2/dist/js/react-select-2.js';
 import { StoreModel } from '@/models/visualization';
 
+const options_text = {
+    'avs': '',
+    'lo': 'by learning outcomes',
+    'range': 'who Answered Correctly'
+} as any
 
-const options = [
-    { value: 'CLASS 3', label: 'CLASS 3' },
-    { value: 'CLASS 5', label: 'CLASS 5' },
-    { value: 'CLASS 8', label: 'CLASS 8' },
-    { value: 'CLASS 10', label: 'CLASS 10' }
-];
+const full_subjects = {
+    'language': 'Language',
+    'math': 'Math',
+    'evs': 'Evs',
+    'sci': 'Science',
+    'sst': 'Social Science',
+    'mil': 'MIL',
+    'eng': 'English'
+} as any
 
 const ScatterPlotTabDropdown = (props: any) => {
-    const { label } = props
+    const { label, data } = props
+    const [options, setOptions] = useState<any>([])
+
+    useEffect(() => {
+        if (data.length > 0) {
+            const temp_options = [] as any
+            data.forEach((grade: any) => {
+                let temp_data = JSON.parse(grade.data)
+                Object.keys(temp_data).forEach((subject: string) => {
+                    Object.keys(temp_data[subject]).forEach((legend: string) => {
+                        let keys = Object.keys(temp_data[subject][legend])
+                        keys.forEach((key: string) => {
+                            temp_options.push({
+                                value: grade.grade + '_' + subject + '_' + legend + '_' + key,
+                                label: 'Average Performance of Students ' + options_text[legend] + ' in ' + full_subjects[subject] + ' in Class ' + grade.grade + ' Percent, ' + key,
+                            })
+                        })
+                    })
+                })
+            })
+
+            setOptions(temp_options)
+            if (label == 'Y-Axis:') {
+                props.onChangeOption('3_language_avs_Total_Y')
+            }
+            else {
+                props.onChangeOption('3_language_avs_Total_X')
+            }
+        }
+    }, [])
+
+    const changeScatterOption = (event: any) => {
+        if (label == 'Y-Axis:') {
+            props.onChangeOption(event.value + '_Y')
+        }
+        else {
+            props.onChangeOption(event.value + '_X')
+        }
+
+    }
+
     return (
         <div className="maptabdropdown-wrap">
             <label className="maptabdropdown-label">{label}</label>
-            <Select options={options} className="react-select" classNamePrefix="react-select" />
+            {options.length && <Select options={options} onChange={changeScatterOption} defaultValue={options[0]} className="react-select" classNamePrefix="react-select" />}
         </div>
     )
 }

@@ -8,13 +8,17 @@ import Student from '@/assets/images/brainstorming.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Globe from "@/assets/images/globe-icon.svg";
+import Mil from "@/assets/images/mil-icon.svg";
+import Math from "@/assets/images/math-icon.svg";
+import Evs from "@/assets/images/evs-icon.svg";
+import Eng from "@/assets/images/english-icon.svg";
+import Sci from "@/assets/images/science.svg";
+import Sst from "@/assets/images/social-sci.svg";
 import { getCardsData, getGraphs, getSubjectCards, resetGraphs, getLinkedGraphs, setState } from '@/actions/visualization.action';
 import { IntialStateModel, ParticipationCards } from '@/models/visualization';
 import { StoreModel } from '@/models/visualization';
 import { ClassSubjects } from '@/models/visualization';
 import { SubjectIcons } from '@/models/visualization';
-import MapTab from '@/components/Visualization/MapTab/MapTab';
-import ScatterPlotTab from '@/components/Visualization/ScatterPlotTab/ScatterPlotTab';
 
 const TabContent = () => {
 
@@ -33,6 +37,7 @@ const TabContent = () => {
   const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
   const [current_subject, setCurremtSubject] = useState<string>('')
   const [temp_state_id, setState] = useState<number>(1)
+  const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
   const [encountered_subject, setEncounteredSubject] = useState<Array<String>>([])
   const class_subjects = {
     class_3: ['Language', 'Math', 'Evs',],
@@ -58,16 +63,17 @@ const TabContent = () => {
 
   const subject_icons = {
     language: Globe,
-    evs: Globe,
-    math: Globe,
-    socialscience: Globe,
-    science: Globe,
-    english: Globe,
-    mil: Globe,
+    evs: Evs,
+    math: Math,
+    socialscience: Sst,
+    science: Sci,
+    english: Eng,
+    mil: Mil,
   } as SubjectIcons
 
 
   useEffect(() => {
+    marker.current = []
     let fields = ''
 
     let reusable_filters = {
@@ -106,7 +112,7 @@ const TabContent = () => {
     }
     if (current_geography === 'district') {
       reusable_filters = { ...reusable_filters, district_id: { _eq: current_id } }
-      temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: temp_state_id } }
+      temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: current_district.udise_state_code } }
       // performance_filter ={...reusable_filters , district_id: {_eq: current_id}}
       fields = 'district_schools_count,district_teachers_count,district_students_count'
     }

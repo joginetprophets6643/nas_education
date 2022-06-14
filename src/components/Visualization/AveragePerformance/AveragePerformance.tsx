@@ -5,6 +5,13 @@ import { AveragePerformanceProps, IntialStateModel, StoreModel } from '@/models/
 import GraphCardTab from '@/components/Visualization/GraphCardTab/GraphCardTab';
 import GraphCardTabContent from '@/components/Visualization/GraphCardTabContent/GraphCardTabContent';
 import MapTabDropdown from '../MapTabDropdown/MapTabDropdown';
+import Management from "@/assets/images/ap-management.svg";
+import People from '@/assets/images/ap-people.svg';
+import Performane from "@/assets/images/ap-swap-calls.svg";
+import Place from "@/assets/images/ap-place.svg";
+import Social from "@/assets/images/ap-people-alt.svg";
+import LO from "@/assets/images/ap-library.svg";
+import Loader from '../Loader/Loader';
 
 
 const AveragePerformance = (props: AveragePerformanceProps) => {
@@ -24,6 +31,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
     const [subOption, setSubOption] = useState<string>('')
     const [check, setCond] = useState<boolean>(false)
     const [subCheck, setSubCond] = useState<boolean>(false)
+    const [isLoading, setIsLoading] = useState<boolean>(true)
 
     const [performance_level_data, setPerformanceLevelData] = useState<any>({})
     const [currentSection, setCurrentSection] = useState<string>('')
@@ -48,16 +56,18 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
     }, [charts])
 
     useEffect(() => {
-        if (linked_charts.loaded) {
+        if (linked_charts.loaded && !linked_charts.loading) {
+
             setLinkedGraphs(linked_charts.data)
+            // console.log(linked_charts.data)
         }
     }, [linked_charts])
 
     const coloumnChartColor = {
-        gender: ["#F2744A", "#F2744A"],
-        location: ['#16A085', '#16A085'],
-        management: ['#9262E6', '#9262E6', '#9262E6', '#9262E6'],
-        socialgroup: ['#2196F3', '#2196F3', '#2196F3', '#2196F3'],
+        gender: ["#F2744A", "#db957d"],
+        location: ['#16A085', '#76dbc7'],
+        management: ['#9262E6', '#a47de7', '#5c4681', '#967fbd'],
+        socialgroup: ['#2196F3', '#a0ccef', '#648fb1', '#5cb1f5'],
         learning: ['#D13CEB'],
         avgperformancecolumn: ['#D13CEB'],
         avgperformancecolumn2: ['#D13CEB'],
@@ -65,42 +75,42 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
     } as any
 
     const toggleChartMenu = (value: string) => {
-        if (value!=='') {
+        if (value !== '') {
             setChangedType(value)
         }
-        if(value=='false'){
+        if (value == 'false') {
             setCurrentSection('')
         }
     }
 
-    useEffect(()=>{
-        if(changedType!=='' && changedType!=='false'){
-            console.log(currentSection,changedType)
-            if(currentSection === 'management'){
-                setManagementData(makeSeries(management_data.series[0].data,currentSection,changedType,true))
+    useEffect(() => {
+        if (changedType !== '' && changedType !== 'false') {
+            if (currentSection === 'management') {
+                setManagementData(makeSeries(management_data.series[0].data, currentSection, changedType, true))
             }
-            if(currentSection === 'gender'){
-            setGenderData(makeSeries(gender_data.series[0].data,currentSection,changedType,true))
+            if (currentSection === 'gender') {
+                setGenderData(makeSeries(gender_data.series[0].data, currentSection, changedType, true))
             }
-            if(currentSection === 'socialgroup'){
-            setSocialGroupData(makeSeries(socialgroup_data.series[0].data,currentSection,changedType,true))
+            if (currentSection === 'socialgroup') {
+                setSocialGroupData(makeSeries(socialgroup_data.series[0].data, currentSection, changedType, true))
             }
-            if(currentSection === 'location'){
-            setLocationData(makeSeries(location_data.series[0].data,currentSection,changedType,true))
+            if (currentSection === 'location') {
+                setLocationData(makeSeries(location_data.series[0].data, currentSection, changedType, true))
             }
-            if(currentSection === 'performance'){
-            setPerformanceLevelData(makeSeries(performance_level_data.series[0].data,currentSection,changedType,true))
+            if (currentSection === 'performance') {
+                setPerformanceLevelData(makeSeries(performance_level_data.series[0].data, currentSection, changedType, true))
             }
-            if(currentSection === 'learning'){
-            setLearningOutcomeData(makeSeries(learningoutcome_data.series[0].data,currentSection,changedType,true))
+            if (currentSection === 'learning') {
+                setLearningOutcomeData(makeSeries(learningoutcome_data.series[0].data, currentSection, changedType, true))
             }
+            setCurrentSection('')
         }
-    },[changedType])
+    }, [changedType])
 
     const chartClickEvent = (data: any, name: string) => {
         setCurrentSection(name)
     }
-    const makeSeries = (data: any, name: string, type: string,change=false) => {
+    const makeSeries = (data: any, name: string, type: string, change = false) => {
         let chart_details = {
             title: {
                 text: ''
@@ -158,7 +168,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
             colorByPoint: true,
             data: []
         } as any
-        if(change==false){
+        if (change == false) {
             name = name.replace(/\s+/g, '').toLowerCase()
             if (data !== undefined) {
                 Object.keys(data).forEach((legend, index) => {
@@ -170,12 +180,15 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                 });
             }
         }
-        else{
-            series.data=data
+        else {
+            series.data = data
         }
 
 
         chart_details = { ...chart_details, chart: { type: type }, series: [series] }
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 500)
         return chart_details
     }
 
@@ -236,54 +249,46 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
 
 
     return (
+
         <div className={`average-performance-wrap card-${props.class_style} mb-60`}>
             <h2 className="ap-top-heading">
                 <img src={props.image} alt="img" className="img-fluid" width="30" />
-                {props.name} Average Performance of Students
+                Average Performance of Students - {props.name}
             </h2>
-            <div className={`averag-performance-content light-${props.class_style}`}>
-                <div className="row">
-                    <div className="col-md-6">
-                        {props.load_charts ?
-                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Gender" chartType={currentSection === 'gender' ? true : false} series={gender_data} class_style={props.class_style} />
-                            :
-                            ""}
-                    </div>
-                    <div className="col-md-6">
-                        {props.load_charts ?
-                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Location" chartType={currentSection === 'location' ? true : false} series={location_data} class_style={props.class_style} />
-                            :
-                            ""}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6">
-                        {props.load_charts ?
-                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Management" chartType={currentSection === 'management' ? true : false} series={management_data} class_style={props.class_style} />
-                            :
-                            ""}
-                    </div>
-                    <div className="col-md-6">
-                        {props.load_charts ?
-                            <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Social Group" chartType={currentSection === 'socialgroup' ? true : false} series={socialgroup_data} class_style={props.class_style} />
-                            :
-                            ""}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6">
-                        {props.load_charts ?
-                            <GraphCard type="pie" chartMenu={toggleChartMenu} useDropdown={false} title="Range of Performance" chartType={currentSection === 'performance' ? true : false} series={performance_level_data} class_style={props.class_style} />
-                            :
-                            ""}
-                    </div>
-                    <div className="col-md-6">
-                        {props.load_charts ?
-                            <GraphCard type="column" chartMenu={toggleChartMenu} useDropdown={false} title="By Learning Outcome" chartType={currentSection === 'learning' ? true : false} series={learningoutcome_data} class_style={props.class_style} />
-                            :
-                            ""}
-                    </div>
-                </div>
+            {!isLoading ? <div className={`averag-performance-content light-${props.class_style}`}>
+                {props.load_charts ?
+                    <>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Gender" chartType={currentSection === 'gender' ? true : false} series={gender_data} class_style={props.class_style} image={People} />
+                            </div>
+                            <div className="col-md-6">
+                                {props.load_charts ?
+                                    <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Location" chartType={currentSection === 'location' ? true : false} series={location_data} class_style={props.class_style} image={Place} />
+                                    :
+                                    ""}
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Management" chartType={currentSection === 'management' ? true : false} series={management_data} class_style={props.class_style} image={Management} />
+                            </div>
+                            <div className="col-md-6">
+                                <GraphCard chartMenu={toggleChartMenu} useDropdown={false} type="column" title="By Social Group" chartType={currentSection === 'socialgroup' ? true : false} series={socialgroup_data} class_style={props.class_style} image={Social} />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <GraphCard type="pie" chartMenu={toggleChartMenu} useDropdown={false} title="Range of Performance" chartType={currentSection === 'performance' ? true : false} series={performance_level_data} class_style={props.class_style} image={Performane} />
+
+                            </div>
+                            <div className="col-md-6">
+                                <GraphCard type="column" chartMenu={toggleChartMenu} useDropdown={false} title="By Learning Outcome" chartType={currentSection === 'learning' ? true : false} series={learningoutcome_data} class_style={props.class_style} image={LO} />
+                            </div>
+                        </div>
+                    </>
+                    : null
+                }
                 {/* <div className="row">
                     <div className="col-md-6">
                         {props.load_charts ?
@@ -349,7 +354,9 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                         </div>
                     </div>
                 </div> */}
-            </div>
+            </div> : <Loader />}
+
+
         </div>
     );
 };

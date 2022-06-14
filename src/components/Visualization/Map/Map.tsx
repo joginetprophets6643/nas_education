@@ -5,9 +5,11 @@ import highchartsMap from "highcharts/modules/map";
 import { DISTRICT_MAPS } from './district_map';
 import { useSelector } from 'react-redux';
 import { StoreModel } from '@/models/visualization';
+import { india } from '@/assets/all-india';
+import Loader from '../Loader/Loader';
 
-const mapDataIE = require("@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json");
-
+// const mapDataIE = require("@highcharts/map-collection/countries/in/custom/in-all-disputed.geo.json");
+const mapDataIE = india
 highchartsMap(Highcharts);
 
 const Map = (props: any) => {
@@ -54,12 +56,12 @@ const Map = (props: any) => {
 
   useEffect(() => {
     if (data !== undefined && subOption !== '') {
-      console.log(data, subject, subOption)
       makeSeries(data);
     }
   }, [data, subOption, subject, current_geography])
 
   const makeSeries = (data: Object) => {
+    console.log(data)
     const values = Object.values(data)
     let min = Math.min(...values)
     let max = Math.max(...values)
@@ -75,9 +77,9 @@ const Map = (props: any) => {
     Object.keys(data).forEach((item: string) => {
       temp_ranges.forEach((range: any, index: any) => {
         if (data[item] >= range['min'] && data[item] <= range['max']) {
-          if (item.includes('&') || item.includes('Islands') || item.includes('Dadra')) {
-            item = item.replace('&', 'and')
-            item = item.replace(' Islands', '')
+          if (item.includes('Dadra')) {
+            // item = item.replace('&', 'and')
+            // item = item.replace(' Islands', '')
             item = item.replace(' Dadra', 'dadara')
             temp_category[index].push([item.toLowerCase(), parseInt(data[item])])
           } else if (item == 'Delhi') {
@@ -89,21 +91,34 @@ const Map = (props: any) => {
       })
     })
     setRanges(temp_ranges)
-    console.log(category)
+    // console.log(category)
     setCategory(temp_category)
   }
 
   useEffect(() => {
     if (category.length) {
       if (current_geography != 'national') {
-        let temp_state_name = current_state.state_name.toUpperCase()
+        let temp_state_name = ''
+        if (current_geography == 'state') {
+          temp_state_name = current_state.state_name.toUpperCase()
+        }
+        else {
+          temp_state_name = current_district.state_name.toUpperCase()
+        }
         if (temp_state_name == 'DELHI') {
           temp_state_name = 'NCT OF DELHI'
         }
         const selectedMapData: any = DISTRICT_MAPS.find(data => data.name === temp_state_name)
-
         selectedMapData.data[0].mapData.forEach((item: any) => {
-
+          selectedMapData.data[0].data.forEach((district: any) => {
+            if (district.id == item.id) {
+              district.color = '#cccccc'
+              district.borderColor = "#fff";
+              district.states.hover.color = "#cccccc";
+              district.states.select = { color: "#cccccc" };
+              district.y = 0
+            }
+          })
           category[0].forEach((cat0: any) => {
             if (cat0[0]?.includes(item.name.toLowerCase())) {
               selectedMapData.data[0].data.forEach((district: any) => {
@@ -111,8 +126,8 @@ const Map = (props: any) => {
                   district.color = colorCode[subject][0]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
+                  district.states.select = { color: colorCode[subject][0] };
                   district.y = cat0[1]
-                  district.type = ranges[0]['min'] + '-' + ranges[0]['max']
                 }
               })
             }
@@ -124,8 +139,8 @@ const Map = (props: any) => {
                   district.color = colorCode[subject][1]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
+                  district.states.select = { color: colorCode[subject][1] };
                   district.y = cat1[1]
-                  district.type = ranges[1]['min'] + '-' + ranges[1]['max']
                 }
               })
             }
@@ -137,8 +152,8 @@ const Map = (props: any) => {
                   district.color = colorCode[subject][2]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
+                  district.states.select = { color: colorCode[subject][2] };
                   district.y = cat0[1]
-                  district.type = ranges[2]['min'] + '-' + ranges[2]['max']
                 }
               })
             }
@@ -150,8 +165,8 @@ const Map = (props: any) => {
                   district.color = colorCode[subject][3]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
+                  district.states.select = { color: colorCode[subject][3] };
                   district.y = cat0[1]
-                  // district.type = ranges[3]['min'] + '-' + ranges[3]['max']
                 }
               })
               selectedMapData.data[0].mapData.forEach((district: any) => {
@@ -187,6 +202,9 @@ const Map = (props: any) => {
               states: {
                 hover: {
                   color: "#006bb6"
+                },
+                select: {
+                  color: colorCode[subject][0],
                 }
               },
               dataLabels: {
@@ -206,6 +224,9 @@ const Map = (props: any) => {
               states: {
                 hover: {
                   color: "#006bb6"
+                },
+                select: {
+                  color: colorCode[subject][1],
                 }
               },
               dataLabels: {
@@ -225,6 +246,9 @@ const Map = (props: any) => {
               states: {
                 hover: {
                   color: "#006bb6"
+                },
+                select: {
+                  color: colorCode[subject][2],
                 }
               },
               dataLabels: {
@@ -244,6 +268,9 @@ const Map = (props: any) => {
               states: {
                 hover: {
                   color: "#006bb6"
+                },
+                select: {
+                  color: colorCode[subject][4],
                 }
               },
               dataLabels: {
@@ -255,7 +282,7 @@ const Map = (props: any) => {
             }
           ]
           setIsGenerate(false)
-          setmapOptions({ ...mapOptions, chart: { map: mapDataIE }, series: series })
+          setmapOptions({ ...mapOptions, chart: { map: mapDataIE, height: "600", }, series: series })
         }
       }
     }
@@ -264,7 +291,7 @@ const Map = (props: any) => {
   }, [category, ranges, subject, subOption])
 
   useEffect(() => {
-    console.log(stateData)
+    // console.log(stateData)
     if (Object.keys(stateData).length > 0) {
       if (category.length > 0 && ranges.length > 0) {
         setIsGenerate(false)
@@ -317,25 +344,25 @@ const Map = (props: any) => {
   }, [stateData, ranges, current_district, subject, subOption])
 
   useEffect(() => {
-    console.log(mapOptions)
-    setIsGenerate(true)
+    setTimeout(() => {
+      setIsGenerate(true)
+    }, 500)
   }, [mapOptions])
 
   return (
     <div className="apcard-graph-wrap">
-      <div className="map-content">{
-        isGenerate && <HighchartsReact
+      <div className="map-content">
+        {isGenerate ? <HighchartsReact
           constructorType={'mapChart'}
           highcharts={Highcharts}
           options={mapOptions}
           allowChartUpdate={true}
-          updateArgs={[true, true, true]}
-          callback={(data: any) => {
-            console.log(data)
-          }}
+          immutable={true}
+
 
         />
-      }
+          :
+          <Loader />}
 
       </div>
     </div>
