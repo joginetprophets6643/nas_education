@@ -471,10 +471,11 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
         //Feedback Route
         // For mobile
         Route::get('/feedback','App\Http\Controllers\FrontController@mobileUserfeedback')->name('front-feedback');
+        Route::post('/store/feedback','App\Http\Controllers\FrontController@storeFeedback')->name('storefeedback');
         // For website
         Route::get('/user-feedback','App\Http\Controllers\FrontController@WebUserfeedback')->name('front-user-feedback');
-        Route::post('/store/feedback','App\Http\Controllers\FrontController@storeFeedback')->name('storefeedback');
-            
+        Route::post('/store/user-feedback','App\Http\Controllers\FrontController@storeUserFeedback')->name('storeUserfeedback');
+
         Route::get('/nas-program','App\Http\Controllers\FrontController@program');
         Route::get('/nas-team','App\Http\Controllers\FrontController@team');
         Route::get('/data-share','App\Http\Controllers\FrontController@data');
