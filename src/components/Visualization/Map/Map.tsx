@@ -60,9 +60,9 @@ const Map = (props: any) => {
     }
   }, [data, subOption, subject, current_geography])
 
-  const makeSeries = (data: Object) => {
+  const makeSeries = (data: any) => {
     console.log(data)
-    const values = Object.values(data)
+    const values: any = Object.values(data)
     let min = Math.min(...values)
     let max = Math.max(...values)
     let temp_ranges: any = []
