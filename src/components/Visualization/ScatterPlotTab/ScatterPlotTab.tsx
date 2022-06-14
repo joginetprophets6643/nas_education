@@ -24,7 +24,7 @@ const ScatterPlotTab = () => {
         if (scatter_linked_charts.loaded && !scatter_linked_charts.loading) {
             setDataLoaded(true)
             setData(scatter_linked_charts.data.data)
-            console.log(scatter_linked_charts.data.data)
+            // console.log(scatter_linked_charts.data.data)
         }
     }, [scatter_linked_charts])
 

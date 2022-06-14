@@ -29,6 +29,8 @@ const MapTab = () => {
     const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
     const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
     const [temp_state_id, setState] = useState<number>(1)
+    const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
+
 
     useEffect(() => {
         setIndDataLoaded(false)
@@ -66,11 +68,11 @@ const MapTab = () => {
 
         if (current_geography === 'state') {
             temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: current_id } }
-            setState(current_id)
         }
         if (current_geography === 'district') {
-            temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: temp_state_id } }
+            temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: current_district.udise_state_code } }
         }
+        console.log(temp_reusable_filters)
         dispatch(getLinkedGraphs(JSON.stringify(temp_reusable_filters)))
     }, [grade, current_geography, current_id])
 

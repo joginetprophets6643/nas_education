@@ -54,10 +54,6 @@ const Map = (props: any) => {
     eng: ['#E8C7E6', '#DCACD9', '#D190CD', '#B168AD'],
   } as any
 
-
-  useEffect(() => {
-    console.log(props, 'map props')
-  }, [])
   useEffect(() => {
     if (data !== undefined && subOption !== '') {
       makeSeries(data);
@@ -65,6 +61,7 @@ const Map = (props: any) => {
   }, [data, subOption, subject, current_geography])
 
   const makeSeries = (data: Object) => {
+    console.log(data)
     const values = Object.values(data)
     let min = Math.min(...values)
     let max = Math.max(...values)
@@ -101,18 +98,24 @@ const Map = (props: any) => {
   useEffect(() => {
     if (category.length) {
       if (current_geography != 'national') {
-        let temp_state_name = current_state.state_name.toUpperCase()
+        let temp_state_name = ''
+        if (current_geography == 'state') {
+          temp_state_name = current_state.state_name.toUpperCase()
+        }
+        else {
+          temp_state_name = current_district.state_name.toUpperCase()
+        }
         if (temp_state_name == 'DELHI') {
           temp_state_name = 'NCT OF DELHI'
         }
         const selectedMapData: any = DISTRICT_MAPS.find(data => data.name === temp_state_name)
-
         selectedMapData.data[0].mapData.forEach((item: any) => {
           selectedMapData.data[0].data.forEach((district: any) => {
             if (district.id == item.id) {
-              district.color = '#FF0000'
+              district.color = '#cccccc'
               district.borderColor = "#fff";
-              district.states.hover.color = "#FF0000";
+              district.states.hover.color = "#cccccc";
+              district.states.select = { color: "#cccccc" };
               district.y = 0
             }
           })
@@ -123,6 +126,7 @@ const Map = (props: any) => {
                   district.color = colorCode[subject][0]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
+                  district.states.select = { color: colorCode[subject][0] };
                   district.y = cat0[1]
                 }
               })
@@ -135,6 +139,7 @@ const Map = (props: any) => {
                   district.color = colorCode[subject][1]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
+                  district.states.select = { color: colorCode[subject][1] };
                   district.y = cat1[1]
                 }
               })
@@ -147,6 +152,7 @@ const Map = (props: any) => {
                   district.color = colorCode[subject][2]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
+                  district.states.select = { color: colorCode[subject][2] };
                   district.y = cat0[1]
                 }
               })
@@ -159,6 +165,7 @@ const Map = (props: any) => {
                   district.color = colorCode[subject][3]
                   district.borderColor = "#fff";
                   district.states.hover.color = "#006bb6";
+                  district.states.select = { color: colorCode[subject][3] };
                   district.y = cat0[1]
                 }
               })

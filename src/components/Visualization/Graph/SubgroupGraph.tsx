@@ -33,10 +33,10 @@ const SubgroupGraph = (props: any) => {
                 if (current_geography == 'national') {
                     if (subOption !== 'Total') {
                         if (legends[subOption.toLowerCase()] !== undefined && data[current_geography] !== undefined) {
-                            setData(makeSeries({ [subOption]: data[current_geography][legends[subOption.toLowerCase()]] }))
+                            setData(makeSeries({ India: data[current_geography][legends[subOption.toLowerCase()]] }))
                         }
                         else {
-                            setData(makeSeries({ [subOption]: data[current_geography][subOption] }))
+                            setData(makeSeries({ India: data[current_geography][subOption] }))
                         }
                     }
                     else {
