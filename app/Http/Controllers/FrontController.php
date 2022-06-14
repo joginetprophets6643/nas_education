@@ -240,6 +240,6 @@ class FrontController extends Controller
             'updated_at'=>Carbon::now()
         ]);
 
-        return redirect()->route('front-feedback')->with('success','Your feedback is submitted successfully');
+        return redirect()->route('front-user-feedback')->with('success','Your feedback is submitted successfully');
     }
 }
