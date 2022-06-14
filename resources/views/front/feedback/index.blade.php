@@ -43,7 +43,7 @@
                                 </div>
                             @endif
 
-                            <form action="{{route('storefeedback')}}" method="POST">
+                            <form action="{{route('storeUserfeedback')}}" method="POST">
                                 @csrf
 
                                 <div class="row mb-4">

@@ -240,6 +240,33 @@ class FrontController extends Controller
             'updated_at'=>Carbon::now()
         ]);
 
-        return redirect()->route('front-user-feedback')->with('success','Your feedback is submitted successfully');
+        return redirect()->route('front-feedback')->with('success','Your feedback is submitted successfully');
     }
+    public function storeUserFeedback(Request $request){
+        $validator = Validator::make($request->all(),[
+            'feedback'=>'required|min:35',
+            'name'=>'required',
+            'email'=>'required',
+            'content'=>'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('front-feedback')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        
+        DB::table('feedback')->insert([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'content'=>$request->content,
+            'rating'=>$request->rating,
+            'feedback'=>$request->feedback,
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()
+        ]);
+
+        return redirect()->route('front-user-feedback')->with('success','Your feedback is submitted successfully');
+    }  
+
 }
