@@ -118,18 +118,18 @@
           <div class="col-md-3">
               <div class="footer-links contact-info">
                 <h2 class="heading-white-xs">
-                  <?php $setting=get_setting();
-                  $lang="2";
+                  <?php
+                  $setting = get_setting();
+                  $lang = '2';
                   if (Session::has('locale')) {
                       $lang = Session::get('locale');
-                      if($lang=="hi")
-                      {
-                          $lang='1';
+                      if ($lang == 'hi') {
+                          $lang = '1';
+                      } else {
+                          $lang = '2';
                       }
-                      else{
-                          $lang='2';
-                      }
-                  }?>
+                  }
+                  ?>
                   @if($setting)
                   {{__('lang.CONTACT US')}}
                 </h2>
@@ -156,10 +156,10 @@
               <div class="row align-items-center">
                 <div class="col-md-12 col-lg-4">
                     <span class="counter">
-                      {{__('lang.Website Visit Count')}} : <?php echo visit_count() ?>
+                      {{__('lang.Website Visit Count')}} : <?php echo visit_count(); ?>
                     </span>
                     <div class="date">
-                    {{__('lang.Last Modified')}} : <?php echo last_modified_Date() ?>
+                    {{__('lang.Last Modified')}} : <?php echo last_modified_Date(); ?>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-8">
@@ -180,9 +180,9 @@
                         <li>
                           <a href="{{url('/accessbility-statement')}}">{{__('lang.Accessibility Statement')}}</a>
                         </li>
-                        <li>
+                        <!-- <li>
                           <a href="{{url('/help')}}">{{__('lang.Help')}}</a>
-                        </li>
+                        </li> -->
                       </ul>
                   </div>
                 </div>
@@ -194,7 +194,9 @@
           <!-- <div class="col-md-6">
               <p class="copyright-text">
               
-                © {{__('lang.Copyright')}} <?php //echo date("Y"); ?> | {{ __('lang.National Achievement Survey') }} (NAS)
+                © {{__('lang.Copyright')}} <?php
+//echo date("Y");
+?> | {{ __('lang.National Achievement Survey') }} (NAS)
               </p>
           </div> -->
           <div class="col-md-12 col-lg-3">
@@ -222,7 +224,7 @@
           </div>
           <div class="col-md-12 col-lg-2">
             <div class="social-links">
-              <?php $currentURL = URL::current();?>
+              <?php $currentURL = URL::current(); ?>
             @if($setting)
                 <ul>
                   <li>
