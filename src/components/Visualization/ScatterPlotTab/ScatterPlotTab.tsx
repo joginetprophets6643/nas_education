@@ -96,7 +96,8 @@ const ScatterPlotTab = () => {
                         </div>
                         <div className="col-md-12">
                             <div className="apcard-graph-wrap">
-                                {isGraphData ? <><ScatterGraph xData={XData} yData={YData} /> <GraphPlayBtn /> </> : <Loader />}
+                                {isGraphData ? <><ScatterGraph xData={XData} yData={YData} /></> : <Loader />}
+                                {/* {isGraphData ? <><ScatterGraph xData={XData} yData={YData} /> <GraphPlayBtn /> </> : <Loader />} */}
                             </div>
                         </div>
                     </div>

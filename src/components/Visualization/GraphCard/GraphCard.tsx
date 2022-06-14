@@ -12,18 +12,22 @@ HC_exporting(Highcharts)
 
 
 const GraphCard = (props: any) => {
-    // console.log(props.series)
     const [isLoading, setIsLoading] = useState<boolean>(true)
+    const [series, setSeries] = useState<any>({})
+
 
     useEffect(() => {
-        // console.log(props.series.series)
-        setIsLoading(true)
+        setSeries(props.series)
+    }, [props.series])
+
+    useEffect(() => {
+        // setIsLoading(true)
         if (Object.keys(props.series).length > 0) {
             setTimeout(() => {
                 setIsLoading(false)
             }, 500)
         }
-    }, [props])
+    }, [series])
     return (
         <div className="apcard-white">
             <div className={`apcard-header card-${props.class_style}`}>
@@ -49,14 +53,15 @@ const GraphCard = (props: any) => {
                                             <MapDropdown />
 
                                             : ""}
+
                                         <HighchartsReact
                                             highcharts={Highcharts}
-                                            options={props.series}
+                                            options={series}
                                             allowChartUpdate={true}
                                         />
                                     </>
                                     :
-                                    <ChartType menuToggler={props.chartMenu} />
+                                    <ChartType menuToggler={props.chartMenu} title={props.title} />
                             )
                             :
                             (!props.chartType ?
@@ -68,7 +73,7 @@ const GraphCard = (props: any) => {
                                     <Map />
 
                                 </>
-                                : <ChartType menuToggler={props.chartMenu} />
+                                : <ChartType menuToggler={props.chartMenu} title={props.title} />
                             ) :
                         <div className='row  align-items-center no-data'>
                             <div className='col-md-12 text-center'>

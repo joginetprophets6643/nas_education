@@ -54,8 +54,11 @@ const Map = (props: any) => {
     eng: ['#E8C7E6', '#DCACD9', '#D190CD', '#B168AD'],
   } as any
 
+
   useEffect(() => {
-    // console.log(mapDataIE)
+    console.log(props, 'map props')
+  }, [])
+  useEffect(() => {
     if (data !== undefined && subOption !== '') {
       makeSeries(data);
     }
@@ -91,7 +94,7 @@ const Map = (props: any) => {
       })
     })
     setRanges(temp_ranges)
-    console.log(category)
+    // console.log(category)
     setCategory(temp_category)
   }
 
@@ -272,7 +275,7 @@ const Map = (props: any) => {
             }
           ]
           setIsGenerate(false)
-          setmapOptions({ ...mapOptions, chart: { map: mapDataIE }, series: series })
+          setmapOptions({ ...mapOptions, chart: { map: mapDataIE, height: "600", }, series: series })
         }
       }
     }
@@ -281,7 +284,7 @@ const Map = (props: any) => {
   }, [category, ranges, subject, subOption])
 
   useEffect(() => {
-    console.log(stateData)
+    // console.log(stateData)
     if (Object.keys(stateData).length > 0) {
       if (category.length > 0 && ranges.length > 0) {
         setIsGenerate(false)
@@ -347,10 +350,8 @@ const Map = (props: any) => {
           highcharts={Highcharts}
           options={mapOptions}
           allowChartUpdate={true}
-          updateArgs={[true, true, true]}
-          callback={(data: any) => {
-            console.log(data)
-          }}
+          immutable={true}
+
 
         />
           :

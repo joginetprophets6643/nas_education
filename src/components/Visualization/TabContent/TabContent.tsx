@@ -72,6 +72,7 @@ const TabContent = () => {
 
 
   useEffect(() => {
+    marker.current = []
     let fields = ''
 
     let reusable_filters = {

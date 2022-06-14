@@ -5,6 +5,7 @@ import TabContent from '@/components/Visualization/TabContent/TabContent';
 import MapTab from '../MapTab/MapTab';
 import ScatterPlotTab from '../ScatterPlotTab/ScatterPlotTab';
 import Loader from '../Loader/Loader';
+import { scrollToTop } from '@/services/utility';
 
 
 const Main = () => {
