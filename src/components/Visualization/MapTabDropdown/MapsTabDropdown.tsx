@@ -106,7 +106,7 @@ const MapsTabDropdown = (props: any) => {
             <label className="maptabdropdown-label">{label}</label>
             {label == "Indicator:" && indOptions.length ? <Select options={indOptions} defaultValue={indOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" /> : ''}
             {label == "Subgroup:" && subOptions.length ? <Select options={subOptions} defaultValue={subOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" /> : ''}
-            {label == "Sector:" && <Select options={options} defaultValue={sectorOptions[0]} onChange={changeOptions} className="react-select" classNamePrefix="react-select" />}
+            {label == "Sector:" && <Select options={options} defaultValue={{ value: grade, label: 'Grade ' + grade }} onChange={changeOptions} className="react-select" classNamePrefix="react-select" />}
         </div>
     )
 }

@@ -1389,7 +1389,57 @@ function updateData(data) {
             data = [data.pop()]
           }
           if (classType === 'all') {
+            let bottom_table_criteria = [
+              'below_basic',
+              'basic',
+              'advanced',
+              'proficient',
+            ]
             createCumulativeCardsForPerformance(data)
+            class_subjects['class_all'].forEach((subject) => {
+              bottom_table_criteria.forEach((criteria) => {
+                let performance_level_data = 0
+                let count = 0
+                data.forEach((performance) => {
+                  temp_data = JSON.parse(performance.data)
+                  if (
+                    temp_data[subjects_short_codes[subject.toLowerCase()]] !==
+                    undefined
+                  ) {
+                    performance_level_data += parseFloat(
+                      temp_data[subjects_short_codes[subject.toLowerCase()]][
+                        'performance_level'
+                      ][selected_geography][criteria],
+                    )
+                    count++
+                  }
+                })
+                let table_where = ''
+                if (selected_geography == 'state') {
+                  table_where =
+                    'peformance_' +
+                    subject +
+                    '_' +
+                    criteria +
+                    '_table_class' +
+                    classType +
+                    '_' +
+                    selected_geography
+                }
+                if (selected_geography == 'district') {
+                  table_where =
+                    'peformance_' +
+                    subject +
+                    '_' +
+                    criteria +
+                    '_table_class' +
+                    classType
+                }
+
+                const table_tuple = Math.round(performance_level_data / count)
+                $('#' + table_where).html(table_tuple)
+              })
+            })
           }
           data.forEach((performance) => {
             createPerformanceScreen(performance, empty)
@@ -2248,41 +2298,43 @@ function createPerformanceScreen(data, empty) {
         let chart = []
 
         // district bottom table
-        if (!empty) {
-          if (current_demography === 'state') {
-            table_criteria.forEach((criteria) => {
-              const table_tupple = Math.round(
-                data[subjects_short_codes[sub.toLowerCase()]][
-                  'performance_level'
-                ]['state'][criteria],
-              )
-              const table_where =
-                'peformance_' +
-                sub +
-                '_' +
-                criteria +
-                '_table_class' +
-                classType +
-                '_state'
-              $('#' + table_where).html(table_tupple)
-            })
-          }
-          if (current_demography === '') {
-            table_criteria.forEach((criteria) => {
-              const table_tupple = Math.round(
-                data[subjects_short_codes[sub.toLowerCase()]][
-                  'performance_level'
-                ]['district'][criteria],
-              )
-              const table_where =
-                'peformance_' +
-                sub +
-                '_' +
-                criteria +
-                '_table_class' +
-                classType
-              $('#' + table_where).html(table_tupple)
-            })
+        if (classType !== 'all') {
+          if (!empty) {
+            if (current_demography === 'state') {
+              table_criteria.forEach((criteria) => {
+                const table_tupple = Math.round(
+                  data[subjects_short_codes[sub.toLowerCase()]][
+                    'performance_level'
+                  ]['state'][criteria],
+                )
+                const table_where =
+                  'peformance_' +
+                  sub +
+                  '_' +
+                  criteria +
+                  '_table_class' +
+                  classType +
+                  '_state'
+                $('#' + table_where).html(table_tupple)
+              })
+            }
+            if (current_demography === '') {
+              table_criteria.forEach((criteria) => {
+                const table_tupple = Math.round(
+                  data[subjects_short_codes[sub.toLowerCase()]][
+                    'performance_level'
+                  ]['district'][criteria],
+                )
+                const table_where =
+                  'peformance_' +
+                  sub +
+                  '_' +
+                  criteria +
+                  '_table_class' +
+                  classType
+                $('#' + table_where).html(table_tupple)
+              })
+            }
           }
         }
 

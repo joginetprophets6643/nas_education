@@ -17,7 +17,6 @@ const ScatterPlotTab = () => {
     const [YData, setYData] = useState<any>({})
     const [dataLoaded, setDataLoaded] = useState<boolean>(false)
     const [isGraphData, setIsGraphData] = useState<boolean>(false)
-    const [temp_state_id, setState] = useState<number>(1)
     const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
 
     const dispatch = useDispatch()
@@ -39,7 +38,6 @@ const ScatterPlotTab = () => {
 
         if (current_geography === 'state') {
             temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: current_id } }
-            setState(current_id)
         }
         if (current_geography === 'district') {
             temp_reusable_filters = { ...temp_reusable_filters, type: { _eq: 'state' }, state_id: { _eq: current_district.udise_state_code } }
