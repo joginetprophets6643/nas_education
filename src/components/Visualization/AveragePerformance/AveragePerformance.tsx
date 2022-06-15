@@ -104,6 +104,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                 setLearningOutcomeData(makeSeries(learningoutcome_data.series[0].data, currentSection, changedType, true))
             }
             setCurrentSection('')
+            setChangedType('')
         }
     }, [changedType])
 
