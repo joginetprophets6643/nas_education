@@ -30,14 +30,14 @@ const MapTab = () => {
     const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
     const [temp_state_id, setState] = useState<number>(1)
     const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
-
+    let timeOut: any = ''
 
     useEffect(() => {
         setIndDataLoaded(false)
         setSubDataLoaded(false)
         if (linked_charts.loaded && !linked_charts.loading) {
             setData(linked_charts.data)
-            setTimeout(() => {
+            timeOut = setTimeout(() => {
                 setIsLoading(false)
             }, 500)
             setIndDataLoaded(true)
@@ -53,7 +53,8 @@ const MapTab = () => {
     useEffect(() => {
         setIndDataLoaded(false)
         setSubDataLoaded(false)
-
+        clearTimeout(timeOut)
+        setIsLoading(true)
         let temp_reusable_filters = {
             type: { _eq: current_geography },
             grade: { _eq: grade }
@@ -110,7 +111,7 @@ const MapTab = () => {
                 <div className="d-flex">
                     <div className="col-md-3">
                         <div className="maptab-select-wrap m-0">
-                            <MapsTabDropdown label="Sector:" onchange={changeGrade} />
+                            <MapsTabDropdown label="Sector:" onchange={changeGrade} grade={grade} />
                         </div>
                     </div>
                     <div className="col-md-6">

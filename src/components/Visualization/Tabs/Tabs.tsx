@@ -9,9 +9,8 @@ const Tabs = (props: any) => {
     const dispatch = useDispatch()
     const current_geography = useSelector<StoreModel>(store => store.current_geography.data) as string
     const [grade, setGrade] = useState<number>(0)
-    const current_grade = useSelector<any>(store => store.grade.data)
+    const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
     const current_id = useSelector<StoreModel>(store => store.current_id.data) as number
-    const [temp_state_id, setState] = useState<number>(1)
 
     const changeGrade = (grade: number) => {
         dispatch(setClass(grade))
@@ -36,10 +35,9 @@ const Tabs = (props: any) => {
 
         if (current_geography === 'state') {
             temp_reusable_filters = { ...temp_reusable_filters, state_id: { _eq: current_id } }
-            setState(current_id)
         }
         if (current_geography === 'district') {
-            temp_reusable_filters = { ...temp_reusable_filters, type: 'state', state_id: { _eq: temp_state_id } }
+            temp_reusable_filters = { ...temp_reusable_filters, type: 'state', state_id: { _eq: current_district.udise_state_code } }
         }
         if (screen == 'map') {
             dispatch(getLinkedGraphs(JSON.stringify(temp_reusable_filters)))
