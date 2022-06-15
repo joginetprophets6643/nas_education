@@ -18,6 +18,8 @@ const ScatterPlotTab = () => {
     const [dataLoaded, setDataLoaded] = useState<boolean>(false)
     const [isGraphData, setIsGraphData] = useState<boolean>(false)
     const [temp_state_id, setState] = useState<number>(1)
+    const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
+
     const dispatch = useDispatch()
     useEffect(() => {
         setDataLoaded(false)
@@ -40,7 +42,7 @@ const ScatterPlotTab = () => {
             setState(current_id)
         }
         if (current_geography === 'district') {
-            temp_reusable_filters = { ...temp_reusable_filters, type: { _eq: 'state' }, state_id: { _eq: temp_state_id } }
+            temp_reusable_filters = { ...temp_reusable_filters, type: { _eq: 'state' }, state_id: { _eq: current_district.udise_state_code } }
         }
         dispatch(getScatterLinkedGraphs(JSON.stringify(temp_reusable_filters)))
     }, [current_geography, current_id])
