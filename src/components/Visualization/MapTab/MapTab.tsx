@@ -13,6 +13,16 @@ const heading = {
     'range': 'who Answered Correctly'
 } as any
 
+const subjects_short_codes = {
+    math: 'math',
+    evs: 'evs',
+    sst: 'social science',
+    language: 'language',
+    mil: 'mil',
+    sci: 'science',
+    eng: 'english',
+} as any
+
 const MapTab = () => {
     const linked_charts = useSelector<StoreModel>(store => store.linked_charts) as IntialStateModel
     const [grade, setGrade] = useState<string>('3')
@@ -134,7 +144,7 @@ const MapTab = () => {
                                     <div className="apcard-content p-0">
                                         <div className="apcard-header justify-content-center">
                                             <h3 className="apcard-heading">
-                                                Average Performance of Students {heading[legends[1]]} in {subject} in Class 3, Percent
+                                                Average Performance of Students {heading[legends[1]]} in {subjects_short_codes[subject]} in Class {grade}, Percent
                                             </h3>
                                         </div>
                                         <Map data={data[legends[0]] != undefined && data[legends[0]][legends[1]][subOption]} subOption={subOption} subject={subject} />
