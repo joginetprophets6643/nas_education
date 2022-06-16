@@ -116,7 +116,7 @@
                                       </div>
                                       <div class="pendamic-progessbar-wrap mtb-30">
                                           <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6" id="allclasspq2h">
                                               <div class="sec-banner pendamic-progressbar-card mb-3">
                                                 <h3 class="heading card-pink statepq2hquestion">
                                                           <!-- <span id="feedbackstate_pq2_average_class3">0%</span> Learning from pandemic -->
@@ -124,7 +124,7 @@
                                               </div>
                                               
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6" id="allclasspq3h">
                                               <div class="sec-banner pendamic-progressbar-card mb-3">
                                                 <h3 class="heading card-green statepq3hquestion">
                                                         <!-- <span id="feedbackstate_pq3_average_class3">0%</span> Experienced obstacles to learning in pandemic -->
