@@ -1835,6 +1835,13 @@ function updateData(data) {
             capitalizeFirstLetter(fb.question_desc) +
             ''
           $('.' + current_demography + 'pq2hquestion').html(pq2h)
+          if (classType == 'all') {
+            $('#allclasspq2h').addClass('d-none')
+            $('#allclasspq3h').addClass('d-none')
+          } else {
+            $('#allclasspq2h').removeClass('d-none')
+            $('#allclasspq3h').removeClass('d-none')
+          }
         }
         if (fb.level === 'pq3h') {
           pq3h =
