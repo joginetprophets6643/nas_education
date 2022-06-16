@@ -113,8 +113,14 @@ $(document).ready(() => {
     sessionStorage.setItem('states', JSON.stringify(response.data))
   })
   setClass(classType)
-  already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
-  already_active_district = JSON.parse(sessionStorage.getItem('activeDistrict'))
+  if (sessionStorage.hasOwnProperty('activeState')) {
+    already_active_state = JSON.parse(sessionStorage.getItem('activeState'))
+  }
+  if (sessionStorage.hasOwnProperty('activeDistrict')) {
+    already_active_district = JSON.parse(
+      sessionStorage.getItem('activeDistrict'),
+    )
+  }
 
   $.ajax({
     type: 'GET',
@@ -646,9 +652,9 @@ async function setScreen(screen_type = 'information', load_data = true) {
 // data change via any action
 function chageDataWithFilter(filter_type, value) {
   const lastActiveState = JSON.parse(sessionStorage.getItem('activeState'))
-  const lastActiveDistrict = JSON.parse(
-    sessionStorage.getItem('activeDistrict'),
-  )
+  const lastActiveDistrict = sessionStorage.hasOwnProperty('activeDistrict')
+    ? JSON.parse(sessionStorage.getItem('activeDistrict'))
+    : null
 
   if (filter_type === 'sidebar_filter') {
     manipulateView(value)
@@ -2668,7 +2674,6 @@ async function createInformationScreen(data) {
 
 async function createChart(where, data, district_id) {
   let districts = await JSON.parse(sessionStorage.getItem('districts'))
-  console.log(data)
   data.data[0].data.forEach((item) => {
     if (item.id == district_id) {
       item.color = '#f7941c'
@@ -2708,16 +2713,18 @@ async function createChart(where, data, district_id) {
         name: 'District',
         events: {
           click: function (e) {
-            console.log(e)
             const index = districts
               .map((district_data) => {
                 return district_data.district_id
               })
               .indexOf(parseInt(e.point.id))
-            sessionStorage.setItem(
-              'activeDistrict',
-              JSON.stringify(districts[index]),
-            )
+            if (index !== -1) {
+              sessionStorage.setItem(
+                'activeDistrict',
+                JSON.stringify(districts[index]),
+              )
+            }
+
             location.href = base_url + 'report-card/nas-2021'
           },
         },
@@ -2781,8 +2788,10 @@ function makeDistrictActive(district_id) {
       if (district.udise_district_code === district_id) return district
     })
     .pop()
-
-  sessionStorage.setItem('activeDistrict', JSON.stringify(activeDistrict))
+  console.log(activeDistrict, 'Hii')
+  if (activeDistrict !== null) {
+    sessionStorage.setItem('activeDistrict', JSON.stringify(activeDistrict))
+  }
 }
 
 function removeItem(item) {
