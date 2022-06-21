@@ -342,36 +342,37 @@ class FinalNationalProcessController extends Controller
 
     public function grade10PerformanceData()
     {
-            $newnationalArray = array();
-            $newnationalArray['math'] =array(
-                'cards'=>array(
-                    'national'=>220
-                )
-            );
-            
-            $newnationalArray['sci'] =array(
-                'cards'=>array(
-                    'national'=>206
-                )
-            );
+        $newnationalArray = array();
+        
+        $newnationalArray['mil'] =array(
+            'cards'=>array(
+                'national'=>260
+            )
+        );
+        $newnationalArray['math'] =array(
+            'cards'=>array(
+                'national'=>220
+            )
+        );
+        
+        $newnationalArray['sci'] =array(
+            'cards'=>array(
+                'national'=>206
+            )
+        );
 
-            $newnationalArray['sst'] =array(
-                'cards'=>array(
-                    'national'=>231
-                )
-            );
+        $newnationalArray['sst'] =array(
+            'cards'=>array(
+                'national'=>231
+            )
+        );
 
-            $newnationalArray['eng'] =array(
-                'cards'=>array(
-                    'national'=>277
-                )
-            );
+        $newnationalArray['eng'] =array(
+            'cards'=>array(
+                'national'=>277
+            )
+        );
 
-            $newnationalArray['mil'] =array(
-                'cards'=>array(
-                    'national'=>260
-                )
-            );
 
         $nationalArr['grade'] = 10;
         $nationalArr['data'] = json_encode($newnationalArray);
