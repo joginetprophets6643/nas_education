@@ -93,7 +93,7 @@ export interface SubjectIcons {
     [key: string]: string;
     language: string;
     evs: string;
-    math: string;
+    maths: string;
     socialscience: string;
     science: string;
     english: string;

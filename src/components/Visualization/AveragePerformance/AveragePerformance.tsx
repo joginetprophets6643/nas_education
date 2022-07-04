@@ -39,12 +39,12 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
 
     let subjectShortCodes = {
         "Language": 'language',
-        "Mil": 'mil',
+        "MIL": 'mil',
         'English': 'eng',
-        'Math': 'math',
+        'Maths': 'math',
         'Social Science': 'sst',
         'Science': 'sci',
-        'Evs': 'evs'
+        'EVS': 'evs'
     } as any
 
 
@@ -136,7 +136,14 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
                     borderWidth: 0,
                     dataLabels: {
                         enabled: true,
-                        format: '{point.y}'
+                        formatter: function (this: any) {
+                            if (type == 'pie') {
+                                return this.point.y + ' %'
+                            }
+                            else {
+                                return this.point.y
+                            }
+                        }
                     }
                 }
             },
@@ -254,7 +261,7 @@ const AveragePerformance = (props: AveragePerformanceProps) => {
         <div className={`average-performance-wrap card-${props.class_style} mb-60`}>
             <h2 className="ap-top-heading">
                 <img src={props.image} alt="img" className="img-fluid" width="30" />
-                Average Performance of Students - {props.name}
+                Average Performance of Students - {props.name} ( in percent )
             </h2>
             {!isLoading ? <div className={`averag-performance-content light-${props.class_style}`}>
                 {props.load_charts ?
