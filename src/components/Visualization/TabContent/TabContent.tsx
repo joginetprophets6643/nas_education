@@ -40,10 +40,10 @@ const TabContent = () => {
   const current_district = useSelector<StoreModel>(store => store.current_district.data) as any
   const [encountered_subject, setEncounteredSubject] = useState<Array<String>>([])
   const class_subjects = {
-    class_3: ['Language', 'Math', 'Evs',],
-    class_5: ['Language', 'Math', 'Evs'],
-    class_8: ['Language', 'Math', 'Science', 'Social Science'],
-    class_10: ['Mil', 'Math', 'Science', 'Social Science', 'English'],
+    class_3: ['Language', 'Maths', 'EVS',],
+    class_5: ['Language', 'Maths', 'EVS'],
+    class_8: ['Language', 'Maths', 'Science', 'Social Science'],
+    class_10: ['MIL', 'Maths', 'Science', 'Social Science', 'English'],
   } as ClassSubjects
 
   const current_subjects = class_subjects['class_' + grade] as Array<string>
@@ -54,7 +54,7 @@ const TabContent = () => {
   const subject_styles = {
     language: 'blue',
     evs: 'yellow',
-    math: 'pink',
+    maths: 'pink',
     socialscience: 'green',
     science: 'sagegreen',
     english: 'purple',
@@ -64,7 +64,7 @@ const TabContent = () => {
   const subject_icons = {
     language: Globe,
     evs: Evs,
-    math: Math,
+    maths: Math,
     socialscience: Sst,
     science: Sci,
     english: Eng,
