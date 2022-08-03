@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'http://localhost:8055/items/',
-  // baseURL: 'https://nas21.inroad.in/apis/items/',
+  // baseURL: 'http://localhost:8055/items/',
+  baseURL: 'https://nas21.inroad.in/apis/items/',
   // baseURL: 'https://nas.gov.in/apisadmin/items/',
   headers: {
     'Content-type': 'application/json',

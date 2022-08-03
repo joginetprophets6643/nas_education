@@ -480,7 +480,7 @@ Route::post('/secure-admin/update/rti/{id}','App\Http\Controllers\SettingControl
         Route::get('/nas-team','App\Http\Controllers\FrontController@team');
         Route::get('/data-share','App\Http\Controllers\FrontController@data');
         Route::get('/gallery','App\Http\Controllers\FrontController@gallery')->name('front-gallery');
-        // Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
+        Route::get('/visualization','App\Http\Controllers\VisualizationController@index')->name('visualization');
         // Route::get('/visualization/nas-2021','App\Http\Controllers\VisualizationController@details');
 
         Route::get('/mobile-app','App\Http\Controllers\VisualizationController@mobile');
