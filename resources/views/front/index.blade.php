@@ -5,7 +5,7 @@
           <div class="owl-carousel owl-theme" id="bannerSlider">
 
             @foreach($banners as $banner)
-            <div class="item">
+            <div class="item pt-30">
               <div class="container">
                 <div class="row">
                   <div class="col-md-6">
@@ -22,6 +22,11 @@
               </div>             
             </div>
             @endforeach  
+            <div class="item">
+              <div class="temp-banner-img">
+                  <a href="https://amritmahotsav.nic.in/har-ghar-tiranga.htm" target="_blank"><img src="{{asset('assets/uploads/banner/har-ghar-tiranga-bnr.jpg')}}" alt="img" class="img-fluid"></a>
+              </div>
+            </div>
           </div>
         </div>
     </section>
